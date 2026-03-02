@@ -1,0 +1,3 @@
+[submodule "skimmer/condor/ProjectMetis"]
+	path = skimmer/condor/ProjectMetis
+	url = git@github.com:sgnoohc/ProjectMetis.git
