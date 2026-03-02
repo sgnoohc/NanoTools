@@ -3,10 +3,12 @@ import sys
 import argparse
 import math
 import subprocess
+from datetime import datetime
 from time import sleep
 
 from metis.Sample import DBSSample, DirectorySample
 from metis.CondorTask import CondorTask
+from metis.SLURMTask import SLURMTask
 from metis.StatsParser import StatsParser
 import samples
 from das_nevents import das_info
@@ -65,17 +67,46 @@ def split_func(dsname):
 def njobs_to_process(dsname):
     return -1  # -1 = unlimited
 
+def make_unique_key(metadata, version):
+    """Auto-construct unique key: {Run}_{Type}_{Nano}_{Date}_{Version}"""
+    date_str = datetime.now().strftime("%d%b%Y")
+    return f"{metadata['run']}_{metadata['type']}_{metadata['nano']}_{date_str}_{version}"
+
+# Full channel list for non-signal samples
+ALL_CHANNELS = [
+    "4Lep",
+    "3Lep",
+    "2Lep2FJ",
+    "2Lep1FJ",
+    "1Lep1FJ",
+    "0Lep3FJ",
+    "0Lep2FJ",
+    "0Lep1FJ",
+    "0Lep0FJ",
+]
+
 # ------------------------------------------------------------------
 # Main
 # ------------------------------------------------------------------
 if __name__ == "__main__":
 
     parser = argparse.ArgumentParser()
-    parser.add_argument("--arch", choices=["el8", "el9"], default="el8",
-                        help="Target architecture: el8 (no singularity) or el9 (uses singularity)")
+    parser.add_argument("--arch", choices=["el8", "el9"], default="el9",
+                        help="Target architecture: el8 (no singularity) or el9 (default, uses singularity)")
+    parser.add_argument("--scheduler", choices=["condor", "slurm"], default="slurm",
+                        help="Job scheduler: condor or slurm (default)")
+    parser.add_argument("--samples", type=str, default=None,
+                        help="Sample group to submit (e.g. run2_bkg). Omit to submit ALL groups.")
+    parser.add_argument("--version", type=str, default="v1",
+                        help="Version suffix for unique_key (default: v1)")
+    parser.add_argument("--list-samples", action="store_true",
+                        help="Print available sample groups and exit")
     args = parser.parse_args()
 
-    unique_key = "Run2_Sig_v15_26Feb2026_v1"
+    # --list-samples: print registry and exit
+    if args.list_samples:
+        samples.list_groups()
+        sys.exit(0)
 
     # Architecture-dependent CMSSW settings (must match setup.sh)
     if args.arch == "el9":
@@ -87,28 +118,19 @@ if __name__ == "__main__":
         cmssw_version = "CMSSW_14_1_0_pre4"
         scram_arch = "el8_amd64_gcc12"
 
-    # Samples
-    datasets = samples.samples_to_submit
-
-    # Analysis tags
-    analysis_tags = [
-        "Sig",
-#        "4Lep",
-#        "3Lep",
-#        "2Lep2FJ",
-#        "2Lep1FJ",
-#        "1Lep1FJ",
-#        "0Lep3FJ",
-#        "0Lep2FJ",
-#        "0Lep1FJ",
-#        "0Lep0FJ"
-    ]
+    # Determine which groups to submit
+    if args.samples:
+        if args.samples not in samples.SAMPLE_REGISTRY:
+            print(f"ERROR: Unknown sample group '{args.samples}'")
+            print("Available groups:")
+            samples.list_groups()
+            sys.exit(1)
+        group_names = [args.samples]
+    else:
+        group_names = list(samples.SAMPLE_REGISTRY.keys())
 
     # Optional extra flags for signal datasets
-    signal_flags = ""
-
-    # Task summary (all datasets × tags)
-    task_summary = {}
+    signal_flags = "--is_signal --dump_truth"
 
     # Skip tail events?
     skip_tail = False
@@ -118,70 +140,109 @@ if __name__ == "__main__":
     # ------------------------------------------------------------------
     while True:
         all_tasks_complete = True
+        task_summary = {}
+        all_unique_keys_and_tags = []
 
-        # ------------------------------------------------------------------
-        # Process datasets
-        # ------------------------------------------------------------------
-        for ds in datasets:
-            files = ds.get_files()
-            print(f"Found {len(files)} files")
-            for analysis_tag in analysis_tags:
-                tag = f"{unique_key}_{analysis_tag}"
+        for group_name in group_names:
+            datasets, metadata = samples.get_samples(group_name)
+            unique_key = make_unique_key(metadata, args.version)
 
-                task = CondorTask(
-                    verbose=True,
-                    sample=ds,
-                    files_per_output=split_func(ds.get_datasetname()),
-                    output_name="output.root",
-                    tag=tag,
-                    condor_submit_params=dict({
-                        "use_xrootd": True,
-                        "sites": "T2_US_UCSD",
-                        "classads": [["metis_extraargs", f"{signal_flags} -d ./ -a {analysis_tag} -t Events -T Events"]]
-                    }, **({"container": singularity_image} if singularity_image else {})),
-                    max_jobs=njobs_to_process(ds.get_datasetname()),
-                    cmssw_version=cmssw_version,
-                    scram_arch=scram_arch,
-                    input_executable=f"{condorpath}/condor_executable_metis.sh",
-                    tarfile=f"{condorpath}/package.tar.xz",
-                    #special_dir=f"skim/{tag}",
-                    special_dir=f"VVH_Skims/{tag}",
-                    min_completion_fraction=0.50 if skip_tail else 1.0
-                )
+            # Auto-configure analysis_tags based on sample type
+            if metadata["type"] == "Sig":
+                analysis_tags = ["Sig"]
+            else:
+                analysis_tags = ALL_CHANNELS
 
-                if not task.complete():
-                    print(f"Submitting task for {ds.get_datasetname()} with tag {tag}")
-                    task.process()
-                else:
-                    print(f"Task already complete for {ds.get_datasetname()} with tag {tag}")
+            print(f"\n=== Group: {group_name} | Key: {unique_key} | Tags: {analysis_tags} ===")
 
+            # ------------------------------------------------------------------
+            # Process datasets
+            # ------------------------------------------------------------------
+            for ds in datasets:
+                files = ds.get_files()
+                print(f"Found {len(files)} files")
+                for analysis_tag in analysis_tags:
+                    tag = f"{unique_key}_{analysis_tag}"
 
-                #if not task.complete():
-                #    task.process()
+                    common_kwargs = dict(
+                        verbose=True,
+                        sample=ds,
+                        files_per_output=split_func(ds.get_datasetname()),
+                        output_name="output.root",
+                        tag=tag,
+                        max_jobs=njobs_to_process(ds.get_datasetname()),
+                        cmssw_version=cmssw_version,
+                        scram_arch=scram_arch,
+                        tarfile=f"{condorpath}/package.tar.xz",
+                        special_dir=f"skim/{tag}",
+                        min_completion_fraction=0.50 if skip_tail else 1.0,
+                    )
 
-                # Aggregate completion
-                all_tasks_complete = all_tasks_complete and task.complete()
+                    if args.scheduler == "slurm":
+                        dsname_flat = ds.get_datasetname().replace("/", "_").lstrip("_")
+                        slurm_output_dir = f"/cmsuf/data/store/user/phchang/skim/{tag}/{dsname_flat}/"
+                        task = SLURMTask(
+                            **common_kwargs,
+                            output_dir=slurm_output_dir,
+                            input_executable=f"{condorpath}/condor_executable_metis.sh",
+                            account="avery",
+                            qos="avery-b",
+                            memory="4gb",
+                            arguments=f"{signal_flags} -d ./ -a {analysis_tag} -t Events -T Events",
+                        )
+                    else:
+                        task = CondorTask(
+                            **common_kwargs,
+                            input_executable=f"{condorpath}/condor_executable_metis.sh",
+                            condor_submit_params=dict({
+                                "use_xrootd": True,
+                                "sites": "T2_US_UCSD",
+                                "classads": [["metis_extraargs", f"{signal_flags} -d ./ -a {analysis_tag} -t Events -T Events"]]
+                            }, **({"container": singularity_image} if singularity_image else {})),
+                        )
 
-                # Update master task summary
-                key = f"{task.get_sample().get_datasetname()}_{analysis_tag}"
-                task_summary[key] = task.get_task_summary()
+                    if not task.complete():
+                        print(f"Submitting task for {ds.get_datasetname()} with tag {tag}")
+                        task.process()
+                    else:
+                        print(f"Task already complete for {ds.get_datasetname()} with tag {tag}")
+
+                    # Aggregate completion
+                    all_tasks_complete = all_tasks_complete and task.complete()
+
+                    # Update master task summary
+                    key = f"{task.get_sample().get_datasetname()}_{analysis_tag}"
+                    task_summary[key] = task.get_task_summary()
+
+            # Track unique_key + tags for dashboard generation
+            all_unique_keys_and_tags.append((unique_key, analysis_tags))
 
         # ------------------------------------------------------------------
         # Generate JSON summaries and dashboards per tag
         # ------------------------------------------------------------------
-        for analysis_tag in analysis_tags:
+        for unique_key, analysis_tags in all_unique_keys_and_tags:
+            for analysis_tag in analysis_tags:
 
-            # Filter summary for this tag
-            tag_summary = {k: v for k, v in task_summary.items() if k.endswith(f"_{analysis_tag}")}
+                # Filter summary for this tag
+                tag_summary = {k: v for k, v in task_summary.items() if k.endswith(f"_{analysis_tag}")}
 
-            webdir = os.path.expanduser(f"~/public_html/{unique_key}/{analysis_tag}")
-            os.makedirs(webdir, exist_ok=True)
-            os.system(f"rm -f {webdir}/web_summary.json")
+                webdir = os.path.expanduser(f"~/public_html/{unique_key}/{analysis_tag}")
+                os.makedirs(webdir, exist_ok=True)
+                os.system(f"rm -f {webdir}/web_summary.json")
 
-            StatsParser(data=tag_summary, webdir=webdir, summary_fname=f"{webdir}/summary.json", wsummary_name=f"{webdir}/web_summary.json").do()
+                StatsParser(data=tag_summary, webdir=webdir, summary_fname=f"{webdir}/summary.json", wsummary_name=f"{webdir}/web_summary.json").do()
 
-            os.system("chmod -R 755 {}".format(webdir))
-            os.system(f"msummary -r -i {webdir}/web_summary.json")
+                os.system("chmod -R 755 {}".format(webdir))
+
+            # Combined top-level summary (all tags merged) for this unique_key
+            top_webdir = os.path.expanduser(f"~/public_html/{unique_key}")
+            os.makedirs(top_webdir, exist_ok=True)
+            os.system(f"rm -f {top_webdir}/web_summary.json")
+
+            StatsParser(data=task_summary, webdir=top_webdir, summary_fname=f"{top_webdir}/summary.json", wsummary_name=f"{top_webdir}/web_summary.json").do()
+
+            os.system("chmod -R 755 {}".format(top_webdir))
+            os.system(f"msummary -r -i {top_webdir}/web_summary.json")
 
 
         # If all done exit the loop
