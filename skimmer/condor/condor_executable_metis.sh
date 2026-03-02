@@ -6,6 +6,14 @@ INPUTFILENAMES=$3
 IFILE=$4
 CMSSWVERSION=$5
 SCRAMARCH=$6
+shift 6
+CMDLINE_EXTRAARGS="$@"
+
+# If a proxy file was staged into the working directory (e.g. by SLURM wrapper), use it
+if [ -f x509up_proxy ] && [ -z "${X509_USER_PROXY}" ]; then
+    export X509_USER_PROXY=$(pwd)/x509up_proxy
+    echo "[proxy] Using staged proxy: ${X509_USER_PROXY}"
+fi
 
 function getjobad {
     grep -i "^$1" "$_CONDOR_JOB_AD" | cut -d= -f2- | xargs echo
@@ -87,9 +95,9 @@ fi
 
 export SCRAM_ARCH=${SCRAMARCH}
 
-eval `scramv1 project CMSSW $CMSSWVERSION`
+scramv1 project CMSSW $CMSSWVERSION
 cd $CMSSWVERSION
-eval `scramv1 runtime -sh`
+eval $(scramv1 runtime -sh)
 mv ../package.tar.gz package.tar.gz
 tar xf package.tar.gz
 
@@ -108,6 +116,11 @@ else
         echo ${dest}
         echo xrdcp ${INPUTFILE} ${dest}
         xrdcp ${INPUTFILE} ${dest}
+        XRDCP_STATUS=$?
+        if [ ${XRDCP_STATUS} != 0 ]; then
+            echo "ERROR: xrdcp failed with exit code ${XRDCP_STATUS} for ${INPUTFILE}"
+            exit 1
+        fi
         if [ -z ${LOCALINPUTFILENAMES} ]; then
             LOCALINPUTFILENAMES=${fulldest}
         else
@@ -134,6 +147,10 @@ ls -lrth mc/
 echo -e "\n--- begin running ---\n" #                           <----- section division
 
 EXTRAARGS="$(getjobad metis_extraargs)"
+# If running under SLURM (no condor classad), use command-line extra args
+if [ -z "${EXTRAARGS}" ] && [ -n "${CMDLINE_EXTRAARGS}" ]; then
+    EXTRAARGS="${CMDLINE_EXTRAARGS}"
+fi
 # if [[ $(hostname) == *"t2.ucsd.edu"* ]] && [[ $INPUTFILENAMES == *"/hadoop"* ]]; then
 #     : # Don't need to do anything
 # else
@@ -169,13 +186,13 @@ try:
     for i in range(0,t.GetEntries(),1):
         if t.GetEntry(i) < 0:
             foundBad = True
-            print "[RSR] found bad event %i" % i
+            print("[RSR] found bad event %i" % i)
             break
 except: foundBad = True
 if foundBad:
-    print "[RSR] removing output file because it does not deserve to live"
+    print("[RSR] removing output file because it does not deserve to live")
     os.system("rm ${OUTPUTNAME}.root")
-else: print "[RSR] passed the rigorous sweeproot"
+else: print("[RSR] passed the rigorous sweeproot")
 EOL
 
 echo -e "\n--- end running ---\n" #                             <----- section division
@@ -184,7 +201,32 @@ echo "after running: ls -lrth"
 ls -lrth
 
 
-if [[ $(hostname) == *"uaf-10"* ]]; then
+if [[ $(hostname) == *"ufhpc"* ]]; then
+    echo -e "\n--- begin copying output (HiPerGator shared filesystem) ---\n"
+    COPY_DEST_DIR="${OUTPUTDIR}"
+    COPY_DEST="${COPY_DEST_DIR}/${OUTPUTNAME}_${IFILE}.root"
+    echo "Running: mkdir -p ${COPY_DEST_DIR}"
+    mkdir -p ${COPY_DEST_DIR}
+    echo "Running: cp ${OUTPUTNAME}.root ${COPY_DEST}"
+    cp ${OUTPUTNAME}.root ${COPY_DEST}
+    COPY_STATUS=$?
+    if [[ $COPY_STATUS == 0 ]]; then
+        echo "Copy success!"
+    else
+        echo "ERROR: Copy failed with exit code $COPY_STATUS"
+        exit 1
+    fi
+    # Copy cutflow files if they exist
+    if [ -f "cutflow.txt" ]; then
+        cp cutflow.txt ${COPY_DEST_DIR}/cutflow_${IFILE}.txt
+    fi
+    if [ -f "output_Cutflow.cflow" ]; then
+        cp output_Cutflow.cflow ${COPY_DEST_DIR}/cutflow_${IFILE}.cflow
+    fi
+    if [ -f "output_Cutflow_TheEnd.csv" ]; then
+        cp output_Cutflow_TheEnd.csv ${COPY_DEST_DIR}/cutflow_${IFILE}.csv
+    fi
+elif [[ $(hostname) == *"uaf-10"* ]]; then
     echo -e "\n--- begin copying output ---\n" #                    <----- section division
     echo "Sending output file output/${OUTPUTNAME}.root"
     OUTPUTDIRPATHNEW=$(echo ${OUTPUTDIR} | sed 's/^.*\(\/store.*\).*$/\1/')
