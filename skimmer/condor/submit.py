@@ -18,6 +18,16 @@ condorpath = os.path.dirname(os.path.realpath(__file__))
 # ------------------------------------------------------------------
 # Helper functions
 # ------------------------------------------------------------------
+MAX_SUBMITTED = 2500  # stay under avery-b's 3000 QOS limit
+
+def pending_job_count():
+    """Count currently queued/running SLURM jobs for this user."""
+    result = subprocess.run(
+        ["squeue", "-u", os.environ["USER"], "-h"],
+        capture_output=True, text=True
+    )
+    return len(result.stdout.strip().splitlines()) if result.stdout.strip() else 0
+
 MIN_EVENTS_PER_JOB = 3_000_000
 
 def query_das_single(dsname):
@@ -143,6 +153,15 @@ if __name__ == "__main__":
         task_summary = {}
         all_unique_keys_and_tags = []
 
+        # Check SLURM queue pressure once per loop iteration
+        if args.scheduler == "slurm":
+            njobs = pending_job_count()
+            throttled = njobs >= MAX_SUBMITTED
+            if throttled:
+                print(f"\n[throttle] {njobs} jobs in queue (limit {MAX_SUBMITTED}), skipping new submissions this cycle")
+        else:
+            throttled = False
+
         for group_name in group_names:
             datasets, metadata = samples.get_samples(group_name)
             unique_key = make_unique_key(metadata, args.version)
@@ -184,10 +203,12 @@ if __name__ == "__main__":
                         task = SLURMTask(
                             **common_kwargs,
                             output_dir=slurm_output_dir,
-                            input_executable=f"{condorpath}/condor_executable_metis.sh",
+                            basedir="/blue/avery/p.chang",
+                            input_executable=f"{condorpath}/slurm_executable.sh",
                             account="avery",
                             qos="avery-b",
                             memory="4gb",
+                            cpus_per_task=2,
                             arguments=f"{signal_flags} -d ./ -a {analysis_tag} -t Events -T Events",
                         )
                     else:
@@ -202,8 +223,11 @@ if __name__ == "__main__":
                         )
 
                     if not task.complete():
-                        print(f"Submitting task for {ds.get_datasetname()} with tag {tag}")
-                        task.process()
+                        if throttled:
+                            print(f"[throttle] Skipping {ds.get_datasetname()} ({tag}) — will retry next cycle")
+                        else:
+                            print(f"Submitting task for {ds.get_datasetname()} with tag {tag}")
+                            task.process()
                     else:
                         print(f"Task already complete for {ds.get_datasetname()} with tag {tag}")
 
