@@ -200,6 +200,55 @@ echo -e "\n--- end running ---\n" #                             <----- section d
 echo "after running: ls -lrth"
 ls -lrth
 
+# Summarize Runs TTree (GenWeights) into JSON
+echo -e "\n--- begin runs summary ---\n"
+python3 << RUNSEOF
+import ROOT as r
+import json, os
+
+fname = "${OUTPUTNAME}.root"
+out = {}
+
+if os.path.isfile(fname):
+    f = r.TFile.Open(fname)
+    t = f.Get("Runs")
+    if t:
+        scalars = {"genEventCount": 0, "genEventSumw": 0.0, "genEventSumw2": 0.0}
+        arrays = {}
+
+        for i in range(t.GetEntries()):
+            t.GetEntry(i)
+            for k in scalars:
+                scalars[k] += getattr(t, k)
+            if i == 0:
+                for bname in ["LHEScaleSumw", "LHEPdfSumw", "PSSumw"]:
+                    br = t.GetBranch(bname)
+                    if br:
+                        n = getattr(t, "n" + bname)
+                        arrays[bname] = [0.0] * n
+            for bname, sums in arrays.items():
+                vals = getattr(t, bname)
+                for j in range(len(sums)):
+                    sums[j] += vals[j]
+
+        out.update(scalars)
+        out.update(arrays)
+        f.Close()
+    else:
+        print("[runs] WARNING: No Runs TTree found")
+else:
+    print("[runs] WARNING: Output file not found, skipping runs summary")
+
+if out:
+    with open("runs_summary.json", "w") as jf:
+        json.dump(out, jf, indent=2)
+    print("[runs] Wrote runs_summary.json")
+    print("[runs] genEventCount:", out.get("genEventCount"))
+    print("[runs] genEventSumw:", out.get("genEventSumw"))
+else:
+    print("[runs] No data to write")
+RUNSEOF
+echo -e "\n--- end runs summary ---\n"
 
 if [[ $(hostname) == *"ufhpc"* ]]; then
     echo -e "\n--- begin copying output (HiPerGator shared filesystem) ---\n"
@@ -220,11 +269,14 @@ if [[ $(hostname) == *"ufhpc"* ]]; then
     if [ -f "cutflow.txt" ]; then
         cp cutflow.txt ${COPY_DEST_DIR}/cutflow_${IFILE}.txt
     fi
-    if [ -f "output_Cutflow.cflow" ]; then
-        cp output_Cutflow.cflow ${COPY_DEST_DIR}/cutflow_${IFILE}.cflow
+    if [ -f "${OUTPUTNAME}_Cutflow.cflow" ]; then
+        cp ${OUTPUTNAME}_Cutflow.cflow ${COPY_DEST_DIR}/cutflow_${IFILE}.cflow
     fi
-    if [ -f "output_Cutflow_TheEnd.csv" ]; then
-        cp output_Cutflow_TheEnd.csv ${COPY_DEST_DIR}/cutflow_${IFILE}.csv
+    if [ -f "${OUTPUTNAME}_Cutflow_TheEnd.csv" ]; then
+        cp ${OUTPUTNAME}_Cutflow_TheEnd.csv ${COPY_DEST_DIR}/cutflow_${IFILE}.csv
+    fi
+    if [ -f "runs_summary.json" ]; then
+        cp runs_summary.json ${COPY_DEST_DIR}/runs_summary_${IFILE}.json
     fi
 elif [[ $(hostname) == *"uaf-10"* ]]; then
     echo -e "\n--- begin copying output ---\n" #                    <----- section division
@@ -274,23 +326,30 @@ else
         echo "Warning: gfal-ls command failed or file  '$COPY_SRC_CUTFLOW' does not exist:"
     fi
     
-    echo "Sending output file output/output_Cutflow.cflow if it exists"
-    COPY_SRC_CUTFLOW="file://`pwd`/output_Cutflow.cflow"
+    echo "Sending output file ${OUTPUTNAME}_Cutflow.cflow if it exists"
+    COPY_SRC_CUTFLOW="file://`pwd`/${OUTPUTNAME}_Cutflow.cflow"
     COPY_DEST_CUTFLOW="davs://redirector.t2.ucsd.edu:1095//${OUTPUTDIRPATHNEW}/cutflow_${IFILE}.cflow"
-    if [ -f "$(pwd)/output_Cutflow.cflow" ]; then
+    if [ -f "$(pwd)/${OUTPUTNAME}_Cutflow.cflow" ]; then
         echo "Running: env -i X509_USER_PROXY=${X509_USER_PROXY} gfal-copy -p -f -t 4200 --verbose --checksum ADLER32 ${COPY_SRC_CUTFLOW} ${COPY_DEST_CUTFLOW}"
         env -i X509_USER_PROXY=${X509_USER_PROXY} gfal-copy -p -f -t 4200 --verbose --checksum ADLER32 ${COPY_SRC_CUTFLOW} ${COPY_DEST_CUTFLOW}
     else
-        echo "Warning: gfal-ls command failed or file  '$COPY_SRC_CUTFLOW' does not exist:"
+        echo "Warning: file '${OUTPUTNAME}_Cutflow.cflow' does not exist"
     fi
 
-    echo "Sending output file output/output_Cutflow*.csv if it exists"
-    COPY_SRC_CUTFLOW="file://`pwd`/output_Cutflow_TheEnd.csv"
+    echo "Sending output file ${OUTPUTNAME}_Cutflow_TheEnd.csv if it exists"
+    COPY_SRC_CUTFLOW="file://`pwd`/${OUTPUTNAME}_Cutflow_TheEnd.csv"
     COPY_DEST_CUTFLOW="davs://redirector.t2.ucsd.edu:1095//${OUTPUTDIRPATHNEW}/cutflow_${IFILE}.csv"
-    if [ -f "$(pwd)/output_Cutflow_TheEnd.csv" ]; then
+    if [ -f "$(pwd)/${OUTPUTNAME}_Cutflow_TheEnd.csv" ]; then
         echo "Running: env -i X509_USER_PROXY=${X509_USER_PROXY} gfal-copy -p -f -t 4200 --verbose --checksum ADLER32 ${COPY_SRC_CUTFLOW} ${COPY_DEST_CUTFLOW}"
         env -i X509_USER_PROXY=${X509_USER_PROXY} gfal-copy -p -f -t 4200 --verbose --checksum ADLER32 ${COPY_SRC_CUTFLOW} ${COPY_DEST_CUTFLOW}
     else
-        echo "Warning: gfal-ls command failed or file  '$COPY_SRC_CUTFLOW' does not exist:"
+        echo "Warning: file '${OUTPUTNAME}_Cutflow_TheEnd.csv' does not exist"
+    fi
+
+    echo "Sending output file runs_summary.json if it exists"
+    COPY_SRC_RUNS="file://$(pwd)/runs_summary.json"
+    COPY_DEST_RUNS="davs://redirector.t2.ucsd.edu:1095//${OUTPUTDIRPATHNEW}/runs_summary_${IFILE}.json"
+    if [ -f "$(pwd)/runs_summary.json" ]; then
+        env -i X509_USER_PROXY=${X509_USER_PROXY} gfal-copy -p -f -t 4200 --verbose --checksum ADLER32 ${COPY_SRC_RUNS} ${COPY_DEST_RUNS}
     fi
 fi
