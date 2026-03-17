@@ -282,7 +282,7 @@ if __name__ == "__main__":
                         cmssw_version=cmssw_version,
                         scram_arch=scram_arch,
                         tarfile=f"{condorpath}/package.tar.xz",
-                        recopy_inputs=True, # Force re-copy tarball to task dirs (comment out when not needed)
+                        # recopy_inputs=True, # Force re-copy tarball to task dirs (comment out when not needed)
                         special_dir=f"skim/{tag}",
                         min_completion_fraction=0.50 if skip_tail else 1.0,
                     )
