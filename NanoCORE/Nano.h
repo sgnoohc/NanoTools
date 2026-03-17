@@ -27,7 +27,7 @@ typedef ROOT::Math::LorentzVector<ROOT::Math::PtEtaPhiM4D<float> > LorentzVector
 #define NCORRT1METJET_MAX 102 // for CorrT1METJet_* collection
 #define NEFTFITCOEFFICIENTS_MAX 276 // for EFTfitCoefficients_* collection
 #define NELECTRON_MAX 250 // for Electron_* collection
-#define NFATJET_MAX 18 // for FatJet_* collection
+#define NFATJET_MAX 40 // for FatJet_* collection
 #define NFSRPHOTON_MAX 9 // for FsrPhoton_* collection
 #define NGENDRESSEDLEPTON_MAX 15 // for GenDressedLepton_* collection
 #define NGENISOLATEDPHOTON_MAX 15 // for GenIsolatedPhoton_* collection
@@ -36,7 +36,7 @@ typedef ROOT::Math::LorentzVector<ROOT::Math::PtEtaPhiM4D<float> > LorentzVector
 #define NGENPART_MAX 402 // for GenPart_* collection
 #define NGENPROTON_MAX 39 // for GenProton_* collection
 #define NGENVISTAU_MAX 12 // for GenVisTau_* collection
-#define NISOTRACK_MAX 33 // for IsoTrack_* collection
+#define NISOTRACK_MAX 50 // for IsoTrack_* collection
 #define NJET_MAX 250 // for Jet_* collection
 #define NLHEPART_MAX 24 // for LHEPart_* collection
 #define NLHEPDFWEIGHT_MAX 312 // for LHEPdfWeight_* collection
@@ -47,7 +47,7 @@ typedef ROOT::Math::LorentzVector<ROOT::Math::PtEtaPhiM4D<float> > LorentzVector
 #define NOTHERPV_MAX 12 // for OtherPV_* collection
 #define NPPSLOCALTRACK_MAX 87 // for PPSLocalTrack_* collection
 #define NPSWEIGHT_MAX 15 // for PSWeight_* collection
-#define NPHOTON_MAX 27 // for Photon_* collection
+#define NPHOTON_MAX 1200 // for Photon_* collection
 #define NPROTON_MAX 36 // for Proton_* collection
 #define NSV_MAX 24 // for SV_* collection
 #define NSOFTACTIVITYJET_MAX 21 // for SoftActivityJet_* collection
@@ -18451,6 +18451,54 @@ public:
     void ParseYear(TTree *tree);
     void PrintUsage();
     void GetEntry(unsigned int idx);
+    void CheckBufferSizes() {
+        auto check = [&](TBranch *b, UInt_t &val, unsigned int max, const char *name) {
+            if (b && !b->TestBit(kDoNotProcess)) {
+                b->GetEntry(index);
+                if (val > max) {
+                    std::cerr << "ERROR: " << name << "=" << val
+                              << " exceeds buffer limit " << max
+                              << " in file " << b->GetTree()->GetCurrentFile()->GetName()
+                              << ". Increase the corresponding _MAX in Nano.h and recompile." << std::endl;
+                    throw std::runtime_error(std::string("Buffer overflow: ") + name);
+                }
+            }
+        };
+        check(b_nCorrT1METJet_, nCorrT1METJet_, NCORRT1METJET_MAX, "nCorrT1METJet");
+        check(b_nEFTfitCoefficients_, nEFTfitCoefficients_, NEFTFITCOEFFICIENTS_MAX, "nEFTfitCoefficients");
+        check(b_nElectron_, nElectron_, NELECTRON_MAX, "nElectron");
+        check(b_nFatJet_, nFatJet_, NFATJET_MAX, "nFatJet");
+        check(b_nFsrPhoton_, nFsrPhoton_, NFSRPHOTON_MAX, "nFsrPhoton");
+        check(b_nGenDressedLepton_, nGenDressedLepton_, NGENDRESSEDLEPTON_MAX, "nGenDressedLepton");
+        check(b_nGenIsolatedPhoton_, nGenIsolatedPhoton_, NGENISOLATEDPHOTON_MAX, "nGenIsolatedPhoton");
+        check(b_nGenJet_, nGenJet_, NGENJET_MAX, "nGenJet");
+        check(b_nGenJetAK8_, nGenJetAK8_, NGENJETAK8_MAX, "nGenJetAK8");
+        check(b_nGenPart_, nGenPart_, NGENPART_MAX, "nGenPart");
+        check(b_nGenProton_, nGenProton_, NGENPROTON_MAX, "nGenProton");
+        check(b_nGenVisTau_, nGenVisTau_, NGENVISTAU_MAX, "nGenVisTau");
+        check(b_nIsoTrack_, nIsoTrack_, NISOTRACK_MAX, "nIsoTrack");
+        check(b_nJet_, nJet_, NJET_MAX, "nJet");
+        check(b_nLHEPart_, nLHEPart_, NLHEPART_MAX, "nLHEPart");
+        check(b_nLHEPdfWeight_, nLHEPdfWeight_, NLHEPDFWEIGHT_MAX, "nLHEPdfWeight");
+        check(b_nLHEReweightingWeight_, nLHEReweightingWeight_, NLHEREWEIGHTINGWEIGHT_MAX, "nLHEReweightingWeight");
+        check(b_nLHEScaleWeight_, nLHEScaleWeight_, NLHESCALEWEIGHT_MAX, "nLHEScaleWeight");
+        check(b_nLowPtElectron_, nLowPtElectron_, NLOWPTELECTRON_MAX, "nLowPtElectron");
+        check(b_nMuon_, nMuon_, NMUON_MAX, "nMuon");
+        check(b_nOtherPV_, nOtherPV_, NOTHERPV_MAX, "nOtherPV");
+        check(b_nPPSLocalTrack_, nPPSLocalTrack_, NPPSLOCALTRACK_MAX, "nPPSLocalTrack");
+        check(b_nPSWeight_, nPSWeight_, NPSWEIGHT_MAX, "nPSWeight");
+        check(b_nPhoton_, nPhoton_, NPHOTON_MAX, "nPhoton");
+        check(b_nProton_multiRP_, nProton_multiRP_, NPROTON_MAX, "nProton_multiRP");
+        check(b_nProton_singleRP_, nProton_singleRP_, NPROTON_MAX, "nProton_singleRP");
+        check(b_nSV_, nSV_, NSV_MAX, "nSV");
+        check(b_nSoftActivityJet_, nSoftActivityJet_, NSOFTACTIVITYJET_MAX, "nSoftActivityJet");
+        check(b_nSubGenJetAK8_, nSubGenJetAK8_, NSUBGENJETAK8_MAX, "nSubGenJetAK8");
+        check(b_nSubJet_, nSubJet_, NSUBJET_MAX, "nSubJet");
+        check(b_nTau_, nTau_, NTAU_MAX, "nTau");
+        check(b_nTrigObj_, nTrigObj_, NTRIGOBJ_MAX, "nTrigObj");
+        check(b_nWCnames_, nWCnames_, NWCNAMES_MAX, "nWCnames");
+        check(b_nboostedTau_, nboostedTau_, NBOOSTEDTAU_MAX, "nboostedTau");
+    }
     const float &BeamSpot_sigmaZ();
     const float &BeamSpot_sigmaZError();
     const Char_t &BeamSpot_type();

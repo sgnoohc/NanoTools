@@ -133,6 +133,7 @@ int main(int argc, char **argv)
 
                 // Load event information
                 nt.GetEntry(entry);
+                nt.CheckBufferSizes();
 
                 // progess bar printing
                 bar.progress(looper.n_events_processed, looper.n_events_total);

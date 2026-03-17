@@ -233,6 +233,32 @@ def get_h_class(ginfo,binfo):
     yield "    void ParseYear(TTree *tree);"
     yield "    void PrintUsage();"
     yield "    void GetEntry(unsigned int idx);"
+    # Generate CheckBufferSizes inline
+    yield "    void CheckBufferSizes() {"
+    yield "        auto check = [&](TBranch *b, UInt_t &val, unsigned int max, const char *name) {"
+    yield "            if (b && !b->TestBit(kDoNotProcess)) {"
+    yield "                b->GetEntry(index);"
+    yield "                if (val > max) {"
+    yield '                    std::cerr << "ERROR: " << name << "=" << val'
+    yield '                              << " exceeds buffer limit " << max'
+    yield '                              << " in file " << b->GetTree()->GetCurrentFile()->GetName()'
+    yield '                              << ". Increase the corresponding _MAX in Nano.h and recompile." << std::endl;'
+    yield '                    throw std::runtime_error(std::string("Buffer overflow: ") + name);'
+    yield "                }"
+    yield "            }"
+    yield "        };"
+    # Emit check() calls for each collection
+    collections = {}
+    for bi in binfo:
+        if bi["ndatamacroname"] and bi["collectionname"]:
+            if bi["collectionname"] not in collections:
+                collections[bi["collectionname"]] = bi["ndatamacroname"]
+    for collname in sorted(collections.keys()):
+        macroname = collections[collname]
+        countname = "n{}".format(collname)
+        yield '        check(b_{name}_, {name}_, {macro}, "{name}");'.format(
+            name=countname, macro=macroname)
+    yield "    }"
     for bi in binfo:
         yield "    const {typename} &{name}();".format(**bi)
     yield "    Bool_t isData();"

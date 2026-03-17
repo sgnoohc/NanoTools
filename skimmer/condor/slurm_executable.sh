@@ -9,6 +9,9 @@ SCRAMARCH=$6
 shift 6
 CMDLINE_EXTRAARGS="$@"
 
+MAX_RETRIES=6
+RETRY_SLEEP=30
+
 # If a proxy file was staged into the working directory (e.g. by SLURM wrapper), use it
 if [ -f x509up_proxy ] && [ -z "${X509_USER_PROXY}" ]; then
     export X509_USER_PROXY=$(pwd)/x509up_proxy
@@ -60,6 +63,8 @@ echo "GLIDEIN_CMSSite: $GLIDEIN_CMSSite"
 echo "hostname: $(hostname)"
 echo "uname -a: $(uname -a)"
 echo "time: $(date +%s)"
+echo "pwd: $(pwd)"
+echo "df -h .: $(df -h . | tail -1)"
 echo "args: $@"
 
 echo -e "\n--- end header output ---\n" #                       <----- section division
@@ -103,11 +108,19 @@ else
         dest=$(dirname $fulldest)
         mkdir -p ${dest}
         echo ${dest}
-        echo xrdcp ${INPUTFILE} ${dest}
-        xrdcp ${INPUTFILE} ${dest}
-        XRDCP_STATUS=$?
+        XRDCP_STATUS=1
+        for (( xrdcp_attempt=1; xrdcp_attempt<=MAX_RETRIES; xrdcp_attempt++ )); do
+            echo "[xrdcp] Attempt ${xrdcp_attempt}/${MAX_RETRIES}: xrdcp ${INPUTFILE} ${dest}"
+            xrdcp ${INPUTFILE} ${dest}
+            XRDCP_STATUS=$?
+            if [ ${XRDCP_STATUS} == 0 ]; then
+                break
+            fi
+            echo "[xrdcp] Failed (exit ${XRDCP_STATUS}), attempt ${xrdcp_attempt}/${MAX_RETRIES}, sleeping ${RETRY_SLEEP}s"
+            sleep ${RETRY_SLEEP}
+        done
         if [ ${XRDCP_STATUS} != 0 ]; then
-            echo "ERROR: xrdcp failed with exit code ${XRDCP_STATUS} for ${INPUTFILE}"
+            echo "ERROR: xrdcp failed after ${MAX_RETRIES} attempts for ${INPUTFILE}"
             exit 1
         fi
         if [ -z ${LOCALINPUTFILENAMES} ]; then
@@ -144,112 +157,162 @@ fi
 # Split input files into an array
 ALL_FILES=($INPUTFILENAMES)
 NFILES=${#ALL_FILES[@]}
-echo "[parallel] Total input files: ${NFILES}"
 
-if [ ${NFILES} -le 1 ]; then
-    # Single file (or zero): run one ./skim as normal
-    echo Executing ./skim $INPUTFILENAMES -n ${OUTPUTNAME} ${EXTRAARGS}
-    ./skim $INPUTFILENAMES -n ${OUTPUTNAME} ${EXTRAARGS}
-    RET=$?
-else
-    # Split files into two halves
-    HALF=$(( (NFILES + 1) / 2 ))
-    FILES_A=("${ALL_FILES[@]:0:${HALF}}")
-    FILES_B=("${ALL_FILES[@]:${HALF}}")
+# Determine parallelism from SLURM allocation (default 1 if not set)
+NPARALLEL=${SLURM_CPUS_PER_TASK:-1}
+# Don't use more workers than files
+if [ ${NPARALLEL} -gt ${NFILES} ]; then
+    NPARALLEL=${NFILES}
+fi
+echo "[parallel] Total input files: ${NFILES}, workers: ${NPARALLEL}"
 
-    echo "[parallel] Part A (${#FILES_A[@]} files): ${FILES_A[*]}"
-    echo "[parallel] Part B (${#FILES_B[@]} files): ${FILES_B[*]}"
-
-    # Run two ./skim processes in parallel
-    echo Executing ./skim "${FILES_A[@]}" -n ${OUTPUTNAME}_partA ${EXTRAARGS}
-    ./skim "${FILES_A[@]}" -n ${OUTPUTNAME}_partA ${EXTRAARGS} &
-    PID_A=$!
-
-    echo Executing ./skim "${FILES_B[@]}" -n ${OUTPUTNAME}_partB ${EXTRAARGS}
-    ./skim "${FILES_B[@]}" -n ${OUTPUTNAME}_partB ${EXTRAARGS} &
-    PID_B=$!
-
-    wait $PID_A
-    RET_A=$?
-    wait $PID_B
-    RET_B=$?
-
-    echo "[parallel] Part A exit code: ${RET_A}"
-    echo "[parallel] Part B exit code: ${RET_B}"
-
-    # Check both exit codes
-    if [ ${RET_A} != 0 ] || [ ${RET_B} != 0 ]; then
-        RET=1
-        if [[ "${EXTRAARGS}" = *"ignorebadfiles"* ]]; then
-            echo "[parallel] Ignoring exit codes (ignorebadfiles)"
-            RET=0
+if [ ${NPARALLEL} -le 1 ]; then
+    # Single worker: run one ./skim with retry
+    for (( attempt=1; attempt<=MAX_RETRIES; attempt++ )); do
+        echo "[retry] Attempt ${attempt}/${MAX_RETRIES}: ./skim $INPUTFILENAMES -n ${OUTPUTNAME} ${EXTRAARGS}"
+        ./skim $INPUTFILENAMES -n ${OUTPUTNAME} ${EXTRAARGS}
+        RET=$?
+        if [ ${RET} == 0 ]; then
+            break
         fi
-    else
+        echo "[retry] ./skim failed (exit ${RET}), attempt ${attempt}/${MAX_RETRIES}, sleeping ${RETRY_SLEEP}s"
+        sleep ${RETRY_SLEEP}
+    done
+else
+    # Split files into NPARALLEL chunks and run in parallel
+    PIDS=()
+    PART_NAMES=()
+    FILES_PER_PART=$(( (NFILES + NPARALLEL - 1) / NPARALLEL ))
+
+    for (( p=0; p<NPARALLEL; p++ )); do
+        START=$(( p * FILES_PER_PART ))
+        CHUNK=("${ALL_FILES[@]:${START}:${FILES_PER_PART}}")
+        if [ ${#CHUNK[@]} -eq 0 ]; then
+            break
+        fi
+        PARTNAME="part${p}"
+        PART_NAMES+=("${PARTNAME}")
+        echo "[parallel] Part ${p} (${#CHUNK[@]} files): ${CHUNK[*]}"
+        echo Executing ./skim "${CHUNK[@]}" -n ${OUTPUTNAME}_${PARTNAME} ${EXTRAARGS}
+        ./skim "${CHUNK[@]}" -n ${OUTPUTNAME}_${PARTNAME} ${EXTRAARGS} &
+        PIDS+=($!)
+    done
+
+    # Wait for all and collect failed parts
+    FAILED_PARTS=()
+    for (( p=0; p<${#PIDS[@]}; p++ )); do
+        wait ${PIDS[$p]}
+        RETCODE=$?
+        echo "[parallel] Part ${p} exit code: ${RETCODE}"
+        if [ ${RETCODE} != 0 ]; then
+            FAILED_PARTS+=($p)
+        fi
+    done
+
+    # Retry failed parts sequentially
+    for (( attempt=2; attempt<=MAX_RETRIES; attempt++ )); do
+        if [ ${#FAILED_PARTS[@]} -eq 0 ]; then
+            break
+        fi
+        echo "[retry] Attempt ${attempt}/${MAX_RETRIES} for ${#FAILED_PARTS[@]} failed part(s): ${FAILED_PARTS[*]}"
+        STILL_FAILED=()
+        for p in "${FAILED_PARTS[@]}"; do
+            START=$(( p * FILES_PER_PART ))
+            CHUNK=("${ALL_FILES[@]:${START}:${FILES_PER_PART}}")
+            PARTNAME="part${p}"
+            echo "[retry] Re-running part ${p} (${#CHUNK[@]} files)"
+            ./skim "${CHUNK[@]}" -n ${OUTPUTNAME}_${PARTNAME} ${EXTRAARGS}
+            RETCODE=$?
+            echo "[retry] Part ${p} attempt ${attempt} exit code: ${RETCODE}"
+            if [ ${RETCODE} != 0 ]; then
+                STILL_FAILED+=($p)
+            fi
+        done
+        FAILED_PARTS=("${STILL_FAILED[@]}")
+        if [ ${#FAILED_PARTS[@]} -gt 0 ] && [ ${attempt} -lt ${MAX_RETRIES} ]; then
+            echo "[retry] Sleeping ${RETRY_SLEEP}s before next attempt"
+            sleep ${RETRY_SLEEP}
+        fi
+    done
+
+    # Final status
+    RET=0
+    if [ ${#FAILED_PARTS[@]} -gt 0 ]; then
+        echo "[retry] Parts still failing after ${MAX_RETRIES} attempts: ${FAILED_PARTS[*]}"
+        RET=1
+    fi
+
+    if [ ${RET} != 0 ] && [[ "${EXTRAARGS}" = *"ignorebadfiles"* ]]; then
+        echo "[parallel] Ignoring exit codes (ignorebadfiles)"
         RET=0
     fi
 
     # Merge partial outputs with haddnano.py
     if [ ${RET} == 0 ]; then
+        PART_ROOT_FILES=""
+        for PARTNAME in "${PART_NAMES[@]}"; do
+            PART_ROOT_FILES="${PART_ROOT_FILES} ${OUTPUTNAME}_${PARTNAME}.root"
+        done
         echo "[parallel] Merging with haddnano.py"
-        echo "Running: haddnano.py ${OUTPUTNAME}.root ${OUTPUTNAME}_partA.root ${OUTPUTNAME}_partB.root"
-        haddnano.py ${OUTPUTNAME}.root ${OUTPUTNAME}_partA.root ${OUTPUTNAME}_partB.root
+        echo "Running: haddnano.py ${OUTPUTNAME}.root ${PART_ROOT_FILES}"
+        haddnano.py ${OUTPUTNAME}.root ${PART_ROOT_FILES}
         MERGE_RET=$?
         if [ ${MERGE_RET} != 0 ]; then
             echo "ERROR: haddnano.py failed with exit code ${MERGE_RET}"
-            rm -f ${OUTPUTNAME}.root ${OUTPUTNAME}_partA.root ${OUTPUTNAME}_partB.root
+            rm -f ${OUTPUTNAME}.root ${PART_ROOT_FILES}
             exit 1
         fi
         # Clean up partial files
-        rm -f ${OUTPUTNAME}_partA.root ${OUTPUTNAME}_partB.root
+        rm -f ${PART_ROOT_FILES}
         echo "[parallel] Merge complete, cleaned up partial files"
 
-        # Merge cutflow files from parallel parts
+        # Merge cutflow files from all parallel parts
+        PART_NAMES_STR="${PART_NAMES[*]}"
         python3 << MERGEEOF
-import csv, os
+import csv, os, glob
 
-def merge_csv(partA, partB, out):
-    """Merge two Cutflow_TheEnd.csv files by summing numeric columns."""
-    if not (os.path.isfile(partA) and os.path.isfile(partB)):
-        for f in [partA, partB]:
-            if os.path.isfile(f):
-                os.rename(f, out)
-                return
+def merge_csv(part_files, out):
+    """Merge multiple Cutflow_TheEnd.csv files by summing numeric columns."""
+    existing = [f for f in part_files if os.path.isfile(f)]
+    if not existing:
+        return
+    if len(existing) == 1:
+        os.rename(existing[0], out)
+        print(f"[parallel] Renamed single cutflow CSV -> {out}")
         return
     rows = {}
-    for path in [partA, partB]:
+    order = []
+    for path in existing:
         with open(path) as f:
             reader = csv.DictReader(f)
             for row in reader:
                 cut = row["cut"]
                 if cut not in rows:
                     rows[cut] = {"raw_events": 0.0, "weighted_events": 0.0}
+                    order.append(cut)
                 rows[cut]["raw_events"] += float(row["raw_events"])
                 rows[cut]["weighted_events"] += float(row["weighted_events"])
-    order = []
-    with open(partA) as f:
-        reader = csv.DictReader(f)
-        for row in reader:
-            order.append(row["cut"])
     with open(out, "w") as f:
         f.write("cut,raw_events,weighted_events\n")
         for cut in order:
             r = rows[cut]
             f.write(f"{cut},{r['raw_events']:.6f},{r['weighted_events']:.6f}\n")
-    os.remove(partA)
-    os.remove(partB)
-    print(f"[parallel] Merged cutflow CSV -> {out}")
+    for path in existing:
+        os.remove(path)
+    print(f"[parallel] Merged {len(existing)} cutflow CSVs -> {out}")
 
-def merge_cflow(partA, partB, out):
-    """Merge two .cflow files by summing columns 2-5 (raw/weighted pass/fail)."""
-    if not (os.path.isfile(partA) and os.path.isfile(partB)):
-        for f in [partA, partB]:
-            if os.path.isfile(f):
-                os.rename(f, out)
-                return
+def merge_cflow(part_files, out):
+    """Merge multiple .cflow files by summing columns 2-5 (raw/weighted pass/fail)."""
+    existing = [f for f in part_files if os.path.isfile(f)]
+    if not existing:
+        return
+    if len(existing) == 1:
+        os.rename(existing[0], out)
+        print(f"[parallel] Renamed single cutflow cflow -> {out}")
         return
     rows = {}
     order = []
-    for path in [partA, partB]:
+    for path in existing:
         with open(path) as f:
             for line in f:
                 parts = line.strip().split(",")
@@ -266,15 +329,14 @@ def merge_cflow(partA, partB, out):
             vals = rows[name]
             nums = [f"{int(v)}" for v in vals[:4]]
             f.write(",".join([name] + nums + vals[4:]) + "\n")
-    os.remove(partA)
-    os.remove(partB)
-    print(f"[parallel] Merged cutflow cflow -> {out}")
+    for path in existing:
+        os.remove(path)
+    print(f"[parallel] Merged {len(existing)} cutflow cflows -> {out}")
 
-merge_csv("${OUTPUTNAME}_partA_Cutflow_TheEnd.csv",
-          "${OUTPUTNAME}_partB_Cutflow_TheEnd.csv",
+part_names = "${PART_NAMES_STR}".split()
+merge_csv(["${OUTPUTNAME}_" + p + "_Cutflow_TheEnd.csv" for p in part_names],
           "${OUTPUTNAME}_Cutflow_TheEnd.csv")
-merge_cflow("${OUTPUTNAME}_partA_Cutflow.cflow",
-            "${OUTPUTNAME}_partB_Cutflow.cflow",
+merge_cflow(["${OUTPUTNAME}_" + p + "_Cutflow.cflow" for p in part_names],
             "${OUTPUTNAME}_Cutflow.cflow")
 MERGEEOF
     fi
@@ -331,8 +393,15 @@ out = {}
 
 if os.path.isfile(fname):
     f = r.TFile.Open(fname)
+
+    # Get total events from Events tree
+    events_tree = f.Get("Events")
+    if events_tree:
+        out["eventCount"] = int(events_tree.GetEntries())
+
+    # MC: summarize GenWeights from Runs TTree
     t = f.Get("Runs")
-    if t:
+    if t and t.GetBranch("genEventCount"):
         scalars = {"genEventCount": 0, "genEventSumw": 0.0, "genEventSumw2": 0.0}
         arrays = {}
 
@@ -353,9 +422,8 @@ if os.path.isfile(fname):
 
         out.update(scalars)
         out.update(arrays)
-        f.Close()
-    else:
-        print("[runs] WARNING: No Runs TTree found")
+
+    f.Close()
 else:
     print("[runs] WARNING: Output file not found, skipping runs summary")
 
@@ -363,8 +431,10 @@ if out:
     with open("runs_summary.json", "w") as jf:
         json.dump(out, jf, indent=2)
     print("[runs] Wrote runs_summary.json")
-    print("[runs] genEventCount:", out.get("genEventCount"))
-    print("[runs] genEventSumw:", out.get("genEventSumw"))
+    if "genEventCount" in out:
+        print("[runs] genEventCount:", out["genEventCount"])
+        print("[runs] genEventSumw:", out["genEventSumw"])
+    print("[runs] eventCount:", out.get("eventCount"))
 else:
     print("[runs] No data to write")
 RUNSEOF

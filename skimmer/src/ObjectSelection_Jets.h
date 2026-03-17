@@ -30,7 +30,7 @@ typedef std::vector<unsigned int> Indices;
 
 // Max array sizes (must match NanoCORE Nano.h)
 #define JETID_NJET_MAX 250
-#define JETID_NFATJET_MAX 18
+#define JETID_NFATJET_MAX 40
 
 class JetSelection : public ObjectSelection
 {
@@ -179,41 +179,23 @@ class JetSelection : public ObjectSelection
     void loadEntry(int entry)
     {
         if (b_Jet_chMultiplicity_)
-        {
             b_Jet_chMultiplicity_->GetEntry(entry);
-        }
         if (b_Jet_neMultiplicity_)
-        {
             b_Jet_neMultiplicity_->GetEntry(entry);
-        }
         if (b_FatJet_chHEF_)
-        {
             b_FatJet_chHEF_->GetEntry(entry);
-        }
         if (b_FatJet_neHEF_)
-        {
             b_FatJet_neHEF_->GetEntry(entry);
-        }
         if (b_FatJet_chEmEF_)
-        {
             b_FatJet_chEmEF_->GetEntry(entry);
-        }
         if (b_FatJet_neEmEF_)
-        {
             b_FatJet_neEmEF_->GetEntry(entry);
-        }
         if (b_FatJet_muEF_)
-        {
             b_FatJet_muEF_->GetEntry(entry);
-        }
         if (b_FatJet_chMultiplicity_)
-        {
             b_FatJet_chMultiplicity_->GetEntry(entry);
-        }
         if (b_FatJet_neMultiplicity_)
-        {
             b_FatJet_neMultiplicity_->GetEntry(entry);
-        }
     }
 
     // Compute Jet_jetId and FatJet_jetId using correctionlib and store in output branches
