@@ -1,6 +1,6 @@
 from metis.Sample import DirectorySample, DBSSample
 from vbsvvh_data import nanoaodv15_run3_data, nanoaodv15_run2_data
-from vbsvvh_mc import nanoaodv15_run2_bkg, nanoaodv15_run2_sig
+from vbsvvh_mc import nanoaodv15_run2_bkg, nanoaodv15_run2_sig, nanoaodv15_run3_bkg
 
 
 # ---------------------------------------------------------------------------
@@ -22,6 +22,10 @@ SAMPLE_REGISTRY = {
     "run3_data": {
         "samples": nanoaodv15_run3_data,
         "metadata": {"run": "Run3", "type": "Data", "nano": "v15"},
+    },
+    "run3_bkg": {
+        "samples": nanoaodv15_run3_bkg,
+        "metadata": {"run": "Run3", "type": "Bkg", "nano": "v15"},
     },
 }
 

@@ -36,7 +36,7 @@ typedef ROOT::Math::LorentzVector<ROOT::Math::PtEtaPhiM4D<float> > LorentzVector
 #define NGENPART_MAX 402 // for GenPart_* collection
 #define NGENPROTON_MAX 39 // for GenProton_* collection
 #define NGENVISTAU_MAX 12 // for GenVisTau_* collection
-#define NISOTRACK_MAX 50 // for IsoTrack_* collection
+#define NISOTRACK_MAX 80 // for IsoTrack_* collection
 #define NJET_MAX 250 // for Jet_* collection
 #define NLHEPART_MAX 24 // for LHEPart_* collection
 #define NLHEPDFWEIGHT_MAX 312 // for LHEPdfWeight_* collection
