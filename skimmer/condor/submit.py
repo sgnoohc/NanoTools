@@ -11,6 +11,7 @@ from metis.CondorTask import CondorTask
 from metis.SLURMTask import SLURMTask
 from metis.PackedSLURMSubmitter import PackedSLURMSubmitter
 from metis.StatsParser import StatsParser
+from skip_dict import BKG_SKIP, DATA_SKIP
 import samples
 from das_nevents import das_info
 from sample_channels import is_mc_allowed
@@ -97,8 +98,18 @@ def track_zero_files(dsname):
     else:
         _das_problems[dsname]["reason"] += "+zero_input_files"
 
-def njobs_to_process(dsname):
-    return -1  # -1 = unlimited
+def check_skip(analysis_tag, issig, isdata, isbkg, dataset_name):
+    if issig:
+        return False
+    elif isbkg:
+        ref_dict = BKG_SKIP
+    elif isdata:
+        ref_dict = DATA_SKIP
+    else:
+        raise Exception("Input must be signal, background, or data!")
+    proc_name = dataset_name.split("/")[1]
+    datasets_to_skip = ref_dict.get(analysis_tag, set())
+    return (proc_name in datasets_to_skip)
 
 def make_unique_key(metadata, version):
     """Auto-construct unique key: {Run}_{Type}_{Nano}_{Version}"""

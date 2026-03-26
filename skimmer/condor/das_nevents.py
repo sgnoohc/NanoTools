@@ -1065,6 +1065,7 @@ das_info = {
     "/EGamma0/Run2024I-MINIv6NANOv15_v2-v1/NANOAOD": {"nevents": 150687674, "nfiles": 198, "evts_per_file": 761048},
     "/EGamma1/Run2024I-MINIv6NANOv15-v1/NANOAOD": {"nevents": 132903874, "nfiles": 176, "evts_per_file": 755135},
     "/EGamma1/Run2024I-MINIv6NANOv15_v2-v1/NANOAOD": {"nevents": 150687112, "nfiles": 179, "evts_per_file": 841827},
+    "/MET/Run2018D-UL2018_NanoAODv15-v2/NANOAOD": {"nevents": 160196364, "nfiles": 187, "evts_per_file": 856665},
     "/JetMET/Run2022C-NanoAODv15-v1/NANOAOD": {"nevents": 169113266, "nfiles": 196, "evts_per_file": 862822},
     "/JetMET/Run2022D-NanoAODv15-v1/NANOAOD": {"nevents": 100853361, "nfiles": 112, "evts_per_file": 900476},
     "/JetMET/Run2022E-NanoAODv15-v1/NANOAOD": {"nevents": 138921708, "nfiles": 173, "evts_per_file": 803015},
