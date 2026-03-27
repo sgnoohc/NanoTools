@@ -30,7 +30,7 @@ void GlobalConfig::GetConfigsFromDatasetName(std::string dsname) {
     {
         year = 2023;
     }
-    else if (dsname.find("Run2024") != std::string::npos || dsname.find("RunIII2024Summer24") != std::string::npos || dsname.find("_2024/") != std::string::npos)
+    else if (dsname.find("Run2024") != std::string::npos || dsname.find("RunIII2024Summer24") != std::string::npos || dsname.find("Run3Summer24") != std::string::npos || dsname.find("_2024/") != std::string::npos)
     {
         year = 2024;
     }
@@ -85,7 +85,7 @@ void GlobalConfig::GetSampleType(std::string dsname) {
         samptype = "ggH";
     else if (dsname.find("VBF") != std::string::npos)
         samptype = "VBF";
-    else if ((dsname.find("VBSCuts") != std::string::npos) )
+    else if ((dsname.find("VBSCuts") != std::string::npos) || (dsname.find("VBSWWH") != std::string::npos) || (dsname.find("VBSWZH") != std::string::npos) || (dsname.find("VBSZZH") != std::string::npos))
         is_signal = true;
     else
         std::cout << ">>> Cannot assigned sampletype for " << dsname << std::endl;
