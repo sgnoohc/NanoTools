@@ -1,6 +1,7 @@
 #!/bin/env python
 import socket
-from metis.Sample import DBSSample, DirectorySample
+import subprocess
+from metis.Sample import DBSSample, DirectorySample, FilelistSample
 
 def _sig_location(coupling, leaf):
     """Return signal sample directory path based on machine."""
@@ -14,6 +15,57 @@ def _sig_location(coupling, leaf):
         )
 
 _ON_HIPERGATOR = "ufhpc" in socket.getfqdn()
+
+_RUN3_SIG_BASE = "/ceph/cms/store/user/aaarora/run3-vbs-signal-shared/signal_4f_Inclusive/NANOAOD/Run3Summer24"
+def _run3_sig_location(leaf):
+    """Return Run3 signal sample directory path."""
+    return f"{_RUN3_SIG_BASE}/{leaf}"
+
+def _discover_run3_sig_files():
+    """SSH to uaf-2 to discover all run3_sig .root files. Returns {leaf_dir: [xrd_paths]}."""
+    try:
+        result = subprocess.run(
+            ["ssh", "-o", "BatchMode=yes", "-o", "ConnectTimeout=10", "uaf-2",
+             f"find {_RUN3_SIG_BASE} -name '*.root' -type f"],
+            capture_output=True, text=True, timeout=30,
+        )
+        if result.returncode != 0:
+            print(f"WARNING: SSH file discovery failed: {result.stderr.strip()}")
+            return {}
+        files_by_leaf = {}
+        for line in result.stdout.strip().split("\n"):
+            if not line:
+                continue
+            # /ceph/cms/store/user/.../Run3Summer24/<leaf>/<uuid>.root
+            # Transform to /store/user/... for xrootd (slurm_executable.sh adds root://cmsxrootd.fnal.gov/)
+            parts = line.split("/Run3Summer24/")
+            if len(parts) != 2:
+                continue
+            leaf = parts[1].split("/")[0]
+            xrd_path = line.replace("/ceph/cms", "")
+            files_by_leaf.setdefault(leaf, []).append(xrd_path)
+        for leaf in files_by_leaf:
+            files_by_leaf[leaf].sort()
+        return files_by_leaf
+    except Exception as e:
+        print(f"WARNING: SSH file discovery exception: {e}")
+        return {}
+
+# Discover run3_sig files at import time on HiperGator
+_run3_sig_files = _discover_run3_sig_files() if _ON_HIPERGATOR else {}
+
+def _make_run3_sig(dsname, leaf):
+    """Create a run3_sig sample: FilelistSample with xrootd paths on HiperGator, DirectorySample elsewhere."""
+    if _ON_HIPERGATOR:
+        filelist = _run3_sig_files.get(leaf, [])
+        if not filelist:
+            print(f"WARNING: No files found for run3_sig {leaf}, using empty FilelistSample")
+        return FilelistSample(dataset=dsname, filelist=filelist)
+    else:
+        return DirectorySample(
+            dataset=dsname, location=_run3_sig_location(leaf),
+            globber="*.root", use_xrootd=True,
+        )
 
 nanoaodv9_test = [
     DBSSample(dataset="/QCD_HT100to200_TuneCP5_PSWeights_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v1/NANOAODSIM"),
@@ -1159,74 +1211,6 @@ nanoaodv15_run2_bkg = [
 ]
 
 
-nanoaodv15_run2_sig = [
-
-    # c2v=1.0, c3=1.0 -- VBSWWH_OS
-    DirectorySample(dataset="VBSWWH_OS_c2v1p0_c3_1p0_UL16APV", location=_sig_location("c2v_1p0_c3_1p0", "VBSWWH_OS_VBSCuts_13TeV_TuneCP5_RunIISummer20UL16APV_NANOv15"), globber="*.root", use_xrootd=not _ON_HIPERGATOR),
-    DirectorySample(dataset="VBSWWH_OS_c2v1p0_c3_1p0_UL16", location=_sig_location("c2v_1p0_c3_1p0", "VBSWWH_OS_VBSCuts_13TeV_TuneCP5_RunIISummer20UL16_NANOv15"), globber="*.root", use_xrootd=not _ON_HIPERGATOR),
-    DirectorySample(dataset="VBSWWH_OS_c2v1p0_c3_1p0_UL17", location=_sig_location("c2v_1p0_c3_1p0", "VBSWWH_OS_VBSCuts_13TeV_TuneCP5_RunIISummer20UL17_NANOv15"), globber="*.root", use_xrootd=not _ON_HIPERGATOR),
-    DirectorySample(dataset="VBSWWH_OS_c2v1p0_c3_1p0_UL18", location=_sig_location("c2v_1p0_c3_1p0", "VBSWWH_OS_VBSCuts_13TeV_TuneCP5_RunIISummer20UL18_NANOv15"), globber="*.root", use_xrootd=not _ON_HIPERGATOR),
-    # c2v=1.0, c3=1.0 -- VBSWWH_SS
-    DirectorySample(dataset="VBSWWH_SS_c2v1p0_c3_1p0_UL16APV", location=_sig_location("c2v_1p0_c3_1p0", "VBSWWH_SS_VBSCuts_13TeV_TuneCP5_RunIISummer20UL16APV_NANOv15"), globber="*.root", use_xrootd=not _ON_HIPERGATOR),
-    DirectorySample(dataset="VBSWWH_SS_c2v1p0_c3_1p0_UL16", location=_sig_location("c2v_1p0_c3_1p0", "VBSWWH_SS_VBSCuts_13TeV_TuneCP5_RunIISummer20UL16_NANOv15"), globber="*.root", use_xrootd=not _ON_HIPERGATOR),
-    DirectorySample(dataset="VBSWWH_SS_c2v1p0_c3_1p0_UL17", location=_sig_location("c2v_1p0_c3_1p0", "VBSWWH_SS_VBSCuts_13TeV_TuneCP5_RunIISummer20UL17_NANOv15"), globber="*.root", use_xrootd=not _ON_HIPERGATOR),
-    DirectorySample(dataset="VBSWWH_SS_c2v1p0_c3_1p0_UL18", location=_sig_location("c2v_1p0_c3_1p0", "VBSWWH_SS_VBSCuts_13TeV_TuneCP5_RunIISummer20UL18_NANOv15"), globber="*.root", use_xrootd=not _ON_HIPERGATOR),
-    # c2v=1.0, c3=1.0 -- VBSWZH
-    DirectorySample(dataset="VBSWZH_c2v1p0_c3_1p0_UL16APV", location=_sig_location("c2v_1p0_c3_1p0", "VBSWZH_VBSCuts_13TeV_TuneCP5_RunIISummer20UL16APV_NANOv15"), globber="*.root", use_xrootd=not _ON_HIPERGATOR),
-    DirectorySample(dataset="VBSWZH_c2v1p0_c3_1p0_UL16", location=_sig_location("c2v_1p0_c3_1p0", "VBSWZH_VBSCuts_13TeV_TuneCP5_RunIISummer20UL16_NANOv15"), globber="*.root", use_xrootd=not _ON_HIPERGATOR),
-    DirectorySample(dataset="VBSWZH_c2v1p0_c3_1p0_UL17", location=_sig_location("c2v_1p0_c3_1p0", "VBSWZH_VBSCuts_13TeV_TuneCP5_RunIISummer20UL17_NANOv15"), globber="*.root", use_xrootd=not _ON_HIPERGATOR),
-    DirectorySample(dataset="VBSWZH_c2v1p0_c3_1p0_UL18", location=_sig_location("c2v_1p0_c3_1p0", "VBSWZH_VBSCuts_13TeV_TuneCP5_RunIISummer20UL18_NANOv15"), globber="*.root", use_xrootd=not _ON_HIPERGATOR),
-    # c2v=1.0, c3=1.0 -- VBSZZH
-    DirectorySample(dataset="VBSZZH_c2v1p0_c3_1p0_UL16APV", location=_sig_location("c2v_1p0_c3_1p0", "VBSZZH_VBSCuts_13TeV_TuneCP5_RunIISummer20UL16APV_NANOv15"), globber="*.root", use_xrootd=not _ON_HIPERGATOR),
-    DirectorySample(dataset="VBSZZH_c2v1p0_c3_1p0_UL16", location=_sig_location("c2v_1p0_c3_1p0", "VBSZZH_VBSCuts_13TeV_TuneCP5_RunIISummer20UL16_NANOv15"), globber="*.root", use_xrootd=not _ON_HIPERGATOR),
-    DirectorySample(dataset="VBSZZH_c2v1p0_c3_1p0_UL17", location=_sig_location("c2v_1p0_c3_1p0", "VBSZZH_VBSCuts_13TeV_TuneCP5_RunIISummer20UL17_NANOv15"), globber="*.root", use_xrootd=not _ON_HIPERGATOR),
-    DirectorySample(dataset="VBSZZH_c2v1p0_c3_1p0_UL18", location=_sig_location("c2v_1p0_c3_1p0", "VBSZZH_VBSCuts_13TeV_TuneCP5_RunIISummer20UL18_NANOv15"), globber="*.root", use_xrootd=not _ON_HIPERGATOR),
-
-    # c2v=1.5, c3=1.0 -- VBSWWH_OS
-    DirectorySample(dataset="VBSWWH_OS_c2v1p5_c3_1p0_UL16APV", location=_sig_location("c2v_1p5_c3_1p0", "VBSWWH_OS_VBSCuts_13TeV_TuneCP5_RunIISummer20UL16APV_NANOv15"), globber="*.root", use_xrootd=not _ON_HIPERGATOR),
-    DirectorySample(dataset="VBSWWH_OS_c2v1p5_c3_1p0_UL16", location=_sig_location("c2v_1p5_c3_1p0", "VBSWWH_OS_VBSCuts_13TeV_TuneCP5_RunIISummer20UL16_NANOv15"), globber="*.root", use_xrootd=not _ON_HIPERGATOR),
-    DirectorySample(dataset="VBSWWH_OS_c2v1p5_c3_1p0_UL17", location=_sig_location("c2v_1p5_c3_1p0", "VBSWWH_OS_VBSCuts_13TeV_TuneCP5_RunIISummer20UL17_NANOv15"), globber="*.root", use_xrootd=not _ON_HIPERGATOR),
-    DirectorySample(dataset="VBSWWH_OS_c2v1p5_c3_1p0_UL18", location=_sig_location("c2v_1p5_c3_1p0", "VBSWWH_OS_VBSCuts_13TeV_TuneCP5_RunIISummer20UL18_NANOv15"), globber="*.root", use_xrootd=not _ON_HIPERGATOR),
-    # c2v=1.5, c3=1.0 -- VBSWWH_SS
-    DirectorySample(dataset="VBSWWH_SS_c2v1p5_c3_1p0_UL16APV", location=_sig_location("c2v_1p5_c3_1p0", "VBSWWH_SS_VBSCuts_13TeV_TuneCP5_RunIISummer20UL16APV_NANOv15"), globber="*.root", use_xrootd=not _ON_HIPERGATOR),
-    DirectorySample(dataset="VBSWWH_SS_c2v1p5_c3_1p0_UL16", location=_sig_location("c2v_1p5_c3_1p0", "VBSWWH_SS_VBSCuts_13TeV_TuneCP5_RunIISummer20UL16_NANOv15"), globber="*.root", use_xrootd=not _ON_HIPERGATOR),
-    DirectorySample(dataset="VBSWWH_SS_c2v1p5_c3_1p0_UL17", location=_sig_location("c2v_1p5_c3_1p0", "VBSWWH_SS_VBSCuts_13TeV_TuneCP5_RunIISummer20UL17_NANOv15"), globber="*.root", use_xrootd=not _ON_HIPERGATOR),
-    DirectorySample(dataset="VBSWWH_SS_c2v1p5_c3_1p0_UL18", location=_sig_location("c2v_1p5_c3_1p0", "VBSWWH_SS_VBSCuts_13TeV_TuneCP5_RunIISummer20UL18_NANOv15"), globber="*.root", use_xrootd=not _ON_HIPERGATOR),
-    # c2v=1.5, c3=1.0 -- VBSWZH
-    DirectorySample(dataset="VBSWZH_c2v1p5_c3_1p0_UL16APV", location=_sig_location("c2v_1p5_c3_1p0", "VBSWZH_VBSCuts_13TeV_TuneCP5_RunIISummer20UL16APV_NANOv15"), globber="*.root", use_xrootd=not _ON_HIPERGATOR),
-    DirectorySample(dataset="VBSWZH_c2v1p5_c3_1p0_UL16", location=_sig_location("c2v_1p5_c3_1p0", "VBSWZH_VBSCuts_13TeV_TuneCP5_RunIISummer20UL16_NANOv15"), globber="*.root", use_xrootd=not _ON_HIPERGATOR),
-    DirectorySample(dataset="VBSWZH_c2v1p5_c3_1p0_UL17", location=_sig_location("c2v_1p5_c3_1p0", "VBSWZH_VBSCuts_13TeV_TuneCP5_RunIISummer20UL17_NANOv15"), globber="*.root", use_xrootd=not _ON_HIPERGATOR),
-    DirectorySample(dataset="VBSWZH_c2v1p5_c3_1p0_UL18", location=_sig_location("c2v_1p5_c3_1p0", "VBSWZH_VBSCuts_13TeV_TuneCP5_RunIISummer20UL18_NANOv15"), globber="*.root", use_xrootd=not _ON_HIPERGATOR),
-    # c2v=1.5, c3=1.0 -- VBSZZH
-    DirectorySample(dataset="VBSZZH_c2v1p5_c3_1p0_UL16APV", location=_sig_location("c2v_1p5_c3_1p0", "VBSZZH_VBSCuts_13TeV_TuneCP5_RunIISummer20UL16APV_NANOv15"), globber="*.root", use_xrootd=not _ON_HIPERGATOR),
-    DirectorySample(dataset="VBSZZH_c2v1p5_c3_1p0_UL16", location=_sig_location("c2v_1p5_c3_1p0", "VBSZZH_VBSCuts_13TeV_TuneCP5_RunIISummer20UL16_NANOv15"), globber="*.root", use_xrootd=not _ON_HIPERGATOR),
-    DirectorySample(dataset="VBSZZH_c2v1p5_c3_1p0_UL17", location=_sig_location("c2v_1p5_c3_1p0", "VBSZZH_VBSCuts_13TeV_TuneCP5_RunIISummer20UL17_NANOv15"), globber="*.root", use_xrootd=not _ON_HIPERGATOR),
-    DirectorySample(dataset="VBSZZH_c2v1p5_c3_1p0_UL18", location=_sig_location("c2v_1p5_c3_1p0", "VBSZZH_VBSCuts_13TeV_TuneCP5_RunIISummer20UL18_NANOv15"), globber="*.root", use_xrootd=not _ON_HIPERGATOR),
-
-    # c2v=1.0, c3=10.0 -- VBSWWH_OS
-    DirectorySample(dataset="VBSWWH_OS_c2v1p0_c3_10p0_UL16APV", location=_sig_location("c2v_1p0_c3_10p0", "VBSWWH_OS_VBSCuts_13TeV_TuneCP5_RunIISummer20UL16APV_NANOv15"), globber="*.root", use_xrootd=not _ON_HIPERGATOR),
-    DirectorySample(dataset="VBSWWH_OS_c2v1p0_c3_10p0_UL16", location=_sig_location("c2v_1p0_c3_10p0", "VBSWWH_OS_VBSCuts_13TeV_TuneCP5_RunIISummer20UL16_NANOv15"), globber="*.root", use_xrootd=not _ON_HIPERGATOR),
-    DirectorySample(dataset="VBSWWH_OS_c2v1p0_c3_10p0_UL17", location=_sig_location("c2v_1p0_c3_10p0", "VBSWWH_OS_VBSCuts_13TeV_TuneCP5_RunIISummer20UL17_NANOv15"), globber="*.root", use_xrootd=not _ON_HIPERGATOR),
-    DirectorySample(dataset="VBSWWH_OS_c2v1p0_c3_10p0_UL18", location=_sig_location("c2v_1p0_c3_10p0", "VBSWWH_OS_VBSCuts_13TeV_TuneCP5_RunIISummer20UL18_NANOv15"), globber="*.root", use_xrootd=not _ON_HIPERGATOR),
-    # c2v=1.0, c3=10.0 -- VBSWWH_SS
-    DirectorySample(dataset="VBSWWH_SS_c2v1p0_c3_10p0_UL16APV", location=_sig_location("c2v_1p0_c3_10p0", "VBSWWH_SS_VBSCuts_13TeV_TuneCP5_RunIISummer20UL16APV_NANOv15"), globber="*.root", use_xrootd=not _ON_HIPERGATOR),
-    DirectorySample(dataset="VBSWWH_SS_c2v1p0_c3_10p0_UL16", location=_sig_location("c2v_1p0_c3_10p0", "VBSWWH_SS_VBSCuts_13TeV_TuneCP5_RunIISummer20UL16_NANOv15"), globber="*.root", use_xrootd=not _ON_HIPERGATOR),
-    DirectorySample(dataset="VBSWWH_SS_c2v1p0_c3_10p0_UL17", location=_sig_location("c2v_1p0_c3_10p0", "VBSWWH_SS_VBSCuts_13TeV_TuneCP5_RunIISummer20UL17_NANOv15"), globber="*.root", use_xrootd=not _ON_HIPERGATOR),
-    DirectorySample(dataset="VBSWWH_SS_c2v1p0_c3_10p0_UL18", location=_sig_location("c2v_1p0_c3_10p0", "VBSWWH_SS_VBSCuts_13TeV_TuneCP5_RunIISummer20UL18_NANOv15"), globber="*.root", use_xrootd=not _ON_HIPERGATOR),
-    # c2v=1.0, c3=10.0 -- VBSWZH
-    DirectorySample(dataset="VBSWZH_c2v1p0_c3_10p0_UL16APV", location=_sig_location("c2v_1p0_c3_10p0", "VBSWZH_VBSCuts_13TeV_TuneCP5_RunIISummer20UL16APV_NANOv15"), globber="*.root", use_xrootd=not _ON_HIPERGATOR),
-    DirectorySample(dataset="VBSWZH_c2v1p0_c3_10p0_UL16", location=_sig_location("c2v_1p0_c3_10p0", "VBSWZH_VBSCuts_13TeV_TuneCP5_RunIISummer20UL16_NANOv15"), globber="*.root", use_xrootd=not _ON_HIPERGATOR),
-    DirectorySample(dataset="VBSWZH_c2v1p0_c3_10p0_UL17", location=_sig_location("c2v_1p0_c3_10p0", "VBSWZH_VBSCuts_13TeV_TuneCP5_RunIISummer20UL17_NANOv15"), globber="*.root", use_xrootd=not _ON_HIPERGATOR),
-    DirectorySample(dataset="VBSWZH_c2v1p0_c3_10p0_UL18", location=_sig_location("c2v_1p0_c3_10p0", "VBSWZH_VBSCuts_13TeV_TuneCP5_RunIISummer20UL18_NANOv15"), globber="*.root", use_xrootd=not _ON_HIPERGATOR),
-    # c2v=1.0, c3=10.0 -- VBSZZH
-    DirectorySample(dataset="VBSZZH_c2v1p0_c3_10p0_UL16APV", location=_sig_location("c2v_1p0_c3_10p0", "VBSZZH_VBSCuts_13TeV_TuneCP5_RunIISummer20UL16APV_NANOv15"), globber="*.root", use_xrootd=not _ON_HIPERGATOR),
-    DirectorySample(dataset="VBSZZH_c2v1p0_c3_10p0_UL16", location=_sig_location("c2v_1p0_c3_10p0", "VBSZZH_VBSCuts_13TeV_TuneCP5_RunIISummer20UL16_NANOv15"), globber="*.root", use_xrootd=not _ON_HIPERGATOR),
-    DirectorySample(dataset="VBSZZH_c2v1p0_c3_10p0_UL17", location=_sig_location("c2v_1p0_c3_10p0", "VBSZZH_VBSCuts_13TeV_TuneCP5_RunIISummer20UL17_NANOv15"), globber="*.root", use_xrootd=not _ON_HIPERGATOR),
-    DirectorySample(dataset="VBSZZH_c2v1p0_c3_10p0_UL18", location=_sig_location("c2v_1p0_c3_10p0", "VBSZZH_VBSCuts_13TeV_TuneCP5_RunIISummer20UL18_NANOv15"), globber="*.root", use_xrootd=not _ON_HIPERGATOR),
-
-]
-
-
 nanoaodv15_run3_bkg = [
     DBSSample(dataset="/QCD_Bin-PT-50to80_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM"),
     DBSSample(dataset="/QCD_Bin-PT-80to120_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM"),
@@ -1418,6 +1402,47 @@ nanoaodv15_run2_sig = [
     DirectorySample(dataset="VBSZZH_c2v1p0_c3_10p0_UL16", location=_sig_location("c2v_1p0_c3_10p0", "VBSZZH_VBSCuts_13TeV_TuneCP5_RunIISummer20UL16_NANOv15"), globber="*.root", use_xrootd=not _ON_HIPERGATOR),
     DirectorySample(dataset="VBSZZH_c2v1p0_c3_10p0_UL17", location=_sig_location("c2v_1p0_c3_10p0", "VBSZZH_VBSCuts_13TeV_TuneCP5_RunIISummer20UL17_NANOv15"), globber="*.root", use_xrootd=not _ON_HIPERGATOR),
     DirectorySample(dataset="VBSZZH_c2v1p0_c3_10p0_UL18", location=_sig_location("c2v_1p0_c3_10p0", "VBSZZH_VBSCuts_13TeV_TuneCP5_RunIISummer20UL18_NANOv15"), globber="*.root", use_xrootd=not _ON_HIPERGATOR),
+
+]
+
+
+nanoaodv15_run3_sig = [
+
+    # c2v=1.0, c3=1.0 -- VBSWWH_OS
+    _make_run3_sig("VBSWWH_OS_c2v1p0_c3_1p0_Run3Summer24", "VBSWWH_OS_C2V_1p0_C3_1p0_13p6TeV_4f_LO_TuneCP5"),
+    # c2v=1.0, c3=1.0 -- VBSWWH_SS
+    _make_run3_sig("VBSWWH_SS_c2v1p0_c3_1p0_Run3Summer24", "VBSWWH_SS_C2V_1p0_C3_1p0_13p6TeV_4f_LO_TuneCP5"),
+    # c2v=1.0, c3=1.0 -- VBSWZH
+    _make_run3_sig("VBSWZH_c2v1p0_c3_1p0_Run3Summer24", "VBSWZH_C2V_1p0_C3_1p0_13p6TeV_4f_LO_TuneCP5"),
+    # c2v=1.0, c3=1.0 -- VBSZZH
+    _make_run3_sig("VBSZZH_c2v1p0_c3_1p0_Run3Summer24", "VBSZZH_C2V_1p0_C3_1p0_13p6TeV_4f_LO_TuneCP5"),
+
+    # c2v=1.5, c3=1.0 -- VBSWWH_OS
+    _make_run3_sig("VBSWWH_OS_c2v1p5_c3_1p0_Run3Summer24", "VBSWWH_OS_C2V_1p5_C3_1p0_13p6TeV_4f_LO_TuneCP5"),
+    # c2v=1.5, c3=1.0 -- VBSWWH_SS
+    _make_run3_sig("VBSWWH_SS_c2v1p5_c3_1p0_Run3Summer24", "VBSWWH_SS_C2V_1p5_C3_1p0_13p6TeV_4f_LO_TuneCP5"),
+    # c2v=1.5, c3=1.0 -- VBSWZH
+    _make_run3_sig("VBSWZH_c2v1p5_c3_1p0_Run3Summer24", "VBSWZH_C2V_1p5_C3_1p0_13p6TeV_4f_LO_TuneCP5"),
+    # c2v=1.5, c3=1.0 -- VBSZZH
+    _make_run3_sig("VBSZZH_c2v1p5_c3_1p0_Run3Summer24", "VBSZZH_C2V_1p5_C3_1p0_13p6TeV_4f_LO_TuneCP5"),
+
+    # c2v=2.0, c3=1.0 -- VBSWWH_OS
+    _make_run3_sig("VBSWWH_OS_c2v2p0_c3_1p0_Run3Summer24", "VBSWWH_OS_C2V_2p0_C3_1p0_13p6TeV_4f_LO_TuneCP5"),
+    # c2v=2.0, c3=1.0 -- VBSWWH_SS
+    _make_run3_sig("VBSWWH_SS_c2v2p0_c3_1p0_Run3Summer24", "VBSWWH_SS_C2V_2p0_C3_1p0_13p6TeV_4f_LO_TuneCP5"),
+    # c2v=2.0, c3=1.0 -- VBSWZH
+    _make_run3_sig("VBSWZH_c2v2p0_c3_1p0_Run3Summer24", "VBSWZH_C2V_2p0_C3_1p0_13p6TeV_4f_LO_TuneCP5"),
+    # c2v=2.0, c3=1.0 -- VBSZZH
+    _make_run3_sig("VBSZZH_c2v2p0_c3_1p0_Run3Summer24", "VBSZZH_C2V_2p0_C3_1p0_13p6TeV_4f_LO_TuneCP5"),
+
+    # c2v=1.0, c3=10.0 -- VBSWWH_OS
+    _make_run3_sig("VBSWWH_OS_c2v1p0_c3_10p0_Run3Summer24", "VBSWWH_OS_C2V_1p0_C3_10p0_13p6TeV_4f_LO_TuneCP5"),
+    # c2v=1.0, c3=10.0 -- VBSWWH_SS
+    _make_run3_sig("VBSWWH_SS_c2v1p0_c3_10p0_Run3Summer24", "VBSWWH_SS_C2V_1p0_C3_10p0_13p6TeV_4f_LO_TuneCP5"),
+    # c2v=1.0, c3=10.0 -- VBSWZH
+    _make_run3_sig("VBSWZH_c2v1p0_c3_10p0_Run3Summer24", "VBSWZH_C2V_1p0_C3_10p0_13p6TeV_4f_LO_TuneCP5"),
+    # c2v=1.0, c3=10.0 -- VBSZZH
+    _make_run3_sig("VBSZZH_c2v1p0_c3_10p0_Run3Summer24", "VBSZZH_C2V_1p0_C3_10p0_13p6TeV_4f_LO_TuneCP5"),
 
 ]
 
