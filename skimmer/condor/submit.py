@@ -5,6 +5,7 @@ import math
 import subprocess
 from datetime import datetime
 from time import sleep
+from concurrent.futures import ThreadPoolExecutor
 
 from metis.Sample import DBSSample, DirectorySample
 from metis.CondorTask import CondorTask
@@ -168,6 +169,8 @@ if __name__ == "__main__":
                         help="Comma-separated sample groups to submit (e.g. run2_sig,run2_bkg). Omit to submit ALL groups.")
     parser.add_argument("--version", type=str, default="v1",
                         help="Version suffix for unique_key (default: v1)")
+    parser.add_argument("--skim-name", type=str, default=None,
+                        help="Top-level skim directory name (default: VBSVVH_skim_{version})")
     parser.add_argument("--list-samples", action="store_true",
                         help="Print available sample groups and exit")
     parser.add_argument("--dry-run", action="store_true",
@@ -177,6 +180,11 @@ if __name__ == "__main__":
     parser.add_argument("--cpus-per-subjob", type=int, default=1,
                         help="CPUs per sub-job within a pack (default 1)")
     args = parser.parse_args()
+
+    # Auto-derive skim-name from version if not explicitly given
+    if args.skim_name is None:
+        args.skim_name = f"VBSVVH_skim_{args.version}"
+        print(f"[auto] skim-name = {args.skim_name}")
 
     # --list-samples: print registry and exit
     if args.list_samples:
@@ -289,18 +297,18 @@ if __name__ == "__main__":
                         files_per_output=fpo,
                         output_name="output.root",
                         tag=tag,
-                        max_jobs=njobs_to_process(dsname),
+                        max_jobs=-1,
                         cmssw_version=cmssw_version,
                         scram_arch=scram_arch,
                         tarfile=f"{condorpath}/package.tar.xz",
                         # recopy_inputs=True, # Force re-copy tarball to task dirs (comment out when not needed)
-                        special_dir=f"skim/{tag}",
+                        special_dir=f"skim/{args.skim_name}/{tag}",
                         min_completion_fraction=0.50 if skip_tail else 1.0,
                     )
 
                     if args.scheduler == "slurm":
                         dsname_flat = ds.get_datasetname().replace("/", "_").lstrip("_")
-                        slurm_output_dir = f"/cmsuf/data/store/user/phchang/skim/{tag}/{dsname_flat}/"
+                        slurm_output_dir = f"/cmsuf/data/store/user/phchang/skim/{args.skim_name}/{tag}/{dsname_flat}/"
                         task = SLURMTask(
                             **common_kwargs,
                             output_dir=slurm_output_dir,
@@ -379,23 +387,45 @@ if __name__ == "__main__":
                 memory=f"{args.pack_size * 2}gb",
             )
             print(f"\n=== Packed submission: {len(packed_tasks)} tasks, pack_size={args.pack_size}, cpus_per_subjob={args.cpus_per_subjob} ===")
-            submitter.process(packed_tasks_only)
+            submitter.process(packed_tasks_only, max_submitted=MAX_SUBMITTED)
             # Re-cache squeue after submission (new jobs now in queue)
+            print(f"  [status] Re-caching squeue ...")
             cached_all_jobs = slurm_q()
-            # Re-check completion and re-capture summaries after submission
-            for task, ukey, skey in packed_tasks:
-                all_tasks_complete = all_tasks_complete and task.complete()
-                if ukey not in task_summaries:
-                    task_summaries[ukey] = {}
-                task_summaries[ukey][skey] = task.get_task_summary(cached_all_jobs=cached_all_jobs)
+            # Re-check completion and re-capture summaries (threaded for speed)
+            from metis.SLURMTask import SLURMTask
+            SLURMTask.clear_manifest_cache()
+            ntotal = len(packed_tasks)
+            print(f"  [status] Building task summaries for {ntotal} tasks (threaded) ...")
+
+            def _build_summary(args):
+                itask, task, ukey, skey = args
+                is_complete = task.complete()
+                summary = task.get_task_summary(cached_all_jobs=cached_all_jobs)
+                return itask, task, ukey, skey, is_complete, summary
+
+            with ThreadPoolExecutor(max_workers=16) as executor:
+                results = executor.map(_build_summary,
+                    [(i, t, u, s) for i, (t, u, s) in enumerate(packed_tasks)])
+                for itask, task, ukey, skey, is_complete, summary in results:
+                    print(f"\r  [status] Task summary {itask+1}/{ntotal}", end="", flush=True)
+                    all_tasks_complete = all_tasks_complete and is_complete
+                    if ukey not in task_summaries:
+                        task_summaries[ukey] = {}
+                    task_summaries[ukey][skey] = summary
+            print()  # newline after progress
 
         # ------------------------------------------------------------------
         # Generate JSON summaries and dashboards per tag
         # ------------------------------------------------------------------
+        total_dashboards = sum(len(tags) for _, tags in all_unique_keys_and_tags)
+        idash = 0
+        print(f"  [status] Generating {total_dashboards} dashboards ...")
         for unique_key, analysis_tags in all_unique_keys_and_tags:
             key_summary = task_summaries.get(unique_key, {})
 
             for analysis_tag in analysis_tags:
+                idash += 1
+                print(f"  [status] Dashboard {idash}/{total_dashboards}: {unique_key}/{analysis_tag}")
 
                 # Filter summary for this tag (scoped to this unique_key)
                 tag_summary = {k: v for k, v in key_summary.items() if k.endswith(f"_{analysis_tag}")}
@@ -404,7 +434,12 @@ if __name__ == "__main__":
                 os.makedirs(webdir, exist_ok=True)
                 os.system(f"rm -f {webdir}/web_summary.json")
 
-                StatsParser(data=tag_summary, webdir=webdir, summary_fname=f"{webdir}/summary.json", wsummary_name=f"{webdir}/web_summary.json").do()
+                # Remove corrupted/empty summary files before StatsParser reads them
+                summary_path = f"{webdir}/summary.json"
+                if os.path.isfile(summary_path) and os.path.getsize(summary_path) == 0:
+                    os.remove(summary_path)
+
+                StatsParser(data=tag_summary, webdir=webdir, summary_fname=summary_path, wsummary_name=f"{webdir}/web_summary.json").do()
 
                 os.system("chmod -R 755 {}".format(webdir))
                 os.system(f"msummary -r -i {webdir}/web_summary.json")

@@ -13,6 +13,6 @@ git rev-parse HEAD >> gitversion.txt
 git log >> gitversion.txt
 git diff >> gitversion.txt
 
-tar -chJf $DIR/package.tar.xz skim data gitversion.txt
+tar -chJf $DIR/package.tar.xz --exclude='*.root' skim data gitversion.txt
 
 rm gitversion.txt

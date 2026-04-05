@@ -106,6 +106,8 @@ if [[ ${INPUTFILENAMES} == *"ULSignalSamples"* ]]; then
 else
     ##########################################################
     #UNCOMMENT TO COPY FAILING FILES DIRECTLY TO CONDOR NODE
+    MAX_RETRIES=6
+    RETRY_SLEEP=30
     echo "Before XRootD copy"
     echo INPUTFILENAMES=${INPUTFILENAMES}
     LOCALINPUTFILENAMES=""
@@ -114,11 +116,29 @@ else
         dest=$(dirname $fulldest)
         mkdir -p ${dest}
         echo ${dest}
-        echo xrdcp ${INPUTFILE} ${dest}
-        xrdcp ${INPUTFILE} ${dest}
-        XRDCP_STATUS=$?
+        XRDCP_STATUS=1
+        for (( xrdcp_attempt=1; xrdcp_attempt<=MAX_RETRIES; xrdcp_attempt++ )); do
+            # Redirector fallback: FNAL (1-2) -> UNL (3) -> CMS Global (4-6)
+            if [ ${xrdcp_attempt} -le 2 ]; then
+                XRDCP_FILE=${INPUTFILE}
+            elif [ ${xrdcp_attempt} -eq 3 ]; then
+                XRDCP_FILE=${INPUTFILE//cmsxrootd.fnal.gov/xrootd.unl.edu}
+                echo "[xrdcp] Switching to UNL redirector"
+            else
+                XRDCP_FILE=${INPUTFILE//cmsxrootd.fnal.gov/cms-xrd-global.cern.ch}
+                [ ${xrdcp_attempt} -eq 4 ] && echo "[xrdcp] Switching to CMS global redirector"
+            fi
+            echo "[xrdcp] Attempt ${xrdcp_attempt}/${MAX_RETRIES}: xrdcp ${XRDCP_FILE} ${dest}"
+            xrdcp ${XRDCP_FILE} ${dest}
+            XRDCP_STATUS=$?
+            if [ ${XRDCP_STATUS} == 0 ]; then
+                break
+            fi
+            echo "[xrdcp] Failed (exit ${XRDCP_STATUS}), sleeping ${RETRY_SLEEP}s"
+            sleep ${RETRY_SLEEP}
+        done
         if [ ${XRDCP_STATUS} != 0 ]; then
-            echo "ERROR: xrdcp failed with exit code ${XRDCP_STATUS} for ${INPUTFILE}"
+            echo "ERROR: xrdcp failed after ${MAX_RETRIES} attempts for ${INPUTFILE}"
             exit 1
         fi
         if [ -z ${LOCALINPUTFILENAMES} ]; then

@@ -163,8 +163,18 @@ while IFS=$'\t' read -r TASK_NAME SUBJOB_INDEX SUBJOB_ARGS; do
                 mkdir -p ${dest}
                 XRDCP_STATUS=1
                 for (( xrdcp_attempt=1; xrdcp_attempt<=MAX_RETRIES; xrdcp_attempt++ )); do
-                    echo "[packed][${LABEL}] xrdcp attempt ${xrdcp_attempt}/${MAX_RETRIES}: ${INPUTFILE}"
-                    xrdcp ${INPUTFILE} ${dest}
+                    # Redirector fallback: FNAL (1-2) -> UNL (3) -> CMS Global (4-6)
+                    if [ ${xrdcp_attempt} -le 2 ]; then
+                        XRDCP_FILE=${INPUTFILE}
+                    elif [ ${xrdcp_attempt} -eq 3 ]; then
+                        XRDCP_FILE=${INPUTFILE//cmsxrootd.fnal.gov/xrootd.unl.edu}
+                        echo "[packed][${LABEL}] Switching to UNL redirector"
+                    else
+                        XRDCP_FILE=${INPUTFILE//cmsxrootd.fnal.gov/cms-xrd-global.cern.ch}
+                        [ ${xrdcp_attempt} -eq 4 ] && echo "[packed][${LABEL}] Switching to CMS global redirector"
+                    fi
+                    echo "[packed][${LABEL}] xrdcp attempt ${xrdcp_attempt}/${MAX_RETRIES}: ${XRDCP_FILE}"
+                    xrdcp ${XRDCP_FILE} ${dest}
                     XRDCP_STATUS=$?
                     if [ ${XRDCP_STATUS} == 0 ]; then
                         break
@@ -367,9 +377,13 @@ MERGEEOF
         fi
 
         # Sweeproot
-        python3 << EOL
-import ROOT as r
-import os
+        python3 -u << SWEEPEOF
+import sys, os
+try:
+    import ROOT as r
+except ImportError:
+    print("[packed][${LABEL}][RSR] ERROR: cannot import ROOT, skipping sweeproot", file=sys.stderr)
+    sys.exit(1)
 foundBad = False
 try:
     f1 = r.TFile("${OUTPUTNAME}.root")
@@ -386,12 +400,26 @@ if foundBad:
     os.system("rm ${OUTPUTNAME}.root")
 else:
     print("[packed][${LABEL}][RSR] passed sweeproot")
-EOL
+SWEEPEOF
+        SWEEP_RET=$?
+        if [ ${SWEEP_RET} != 0 ]; then
+            echo "[packed][${LABEL}] WARNING: sweeproot failed (exit ${SWEEP_RET}), removing output as precaution"
+            rm -f ${OUTPUTNAME}.root
+        fi
         subjob_timer "Sweeproot done"
 
-        # Runs summary
-        python3 << RUNSEOF
-import ROOT as r
+        # Runs summary (with retry)
+        RUNS_MAX_RETRIES=3
+        for (( runs_attempt=1; runs_attempt<=RUNS_MAX_RETRIES; runs_attempt++ )); do
+            echo "[packed][${LABEL}] runs_summary attempt ${runs_attempt}/${RUNS_MAX_RETRIES}"
+            rm -f runs_summary.json runs_summary.tmp.json
+            python3 -u << RUNSEOF
+import sys
+try:
+    import ROOT as r
+except ImportError:
+    print("[packed][${LABEL}][runs] ERROR: cannot import ROOT, skipping runs_summary", file=sys.stderr)
+    sys.exit(1)
 import json, os
 
 fname = "${OUTPUTNAME}.root"
@@ -430,12 +458,56 @@ if os.path.isfile(fname):
     f.Close()
 
 if out:
-    with open("runs_summary.json", "w") as jf:
-        json.dump(out, jf, indent=2)
+    # Ensure all values are JSON-serializable (convert ROOT types)
+    for k, v in out.items():
+        if isinstance(v, list):
+            out[k] = [float(x) for x in v]
+        elif isinstance(v, float) or hasattr(v, '__float__'):
+            out[k] = float(v)
+        elif isinstance(v, int) or hasattr(v, '__int__'):
+            out[k] = int(v)
+    try:
+        with open("runs_summary.tmp.json", "w") as jf:
+            json.dump(out, jf, indent=2)
+        os.rename("runs_summary.tmp.json", "runs_summary.json")
+    except Exception as e:
+        print("[packed][${LABEL}][runs] ERROR: failed to write JSON:", e, file=sys.stderr)
+        if os.path.exists("runs_summary.tmp.json"):
+            os.remove("runs_summary.tmp.json")
     if "genEventCount" in out:
         print("[packed][${LABEL}][runs] genEventCount:", out["genEventCount"])
     print("[packed][${LABEL}][runs] eventCount:", out.get("eventCount"))
 RUNSEOF
+            RUNS_RET=$?
+            if [ ${RUNS_RET} != 0 ]; then
+                echo "[packed][${LABEL}] WARNING: runs_summary failed (exit ${RUNS_RET})"
+            fi
+            # Validate runs_summary.json if it exists
+            if [ -f "runs_summary.json" ]; then
+                if [ ! -s "runs_summary.json" ]; then
+                    echo "[packed][${LABEL}] WARNING: runs_summary.json is empty (0 bytes), removing"
+                    rm -f runs_summary.json
+                else
+                    python3 -c "import json; json.load(open('runs_summary.json'))" 2>/dev/null
+                    if [ $? != 0 ]; then
+                        echo "[packed][${LABEL}] WARNING: runs_summary.json is invalid JSON, removing"
+                        rm -f runs_summary.json
+                    fi
+                fi
+            fi
+            # If valid JSON exists, we're done
+            if [ -f "runs_summary.json" ]; then
+                echo "[packed][${LABEL}] runs_summary.json OK (attempt ${runs_attempt})"
+                break
+            fi
+            # Retry unless last attempt
+            if [ ${runs_attempt} -lt ${RUNS_MAX_RETRIES} ]; then
+                echo "[packed][${LABEL}] Retrying runs_summary in 5s..."
+                sleep 5
+            else
+                echo "[packed][${LABEL}] WARNING: runs_summary failed after ${RUNS_MAX_RETRIES} attempts, no runs_summary.json will be produced"
+            fi
+        done
         subjob_timer "Runs summary done"
 
         # Copy output to destination
