@@ -16,54 +16,58 @@ def _sig_location(coupling, leaf):
 
 _ON_HIPERGATOR = "ufhpc" in socket.getfqdn()
 
-_RUN3_SIG_BASE = "/ceph/cms/store/user/aaarora/run3-vbs-signal-shared/signal_4f_Inclusive/NANOAOD/Run3Summer24"
-def _run3_sig_location(leaf):
+_RUN3_SIG_BASES = {
+    "main": "/ceph/cms/store/user/aaarora/run3-vbs-signal-shared/signal_4f_Inclusive/NANOAOD/Run3Summer24",
+    "aux":  "/ceph/cms/store/user/aaarora/run3-vbs-signal-shared/signal_4f_Inclusive_AUX/NANOAOD/Run3Summer24",
+}
+def _run3_sig_location(leaf, base_key="main"):
     """Return Run3 signal sample directory path."""
-    return f"{_RUN3_SIG_BASE}/{leaf}"
+    return f"{_RUN3_SIG_BASES[base_key]}/{leaf}"
 
 def _discover_run3_sig_files():
-    """SSH to uaf-2 to discover all run3_sig .root files. Returns {leaf_dir: [xrd_paths]}."""
-    try:
-        result = subprocess.run(
-            ["ssh", "-o", "BatchMode=yes", "-o", "ConnectTimeout=10", "uaf-2",
-             f"find {_RUN3_SIG_BASE} -name '*.root' -type f"],
-            capture_output=True, text=True, timeout=30,
-        )
-        if result.returncode != 0:
-            print(f"WARNING: SSH file discovery failed: {result.stderr.strip()}")
-            return {}
-        files_by_leaf = {}
-        for line in result.stdout.strip().split("\n"):
-            if not line:
+    """SSH to uaf-2 to discover all run3_sig .root files. Returns {base_key: {leaf_dir: [xrd_paths]}}."""
+    files_by_base = {k: {} for k in _RUN3_SIG_BASES}
+    for base_key, base in _RUN3_SIG_BASES.items():
+        try:
+            result = subprocess.run(
+                ["ssh", "-o", "BatchMode=yes", "-o", "ConnectTimeout=10", "uaf-2",
+                 f"find {base} -name '*.root' -type f"],
+                capture_output=True, text=True, timeout=30,
+            )
+            if result.returncode != 0:
+                print(f"WARNING: SSH file discovery failed for {base_key}: {result.stderr.strip()}")
                 continue
-            # /ceph/cms/store/user/.../Run3Summer24/<leaf>/<uuid>.root
-            # Transform to /store/user/... for xrootd (slurm_executable.sh adds root://cmsxrootd.fnal.gov/)
-            parts = line.split("/Run3Summer24/")
-            if len(parts) != 2:
-                continue
-            leaf = parts[1].split("/")[0]
-            xrd_path = line.replace("/ceph/cms", "")
-            files_by_leaf.setdefault(leaf, []).append(xrd_path)
-        for leaf in files_by_leaf:
-            files_by_leaf[leaf].sort()
-        return files_by_leaf
-    except Exception as e:
-        print(f"WARNING: SSH file discovery exception: {e}")
-        return {}
+            split_token = base.split("/")[-1]  # "Run3Summer24"
+            for line in result.stdout.strip().split("\n"):
+                if not line:
+                    continue
+                # /ceph/cms/store/user/.../<split_token>/<leaf>/<uuid>.root
+                # Transform to /store/user/... for xrootd (slurm_executable.sh adds root://cmsxrootd.fnal.gov/)
+                parts = line.split(f"/{split_token}/")
+                if len(parts) != 2:
+                    continue
+                leaf = parts[1].split("/")[0]
+                xrd_path = line.replace("/ceph/cms", "")
+                files_by_base[base_key].setdefault(leaf, []).append(xrd_path)
+            for leaf in files_by_base[base_key]:
+                files_by_base[base_key][leaf].sort()
+        except Exception as e:
+            print(f"WARNING: SSH file discovery exception for {base_key}: {e}")
+    return files_by_base
 
 # Discover run3_sig files at import time on HiperGator
-_run3_sig_files = _discover_run3_sig_files() if _ON_HIPERGATOR else {}
+_run3_sig_files = _discover_run3_sig_files() if _ON_HIPERGATOR else {k: {} for k in _RUN3_SIG_BASES}
 
-def _make_run3_sig(dsname, leaf):
+def _make_run3_sig(dsname, leaf, base_key="main"):
     """Create a run3_sig sample: FilelistSample with xrootd paths on HiperGator, DirectorySample elsewhere."""
     if _ON_HIPERGATOR:
-        filelist = _run3_sig_files.get(leaf, [])
+        filelist = _run3_sig_files.get(base_key, {}).get(leaf, [])
         if not filelist:
-            print(f"WARNING: No files found for run3_sig {leaf}, using empty FilelistSample")
+            print(f"WARNING: No files found for run3_sig {base_key}:{leaf}, using empty FilelistSample")
         return FilelistSample(dataset=dsname, filelist=filelist)
     else:
         return DirectorySample(
-            dataset=dsname, location=_run3_sig_location(leaf),
+            dataset=dsname, location=_run3_sig_location(leaf, base_key),
             globber="*.root", use_xrootd=True,
         )
 
@@ -1336,6 +1340,9 @@ nanoaodv15_run3_bkg = [
     DBSSample(dataset="/GluGlutoContinto2Zto4E_TuneCP5_13p6TeV_mcfm-pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM"),
     DBSSample(dataset="/GluGlutoContinto2Zto4Mu_TuneCP5_13p6TeV_mcfm-pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM"),
     DBSSample(dataset="/GluGlutoContinto2Zto4Tau_TuneCP5_13p6TeV_mcfm-pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM"),
+    DBSSample(dataset="/DYto2E-2Jets_Bin-MLL-50_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v4/NANOAODSIM"),
+    DBSSample(dataset="/DYto2Mu-2Jets_Bin-MLL-50_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v6/NANOAODSIM"),
+    DBSSample(dataset="/DYto2Tau-2Jets_Bin-MLL-50_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v7/NANOAODSIM"),
 ]
 
 nanoaodv15_run2_sig = [
@@ -1443,6 +1450,28 @@ nanoaodv15_run3_sig = [
     _make_run3_sig("VBSWZH_c2v1p0_c3_10p0_Run3Summer24", "VBSWZH_C2V_1p0_C3_10p0_13p6TeV_4f_LO_TuneCP5"),
     # c2v=1.0, c3=10.0 -- VBSZZH
     _make_run3_sig("VBSZZH_c2v1p0_c3_10p0_Run3Summer24", "VBSZZH_C2V_1p0_C3_10p0_13p6TeV_4f_LO_TuneCP5"),
+
+    # ---- AUX (extra stats, signal_4f_Inclusive_AUX) ----
+    # c2v=1.0, c3=1.0
+    _make_run3_sig("VBSWWH_OS_c2v1p0_c3_1p0_Run3Summer24_ext1", "VBSWWH_OS_C2V_1p0_C3_1p0_13p6TeV_4f_LO_TuneCP5", base_key="aux"),
+    _make_run3_sig("VBSWWH_SS_c2v1p0_c3_1p0_Run3Summer24_ext1", "VBSWWH_SS_C2V_1p0_C3_1p0_13p6TeV_4f_LO_TuneCP5", base_key="aux"),
+    _make_run3_sig("VBSWZH_c2v1p0_c3_1p0_Run3Summer24_ext1",    "VBSWZH_C2V_1p0_C3_1p0_13p6TeV_4f_LO_TuneCP5",    base_key="aux"),
+    _make_run3_sig("VBSZZH_c2v1p0_c3_1p0_Run3Summer24_ext1",    "VBSZZH_C2V_1p0_C3_1p0_13p6TeV_4f_LO_TuneCP5",    base_key="aux"),
+    # c2v=1.5, c3=1.0
+    _make_run3_sig("VBSWWH_OS_c2v1p5_c3_1p0_Run3Summer24_ext1", "VBSWWH_OS_C2V_1p5_C3_1p0_13p6TeV_4f_LO_TuneCP5", base_key="aux"),
+    _make_run3_sig("VBSWWH_SS_c2v1p5_c3_1p0_Run3Summer24_ext1", "VBSWWH_SS_C2V_1p5_C3_1p0_13p6TeV_4f_LO_TuneCP5", base_key="aux"),
+    _make_run3_sig("VBSWZH_c2v1p5_c3_1p0_Run3Summer24_ext1",    "VBSWZH_C2V_1p5_C3_1p0_13p6TeV_4f_LO_TuneCP5",    base_key="aux"),
+    _make_run3_sig("VBSZZH_c2v1p5_c3_1p0_Run3Summer24_ext1",    "VBSZZH_C2V_1p5_C3_1p0_13p6TeV_4f_LO_TuneCP5",    base_key="aux"),
+    # c2v=2.0, c3=1.0
+    _make_run3_sig("VBSWWH_OS_c2v2p0_c3_1p0_Run3Summer24_ext1", "VBSWWH_OS_C2V_2p0_C3_1p0_13p6TeV_4f_LO_TuneCP5", base_key="aux"),
+    _make_run3_sig("VBSWWH_SS_c2v2p0_c3_1p0_Run3Summer24_ext1", "VBSWWH_SS_C2V_2p0_C3_1p0_13p6TeV_4f_LO_TuneCP5", base_key="aux"),
+    _make_run3_sig("VBSWZH_c2v2p0_c3_1p0_Run3Summer24_ext1",    "VBSWZH_C2V_2p0_C3_1p0_13p6TeV_4f_LO_TuneCP5",    base_key="aux"),
+    _make_run3_sig("VBSZZH_c2v2p0_c3_1p0_Run3Summer24_ext1",    "VBSZZH_C2V_2p0_C3_1p0_13p6TeV_4f_LO_TuneCP5",    base_key="aux"),
+    # c2v=1.0, c3=10.0
+    _make_run3_sig("VBSWWH_OS_c2v1p0_c3_10p0_Run3Summer24_ext1", "VBSWWH_OS_C2V_1p0_C3_10p0_13p6TeV_4f_LO_TuneCP5", base_key="aux"),
+    _make_run3_sig("VBSWWH_SS_c2v1p0_c3_10p0_Run3Summer24_ext1", "VBSWWH_SS_C2V_1p0_C3_10p0_13p6TeV_4f_LO_TuneCP5", base_key="aux"),
+    _make_run3_sig("VBSWZH_c2v1p0_c3_10p0_Run3Summer24_ext1",    "VBSWZH_C2V_1p0_C3_10p0_13p6TeV_4f_LO_TuneCP5",    base_key="aux"),
+    _make_run3_sig("VBSZZH_c2v1p0_c3_10p0_Run3Summer24_ext1",    "VBSZZH_C2V_1p0_C3_10p0_13p6TeV_4f_LO_TuneCP5",    base_key="aux"),
 
 ]
 

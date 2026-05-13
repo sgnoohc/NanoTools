@@ -43,7 +43,7 @@ Arbusto::~Arbusto()
 void Arbusto::init(TTree* next_ttree)
 {
     // Disable all branches
-    next_ttree->SetBranchStatus("*", remove_branches); 
+    next_ttree->SetBranchStatus("*", remove_branches);
     // Enable selected branches
     for (auto branch_name : branch_names)
     {
@@ -51,6 +51,29 @@ void Arbusto::init(TTree* next_ttree)
     }
     next_ttree->CopyAddresses(ttree);
     orig_ttree = next_ttree;
+
+    // Reset output buffers for any branch absent from the new input file, so
+    // events from this file don't inherit stale values from the previous file.
+    TObjArray* out_branches = ttree->GetListOfBranches();
+    if (out_branches)
+    {
+        for (int i = 0; i < out_branches->GetEntries(); ++i)
+        {
+            TBranch* out_br = static_cast<TBranch*>(out_branches->At(i));
+            if (!out_br) continue;
+            if (next_ttree->GetBranch(out_br->GetName())) continue; // present in input → GetEntry will fill
+            void* addr = out_br->GetAddress();
+            if (!addr) continue;
+            TObjArray* leaves = out_br->GetListOfLeaves();
+            if (!leaves || leaves->GetEntries() != 1) continue; // only simple, single-leaf POD branches
+            TLeaf* leaf = static_cast<TLeaf*>(leaves->At(0));
+            if (!leaf) continue;
+            int unit = leaf->GetLenType();
+            int len  = leaf->GetLen();
+            if (unit <= 0 || len <= 0) continue; // skip non-POD / variable-size object branches
+            std::memset(addr, 0, static_cast<size_t>(unit) * static_cast<size_t>(len));
+        }
+    }
 }
 
 void Arbusto::fill(int entry)

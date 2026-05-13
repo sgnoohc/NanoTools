@@ -150,6 +150,31 @@ int main(int argc, char **argv)
 
                 // If it reaches here then save the event
                 counter_passAllHad++;
+                {
+                    TBranch* dbg_br = arbusto.ttree->GetBranch("HLT_IsoMu22_eta2p1");
+                    if (dbg_br && dbg_br->GetAddress())
+                    {
+                        bool dbg_val = *reinterpret_cast<bool*>(dbg_br->GetAddress());
+                        std::cout << std::endl;
+                        std::cout << std::endl;
+                        std::cout << "[DEBUG] entry=" << entry
+                                  << " out HLT_IsoMu22_eta2p1=" << dbg_val
+                                  << " (file=" << arbusto.ttree->GetCurrentFile()->GetName() << ")"
+                                  << std::endl;
+                        std::cout << std::endl;
+                        std::cout << std::endl;
+                    }
+                    else
+                    {
+                        std::cout << std::endl;
+                        std::cout << std::endl;
+                        std::cout << "[DEBUG] entry=" << entry
+                                  << " out HLT_IsoMu22_eta2p1 branch/address missing"
+                                  << std::endl;
+                        std::cout << std::endl;
+                        std::cout << std::endl;
+                    }
+                }
                 arbusto.fill(entry);
             }
         });

@@ -136,7 +136,7 @@ ALL_CHANNELS = [
 # Hadronic PDs (Run3): JetMET, JetMET0, JetMET1
 LEPTON_PDS = {"MuonEG", "DoubleEG", "DoubleMuon", "SingleMuon", "EGamma", "SingleElectron",
               "Muon", "Muon0", "Muon1", "EGamma0", "EGamma1"}
-HADRONIC_PDS = {"MET", "JetHT", "JetMET", "JetMET0", "JetMET1"}
+HADRONIC_PDS = {"MET", "JetHT", "JetMET", "JetMET0", "JetMET1", "SingleMuon"}
 
 CHANNEL_PDS = {
     "4Lep": LEPTON_PDS,

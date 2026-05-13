@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Regenerate runs_summary JSON files for jobs that have 0-byte JSONs
+Regenerate runs_summary JSON files for jobs that have missing or 0-byte JSONs
 but valid ROOT output files. Operates in-place on the output directory.
 
 Usage:
@@ -19,8 +19,8 @@ from concurrent.futures import ProcessPoolExecutor, as_completed
 SKIM_BASE = "/cmsuf/data/store/user/phchang/skim"
 
 
-def find_zero_byte_runs_summaries(output_base):
-    """Walk the output tree and return list of (json_path, root_path) for 0-byte JSONs."""
+def find_bad_runs_summaries(output_base):
+    """Walk the output tree and return list of (json_path, root_path) for 0-byte or missing JSONs."""
     pairs = []
     for campaign in sorted(os.listdir(output_base)):
         cp = os.path.join(output_base, campaign)
@@ -31,15 +31,16 @@ def find_zero_byte_runs_summaries(output_base):
             if not os.path.isdir(dp):
                 continue
             for f in sorted(os.listdir(dp)):
-                if f.startswith("runs_summary_") and f.endswith(".json"):
-                    fp = os.path.join(dp, f)
-                    if os.path.getsize(fp) == 0:
-                        idx = f.replace("runs_summary_", "").replace(".json", "")
-                        root_path = os.path.join(dp, f"output_{idx}.root")
-                        if os.path.exists(root_path) and os.path.getsize(root_path) > 0:
-                            pairs.append((fp, root_path))
-                        else:
-                            print(f"  SKIP (no valid ROOT): {fp}")
+                if f.startswith("output_") and f.endswith(".root"):
+                    idx = f.replace("output_", "").replace(".root", "")
+                    root_path = os.path.join(dp, f)
+                    json_path = os.path.join(dp, f"runs_summary_{idx}.json")
+                    if os.path.getsize(root_path) == 0:
+                        continue
+                    if not os.path.exists(json_path) or os.path.getsize(json_path) == 0:
+                        reason = "missing" if not os.path.exists(json_path) else "0-byte"
+                        print(f"  Found {reason} JSON for {os.path.relpath(root_path, output_base)}")
+                        pairs.append((json_path, root_path))
     return pairs
 
 
@@ -148,8 +149,8 @@ def main():
         print("=== EXECUTING: will overwrite 0-byte JSON files ===\n")
 
     print(f"Scanning {output_base} ...")
-    pairs = find_zero_byte_runs_summaries(output_base)
-    print(f"Found {len(pairs)} zero-byte runs_summary files with valid ROOT outputs\n")
+    pairs = find_bad_runs_summaries(output_base)
+    print(f"Found {len(pairs)} missing/zero-byte runs_summary files with valid ROOT outputs\n")
 
     if not pairs:
         print("Nothing to do.")

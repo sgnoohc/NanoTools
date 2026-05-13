@@ -33,7 +33,7 @@ typedef ROOT::Math::LorentzVector<ROOT::Math::PtEtaPhiM4D<float> > LorentzVector
 #define NGENISOLATEDPHOTON_MAX 15 // for GenIsolatedPhoton_* collection
 #define NGENJETAK8_MAX 24 // for GenJetAK8_* collection
 #define NGENJET_MAX 250 // for GenJet_* collection
-#define NGENPART_MAX 402 // for GenPart_* collection
+#define NGENPART_MAX 602 // for GenPart_* collection
 #define NGENPROTON_MAX 39 // for GenProton_* collection
 #define NGENVISTAU_MAX 12 // for GenVisTau_* collection
 #define NISOTRACK_MAX 80 // for IsoTrack_* collection
@@ -52,7 +52,7 @@ typedef ROOT::Math::LorentzVector<ROOT::Math::PtEtaPhiM4D<float> > LorentzVector
 #define NSV_MAX 24 // for SV_* collection
 #define NSOFTACTIVITYJET_MAX 21 // for SoftActivityJet_* collection
 #define NSUBGENJETAK8_MAX 42 // for SubGenJetAK8_* collection
-#define NSUBJET_MAX 33 // for SubJet_* collection
+#define NSUBJET_MAX 63 // for SubJet_* collection
 #define NTAU_MAX 90 // for Tau_* collection
 #define NTRIGOBJ_MAX 117 // for TrigObj_* collection
 #define NWCNAMES_MAX 42 // for WCnames_* collection

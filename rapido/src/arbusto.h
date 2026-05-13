@@ -2,6 +2,10 @@
 #define ARBUSTO_H
 
 #include "TChain.h"
+#include "TBranch.h"
+#include "TLeaf.h"
+#include "TObjArray.h"
+#include <cstring>
 
 #include "arbol.h"
 #include "hepcli.h"
