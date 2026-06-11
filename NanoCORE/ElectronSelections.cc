@@ -473,6 +473,8 @@ bool WWZ::electron2022ID(int idx, WWZ::IDLevel id_level) {
 }
 
 bool VVH::electronID(int idx, VVH::IDLevel id_level, int year) {
+    // IDskim is year-agnostic (mirrors cmstas/run3-vbsvvh _looseElectrons)
+    if (id_level == VVH::IDskim) return VVH::electronIDskim(idx);
     // Year-specific checks
     switch (year) {
     case (2016):
@@ -551,5 +553,23 @@ bool VVH::electron2024ID(int idx, VVH::IDLevel id_level) {
     if (not (fabs(Electron_dz().at(idx))         <      0.1  )) return false;
     if (not (fabs(Electron_sip3d().at(idx))      <      8    )) return false;
     if (not (Electron_pfRelIso03_all().at(idx)   <      0.40 )) return false;
+    return true;
+}
+// Year-agnostic skim WP. Mirrors cmstas/run3-vbsvvh _looseElectrons
+// (preselection/src/selections.cpp): cutBased >= 2 with SC-eta and split
+// barrel/endcap impact-parameter cuts.
+bool VVH::electronIDskim(int idx) {
+    float sc_eta = Electron_eta().at(idx) + Electron_deltaEtaSC().at(idx);
+    float abs_sc_eta = fabs(sc_eta);
+    if (not (Electron_pt().at(idx) > 10.))        return false;
+    if (not (abs_sc_eta             < 2.5))       return false;
+    if (abs_sc_eta <= 1.479) {
+        if (not (fabs(Electron_dxy().at(idx)) <= 0.05)) return false;
+        if (not (fabs(Electron_dz().at(idx))  <  0.1 )) return false;
+    } else {
+        if (not (fabs(Electron_dxy().at(idx)) <= 0.1 )) return false;
+        if (not (fabs(Electron_dz().at(idx))  <  0.2 )) return false;
+    }
+    if (not (Electron_cutBased().at(idx) >= 2)) return false;
     return true;
 }

@@ -301,7 +301,7 @@ protected:
     bool loaded_Electron_convVeto_;
     unsigned int counter_cached_Electron_convVeto_;
     unsigned int counter_uncached_Electron_convVeto_;
-    int Electron_cutBased_[NELECTRON_MAX];
+    UChar_t Electron_cutBased_[NELECTRON_MAX]; // UChar_t on disk since NanoAODv12 (was Int_t); vector<int> API unchanged
     vector<int> v_Electron_cutBased_;
     TBranch *b_Electron_cutBased_;
     bool loaded_Electron_cutBased_;

@@ -40,6 +40,10 @@ class LeptonSelection : public ObjectSelection
 
     bool passVVHVetoMuonID(unsigned int muon_i) { return VVH::muonID(muon_i, VVH::IDveto, nt.year()); }
 
+    bool passVVHSkimElecID(unsigned int elec_i) { return VVH::electronID(elec_i, VVH::IDskim, nt.year()); }
+
+    bool passVVHSkimMuonID(unsigned int muon_i) { return VVH::muonID(muon_i, VVH::IDskim, nt.year()); }
+
     void selectVVHVetoLeptons()
     {
         LorentzVectors vvh_veto_lep_p4s;
@@ -74,6 +78,33 @@ class LeptonSelection : public ObjectSelection
         globals.setVal<LorentzVectors>("vvh_veto_lep_p4s", vvh_veto_lep_p4s);
         globals.setVal<double>("vvh_lep_pt_lead", vvh_lep_pt_lead);
         globals.setVal<double>("vvh_lep_pt_sub", vvh_lep_pt_sub);
+    }
+
+    // Counting collection used by the per-channel skim cuts.
+    // Uses VVH::IDskim (mirrors cmstas/run3-vbsvvh _looseElectrons + _looseMuons).
+    void selectVVHSkimLeptons()
+    {
+        LorentzVectors vvh_skim_lep_p4s;
+
+        for (unsigned int elec_i = 0; elec_i < nt.nElectron(); elec_i++)
+        {
+            if (passVVHSkimElecID(elec_i))
+            {
+                vvh_skim_lep_p4s.push_back(nt.Electron_p4().at(elec_i));
+            }
+        }
+
+        for (unsigned int muon_i = 0; muon_i < nt.nMuon(); muon_i++)
+        {
+            if (passVVHSkimMuonID(muon_i))
+            {
+                vvh_skim_lep_p4s.push_back(nt.Muon_p4().at(muon_i));
+            }
+        }
+
+        std::sort(vvh_skim_lep_p4s.begin(), vvh_skim_lep_p4s.end(), [](const LorentzVector &a, const LorentzVector &b) { return a.pt() > b.pt(); });
+
+        globals.setVal<LorentzVectors>("vvh_skim_lep_p4s", vvh_skim_lep_p4s);
     }
 };
 #endif

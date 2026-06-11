@@ -244,6 +244,8 @@ bool WWZ::muon2022ID(unsigned int idx, WWZ::IDLevel id_level) {
 }
 
 bool VVH::muonID(int idx, VVH::IDLevel id_level, int year) {
+    // IDskim is year-agnostic (mirrors cmstas/run3-vbsvvh _looseMuons)
+    if (id_level == VVH::IDskim) return VVH::muonIDskim((unsigned int)idx);
     // Year-specific checks
     switch (year) {
     case (2016):
@@ -322,5 +324,17 @@ bool VVH::muon2024ID(unsigned int idx, VVH::IDLevel id_level) {
     if (not (fabs(Muon_dz().at(idx))         <  0.1  )) return false;
     if (not (fabs(Muon_sip3d().at(idx))      <  8    )) return false;
     if (not (Muon_pfRelIso03_all().at(idx)   <  0.40 )) return false;
+    return true;
+}
+// Year-agnostic skim WP. Mirrors cmstas/run3-vbsvvh _looseMuons
+// (preselection/src/selections.cpp): looseId + pfIsoId>=2 with looser dxy/dz.
+bool VVH::muonIDskim(unsigned int idx) {
+    if (not (Muon_pt().at(idx)               >  10. )) return false;
+    if (not (fabs(Muon_eta().at(idx))        <  2.4 )) return false;
+    if (not (fabs(Muon_dxy().at(idx))        <  0.2 )) return false;
+    if (not (fabs(Muon_dz().at(idx))         <  0.5 )) return false;
+    if (not (fabs(Muon_sip3d().at(idx))      <  8   )) return false;
+    if (not (Muon_looseId().at(idx)                 )) return false;
+    if (not ((int)Muon_pfIsoId().at(idx)     >= 2   )) return false;
     return true;
 }

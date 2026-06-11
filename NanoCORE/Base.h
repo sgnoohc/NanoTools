@@ -32,7 +32,8 @@ namespace VVH {
     enum IDLevel {
         IDveto = 0,
         IDfakable = 1,
-        IDtight = 2
+        IDtight = 2,
+        IDskim = 3 // loose WP used by the skimmer for lepton counting (mirrors cmstas/run3-vbsvvh _looseElectrons/_looseMuons)
     };
 }
 

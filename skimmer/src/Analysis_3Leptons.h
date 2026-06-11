@@ -57,7 +57,7 @@ class Analysis_3Leptons : public Analysis
         // cutflow.globals.newVar<int>("n_vbsjet_pairs", -999);
 
         // Lepton selection
-        Cut *cut_threeleptons = new LambdaCut("ThreeLeptons", [&]() { return (cutflow.globals.getVal<LorentzVectors>("vvh_veto_lep_p4s").size() >= 3); });
+        Cut *cut_threeleptons = new LambdaCut("ThreeLeptons", [&]() { return (cutflow.globals.getVal<LorentzVectors>("vvh_skim_lep_p4s").size() >= 3); });
         vCutflowCuts_.push_back(cut_threeleptons);
 
         Cut *cut_leadinglepton_pt = new LambdaCut("LeadingLeptonPT", [&]() { return (cutflow.globals.getVal<double>("vvh_lep_pt_lead") >= 20); });

@@ -33,6 +33,7 @@ namespace VVH {
     bool muon2022ID(unsigned int idx, VVH::IDLevel id_level);
     bool muon2023ID(unsigned int idx, VVH::IDLevel id_level);
     bool muon2024ID(unsigned int idx, VVH::IDLevel id_level);
+    bool muonIDskim(unsigned int idx); // year-agnostic; mirrors cmstas/run3-vbsvvh _looseMuons
 }
 
 #endif
