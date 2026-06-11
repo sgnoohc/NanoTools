@@ -20,7 +20,7 @@ class JetIdEvaluator
     int year_ = 0;
 
     // Manual cut-based PUPPI jet ID for Run2 (2016-2018)
-    // Returns bitmask: 1*tight + 2*tight + 4*tightLepVeto (same format as correctionlib)
+    // Returns bitmask: 2*tight + 4*tightLepVeto (matches NanoAOD jetId convention; values 0, 2, or 6)
     float evalManualPuppiId(double eta, double chHEF, double neHEF, double chEmEF, double neEmEF, double muEF,
                             int chMult, int neMult, int mult) const
     {
@@ -69,7 +69,7 @@ class JetIdEvaluator
 
         float t = tight ? 1.0f : 0.0f;
         float tlv = tightLepVeto ? 1.0f : 0.0f;
-        return 1.0f * t + 2.0f * t + 4.0f * tlv;
+        return 2.0f * t + 4.0f * tlv;
     }
 
   public:
@@ -127,8 +127,8 @@ class JetIdEvaluator
         }
     }
 
-    // Evaluate AK4 jet ID bitmask: bit0 (1) = Loose, bit1 (2) = Tight, bit2 (4) = TightLeptonVeto
-    // Tight implies Loose, so bit0 is set whenever Tight passes.
+    // Evaluate AK4 jet ID bitmask: bit1 (2) = Tight, bit2 (4) = TightLeptonVeto
+    // Matches NanoAOD Run3 jetId convention; values are 0, 2, or 6.
     float evalJetId(double eta, double chHEF, double neHEF, double chEmEF, double neEmEF, double muEF, int chMult, int neMult, int mult) const
     {
         if (!initialized_) return 0.0f;
@@ -136,13 +136,13 @@ class JetIdEvaluator
         {
             float tight = ak4_tight_->evaluate({eta, chHEF, neHEF, chEmEF, neEmEF, muEF, chMult, neMult, mult});
             float tightLepVeto = ak4_tightLepVeto_->evaluate({eta, chHEF, neHEF, chEmEF, neEmEF, muEF, chMult, neMult, mult});
-            return 1.0f * tight + 2.0f * tight + 4.0f * tightLepVeto;
+            return 2.0f * tight + 4.0f * tightLepVeto;
         }
         return evalManualPuppiId(eta, chHEF, neHEF, chEmEF, neEmEF, muEF, chMult, neMult, mult);
     }
 
-    // Evaluate AK8 fat jet ID bitmask: bit0 (1) = Loose, bit1 (2) = Tight, bit2 (4) = TightLeptonVeto
-    // Tight implies Loose, so bit0 is set whenever Tight passes.
+    // Evaluate AK8 fat jet ID bitmask: bit1 (2) = Tight, bit2 (4) = TightLeptonVeto
+    // Matches NanoAOD Run3 jetId convention; values are 0, 2, or 6.
     // AK8 recipe: "use the corresponding AK4 jet ID" — same PUPPI cuts apply.
     float evalFatJetId(double eta, double chHEF, double neHEF, double chEmEF, double neEmEF, double muEF, int chMult, int neMult, int mult) const
     {
@@ -151,7 +151,7 @@ class JetIdEvaluator
         {
             float tight = ak8_tight_->evaluate({eta, chHEF, neHEF, chEmEF, neEmEF, muEF, chMult, neMult, mult});
             float tightLepVeto = ak8_tightLepVeto_->evaluate({eta, chHEF, neHEF, chEmEF, neEmEF, muEF, chMult, neMult, mult});
-            return 1.0f * tight + 2.0f * tight + 4.0f * tightLepVeto;
+            return 2.0f * tight + 4.0f * tightLepVeto;
         }
         return evalManualPuppiId(eta, chHEF, neHEF, chEmEF, neEmEF, muEF, chMult, neMult, mult);
     }
