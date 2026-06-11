@@ -29,4 +29,7 @@ echo "  SCRAM_ARCH = $SCRAM_ARCH"
 echo "  CMSSW_VERSION = $CMSSW_VERSION"
 which root
 
+# Make Metis prefer dasgoclient over the (often flaky-from-HPG) UCSD DIS service.
+export USEDASGOCLIENT=1
+
 #eof

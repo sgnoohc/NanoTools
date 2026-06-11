@@ -31,6 +31,12 @@ if [ -f x509up_proxy ] && [ -z "${X509_USER_PROXY}" ]; then
     echo "[packed] Using staged proxy: ${X509_USER_PROXY}"
 fi
 
+# Grid CA + VOMS dirs (matches the hpggsetup* aliases in ~/dot/mybashrc).
+# Required for xrootd GSI server-cert verification — without these the new
+# xrootd 5.x client falls back to ztn and fails "non-TLS" auth, killing xrdcp.
+export X509_CERT_DIR=/cvmfs/cms.cern.ch/grid/etc/grid-security/certificates
+export X509_VOMS_DIR=/cvmfs/cms.cern.ch/grid/etc/grid-security/vomsdir
+
 timer "Script started"
 
 echo -e "\n--- begin packed header ---\n"

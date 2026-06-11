@@ -3,6 +3,12 @@ from vbsvvh_data import nanoaodv15_run3_data, nanoaodv15_run2_data
 from vbsvvh_mc import nanoaodv15_run2_bkg, nanoaodv15_run2_sig, nanoaodv15_run3_bkg, nanoaodv15_run3_sig
 
 
+# Temporary test group: just the new QCD-4Jets HT-100to200 Run3 Summer24 sample
+nanoaodv15_run3_bkg_qcd4jets_test = [
+    DBSSample(dataset="/QCD-4Jets_Bin-HT-100to200_TuneCP5_13p6TeV_madgraphMLM-pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM"),
+]
+
+
 # ---------------------------------------------------------------------------
 # Sample registry: maps CLI-friendly names -> (sample_list, metadata)
 # ---------------------------------------------------------------------------
@@ -30,6 +36,10 @@ SAMPLE_REGISTRY = {
     "run3_sig": {
         "samples": nanoaodv15_run3_sig,
         "metadata": {"run": "Run3", "type": "Sig", "nano": "v15"},
+    },
+    "run3_bkg_qcd4jets_test": {
+        "samples": nanoaodv15_run3_bkg_qcd4jets_test,
+        "metadata": {"run": "Run3", "type": "Bkg", "nano": "v15"},
     },
 }
 
