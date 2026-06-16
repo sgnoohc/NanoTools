@@ -4,6 +4,51 @@
 
 ---
 
+## 2026-06-13 — ✅ v30 VALIDATED (both check passes clean)
+
+`check.py --skim-name VBSVVH_skim_v30` (metadata) + `--check-root` (opens every file):
+- **0 zombie / 0 recovered** across all 31,645 ROOT files; all Data + Sig channels fully OK.
+- 21 missing `runs_summary_N.json` found → **regenerated** via `regen_runs_summary.py --execute` (rebuilds from the ROOT Runs tree); re-verified 0 missing.
+- 1,481 `eventCount=0` flags = **benign**: tight channel × soft sample (e.g. QCD × 4Lep) where 0 selected events is expected; cutflow `AllEvents` and `genEventSumw` intact in every case. (check.py improvement idea: only flag when `eventCount != cutflow TheEnd`.)
+- 2,209 LHE-weight warnings = benign (pythia8-only samples carry no LHEScale/LHEPdf weights; 8-vs-9 scale entries = aMC@NLO quirk).
+- Logs: `condor/check_v30.log`, `condor/check_v30_root.log`. Note: `python3 -u` needed for live output; the first `--check-root` attempt died silently ~15 min in (cause unknown, not reproduced — second run flat at 0.6 GB RSS).
+
+**v30 is analysis-ready.**
+
+---
+
+## 2026-06-12 — ✅ **v30 PRODUCTION COMPLETE**
+
+**All 31,645 jobs done (100%, 0 incomplete tasks)** — "All job finished", loop exited cleanly. **31,645 output files (1:1 with jobs), 38 TB** in `VBSVVH_skim_v30/`. Wall-clock: ~19 h (launched Jun 11 11:41). The black-hole node exclusion (below) cleared the retry tail within ~1 h of the restart.
+
+Post-production checklist:
+- ☐ Commit `das_nevents.py` cache additions + final `log.md` + node-exclusion in submit.py; **push** everything (parent + ProjectMetis submodule)
+- ☐ Remove/revisit the 17-node `exclude` list in submit.py before the *next* production (nodes may be fixed by then); consider reporting the list to UFRC
+- ☐ Delete QCD-4Jets test artifacts + `run3_bkg_qcd4jets_test` group
+- ☐ Truncate `logger_metis.log` (3.1 GB) + scratch cleanup
+- ☐ Proxy renewal Jun 18 no longer needed for v30
+
+---
+
+## 2026-06-12 — Black-hole nodes: 49% pack failure rate; excluded 17 nodes, loop restarted
+
+Overnight v30 stats: **1,618 packs COMPLETED vs 1,558 FAILED** (+41 OUT_OF_MEMORY). ~30.8k output files already on disk (bulk of production done!), but ~1,250 jobs stuck in retry loops (732 at 5 retries).
+
+**Diagnosis:** failed packs die in 0–1 s, exit 1, no logs. That's the packed executable's startup filesystem health check (`timeout 120 ls <logdir>`) failing *instantly* — `/blue` not mounted / autofs flaky on specific nodes. Instant failure frees the node → scheduler feeds it the next pack → "black hole": c0703a-s21 alone consumed 194 packs (91% fail), c0703a-s6 106/106 (100%). ~17 nodes at ≥70% failure rate (c0702a/c0703a/c0704a/c0705a/c0707a racks). No Metis retry cap, so nothing lost — just wasted submissions.
+
+**Fix applied:** `--exclude` of the 17 nodes via `extra_directives={"exclude": ...}` in submit.py's `PackedSLURMSubmitter` (plumbing already existed in Metis `Utils.slurm_submit_packed`). Old loop killed, log rotated to `submit_v30.log.1`, loop relaunched (same command). **Remove the exclusion once UFRC fixes the nodes** — and consider reporting the node list to UFRC.
+
+How to re-derive the bad-node list:
+```bash
+sacct -u p.chang -S <start> -X --noheader -o State,NodeList%30 \
+ | awk '{t[$2]++; if($1=="FAILED")f[$2]++} END{for(n in f) if(f[n]>=15 && f[n]/t[n]>=0.70) print n}' | sort | paste -sd,
+```
+Retry counts per job: parse `~/public_html/Run*_v15_v30/*/web_summary.json` → `tasks[].bad.jobs_not_done[].retries`.
+
+Watch item: the 41 OOM packs (24 GB / 12 sub-jobs is tight for some samples) — if the same jobs keep OOMing, bump `memory` or repack them with smaller pack-size.
+
+---
+
 ## 2026-06-11 (pm) — Test complete; **v30 PRODUCTION LAUNCHED**
 
 **v30 launched 11:41** — all 6 groups, all 9 channels, packed (pack-size 12):
@@ -21,6 +66,14 @@
 - Rebuilt `skim` binary (el9 / CMSSW_16_0_0_pre4) + regenerated `condor/package.tar.xz` via `condor/maketar.sh` — now ships the IDskim lepton definition and JetId updates.
 - Proxy: `~/private/x509_proxy` refreshed today, valid to Jun 18. **Renew with `gsetupgen` before it expires — production will run past that.**
 - Smoke test: local 2-file SingleMuon run via `test.sh` before launch.
+
+**Committed (not pushed), 2026-06-11:**
+- `dec87a8` — IDskim lepton WP + channel counting switch + Nano.h `Electron_cutBased` UChar_t fix
+- `2840d43` — JetId bitmask convention fix (0/2/6, matches NanoAOD `Jet_jetId`)
+- `8efc947` — X509 CA exports in SLURM executables, QCD-4Jets HT samples, das_nevents rewrite, `USEDASGOCLIENT=1`, my_submit.sh + log.md tracked, submodule bump
+- `a5b3a4d` (in `condor/ProjectMetis`, branch `slurm-support-py3`) — packed-status scan speedups, shared-FS proxy preference
+
+Note: `das_nevents.py` re-dirties itself while production runs (live DAS cache appends) — commit the accumulated entries at the end.
 
 **🐛 Bug found & fixed by the smoke test:** the new `electronIDskim()` crashed (`std::out_of_range`) on the first event with an electron. Root cause: `Electron_cutBased` is **UChar_t** on disk since NanoAODv12, but `NanoCORE/Nano.h` declared the read buffer `int[]` — `bytes/sizeof(int)` undercounts 4× (0 elements for <4 electrons → empty vector). The May 21 binary had this latent crash and was never locally tested. Fix: buffer type → `UChar_t` in `Nano.h:304` (public `vector<int>` API unchanged, values convert on copy). Audited the other skim-path branches: `Muon_pfIsoId` (UChar_t), `Muon_looseId` (bool), and the custom Jet/FatJet multiplicity readers in `ObjectSelection_Jets.h` (UChar_t/Short_t) all already match the file types. Rebuilt + re-tarred after the fix.
 
@@ -83,14 +136,51 @@ export X509_VOMS_DIR=/cvmfs/cms.cern.ch/grid/etc/grid-security/vomsdir
 | v24 | Run3 Bkg/Data/Sig complete (March 2026), dirs like `Run3_Bkg_v15_v24_<channel>` directly under `/cmsuf/.../skim/` |
 | v26, v27 | older, under `VBSVVH_skim_v26/27` |
 | v28 | complete: Run2+Run3 × Bkg(9ch)/Data(9ch)/Sig under `VBSVVH_skim_v28/` |
-| **v29** | **STALLED** — only `Run2_Data_v15_v29_3Lep` (May 14). Full command saved in `condor/my_submit.sh`: `python3 submit.py --samples run2_sig,run3_sig,run2_data,run3_data,run2_bkg,run3_bkg --pack-size 12 --cpus-per-subjob 1 --version v29` |
+| v29 | abandoned — only `Run2_Data_v15_v29_3Lep` (86/86 datasets, May 14; ran with a *local-only* 3Lep channel restriction and the old IDveto-counting binary). Superseded by v30. |
+| **v30** | **IN PROGRESS** (launched 2026-06-11 11:41) — all 6 groups × all 9 channels, packed (pack-size 12), IDskim binary, X509 fix. Loop: detached `submit.py` PID logged in `condor/submit_v30.log`. |
 
-⚠️ **`ALL_CHANNELS` in `condor/submit.py` currently has only `3Lep` uncommented** (4Lep, 2Lep2FJ, 2Lep1FJ, 1Lep1FJ, 0Lep* are all commented out). Re-enable before a full production pass.
+(Resolved 2026-06-11: `ALL_CHANNELS` is back to all 9 channels — turns out HEAD always had them; the 3Lep restriction was an uncommitted local edit. The QCD-4Jets HT samples are committed in `8efc947`; HT-40to70 and HT-70to100 intentionally skipped. The temporary `run3_bkg_qcd4jets_test` group in samples.py can be removed now that the fix is validated.)
 
-### New samples pending in v29 (uncommitted in `condor/vbsvvh_mc.py`)
-QCD-4Jets HT-binned Summer24 NanoAODv15 added to `nanoaodv15_run3_bkg`:
-HT-100to200 … HT-2000 (9 bins). **HT-40to70 and HT-70to100 intentionally skipped** (commented out).
-`condor/samples.py` also has the temporary `run3_bkg_qcd4jets_test` group (just HT-100to200) — remove or keep as scratch once validated.
+---
+
+## How the submission machinery works (ProjectMetis)
+
+Everything runs through the **ProjectMetis fork** at `condor/ProjectMetis` (submodule, branch `slurm-support-py3`); launch with `PYTHONPATH=$PWD/ProjectMetis` from `condor/`. `submit.py` is only a thin driver (sample registry, channel/PD filtering, DAS-cache job splitting, 2500-job throttle) — Metis does the rest:
+
+1. **Task instantiation** — each dataset × channel becomes a `SLURMTask` (extends `CondorTask`): builds the input-files → output-file `io_mapping`, creates the task dir under `/blue/avery/p.chang/tasks/SLURMTask_*`, bakes `executable.sh` + `package.tar.gz` + staged proxy into it (state persisted in `backup.pkl`).
+2. **Submission** — with `--pack-size 12`, tasks don't submit themselves; `PackedSLURMSubmitter` collects all pending sub-jobs across tasks, bundles 12 per SLURM allocation (one `sbatch` each: account `avery`, QOS `avery-b`, partition `hpg-default`, 8h, 2 GB/sub-job), and writes `packed_<jobid>.manifest` in each task's logdir mapping sub-jobs back to tasks.
+3. **Monitoring/recovery loop** — every 600 s the driver re-walks all tasks: Metis checks `squeue` (one cached query) + output existence on `/cmsuf`, marks done outputs, **resubmits anything missing or dead** (this is what re-stages a renewed proxy automatically), and exits only when every task is complete ("All job finished").
+4. **Dashboards** — `StatsParser` writes `web_summary.json` per channel under `~/public_html/<unique_key>/<channel>` → `http://login12.ufhpc/~p.chang/...`.
+
+---
+
+## Skim selection overview (v30 binary)
+
+Object collections built once per event (`src/Analysis.h`):
+
+| Collection | Definition | Used for |
+|---|---|---|
+| `vvh_skim_lep_p4s` | e/μ passing `VVH::IDskim` (mirrors run3-vbsvvh loose) | N-lepton counting cut |
+| `vvh_veto_lep_p4s` | e/μ passing year-specific `VVH::IDveto` | only `vvh_lep_pt_lead/sub` |
+| `n_vvh_veto_jets` | AK4 jets pT > 15 (no η cut / jet ID / overlap removal) | N-jet cuts |
+| `n_vvh_veto_fatjets` | AK8 jets pT > 200, m_softdrop > 20 (no η cut) | N-fatjet cuts |
+
+Per-channel cuts (all "≥", no vetoes; each channel = separate skim pass via `-a <tag>`):
+
+| Channel | N(IDskim lep) | lead-lep pT | N(AK8) | N(AK4) |
+|---|---|---|---|---|
+| 4Lep | ≥4 | — | — | — |
+| 3Lep | ≥3 | ≥20 | — | — |
+| 2Lep2FJ | ≥2 | ≥20 | ≥2 | — |
+| 2Lep1FJ | ≥2 | ≥20 | ≥1 | — |
+| 1Lep1FJ | ≥1 | ≥20 | ≥1 | — |
+| 0Lep3FJ | — | — | ≥3 | — |
+| 0Lep2FJ | — | — | ≥2 | — |
+| 0Lep1FJ | — | — | ≥1 | ≥5 |
+| 0Lep0FJ | — | — | — | ≥8 |
+| Sig | dummy cut (all events kept) | | | |
+
+Cross-WP quirk (known, unresolved): counting uses IDskim but lead-lep pT comes from the IDveto collection; neither WP is a strict superset of the other (IDskim μ has looser dxy/dz but requires looseId+pfIsoId).
 
 ---
 
@@ -108,15 +198,15 @@ HT-100to200 … HT-2000 (9 bins). **HT-40to70 and HT-70to100 intentionally skipp
 
 ---
 
-## Lepton definition update (May 21, uncommitted)
+## Lepton definition update (May 21; committed `dec87a8` 2026-06-11)
 
 New year-agnostic **`VVH::IDskim`** WP mirroring **cmstas/run3-vbsvvh** `_looseElectrons`/`_looseMuons` (`preselection/src/selections.cpp`):
 - e: pT>10, |SCη|<2.5, cutBased≥2 (Loose), barrel/endcap-split dxy/dz (0.05/0.1, 0.1/0.2)
 - μ: pT>10, |η|<2.4, looseId, pfIsoId≥2, sip3d<8, dxy<0.2, dz<0.5
 
-All 5 lepton channels' N-lepton counting cut switched from `vvh_veto_lep_p4s` → `vvh_skim_lep_p4s`. Files: `NanoCORE/Base.h`, `{Electron,Muon}Selections.{h,cc}`, `src/ObjectSelection_Leptons.h`, `src/Analysis*.h`. Binary rebuilt May 21 13:37.
+All 5 lepton channels' N-lepton counting cut switched from `vvh_veto_lep_p4s` → `vvh_skim_lep_p4s`. Files: `NanoCORE/Base.h`, `{Electron,Muon}Selections.{h,cc}`, `src/ObjectSelection_Leptons.h`, `src/Analysis*.h`.
 
-⚠️ **`condor/package.tar.xz` is from May 13 — it does NOT contain the IDskim binary.** Regenerate with `condor/maketar.sh` before production. (Today's test jobs run the old definition; irrelevant for the xrdcp validation.)
+(Resolved 2026-06-11: binary + `package.tar.xz` rebuilt with the IDskim definition and the `Electron_cutBased` UChar_t fix; v30 ships it. The May 21 binary was never tested and carried a latent crash — see the bug note in the v30 entry.)
 
 Note: `vvh_lep_pt_lead/sub` (leading-lepton pT cuts) still come from the IDveto collection — counting and pT cuts use different WPs. Verify this is intended.
 
@@ -124,9 +214,13 @@ Note: `vvh_lep_pt_lead/sub` (leading-lepton pT cuts) still come from the IDveto 
 
 ## TODO / next steps
 
-1. ⏳ **Watch the 10 test jobs** (34384784–93). If xrdcp now works → fix validated.
-2. ☐ Delete `.../tasks/SLURMTask_QCD-4Jets_..._3Lep.stale_pre_x509fix` and the test output dir + `run3_bkg_qcd4jets_test` group once validated.
-3. ☐ **Regenerate `condor/package.tar.xz`** (`condor/maketar.sh`) so the IDskim lepton definition is in the shipped binary.
-4. ☐ Decide channel list (`ALL_CHANNELS` in submit.py — currently 3Lep only) and **resume v29 production** via `condor/my_submit.sh` (packed, pack-size 12). The packed executable also carries the X509 fix now.
-5. ☐ **Commit the uncommitted work** on `vvh_skimmer` (last commit May 13): X509 exports in both slurm executables, QCD-4Jets samples in vbsvvh_mc.py, test group in samples.py, das_nevents.py rewrite, `USEDASGOCLIENT=1` in setup.sh, submit.py tweaks, plus the NanoCORE lepton-selection / JetId.h / ObjectSelection_Leptons.h changes (separate logical commit).
-6. ☐ Clean up scratch files in skimmer/ and condor/ (test*.txt, err_report*, zeroevents.txt, logger_metis.log ~2.8 GB, test.log ~1.7 GB, etc.).
+1. ✅ Test jobs validated (10/10 complete, X509 fix works).
+2. ✅ Tarball regenerated with IDskim binary (+ UChar_t fix).
+3. ✅ All channels enabled; **v30 launched** (supersedes v29 resume).
+4. ✅ Pending work committed (`dec87a8`, `2840d43`, `8efc947` + submodule `a5b3a4d`).
+5. ⏳ **Babysit v30**: watch `condor/submit_v30.log` + dashboards; **renew proxy with `gsetupgen` before Jun 18**.
+6. ☐ **Push** the four commits (parent repo + ProjectMetis submodule) when ready.
+7. ☐ Commit the `das_nevents.py` cache entries accumulated during v30.
+8. ☐ Delete test artifacts: `.../tasks/SLURMTask_QCD-4Jets_..._3Lep{,.stale_pre_x509fix}`, `/cmsuf/.../VBSVVH_skim_test_qcd4jets/`, and the `run3_bkg_qcd4jets_test` group in samples.py.
+9. ☐ Clean up scratch files in skimmer/ and condor/ (test*.txt, err_report*, zeroevents.txt, logger_metis.log ~2.8 GB, test.log ~1.7 GB, etc.).
+10. ☐ Decide whether lead-lep pT should also use IDskim (cross-WP quirk above).

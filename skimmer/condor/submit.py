@@ -385,6 +385,15 @@ if __name__ == "__main__":
                 account="avery",
                 time="08:00:00",
                 memory=f"{args.pack_size * 2}gb",
+                extra_directives={
+                    # Black-hole nodes (2026-06-12): /blue mount flaky -> packs fail
+                    # the startup filesystem check in <1s and get endlessly resubmitted.
+                    # >=70% pack failure rate each. Re-evaluate/remove after UFRC fixes them.
+                    "exclude": "c0702a-s30,c0702a-s4,c0702a-s7,c0703a-s11,c0703a-s19,"
+                               "c0703a-s20,c0703a-s21,c0703a-s6,c0703a-s8,c0704a-s7,"
+                               "c0705a-s15,c0705a-s21,c0705a-s25,c0705a-s30,"
+                               "c0707a-s23,c0707a-s24,c0707a-s26",
+                },
             )
             print(f"\n=== Packed submission: {len(packed_tasks)} tasks, pack_size={args.pack_size}, cpus_per_subjob={args.cpus_per_subjob} ===")
             submitter.process(packed_tasks_only, max_submitted=MAX_SUBMITTED)
