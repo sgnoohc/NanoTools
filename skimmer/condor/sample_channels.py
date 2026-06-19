@@ -3,7 +3,8 @@
 # Unlisted samples default to running on all channels.
 
 CHANNELS = ["4Lep", "3Lep", "2Lep2FJ", "2Lep1FJ", "1Lep1FJ",
-            "0Lep3FJ", "0Lep2FJ", "0Lep1FJ", "0Lep0FJ"]
+            "0Lep3FJ", "0Lep2FJ", "0Lep1FJ", "0Lep0FJ",
+            "2Lep4J"]  # appended after the 9-bit matrix; rows lacking this column default to allowed
 
 SAMPLE_MATRIX = {
     #                                                                                                                                                               4L 3L 22 21 11 03 02 01 00
@@ -704,5 +705,8 @@ def is_mc_allowed(dsname, channel):
     if dsname not in SAMPLE_MATRIX:
         return True
     flags = SAMPLE_MATRIX[dsname].split()
-    return flags[CHANNELS.index(channel)] == "1"
+    idx = CHANNELS.index(channel)
+    if idx >= len(flags):
+        return True  # channel added after this sample's matrix row was written -> run everywhere
+    return flags[idx] == "1"
 

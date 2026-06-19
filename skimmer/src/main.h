@@ -11,6 +11,7 @@
 #include "Analysis_1Lepton_1FJ.h"
 #include "Analysis_2Leptons_1FJ.h"
 #include "Analysis_2Leptons_2FJ.h"
+#include "Analysis_2Leptons_4Jets.h"
 #include "Analysis_3Leptons.h"
 #include "Analysis_4Leptons.h"
 // NanoTools

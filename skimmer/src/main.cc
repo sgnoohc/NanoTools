@@ -60,6 +60,10 @@ int main(int argc, char **argv)
     {
         skimmer = std::make_unique<Analysis_2Leptons_1FJ>(arbusto, nt, cli, cutflow);
     }
+    else if (cli.analysis_tag == "2Lep4J")
+    {
+        skimmer = std::make_unique<Analysis_2Leptons_4Jets>(arbusto, nt, cli, cutflow);
+    }
     else if (cli.analysis_tag == "1Lep1FJ")
     {
         skimmer = std::make_unique<Analysis_1Lepton_1FJ>(arbusto, nt, cli, cutflow);

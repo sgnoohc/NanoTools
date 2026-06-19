@@ -122,6 +122,7 @@ ALL_CHANNELS = [
     "3Lep",
     "2Lep2FJ",
     "2Lep1FJ",
+    "2Lep4J",
     "1Lep1FJ",
     "0Lep3FJ",
     "0Lep2FJ",
@@ -143,6 +144,7 @@ CHANNEL_PDS = {
     "3Lep": LEPTON_PDS,
     "2Lep2FJ": LEPTON_PDS,
     "2Lep1FJ": LEPTON_PDS,
+    "2Lep4J": LEPTON_PDS,
     "1Lep1FJ": LEPTON_PDS,
     "0Lep3FJ": HADRONIC_PDS,
     "0Lep2FJ": HADRONIC_PDS,
@@ -179,7 +181,19 @@ if __name__ == "__main__":
                         help="Pack N jobs per SLURM allocation (default 1 = current behavior)")
     parser.add_argument("--cpus-per-subjob", type=int, default=1,
                         help="CPUs per sub-job within a pack (default 1)")
+    parser.add_argument("--channels", type=str, default=None,
+                        help="Comma-separated channel tags to run for non-signal samples "
+                             "(e.g. 2Lep4J). Omit to run ALL_CHANNELS. Signal always uses Sig.")
     args = parser.parse_args()
+
+    # Restrict non-signal channels if requested
+    if args.channels:
+        active_channels = [c.strip() for c in args.channels.split(",") if c.strip()]
+        unknown = [c for c in active_channels if c not in ALL_CHANNELS]
+        if unknown:
+            parser.error(f"--channels has unknown tags {unknown}; valid: {ALL_CHANNELS}")
+    else:
+        active_channels = ALL_CHANNELS
 
     # Auto-derive skim-name from version if not explicitly given
     if args.skim_name is None:
@@ -238,7 +252,7 @@ if __name__ == "__main__":
                 analysis_tags = ["Sig"]
                 signal_flags = "--is_signal --dump_truth"
             else:
-                analysis_tags = ALL_CHANNELS
+                analysis_tags = active_channels
                 signal_flags = ""
 
             print(f"\n=== Group: {group_name} | Key: {unique_key} | Tags: {analysis_tags} ===")
