@@ -27,7 +27,7 @@ typedef ROOT::Math::LorentzVector<ROOT::Math::PtEtaPhiM4D<float> > LorentzVector
 #define NCORRT1METJET_MAX 102 // for CorrT1METJet_* collection
 #define NEFTFITCOEFFICIENTS_MAX 276 // for EFTfitCoefficients_* collection
 #define NELECTRON_MAX 250 // for Electron_* collection
-#define NFATJET_MAX 40 // for FatJet_* collection
+#define NFATJET_MAX 128 // for FatJet_* collection (bumped from 40: noisy 2025 data events can exceed 40)
 #define NFSRPHOTON_MAX 9 // for FsrPhoton_* collection
 #define NGENDRESSEDLEPTON_MAX 15 // for GenDressedLepton_* collection
 #define NGENISOLATEDPHOTON_MAX 15 // for GenIsolatedPhoton_* collection
@@ -52,7 +52,7 @@ typedef ROOT::Math::LorentzVector<ROOT::Math::PtEtaPhiM4D<float> > LorentzVector
 #define NSV_MAX 24 // for SV_* collection
 #define NSOFTACTIVITYJET_MAX 21 // for SoftActivityJet_* collection
 #define NSUBGENJETAK8_MAX 42 // for SubGenJetAK8_* collection
-#define NSUBJET_MAX 63 // for SubJet_* collection
+#define NSUBJET_MAX 256 // for SubJet_* collection (bumped from 63 to match larger NFATJET_MAX)
 #define NTAU_MAX 90 // for Tau_* collection
 #define NTRIGOBJ_MAX 117 // for TrigObj_* collection
 #define NWCNAMES_MAX 42 // for WCnames_* collection

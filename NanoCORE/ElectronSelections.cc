@@ -495,6 +495,10 @@ bool VVH::electronID(int idx, VVH::IDLevel id_level, int year) {
     case (2024):
         return VVH::electron2024ID(idx, id_level);
         break;
+    case (2025):
+        // No dedicated 2025 ID yet; reuse 2024 (conditions ~ 2024)
+        return VVH::electron2024ID(idx, id_level);
+        break;
     default:
         throw std::runtime_error("ElectronSelections.cc: ERROR - invalid year");
         return false;

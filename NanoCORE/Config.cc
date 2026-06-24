@@ -34,6 +34,10 @@ void GlobalConfig::GetConfigsFromDatasetName(std::string dsname) {
     {
         year = 2024;
     }
+    else if (dsname.find("Run2025") != std::string::npos || dsname.find("RunIII2025Summer25") != std::string::npos || dsname.find("Run3Summer25") != std::string::npos || dsname.find("_2025/") != std::string::npos)
+    {
+        year = 2025;
+    }
 
     GetConfigs();
     GetSampleType(dsname);
@@ -98,7 +102,7 @@ void GlobalConfig::GetSampleType(std::string dsname) {
 
 void GlobalConfig::GetConfigs(int in_year) {
     if (in_year > 0) year = in_year;
-    if (year < 2016 || (year > 2018 && year < 2022) || year > 2024) {
+    if (year < 2016 || (year > 2018 && year < 2022) || year > 2025) {
         std::cout << ">>> Cannot configure for year " << year << "!! Values remain unset!" << std::endl;
         return;
     }
