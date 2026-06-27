@@ -4,6 +4,36 @@
 
 ---
 
+## 2026-06-26 — ✅ v33 VALIDATED (high-stat DY for Run2)
+
+**v33 = high-statistics DY alternatives for Run2 Bkg**, two new sample groups skimmed across all 10 channels:
+- `run2_bkg_dy_ht` — `DYJetsToLL_M-50_HT-*` madgraphMLM LO, 8 HT bins × 4 UL eras = **32 datasets**
+- `run2_bkg_dy_jet` — `DYJetsToLL_{0,1,2}J` amcatnloFXFX NLO, 3 bins × 4 eras = **12 datasets**
+
+Motivation: the inclusive `M-50` madgraphMLM in `run2_bkg` has almost no stats in the high-jet / multi-b-jet tail. HT-binned (and jet-binned) populate that phase space ~10–100× better. **These are ALTERNATIVES to inclusive M-50 (same process)** — must stitch / pick one scheme downstream; do not add on top of inclusive without handling double-counting. No b-enriched DY exists in the UL NanoAODv15 campaign (no `BGenFilter`/`DYBBJets`); `BTVNanoV15` variants are different NanoAOD content, not for this.
+
+Added the two list vars to `condor/vbsvvh_mc.py` and registered groups `run2_bkg_dy_ht` / `run2_bkg_dy_jet` in `condor/samples.py` (**uncommitted**). Launched 2026-06-25 01:52 ET (05:52 UTC) detached, log `condor/logs_v33/submit_v33.log`; "All job finished" ~04:43 ET (08:43 UTC) Jun 25. **440/440 dataset dirs, 1110 output files.**
+
+Validation (`condor/check_v33.log`): 440 datasets, **40 errors — all benign `eventCount=0`**, 0 real errors, 0 warnings. Flags concentrate in tight channels for low-jet DY (0Lep3FJ ×13, 2Lep2FJ ×5). Spot-checked one (0Lep3FJ × DY HT-70to100 preVFP): cutflow `AllEvents=6.72M → AtLeast3FatJets=0 → TheEnd=0`, ROOT non-zombie, `Events`=0 / `Runs`=9 entries, `genEventSumw` + LHE/PS weights intact — genuine 0-selected, not a broken job. **v33 is analysis-ready.**
+
+Open: commit the `vbsvvh_mc.py` + `samples.py` group additions (on branch `vvh_skimmer`).
+
+---
+
+## 2026-06-27 — v33 DY soft-linked into v30 (⚠ overlaps inclusive DY)
+
+Linked v33's high-stat DY (HT-binned + jet-binned) into the v30 tree, same mechanism as the v32 merge: **396 relative symlinks** (`../../VBSVVH_skim_v33/...`), 44 datasets × the **9 channels shared by v30 and v33** (`2Lep4J` skipped — not a v30 channel). Precheck 0 collisions / 0 empty; post-check 0 broken, all resolve to real `output_*.root`.
+
+**⚠ Double-counting, unlike the v32 merge:** `Run2_Bkg_v15_v30_*` already holds the inclusive `DYJetsToLL_M-50` (madgraphMLM). It now ALSO holds the HT-binned (`DYJetsToLL_M-50_HT-*`) and jet-binned (`DYJetsToLL_{0,1,2}J_*`) alternatives — three overlapping DY descriptions of the same phase space. Downstream must stitch or pick ONE scheme; globbing all DY in v30 triple-counts. GenXSecAnalyzer cross sections for the binned sets: `condor/xsec_dy.json`. Reversible: `find VBSVVH_skim_v30 -maxdepth 2 -type l \( -name 'DYJetsToLL_*HT-*' -o -name 'DYJetsToLL_[012]J_*' \) -delete`.
+
+---
+
+## 2026-06-25 — v32 2025-data soft-linked into v30
+
+Merged v32's new 2025 PromptReco Run3 data into the v30 tree so `VBSVVH_skim_v30/Run3_Data_*` spans 2022–2025: **344 relative symlinks** (`../../VBSVVH_skim_v32/...`), one per v32 dataset dir, across the **9 channels shared by v30 and v32** (hadronic 16 + leptonic 56 each). `2Lep4J` skipped (exists in v32 but not v30; its 2022–24 data lives in v31). Precheck clean: 0 collisions (different run eras), 0 empty targets; post-check 0 broken links, all resolve to real `output_*.root`. Reversible: `find VBSVVH_skim_v30 -maxdepth 2 -type l -delete`. Note: a future `check.py`/dashboard walk of v30 will now include the linked 2025 data.
+
+---
+
 ## 2026-06-13 — ✅ v30 VALIDATED (both check passes clean)
 
 `check.py --skim-name VBSVVH_skim_v30` (metadata) + `--check-root` (opens every file):

@@ -1,6 +1,7 @@
 from metis.Sample import DirectorySample, DBSSample
 from vbsvvh_data import nanoaodv15_run3_data, nanoaodv15_run2_data, nanoaodv15_run3_data_2025
 from vbsvvh_mc import nanoaodv15_run2_bkg, nanoaodv15_run2_sig, nanoaodv15_run3_bkg, nanoaodv15_run3_sig
+from vbsvvh_mc import nanoaodv15_run2_bkg_dy_htbinned, nanoaodv15_run2_bkg_dy_jetbinned
 
 
 # Temporary test group: just the new QCD-4Jets HT-100to200 Run3 Summer24 sample
@@ -44,6 +45,17 @@ SAMPLE_REGISTRY = {
     "run3_bkg_qcd4jets_test": {
         "samples": nanoaodv15_run3_bkg_qcd4jets_test,
         "metadata": {"run": "Run3", "type": "Bkg", "nano": "v15"},
+    },
+    # High-stat DY alternatives to the inclusive M-50 in run2_bkg (multi-(b)jet
+    # phase space). ALTERNATIVES — stitch / pick one scheme; do NOT submit
+    # alongside run2_bkg's inclusive DY without handling double-counting.
+    "run2_bkg_dy_ht": {
+        "samples": nanoaodv15_run2_bkg_dy_htbinned,
+        "metadata": {"run": "Run2", "type": "Bkg", "nano": "v15"},
+    },
+    "run2_bkg_dy_jet": {
+        "samples": nanoaodv15_run2_bkg_dy_jetbinned,
+        "metadata": {"run": "Run2", "type": "Bkg", "nano": "v15"},
     },
 }
 
