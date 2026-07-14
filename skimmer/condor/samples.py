@@ -10,6 +10,16 @@ nanoaodv15_run3_bkg_qcd4jets_test = [
 ]
 
 
+# New low-C2V Run3 signal scan points (C2V=0.25 and C2V=0.75, both C3=1.0),
+# 4 processes each = 8 samples, filtered out of the full run3_sig grid. Isolated
+# group so a dedicated version skims ONLY these 8; fold into v30 via symlink
+# afterward (the v32/run3_data_2025 pattern).
+nanoaodv15_run3_sig_lowc2v = [
+    s for s in nanoaodv15_run3_sig
+    if "c2v0p25" in s.get_datasetname() or "c2v0p75" in s.get_datasetname()
+]
+
+
 # ---------------------------------------------------------------------------
 # Sample registry: maps CLI-friendly names -> (sample_list, metadata)
 # ---------------------------------------------------------------------------
@@ -40,6 +50,10 @@ SAMPLE_REGISTRY = {
     },
     "run3_sig": {
         "samples": nanoaodv15_run3_sig,
+        "metadata": {"run": "Run3", "type": "Sig", "nano": "v15"},
+    },
+    "run3_sig_lowc2v": {
+        "samples": nanoaodv15_run3_sig_lowc2v,
         "metadata": {"run": "Run3", "type": "Sig", "nano": "v15"},
     },
     "run3_bkg_qcd4jets_test": {
