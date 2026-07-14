@@ -1532,6 +1532,24 @@ nanoaodv15_run3_sig = [
     # c2v=1.0, c3=10.0 -- VBSZZH
     _make_run3_sig("VBSZZH_c2v1p0_c3_10p0_Run3Summer24", "VBSZZH_C2V_1p0_C3_10p0_13p6TeV_4f_LO_TuneCP5"),
 
+    # c2v=0.25, c3=1.0 -- VBSWWH_OS
+    _make_run3_sig("VBSWWH_OS_c2v0p25_c3_1p0_Run3Summer24", "VBSWWH_OS_C2V_0p25_C3_1p0_13p6TeV_4f_LO_TuneCP5"),
+    # c2v=0.25, c3=1.0 -- VBSWWH_SS
+    _make_run3_sig("VBSWWH_SS_c2v0p25_c3_1p0_Run3Summer24", "VBSWWH_SS_C2V_0p25_C3_1p0_13p6TeV_4f_LO_TuneCP5"),
+    # c2v=0.25, c3=1.0 -- VBSWZH
+    _make_run3_sig("VBSWZH_c2v0p25_c3_1p0_Run3Summer24", "VBSWZH_C2V_0p25_C3_1p0_13p6TeV_4f_LO_TuneCP5"),
+    # c2v=0.25, c3=1.0 -- VBSZZH
+    _make_run3_sig("VBSZZH_c2v0p25_c3_1p0_Run3Summer24", "VBSZZH_C2V_0p25_C3_1p0_13p6TeV_4f_LO_TuneCP5"),
+
+    # c2v=0.75, c3=1.0 -- VBSWWH_OS
+    _make_run3_sig("VBSWWH_OS_c2v0p75_c3_1p0_Run3Summer24", "VBSWWH_OS_C2V_0p75_C3_1p0_13p6TeV_4f_LO_TuneCP5"),
+    # c2v=0.75, c3=1.0 -- VBSWWH_SS
+    _make_run3_sig("VBSWWH_SS_c2v0p75_c3_1p0_Run3Summer24", "VBSWWH_SS_C2V_0p75_C3_1p0_13p6TeV_4f_LO_TuneCP5"),
+    # c2v=0.75, c3=1.0 -- VBSWZH
+    _make_run3_sig("VBSWZH_c2v0p75_c3_1p0_Run3Summer24", "VBSWZH_C2V_0p75_C3_1p0_13p6TeV_4f_LO_TuneCP5"),
+    # c2v=0.75, c3=1.0 -- VBSZZH
+    _make_run3_sig("VBSZZH_c2v0p75_c3_1p0_Run3Summer24", "VBSZZH_C2V_0p75_C3_1p0_13p6TeV_4f_LO_TuneCP5"),
+
     # ---- AUX (extra stats, signal_4f_Inclusive_AUX) ----
     # c2v=1.0, c3=1.0
     _make_run3_sig("VBSWWH_OS_c2v1p0_c3_1p0_Run3Summer24_ext1", "VBSWWH_OS_C2V_1p0_C3_1p0_13p6TeV_4f_LO_TuneCP5", base_key="aux"),
