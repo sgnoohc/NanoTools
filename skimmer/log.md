@@ -4,6 +4,54 @@
 
 ---
 
+## 2026-07-14 — ✅ v35 VALIDATED + folded into v30 (low-C2V Run3 signal points)
+
+**Done.** "All job finished" 2026-07-14 01:10 UTC. All **8 dataset dirs** present under
+`VBSVVH_skim_v35/Run3_Sig_v15_v35_Sig/`, 5 ROOT (output_0..4) + cutflow + runs_summary each.
+`check_v35.log`: **8 datasets, 0 errors, 0 warnings** — clean (signal is high-acceptance, so
+no `eventCount=0` flags unlike tight-channel bkg).
+
+**Folded into v30** (v32/v33 mechanism): 8 relative dataset-dir symlinks
+`VBSVVH_skim_v30/Run3_Sig_v15_v30_Sig/<ds> → ../../VBSVVH_skim_v35/Run3_Sig_v15_v35_Sig/<ds>`.
+Pre-check 0 collisions; post-check 0 broken, all resolve to 5 real `output_*.root`. **v30 Sig
+now = 40 entries (32 real + 8 linked).** **NO double-counting** — brand-new coupling points, not
+alternative descriptions of existing phase space (contrast the v33 DY merge). Reversible:
+`find VBSVVH_skim_v30/Run3_Sig_v15_v30_Sig -maxdepth 1 -type l \( -name '*c2v0p25*' -o -name '*c2v0p75*' \) -delete`.
+
+---
+
+## 2026-07-13 — 🟡 v35 RUNNING (new low-C2V Run3 signal scan points)
+
+**v35 = 8 new Run3 signal coupling points** added to the C2V/C3 scan: **C2V=0.25** and
+**C2V=0.75**, both at **C3=1.0**, each covering all 4 VBS VVH processes (VBSWWH_OS,
+VBSWWH_SS, VBSWZH, VBSZZH). Source: aaarora's `run3-vbs-signal-shared/signal_4f_Inclusive`
+(**main** base) Run3Summer24, leaf `VBS{proc}_C2V_{0p25,0p75}_C3_1p0_13p6TeV_4f_LO_TuneCP5`,
+100 files each (verified on uaf-2 ceph). The **AUX base has NO 0p25/0p75** points, so no
+`_ext1` variants (unlike the 1p0/1p5/2p0/10p0 grid).
+
+**How added:** 8 `_make_run3_sig(...)` lines in `nanoaodv15_run3_sig` (`vbsvvh_mc.py`,
+commit 0d4b251), then an isolated group `run3_sig_lowc2v` in `samples.py` (filtered from
+run3_sig by `c2v0p25`/`c2v0p75`, commit b06588c) so a dedicated version skims ONLY these 8
+— the v32/`run3_data_2025` pattern. Plan: after "All job finished" + check.py, **fold into
+v30 via symlink** (like v32 data / v33 DY) into `Run3_Sig_v15_v30_Sig/` (these are brand-new
+datasets — NO double-counting, unlike the v33 DY merge). v30 already has the other 32
+run3_sig points.
+
+**Launch:** `submit.py --samples run3_sig_lowc2v --version v35 --pack-size 12
+--cpus-per-subjob 1`, detached 2026-07-13 20:59 UTC (PID 815421, `logs_v35/submit_v35.log`).
+Dry-run first confirmed 8 datasets × 5 jobs = 40 jobs → 4 packs, tag `Run3_Sig_v15_v35_Sig`.
+`cache_miss_empty` DAS warnings benign (private ceph signal not in DAS → 20 files/job default).
+Used existing Jul-8 `package.tar.xz` (Sig-channel output identical to the reverted binary; not
+re-tarred). Proxy valid to ~Jul 15.
+
+**Branch note:** done on `vvh_skimmer`, which was reset back to 7e9f7cf (pre-2LepZ350) earlier
+this session per user — the whole 2LepZ350 feature (4 commits + the uncommitted pT-cut fix,
+incl. the v34 log entry) was parked on branch `z350` (tip 83401c7). The `skim` binary was
+rebuilt from the reverted tree. (v34 production on disk is unaffected/validated; only its log
+narrative now lives on `z350`.)
+
+---
+
 ## 2026-06-26 — ✅ v33 VALIDATED (high-stat DY for Run2)
 
 **v33 = high-statistics DY alternatives for Run2 Bkg**, two new sample groups skimmed across all 10 channels:
