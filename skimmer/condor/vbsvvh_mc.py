@@ -1458,6 +1458,15 @@ nanoaodv15_run3_bkg_ggzz4l = [
 ]
 
 
+# ZH, H->ZZ->4L (powhegMINLO+JHUGen), Summer24, 4L-filtered. Requested for the
+# 4Lep channel study. NOTE: v30 already carries GluGluH-Hto2Zto4L (ggH
+# production); this is the ZH production mode, so the two are complementary,
+# NOT overlapping. Distinct from the gg->ZZ continuum set above.
+nanoaodv15_run3_bkg_zh4l = [
+    DBSSample(dataset="/ZH-Hto2Z_Fil-4L_Par-M-125_TuneCP5_13p6TeV_powhegMINLO-jhugen-pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM"),
+]
+
+
 nanoaodv15_run2_sig = [
 
     # c2v=1.0, c3=1.0 -- VBSWWH_OS

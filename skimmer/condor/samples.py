@@ -3,6 +3,7 @@ from vbsvvh_data import nanoaodv15_run3_data, nanoaodv15_run2_data, nanoaodv15_r
 from vbsvvh_mc import nanoaodv15_run2_bkg, nanoaodv15_run2_sig, nanoaodv15_run3_bkg, nanoaodv15_run3_sig
 from vbsvvh_mc import nanoaodv15_run2_bkg_dy_htbinned, nanoaodv15_run2_bkg_dy_jetbinned
 from vbsvvh_mc import nanoaodv15_run2_bkg_zz4l, nanoaodv15_run3_bkg_ggzz4l
+from vbsvvh_mc import nanoaodv15_run3_bkg_zh4l
 
 
 # Temporary test group: just the new QCD-4Jets HT-100to200 Run3 Summer24 sample
@@ -81,6 +82,12 @@ SAMPLE_REGISTRY = {
     },
     "run3_bkg_ggzz4l": {
         "samples": nanoaodv15_run3_bkg_ggzz4l,
+        "metadata": {"run": "Run3", "type": "Bkg", "nano": "v15"},
+    },
+    # ZH production with H->ZZ->4L. Complementary to v30's ggH GluGluH-Hto2Zto4L
+    # (different production mode) -- no double-counting with it.
+    "run3_bkg_zh4l": {
+        "samples": nanoaodv15_run3_bkg_zh4l,
         "metadata": {"run": "Run3", "type": "Bkg", "nano": "v15"},
     },
 }
