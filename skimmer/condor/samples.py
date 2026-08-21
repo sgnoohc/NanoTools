@@ -2,6 +2,7 @@ from metis.Sample import DirectorySample, DBSSample
 from vbsvvh_data import nanoaodv15_run3_data, nanoaodv15_run2_data, nanoaodv15_run3_data_2025
 from vbsvvh_mc import nanoaodv15_run2_bkg, nanoaodv15_run2_sig, nanoaodv15_run3_bkg, nanoaodv15_run3_sig
 from vbsvvh_mc import nanoaodv15_run2_bkg_dy_htbinned, nanoaodv15_run2_bkg_dy_jetbinned
+from vbsvvh_mc import nanoaodv15_run2_bkg_zz4l, nanoaodv15_run3_bkg_ggzz4l
 
 
 # Temporary test group: just the new QCD-4Jets HT-100to200 Run3 Summer24 sample
@@ -70,6 +71,17 @@ SAMPLE_REGISTRY = {
     "run2_bkg_dy_jet": {
         "samples": nanoaodv15_run2_bkg_dy_jetbinned,
         "metadata": {"run": "Run2", "type": "Bkg", "nano": "v15"},
+    },
+    # Extra ZZ->4L samples requested for the 4Lep channel study. Isolated groups
+    # so a dedicated version skims only these; fold into v30 by symlink after.
+    # run2_bkg_zz4l OVERLAPS ZZTo4L_M-1toInf in run2_bkg — pick one downstream.
+    "run2_bkg_zz4l": {
+        "samples": nanoaodv15_run2_bkg_zz4l,
+        "metadata": {"run": "Run2", "type": "Bkg", "nano": "v15"},
+    },
+    "run3_bkg_ggzz4l": {
+        "samples": nanoaodv15_run3_bkg_ggzz4l,
+        "metadata": {"run": "Run3", "type": "Bkg", "nano": "v15"},
     },
 }
 

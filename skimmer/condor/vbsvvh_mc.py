@@ -1284,6 +1284,22 @@ nanoaodv15_run2_bkg_dy_jetbinned = [
 ]
 
 
+# qq -> ZZ -> 4L (powheg NLO), 4 UL eras. Requested for the 4Lep channel study.
+# NOTE: OVERLAPS the ZZTo4L_M-1toInf already in nanoaodv15_run2_bkg — same
+# process, different generator-level m(ll) range (this one is the standard
+# m(ll) > 4 GeV sample). Pick ONE of the two downstream; do not sum them.
+nanoaodv15_run2_bkg_zz4l = [
+    # --- 2016preVFP ---
+    DBSSample(dataset="/ZZTo4L_TuneCP5_13TeV_powheg_pythia8/RunIISummer20UL16NanoAODAPVv15-150X_mcRun2_asymptotic_preVFP_v1-v1/NANOAODSIM"),
+    # --- 2016postVFP ---
+    DBSSample(dataset="/ZZTo4L_TuneCP5_13TeV_powheg_pythia8/RunIISummer20UL16NanoAODv15-150X_mcRun2_asymptotic_v1-v2/NANOAODSIM"),
+    # --- 2017 ---
+    DBSSample(dataset="/ZZTo4L_TuneCP5_13TeV_powheg_pythia8/RunIISummer20UL17NanoAODv15-150X_mc2017_realistic_v1-v1/NANOAODSIM"),
+    # --- 2018 ---
+    DBSSample(dataset="/ZZTo4L_TuneCP5_13TeV_powheg_pythia8/RunIISummer20UL18NanoAODv15-150X_mc2018_realistic_v1-v1/NANOAODSIM"),
+]
+
+
 nanoaodv15_run3_bkg = [
     DBSSample(dataset="/QCD_Bin-PT-50to80_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM"),
     DBSSample(dataset="/QCD_Bin-PT-80to120_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM"),
@@ -1425,6 +1441,22 @@ nanoaodv15_run3_bkg = [
     DBSSample(dataset="/DYto2Mu-2Jets_Bin-MLL-50_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v6/NANOAODSIM"),
     DBSSample(dataset="/DYto2Tau-2Jets_Bin-MLL-50_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v7/NANOAODSIM"),
 ]
+
+
+# gg -> ZZ -> 4L (mcfm), Summer24, all 6 final states. Requested for the 4Lep
+# channel study. NOTE: distinct dataset names from the GluGlu(To)Contin(t)o2Zto*
+# set already in nanoaodv15_run3_bkg (those are continuum-only "Contin"; the
+# 2E2Mu/2E2Tau/2Mu2Tau ones there are also mcfm701, not mcfm). Check for
+# overlap before summing both in the same 4L stack.
+nanoaodv15_run3_bkg_ggzz4l = [
+    DBSSample(dataset="/GluGlu2Zto4E_TuneCP5_13p6TeV_mcfm-pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM"),
+    DBSSample(dataset="/GluGlu2Zto4Mu_TuneCP5_13p6TeV_mcfm-pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM"),
+    DBSSample(dataset="/GluGlu2Zto4Tau_TuneCP5_13p6TeV_mcfm-pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM"),
+    DBSSample(dataset="/GluGlu2Zto2E2Mu_TuneCP5_13p6TeV_mcfm-pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM"),
+    DBSSample(dataset="/GluGlu2Zto2E2Tau_TuneCP5_13p6TeV_mcfm-pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM"),
+    DBSSample(dataset="/GluGlu2Zto2Mu2Tau_TuneCP5_13p6TeV_mcfm-pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM"),
+]
+
 
 nanoaodv15_run2_sig = [
 
