@@ -4,6 +4,61 @@
 
 ---
 
+## 2026-08-21 — ✅ v36 + v37 VALIDATED + folded into v30 (ZZ→4L set for the 4Lep study)
+
+**Two versions, one session**, both **4Lep-only** (user's call — these are 4L final states; the
+hadronic/1Lep channels would select ~0 anyway):
+
+- **v36** = the ZZ→4L pair. `run2_bkg_zz4l` (qq→ZZ→4L powheg NLO, 4 UL eras) +
+  `run3_bkg_ggzz4l` (gg→ZZ→4L mcfm Summer24, all 6 final states) = **10 datasets, 30 jobs, 3 packs**.
+  Commit `89047e5`. Launched 13:03 ET, "All job finished" ~13:5x. **30/30 output files.**
+- **v37** = `run3_bkg_zh4l`, the single `ZH-Hto2Z_Fil-4L` Summer24 sample (1.54M evt, 35 files,
+  **1 job**). Commit `5113727`. Added mid-flight, so it needed its own version — the v36 driver had
+  already imported `samples.py` and does not re-read it per loop iteration.
+
+**Validation.** `check_v36`: **10 datasets, 0 errors, 12 warnings**; `check_v37`: **1 dataset, 0/0**.
+Both passed `--check-root` (0 zombie / 0 recovered). The 12 warnings are `LHEScaleSumw has 0 entries`
++ `LHEPdfSumw is empty` on the 6 gg samples — **benign, and verified so**: the `GluGlu*Continto2Zto*`
+samples *already in v30* show the identical `nLHEScaleSumw=0` (branch present, array empty). It's a
+property of these mcfm gg→ZZ samples, not a skim defect. `genEventSumw` intact everywhere.
+v37 cutflow: 1,541,582 → **164,335** pass 4Lep (10.7%, expected for a 4L-filtered sample).
+
+**Folded into v30** via the new `condor/link_into_skim.py` (see below): 10 links from v36 + 1 from
+v37 into `Run2_Bkg_v15_v30_4Lep` / `Run3_Bkg_v15_v30_4Lep`. 0 collisions, 0 broken.
+**v30 now = 759 symlinks** (v32 344 + v33 396 + v35 8 + v36 10 + v37 1), 0 broken.
+Reversible: `find VBSVVH_skim_v30 -maxdepth 2 -type l \( -lname '*v36*' -o -lname '*v37*' \) -delete`.
+
+**⚠ Overlap — read before building a 4L stack.** Two of the three additions overlap what v30 already has:
+- `ZZTo4L_TuneCP5` (v36) vs **`ZZTo4L_M-1toInf`** already in `run2_bkg` — same process, different
+  gen-level m(ll) range. **Pick ONE.**
+- `GluGlu2Zto*` (v36, 6 states) vs **`GluGlu{To,to}Contin{,t}o2Zto*`** already in v30 (also 6 states,
+  mcfm/mcfm701) — 6-for-6. Likely continuum-only vs full gg→ZZ; **check before summing**.
+- `ZH-Hto2Z_Fil-4L` (v37) vs `GluGluH-Hto2Zto4L` in v30 — **NOT an overlap**, different production
+  modes (ZH vs ggH). Both belong in the stack.
+
+Dir names differ in every case, so nothing collided on disk — the double-counting risk is purely
+downstream, same shape as the v33 DY merge.
+
+**Asymmetry note:** 4Lep-only means these 11 datasets exist in the 4Lep channel and nowhere else in
+v30. A per-channel `ls`-driven stack builder will see a different bkg list in 4Lep than in the other
+8 channels. Intentional, but it will bite anything that assumes a uniform sample list per channel.
+
+**New: `condor/link_into_skim.py`** — the v32/v33/v35/v36/v37 merge, scripted instead of retyped.
+Substitutes the version token to map tags (`Run3_Bkg_v15_v37_4Lep` → `..._v30_4Lep`), refuses to run
+on any destination-name collision, skips empty sources and tags the target lacks, verifies all links
+resolve. Dry-run by default; `--execute` writes.
+
+**Also this session:** one-off **local** 4Lep skim of a single ZZZ UL18 file
+(`c7813198-…root`, xrdcp'd from FNAL to `skimmer/local_zzz/`) → 618,000 → **2,892** pass 4Lep,
+output validated (not a zombie, `genEventSumw` present, sweeproot OK). **Gotcha:** `Nano::parseYear()`
+reads the year from the *file path*, so a renamed local copy (`input.root`) aborts with "Failed to
+recognize which year". Keep the campaign keyword (`RunIISummer20UL18`) in the path. Note this exact
+dataset is *already* fully skimmed in v30 `Run2_Bkg_v15_v30_4Lep` (all 46 files) — the local run was
+a spot-check, not new coverage. The 2,892 `HLT_IsoMu22_eta2p1 branch/address missing` lines (one per
+selected event) are a 2016-only trigger probed on a 2018 file — benign here.
+
+---
+
 ## 2026-07-14 — ✅ v35 VALIDATED + folded into v30 (low-C2V Run3 signal points)
 
 **Done.** "All job finished" 2026-07-14 01:10 UTC. All **8 dataset dirs** present under
