@@ -30,6 +30,9 @@ def main():
     ap.add_argument("--dst", default="VBSVVH_skim_v30", help="Target skim name (default VBSVVH_skim_v30)")
     ap.add_argument("--base-dir", default=BASE)
     ap.add_argument("--execute", action="store_true", help="Actually create links (default: dry-run)")
+    ap.add_argument("--tag-subst", action="append", default=[], metavar="OLD=NEW",
+                    help="Extra OLD=NEW substitution applied to the target tag name, e.g. "
+                         "--tag-subst v13=v15 to fold a v13-nano group into v30's v15 tags. Repeatable.")
     args = ap.parse_args()
 
     src_v, dst_v = version_of(args.src), version_of(args.dst)
@@ -47,6 +50,9 @@ def main():
         if not os.path.isdir(src_tag):
             continue
         dst_tag_name = tag.replace(f"_{src_v}_", f"_{dst_v}_")
+        for sub in args.tag_subst:
+            old, _, new = sub.partition("=")
+            dst_tag_name = dst_tag_name.replace(f"_{old}_", f"_{new}_")
         dst_tag = os.path.join(dst_root, dst_tag_name)
         if not os.path.isdir(dst_tag):
             skipped_tags.append((tag, dst_tag_name))
@@ -66,6 +72,8 @@ def main():
             planned.append((dst_ds, os.path.join("..", "..", args.src, tag, ds)))
 
     print(f"=== link {args.src} -> {args.dst} ===")
+    for sub in args.tag_subst:
+        print(f"  [tag-subst] {sub}")
     for tag, dst_tag_name in skipped_tags:
         print(f"  [skip] {tag}: no {dst_tag_name} in target")
     for e in empties:

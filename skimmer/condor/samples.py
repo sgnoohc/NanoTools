@@ -4,6 +4,7 @@ from vbsvvh_mc import nanoaodv15_run2_bkg, nanoaodv15_run2_sig, nanoaodv15_run3_
 from vbsvvh_mc import nanoaodv15_run2_bkg_dy_htbinned, nanoaodv15_run2_bkg_dy_jetbinned
 from vbsvvh_mc import nanoaodv15_run2_bkg_zz4l, nanoaodv15_run3_bkg_ggzz4l
 from vbsvvh_mc import nanoaodv15_run3_bkg_zh4l
+from vbsvvh_hh import nanoaodv15_run3_bkg_hh, nanoaodv13_run3_bkg_hh_bbtautau
 
 
 # Temporary test group: just the new QCD-4Jets HT-100to200 Run3 Summer24 sample
@@ -89,6 +90,20 @@ SAMPLE_REGISTRY = {
     "run3_bkg_zh4l": {
         "samples": nanoaodv15_run3_bkg_zh4l,
         "metadata": {"run": "Run3", "type": "Bkg", "nano": "v15"},
+    },
+    # Di-Higgs. Summer24 NanoAODv15 -- same campaign as v30's Run3 Bkg, so these
+    # fold straight into Run3_Bkg_v15_v30_<channel>. NO overlap with anything
+    # already in v30: HH has never been in this production.
+    "run3_bkg_hh": {
+        "samples": nanoaodv15_run3_bkg_hh,
+        "metadata": {"run": "Run3", "type": "Bkg", "nano": "v15"},
+    },
+    # ggHH->bbtautau, only exists up to NanoAODv13 (Summer22). Separate group so
+    # the nano version in the tag stays honest; needs --tag-subst v13=v15 when
+    # linking into v30. Different year from run3_bkg_hh -- not stackable with it.
+    "run3_bkg_hh_bbtautau": {
+        "samples": nanoaodv13_run3_bkg_hh_bbtautau,
+        "metadata": {"run": "Run3", "type": "Bkg", "nano": "v13"},
     },
 }
 
