@@ -30,6 +30,9 @@ def main():
     ap.add_argument("--dst", default="VBSVVH_skim_v30", help="Target skim name (default VBSVVH_skim_v30)")
     ap.add_argument("--base-dir", default=BASE)
     ap.add_argument("--execute", action="store_true", help="Actually create links (default: dry-run)")
+    ap.add_argument("--tag-filter", default=None, metavar="SUBSTR",
+                    help="Only process source tags containing SUBSTR. Use when a version holds "
+                         "several groups and they need different --tag-subst handling.")
     ap.add_argument("--tag-subst", action="append", default=[], metavar="OLD=NEW",
                     help="Extra OLD=NEW substitution applied to the target tag name, e.g. "
                          "--tag-subst v13=v15 to fold a v13-nano group into v30's v15 tags. Repeatable.")
@@ -48,6 +51,8 @@ def main():
     for tag in sorted(os.listdir(src_root)):
         src_tag = os.path.join(src_root, tag)
         if not os.path.isdir(src_tag):
+            continue
+        if args.tag_filter and args.tag_filter not in tag:
             continue
         dst_tag_name = tag.replace(f"_{src_v}_", f"_{dst_v}_")
         for sub in args.tag_subst:
@@ -72,6 +77,8 @@ def main():
             planned.append((dst_ds, os.path.join("..", "..", args.src, tag, ds)))
 
     print(f"=== link {args.src} -> {args.dst} ===")
+    if args.tag_filter:
+        print(f"  [tag-filter] only tags containing '{args.tag_filter}'")
     for sub in args.tag_subst:
         print(f"  [tag-subst] {sub}")
     for tag, dst_tag_name in skipped_tags:

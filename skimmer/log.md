@@ -4,6 +4,60 @@
 
 ---
 
+## 2026-08-27 — ✅ v38 VALIDATED + folded into v30 (di-Higgs — FIRST HH in this production)
+
+**v38 = 28 HH datasets × all 10 channels = 280 jobs.** Launched 2026-08-26 17:07 ET,
+"All job finished" overnight, **280/280 output files**. Commit `621fce5`.
+**HH had never been in this production** — zero HH in any sample list or any skim v24–v37,
+so there is NO overlap with anything pre-existing in v30.
+
+Two groups (new module `condor/vbsvvh_hh.py`):
+- **`run3_bkg_hh`** (26 ds, key `Run3_Bkg_v15_v38`) — **RunIII2024Summer24 NanoAODv15**, the
+  *same campaign and nano version as v30's Run3 Bkg*, so it folds in with zero version risk:
+  ggHH→bb+VV kl scan (0/1/2.45/5, c2=0, kt=1) × {2B2WtoLNu2Q (SL), 2B2Vto2L2Nu (DL), 2B2V
+  (inclusive), 2B2Zto2L2Q, 2B2Zto4L} = 20; `GluGluHHto4B` same kl scan (PowhegBugFix) = 4;
+  `WHH-HHto4B` + `ZHH-HHto4B` at the SM point (C2V=C3=CV=1) = 2.
+- **`run3_bkg_hh_bbtautau`** (2 ds, key `Run3_Bkg_v13_v38`) — ggHH→bbττ does NOT exist in
+  Summer24 v15 (only `VBFHHto2B2Tau` does), so this is **Summer22 NanoAODv13**
+  `ggHH_powheg_bugfix`, kl=0 and kl=5.
+
+**Supersedes the user's original list**, which mixed v13/v12 and two Run2 **NanoAODv2** VHH
+samples. A DAS sweep found v15 equivalents for everything — *including VHH→4b in Run3*, which
+was believed Run2-only. That matters: NanoAODv2/v9 are **unreadable** by this binary
+(`Electron_cutBased` is `Int_t` there vs NanoCORE's `UChar_t` buffer → overrun + garbage
+electron IDs, silent). v13 readability WAS verified end-to-end against the local skim binary
+first (branch types, `Year: 2022`, correct `2022_Summer22` JetId JSON, sane cutflows).
+
+**Validation.** `check_v38`: **280 datasets, 3 errors, 0 warnings**; `--check-root` identical
+(0 zombie / 0 recovered). All 3 errors are `eventCount=0` on **4Lep × GluGluHHto4B** — HH→4b
+has no prompt leptons. **Verified benign, not broken jobs:** all four kl points read their full
+~1.96–1.99 M events; kl=1.00 selects 2 events (rare leptonic b-decays faking 4 loose leptons,
+~1e-6 — right order of magnitude), the other three select 0. Flagged file is non-zombie,
+`Runs`=113 entries, `genEventSumw`=197 intact. Same class as v30's 1,481 benign flags.
+
+**Folded into v30**: **252 symlinks** — 234 from the v15 group (26 ds × 9 shared channels) plus
+18 from the v13 group (2 ds × 9) using the new `--tag-subst v13=v15`. `2Lep4J` skipped both
+times (not a v30 channel). 0 collisions, 0 broken.
+**v30 now = 1,011 symlinks** (v32 344 + v33 396 + v35 8 + v36 10 + v37 1 + **v38 252**), 0 broken.
+Reversible: `find VBSVVH_skim_v30 -maxdepth 2 -type l -lname '*v38*' -delete`.
+
+**⚠ Caveats on the HH set, all structural:**
+- **bbττ is NOT stackable with the rest** — Summer22/2022 vs Summer24/2024, different campaign
+  *and* different nano version. It also has **no SM kl=1 point** in that campaign (only 0 and 5).
+- **No dedicated fully-hadronic bbWW/bbZZ exists** in Summer24 v15. `GluGlutoHHto2B2V` is the
+  inclusive bbVV sample and covers that phase space; treat it as such, do not sum it with the
+  SL/DL samples (it contains them).
+- **VBF HH deliberately excluded** (21 final states × ~10 points ≈ 210 ds), as were the 94
+  `VBF-XtoHHto4B-SingletModel` resonant BSM datasets. Eight further C2V/C3/CV points per VHH
+  process exist in the same campaign if the scan is ever wanted.
+
+**`condor/link_into_skim.py` gained two flags**, both needed here: `--tag-subst OLD=NEW`
+(fold a group whose nano version differs from the target's) and `--tag-filter SUBSTR` (scope a
+pass to one group when a version holds several). The collision guard proved itself twice —
+it refused to re-link v37, and refused the v15 tags on the second v38 pass.
+
+---
+
 ## 2026-08-21 — ✅ v36 + v37 VALIDATED + folded into v30 (ZZ→4L set for the 4Lep study)
 
 **Two versions, one session**, both **4Lep-only** (user's call — these are 4L final states; the
