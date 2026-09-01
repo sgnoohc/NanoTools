@@ -4,6 +4,13 @@
 GlobalConfig gconf;
 
 void GlobalConfig::GetConfigsFromDatasetName(std::string dsname) {
+    // NOTE: this is the SECOND year-detection path, independent of
+    // Nano::ParseYear() in Nano.cc. Both take the full file path and MUST agree
+    // -- keep their keyword lists in sync when adding a campaign.
+    // The "_<era>/" fallbacks match a DIRECTORY component (mc_2022EE/,
+    // data_2023BPix/) for private productions carrying no campaign string.
+    // The trailing slash is REQUIRED -- without it "_2016" also matches the
+    // sequence number in filenames like "DATA_2022_2016.root".
     // bool isData = dsname.Contains("Run201") || dsname.Contains("run2_data");
 
     if (dsname.find("Run2016") != std::string::npos || dsname.find("RunIISummer16") != std::string::npos || dsname.find("UL16") != std::string::npos || dsname.find("UL2016") != std::string::npos || dsname.find("_2016/") != std::string::npos)
@@ -22,11 +29,11 @@ void GlobalConfig::GetConfigsFromDatasetName(std::string dsname) {
     {
         year = 2018;
     }
-    else if (dsname.find("Run2022") != std::string::npos || dsname.find("Run3Summer22") != std::string::npos || dsname.find("_2022/") != std::string::npos)
+    else if (dsname.find("Run2022") != std::string::npos || dsname.find("Run3Summer22") != std::string::npos || (dsname.find("_2022/") != std::string::npos || dsname.find("_2022EE/") != std::string::npos))
     {
         year = 2022;
     }
-    else if (dsname.find("Run2023") != std::string::npos || dsname.find("RunIII2023Summer23") != std::string::npos || dsname.find("_2023/") != std::string::npos)
+    else if (dsname.find("Run2023") != std::string::npos || dsname.find("RunIII2023Summer23") != std::string::npos || dsname.find("Run3Summer23") != std::string::npos || (dsname.find("_2023/") != std::string::npos || dsname.find("_2023BPix/") != std::string::npos))
     {
         year = 2023;
     }

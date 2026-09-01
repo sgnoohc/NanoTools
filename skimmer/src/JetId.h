@@ -110,13 +110,23 @@ class JetIdEvaluator
         switch (year)
         {
         case 2022:
-            // Run2022E/F/G or EE campaign → Summer22EE
-            if (dsname.find("EE") != std::string::npos || dsname.find("Run2022E") != std::string::npos || dsname.find("Run2022F") != std::string::npos || dsname.find("Run2022G") != std::string::npos)
+            // Explicit pre-era marker wins. dsname is the full FILE PATH, and
+            // some productions name their files "MC_preEE2022_*.root" -- a bare
+            // find("EE") matches those and silently picks the wrong JSON.
+            if (dsname.find("preEE") != std::string::npos)
+                return base + "2022_Summer22/jetid.json.gz";
+            // post-EE: campaign string, processing tag, or Run2022E/F/G data
+            if (dsname.find("Summer22EE") != std::string::npos || dsname.find("postEE") != std::string::npos
+                || dsname.find("Run2022E") != std::string::npos || dsname.find("Run2022F") != std::string::npos
+                || dsname.find("Run2022G") != std::string::npos)
                 return base + "2022_Summer22EE/jetid.json.gz";
             return base + "2022_Summer22/jetid.json.gz";
         case 2023:
-            // Run2023D or BPix campaign → Summer23BPix
-            if (dsname.find("BPix") != std::string::npos || dsname.find("Run2023D") != std::string::npos)
+            // Same trap as 2022: files named "MC_preBPix2023_*.root" contain "BPix".
+            if (dsname.find("preBPix") != std::string::npos)
+                return base + "2023_Summer23/jetid.json.gz";
+            if (dsname.find("Summer23BPix") != std::string::npos || dsname.find("postBPix") != std::string::npos
+                || dsname.find("Run2023D") != std::string::npos)
                 return base + "2023_Summer23BPix/jetid.json.gz";
             return base + "2023_Summer23/jetid.json.gz";
         case 2024:
