@@ -5,6 +5,7 @@ from vbsvvh_mc import nanoaodv15_run2_bkg_dy_htbinned, nanoaodv15_run2_bkg_dy_je
 from vbsvvh_mc import nanoaodv15_run2_bkg_zz4l, nanoaodv15_run3_bkg_ggzz4l
 from vbsvvh_mc import nanoaodv15_run3_bkg_zh4l
 from vbsvvh_hh import nanoaodv15_run3_bkg_hh, nanoaodv13_run3_bkg_hh_bbtautau
+import vbsvvh_v14
 
 
 # Temporary test group: just the new QCD-4Jets HT-100to200 Run3 Summer24 sample
@@ -106,6 +107,15 @@ SAMPLE_REGISTRY = {
         "metadata": {"run": "Run3", "type": "Bkg", "nano": "v13"},
     },
 }
+
+# ------------------------------------------------------------------
+# LPC PFNano NanoAODv14 (nanoindex_v14_HVV_private.json).
+# Registered programmatically -- 12 groups (4 eras x Bkg/Data/Sig). The index is
+# large (38 MB), so vbsvvh_v14 parses it lazily on first access.
+# Needs the year/JetId fixes in 458911d; see vbsvvh_v14.py for why.
+# ------------------------------------------------------------------
+for _name, (_samples, _metadata) in vbsvvh_v14.get_groups().items():
+    SAMPLE_REGISTRY[_name] = {"samples": _samples, "metadata": _metadata}
 
 
 def get_samples(name):

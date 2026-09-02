@@ -15,6 +15,15 @@ from metis.StatsParser import StatsParser
 from skip_dict import BKG_SKIP, DATA_SKIP
 import samples
 from das_nevents import das_info
+# The v14 PFNano samples are private and absent from DAS, so split_func() cannot
+# query dasgoclient for them and would silently fall back to 20 files/job. Merging
+# the pre-measured cache in here (same schema, keyed by vbsvvh_v14.dataset_name())
+# means split_func works unchanged. Regenerate with make_v14_nevents.py.
+try:
+    from v14_nevents import v14_info
+    das_info.update(v14_info)
+except ImportError:
+    print("[warn] v14_nevents.py not found -- v14 samples would split at 20 files/job")
 from sample_channels import is_mc_allowed
 
 condorpath = os.path.dirname(os.path.realpath(__file__))
@@ -139,6 +148,16 @@ LEPTON_PDS = {"MuonEG", "DoubleEG", "DoubleMuon", "SingleMuon", "EGamma", "Singl
               "Muon", "Muon0", "Muon1", "EGamma0", "EGamma1", "EGamma2", "EGamma3"}
 HADRONIC_PDS = {"MET", "JetHT", "JetMET", "JetMET0", "JetMET1", "SingleMuon"}
 
+# Primary datasets that exist in some sample indices but are DELIBERATELY not
+# routed to any channel. These are NOT oversights -- CMS primary datasets are not
+# disjoint, so folding a PD into a channel whose triggers already select those
+# events double-counts data. Neither of these feeds any of the 10 skim channels:
+#   Tau     -- tau-triggered; the skim counts electrons and muons only
+#   BTagMu  -- muon-enriched b-jet PD, for b-tag calibration, not analysis
+# Move a name out of here into LEPTON_PDS/HADRONIC_PDS only after checking the
+# trigger overlap with the PDs already routed to that channel.
+UNUSED_PDS = {"Tau", "BTagMu"}
+
 CHANNEL_PDS = {
     "4Lep": LEPTON_PDS,
     "3Lep": LEPTON_PDS,
@@ -151,6 +170,32 @@ CHANNEL_PDS = {
     "0Lep1FJ": HADRONIC_PDS,
     "0Lep0FJ": HADRONIC_PDS,
 }
+
+_unrouted_pds = {}
+
+def track_unrouted_pd(pd_name, dsname):
+    """Record a Data PD that matched no active channel, so it is never dropped silently."""
+    _unrouted_pds.setdefault(pd_name, []).append(dsname)
+
+def report_unrouted_pds():
+    if not _unrouted_pds:
+        return
+    print("\n" + "=" * 70)
+    print("SKIPPED DATA PDs (matched no active channel)")
+    known = LEPTON_PDS | HADRONIC_PDS
+    for pd_name in sorted(_unrouted_pds):
+        n = len(_unrouted_pds[pd_name])
+        if pd_name in UNUSED_PDS:
+            why = "known-unused, see UNUSED_PDS"
+        elif pd_name in known:
+            # Routine when --channels restricts the run: e.g. JetMET is hadronic
+            # and simply has no business in a 4Lep-only pass.
+            why = "known PD, no ACTIVE channel takes it"
+        else:
+            why = "UNKNOWN PD -- check naming / CHANNEL_PDS"
+        print(f"  {pd_name:12s} {n:4d} datasets   ({why})")
+    print("=" * 70)
+
 
 def get_primary_dataset(dsname):
     """Extract primary dataset name: '/MuonEG/Run2016B-.../NANOAOD' -> 'MuonEG'"""
@@ -268,6 +313,10 @@ if __name__ == "__main__":
                     pd_name = get_primary_dataset(dsname)
                     if not any(tag not in CHANNEL_PDS or pd_name in CHANNEL_PDS[tag]
                                for tag in analysis_tags):
+                        # Report rather than drop in silence: an unrecognised PD is
+                        # almost always a naming bug, and a known-unused one should
+                        # still be visible in the submission log.
+                        track_unrouted_pd(pd_name, dsname)
                         continue
                 elif metadata["type"] == "Bkg":
                     if not any(is_mc_allowed(dsname, tag) for tag in analysis_tags):
@@ -440,6 +489,8 @@ if __name__ == "__main__":
         # ------------------------------------------------------------------
         # Generate JSON summaries and dashboards per tag
         # ------------------------------------------------------------------
+        report_unrouted_pds()
+
         total_dashboards = sum(len(tags) for _, tags in all_unique_keys_and_tags)
         idash = 0
         print(f"  [status] Generating {total_dashboards} dashboards ...")
