@@ -152,8 +152,13 @@ while IFS=$'\t' read -r TASK_NAME SUBJOB_INDEX SUBJOB_ARGS; do
         fi
 
         # Handle input files
-        # Prepend xrootd redirector for /store paths
-        if [[ ${INPUTFILENAMES} != /cmsuf/* ]]; then
+        # Prepend xrootd redirector for bare /store LFNs (what DBSSample yields).
+        # Inputs that are ALREADY fully-qualified root:// URLs (what FilelistSample
+        # yields, e.g. the LPC PFNano index) must be left alone -- this is a global
+        # substring replace, so applying it to "root://host//store/..." produces the
+        # nonsense "root://host/root://cmsxrootd.fnal.gov//store/..." and every
+        # xrdcp fails.
+        if [[ ${INPUTFILENAMES} != /cmsuf/* && ${INPUTFILENAMES} != root://* ]]; then
             INPUTFILENAMES=${INPUTFILENAMES//\/store/root:\/\/cmsxrootd.fnal.gov\/\/store}
         fi
 
