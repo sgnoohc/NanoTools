@@ -74,8 +74,17 @@ def generate_runs_summary(root_path):
                         n = getattr(t, "n" + bname)
                         arrays[bname] = [0.0] * n
             for bname, sums in arrays.items():
+                # The per-entry array length is NOT constant across Runs entries:
+                # a lumi block with no LHE weights stores n=0 while its neighbours
+                # store 9 (scale) or 103 (pdf). Sizing the accumulator from entry 0
+                # and then indexing blindly reads off the end of such an entry
+                # ("index out of bounds on dimension 1"). Clamp to this entry's
+                # length, and grow if a later entry is longer than the first.
+                n_i = int(getattr(t, "n" + bname))
                 vals = getattr(t, bname)
-                for j in range(len(sums)):
+                if n_i > len(sums):
+                    sums.extend([0.0] * (n_i - len(sums)))
+                for j in range(min(len(sums), n_i)):
                     sums[j] += vals[j]
         out.update(scalars)
         out.update(arrays)
