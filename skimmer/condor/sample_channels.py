@@ -697,6 +697,719 @@ SAMPLE_MATRIX = {
     # GluGluZH_HToWWTo2L2Nu
     "/GluGluZH_HToWWTo2L2Nu_M-125_TuneCP5_13TeV-powheg-pythia8/RunIISummer20UL16NanoAODv15-150X_mcRun2_asymptotic_v1-v1/NANOAODSIM"                              : "0  1  1  1  1  1  1  1  1",
     "/GluGluZH_HToWWTo2L2Nu_M-125_TuneCP5_13TeV-powheg-pythia8/RunIISummer20UL17NanoAODv15-150X_mc2017_realistic_v1-v1/NANOAODSIM"                               : "0  1  1  1  1  1  1  1  1",
+
+    # ================================================================================================
+    # LPC PFNano NanoAODv14 (nanoindex_v14_HVV_private.json), 4 eras.
+    # Same convention as the Run2 rows above: hadronic processes drop 4Lep/3Lep;
+    # fully-leptonic ZZ->4L / WZ->3L drop the 0Lep (and for 4L, 1Lep) channels.
+    # Generated -- see the classifier in the v14 matrix commit.
+    # ================================================================================================
+    #                                                                                                                                                   4L 3L 22 21 11 03 02 01 00
+    # DYto2E_MLL-10to50_TuneCP5_13p6TeV_powheg-pythia8  [2+ leptons plausible]
+    "/DYto2E_MLL-10to50_TuneCP5_13p6TeV_powheg-pythia8/2022_PFNanoV14/PFNANOSIM"                                              : "1  1  1  1  1  1  1  1  1",
+    "/DYto2E_MLL-10to50_TuneCP5_13p6TeV_powheg-pythia8/2022EE_PFNanoV14/PFNANOSIM"                                            : "1  1  1  1  1  1  1  1  1",
+    "/DYto2E_MLL-10to50_TuneCP5_13p6TeV_powheg-pythia8/2023_PFNanoV14/PFNANOSIM"                                              : "1  1  1  1  1  1  1  1  1",
+    "/DYto2E_MLL-10to50_TuneCP5_13p6TeV_powheg-pythia8/2023BPix_PFNanoV14/PFNANOSIM"                                          : "1  1  1  1  1  1  1  1  1",
+    #                                                                                                                                                   4L 3L 22 21 11 03 02 01 00
+    # DYto2L-2Jets_MLL-50_PTLL-100to200_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8  [2+ leptons plausible]
+    "/DYto2L-2Jets_MLL-50_PTLL-100to200_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/2022_PFNanoV14/PFNANOSIM"                     : "1  1  1  1  1  1  1  1  1",
+    "/DYto2L-2Jets_MLL-50_PTLL-100to200_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/2022EE_PFNanoV14/PFNANOSIM"                   : "1  1  1  1  1  1  1  1  1",
+    "/DYto2L-2Jets_MLL-50_PTLL-100to200_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/2023_PFNanoV14/PFNANOSIM"                     : "1  1  1  1  1  1  1  1  1",
+    "/DYto2L-2Jets_MLL-50_PTLL-100to200_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/2023BPix_PFNanoV14/PFNANOSIM"                 : "1  1  1  1  1  1  1  1  1",
+    #                                                                                                                                                   4L 3L 22 21 11 03 02 01 00
+    # DYto2L-2Jets_MLL-50_PTLL-100to200_2J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8  [2+ leptons plausible]
+    "/DYto2L-2Jets_MLL-50_PTLL-100to200_2J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/2022_PFNanoV14/PFNANOSIM"                     : "1  1  1  1  1  1  1  1  1",
+    "/DYto2L-2Jets_MLL-50_PTLL-100to200_2J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/2022EE_PFNanoV14/PFNANOSIM"                   : "1  1  1  1  1  1  1  1  1",
+    "/DYto2L-2Jets_MLL-50_PTLL-100to200_2J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/2023_PFNanoV14/PFNANOSIM"                     : "1  1  1  1  1  1  1  1  1",
+    "/DYto2L-2Jets_MLL-50_PTLL-100to200_2J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/2023BPix_PFNanoV14/PFNANOSIM"                 : "1  1  1  1  1  1  1  1  1",
+    #                                                                                                                                                   4L 3L 22 21 11 03 02 01 00
+    # DYto2L-2Jets_MLL-50_PTLL-200to400_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8  [2+ leptons plausible]
+    "/DYto2L-2Jets_MLL-50_PTLL-200to400_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/2022_PFNanoV14/PFNANOSIM"                     : "1  1  1  1  1  1  1  1  1",
+    "/DYto2L-2Jets_MLL-50_PTLL-200to400_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/2022EE_PFNanoV14/PFNANOSIM"                   : "1  1  1  1  1  1  1  1  1",
+    "/DYto2L-2Jets_MLL-50_PTLL-200to400_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/2023_PFNanoV14/PFNANOSIM"                     : "1  1  1  1  1  1  1  1  1",
+    "/DYto2L-2Jets_MLL-50_PTLL-200to400_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/2023BPix_PFNanoV14/PFNANOSIM"                 : "1  1  1  1  1  1  1  1  1",
+    #                                                                                                                                                   4L 3L 22 21 11 03 02 01 00
+    # DYto2L-2Jets_MLL-50_PTLL-200to400_2J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8  [2+ leptons plausible]
+    "/DYto2L-2Jets_MLL-50_PTLL-200to400_2J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/2022_PFNanoV14/PFNANOSIM"                     : "1  1  1  1  1  1  1  1  1",
+    "/DYto2L-2Jets_MLL-50_PTLL-200to400_2J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/2022EE_PFNanoV14/PFNANOSIM"                   : "1  1  1  1  1  1  1  1  1",
+    "/DYto2L-2Jets_MLL-50_PTLL-200to400_2J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/2023_PFNanoV14/PFNANOSIM"                     : "1  1  1  1  1  1  1  1  1",
+    "/DYto2L-2Jets_MLL-50_PTLL-200to400_2J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/2023BPix_PFNanoV14/PFNANOSIM"                 : "1  1  1  1  1  1  1  1  1",
+    #                                                                                                                                                   4L 3L 22 21 11 03 02 01 00
+    # DYto2L-2Jets_MLL-50_PTLL-400to600_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8  [2+ leptons plausible]
+    "/DYto2L-2Jets_MLL-50_PTLL-400to600_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/2022_PFNanoV14/PFNANOSIM"                     : "1  1  1  1  1  1  1  1  1",
+    "/DYto2L-2Jets_MLL-50_PTLL-400to600_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/2022EE_PFNanoV14/PFNANOSIM"                   : "1  1  1  1  1  1  1  1  1",
+    "/DYto2L-2Jets_MLL-50_PTLL-400to600_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/2023_PFNanoV14/PFNANOSIM"                     : "1  1  1  1  1  1  1  1  1",
+    "/DYto2L-2Jets_MLL-50_PTLL-400to600_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/2023BPix_PFNanoV14/PFNANOSIM"                 : "1  1  1  1  1  1  1  1  1",
+    #                                                                                                                                                   4L 3L 22 21 11 03 02 01 00
+    # DYto2L-2Jets_MLL-50_PTLL-400to600_2J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8  [2+ leptons plausible]
+    "/DYto2L-2Jets_MLL-50_PTLL-400to600_2J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/2022_PFNanoV14/PFNANOSIM"                     : "1  1  1  1  1  1  1  1  1",
+    "/DYto2L-2Jets_MLL-50_PTLL-400to600_2J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/2022EE_PFNanoV14/PFNANOSIM"                   : "1  1  1  1  1  1  1  1  1",
+    "/DYto2L-2Jets_MLL-50_PTLL-400to600_2J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/2023_PFNanoV14/PFNANOSIM"                     : "1  1  1  1  1  1  1  1  1",
+    "/DYto2L-2Jets_MLL-50_PTLL-400to600_2J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/2023BPix_PFNanoV14/PFNANOSIM"                 : "1  1  1  1  1  1  1  1  1",
+    #                                                                                                                                                   4L 3L 22 21 11 03 02 01 00
+    # DYto2L-2Jets_MLL-50_PTLL-40to100_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8  [2+ leptons plausible]
+    "/DYto2L-2Jets_MLL-50_PTLL-40to100_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/2022_PFNanoV14/PFNANOSIM"                      : "1  1  1  1  1  1  1  1  1",
+    "/DYto2L-2Jets_MLL-50_PTLL-40to100_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/2022EE_PFNanoV14/PFNANOSIM"                    : "1  1  1  1  1  1  1  1  1",
+    "/DYto2L-2Jets_MLL-50_PTLL-40to100_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/2023_PFNanoV14/PFNANOSIM"                      : "1  1  1  1  1  1  1  1  1",
+    "/DYto2L-2Jets_MLL-50_PTLL-40to100_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/2023BPix_PFNanoV14/PFNANOSIM"                  : "1  1  1  1  1  1  1  1  1",
+    #                                                                                                                                                   4L 3L 22 21 11 03 02 01 00
+    # DYto2L-2Jets_MLL-50_PTLL-40to100_2J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8  [2+ leptons plausible]
+    "/DYto2L-2Jets_MLL-50_PTLL-40to100_2J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/2022_PFNanoV14/PFNANOSIM"                      : "1  1  1  1  1  1  1  1  1",
+    "/DYto2L-2Jets_MLL-50_PTLL-40to100_2J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/2022EE_PFNanoV14/PFNANOSIM"                    : "1  1  1  1  1  1  1  1  1",
+    "/DYto2L-2Jets_MLL-50_PTLL-40to100_2J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/2023_PFNanoV14/PFNANOSIM"                      : "1  1  1  1  1  1  1  1  1",
+    "/DYto2L-2Jets_MLL-50_PTLL-40to100_2J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/2023BPix_PFNanoV14/PFNANOSIM"                  : "1  1  1  1  1  1  1  1  1",
+    #                                                                                                                                                   4L 3L 22 21 11 03 02 01 00
+    # DYto2L-2Jets_MLL-50_PTLL-600_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8  [2+ leptons plausible]
+    "/DYto2L-2Jets_MLL-50_PTLL-600_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/2022_PFNanoV14/PFNANOSIM"                          : "1  1  1  1  1  1  1  1  1",
+    "/DYto2L-2Jets_MLL-50_PTLL-600_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/2022EE_PFNanoV14/PFNANOSIM"                        : "1  1  1  1  1  1  1  1  1",
+    "/DYto2L-2Jets_MLL-50_PTLL-600_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/2023_PFNanoV14/PFNANOSIM"                          : "1  1  1  1  1  1  1  1  1",
+    "/DYto2L-2Jets_MLL-50_PTLL-600_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/2023BPix_PFNanoV14/PFNANOSIM"                      : "1  1  1  1  1  1  1  1  1",
+    #                                                                                                                                                   4L 3L 22 21 11 03 02 01 00
+    # DYto2L-2Jets_MLL-50_PTLL-600_2J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8  [2+ leptons plausible]
+    "/DYto2L-2Jets_MLL-50_PTLL-600_2J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/2022_PFNanoV14/PFNANOSIM"                          : "1  1  1  1  1  1  1  1  1",
+    "/DYto2L-2Jets_MLL-50_PTLL-600_2J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/2022EE_PFNanoV14/PFNANOSIM"                        : "1  1  1  1  1  1  1  1  1",
+    "/DYto2L-2Jets_MLL-50_PTLL-600_2J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/2023_PFNanoV14/PFNANOSIM"                          : "1  1  1  1  1  1  1  1  1",
+    "/DYto2L-2Jets_MLL-50_PTLL-600_2J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/2023BPix_PFNanoV14/PFNANOSIM"                      : "1  1  1  1  1  1  1  1  1",
+    #                                                                                                                                                   4L 3L 22 21 11 03 02 01 00
+    # DYto2Mu_MLL-10to50_TuneCP5_13p6TeV_powheg-pythia8  [2+ leptons plausible]
+    "/DYto2Mu_MLL-10to50_TuneCP5_13p6TeV_powheg-pythia8/2022_PFNanoV14/PFNANOSIM"                                             : "1  1  1  1  1  1  1  1  1",
+    "/DYto2Mu_MLL-10to50_TuneCP5_13p6TeV_powheg-pythia8/2022EE_PFNanoV14/PFNANOSIM"                                           : "1  1  1  1  1  1  1  1  1",
+    "/DYto2Mu_MLL-10to50_TuneCP5_13p6TeV_powheg-pythia8/2023_PFNanoV14/PFNANOSIM"                                             : "1  1  1  1  1  1  1  1  1",
+    "/DYto2Mu_MLL-10to50_TuneCP5_13p6TeV_powheg-pythia8/2023BPix_PFNanoV14/PFNANOSIM"                                         : "1  1  1  1  1  1  1  1  1",
+    #                                                                                                                                                   4L 3L 22 21 11 03 02 01 00
+    # DYto2Tau-2Jets_MLL-50_0J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8  [2+ leptons plausible]
+    "/DYto2Tau-2Jets_MLL-50_0J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/2022_PFNanoV14/PFNANOSIM"                                 : "1  1  1  1  1  1  1  1  1",
+    "/DYto2Tau-2Jets_MLL-50_0J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/2022EE_PFNanoV14/PFNANOSIM"                               : "1  1  1  1  1  1  1  1  1",
+    "/DYto2Tau-2Jets_MLL-50_0J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/2023_PFNanoV14/PFNANOSIM"                                 : "1  1  1  1  1  1  1  1  1",
+    "/DYto2Tau-2Jets_MLL-50_0J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/2023BPix_PFNanoV14/PFNANOSIM"                             : "1  1  1  1  1  1  1  1  1",
+    #                                                                                                                                                   4L 3L 22 21 11 03 02 01 00
+    # DYto2Tau-2Jets_MLL-50_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8  [2+ leptons plausible]
+    "/DYto2Tau-2Jets_MLL-50_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/2022_PFNanoV14/PFNANOSIM"                                 : "1  1  1  1  1  1  1  1  1",
+    "/DYto2Tau-2Jets_MLL-50_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/2022EE_PFNanoV14/PFNANOSIM"                               : "1  1  1  1  1  1  1  1  1",
+    "/DYto2Tau-2Jets_MLL-50_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/2023_PFNanoV14/PFNANOSIM"                                 : "1  1  1  1  1  1  1  1  1",
+    "/DYto2Tau-2Jets_MLL-50_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/2023BPix_PFNanoV14/PFNANOSIM"                             : "1  1  1  1  1  1  1  1  1",
+    #                                                                                                                                                   4L 3L 22 21 11 03 02 01 00
+    # DYto2Tau-2Jets_MLL-50_2J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8  [2+ leptons plausible]
+    "/DYto2Tau-2Jets_MLL-50_2J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/2022_PFNanoV14/PFNANOSIM"                                 : "1  1  1  1  1  1  1  1  1",
+    "/DYto2Tau-2Jets_MLL-50_2J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/2022EE_PFNanoV14/PFNANOSIM"                               : "1  1  1  1  1  1  1  1  1",
+    "/DYto2Tau-2Jets_MLL-50_2J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/2023_PFNanoV14/PFNANOSIM"                                 : "1  1  1  1  1  1  1  1  1",
+    "/DYto2Tau-2Jets_MLL-50_2J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/2023BPix_PFNanoV14/PFNANOSIM"                             : "1  1  1  1  1  1  1  1  1",
+    #                                                                                                                                                   4L 3L 22 21 11 03 02 01 00
+    # DYto2Tau_MLL-10to50_TuneCP5_13p6TeV_powheg-pythia8  [2+ leptons plausible]
+    "/DYto2Tau_MLL-10to50_TuneCP5_13p6TeV_powheg-pythia8/2022_PFNanoV14/PFNANOSIM"                                            : "1  1  1  1  1  1  1  1  1",
+    "/DYto2Tau_MLL-10to50_TuneCP5_13p6TeV_powheg-pythia8/2022EE_PFNanoV14/PFNANOSIM"                                          : "1  1  1  1  1  1  1  1  1",
+    "/DYto2Tau_MLL-10to50_TuneCP5_13p6TeV_powheg-pythia8/2023_PFNanoV14/PFNANOSIM"                                            : "1  1  1  1  1  1  1  1  1",
+    "/DYto2Tau_MLL-10to50_TuneCP5_13p6TeV_powheg-pythia8/2023BPix_PFNanoV14/PFNANOSIM"                                        : "1  1  1  1  1  1  1  1  1",
+    #                                                                                                                                                   4L 3L 22 21 11 03 02 01 00
+    # GluGluHto2Zto4L_M-125_TuneCP5_13p6TeV_powhegMiNNLO-jhugen-pythia8  [ZZ->4L, fully leptonic]
+    "/GluGluHto2Zto4L_M-125_TuneCP5_13p6TeV_powhegMiNNLO-jhugen-pythia8/2022_PFNanoV14/PFNANOSIM"                             : "1  1  1  1  0  0  0  0  0",
+    "/GluGluHto2Zto4L_M-125_TuneCP5_13p6TeV_powhegMiNNLO-jhugen-pythia8/2022EE_PFNanoV14/PFNANOSIM"                           : "1  1  1  1  0  0  0  0  0",
+    "/GluGluHto2Zto4L_M-125_TuneCP5_13p6TeV_powhegMiNNLO-jhugen-pythia8/2023_PFNanoV14/PFNANOSIM"                             : "1  1  1  1  0  0  0  0  0",
+    "/GluGluHto2Zto4L_M-125_TuneCP5_13p6TeV_powhegMiNNLO-jhugen-pythia8/2023BPix_PFNanoV14/PFNANOSIM"                         : "1  1  1  1  0  0  0  0  0",
+    #                                                                                                                                                   4L 3L 22 21 11 03 02 01 00
+    # GluGluToContinto2Zto2E2Mu_TuneCP5_13p6TeV_mcfm701-pythia8  [ZZ->4L, fully leptonic]
+    "/GluGluToContinto2Zto2E2Mu_TuneCP5_13p6TeV_mcfm701-pythia8/2022EE_PFNanoV14/PFNANOSIM"                                   : "1  1  1  1  0  0  0  0  0",
+    "/GluGluToContinto2Zto2E2Mu_TuneCP5_13p6TeV_mcfm701-pythia8/2023_PFNanoV14/PFNANOSIM"                                     : "1  1  1  1  0  0  0  0  0",
+    "/GluGluToContinto2Zto2E2Mu_TuneCP5_13p6TeV_mcfm701-pythia8/2023BPix_PFNanoV14/PFNANOSIM"                                 : "1  1  1  1  0  0  0  0  0",
+    #                                                                                                                                                   4L 3L 22 21 11 03 02 01 00
+    # GluGluToContinto2Zto2E2Tau_TuneCP5_13p6TeV_mcfm701-pythia8  [ZZ->4L, fully leptonic]
+    "/GluGluToContinto2Zto2E2Tau_TuneCP5_13p6TeV_mcfm701-pythia8/2022_PFNanoV14/PFNANOSIM"                                    : "1  1  1  1  0  0  0  0  0",
+    "/GluGluToContinto2Zto2E2Tau_TuneCP5_13p6TeV_mcfm701-pythia8/2022EE_PFNanoV14/PFNANOSIM"                                  : "1  1  1  1  0  0  0  0  0",
+    "/GluGluToContinto2Zto2E2Tau_TuneCP5_13p6TeV_mcfm701-pythia8/2023_PFNanoV14/PFNANOSIM"                                    : "1  1  1  1  0  0  0  0  0",
+    "/GluGluToContinto2Zto2E2Tau_TuneCP5_13p6TeV_mcfm701-pythia8/2023BPix_PFNanoV14/PFNANOSIM"                                : "1  1  1  1  0  0  0  0  0",
+    #                                                                                                                                                   4L 3L 22 21 11 03 02 01 00
+    # GluGluToContinto2Zto2Mu2Tau_TuneCP5_13p6TeV_mcfm701-pythia8  [ZZ->4L, fully leptonic]
+    "/GluGluToContinto2Zto2Mu2Tau_TuneCP5_13p6TeV_mcfm701-pythia8/2022_PFNanoV14/PFNANOSIM"                                   : "1  1  1  1  0  0  0  0  0",
+    "/GluGluToContinto2Zto2Mu2Tau_TuneCP5_13p6TeV_mcfm701-pythia8/2022EE_PFNanoV14/PFNANOSIM"                                 : "1  1  1  1  0  0  0  0  0",
+    "/GluGluToContinto2Zto2Mu2Tau_TuneCP5_13p6TeV_mcfm701-pythia8/2023_PFNanoV14/PFNANOSIM"                                   : "1  1  1  1  0  0  0  0  0",
+    "/GluGluToContinto2Zto2Mu2Tau_TuneCP5_13p6TeV_mcfm701-pythia8/2023BPix_PFNanoV14/PFNANOSIM"                               : "1  1  1  1  0  0  0  0  0",
+    #                                                                                                                                                   4L 3L 22 21 11 03 02 01 00
+    # GluGlutoContinto2Zto2E2Mu_TuneCP5_13p6TeV_mcfm701-pythia8  [ZZ->4L, fully leptonic]
+    "/GluGlutoContinto2Zto2E2Mu_TuneCP5_13p6TeV_mcfm701-pythia8/2022_PFNanoV14/PFNANOSIM"                                     : "1  1  1  1  0  0  0  0  0",
+    #                                                                                                                                                   4L 3L 22 21 11 03 02 01 00
+    # GluGlutoContinto2Zto4E_TuneCP5_13p6TeV_mcfm-pythia8  [ZZ->4L, fully leptonic]
+    "/GluGlutoContinto2Zto4E_TuneCP5_13p6TeV_mcfm-pythia8/2022_PFNanoV14/PFNANOSIM"                                           : "1  1  1  1  0  0  0  0  0",
+    "/GluGlutoContinto2Zto4E_TuneCP5_13p6TeV_mcfm-pythia8/2022EE_PFNanoV14/PFNANOSIM"                                         : "1  1  1  1  0  0  0  0  0",
+    "/GluGlutoContinto2Zto4E_TuneCP5_13p6TeV_mcfm-pythia8/2023_PFNanoV14/PFNANOSIM"                                           : "1  1  1  1  0  0  0  0  0",
+    "/GluGlutoContinto2Zto4E_TuneCP5_13p6TeV_mcfm-pythia8/2023BPix_PFNanoV14/PFNANOSIM"                                       : "1  1  1  1  0  0  0  0  0",
+    #                                                                                                                                                   4L 3L 22 21 11 03 02 01 00
+    # GluGlutoContinto2Zto4Mu_TuneCP5_13p6TeV_mcfm-pythia8  [ZZ->4L, fully leptonic]
+    "/GluGlutoContinto2Zto4Mu_TuneCP5_13p6TeV_mcfm-pythia8/2022_PFNanoV14/PFNANOSIM"                                          : "1  1  1  1  0  0  0  0  0",
+    "/GluGlutoContinto2Zto4Mu_TuneCP5_13p6TeV_mcfm-pythia8/2022EE_PFNanoV14/PFNANOSIM"                                        : "1  1  1  1  0  0  0  0  0",
+    "/GluGlutoContinto2Zto4Mu_TuneCP5_13p6TeV_mcfm-pythia8/2023_PFNanoV14/PFNANOSIM"                                          : "1  1  1  1  0  0  0  0  0",
+    "/GluGlutoContinto2Zto4Mu_TuneCP5_13p6TeV_mcfm-pythia8/2023BPix_PFNanoV14/PFNANOSIM"                                      : "1  1  1  1  0  0  0  0  0",
+    #                                                                                                                                                   4L 3L 22 21 11 03 02 01 00
+    # GluGlutoContinto2Zto4Tau_TuneCP5_13p6TeV_mcfm-pythia8  [ZZ->4L, fully leptonic]
+    "/GluGlutoContinto2Zto4Tau_TuneCP5_13p6TeV_mcfm-pythia8/2022_PFNanoV14/PFNANOSIM"                                         : "1  1  1  1  0  0  0  0  0",
+    "/GluGlutoContinto2Zto4Tau_TuneCP5_13p6TeV_mcfm-pythia8/2022EE_PFNanoV14/PFNANOSIM"                                       : "1  1  1  1  0  0  0  0  0",
+    "/GluGlutoContinto2Zto4Tau_TuneCP5_13p6TeV_mcfm-pythia8/2023_PFNanoV14/PFNANOSIM"                                         : "1  1  1  1  0  0  0  0  0",
+    "/GluGlutoContinto2Zto4Tau_TuneCP5_13p6TeV_mcfm-pythia8/2023BPix_PFNanoV14/PFNANOSIM"                                     : "1  1  1  1  0  0  0  0  0",
+    #                                                                                                                                                   4L 3L 22 21 11 03 02 01 00
+    # QCD-4Jets_HT-1000to1200_TuneCP5_13p6TeV_madgraphMLM-pythia8  [QCD multijet]
+    "/QCD-4Jets_HT-1000to1200_TuneCP5_13p6TeV_madgraphMLM-pythia8/2022_PFNanoV14/PFNANOSIM"                                   : "0  0  1  1  1  1  1  1  1",
+    "/QCD-4Jets_HT-1000to1200_TuneCP5_13p6TeV_madgraphMLM-pythia8/2022EE_PFNanoV14/PFNANOSIM"                                 : "0  0  1  1  1  1  1  1  1",
+    "/QCD-4Jets_HT-1000to1200_TuneCP5_13p6TeV_madgraphMLM-pythia8/2023_PFNanoV14/PFNANOSIM"                                   : "0  0  1  1  1  1  1  1  1",
+    "/QCD-4Jets_HT-1000to1200_TuneCP5_13p6TeV_madgraphMLM-pythia8/2023BPix_PFNanoV14/PFNANOSIM"                               : "0  0  1  1  1  1  1  1  1",
+    #                                                                                                                                                   4L 3L 22 21 11 03 02 01 00
+    # QCD-4Jets_HT-100to200_TuneCP5_13p6TeV_madgraphMLM-pythia8  [QCD multijet]
+    "/QCD-4Jets_HT-100to200_TuneCP5_13p6TeV_madgraphMLM-pythia8/2022_PFNanoV14/PFNANOSIM"                                     : "0  0  1  1  1  1  1  1  1",
+    "/QCD-4Jets_HT-100to200_TuneCP5_13p6TeV_madgraphMLM-pythia8/2022EE_PFNanoV14/PFNANOSIM"                                   : "0  0  1  1  1  1  1  1  1",
+    "/QCD-4Jets_HT-100to200_TuneCP5_13p6TeV_madgraphMLM-pythia8/2023_PFNanoV14/PFNANOSIM"                                     : "0  0  1  1  1  1  1  1  1",
+    "/QCD-4Jets_HT-100to200_TuneCP5_13p6TeV_madgraphMLM-pythia8/2023BPix_PFNanoV14/PFNANOSIM"                                 : "0  0  1  1  1  1  1  1  1",
+    #                                                                                                                                                   4L 3L 22 21 11 03 02 01 00
+    # QCD-4Jets_HT-1200to1500_TuneCP5_13p6TeV_madgraphMLM-pythia8  [QCD multijet]
+    "/QCD-4Jets_HT-1200to1500_TuneCP5_13p6TeV_madgraphMLM-pythia8/2022_PFNanoV14/PFNANOSIM"                                   : "0  0  1  1  1  1  1  1  1",
+    "/QCD-4Jets_HT-1200to1500_TuneCP5_13p6TeV_madgraphMLM-pythia8/2022EE_PFNanoV14/PFNANOSIM"                                 : "0  0  1  1  1  1  1  1  1",
+    "/QCD-4Jets_HT-1200to1500_TuneCP5_13p6TeV_madgraphMLM-pythia8/2023_PFNanoV14/PFNANOSIM"                                   : "0  0  1  1  1  1  1  1  1",
+    "/QCD-4Jets_HT-1200to1500_TuneCP5_13p6TeV_madgraphMLM-pythia8/2023BPix_PFNanoV14/PFNANOSIM"                               : "0  0  1  1  1  1  1  1  1",
+    #                                                                                                                                                   4L 3L 22 21 11 03 02 01 00
+    # QCD-4Jets_HT-1500to2000_TuneCP5_13p6TeV_madgraphMLM-pythia8  [QCD multijet]
+    "/QCD-4Jets_HT-1500to2000_TuneCP5_13p6TeV_madgraphMLM-pythia8/2022_PFNanoV14/PFNANOSIM"                                   : "0  0  1  1  1  1  1  1  1",
+    "/QCD-4Jets_HT-1500to2000_TuneCP5_13p6TeV_madgraphMLM-pythia8/2022EE_PFNanoV14/PFNANOSIM"                                 : "0  0  1  1  1  1  1  1  1",
+    "/QCD-4Jets_HT-1500to2000_TuneCP5_13p6TeV_madgraphMLM-pythia8/2023_PFNanoV14/PFNANOSIM"                                   : "0  0  1  1  1  1  1  1  1",
+    "/QCD-4Jets_HT-1500to2000_TuneCP5_13p6TeV_madgraphMLM-pythia8/2023BPix_PFNanoV14/PFNANOSIM"                               : "0  0  1  1  1  1  1  1  1",
+    #                                                                                                                                                   4L 3L 22 21 11 03 02 01 00
+    # QCD-4Jets_HT-2000_TuneCP5_13p6TeV_madgraphMLM-pythia8  [QCD multijet]
+    "/QCD-4Jets_HT-2000_TuneCP5_13p6TeV_madgraphMLM-pythia8/2022_PFNanoV14/PFNANOSIM"                                         : "0  0  1  1  1  1  1  1  1",
+    "/QCD-4Jets_HT-2000_TuneCP5_13p6TeV_madgraphMLM-pythia8/2022EE_PFNanoV14/PFNANOSIM"                                       : "0  0  1  1  1  1  1  1  1",
+    "/QCD-4Jets_HT-2000_TuneCP5_13p6TeV_madgraphMLM-pythia8/2023_PFNanoV14/PFNANOSIM"                                         : "0  0  1  1  1  1  1  1  1",
+    "/QCD-4Jets_HT-2000_TuneCP5_13p6TeV_madgraphMLM-pythia8/2023BPix_PFNanoV14/PFNANOSIM"                                     : "0  0  1  1  1  1  1  1  1",
+    #                                                                                                                                                   4L 3L 22 21 11 03 02 01 00
+    # QCD-4Jets_HT-200to400_TuneCP5_13p6TeV_madgraphMLM-pythia8  [QCD multijet]
+    "/QCD-4Jets_HT-200to400_TuneCP5_13p6TeV_madgraphMLM-pythia8/2022_PFNanoV14/PFNANOSIM"                                     : "0  0  1  1  1  1  1  1  1",
+    "/QCD-4Jets_HT-200to400_TuneCP5_13p6TeV_madgraphMLM-pythia8/2022EE_PFNanoV14/PFNANOSIM"                                   : "0  0  1  1  1  1  1  1  1",
+    "/QCD-4Jets_HT-200to400_TuneCP5_13p6TeV_madgraphMLM-pythia8/2023_PFNanoV14/PFNANOSIM"                                     : "0  0  1  1  1  1  1  1  1",
+    "/QCD-4Jets_HT-200to400_TuneCP5_13p6TeV_madgraphMLM-pythia8/2023BPix_PFNanoV14/PFNANOSIM"                                 : "0  0  1  1  1  1  1  1  1",
+    #                                                                                                                                                   4L 3L 22 21 11 03 02 01 00
+    # QCD-4Jets_HT-400to600_TuneCP5_13p6TeV_madgraphMLM-pythia8  [QCD multijet]
+    "/QCD-4Jets_HT-400to600_TuneCP5_13p6TeV_madgraphMLM-pythia8/2022_PFNanoV14/PFNANOSIM"                                     : "0  0  1  1  1  1  1  1  1",
+    "/QCD-4Jets_HT-400to600_TuneCP5_13p6TeV_madgraphMLM-pythia8/2022EE_PFNanoV14/PFNANOSIM"                                   : "0  0  1  1  1  1  1  1  1",
+    "/QCD-4Jets_HT-400to600_TuneCP5_13p6TeV_madgraphMLM-pythia8/2023_PFNanoV14/PFNANOSIM"                                     : "0  0  1  1  1  1  1  1  1",
+    "/QCD-4Jets_HT-400to600_TuneCP5_13p6TeV_madgraphMLM-pythia8/2023BPix_PFNanoV14/PFNANOSIM"                                 : "0  0  1  1  1  1  1  1  1",
+    #                                                                                                                                                   4L 3L 22 21 11 03 02 01 00
+    # QCD-4Jets_HT-40to70_TuneCP5_13p6TeV_madgraphMLM-pythia8  [QCD multijet]
+    "/QCD-4Jets_HT-40to70_TuneCP5_13p6TeV_madgraphMLM-pythia8/2022_PFNanoV14/PFNANOSIM"                                       : "0  0  1  1  1  1  1  1  1",
+    "/QCD-4Jets_HT-40to70_TuneCP5_13p6TeV_madgraphMLM-pythia8/2022EE_PFNanoV14/PFNANOSIM"                                     : "0  0  1  1  1  1  1  1  1",
+    "/QCD-4Jets_HT-40to70_TuneCP5_13p6TeV_madgraphMLM-pythia8/2023_PFNanoV14/PFNANOSIM"                                       : "0  0  1  1  1  1  1  1  1",
+    "/QCD-4Jets_HT-40to70_TuneCP5_13p6TeV_madgraphMLM-pythia8/2023BPix_PFNanoV14/PFNANOSIM"                                   : "0  0  1  1  1  1  1  1  1",
+    #                                                                                                                                                   4L 3L 22 21 11 03 02 01 00
+    # QCD-4Jets_HT-600to800_TuneCP5_13p6TeV_madgraphMLM-pythia8  [QCD multijet]
+    "/QCD-4Jets_HT-600to800_TuneCP5_13p6TeV_madgraphMLM-pythia8/2022_PFNanoV14/PFNANOSIM"                                     : "0  0  1  1  1  1  1  1  1",
+    "/QCD-4Jets_HT-600to800_TuneCP5_13p6TeV_madgraphMLM-pythia8/2022EE_PFNanoV14/PFNANOSIM"                                   : "0  0  1  1  1  1  1  1  1",
+    "/QCD-4Jets_HT-600to800_TuneCP5_13p6TeV_madgraphMLM-pythia8/2023_PFNanoV14/PFNANOSIM"                                     : "0  0  1  1  1  1  1  1  1",
+    "/QCD-4Jets_HT-600to800_TuneCP5_13p6TeV_madgraphMLM-pythia8/2023BPix_PFNanoV14/PFNANOSIM"                                 : "0  0  1  1  1  1  1  1  1",
+    #                                                                                                                                                   4L 3L 22 21 11 03 02 01 00
+    # QCD-4Jets_HT-70to100_TuneCP5_13p6TeV_madgraphMLM-pythia8  [QCD multijet]
+    "/QCD-4Jets_HT-70to100_TuneCP5_13p6TeV_madgraphMLM-pythia8/2022_PFNanoV14/PFNANOSIM"                                      : "0  0  1  1  1  1  1  1  1",
+    "/QCD-4Jets_HT-70to100_TuneCP5_13p6TeV_madgraphMLM-pythia8/2022EE_PFNanoV14/PFNANOSIM"                                    : "0  0  1  1  1  1  1  1  1",
+    "/QCD-4Jets_HT-70to100_TuneCP5_13p6TeV_madgraphMLM-pythia8/2023_PFNanoV14/PFNANOSIM"                                      : "0  0  1  1  1  1  1  1  1",
+    "/QCD-4Jets_HT-70to100_TuneCP5_13p6TeV_madgraphMLM-pythia8/2023BPix_PFNanoV14/PFNANOSIM"                                  : "0  0  1  1  1  1  1  1  1",
+    #                                                                                                                                                   4L 3L 22 21 11 03 02 01 00
+    # QCD-4Jets_HT-800to1000_TuneCP5_13p6TeV_madgraphMLM-pythia8  [QCD multijet]
+    "/QCD-4Jets_HT-800to1000_TuneCP5_13p6TeV_madgraphMLM-pythia8/2022_PFNanoV14/PFNANOSIM"                                    : "0  0  1  1  1  1  1  1  1",
+    "/QCD-4Jets_HT-800to1000_TuneCP5_13p6TeV_madgraphMLM-pythia8/2022EE_PFNanoV14/PFNANOSIM"                                  : "0  0  1  1  1  1  1  1  1",
+    "/QCD-4Jets_HT-800to1000_TuneCP5_13p6TeV_madgraphMLM-pythia8/2023_PFNanoV14/PFNANOSIM"                                    : "0  0  1  1  1  1  1  1  1",
+    "/QCD-4Jets_HT-800to1000_TuneCP5_13p6TeV_madgraphMLM-pythia8/2023BPix_PFNanoV14/PFNANOSIM"                                : "0  0  1  1  1  1  1  1  1",
+    #                                                                                                                                                   4L 3L 22 21 11 03 02 01 00
+    # TBbarQto2Q-t-channel-4FS_TuneCP5_13p6TeV_powheg-madspin-pythia8  [all-hadronic]
+    "/TBbarQto2Q-t-channel-4FS_TuneCP5_13p6TeV_powheg-madspin-pythia8/2022_PFNanoV14/PFNANOSIM"                               : "0  0  1  1  1  1  1  1  1",
+    "/TBbarQto2Q-t-channel-4FS_TuneCP5_13p6TeV_powheg-madspin-pythia8/2022EE_PFNanoV14/PFNANOSIM"                             : "0  0  1  1  1  1  1  1  1",
+    "/TBbarQto2Q-t-channel-4FS_TuneCP5_13p6TeV_powheg-madspin-pythia8/2023_PFNanoV14/PFNANOSIM"                               : "0  0  1  1  1  1  1  1  1",
+    "/TBbarQto2Q-t-channel-4FS_TuneCP5_13p6TeV_powheg-madspin-pythia8/2023BPix_PFNanoV14/PFNANOSIM"                           : "0  0  1  1  1  1  1  1  1",
+    #                                                                                                                                                   4L 3L 22 21 11 03 02 01 00
+    # TBbarQtoLNu-t-channel-4FS_TuneCP5_13p6TeV_powheg-madspin-pythia8  [single lepton]
+    "/TBbarQtoLNu-t-channel-4FS_TuneCP5_13p6TeV_powheg-madspin-pythia8/2022_PFNanoV14/PFNANOSIM"                              : "0  1  1  1  1  1  1  1  1",
+    "/TBbarQtoLNu-t-channel-4FS_TuneCP5_13p6TeV_powheg-madspin-pythia8/2022EE_PFNanoV14/PFNANOSIM"                            : "0  1  1  1  1  1  1  1  1",
+    "/TBbarQtoLNu-t-channel-4FS_TuneCP5_13p6TeV_powheg-madspin-pythia8/2023_PFNanoV14/PFNANOSIM"                              : "0  1  1  1  1  1  1  1  1",
+    "/TBbarQtoLNu-t-channel-4FS_TuneCP5_13p6TeV_powheg-madspin-pythia8/2023BPix_PFNanoV14/PFNANOSIM"                          : "0  1  1  1  1  1  1  1  1",
+    #                                                                                                                                                   4L 3L 22 21 11 03 02 01 00
+    # TBbartoLplusNuBbar-s-channel-4FS_TuneCP5_13p6TeV_amcatnlo-pythia8  [single lepton]
+    "/TBbartoLplusNuBbar-s-channel-4FS_TuneCP5_13p6TeV_amcatnlo-pythia8/2022_PFNanoV14/PFNANOSIM"                             : "0  1  1  1  1  1  1  1  1",
+    "/TBbartoLplusNuBbar-s-channel-4FS_TuneCP5_13p6TeV_amcatnlo-pythia8/2022EE_PFNanoV14/PFNANOSIM"                           : "0  1  1  1  1  1  1  1  1",
+    "/TBbartoLplusNuBbar-s-channel-4FS_TuneCP5_13p6TeV_amcatnlo-pythia8/2023_PFNanoV14/PFNANOSIM"                             : "0  1  1  1  1  1  1  1  1",
+    "/TBbartoLplusNuBbar-s-channel-4FS_TuneCP5_13p6TeV_amcatnlo-pythia8/2023BPix_PFNanoV14/PFNANOSIM"                         : "0  1  1  1  1  1  1  1  1",
+    #                                                                                                                                                   4L 3L 22 21 11 03 02 01 00
+    # TTBBto2L2Nu_TuneCP5_13p6TeV_powheg-pythia8  [2+ leptons plausible]
+    "/TTBBto2L2Nu_TuneCP5_13p6TeV_powheg-pythia8/2022_PFNanoV14/PFNANOSIM"                                                    : "1  1  1  1  1  1  1  1  1",
+    "/TTBBto2L2Nu_TuneCP5_13p6TeV_powheg-pythia8/2022EE_PFNanoV14/PFNANOSIM"                                                  : "1  1  1  1  1  1  1  1  1",
+    "/TTBBto2L2Nu_TuneCP5_13p6TeV_powheg-pythia8/2023_PFNanoV14/PFNANOSIM"                                                    : "1  1  1  1  1  1  1  1  1",
+    "/TTBBto2L2Nu_TuneCP5_13p6TeV_powheg-pythia8/2023BPix_PFNanoV14/PFNANOSIM"                                                : "1  1  1  1  1  1  1  1  1",
+    #                                                                                                                                                   4L 3L 22 21 11 03 02 01 00
+    # TTBBto4Q_TuneCP5_13p6TeV_powheg-pythia8  [all-hadronic]
+    "/TTBBto4Q_TuneCP5_13p6TeV_powheg-pythia8/2022_PFNanoV14/PFNANOSIM"                                                       : "0  0  1  1  1  1  1  1  1",
+    "/TTBBto4Q_TuneCP5_13p6TeV_powheg-pythia8/2022EE_PFNanoV14/PFNANOSIM"                                                     : "0  0  1  1  1  1  1  1  1",
+    "/TTBBto4Q_TuneCP5_13p6TeV_powheg-pythia8/2023_PFNanoV14/PFNANOSIM"                                                       : "0  0  1  1  1  1  1  1  1",
+    "/TTBBto4Q_TuneCP5_13p6TeV_powheg-pythia8/2023BPix_PFNanoV14/PFNANOSIM"                                                   : "0  0  1  1  1  1  1  1  1",
+    #                                                                                                                                                   4L 3L 22 21 11 03 02 01 00
+    # TTBBtoLNu2Q_TuneCP5_13p6TeV_powheg-pythia8  [single lepton]
+    "/TTBBtoLNu2Q_TuneCP5_13p6TeV_powheg-pythia8/2022_PFNanoV14/PFNANOSIM"                                                    : "0  1  1  1  1  1  1  1  1",
+    "/TTBBtoLNu2Q_TuneCP5_13p6TeV_powheg-pythia8/2022EE_PFNanoV14/PFNANOSIM"                                                  : "0  1  1  1  1  1  1  1  1",
+    "/TTBBtoLNu2Q_TuneCP5_13p6TeV_powheg-pythia8/2023_PFNanoV14/PFNANOSIM"                                                    : "0  1  1  1  1  1  1  1  1",
+    "/TTBBtoLNu2Q_TuneCP5_13p6TeV_powheg-pythia8/2023BPix_PFNanoV14/PFNANOSIM"                                                : "0  1  1  1  1  1  1  1  1",
+    #                                                                                                                                                   4L 3L 22 21 11 03 02 01 00
+    # TTH_Hto2B_M-125_TuneCP5_13p6TeV_powheg-pythia8  [2+ leptons plausible]
+    "/TTH_Hto2B_M-125_TuneCP5_13p6TeV_powheg-pythia8/2022_PFNanoV14/PFNANOSIM"                                                : "1  1  1  1  1  1  1  1  1",
+    "/TTH_Hto2B_M-125_TuneCP5_13p6TeV_powheg-pythia8/2022EE_PFNanoV14/PFNANOSIM"                                              : "1  1  1  1  1  1  1  1  1",
+    #                                                                                                                                                   4L 3L 22 21 11 03 02 01 00
+    # TTHto2B_M-125_TuneCP5_13p6TeV_powheg-pythia8  [2+ leptons plausible]
+    "/TTHto2B_M-125_TuneCP5_13p6TeV_powheg-pythia8/2023_PFNanoV14/PFNANOSIM"                                                  : "1  1  1  1  1  1  1  1  1",
+    "/TTHto2B_M-125_TuneCP5_13p6TeV_powheg-pythia8/2023BPix_PFNanoV14/PFNANOSIM"                                              : "1  1  1  1  1  1  1  1  1",
+    #                                                                                                                                                   4L 3L 22 21 11 03 02 01 00
+    # TTHtoNon2B_M-125_TuneCP5_13p6TeV_powheg-pythia8  [2+ leptons plausible]
+    "/TTHtoNon2B_M-125_TuneCP5_13p6TeV_powheg-pythia8/2022_PFNanoV14/PFNANOSIM"                                               : "1  1  1  1  1  1  1  1  1",
+    "/TTHtoNon2B_M-125_TuneCP5_13p6TeV_powheg-pythia8/2022EE_PFNanoV14/PFNANOSIM"                                             : "1  1  1  1  1  1  1  1  1",
+    "/TTHtoNon2B_M-125_TuneCP5_13p6TeV_powheg-pythia8/2023_PFNanoV14/PFNANOSIM"                                               : "1  1  1  1  1  1  1  1  1",
+    "/TTHtoNon2B_M-125_TuneCP5_13p6TeV_powheg-pythia8/2023BPix_PFNanoV14/PFNANOSIM"                                           : "1  1  1  1  1  1  1  1  1",
+    #                                                                                                                                                   4L 3L 22 21 11 03 02 01 00
+    # TTLL_MLL-4to50_TuneCP5_13p6TeV_amcatnlo-pythia8  [2+ leptons plausible]
+    "/TTLL_MLL-4to50_TuneCP5_13p6TeV_amcatnlo-pythia8/2022_PFNanoV14/PFNANOSIM"                                               : "1  1  1  1  1  1  1  1  1",
+    "/TTLL_MLL-4to50_TuneCP5_13p6TeV_amcatnlo-pythia8/2022EE_PFNanoV14/PFNANOSIM"                                             : "1  1  1  1  1  1  1  1  1",
+    "/TTLL_MLL-4to50_TuneCP5_13p6TeV_amcatnlo-pythia8/2023_PFNanoV14/PFNANOSIM"                                               : "1  1  1  1  1  1  1  1  1",
+    "/TTLL_MLL-4to50_TuneCP5_13p6TeV_amcatnlo-pythia8/2023BPix_PFNanoV14/PFNANOSIM"                                           : "1  1  1  1  1  1  1  1  1",
+    #                                                                                                                                                   4L 3L 22 21 11 03 02 01 00
+    # TTLL_MLL-50_TuneCP5_13p6TeV_amcatnlo-pythia8  [2+ leptons plausible]
+    "/TTLL_MLL-50_TuneCP5_13p6TeV_amcatnlo-pythia8/2022_PFNanoV14/PFNANOSIM"                                                  : "1  1  1  1  1  1  1  1  1",
+    "/TTLL_MLL-50_TuneCP5_13p6TeV_amcatnlo-pythia8/2022EE_PFNanoV14/PFNANOSIM"                                                : "1  1  1  1  1  1  1  1  1",
+    "/TTLL_MLL-50_TuneCP5_13p6TeV_amcatnlo-pythia8/2023_PFNanoV14/PFNANOSIM"                                                  : "1  1  1  1  1  1  1  1  1",
+    "/TTLL_MLL-50_TuneCP5_13p6TeV_amcatnlo-pythia8/2023BPix_PFNanoV14/PFNANOSIM"                                              : "1  1  1  1  1  1  1  1  1",
+    #                                                                                                                                                   4L 3L 22 21 11 03 02 01 00
+    # TTLNu-1Jets_TuneCP5_13p6TeV_amcatnloFXFX-pythia8  [2+ leptons plausible]
+    "/TTLNu-1Jets_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/2022_PFNanoV14/PFNANOSIM"                                              : "1  1  1  1  1  1  1  1  1",
+    "/TTLNu-1Jets_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/2022EE_PFNanoV14/PFNANOSIM"                                            : "1  1  1  1  1  1  1  1  1",
+    "/TTLNu-1Jets_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/2023_PFNanoV14/PFNANOSIM"                                              : "1  1  1  1  1  1  1  1  1",
+    "/TTLNu-1Jets_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/2023BPix_PFNanoV14/PFNANOSIM"                                          : "1  1  1  1  1  1  1  1  1",
+    #                                                                                                                                                   4L 3L 22 21 11 03 02 01 00
+    # TTW-WtoQQ-1Jets_TuneCP5_13p6TeV_amcatnloFXFXold-pythia8  [2+ leptons plausible]
+    "/TTW-WtoQQ-1Jets_TuneCP5_13p6TeV_amcatnloFXFXold-pythia8/2022_PFNanoV14/PFNANOSIM"                                       : "1  1  1  1  1  1  1  1  1",
+    "/TTW-WtoQQ-1Jets_TuneCP5_13p6TeV_amcatnloFXFXold-pythia8/2022EE_PFNanoV14/PFNANOSIM"                                     : "1  1  1  1  1  1  1  1  1",
+    "/TTW-WtoQQ-1Jets_TuneCP5_13p6TeV_amcatnloFXFXold-pythia8/2023_PFNanoV14/PFNANOSIM"                                       : "1  1  1  1  1  1  1  1  1",
+    "/TTW-WtoQQ-1Jets_TuneCP5_13p6TeV_amcatnloFXFXold-pythia8/2023BPix_PFNanoV14/PFNANOSIM"                                   : "1  1  1  1  1  1  1  1  1",
+    #                                                                                                                                                   4L 3L 22 21 11 03 02 01 00
+    # TTWW_TuneCP5_13p6TeV_madgraph-madspin-pythia8  [2+ leptons plausible]
+    "/TTWW_TuneCP5_13p6TeV_madgraph-madspin-pythia8/2022_PFNanoV14/PFNANOSIM"                                                 : "1  1  1  1  1  1  1  1  1",
+    "/TTWW_TuneCP5_13p6TeV_madgraph-madspin-pythia8/2022EE_PFNanoV14/PFNANOSIM"                                               : "1  1  1  1  1  1  1  1  1",
+    "/TTWW_TuneCP5_13p6TeV_madgraph-madspin-pythia8/2023_PFNanoV14/PFNANOSIM"                                                 : "1  1  1  1  1  1  1  1  1",
+    "/TTWW_TuneCP5_13p6TeV_madgraph-madspin-pythia8/2023BPix_PFNanoV14/PFNANOSIM"                                             : "1  1  1  1  1  1  1  1  1",
+    #                                                                                                                                                   4L 3L 22 21 11 03 02 01 00
+    # TTWZ_TuneCP5_13p6TeV_madgraph-pythia8  [2+ leptons plausible]
+    "/TTWZ_TuneCP5_13p6TeV_madgraph-pythia8/2022_PFNanoV14/PFNANOSIM"                                                         : "1  1  1  1  1  1  1  1  1",
+    "/TTWZ_TuneCP5_13p6TeV_madgraph-pythia8/2022EE_PFNanoV14/PFNANOSIM"                                                       : "1  1  1  1  1  1  1  1  1",
+    "/TTWZ_TuneCP5_13p6TeV_madgraph-pythia8/2023_PFNanoV14/PFNANOSIM"                                                         : "1  1  1  1  1  1  1  1  1",
+    "/TTWZ_TuneCP5_13p6TeV_madgraph-pythia8/2023BPix_PFNanoV14/PFNANOSIM"                                                     : "1  1  1  1  1  1  1  1  1",
+    #                                                                                                                                                   4L 3L 22 21 11 03 02 01 00
+    # TTto2L2Nu_TuneCP5_13p6TeV_powheg-pythia8  [2+ leptons plausible]
+    "/TTto2L2Nu_TuneCP5_13p6TeV_powheg-pythia8/2022_PFNanoV14/PFNANOSIM"                                                      : "1  1  1  1  1  1  1  1  1",
+    "/TTto2L2Nu_TuneCP5_13p6TeV_powheg-pythia8/2022EE_PFNanoV14/PFNANOSIM"                                                    : "1  1  1  1  1  1  1  1  1",
+    "/TTto2L2Nu_TuneCP5_13p6TeV_powheg-pythia8/2023_PFNanoV14/PFNANOSIM"                                                      : "1  1  1  1  1  1  1  1  1",
+    "/TTto2L2Nu_TuneCP5_13p6TeV_powheg-pythia8/2023BPix_PFNanoV14/PFNANOSIM"                                                  : "1  1  1  1  1  1  1  1  1",
+    #                                                                                                                                                   4L 3L 22 21 11 03 02 01 00
+    # TTto4Q_TuneCP5_13p6TeV_powheg-pythia8  [all-hadronic]
+    "/TTto4Q_TuneCP5_13p6TeV_powheg-pythia8/2022_PFNanoV14/PFNANOSIM"                                                         : "0  0  1  1  1  1  1  1  1",
+    "/TTto4Q_TuneCP5_13p6TeV_powheg-pythia8/2022EE_PFNanoV14/PFNANOSIM"                                                       : "0  0  1  1  1  1  1  1  1",
+    "/TTto4Q_TuneCP5_13p6TeV_powheg-pythia8/2023_PFNanoV14/PFNANOSIM"                                                         : "0  0  1  1  1  1  1  1  1",
+    "/TTto4Q_TuneCP5_13p6TeV_powheg-pythia8/2023BPix_PFNanoV14/PFNANOSIM"                                                     : "0  0  1  1  1  1  1  1  1",
+    #                                                                                                                                                   4L 3L 22 21 11 03 02 01 00
+    # TTtoLNu2Q_TuneCP5_13p6TeV_powheg-pythia8  [single lepton]
+    "/TTtoLNu2Q_TuneCP5_13p6TeV_powheg-pythia8/2022_PFNanoV14/PFNANOSIM"                                                      : "0  1  1  1  1  1  1  1  1",
+    "/TTtoLNu2Q_TuneCP5_13p6TeV_powheg-pythia8/2022EE_PFNanoV14/PFNANOSIM"                                                    : "0  1  1  1  1  1  1  1  1",
+    "/TTtoLNu2Q_TuneCP5_13p6TeV_powheg-pythia8/2023_PFNanoV14/PFNANOSIM"                                                      : "0  1  1  1  1  1  1  1  1",
+    "/TTtoLNu2Q_TuneCP5_13p6TeV_powheg-pythia8/2023BPix_PFNanoV14/PFNANOSIM"                                                  : "0  1  1  1  1  1  1  1  1",
+    #                                                                                                                                                   4L 3L 22 21 11 03 02 01 00
+    # TWminusto2L2Nu_TuneCP5_13p6TeV_powheg-pythia8  [2+ leptons plausible]
+    "/TWminusto2L2Nu_TuneCP5_13p6TeV_powheg-pythia8/2022_PFNanoV14/PFNANOSIM"                                                 : "1  1  1  1  1  1  1  1  1",
+    "/TWminusto2L2Nu_TuneCP5_13p6TeV_powheg-pythia8/2022EE_PFNanoV14/PFNANOSIM"                                               : "1  1  1  1  1  1  1  1  1",
+    "/TWminusto2L2Nu_TuneCP5_13p6TeV_powheg-pythia8/2023_PFNanoV14/PFNANOSIM"                                                 : "1  1  1  1  1  1  1  1  1",
+    "/TWminusto2L2Nu_TuneCP5_13p6TeV_powheg-pythia8/2023BPix_PFNanoV14/PFNANOSIM"                                             : "1  1  1  1  1  1  1  1  1",
+    #                                                                                                                                                   4L 3L 22 21 11 03 02 01 00
+    # TWminusto4Q_TuneCP5_13p6TeV_powheg-pythia8  [all-hadronic]
+    "/TWminusto4Q_TuneCP5_13p6TeV_powheg-pythia8/2022_PFNanoV14/PFNANOSIM"                                                    : "0  0  1  1  1  1  1  1  1",
+    "/TWminusto4Q_TuneCP5_13p6TeV_powheg-pythia8/2022EE_PFNanoV14/PFNANOSIM"                                                  : "0  0  1  1  1  1  1  1  1",
+    "/TWminusto4Q_TuneCP5_13p6TeV_powheg-pythia8/2023_PFNanoV14/PFNANOSIM"                                                    : "0  0  1  1  1  1  1  1  1",
+    "/TWminusto4Q_TuneCP5_13p6TeV_powheg-pythia8/2023BPix_PFNanoV14/PFNANOSIM"                                                : "0  0  1  1  1  1  1  1  1",
+    #                                                                                                                                                   4L 3L 22 21 11 03 02 01 00
+    # TWminustoLNu2Q_TuneCP5_13p6TeV_powheg-pythia8  [single lepton]
+    "/TWminustoLNu2Q_TuneCP5_13p6TeV_powheg-pythia8/2022_PFNanoV14/PFNANOSIM"                                                 : "0  1  1  1  1  1  1  1  1",
+    "/TWminustoLNu2Q_TuneCP5_13p6TeV_powheg-pythia8/2022EE_PFNanoV14/PFNANOSIM"                                               : "0  1  1  1  1  1  1  1  1",
+    "/TWminustoLNu2Q_TuneCP5_13p6TeV_powheg-pythia8/2023_PFNanoV14/PFNANOSIM"                                                 : "0  1  1  1  1  1  1  1  1",
+    "/TWminustoLNu2Q_TuneCP5_13p6TeV_powheg-pythia8/2023BPix_PFNanoV14/PFNANOSIM"                                             : "0  1  1  1  1  1  1  1  1",
+    #                                                                                                                                                   4L 3L 22 21 11 03 02 01 00
+    # TZQB-Zto2L-4FS_MLL-30_TuneCP5_13p6TeV_amcatnlo-pythia8  [2+ leptons plausible]
+    "/TZQB-Zto2L-4FS_MLL-30_TuneCP5_13p6TeV_amcatnlo-pythia8/2022_PFNanoV14/PFNANOSIM"                                        : "1  1  1  1  1  1  1  1  1",
+    "/TZQB-Zto2L-4FS_MLL-30_TuneCP5_13p6TeV_amcatnlo-pythia8/2022EE_PFNanoV14/PFNANOSIM"                                      : "1  1  1  1  1  1  1  1  1",
+    "/TZQB-Zto2L-4FS_MLL-30_TuneCP5_13p6TeV_amcatnlo-pythia8/2023_PFNanoV14/PFNANOSIM"                                        : "1  1  1  1  1  1  1  1  1",
+    "/TZQB-Zto2L-4FS_MLL-30_TuneCP5_13p6TeV_amcatnlo-pythia8/2023BPix_PFNanoV14/PFNANOSIM"                                    : "1  1  1  1  1  1  1  1  1",
+    #                                                                                                                                                   4L 3L 22 21 11 03 02 01 00
+    # TbarBQto2Q-t-channel-4FS_TuneCP5_13p6TeV_powheg-madspin-pythia8  [all-hadronic]
+    "/TbarBQto2Q-t-channel-4FS_TuneCP5_13p6TeV_powheg-madspin-pythia8/2022_PFNanoV14/PFNANOSIM"                               : "0  0  1  1  1  1  1  1  1",
+    "/TbarBQto2Q-t-channel-4FS_TuneCP5_13p6TeV_powheg-madspin-pythia8/2022EE_PFNanoV14/PFNANOSIM"                             : "0  0  1  1  1  1  1  1  1",
+    "/TbarBQto2Q-t-channel-4FS_TuneCP5_13p6TeV_powheg-madspin-pythia8/2023_PFNanoV14/PFNANOSIM"                               : "0  0  1  1  1  1  1  1  1",
+    "/TbarBQto2Q-t-channel-4FS_TuneCP5_13p6TeV_powheg-madspin-pythia8/2023BPix_PFNanoV14/PFNANOSIM"                           : "0  0  1  1  1  1  1  1  1",
+    #                                                                                                                                                   4L 3L 22 21 11 03 02 01 00
+    # TbarBQtoLNu-t-channel-4FS_TuneCP5_13p6TeV_powheg-madspin-pythia8  [single lepton]
+    "/TbarBQtoLNu-t-channel-4FS_TuneCP5_13p6TeV_powheg-madspin-pythia8/2022_PFNanoV14/PFNANOSIM"                              : "0  1  1  1  1  1  1  1  1",
+    "/TbarBQtoLNu-t-channel-4FS_TuneCP5_13p6TeV_powheg-madspin-pythia8/2022EE_PFNanoV14/PFNANOSIM"                            : "0  1  1  1  1  1  1  1  1",
+    "/TbarBQtoLNu-t-channel-4FS_TuneCP5_13p6TeV_powheg-madspin-pythia8/2023_PFNanoV14/PFNANOSIM"                              : "0  1  1  1  1  1  1  1  1",
+    "/TbarBQtoLNu-t-channel-4FS_TuneCP5_13p6TeV_powheg-madspin-pythia8/2023BPix_PFNanoV14/PFNANOSIM"                          : "0  1  1  1  1  1  1  1  1",
+    #                                                                                                                                                   4L 3L 22 21 11 03 02 01 00
+    # TbarBtoLminusNuB-s-channel-4FS_TuneCP5_13p6TeV_amcatnlo-pythia8  [2+ leptons plausible]
+    "/TbarBtoLminusNuB-s-channel-4FS_TuneCP5_13p6TeV_amcatnlo-pythia8/2022_PFNanoV14/PFNANOSIM"                               : "1  1  1  1  1  1  1  1  1",
+    "/TbarBtoLminusNuB-s-channel-4FS_TuneCP5_13p6TeV_amcatnlo-pythia8/2022EE_PFNanoV14/PFNANOSIM"                             : "1  1  1  1  1  1  1  1  1",
+    "/TbarBtoLminusNuB-s-channel-4FS_TuneCP5_13p6TeV_amcatnlo-pythia8/2023_PFNanoV14/PFNANOSIM"                               : "1  1  1  1  1  1  1  1  1",
+    "/TbarBtoLminusNuB-s-channel-4FS_TuneCP5_13p6TeV_amcatnlo-pythia8/2023BPix_PFNanoV14/PFNANOSIM"                           : "1  1  1  1  1  1  1  1  1",
+    #                                                                                                                                                   4L 3L 22 21 11 03 02 01 00
+    # TbarWplusto2L2Nu_TuneCP5_13p6TeV_powheg-pythia8  [2+ leptons plausible]
+    "/TbarWplusto2L2Nu_TuneCP5_13p6TeV_powheg-pythia8/2022_PFNanoV14/PFNANOSIM"                                               : "1  1  1  1  1  1  1  1  1",
+    "/TbarWplusto2L2Nu_TuneCP5_13p6TeV_powheg-pythia8/2022EE_PFNanoV14/PFNANOSIM"                                             : "1  1  1  1  1  1  1  1  1",
+    "/TbarWplusto2L2Nu_TuneCP5_13p6TeV_powheg-pythia8/2023_PFNanoV14/PFNANOSIM"                                               : "1  1  1  1  1  1  1  1  1",
+    "/TbarWplusto2L2Nu_TuneCP5_13p6TeV_powheg-pythia8/2023BPix_PFNanoV14/PFNANOSIM"                                           : "1  1  1  1  1  1  1  1  1",
+    #                                                                                                                                                   4L 3L 22 21 11 03 02 01 00
+    # TbarWplusto4Q_TuneCP5_13p6TeV_powheg-pythia8  [all-hadronic]
+    "/TbarWplusto4Q_TuneCP5_13p6TeV_powheg-pythia8/2022_PFNanoV14/PFNANOSIM"                                                  : "0  0  1  1  1  1  1  1  1",
+    "/TbarWplusto4Q_TuneCP5_13p6TeV_powheg-pythia8/2022EE_PFNanoV14/PFNANOSIM"                                                : "0  0  1  1  1  1  1  1  1",
+    "/TbarWplusto4Q_TuneCP5_13p6TeV_powheg-pythia8/2023_PFNanoV14/PFNANOSIM"                                                  : "0  0  1  1  1  1  1  1  1",
+    "/TbarWplusto4Q_TuneCP5_13p6TeV_powheg-pythia8/2023BPix_PFNanoV14/PFNANOSIM"                                              : "0  0  1  1  1  1  1  1  1",
+    #                                                                                                                                                   4L 3L 22 21 11 03 02 01 00
+    # TbarWplustoLNu2Q_TuneCP5_13p6TeV_powheg-pythia8  [single lepton]
+    "/TbarWplustoLNu2Q_TuneCP5_13p6TeV_powheg-pythia8/2022_PFNanoV14/PFNANOSIM"                                               : "0  1  1  1  1  1  1  1  1",
+    "/TbarWplustoLNu2Q_TuneCP5_13p6TeV_powheg-pythia8/2022EE_PFNanoV14/PFNANOSIM"                                             : "0  1  1  1  1  1  1  1  1",
+    "/TbarWplustoLNu2Q_TuneCP5_13p6TeV_powheg-pythia8/2023_PFNanoV14/PFNANOSIM"                                               : "0  1  1  1  1  1  1  1  1",
+    "/TbarWplustoLNu2Q_TuneCP5_13p6TeV_powheg-pythia8/2023BPix_PFNanoV14/PFNANOSIM"                                           : "0  1  1  1  1  1  1  1  1",
+    #                                                                                                                                                   4L 3L 22 21 11 03 02 01 00
+    # VBS-SSWW_PolarizationLL_TuneCP5_13p6TeV_madgraph-pythia8  [2+ leptons plausible]
+    "/VBS-SSWW_PolarizationLL_TuneCP5_13p6TeV_madgraph-pythia8/2022_PFNanoV14/PFNANOSIM"                                      : "1  1  1  1  1  1  1  1  1",
+    "/VBS-SSWW_PolarizationLL_TuneCP5_13p6TeV_madgraph-pythia8/2022EE_PFNanoV14/PFNANOSIM"                                    : "1  1  1  1  1  1  1  1  1",
+    "/VBS-SSWW_PolarizationLL_TuneCP5_13p6TeV_madgraph-pythia8/2023_PFNanoV14/PFNANOSIM"                                      : "1  1  1  1  1  1  1  1  1",
+    "/VBS-SSWW_PolarizationLL_TuneCP5_13p6TeV_madgraph-pythia8/2023BPix_PFNanoV14/PFNANOSIM"                                  : "1  1  1  1  1  1  1  1  1",
+    #                                                                                                                                                   4L 3L 22 21 11 03 02 01 00
+    # VBS-SSWW_PolarizationTL_TuneCP5_13p6TeV_madgraph-pythia8  [2+ leptons plausible]
+    "/VBS-SSWW_PolarizationTL_TuneCP5_13p6TeV_madgraph-pythia8/2022_PFNanoV14/PFNANOSIM"                                      : "1  1  1  1  1  1  1  1  1",
+    "/VBS-SSWW_PolarizationTL_TuneCP5_13p6TeV_madgraph-pythia8/2022EE_PFNanoV14/PFNANOSIM"                                    : "1  1  1  1  1  1  1  1  1",
+    "/VBS-SSWW_PolarizationTL_TuneCP5_13p6TeV_madgraph-pythia8/2023_PFNanoV14/PFNANOSIM"                                      : "1  1  1  1  1  1  1  1  1",
+    "/VBS-SSWW_PolarizationTL_TuneCP5_13p6TeV_madgraph-pythia8/2023BPix_PFNanoV14/PFNANOSIM"                                  : "1  1  1  1  1  1  1  1  1",
+    #                                                                                                                                                   4L 3L 22 21 11 03 02 01 00
+    # VBS-SSWW_PolarizationTT_TuneCP5_13p6TeV_madgraph-pythia8  [2+ leptons plausible]
+    "/VBS-SSWW_PolarizationTT_TuneCP5_13p6TeV_madgraph-pythia8/2022_PFNanoV14/PFNANOSIM"                                      : "1  1  1  1  1  1  1  1  1",
+    "/VBS-SSWW_PolarizationTT_TuneCP5_13p6TeV_madgraph-pythia8/2022EE_PFNanoV14/PFNANOSIM"                                    : "1  1  1  1  1  1  1  1  1",
+    "/VBS-SSWW_PolarizationTT_TuneCP5_13p6TeV_madgraph-pythia8/2023_PFNanoV14/PFNANOSIM"                                      : "1  1  1  1  1  1  1  1  1",
+    "/VBS-SSWW_PolarizationTT_TuneCP5_13p6TeV_madgraph-pythia8/2023BPix_PFNanoV14/PFNANOSIM"                                  : "1  1  1  1  1  1  1  1  1",
+    #                                                                                                                                                   4L 3L 22 21 11 03 02 01 00
+    # VH_HtoNonbb_M-125_TuneCP5_13p6TeV_amcatnloFXFX-madspin-pythia8  [2+ leptons plausible]
+    "/VH_HtoNonbb_M-125_TuneCP5_13p6TeV_amcatnloFXFX-madspin-pythia8/2022_PFNanoV14/PFNANOSIM"                                : "1  1  1  1  1  1  1  1  1",
+    "/VH_HtoNonbb_M-125_TuneCP5_13p6TeV_amcatnloFXFX-madspin-pythia8/2022EE_PFNanoV14/PFNANOSIM"                              : "1  1  1  1  1  1  1  1  1",
+    "/VH_HtoNonbb_M-125_TuneCP5_13p6TeV_amcatnloFXFX-madspin-pythia8/2023_PFNanoV14/PFNANOSIM"                                : "1  1  1  1  1  1  1  1  1",
+    "/VH_HtoNonbb_M-125_TuneCP5_13p6TeV_amcatnloFXFX-madspin-pythia8/2023BPix_PFNanoV14/PFNANOSIM"                            : "1  1  1  1  1  1  1  1  1",
+    #                                                                                                                                                   4L 3L 22 21 11 03 02 01 00
+    # WWW_4F_TuneCP5_13p6TeV_amcatnlo-madspin-pythia8  [2+ leptons plausible]
+    "/WWW_4F_TuneCP5_13p6TeV_amcatnlo-madspin-pythia8/2022_PFNanoV14/PFNANOSIM"                                               : "1  1  1  1  1  1  1  1  1",
+    "/WWW_4F_TuneCP5_13p6TeV_amcatnlo-madspin-pythia8/2022EE_PFNanoV14/PFNANOSIM"                                             : "1  1  1  1  1  1  1  1  1",
+    "/WWW_4F_TuneCP5_13p6TeV_amcatnlo-madspin-pythia8/2023_PFNanoV14/PFNANOSIM"                                               : "1  1  1  1  1  1  1  1  1",
+    "/WWW_4F_TuneCP5_13p6TeV_amcatnlo-madspin-pythia8/2023BPix_PFNanoV14/PFNANOSIM"                                           : "1  1  1  1  1  1  1  1  1",
+    #                                                                                                                                                   4L 3L 22 21 11 03 02 01 00
+    # WWZ_4F_TuneCP5_13p6TeV_amcatnlo-pythia8  [2+ leptons plausible]
+    "/WWZ_4F_TuneCP5_13p6TeV_amcatnlo-pythia8/2022_PFNanoV14/PFNANOSIM"                                                       : "1  1  1  1  1  1  1  1  1",
+    "/WWZ_4F_TuneCP5_13p6TeV_amcatnlo-pythia8/2022EE_PFNanoV14/PFNANOSIM"                                                     : "1  1  1  1  1  1  1  1  1",
+    "/WWZ_4F_TuneCP5_13p6TeV_amcatnlo-pythia8/2023_PFNanoV14/PFNANOSIM"                                                       : "1  1  1  1  1  1  1  1  1",
+    "/WWZ_4F_TuneCP5_13p6TeV_amcatnlo-pythia8/2023BPix_PFNanoV14/PFNANOSIM"                                                   : "1  1  1  1  1  1  1  1  1",
+    #                                                                                                                                                   4L 3L 22 21 11 03 02 01 00
+    # WW_TuneCP5_13p6TeV_pythia8  [2+ leptons plausible]
+    "/WW_TuneCP5_13p6TeV_pythia8/2022_PFNanoV14/PFNANOSIM"                                                                    : "1  1  1  1  1  1  1  1  1",
+    "/WW_TuneCP5_13p6TeV_pythia8/2022EE_PFNanoV14/PFNANOSIM"                                                                  : "1  1  1  1  1  1  1  1  1",
+    "/WW_TuneCP5_13p6TeV_pythia8/2023_PFNanoV14/PFNANOSIM"                                                                    : "1  1  1  1  1  1  1  1  1",
+    "/WW_TuneCP5_13p6TeV_pythia8/2023BPix_PFNanoV14/PFNANOSIM"                                                                : "1  1  1  1  1  1  1  1  1",
+    #                                                                                                                                                   4L 3L 22 21 11 03 02 01 00
+    # WWto2L2Nu-2Jets_OS_noTop_EW_TuneCP5_13p6TeV_madgraph-madspin-pythia8  [2+ leptons plausible]
+    "/WWto2L2Nu-2Jets_OS_noTop_EW_TuneCP5_13p6TeV_madgraph-madspin-pythia8/2022_PFNanoV14/PFNANOSIM"                          : "1  1  1  1  1  1  1  1  1",
+    "/WWto2L2Nu-2Jets_OS_noTop_EW_TuneCP5_13p6TeV_madgraph-madspin-pythia8/2022EE_PFNanoV14/PFNANOSIM"                        : "1  1  1  1  1  1  1  1  1",
+    "/WWto2L2Nu-2Jets_OS_noTop_EW_TuneCP5_13p6TeV_madgraph-madspin-pythia8/2023BPix_PFNanoV14/PFNANOSIM"                      : "1  1  1  1  1  1  1  1  1",
+    #                                                                                                                                                   4L 3L 22 21 11 03 02 01 00
+    # WWto2L2Nu-2Jets_SS_noTop_EW_TuneCP5_13p6TeV_madgraph-pythia8  [2+ leptons plausible]
+    "/WWto2L2Nu-2Jets_SS_noTop_EW_TuneCP5_13p6TeV_madgraph-pythia8/2022_PFNanoV14/PFNANOSIM"                                  : "1  1  1  1  1  1  1  1  1",
+    "/WWto2L2Nu-2Jets_SS_noTop_EW_TuneCP5_13p6TeV_madgraph-pythia8/2022EE_PFNanoV14/PFNANOSIM"                                : "1  1  1  1  1  1  1  1  1",
+    "/WWto2L2Nu-2Jets_SS_noTop_EW_TuneCP5_13p6TeV_madgraph-pythia8/2023_PFNanoV14/PFNANOSIM"                                  : "1  1  1  1  1  1  1  1  1",
+    "/WWto2L2Nu-2Jets_SS_noTop_EW_TuneCP5_13p6TeV_madgraph-pythia8/2023BPix_PFNanoV14/PFNANOSIM"                              : "1  1  1  1  1  1  1  1  1",
+    #                                                                                                                                                   4L 3L 22 21 11 03 02 01 00
+    # WWto2L2Nu_TuneCP5_13p6TeV_powheg-pythia8  [2+ leptons plausible]
+    "/WWto2L2Nu_TuneCP5_13p6TeV_powheg-pythia8/2022_PFNanoV14/PFNANOSIM"                                                      : "1  1  1  1  1  1  1  1  1",
+    "/WWto2L2Nu_TuneCP5_13p6TeV_powheg-pythia8/2022EE_PFNanoV14/PFNANOSIM"                                                    : "1  1  1  1  1  1  1  1  1",
+    "/WWto2L2Nu_TuneCP5_13p6TeV_powheg-pythia8/2023_PFNanoV14/PFNANOSIM"                                                      : "1  1  1  1  1  1  1  1  1",
+    "/WWto2L2Nu_TuneCP5_13p6TeV_powheg-pythia8/2023BPix_PFNanoV14/PFNANOSIM"                                                  : "1  1  1  1  1  1  1  1  1",
+    #                                                                                                                                                   4L 3L 22 21 11 03 02 01 00
+    # WWto4Q_TuneCP5_13p6TeV_powheg-pythia8  [all-hadronic]
+    "/WWto4Q_TuneCP5_13p6TeV_powheg-pythia8/2022_PFNanoV14/PFNANOSIM"                                                         : "0  0  1  1  1  1  1  1  1",
+    "/WWto4Q_TuneCP5_13p6TeV_powheg-pythia8/2022EE_PFNanoV14/PFNANOSIM"                                                       : "0  0  1  1  1  1  1  1  1",
+    "/WWto4Q_TuneCP5_13p6TeV_powheg-pythia8/2023_PFNanoV14/PFNANOSIM"                                                         : "0  0  1  1  1  1  1  1  1",
+    "/WWto4Q_TuneCP5_13p6TeV_powheg-pythia8/2023BPix_PFNanoV14/PFNANOSIM"                                                     : "0  0  1  1  1  1  1  1  1",
+    #                                                                                                                                                   4L 3L 22 21 11 03 02 01 00
+    # WWtoLNu2Q_TuneCP5_13p6TeV_powheg-pythia8  [single lepton]
+    "/WWtoLNu2Q_TuneCP5_13p6TeV_powheg-pythia8/2022_PFNanoV14/PFNANOSIM"                                                      : "0  1  1  1  1  1  1  1  1",
+    "/WWtoLNu2Q_TuneCP5_13p6TeV_powheg-pythia8/2022EE_PFNanoV14/PFNANOSIM"                                                    : "0  1  1  1  1  1  1  1  1",
+    "/WWtoLNu2Q_TuneCP5_13p6TeV_powheg-pythia8/2023_PFNanoV14/PFNANOSIM"                                                      : "0  1  1  1  1  1  1  1  1",
+    "/WWtoLNu2Q_TuneCP5_13p6TeV_powheg-pythia8/2023BPix_PFNanoV14/PFNANOSIM"                                                  : "0  1  1  1  1  1  1  1  1",
+    #                                                                                                                                                   4L 3L 22 21 11 03 02 01 00
+    # WZZ_TuneCP5_13p6TeV_amcatnlo-pythia8  [2+ leptons plausible]
+    "/WZZ_TuneCP5_13p6TeV_amcatnlo-pythia8/2022_PFNanoV14/PFNANOSIM"                                                          : "1  1  1  1  1  1  1  1  1",
+    "/WZZ_TuneCP5_13p6TeV_amcatnlo-pythia8/2022EE_PFNanoV14/PFNANOSIM"                                                        : "1  1  1  1  1  1  1  1  1",
+    "/WZZ_TuneCP5_13p6TeV_amcatnlo-pythia8/2023_PFNanoV14/PFNANOSIM"                                                          : "1  1  1  1  1  1  1  1  1",
+    "/WZZ_TuneCP5_13p6TeV_amcatnlo-pythia8/2023BPix_PFNanoV14/PFNANOSIM"                                                      : "1  1  1  1  1  1  1  1  1",
+    #                                                                                                                                                   4L 3L 22 21 11 03 02 01 00
+    # WZ_TuneCP5_13p6TeV_pythia8  [2+ leptons plausible]
+    "/WZ_TuneCP5_13p6TeV_pythia8/2022_PFNanoV14/PFNANOSIM"                                                                    : "1  1  1  1  1  1  1  1  1",
+    "/WZ_TuneCP5_13p6TeV_pythia8/2022EE_PFNanoV14/PFNANOSIM"                                                                  : "1  1  1  1  1  1  1  1  1",
+    "/WZ_TuneCP5_13p6TeV_pythia8/2023_PFNanoV14/PFNANOSIM"                                                                    : "1  1  1  1  1  1  1  1  1",
+    "/WZ_TuneCP5_13p6TeV_pythia8/2023BPix_PFNanoV14/PFNANOSIM"                                                                : "1  1  1  1  1  1  1  1  1",
+    #                                                                                                                                                   4L 3L 22 21 11 03 02 01 00
+    # WZto2L2Q_TuneCP5_13p6TeV_powheg-pythia8  [2+ leptons plausible]
+    "/WZto2L2Q_TuneCP5_13p6TeV_powheg-pythia8/2022_PFNanoV14/PFNANOSIM"                                                       : "1  1  1  1  1  1  1  1  1",
+    "/WZto2L2Q_TuneCP5_13p6TeV_powheg-pythia8/2022EE_PFNanoV14/PFNANOSIM"                                                     : "1  1  1  1  1  1  1  1  1",
+    "/WZto2L2Q_TuneCP5_13p6TeV_powheg-pythia8/2023_PFNanoV14/PFNANOSIM"                                                       : "1  1  1  1  1  1  1  1  1",
+    "/WZto2L2Q_TuneCP5_13p6TeV_powheg-pythia8/2023BPix_PFNanoV14/PFNANOSIM"                                                   : "1  1  1  1  1  1  1  1  1",
+    #                                                                                                                                                   4L 3L 22 21 11 03 02 01 00
+    # WZto3LNu_TuneCP5_13p6TeV_powheg-pythia8  [WZ->3L, fully leptonic]
+    "/WZto3LNu_TuneCP5_13p6TeV_powheg-pythia8/2022_PFNanoV14/PFNANOSIM"                                                       : "1  1  1  1  1  0  0  0  0",
+    "/WZto3LNu_TuneCP5_13p6TeV_powheg-pythia8/2022EE_PFNanoV14/PFNANOSIM"                                                     : "1  1  1  1  1  0  0  0  0",
+    "/WZto3LNu_TuneCP5_13p6TeV_powheg-pythia8/2023_PFNanoV14/PFNANOSIM"                                                       : "1  1  1  1  1  0  0  0  0",
+    "/WZto3LNu_TuneCP5_13p6TeV_powheg-pythia8/2023BPix_PFNanoV14/PFNANOSIM"                                                   : "1  1  1  1  1  0  0  0  0",
+    #                                                                                                                                                   4L 3L 22 21 11 03 02 01 00
+    # WZtoL3Nu_TuneCP5_13p6TeV_powheg-pythia8  [single lepton]
+    "/WZtoL3Nu_TuneCP5_13p6TeV_powheg-pythia8/2022_PFNanoV14/PFNANOSIM"                                                       : "0  1  1  1  1  1  1  1  1",
+    "/WZtoL3Nu_TuneCP5_13p6TeV_powheg-pythia8/2022EE_PFNanoV14/PFNANOSIM"                                                     : "0  1  1  1  1  1  1  1  1",
+    "/WZtoL3Nu_TuneCP5_13p6TeV_powheg-pythia8/2023_PFNanoV14/PFNANOSIM"                                                       : "0  1  1  1  1  1  1  1  1",
+    "/WZtoL3Nu_TuneCP5_13p6TeV_powheg-pythia8/2023BPix_PFNanoV14/PFNANOSIM"                                                   : "0  1  1  1  1  1  1  1  1",
+    #                                                                                                                                                   4L 3L 22 21 11 03 02 01 00
+    # WZtoLNu2Q_TuneCP5_13p6TeV_powheg-pythia8  [single lepton]
+    "/WZtoLNu2Q_TuneCP5_13p6TeV_powheg-pythia8/2022_PFNanoV14/PFNANOSIM"                                                      : "0  1  1  1  1  1  1  1  1",
+    "/WZtoLNu2Q_TuneCP5_13p6TeV_powheg-pythia8/2022EE_PFNanoV14/PFNANOSIM"                                                    : "0  1  1  1  1  1  1  1  1",
+    "/WZtoLNu2Q_TuneCP5_13p6TeV_powheg-pythia8/2023_PFNanoV14/PFNANOSIM"                                                      : "0  1  1  1  1  1  1  1  1",
+    "/WZtoLNu2Q_TuneCP5_13p6TeV_powheg-pythia8/2023BPix_PFNanoV14/PFNANOSIM"                                                  : "0  1  1  1  1  1  1  1  1",
+    #                                                                                                                                                   4L 3L 22 21 11 03 02 01 00
+    # WminusH_Hto2B_Wto2Q_M-125_TuneCP5_13p6TeV_powheg-pythia8  [all-hadronic]
+    "/WminusH_Hto2B_Wto2Q_M-125_TuneCP5_13p6TeV_powheg-pythia8/2022_PFNanoV14/PFNANOSIM"                                      : "0  0  1  1  1  1  1  1  1",
+    "/WminusH_Hto2B_Wto2Q_M-125_TuneCP5_13p6TeV_powheg-pythia8/2022EE_PFNanoV14/PFNANOSIM"                                    : "0  0  1  1  1  1  1  1  1",
+    "/WminusH_Hto2B_Wto2Q_M-125_TuneCP5_13p6TeV_powheg-pythia8/2023_PFNanoV14/PFNANOSIM"                                      : "0  0  1  1  1  1  1  1  1",
+    "/WminusH_Hto2B_Wto2Q_M-125_TuneCP5_13p6TeV_powheg-pythia8/2023BPix_PFNanoV14/PFNANOSIM"                                  : "0  0  1  1  1  1  1  1  1",
+    #                                                                                                                                                   4L 3L 22 21 11 03 02 01 00
+    # WminusH_Hto2B_WtoLNu_M-125_TuneCP5_13p6TeV_powheg-pythia8  [single lepton]
+    "/WminusH_Hto2B_WtoLNu_M-125_TuneCP5_13p6TeV_powheg-pythia8/2022_PFNanoV14/PFNANOSIM"                                     : "0  1  1  1  1  1  1  1  1",
+    "/WminusH_Hto2B_WtoLNu_M-125_TuneCP5_13p6TeV_powheg-pythia8/2022EE_PFNanoV14/PFNANOSIM"                                   : "0  1  1  1  1  1  1  1  1",
+    "/WminusH_Hto2B_WtoLNu_M-125_TuneCP5_13p6TeV_powheg-pythia8/2023_PFNanoV14/PFNANOSIM"                                     : "0  1  1  1  1  1  1  1  1",
+    "/WminusH_Hto2B_WtoLNu_M-125_TuneCP5_13p6TeV_powheg-pythia8/2023BPix_PFNanoV14/PFNANOSIM"                                 : "0  1  1  1  1  1  1  1  1",
+    #                                                                                                                                                   4L 3L 22 21 11 03 02 01 00
+    # WplusH_Hto2B_Wto2Q_M-125_TuneCP5_13p6TeV_powheg-pythia8  [all-hadronic]
+    "/WplusH_Hto2B_Wto2Q_M-125_TuneCP5_13p6TeV_powheg-pythia8/2022_PFNanoV14/PFNANOSIM"                                       : "0  0  1  1  1  1  1  1  1",
+    "/WplusH_Hto2B_Wto2Q_M-125_TuneCP5_13p6TeV_powheg-pythia8/2022EE_PFNanoV14/PFNANOSIM"                                     : "0  0  1  1  1  1  1  1  1",
+    "/WplusH_Hto2B_Wto2Q_M-125_TuneCP5_13p6TeV_powheg-pythia8/2023_PFNanoV14/PFNANOSIM"                                       : "0  0  1  1  1  1  1  1  1",
+    "/WplusH_Hto2B_Wto2Q_M-125_TuneCP5_13p6TeV_powheg-pythia8/2023BPix_PFNanoV14/PFNANOSIM"                                   : "0  0  1  1  1  1  1  1  1",
+    #                                                                                                                                                   4L 3L 22 21 11 03 02 01 00
+    # WplusH_Hto2B_WtoLNu_M-125_TuneCP5_13p6TeV_powheg-pythia8  [single lepton]
+    "/WplusH_Hto2B_WtoLNu_M-125_TuneCP5_13p6TeV_powheg-pythia8/2022_PFNanoV14/PFNANOSIM"                                      : "0  1  1  1  1  1  1  1  1",
+    "/WplusH_Hto2B_WtoLNu_M-125_TuneCP5_13p6TeV_powheg-pythia8/2022EE_PFNanoV14/PFNANOSIM"                                    : "0  1  1  1  1  1  1  1  1",
+    "/WplusH_Hto2B_WtoLNu_M-125_TuneCP5_13p6TeV_powheg-pythia8/2023_PFNanoV14/PFNANOSIM"                                      : "0  1  1  1  1  1  1  1  1",
+    "/WplusH_Hto2B_WtoLNu_M-125_TuneCP5_13p6TeV_powheg-pythia8/2023BPix_PFNanoV14/PFNANOSIM"                                  : "0  1  1  1  1  1  1  1  1",
+    #                                                                                                                                                   4L 3L 22 21 11 03 02 01 00
+    # Wto2Q-3Jets_HT-200to400_TuneCP5_13p6TeV_madgraphMLM-pythia8  [all-hadronic]
+    "/Wto2Q-3Jets_HT-200to400_TuneCP5_13p6TeV_madgraphMLM-pythia8/2022_PFNanoV14/PFNANOSIM"                                   : "0  0  1  1  1  1  1  1  1",
+    "/Wto2Q-3Jets_HT-200to400_TuneCP5_13p6TeV_madgraphMLM-pythia8/2022EE_PFNanoV14/PFNANOSIM"                                 : "0  0  1  1  1  1  1  1  1",
+    "/Wto2Q-3Jets_HT-200to400_TuneCP5_13p6TeV_madgraphMLM-pythia8/2023_PFNanoV14/PFNANOSIM"                                   : "0  0  1  1  1  1  1  1  1",
+    "/Wto2Q-3Jets_HT-200to400_TuneCP5_13p6TeV_madgraphMLM-pythia8/2023BPix_PFNanoV14/PFNANOSIM"                               : "0  0  1  1  1  1  1  1  1",
+    #                                                                                                                                                   4L 3L 22 21 11 03 02 01 00
+    # Wto2Q-3Jets_HT-400to600_TuneCP5_13p6TeV_madgraphMLM-pythia8  [all-hadronic]
+    "/Wto2Q-3Jets_HT-400to600_TuneCP5_13p6TeV_madgraphMLM-pythia8/2022_PFNanoV14/PFNANOSIM"                                   : "0  0  1  1  1  1  1  1  1",
+    "/Wto2Q-3Jets_HT-400to600_TuneCP5_13p6TeV_madgraphMLM-pythia8/2022EE_PFNanoV14/PFNANOSIM"                                 : "0  0  1  1  1  1  1  1  1",
+    "/Wto2Q-3Jets_HT-400to600_TuneCP5_13p6TeV_madgraphMLM-pythia8/2023_PFNanoV14/PFNANOSIM"                                   : "0  0  1  1  1  1  1  1  1",
+    "/Wto2Q-3Jets_HT-400to600_TuneCP5_13p6TeV_madgraphMLM-pythia8/2023BPix_PFNanoV14/PFNANOSIM"                               : "0  0  1  1  1  1  1  1  1",
+    #                                                                                                                                                   4L 3L 22 21 11 03 02 01 00
+    # Wto2Q-3Jets_HT-600to800_TuneCP5_13p6TeV_madgraphMLM-pythia8  [all-hadronic]
+    "/Wto2Q-3Jets_HT-600to800_TuneCP5_13p6TeV_madgraphMLM-pythia8/2022_PFNanoV14/PFNANOSIM"                                   : "0  0  1  1  1  1  1  1  1",
+    "/Wto2Q-3Jets_HT-600to800_TuneCP5_13p6TeV_madgraphMLM-pythia8/2022EE_PFNanoV14/PFNANOSIM"                                 : "0  0  1  1  1  1  1  1  1",
+    "/Wto2Q-3Jets_HT-600to800_TuneCP5_13p6TeV_madgraphMLM-pythia8/2023_PFNanoV14/PFNANOSIM"                                   : "0  0  1  1  1  1  1  1  1",
+    "/Wto2Q-3Jets_HT-600to800_TuneCP5_13p6TeV_madgraphMLM-pythia8/2023BPix_PFNanoV14/PFNANOSIM"                               : "0  0  1  1  1  1  1  1  1",
+    #                                                                                                                                                   4L 3L 22 21 11 03 02 01 00
+    # Wto2Q-3Jets_HT-800_TuneCP5_13p6TeV_madgraphMLM-pythia8  [all-hadronic]
+    "/Wto2Q-3Jets_HT-800_TuneCP5_13p6TeV_madgraphMLM-pythia8/2022_PFNanoV14/PFNANOSIM"                                        : "0  0  1  1  1  1  1  1  1",
+    "/Wto2Q-3Jets_HT-800_TuneCP5_13p6TeV_madgraphMLM-pythia8/2022EE_PFNanoV14/PFNANOSIM"                                      : "0  0  1  1  1  1  1  1  1",
+    "/Wto2Q-3Jets_HT-800_TuneCP5_13p6TeV_madgraphMLM-pythia8/2023_PFNanoV14/PFNANOSIM"                                        : "0  0  1  1  1  1  1  1  1",
+    "/Wto2Q-3Jets_HT-800_TuneCP5_13p6TeV_madgraphMLM-pythia8/2023BPix_PFNanoV14/PFNANOSIM"                                    : "0  0  1  1  1  1  1  1  1",
+    #                                                                                                                                                   4L 3L 22 21 11 03 02 01 00
+    # WtoLNu-2Jets_PTLNu-100to200_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8  [W->lnu+jets]
+    "/WtoLNu-2Jets_PTLNu-100to200_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/2022_PFNanoV14/PFNANOSIM"                           : "0  1  1  1  1  1  1  1  1",
+    "/WtoLNu-2Jets_PTLNu-100to200_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/2022EE_PFNanoV14/PFNANOSIM"                         : "0  1  1  1  1  1  1  1  1",
+    "/WtoLNu-2Jets_PTLNu-100to200_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/2023_PFNanoV14/PFNANOSIM"                           : "0  1  1  1  1  1  1  1  1",
+    "/WtoLNu-2Jets_PTLNu-100to200_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/2023BPix_PFNanoV14/PFNANOSIM"                       : "0  1  1  1  1  1  1  1  1",
+    #                                                                                                                                                   4L 3L 22 21 11 03 02 01 00
+    # WtoLNu-2Jets_PTLNu-100to200_2J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8  [W->lnu+jets]
+    "/WtoLNu-2Jets_PTLNu-100to200_2J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/2022_PFNanoV14/PFNANOSIM"                           : "0  1  1  1  1  1  1  1  1",
+    "/WtoLNu-2Jets_PTLNu-100to200_2J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/2022EE_PFNanoV14/PFNANOSIM"                         : "0  1  1  1  1  1  1  1  1",
+    "/WtoLNu-2Jets_PTLNu-100to200_2J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/2023_PFNanoV14/PFNANOSIM"                           : "0  1  1  1  1  1  1  1  1",
+    "/WtoLNu-2Jets_PTLNu-100to200_2J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/2023BPix_PFNanoV14/PFNANOSIM"                       : "0  1  1  1  1  1  1  1  1",
+    #                                                                                                                                                   4L 3L 22 21 11 03 02 01 00
+    # WtoLNu-2Jets_PTLNu-200to400_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8  [W->lnu+jets]
+    "/WtoLNu-2Jets_PTLNu-200to400_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/2022_PFNanoV14/PFNANOSIM"                           : "0  1  1  1  1  1  1  1  1",
+    "/WtoLNu-2Jets_PTLNu-200to400_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/2022EE_PFNanoV14/PFNANOSIM"                         : "0  1  1  1  1  1  1  1  1",
+    "/WtoLNu-2Jets_PTLNu-200to400_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/2023_PFNanoV14/PFNANOSIM"                           : "0  1  1  1  1  1  1  1  1",
+    "/WtoLNu-2Jets_PTLNu-200to400_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/2023BPix_PFNanoV14/PFNANOSIM"                       : "0  1  1  1  1  1  1  1  1",
+    #                                                                                                                                                   4L 3L 22 21 11 03 02 01 00
+    # WtoLNu-2Jets_PTLNu-200to400_2J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8  [W->lnu+jets]
+    "/WtoLNu-2Jets_PTLNu-200to400_2J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/2022_PFNanoV14/PFNANOSIM"                           : "0  1  1  1  1  1  1  1  1",
+    "/WtoLNu-2Jets_PTLNu-200to400_2J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/2022EE_PFNanoV14/PFNANOSIM"                         : "0  1  1  1  1  1  1  1  1",
+    "/WtoLNu-2Jets_PTLNu-200to400_2J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/2023_PFNanoV14/PFNANOSIM"                           : "0  1  1  1  1  1  1  1  1",
+    "/WtoLNu-2Jets_PTLNu-200to400_2J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/2023BPix_PFNanoV14/PFNANOSIM"                       : "0  1  1  1  1  1  1  1  1",
+    #                                                                                                                                                   4L 3L 22 21 11 03 02 01 00
+    # WtoLNu-2Jets_PTLNu-400to600_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8  [W->lnu+jets]
+    "/WtoLNu-2Jets_PTLNu-400to600_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/2022_PFNanoV14/PFNANOSIM"                           : "0  1  1  1  1  1  1  1  1",
+    "/WtoLNu-2Jets_PTLNu-400to600_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/2022EE_PFNanoV14/PFNANOSIM"                         : "0  1  1  1  1  1  1  1  1",
+    "/WtoLNu-2Jets_PTLNu-400to600_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/2023_PFNanoV14/PFNANOSIM"                           : "0  1  1  1  1  1  1  1  1",
+    "/WtoLNu-2Jets_PTLNu-400to600_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/2023BPix_PFNanoV14/PFNANOSIM"                       : "0  1  1  1  1  1  1  1  1",
+    #                                                                                                                                                   4L 3L 22 21 11 03 02 01 00
+    # WtoLNu-2Jets_PTLNu-400to600_2J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8  [W->lnu+jets]
+    "/WtoLNu-2Jets_PTLNu-400to600_2J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/2022_PFNanoV14/PFNANOSIM"                           : "0  1  1  1  1  1  1  1  1",
+    "/WtoLNu-2Jets_PTLNu-400to600_2J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/2022EE_PFNanoV14/PFNANOSIM"                         : "0  1  1  1  1  1  1  1  1",
+    "/WtoLNu-2Jets_PTLNu-400to600_2J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/2023_PFNanoV14/PFNANOSIM"                           : "0  1  1  1  1  1  1  1  1",
+    "/WtoLNu-2Jets_PTLNu-400to600_2J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/2023BPix_PFNanoV14/PFNANOSIM"                       : "0  1  1  1  1  1  1  1  1",
+    #                                                                                                                                                   4L 3L 22 21 11 03 02 01 00
+    # WtoLNu-2Jets_PTLNu-40to100_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8  [W->lnu+jets]
+    "/WtoLNu-2Jets_PTLNu-40to100_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/2022_PFNanoV14/PFNANOSIM"                            : "0  1  1  1  1  1  1  1  1",
+    "/WtoLNu-2Jets_PTLNu-40to100_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/2022EE_PFNanoV14/PFNANOSIM"                          : "0  1  1  1  1  1  1  1  1",
+    "/WtoLNu-2Jets_PTLNu-40to100_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/2023_PFNanoV14/PFNANOSIM"                            : "0  1  1  1  1  1  1  1  1",
+    "/WtoLNu-2Jets_PTLNu-40to100_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/2023BPix_PFNanoV14/PFNANOSIM"                        : "0  1  1  1  1  1  1  1  1",
+    #                                                                                                                                                   4L 3L 22 21 11 03 02 01 00
+    # WtoLNu-2Jets_PTLNu-40to100_2J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8  [W->lnu+jets]
+    "/WtoLNu-2Jets_PTLNu-40to100_2J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/2022_PFNanoV14/PFNANOSIM"                            : "0  1  1  1  1  1  1  1  1",
+    "/WtoLNu-2Jets_PTLNu-40to100_2J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/2022EE_PFNanoV14/PFNANOSIM"                          : "0  1  1  1  1  1  1  1  1",
+    "/WtoLNu-2Jets_PTLNu-40to100_2J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/2023_PFNanoV14/PFNANOSIM"                            : "0  1  1  1  1  1  1  1  1",
+    "/WtoLNu-2Jets_PTLNu-40to100_2J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/2023BPix_PFNanoV14/PFNANOSIM"                        : "0  1  1  1  1  1  1  1  1",
+    #                                                                                                                                                   4L 3L 22 21 11 03 02 01 00
+    # WtoLNu-2Jets_PTLNu-600_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8  [W->lnu+jets]
+    "/WtoLNu-2Jets_PTLNu-600_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/2022_PFNanoV14/PFNANOSIM"                                : "0  1  1  1  1  1  1  1  1",
+    "/WtoLNu-2Jets_PTLNu-600_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/2022EE_PFNanoV14/PFNANOSIM"                              : "0  1  1  1  1  1  1  1  1",
+    "/WtoLNu-2Jets_PTLNu-600_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/2023_PFNanoV14/PFNANOSIM"                                : "0  1  1  1  1  1  1  1  1",
+    "/WtoLNu-2Jets_PTLNu-600_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/2023BPix_PFNanoV14/PFNANOSIM"                            : "0  1  1  1  1  1  1  1  1",
+    #                                                                                                                                                   4L 3L 22 21 11 03 02 01 00
+    # WtoLNu-2Jets_PTLNu-600_2J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8  [W->lnu+jets]
+    "/WtoLNu-2Jets_PTLNu-600_2J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/2022_PFNanoV14/PFNANOSIM"                                : "0  1  1  1  1  1  1  1  1",
+    "/WtoLNu-2Jets_PTLNu-600_2J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/2022EE_PFNanoV14/PFNANOSIM"                              : "0  1  1  1  1  1  1  1  1",
+    "/WtoLNu-2Jets_PTLNu-600_2J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/2023_PFNanoV14/PFNANOSIM"                                : "0  1  1  1  1  1  1  1  1",
+    "/WtoLNu-2Jets_PTLNu-600_2J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/2023BPix_PFNanoV14/PFNANOSIM"                            : "0  1  1  1  1  1  1  1  1",
+    #                                                                                                                                                   4L 3L 22 21 11 03 02 01 00
+    # WtoLNu-4Jets_1J_TuneCP5_13p6TeV_madgraphMLM-pythia8  [W->lnu+jets]
+    "/WtoLNu-4Jets_1J_TuneCP5_13p6TeV_madgraphMLM-pythia8/2022_PFNanoV14/PFNANOSIM"                                           : "0  1  1  1  1  1  1  1  1",
+    "/WtoLNu-4Jets_1J_TuneCP5_13p6TeV_madgraphMLM-pythia8/2022EE_PFNanoV14/PFNANOSIM"                                         : "0  1  1  1  1  1  1  1  1",
+    "/WtoLNu-4Jets_1J_TuneCP5_13p6TeV_madgraphMLM-pythia8/2023_PFNanoV14/PFNANOSIM"                                           : "0  1  1  1  1  1  1  1  1",
+    "/WtoLNu-4Jets_1J_TuneCP5_13p6TeV_madgraphMLM-pythia8/2023BPix_PFNanoV14/PFNANOSIM"                                       : "0  1  1  1  1  1  1  1  1",
+    #                                                                                                                                                   4L 3L 22 21 11 03 02 01 00
+    # WtoLNu-4Jets_2J_TuneCP5_13p6TeV_madgraphMLM-pythia8  [W->lnu+jets]
+    "/WtoLNu-4Jets_2J_TuneCP5_13p6TeV_madgraphMLM-pythia8/2022_PFNanoV14/PFNANOSIM"                                           : "0  1  1  1  1  1  1  1  1",
+    "/WtoLNu-4Jets_2J_TuneCP5_13p6TeV_madgraphMLM-pythia8/2022EE_PFNanoV14/PFNANOSIM"                                         : "0  1  1  1  1  1  1  1  1",
+    "/WtoLNu-4Jets_2J_TuneCP5_13p6TeV_madgraphMLM-pythia8/2023_PFNanoV14/PFNANOSIM"                                           : "0  1  1  1  1  1  1  1  1",
+    "/WtoLNu-4Jets_2J_TuneCP5_13p6TeV_madgraphMLM-pythia8/2023BPix_PFNanoV14/PFNANOSIM"                                       : "0  1  1  1  1  1  1  1  1",
+    #                                                                                                                                                   4L 3L 22 21 11 03 02 01 00
+    # WtoLNu-4Jets_3J_TuneCP5_13p6TeV_madgraphMLM-pythia8  [W->lnu+jets]
+    "/WtoLNu-4Jets_3J_TuneCP5_13p6TeV_madgraphMLM-pythia8/2022_PFNanoV14/PFNANOSIM"                                           : "0  1  1  1  1  1  1  1  1",
+    "/WtoLNu-4Jets_3J_TuneCP5_13p6TeV_madgraphMLM-pythia8/2022EE_PFNanoV14/PFNANOSIM"                                         : "0  1  1  1  1  1  1  1  1",
+    "/WtoLNu-4Jets_3J_TuneCP5_13p6TeV_madgraphMLM-pythia8/2023_PFNanoV14/PFNANOSIM"                                           : "0  1  1  1  1  1  1  1  1",
+    "/WtoLNu-4Jets_3J_TuneCP5_13p6TeV_madgraphMLM-pythia8/2023BPix_PFNanoV14/PFNANOSIM"                                       : "0  1  1  1  1  1  1  1  1",
+    #                                                                                                                                                   4L 3L 22 21 11 03 02 01 00
+    # WtoLNu-4Jets_4J_TuneCP5_13p6TeV_madgraphMLM-pythia8  [W->lnu+jets]
+    "/WtoLNu-4Jets_4J_TuneCP5_13p6TeV_madgraphMLM-pythia8/2022_PFNanoV14/PFNANOSIM"                                           : "0  1  1  1  1  1  1  1  1",
+    "/WtoLNu-4Jets_4J_TuneCP5_13p6TeV_madgraphMLM-pythia8/2022EE_PFNanoV14/PFNANOSIM"                                         : "0  1  1  1  1  1  1  1  1",
+    "/WtoLNu-4Jets_4J_TuneCP5_13p6TeV_madgraphMLM-pythia8/2023_PFNanoV14/PFNANOSIM"                                           : "0  1  1  1  1  1  1  1  1",
+    "/WtoLNu-4Jets_4J_TuneCP5_13p6TeV_madgraphMLM-pythia8/2023BPix_PFNanoV14/PFNANOSIM"                                       : "0  1  1  1  1  1  1  1  1",
+    #                                                                                                                                                   4L 3L 22 21 11 03 02 01 00
+    # ZH_Hto2B_Zto2L_M-125_TuneCP5_13p6TeV_powheg-pythia8  [2+ leptons plausible]
+    "/ZH_Hto2B_Zto2L_M-125_TuneCP5_13p6TeV_powheg-pythia8/2022_PFNanoV14/PFNANOSIM"                                           : "1  1  1  1  1  1  1  1  1",
+    "/ZH_Hto2B_Zto2L_M-125_TuneCP5_13p6TeV_powheg-pythia8/2022EE_PFNanoV14/PFNANOSIM"                                         : "1  1  1  1  1  1  1  1  1",
+    "/ZH_Hto2B_Zto2L_M-125_TuneCP5_13p6TeV_powheg-pythia8/2023_PFNanoV14/PFNANOSIM"                                           : "1  1  1  1  1  1  1  1  1",
+    "/ZH_Hto2B_Zto2L_M-125_TuneCP5_13p6TeV_powheg-pythia8/2023BPix_PFNanoV14/PFNANOSIM"                                       : "1  1  1  1  1  1  1  1  1",
+    #                                                                                                                                                   4L 3L 22 21 11 03 02 01 00
+    # ZH_Hto2B_Zto2Nu_M-125_TuneCP5_13p6TeV_powheg-minlo-pythia8  [Z->nunu invisible]
+    "/ZH_Hto2B_Zto2Nu_M-125_TuneCP5_13p6TeV_powheg-minlo-pythia8/2022_PFNanoV14/PFNANOSIM"                                    : "0  0  1  1  1  1  1  1  1",
+    "/ZH_Hto2B_Zto2Nu_M-125_TuneCP5_13p6TeV_powheg-minlo-pythia8/2022EE_PFNanoV14/PFNANOSIM"                                  : "0  0  1  1  1  1  1  1  1",
+    "/ZH_Hto2B_Zto2Nu_M-125_TuneCP5_13p6TeV_powheg-minlo-pythia8/2023_PFNanoV14/PFNANOSIM"                                    : "0  0  1  1  1  1  1  1  1",
+    "/ZH_Hto2B_Zto2Nu_M-125_TuneCP5_13p6TeV_powheg-minlo-pythia8/2023BPix_PFNanoV14/PFNANOSIM"                                : "0  0  1  1  1  1  1  1  1",
+    #                                                                                                                                                   4L 3L 22 21 11 03 02 01 00
+    # ZH_Hto2B_Zto2Q_M-125_TuneCP5_13p6TeV_powheg-pythia8  [all-hadronic]
+    "/ZH_Hto2B_Zto2Q_M-125_TuneCP5_13p6TeV_powheg-pythia8/2022_PFNanoV14/PFNANOSIM"                                           : "0  0  1  1  1  1  1  1  1",
+    "/ZH_Hto2B_Zto2Q_M-125_TuneCP5_13p6TeV_powheg-pythia8/2022EE_PFNanoV14/PFNANOSIM"                                         : "0  0  1  1  1  1  1  1  1",
+    "/ZH_Hto2B_Zto2Q_M-125_TuneCP5_13p6TeV_powheg-pythia8/2023_PFNanoV14/PFNANOSIM"                                           : "0  0  1  1  1  1  1  1  1",
+    "/ZH_Hto2B_Zto2Q_M-125_TuneCP5_13p6TeV_powheg-pythia8/2023BPix_PFNanoV14/PFNANOSIM"                                       : "0  0  1  1  1  1  1  1  1",
+    #                                                                                                                                                   4L 3L 22 21 11 03 02 01 00
+    # ZZZ_TuneCP5_13p6TeV_amcatnlo-pythia8  [2+ leptons plausible]
+    "/ZZZ_TuneCP5_13p6TeV_amcatnlo-pythia8/2022_PFNanoV14/PFNANOSIM"                                                          : "1  1  1  1  1  1  1  1  1",
+    "/ZZZ_TuneCP5_13p6TeV_amcatnlo-pythia8/2022EE_PFNanoV14/PFNANOSIM"                                                        : "1  1  1  1  1  1  1  1  1",
+    "/ZZZ_TuneCP5_13p6TeV_amcatnlo-pythia8/2023_PFNanoV14/PFNANOSIM"                                                          : "1  1  1  1  1  1  1  1  1",
+    "/ZZZ_TuneCP5_13p6TeV_amcatnlo-pythia8/2023BPix_PFNanoV14/PFNANOSIM"                                                      : "1  1  1  1  1  1  1  1  1",
+    #                                                                                                                                                   4L 3L 22 21 11 03 02 01 00
+    # ZZ_TuneCP5_13p6TeV_pythia8  [2+ leptons plausible]
+    "/ZZ_TuneCP5_13p6TeV_pythia8/2022_PFNanoV14/PFNANOSIM"                                                                    : "1  1  1  1  1  1  1  1  1",
+    "/ZZ_TuneCP5_13p6TeV_pythia8/2022EE_PFNanoV14/PFNANOSIM"                                                                  : "1  1  1  1  1  1  1  1  1",
+    "/ZZ_TuneCP5_13p6TeV_pythia8/2023_PFNanoV14/PFNANOSIM"                                                                    : "1  1  1  1  1  1  1  1  1",
+    "/ZZ_TuneCP5_13p6TeV_pythia8/2023BPix_PFNanoV14/PFNANOSIM"                                                                : "1  1  1  1  1  1  1  1  1",
+    #                                                                                                                                                   4L 3L 22 21 11 03 02 01 00
+    # ZZto2L2Q_TuneCP5_13p6TeV_powheg-pythia8  [2+ leptons plausible]
+    "/ZZto2L2Q_TuneCP5_13p6TeV_powheg-pythia8/2022_PFNanoV14/PFNANOSIM"                                                       : "1  1  1  1  1  1  1  1  1",
+    "/ZZto2L2Q_TuneCP5_13p6TeV_powheg-pythia8/2022EE_PFNanoV14/PFNANOSIM"                                                     : "1  1  1  1  1  1  1  1  1",
+    "/ZZto2L2Q_TuneCP5_13p6TeV_powheg-pythia8/2023_PFNanoV14/PFNANOSIM"                                                       : "1  1  1  1  1  1  1  1  1",
+    "/ZZto2L2Q_TuneCP5_13p6TeV_powheg-pythia8/2023BPix_PFNanoV14/PFNANOSIM"                                                   : "1  1  1  1  1  1  1  1  1",
+    #                                                                                                                                                   4L 3L 22 21 11 03 02 01 00
+    # ZZto4L-2Jets_EW_TuneCP5_13p6TeV_madgraph-pythia8  [ZZ->4L, fully leptonic]
+    "/ZZto4L-2Jets_EW_TuneCP5_13p6TeV_madgraph-pythia8/2022_PFNanoV14/PFNANOSIM"                                              : "1  1  1  1  0  0  0  0  0",
+    "/ZZto4L-2Jets_EW_TuneCP5_13p6TeV_madgraph-pythia8/2022EE_PFNanoV14/PFNANOSIM"                                            : "1  1  1  1  0  0  0  0  0",
+    "/ZZto4L-2Jets_EW_TuneCP5_13p6TeV_madgraph-pythia8/2023_PFNanoV14/PFNANOSIM"                                              : "1  1  1  1  0  0  0  0  0",
+    "/ZZto4L-2Jets_EW_TuneCP5_13p6TeV_madgraph-pythia8/2023BPix_PFNanoV14/PFNANOSIM"                                          : "1  1  1  1  0  0  0  0  0",
+    #                                                                                                                                                   4L 3L 22 21 11 03 02 01 00
+    # ZZto4L-2Jets_QCD_TuneCP5_13p6TeV_madgraph-pythia8  [ZZ->4L, fully leptonic]
+    "/ZZto4L-2Jets_QCD_TuneCP5_13p6TeV_madgraph-pythia8/2022_PFNanoV14/PFNANOSIM"                                             : "1  1  1  1  0  0  0  0  0",
+    "/ZZto4L-2Jets_QCD_TuneCP5_13p6TeV_madgraph-pythia8/2022EE_PFNanoV14/PFNANOSIM"                                           : "1  1  1  1  0  0  0  0  0",
+    "/ZZto4L-2Jets_QCD_TuneCP5_13p6TeV_madgraph-pythia8/2023_PFNanoV14/PFNANOSIM"                                             : "1  1  1  1  0  0  0  0  0",
+    "/ZZto4L-2Jets_QCD_TuneCP5_13p6TeV_madgraph-pythia8/2023BPix_PFNanoV14/PFNANOSIM"                                         : "1  1  1  1  0  0  0  0  0",
+    #                                                                                                                                                   4L 3L 22 21 11 03 02 01 00
+    # ZZto4L_TuneCP5_13p6TeV_powheg-pythia8  [ZZ->4L, fully leptonic]
+    "/ZZto4L_TuneCP5_13p6TeV_powheg-pythia8/2022_PFNanoV14/PFNANOSIM"                                                         : "1  1  1  1  0  0  0  0  0",
+    "/ZZto4L_TuneCP5_13p6TeV_powheg-pythia8/2022EE_PFNanoV14/PFNANOSIM"                                                       : "1  1  1  1  0  0  0  0  0",
+    "/ZZto4L_TuneCP5_13p6TeV_powheg-pythia8/2023_PFNanoV14/PFNANOSIM"                                                         : "1  1  1  1  0  0  0  0  0",
+    "/ZZto4L_TuneCP5_13p6TeV_powheg-pythia8/2023BPix_PFNanoV14/PFNANOSIM"                                                     : "1  1  1  1  0  0  0  0  0",
+    #                                                                                                                                                   4L 3L 22 21 11 03 02 01 00
+    # Zto2Q-4Jets_HT-200to400_TuneCP5_13p6TeV_madgraphMLM-pythia8  [all-hadronic]
+    "/Zto2Q-4Jets_HT-200to400_TuneCP5_13p6TeV_madgraphMLM-pythia8/2022_PFNanoV14/PFNANOSIM"                                   : "0  0  1  1  1  1  1  1  1",
+    "/Zto2Q-4Jets_HT-200to400_TuneCP5_13p6TeV_madgraphMLM-pythia8/2022EE_PFNanoV14/PFNANOSIM"                                 : "0  0  1  1  1  1  1  1  1",
+    "/Zto2Q-4Jets_HT-200to400_TuneCP5_13p6TeV_madgraphMLM-pythia8/2023_PFNanoV14/PFNANOSIM"                                   : "0  0  1  1  1  1  1  1  1",
+    "/Zto2Q-4Jets_HT-200to400_TuneCP5_13p6TeV_madgraphMLM-pythia8/2023BPix_PFNanoV14/PFNANOSIM"                               : "0  0  1  1  1  1  1  1  1",
+    #                                                                                                                                                   4L 3L 22 21 11 03 02 01 00
+    # Zto2Q-4Jets_HT-400to600_TuneCP5_13p6TeV_madgraphMLM-pythia8  [all-hadronic]
+    "/Zto2Q-4Jets_HT-400to600_TuneCP5_13p6TeV_madgraphMLM-pythia8/2022_PFNanoV14/PFNANOSIM"                                   : "0  0  1  1  1  1  1  1  1",
+    "/Zto2Q-4Jets_HT-400to600_TuneCP5_13p6TeV_madgraphMLM-pythia8/2022EE_PFNanoV14/PFNANOSIM"                                 : "0  0  1  1  1  1  1  1  1",
+    "/Zto2Q-4Jets_HT-400to600_TuneCP5_13p6TeV_madgraphMLM-pythia8/2023_PFNanoV14/PFNANOSIM"                                   : "0  0  1  1  1  1  1  1  1",
+    "/Zto2Q-4Jets_HT-400to600_TuneCP5_13p6TeV_madgraphMLM-pythia8/2023BPix_PFNanoV14/PFNANOSIM"                               : "0  0  1  1  1  1  1  1  1",
+    #                                                                                                                                                   4L 3L 22 21 11 03 02 01 00
+    # Zto2Q-4Jets_HT-600to800_TuneCP5_13p6TeV_madgraphMLM-pythia8  [all-hadronic]
+    "/Zto2Q-4Jets_HT-600to800_TuneCP5_13p6TeV_madgraphMLM-pythia8/2022_PFNanoV14/PFNANOSIM"                                   : "0  0  1  1  1  1  1  1  1",
+    "/Zto2Q-4Jets_HT-600to800_TuneCP5_13p6TeV_madgraphMLM-pythia8/2022EE_PFNanoV14/PFNANOSIM"                                 : "0  0  1  1  1  1  1  1  1",
+    "/Zto2Q-4Jets_HT-600to800_TuneCP5_13p6TeV_madgraphMLM-pythia8/2023_PFNanoV14/PFNANOSIM"                                   : "0  0  1  1  1  1  1  1  1",
+    "/Zto2Q-4Jets_HT-600to800_TuneCP5_13p6TeV_madgraphMLM-pythia8/2023BPix_PFNanoV14/PFNANOSIM"                               : "0  0  1  1  1  1  1  1  1",
+    #                                                                                                                                                   4L 3L 22 21 11 03 02 01 00
+    # Zto2Q-4Jets_HT-800_TuneCP5_13p6TeV_madgraphMLM-pythia8  [all-hadronic]
+    "/Zto2Q-4Jets_HT-800_TuneCP5_13p6TeV_madgraphMLM-pythia8/2022_PFNanoV14/PFNANOSIM"                                        : "0  0  1  1  1  1  1  1  1",
+    "/Zto2Q-4Jets_HT-800_TuneCP5_13p6TeV_madgraphMLM-pythia8/2022EE_PFNanoV14/PFNANOSIM"                                      : "0  0  1  1  1  1  1  1  1",
+    "/Zto2Q-4Jets_HT-800_TuneCP5_13p6TeV_madgraphMLM-pythia8/2023_PFNanoV14/PFNANOSIM"                                        : "0  0  1  1  1  1  1  1  1",
+    "/Zto2Q-4Jets_HT-800_TuneCP5_13p6TeV_madgraphMLM-pythia8/2023BPix_PFNanoV14/PFNANOSIM"                                    : "0  0  1  1  1  1  1  1  1",
+    #                                                                                                                                                   4L 3L 22 21 11 03 02 01 00
+    # ggZH_Hto2B_Zto2L_M-125_TuneCP5_13p6TeV_powheg-pythia8  [2+ leptons plausible]
+    "/ggZH_Hto2B_Zto2L_M-125_TuneCP5_13p6TeV_powheg-pythia8/2022_PFNanoV14/PFNANOSIM"                                         : "1  1  1  1  1  1  1  1  1",
+    "/ggZH_Hto2B_Zto2L_M-125_TuneCP5_13p6TeV_powheg-pythia8/2022EE_PFNanoV14/PFNANOSIM"                                       : "1  1  1  1  1  1  1  1  1",
+    "/ggZH_Hto2B_Zto2L_M-125_TuneCP5_13p6TeV_powheg-pythia8/2023_PFNanoV14/PFNANOSIM"                                         : "1  1  1  1  1  1  1  1  1",
+    "/ggZH_Hto2B_Zto2L_M-125_TuneCP5_13p6TeV_powheg-pythia8/2023BPix_PFNanoV14/PFNANOSIM"                                     : "1  1  1  1  1  1  1  1  1",
+    #                                                                                                                                                   4L 3L 22 21 11 03 02 01 00
+    # ggZH_Hto2B_Zto2Nu_M-125_TuneCP5_13p6TeV_powheg-pythia8  [Z->nunu invisible]
+    "/ggZH_Hto2B_Zto2Nu_M-125_TuneCP5_13p6TeV_powheg-pythia8/2022_PFNanoV14/PFNANOSIM"                                        : "0  0  1  1  1  1  1  1  1",
+    "/ggZH_Hto2B_Zto2Nu_M-125_TuneCP5_13p6TeV_powheg-pythia8/2022EE_PFNanoV14/PFNANOSIM"                                      : "0  0  1  1  1  1  1  1  1",
+    "/ggZH_Hto2B_Zto2Nu_M-125_TuneCP5_13p6TeV_powheg-pythia8/2023_PFNanoV14/PFNANOSIM"                                        : "0  0  1  1  1  1  1  1  1",
+    "/ggZH_Hto2B_Zto2Nu_M-125_TuneCP5_13p6TeV_powheg-pythia8/2023BPix_PFNanoV14/PFNANOSIM"                                    : "0  0  1  1  1  1  1  1  1",
+    #                                                                                                                                                   4L 3L 22 21 11 03 02 01 00
+    # ggZH_Hto2B_Zto2Q_M-125_TuneCP5_13p6TeV_powheg-pythia8  [all-hadronic]
+    "/ggZH_Hto2B_Zto2Q_M-125_TuneCP5_13p6TeV_powheg-pythia8/2022_PFNanoV14/PFNANOSIM"                                         : "0  0  1  1  1  1  1  1  1",
+    "/ggZH_Hto2B_Zto2Q_M-125_TuneCP5_13p6TeV_powheg-pythia8/2022EE_PFNanoV14/PFNANOSIM"                                       : "0  0  1  1  1  1  1  1  1",
+    "/ggZH_Hto2B_Zto2Q_M-125_TuneCP5_13p6TeV_powheg-pythia8/2023_PFNanoV14/PFNANOSIM"                                         : "0  0  1  1  1  1  1  1  1",
+    "/ggZH_Hto2B_Zto2Q_M-125_TuneCP5_13p6TeV_powheg-pythia8/2023BPix_PFNanoV14/PFNANOSIM"                                     : "0  0  1  1  1  1  1  1  1",
+
 }
 
 
