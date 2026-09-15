@@ -6,6 +6,7 @@ from vbsvvh_mc import nanoaodv15_run2_bkg_zz4l, nanoaodv15_run3_bkg_ggzz4l
 from vbsvvh_mc import nanoaodv15_run3_bkg_zh4l
 from vbsvvh_hh import nanoaodv15_run3_bkg_hh, nanoaodv13_run3_bkg_hh_bbtautau
 import vbsvvh_v14
+from vbsvvh_vjets import nanoaodv15_run2_bkg_znunu_ht, nanoaodv15_run3_bkg_vjets_ht
 
 
 # Temporary test group: just the new QCD-4Jets HT-100to200 Run3 Summer24 sample
@@ -105,6 +106,17 @@ SAMPLE_REGISTRY = {
     "run3_bkg_hh_bbtautau": {
         "samples": nanoaodv13_run3_bkg_hh_bbtautau,
         "metadata": {"run": "Run3", "type": "Bkg", "nano": "v13"},
+    },
+    # V+jets HT-binned (M. Mazza request, 2026-09-15). See vbsvvh_vjets.py for
+    # the HT-bin-edge and double-counting caveats -- in particular the 2024
+    # W->lnu set OVERLAPS the pT- and jet-binned W+jets already in run3_bkg.
+    "run2_bkg_znunu_ht": {
+        "samples": nanoaodv15_run2_bkg_znunu_ht,
+        "metadata": {"run": "Run2", "type": "Bkg", "nano": "v15"},
+    },
+    "run3_bkg_vjets_ht": {
+        "samples": nanoaodv15_run3_bkg_vjets_ht,
+        "metadata": {"run": "Run3", "type": "Bkg", "nano": "v15"},
     },
 }
 

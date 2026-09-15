@@ -142,6 +142,16 @@ while IFS=$'\t' read -r TASK_NAME SUBJOB_INDEX SUBJOB_ARGS; do
         mkdir -p ${SUBDIR}
         cd ${SUBDIR}
 
+        # Delete the sub-job scratch on EVERY exit path (success, failure, kill).
+        # Inputs are xrdcp'd here and were previously NEVER removed: SLURM_TMPDIR
+        # is /tmp on this cluster (not a per-job dir), so every pack that landed on
+        # a node left its inputs behind and they accumulated -- measured at
+        # 1.5-1.6 TB per node during v39, with one node at 100% full, which both
+        # broke our own jobs and squeezed everyone else on that node.
+        # The output ROOT is copied out to ${OUTPUTDIR} before exit, so nothing
+        # here is needed afterwards. cd out first so rm never runs on the cwd.
+        trap 'cd "${SETUP_DIR}" 2>/dev/null; rm -rf "${SUBDIR}"' EXIT
+
         # Symlink shared binaries and resources from setup dir
         ln -s ${SETUP_DIR}/skim . 2>/dev/null
         for so in ${SETUP_DIR}/*.so; do
