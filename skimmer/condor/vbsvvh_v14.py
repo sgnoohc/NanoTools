@@ -33,7 +33,43 @@ SIGNAL_CATEGORIES = {"HVV_Signal"}
 
 ERAS = ["2022", "2022EE", "2023", "2023BPix"]
 
+STAGE_ROOT = "/cmsuf/data/store/user/phchang/v14stage"
+
 _index_cache = None
+_staged_eras_cache = None
+
+
+def _staged_eras():
+    """Eras whose inputs are fully staged on /cmsuf, by marker file.
+
+    Staging is per-era and the markers are written only by the verifier, after
+    it confirms every manifest entry landed non-empty. An era without a marker
+    keeps its xrootd URLs, so a half-staged era can never be half-used.
+    """
+    global _staged_eras_cache
+    if _staged_eras_cache is None:
+        _staged_eras_cache = {
+            era for era in ERAS
+            if os.path.isfile(os.path.join(STAGE_ROOT, f".staged_{era}"))
+        }
+    return _staged_eras_cache
+
+
+def _local_or_remote(url, era):
+    """Map an index URL to its staged /cmsuf path when that era is staged.
+
+    This is the whole point of staging: slurm_packed_executable.sh skips xrdcp
+    entirely for inputs under /cmsuf, so jobs read the one shared copy instead
+    of each re-downloading to node-local /tmp. Falls back to the original URL
+    if the era is unstaged or the individual file is somehow absent.
+    """
+    if era not in _staged_eras():
+        return url
+    i = url.find("/store/")
+    if i < 0:
+        return url
+    dest = os.path.join(STAGE_ROOT, url[i + len("/store/"):])
+    return dest if os.path.isfile(dest) else url
 
 
 def _load_index():
@@ -71,8 +107,9 @@ def _samples_for(era, kind):
                 continue
             out.append(FilelistSample(
                 dataset=dataset_name(era, category, sname),
-                filelist=list(files),
-                # URLs are already fully-qualified root:// -- no path rewriting.
+                filelist=[_local_or_remote(u, era) for u in files],
+                # Entries are either fully-qualified root:// URLs or absolute
+                # /cmsuf paths -- no path rewriting wanted either way.
                 use_xrootd=False,
             ))
     return out
