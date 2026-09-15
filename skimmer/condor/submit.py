@@ -504,6 +504,16 @@ if __name__ == "__main__":
                 # Filter summary for this tag (scoped to this unique_key)
                 tag_summary = {k: v for k, v in key_summary.items() if k.endswith(f"_{analysis_tag}")}
 
+                # A group can legitimately have ZERO tasks in a channel once the
+                # sample_channels matrix excludes it wholesale -- e.g. the Z->nunu
+                # HT group is all-hadronic, so 4Lep/3Lep get nothing. StatsParser
+                # treats empty data as "load it from disk" and then dies on the
+                # summary.json that was never written, taking the driver down
+                # AFTER the jobs were already submitted. Nothing to report here.
+                if not tag_summary:
+                    print(f"  [status] (skip: no tasks for {unique_key}/{analysis_tag})")
+                    continue
+
                 webdir = os.path.expanduser(f"~/public_html/{unique_key}/{analysis_tag}")
                 os.makedirs(webdir, exist_ok=True)
                 os.system(f"rm -f {webdir}/web_summary.json")
