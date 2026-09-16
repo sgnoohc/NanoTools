@@ -44,6 +44,21 @@ def pending_job_count():
 MIN_EVENTS_PER_JOB_CONDOR = 3_000_000
 MIN_EVENTS_PER_JOB_SLURM = 12_000_000
 
+# Hard ceiling on files per sub-job, independent of the event target above.
+#
+# The event target alone is unbounded in FILE count: a sample with low events/file
+# (the v14 PFNano QCD and TT bins especially) needs hundreds of files to reach 12M
+# events. v39 produced sub-jobs of 613 files ~= 650 GB each. Every one of those is
+# xrdcp'd to node-local /tmp before skimming, so a pack of 12 wanted ~7.8 TB on a
+# node with 1.7 TB -- which is how v39 filled node scratch and then hit the 8 h wall
+# (407 OOM kills + 9 TIMEOUTs, campaign abandoned at 95.6%).
+#
+# 100 files caps the worst sub-job near ~106 GB for 1 GB inputs (~0.6 TB for a pack
+# of 6). Costs roughly 1.6x more jobs, which is cheap next to losing a campaign.
+# Staged (/cmsuf) inputs are not copied at all, so for those this bounds wall-clock
+# rather than disk. Override with --max-files-per-job.
+MAX_FILES_PER_JOB = 100
+
 def query_das_single(dsname):
     """Query dasgoclient for nevents and nfiles for a single dataset."""
     try:
@@ -96,8 +111,12 @@ def split_func(dsname, min_events_per_job):
         files_per_job = max(1, math.ceil(min_events_per_job / evts_per_file))
     else:
         files_per_job = 1
+    uncapped = files_per_job
+    if MAX_FILES_PER_JOB and files_per_job > MAX_FILES_PER_JOB:
+        files_per_job = MAX_FILES_PER_JOB
     if verbose:
-        print(f"  [das] nevents={info['nevents']:,}  nfiles={info['nfiles']}  evts/file={evts_per_file:,}  -> {files_per_job} files/job (target {min_events_per_job:,} evts/job)")
+        capnote = f"  [CAPPED from {uncapped}]" if uncapped != files_per_job else ""
+        print(f"  [das] nevents={info['nevents']:,}  nfiles={info['nfiles']}  evts/file={evts_per_file:,}  -> {files_per_job} files/job (target {min_events_per_job:,} evts/job){capnote}")
         _split_logged.add(dsname)
     return files_per_job
 
@@ -226,10 +245,20 @@ if __name__ == "__main__":
                         help="Pack N jobs per SLURM allocation (default 1 = current behavior)")
     parser.add_argument("--cpus-per-subjob", type=int, default=1,
                         help="CPUs per sub-job within a pack (default 1)")
+    parser.add_argument("--max-files-per-job", type=int, default=MAX_FILES_PER_JOB,
+                        help=f"Ceiling on files per sub-job regardless of the event target "
+                             f"(default {MAX_FILES_PER_JOB}). 0 disables. Guards node-local "
+                             f"/tmp and the 8h wall for low-events/file samples.")
     parser.add_argument("--channels", type=str, default=None,
                         help="Comma-separated channel tags to run for non-signal samples "
                              "(e.g. 2Lep4J). Omit to run ALL_CHANNELS. Signal always uses Sig.")
     args = parser.parse_args()
+
+    MAX_FILES_PER_JOB = args.max_files_per_job
+    if MAX_FILES_PER_JOB:
+        print(f"[cap] files per sub-job capped at {MAX_FILES_PER_JOB}")
+    else:
+        print("[cap] files-per-job cap DISABLED (--max-files-per-job 0)")
 
     # Restrict non-signal channels if requested
     if args.channels:
