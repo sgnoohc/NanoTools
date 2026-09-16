@@ -15,3 +15,21 @@ skimmer/condor/package.tar.xz
 skimmer/condor/summary.json
 skimmer/condor/tasks/
 skimmer/condor/web_summary.json
+
+# --- skim production scratch (added 2026-09-16) ---
+# Local test runs: multi-GB NanoAOD copies + their skim outputs.
+skimmer/local_*/
+skimmer/output/
+skimmer/test_output/
+skimmer/mc/
+debug/
+# Per-version submission/validation logs and generated manifests.
+skimmer/condor/logs_v*/
+skimmer/condor/logs_stage/
+skimmer/condor/check_v*.log
+skimmer/condor/stage_manifest_*.txt
+skimmer/condor/__pycache__/
+# 37 MB generated index. Regenerate with:
+#   python3 make_filelists.py v14_HVV_private
+# (the generator v14_HVV_private.py IS tracked).
+nanoindex_v14_HVV_private.json

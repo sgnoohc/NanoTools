@@ -4,6 +4,87 @@
 
 ---
 
+## 2026-09-15 — ✅ v41 VALIDATED + folded into v30 (V+jets HT-binned, M. Mazza request)
+
+**v41 = 46 datasets, 1,524 jobs, 4.17 TB.** `run2_bkg_znunu_ht` (28: Z→νν HT, Run2 UL,
+7 bins × 4 eras) + `run3_bkg_vjets_ht` (18: 6 Z→νν HT + 12 W→ℓν HT, Summer24 v15).
+Source lists on UAF `/home/users/mmazza/public/vjets_samples/`, pulled via `ssh uaf-2`;
+all 46 re-verified against DAS — event/file counts match exactly. Commit `cf6eec2`.
+
+**Validated:** 1,524/1,524 outputs; `check_v41`: 380 datasets, **187 errors, 0 warnings**,
+all errors the benign `eventCount=0` class, **0 structural**. `regen_runs_summary`: nothing
+to do. **0 OUT_OF_MEMORY** (contrast v39's 407). 66 FAILED were 1–2 s exit-1:0 deaths =
+the known black-hole-node signature; Metis resubmitted and every output landed.
+**Folded into v30:** 334 symlinks, 0 collisions, 0 broken (2Lep4J skipped as usual).
+
+**⚠ Z→νν is new coverage; W→ℓν is NOT.** The repo had no Z(→νν)+jets at all — a genuinely
+missing irreducible 0Lep background. But the 2024 W→ℓν HT set is the **third** parallel
+description of 2024 W+jets already in `run3_bkg`, alongside `WtoLNu-2Jets_Bin-*J-PTLNu-*`
+(pT-binned) and `WtoLNu-4Jets_Bin-*J` (jet-binned). **Pick one scheme; do not sum.**
+Same hazard as the v33 DY merge. Further caveats in `vbsvvh_vjets.py`: HT bin edges differ
+between Run 2 and 2024 (not bin-for-bin comparable), no HT<100 sample exists in any era,
+and both MLNu slices of each W→ℓν HT bin are included because MLNu-0to120 alone drops
+~half the events in the three highest HT bins.
+
+**Error pattern confirms the matrix is conservative:** Z→νν produces ~nothing in the 2Lep
+channels (14/28 Run2 zero in 2Lep2FJ) yet the matrix still runs them, following the existing
+convention that hadronic samples keep 2Lep for heavy-flavour leptons. Those combinations are
+mostly wasted; revisit as a convention change across all years, not a v41-only divergence.
+
+**Two infrastructure bugs found and fixed while running this:**
+- `cf6eec2` — **sub-job scratch was never deleted.** Inputs are xrdcp'd to
+  `${SETUP_DIR}/subjob_${LABEL}` and nothing removed them; since `SLURM_TMPDIR` is `/tmp`
+  here (not a per-job dir), every pack left its inputs behind. Measured during v39 at
+  **1.5–1.6 TB per node, one node 100% full** — which broke our own jobs and squeezed other
+  users. Now a `trap ... EXIT` removes the scratch on every exit path.
+- `b349840` — **empty-channel dashboard crash.** A group with zero tasks in a channel
+  (v41's all-hadronic Z→νν has none in 4Lep/3Lep) gave `StatsParser` empty data, which it
+  treats as "load from disk", dying on a `summary.json` never written. The driver crashed
+  **after** submitting 380 tasks, leaving 254 packs running unsupervised. Latent since the
+  dashboard loop was written; only reachable once a group is excluded from a channel entirely.
+
+---
+
+## 2026-09-14 — 🟡 v39/v40 = NanoAODv14 LPC PFNano (partial; see caveats)
+
+**v40 = v14 signal, ✅ COMPLETE.** 48/48 outputs (4 processes × 3 coupling points × 4 eras),
+`check_v40`: 48 datasets, **0 errors**, 12 benign LHE warnings. 88 truth branches confirmed
+(`--is_signal --dump_truth` works). Cutflow `AllEvents 50,000 → TheEnd 50,000` — signal is
+unfiltered by design.
+
+**v39 = v14 background MC, ⚠ 95.6% COMPLETE — STOPPED DELIBERATELY, NOT FINISHED.**
+7,542 outputs across 36 tags (4 eras × 9 channels). Final `check_v39`: 3,606 datasets,
+**480 errors, all benign `eventCount=0`, 0 structural**; 239 missing `runs_summary`
+regenerated 239/239.
+
+**BUT structurally clean ≠ complete.** Of 3,627 target dataset-channels:
+**3,468 COMPLETE, 80 PARTIAL, 79 MISSING — 159 to redo.** The partial ones have only some
+of their jobs done, i.e. **partial event coverage with nothing in the files to indicate it**
+(e.g. TTto4Q 2022EE 1Lep1FJ at 2/13 jobs). Anyone globbing v39 today silently gets ~20% of
+TTto4Q statistics in those channels. **Do not treat v39 as a finished sample.**
+
+**Why it was stopped:** two compounding problems in the same giant-QCD/TT datasets —
+(1) **407 OUT_OF_MEMORY** kills (24 GB/pack ÷ 12 sub-jobs = 2 GB each, against ~1 GB files
+with 2,292 branches), and (2) **node `/tmp` exhaustion** from the never-deleted scratch
+above, `files_per_job` targeting 12M events with no file-count cap giving **613 files ≈
+650 GB for a single sub-job**. Also 9 TIMEOUTs at the 8 h wall.
+
+**Fixes landed since:** scratch-cleanup trap (`cf6eec2`) and `/cmsuf` staging (`e7c2849`).
+**Still open before any v14 re-run: a `files_per_job` file-count cap.** Staging removes the
+disk pressure but not the wall-clock risk from 613-file sub-jobs.
+
+**Staging status:** era 2022 fully staged and verified (9,305/9,305 files, 6.6 TB, 0 missing
+/ 0 zero-byte / 0 failures) and `vbsvvh_v14.py` now emits `/cmsuf` paths for it, so those
+jobs skip xrdcp entirely. **2022EE / 2023 / 2023BPix not yet staged** — they keep their
+xrootd URLs, gated on a `.staged_<era>` marker the verifier writes only after a clean check.
+Era 2022 averages ~710 MB/file, not the 1063 MB index-wide mean, so full background staging
+should land near **44 TB, not the 66 TB first estimated**.
+
+**Data groups deliberately excluded** from the campaign per user decision — 52 datasets /
+117,976 files / ~612 TB, i.e. 54% of the transfer bill for 4% of the work units.
+
+---
+
 ## 2026-08-27 — ✅ v38 VALIDATED + folded into v30 (di-Higgs — FIRST HH in this production)
 
 **v38 = 28 HH datasets × all 10 channels = 280 jobs.** Launched 2026-08-26 17:07 ET,
