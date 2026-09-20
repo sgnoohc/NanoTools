@@ -68,8 +68,15 @@ def _local_or_remote(url, era):
     i = url.find("/store/")
     if i < 0:
         return url
+    # No per-file existence check here on purpose. The .staged_<era> marker is
+    # written only after the verifier confirms every manifest entry landed
+    # non-empty, so the mapping is already known-good -- and stat'ing 180k files
+    # on Lustre at import time cost minutes on every submit.py invocation.
+    # Set V14_VERIFY_STAGED=1 to re-check per file (slow).
     dest = os.path.join(STAGE_ROOT, url[i + len("/store/"):])
-    return dest if os.path.isfile(dest) else url
+    if os.environ.get("V14_VERIFY_STAGED") and not os.path.isfile(dest):
+        return url
+    return dest
 
 
 def _load_index():
