@@ -36,26 +36,34 @@ ERAS = ["2022", "2022EE", "2023", "2023BPix"]
 STAGE_ROOT = "/cmsuf/data/store/user/phchang/v14stage"
 
 _index_cache = None
-_staged_eras_cache = None
+_staged_cache = None
 
 
-def _staged_eras():
-    """Eras whose inputs are fully staged on /cmsuf, by marker file.
+def _is_staged(era, kind):
+    """True if (era, kind) is fully staged on /cmsuf, per marker file.
 
-    Staging is per-era and the markers are written only by the verifier, after
-    it confirms every manifest entry landed non-empty. An era without a marker
-    keeps its xrootd URLs, so a half-staged era can never be half-used.
+    Markers are per (era, KIND), not per era. Staging is driven by
+    make_v14_stage_list.py, which selects categories -- the first pass staged
+    background MC only. A per-era marker would have claimed the era's DATA was
+    staged too, and since _local_or_remote() trusts the marker without stat'ing
+    each file, every data job would have been handed a /cmsuf path that does not
+    exist. The executable skips xrdcp for /cmsuf inputs, so those jobs fail with
+    no fallback. Keep marker granularity matched to staging granularity.
+
+    The verifier writes a marker only after confirming every manifest entry for
+    that (era, kind) landed non-empty.
     """
-    global _staged_eras_cache
-    if _staged_eras_cache is None:
-        _staged_eras_cache = {
-            era for era in ERAS
-            if os.path.isfile(os.path.join(STAGE_ROOT, f".staged_{era}"))
-        }
-    return _staged_eras_cache
+    global _staged_cache
+    if _staged_cache is None:
+        _staged_cache = set()
+        for e in ERAS:
+            for k in ("bkg", "data", "sig"):
+                if os.path.isfile(os.path.join(STAGE_ROOT, f".staged_{e}_{k}")):
+                    _staged_cache.add((e, k))
+    return (era, kind) in _staged_cache
 
 
-def _local_or_remote(url, era):
+def _local_or_remote(url, era, kind):
     """Map an index URL to its staged /cmsuf path when that era is staged.
 
     This is the whole point of staging: slurm_packed_executable.sh skips xrdcp
@@ -63,7 +71,7 @@ def _local_or_remote(url, era):
     of each re-downloading to node-local /tmp. Falls back to the original URL
     if the era is unstaged or the individual file is somehow absent.
     """
-    if era not in _staged_eras():
+    if not _is_staged(era, kind):
         return url
     i = url.find("/store/")
     if i < 0:
@@ -112,9 +120,19 @@ def _samples_for(era, kind):
         for sname, files in sorted(cd.items()):
             if not files:
                 continue
+            # Probe ONE file per sample rather than trusting the marker blindly or
+            # stat'ing all 181k. A marker covers an (era, kind), but staging can
+            # legitimately skip a whole category inside it -- the data pass omits
+            # Tau/BTagMu because they route to no channel. Without this probe those
+            # samples get /cmsuf paths that do not exist, and since the executable
+            # skips xrdcp for /cmsuf inputs they fail with no fallback. Staging is
+            # all-or-nothing per sample, so one probe settles the whole file list.
+            mapped = [_local_or_remote(u, era, kind.lower()) for u in files]
+            if mapped[0].startswith(STAGE_ROOT) and not os.path.isfile(mapped[0]):
+                mapped = list(files)
             out.append(FilelistSample(
                 dataset=dataset_name(era, category, sname),
-                filelist=[_local_or_remote(u, era) for u in files],
+                filelist=mapped,
                 # Entries are either fully-qualified root:// URLs or absolute
                 # /cmsuf paths -- no path rewriting wanted either way.
                 use_xrootd=False,

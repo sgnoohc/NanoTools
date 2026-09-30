@@ -32,6 +32,11 @@ sys.path.insert(0, os.path.dirname(os.path.realpath(__file__)))
 STAGE_ROOT = "/cmsuf/data/store/user/phchang/v14stage"
 INDEX = "/blue/avery/p.chang/work/skim/NanoTools_/nanoindex_v14_HVV_private.json"
 DATA_CATEGORIES = {"JetMET", "EGamma", "Muon", "Tau", "BTagMu"}
+# Primary datasets that route to NO channel (submit.py UNUSED_PDS): the skim
+# counts electrons and muons only, and BTagMu is a b-tag calibration PD. They
+# would produce zero jobs, so staging their ~10k files is pure cost. Pass
+# --stage-unused to override.
+UNUSED_PDS = {"Tau", "BTagMu"}
 SIGNAL_CATEGORIES = {"HVV_Signal"}
 
 
@@ -47,8 +52,10 @@ def staged_path(url):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("era", choices=["2022", "2022EE", "2023", "2023BPix"])
-    ap.add_argument("--include-data", action="store_true")
-    ap.add_argument("--include-signal", action="store_true")
+    ap.add_argument("--include-data", action="store_true", help="Stage the DATA categories only (not bkg).")
+    ap.add_argument("--include-signal", action="store_true", help="Stage the SIGNAL category only (not bkg).")
+    ap.add_argument("--stage-unused", action="store_true",
+                    help="Also stage PDs that route to no channel (Tau, BTagMu).")
     ap.add_argument("--out", default=None)
     args = ap.parse_args()
 
@@ -58,9 +65,17 @@ def main():
 
     pairs, skipped_no_store = [], 0
     for cat, cd in sorted(idx[args.era].items()):
-        if cat in DATA_CATEGORIES and not args.include_data:
-            continue
-        if cat in SIGNAL_CATEGORIES and not args.include_signal:
+        is_data = cat in DATA_CATEGORIES
+        is_sig = cat in SIGNAL_CATEGORIES
+        if args.include_data:
+            if not is_data:
+                continue
+            if cat in UNUSED_PDS and not args.stage_unused:
+                continue
+        elif args.include_signal:
+            if not is_sig:
+                continue
+        elif is_data or is_sig:
             continue
         for sname, files in sorted(cd.items()):
             for url in files:
@@ -79,9 +94,14 @@ def main():
         seen.add(dest)
         uniq.append((src, dest))
 
+    # Name the manifest after (era, kind) so it lines up with the .staged_<era>_<kind>
+    # marker that vbsvvh_v14._is_staged() reads. Marker granularity MUST match what
+    # was actually staged -- an over-broad marker hands jobs /cmsuf paths that do not
+    # exist, and they fail with no fallback.
+    kind = "data" if args.include_data else ("sig" if args.include_signal else "bkg")
     out = args.out or os.path.join(
         os.path.dirname(os.path.realpath(__file__)),
-        f"stage_manifest_{args.era}.txt",
+        f"stage_manifest_{args.era}_{kind}.txt",
     )
     with open(out, "w") as f:
         for src, dest in uniq:
@@ -92,6 +112,7 @@ def main():
     print(f"unique dests   : {len(uniq)}" + (f"  ({len(pairs)-len(uniq)} duplicate paths collapsed)" if len(pairs) != len(uniq) else ""))
     if skipped_no_store:
         print(f"SKIPPED (no /store/ in url): {skipped_no_store}")
+    print(f"kind           : {kind}")
     print(f"manifest       : {out}")
     print(f"est. volume    : {len(uniq)*1063/1e6:.1f} TB  (at measured 1063 MB/file mean)")
 
