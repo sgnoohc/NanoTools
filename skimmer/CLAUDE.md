@@ -142,6 +142,7 @@ COMPLETE → VALIDATED. Full narrative goes in `log.md`; keep this terse.
 
 | Ver | Scope | Status | Notes |
 |---|---|---|---|
+| v42 | **Full v14 PFNano**: bkg + data × 4 eras (8 groups, 4264 tasks / 16289 jobs) | 🟡 RUNNING (launched 2026-09-30) | Replaces abandoned v39 — the files-per-job cap changed the split for 119/567 datasets, so v39's output indexing is incompatible and could not be resumed. All inputs staged on /cmsuf (57 TB, 0 failures). **NOT linked into v30** — see below. |
 | v41 | `run2_bkg_znunu_ht` + `run3_bkg_vjets_ht` (V+jets HT-binned, M. Mazza request; 46 ds) | ✅ VALIDATED 2026-09-15 | 1524/1524. check: 380 ds, 187 err (all benign `eventCount=0`), 0 warn, 0 OOM. Folded into v30 (334 links). ⚠ 2024 W→ℓν HT is a THIRD description of W+jets alongside the pT- and jet-binned sets in `run3_bkg` — pick one, don't sum. Z→νν is new coverage. Ran `--pack-size 6`. |
 | v40 | v14 PFNano **signal**, all 4 eras (48 ds) | ✅ VALIDATED 2026-09-09 | 48/48, 0 errors, 12 benign LHE warns. 88 truth branches present. |
 | v39 | v14 PFNano **background MC**, 4 eras × 9 channels | ⚠️ **95.6% — STOPPED, NOT FINISHED** | 7542 outputs; check clean (480 benign `eventCount=0`, 0 structural). **BUT 80 PARTIAL + 79 MISSING = 159 dataset-channels to redo** — partial event coverage is invisible in the files. Stopped over 407 OOM + node `/tmp` exhaustion (613-file sub-jobs). Needs a `files_per_job` cap before resuming. |
@@ -156,6 +157,20 @@ COMPLETE → VALIDATED. Full narrative goes in `log.md`; keep this terse.
 | ≤v28 | older | complete | under `VBSVVH_skim_v26/27/28/`; v24 dirs sit directly under `skim/`. |
 
 **Next version: v42.** Confirm scope with the user (§1) before submitting.
+
+### v14 PFNano: consumed SEPARATELY, not via v30
+**Decision 2026-09-30.** Read v14 from `VBSVVH_skim_v42` (signal: `v40`). It is NOT
+folded into v30 and should not be: v14 tags carry the era
+(`Run3_2022EE_Bkg_v14_v42_0Lep0FJ`) while v30 is flat (`Run3_Bkg_v15_v30_0Lep0FJ`), so
+`link_into_skim.py` would silently skip every link; and v14 is LPC PFNano 2022/2023
+while v30 is Summer24 NanoAODv15 — mixing them invites the double-counting already
+flagged for v33 DY and v41 W+jets.
+
+Staged inputs live under `/cmsuf/data/store/user/phchang/v14stage`, gated by
+`.staged_<era>_<kind>` markers. Verify before any launch with
+`python3 check_staged_paths.py` — it asserts every job-producing sample resolves to a
+`/cmsuf` path that exists. A mis-scoped marker is silent: the executable skips xrdcp
+for `/cmsuf` inputs, so a missing file kills the job with no fallback.
 
 ### Open items
 - **v39 (v14 bkg) is incomplete**: 159 dataset-channels partial/missing. Before resuming,

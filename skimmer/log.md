@@ -4,6 +4,57 @@
 
 ---
 
+## 2026-09-30 — v42 LAUNCHED (full v14: MC + data) + **v14 stays OUT of v30** (decision)
+
+**DECISION (user, 2026-09-30): the v14 PFNano skims are NOT folded into v30.**
+Consume them directly from `VBSVVH_skim_v42` (and `v40` for signal).
+
+Two reasons, one structural and one physics:
+- **Structural.** v14 output tags carry the era: `Run3_2022EE_Bkg_v14_v42_0Lep0FJ`,
+  whereas v30 is flat: `Run3_Bkg_v15_v30_0Lep0FJ`. `link_into_skim.py` maps tags by
+  substituting the version token, so v42 would target `Run3_2022EE_Bkg_v15_v30_*`,
+  which does not exist — every link would silently skip. The era lives in the tag
+  because `vbsvvh_v14.get_groups()` folds it into the `run` metadata field, which is
+  what keeps the four eras separate in the first place.
+- **Physics.** v14 is LPC PFNano at 2022/2023 conditions; v30 is Summer24 NanoAODv15.
+  Different NanoAOD version, different campaign, different years. Merging them into one
+  tree invites exactly the double-counting already flagged for the v33 DY and v41
+  W+jets sets.
+
+**v42 = the full v14 skim, replacing the abandoned v39.** 8 groups (bkg + data × 4
+eras), **4,264 tasks / 16,289 jobs**, pack-size 6. All 62,494 MC + 107,965 data inputs
+read from `/cmsuf` — no xrdcp, nothing written to node `/tmp`.
+
+**Why a new version rather than resuming v39:** the `MAX_FILES_PER_JOB=100` cap
+(`3b55589`) changed the job split for **119 of 567 datasets (21%)**. Metis decides
+"done" by output-file existence, so resuming would have kept `output_1.root` written
+under the old 193-files/job split while job 1 now means files 1–100 — some inputs
+processed twice, others never, invisible in the files. v39 stays on disk as a fallback
+until v42 validates.
+
+**Three pre-launch gate failures, all caught before submitting:**
+1. `.staged_<era>` marker claimed the whole era while only background MC was staged →
+   every DATA url rewritten to a nonexistent `/cmsuf` path. The executable skips xrdcp
+   for `/cmsuf`, so all 5,840 data jobs would have died with no fallback. Fixed with
+   per-`(era, kind)` markers.
+2. Per-kind was still too coarse: the data pass deliberately skips Tau/BTagMu (they
+   route to no channel, so staging their ~10k files is pure cost), so
+   `.staged_<era>_data` over-claimed for those two PDs. Fixed structurally with a
+   **per-sample probe** — one stat per sample, fall back to xrootd for that whole
+   sample if absent. 519 stats, ~17 s, versus 181,670 stats and minutes.
+3. The gate itself was wrong: it tested the *first* sample of each group, which is
+   alphabetically BTagMu — legitimately unstaged. Rewrote it as
+   `condor/check_staged_paths.py`, asserting the real invariant: **every sample that
+   will produce jobs resolves to a `/cmsuf` path that exists**. Final run: 499 checked,
+   20 correctly skipped, 0 bad.
+
+**Staging complete, 57 TB total**, zero failures across 170,459 files:
+bkg 62,494 (44 TB) + data 107,965 (13 TB measured so far). Tau/BTagMu excluded
+(~10k files) since they produce no jobs. Era 2022 averages ~710 MB/file, not the
+1063 MB index-wide mean — the original 66 TB estimate was high.
+
+---
+
 ## 2026-09-15 — ✅ v41 VALIDATED + folded into v30 (V+jets HT-binned, M. Mazza request)
 
 **v41 = 46 datasets, 1,524 jobs, 4.17 TB.** `run2_bkg_znunu_ht` (28: Z→νν HT, Run2 UL,
