@@ -1,5 +1,5 @@
 from metis.Sample import DirectorySample, DBSSample
-from vbsvvh_data import nanoaodv15_run3_data, nanoaodv15_run2_data, nanoaodv15_run3_data_2025
+from vbsvvh_data import nanoaodv15_run3_data, nanoaodv15_run2_data, nanoaodv15_run3_data_2025, nanoaodv15_run3_data_2026
 from vbsvvh_mc import nanoaodv15_run2_bkg, nanoaodv15_run2_sig, nanoaodv15_run3_bkg, nanoaodv15_run3_sig
 from vbsvvh_mc import nanoaodv15_run2_bkg_dy_htbinned, nanoaodv15_run2_bkg_dy_jetbinned
 from vbsvvh_mc import nanoaodv15_run2_bkg_zz4l, nanoaodv15_run3_bkg_ggzz4l
@@ -47,6 +47,12 @@ SAMPLE_REGISTRY = {
     },
     "run3_data_2025": {
         "samples": nanoaodv15_run3_data_2025,
+        "metadata": {"run": "Run3", "type": "Data", "nano": "v15"},
+    },
+    # 2026 PromptReco (eras A-D), lepton PDs only. Needs year-2026 support in
+    # NanoCORE and the EGamma4/5 + Muon2/3 entries in submit.py LEPTON_PDS.
+    "run3_data_2026": {
+        "samples": nanoaodv15_run3_data_2026,
         "metadata": {"run": "Run3", "type": "Data", "nano": "v15"},
     },
     "run3_bkg": {

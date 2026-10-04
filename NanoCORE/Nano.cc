@@ -7060,6 +7060,9 @@ void Nano::ParseYear(TTree* tree) {
     else if (full_file_path.Contains("RunIII2025Summer25")) year_ = 2025;
     else if (full_file_path.Contains("Run3Summer25")) year_ = 2025;
     else if (full_file_path.Contains("Run2025")) year_ = 2025;
+    else if (full_file_path.Contains("RunIII2026Summer26")) year_ = 2026;
+    else if (full_file_path.Contains("Run3Summer26")) year_ = 2026;
+    else if (full_file_path.Contains("Run2026")) year_ = 2026;
     // ---- Last-resort fallbacks (keep LAST; campaign strings above win) ----
     // Private productions may have no campaign keyword in the path at all; the
     // only year marker is the "mc_<era>/" or "data_<era>/" directory component.
@@ -7074,6 +7077,7 @@ void Nano::ParseYear(TTree* tree) {
     else if (full_file_path.Contains("_2023/") || full_file_path.Contains("_2023BPix/")) year_ = 2023;
     else if (full_file_path.Contains("_2024/")) year_ = 2024;
     else if (full_file_path.Contains("_2025/")) year_ = 2025;
+    else if (full_file_path.Contains("_2026/")) year_ = 2026;
     else throw std::runtime_error("Nano::parseYear():: ERROR - Failed to recognize which year this NanoAOD is !\nPlease make sure the path has one of the following keywords:\n  2016: 'Run2016' or 'RunIISummer16NanoAOD' or 'RunIISummer20UL16'\n  2017: 'Run2017' or 'RunIIFall17NanoAOD' or 'RunIISummer20UL17'\n  2018: 'Run2018' or 'RunIIAutumn18NanoAOD' or 'RunIISummer20UL18'\nOR, use Nano::SetYear(int year) before Nano::Init()");
 }
 

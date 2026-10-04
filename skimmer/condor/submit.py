@@ -1,4 +1,5 @@
 import os
+import re
 import sys
 import argparse
 import math
@@ -164,7 +165,13 @@ ALL_CHANNELS = [
 # Hadronic PDs (Run2): MET, JetHT
 # Hadronic PDs (Run3): JetMET, JetMET0, JetMET1
 LEPTON_PDS = {"MuonEG", "DoubleEG", "DoubleMuon", "SingleMuon", "EGamma", "SingleElectron",
-              "Muon", "Muon0", "Muon1", "EGamma0", "EGamma1", "EGamma2", "EGamma3"}
+              "Muon", "Muon0", "Muon1", "Muon2", "Muon3",
+              "EGamma0", "EGamma1", "EGamma2", "EGamma3", "EGamma4", "EGamma5"}
+# NOTE: the PD stream count grows with luminosity -- 2022 had EGamma, 2025 split
+# into EGamma0-3 + Muon0-1, and 2026 adds EGamma4/EGamma5 + Muon2/Muon3. An
+# unlisted stream routes to NO channel and is silently skipped at task build
+# time (report_unrouted_pds() prints it, but only if you read the log), so check
+# this set whenever a new era is added.
 HADRONIC_PDS = {"MET", "JetHT", "JetMET", "JetMET0", "JetMET1", "SingleMuon"}
 
 # Primary datasets that exist in some sample indices but are DELIBERATELY not
@@ -245,6 +252,12 @@ if __name__ == "__main__":
                         help="Pack N jobs per SLURM allocation (default 1 = current behavior)")
     parser.add_argument("--cpus-per-subjob", type=int, default=1,
                         help="CPUs per sub-job within a pack (default 1)")
+    parser.add_argument("--dataset-match", type=str, default=None, metavar="REGEX",
+                        help="Only submit datasets whose name matches REGEX. Use to repair a "
+                             "single dataset without touching the rest of its group -- notably "
+                             "when combined with --max-files-per-job, since resplitting a "
+                             "dataset that already has outputs silently corrupts coverage "
+                             "(Metis keys completion on output index, and the index moves).")
     parser.add_argument("--max-files-per-job", type=int, default=MAX_FILES_PER_JOB,
                         help=f"Ceiling on files per sub-job regardless of the event target "
                              f"(default {MAX_FILES_PER_JOB}). 0 disables. Guards node-local "
@@ -336,6 +349,9 @@ if __name__ == "__main__":
             # ------------------------------------------------------------------
             for ds in datasets:
                 dsname = ds.get_datasetname()
+
+                if args.dataset_match and not re.search(args.dataset_match, dsname):
+                    continue
 
                 # Pre-filter: skip dataset entirely if no active channel accepts it
                 if metadata["type"] == "Data":

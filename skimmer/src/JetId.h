@@ -132,8 +132,10 @@ class JetIdEvaluator
         case 2024:
             return base + "2024_Summer24/jetid.json.gz";
         case 2025:
-            // No 2025 jetid JSON published yet; fall back to the 2024 recipe
-            // (2025 detector conditions ~ 2024). Update when 2025_Summer25 appears.
+        case 2026:
+            // No 2025 or 2026 jetid JSON published yet; fall back to the 2024
+            // recipe. Revisit when 2025_Summer25 / 2026_Summer26 appear -- this
+            // is an approximation, not a correct calibration for those years.
             return base + "2024_Summer24/jetid.json.gz";
         default:
             // Run2 (2016-2018) or unknown: no jetid JSON available

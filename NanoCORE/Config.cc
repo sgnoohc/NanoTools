@@ -45,6 +45,10 @@ void GlobalConfig::GetConfigsFromDatasetName(std::string dsname) {
     {
         year = 2025;
     }
+    else if (dsname.find("Run2026") != std::string::npos || dsname.find("RunIII2026Summer26") != std::string::npos || dsname.find("Run3Summer26") != std::string::npos || dsname.find("_2026/") != std::string::npos)
+    {
+        year = 2026;
+    }
 
     GetConfigs();
     GetSampleType(dsname);

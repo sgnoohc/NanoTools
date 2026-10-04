@@ -527,3 +527,71 @@ nanoaodv9_data = (
     + nanoaodv9_data_DoubleMuon 
     + nanoaodv9_data_DoubleEG
 )
+
+# ------------------------------------------------------------------
+# 2026 PromptReco data (eras A-D).
+#
+# Stream count keeps growing with luminosity: 2025 ran EGamma0-3 + Muon0-1,
+# 2026 adds EGamma4/EGamma5 + Muon2/Muon3. Those four PDs had to be added to
+# LEPTON_PDS in submit.py -- an unlisted stream routes to no channel and is
+# skipped at task-build time.
+#
+# Requires the year-2026 support added alongside this list (Nano::ParseYear and
+# GlobalConfig::GetConfigsFromDatasetName); without it every job throws
+# "Failed to recognize which year this NanoAOD is". JetId falls back to the
+# 2024 recipe since no 2026 jetid JSON exists yet -- an approximation.
+#
+# NOTE: lepton PDs only (no JetMET). This set was requested for the 4Lep
+# channel, but the group is channel-agnostic -- submit with --channels to
+# restrict, and it will serve the hadronic channels too once JetMET streams
+# for 2026 are added.
+# ------------------------------------------------------------------
+nanoaodv15_run3_data_2026 = [
+    # EGamma
+    DBSSample(dataset="/EGamma0/Run2026A-PromptReco-v1/NANOAOD"),
+    DBSSample(dataset="/EGamma0/Run2026B-PromptReco-v1/NANOAOD"),
+    DBSSample(dataset="/EGamma0/Run2026C-PromptReco-v1/NANOAOD"),
+    DBSSample(dataset="/EGamma0/Run2026D-PromptReco-v1/NANOAOD"),
+    DBSSample(dataset="/EGamma1/Run2026A-PromptReco-v1/NANOAOD"),
+    DBSSample(dataset="/EGamma1/Run2026B-PromptReco-v1/NANOAOD"),
+    DBSSample(dataset="/EGamma1/Run2026C-PromptReco-v1/NANOAOD"),
+    DBSSample(dataset="/EGamma1/Run2026D-PromptReco-v1/NANOAOD"),
+    DBSSample(dataset="/EGamma2/Run2026A-PromptReco-v1/NANOAOD"),
+    DBSSample(dataset="/EGamma2/Run2026B-PromptReco-v1/NANOAOD"),
+    DBSSample(dataset="/EGamma2/Run2026C-PromptReco-v1/NANOAOD"),
+    DBSSample(dataset="/EGamma2/Run2026D-PromptReco-v1/NANOAOD"),
+    DBSSample(dataset="/EGamma3/Run2026A-PromptReco-v1/NANOAOD"),
+    DBSSample(dataset="/EGamma3/Run2026B-PromptReco-v1/NANOAOD"),
+    DBSSample(dataset="/EGamma3/Run2026C-PromptReco-v1/NANOAOD"),
+    DBSSample(dataset="/EGamma3/Run2026D-PromptReco-v1/NANOAOD"),
+    DBSSample(dataset="/EGamma4/Run2026A-PromptReco-v1/NANOAOD"),
+    DBSSample(dataset="/EGamma4/Run2026B-PromptReco-v1/NANOAOD"),
+    DBSSample(dataset="/EGamma4/Run2026C-PromptReco-v1/NANOAOD"),
+    DBSSample(dataset="/EGamma4/Run2026D-PromptReco-v1/NANOAOD"),
+    DBSSample(dataset="/EGamma5/Run2026A-PromptReco-v1/NANOAOD"),
+    DBSSample(dataset="/EGamma5/Run2026B-PromptReco-v1/NANOAOD"),
+    DBSSample(dataset="/EGamma5/Run2026C-PromptReco-v1/NANOAOD"),
+    DBSSample(dataset="/EGamma5/Run2026D-PromptReco-v1/NANOAOD"),
+    # Muon
+    DBSSample(dataset="/Muon0/Run2026A-PromptReco-v1/NANOAOD"),
+    DBSSample(dataset="/Muon0/Run2026B-PromptReco-v1/NANOAOD"),
+    DBSSample(dataset="/Muon0/Run2026C-PromptReco-v1/NANOAOD"),
+    DBSSample(dataset="/Muon0/Run2026D-PromptReco-v1/NANOAOD"),
+    DBSSample(dataset="/Muon1/Run2026A-PromptReco-v1/NANOAOD"),
+    DBSSample(dataset="/Muon1/Run2026B-PromptReco-v1/NANOAOD"),
+    DBSSample(dataset="/Muon1/Run2026C-PromptReco-v1/NANOAOD"),
+    DBSSample(dataset="/Muon1/Run2026D-PromptReco-v1/NANOAOD"),
+    DBSSample(dataset="/Muon2/Run2026A-PromptReco-v1/NANOAOD"),
+    DBSSample(dataset="/Muon2/Run2026B-PromptReco-v1/NANOAOD"),
+    DBSSample(dataset="/Muon2/Run2026C-PromptReco-v1/NANOAOD"),
+    DBSSample(dataset="/Muon2/Run2026D-PromptReco-v1/NANOAOD"),
+    DBSSample(dataset="/Muon3/Run2026A-PromptReco-v1/NANOAOD"),
+    DBSSample(dataset="/Muon3/Run2026B-PromptReco-v1/NANOAOD"),
+    DBSSample(dataset="/Muon3/Run2026C-PromptReco-v1/NANOAOD"),
+    DBSSample(dataset="/Muon3/Run2026D-PromptReco-v1/NANOAOD"),
+    # MuonEG
+    DBSSample(dataset="/MuonEG/Run2026A-PromptReco-v1/NANOAOD"),
+    DBSSample(dataset="/MuonEG/Run2026B-PromptReco-v1/NANOAOD"),
+    DBSSample(dataset="/MuonEG/Run2026C-PromptReco-v1/NANOAOD"),
+    DBSSample(dataset="/MuonEG/Run2026D-PromptReco-v1/NANOAOD"),
+]
