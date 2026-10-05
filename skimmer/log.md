@@ -4,6 +4,66 @@
 
 ---
 
+## 2026-10-05 — ✅ v42 VALIDATED (full v14) + ✅ v43 VALIDATED (2026 data)
+
+**v42 = the complete v14 PFNano skim. 16,294/16,294 outputs, 80 tags.**
+`check_v42`: **4,264 datasets, 351 errors — all the benign `eventCount=0` class — and
+740 benign LHE warnings. 0 structural errors.** Supersedes v39.
+
+**v43 = 2026 PromptReco data, 4Lep. 722/722 outputs.** `check_v43`: 44 datasets,
+**233 errors (all `eventCount=0`), 0 warnings.** 233/722 jobs selecting zero 4-lepton
+events is expected — single-stream PDs under a 4-lepton cut; those that pass show ~3
+events per 11.7 M read.
+
+### The TTWW trap — two separate bugs, ~2 days each
+
+The last gap in v42 was **TTWW 2023 × 0Lep0FJ**, which failed for far longer than it
+should have because I misdiagnosed it twice.
+
+**First: the cap did not apply.** `files_per_job` for that dataset came out at 60,
+*under* the 100 cap, so the cap never engaged. The job carried all 52 files / 11.3 M
+events and died at the 8 h wall, then SIGSEGV'd. Metis resubmitted it seven times —
+roughly 50 h of compute on a job that could never finish.
+
+**Second: my "fix" silently did nothing.** Resubmitting with
+`--max-files-per-job 10` printed *"6 jobs expected"* and changed nothing, because the
+task dir already existed and **`io_mapping` is persisted in `backup.pkl`**. On disk it
+still read `1 job, 52 files`. Same task-dirs-bake-their-state gotcha as the executable,
+which I had already hit once for the URL fix and failed to generalise. Deleting the task
+dir made the resplit real; all 6 jobs then finished in ~3 h.
+
+**Root cause, finally:** `0Lep0FJ` keeps **78 %** of TTWW events, so the single job had
+to write **~65 GB** into one output. It was never a file-count problem — which is exactly
+why a file-count cap could not see it. `MAX_FILES_PER_JOB` bounds INPUT; a
+high-acceptance channel needs splitting on expected OUTPUT.
+
+Verified the repair partitions correctly: 10+10+10+10+10+2 = 52 files, all unique, no
+overlap. The 6 outputs total ~65 GB. Cutflow sums to 11,281,000 AllEvents against a
+cached estimate of 10,452,000 — the cache holds *sampled* counts (2 files/sample), so the
+cutflow is the truth and the estimate was 7 % low. Fine for splitting, never for physics.
+
+### v43 needed year-2026 support in FIVE places
+
+`e2966ff` added 2026 to ParseYear, GetConfigsFromDatasetName and JetId — and that was not
+enough. v43 submitted 722 jobs and **every one aborted (SIGABRT)**, producing 1 output in
+24 h while Metis resubmitted forever. Three more gates rejected 2026:
+`GetConfigs()` (hard `year > 2025` bound), `VVH::muonID()` and `VVH::electronID()`
+(switch `default:` throws). Each fires *after* the year parses, so the log reads
+`Year: 2026` right before the abort and looks unrelated.
+
+Also needed: **EGamma4, EGamma5, Muon2, Muon3** added to `LEPTON_PDS` — 16 of the 44
+datasets would otherwise have routed to no channel and been skipped at task-build time.
+
+The `GetConfigs()` ceiling was removed rather than bumped: everything from 2022 on returns
+immediately anyway, so the bound bought nothing and cost a silent failure every new year.
+Both lessons and the five-place checklist are now in `CLAUDE.md` §7.
+
+**Caught only because I smoke-tested one real 2026 file locally before resubmitting** —
+the first rebuild still aborted. That test should have come before the *first* v43 launch,
+not after a day of dead jobs.
+
+---
+
 ## 2026-09-30 — v42 LAUNCHED (full v14: MC + data) + **v14 stays OUT of v30** (decision)
 
 **DECISION (user, 2026-09-30): the v14 PFNano skims are NOT folded into v30.**

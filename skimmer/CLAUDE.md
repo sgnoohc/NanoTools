@@ -142,7 +142,8 @@ COMPLETE → VALIDATED. Full narrative goes in `log.md`; keep this terse.
 
 | Ver | Scope | Status | Notes |
 |---|---|---|---|
-| v42 | **Full v14 PFNano**: bkg + data × 4 eras (8 groups, 4264 tasks / 16289 jobs) | 🟡 RUNNING (launched 2026-09-30) | Replaces abandoned v39 — the files-per-job cap changed the split for 119/567 datasets, so v39's output indexing is incompatible and could not be resumed. All inputs staged on /cmsuf (57 TB, 0 failures). **NOT linked into v30** — see below. |
+| v43 | 2026 PromptReco data (44 ds: EGamma0-5, Muon0-3, MuonEG × eras A-D), `--channels 4Lep` | ✅ VALIDATED 2026-10-05 | 722/722. check: 44 ds, 233 err (all benign `eventCount=0`), 0 warn. Needed year-2026 support in **five** places (see §7) + EGamma4/5 & Muon2/3 added to LEPTON_PDS. Group is channel-agnostic — re-run with `--channels` for other channels, but note it is lepton PDs only (no JetMET) and JetId 2026 falls back to the 2024 recipe. |
+| v42 | **Full v14 PFNano**: bkg + data × 4 eras (8 groups, 4264 tasks / 16294 jobs) | ✅ VALIDATED 2026-10-05 | 16294/16294. check: **4264 ds, 351 errors (all benign `eventCount=0`), 740 benign LHE warnings, 0 structural**. Replaces abandoned v39. All inputs staged on /cmsuf (57 TB, 0 transfer failures). **NOT linked into v30** — see below. Final gap was TTWW 2023 × 0Lep0FJ; see §7. |
 | v41 | `run2_bkg_znunu_ht` + `run3_bkg_vjets_ht` (V+jets HT-binned, M. Mazza request; 46 ds) | ✅ VALIDATED 2026-09-15 | 1524/1524. check: 380 ds, 187 err (all benign `eventCount=0`), 0 warn, 0 OOM. Folded into v30 (334 links). ⚠ 2024 W→ℓν HT is a THIRD description of W+jets alongside the pT- and jet-binned sets in `run3_bkg` — pick one, don't sum. Z→νν is new coverage. Ran `--pack-size 6`. |
 | v40 | v14 PFNano **signal**, all 4 eras (48 ds) | ✅ VALIDATED 2026-09-09 | 48/48, 0 errors, 12 benign LHE warns. 88 truth branches present. |
 | v39 | v14 PFNano **background MC**, 4 eras × 9 channels | ⚠️ **95.6% — STOPPED, NOT FINISHED** | 7542 outputs; check clean (480 benign `eventCount=0`, 0 structural). **BUT 80 PARTIAL + 79 MISSING = 159 dataset-channels to redo** — partial event coverage is invisible in the files. Stopped over 407 OOM + node `/tmp` exhaustion (613-file sub-jobs). Needs a `files_per_job` cap before resuming. |
@@ -156,7 +157,34 @@ COMPLETE → VALIDATED. Full narrative goes in `log.md`; keep this terse.
 | v29 | abandoned | — | only Run2_Data/3Lep partial; superseded by v30. |
 | ≤v28 | older | complete | under `VBSVVH_skim_v26/27/28/`; v24 dirs sit directly under `skim/`. |
 
-**Next version: v42.** Confirm scope with the user (§1) before submitting.
+**Next version: v44.** Confirm scope with the user (§1) before submitting.
+
+### §7. Two traps that each cost ~2 days — read before resubmitting anything
+
+**(a) Changing a job split requires DELETING the task dir.**
+`io_mapping` (which files go in which job) is persisted in the task's
+`backup.pkl`, exactly like the executable/tarball. Re-running `submit.py` with a
+different `--max-files-per-job` against an existing task dir prints the new
+split in the log — "6 jobs expected" — and then silently reuses the old one.
+Verify on disk, not from the log:
+```bash
+python3 -c "import pickle; io=pickle.load(open('<taskdir>/backup.pkl','rb'))['io_mapping']; print(len(io),'jobs')"
+```
+This is why TTWW 2023 × 0Lep0FJ retried the same oversized job seven times over
+~50 h. Deleting the task dir made the resplit take effect and all 6 jobs
+finished in ~3 h.
+
+**(b) `MAX_FILES_PER_JOB` bounds INPUT, not OUTPUT.**
+A high-acceptance channel can make a job unschedulable at a perfectly modest
+file count. TTWW 2023 in `0Lep0FJ` keeps **78 %** of events, so one 52-file job
+had to write **~65 GB** into a single output — it hit the 8 h wall, then
+SIGSEGV'd. The 100-file cap never engaged (its split was 60 < 100). When a
+dataset×channel fails repeatedly, check the acceptance before assuming the cap
+covers you, and split on expected OUTPUT size.
+
+**Corollary on event counts:** `v14_nevents.py` holds *sampled estimates*
+(2 files per sample), not DAS truth — TTWW's cached 10.45 M vs the real
+11.28 M. Fine for splitting, never cite them as physics.
 
 ### v14 PFNano: consumed SEPARATELY, not via v30
 **Decision 2026-09-30.** Read v14 from `VBSVVH_skim_v42` (signal: `v40`). It is NOT
@@ -172,13 +200,26 @@ Staged inputs live under `/cmsuf/data/store/user/phchang/v14stage`, gated by
 `/cmsuf` path that exists. A mis-scoped marker is silent: the executable skips xrdcp
 for `/cmsuf` inputs, so a missing file kills the job with no fallback.
 
+### Adding a new data year — FIVE places, all silent if missed
+Year handling is spread across five independent spots. Missing any one still
+parses the year correctly and then aborts later, so the logs show
+`Year: 20NN` immediately before the failure and look unrelated:
+1. `NanoCORE/Nano.cc` `Nano::ParseYear()` — campaign keywords
+2. `NanoCORE/Config.cc` `GetConfigsFromDatasetName()` — the *other* year parser
+3. `NanoCORE/Config.cc` `GetConfigs()` — upper bound (now removed; was `> 2025`)
+4. `NanoCORE/MuonSelections.cc` `VVH::muonID()` — switch `default:` throws
+5. `NanoCORE/ElectronSelections.cc` `VVH::electronID()` — same
+Plus `skimmer/src/JetId.h` `getJsonPath()` (returns "" → jet IDs silently
+skipped) and `LEPTON_PDS`/`HADRONIC_PDS` in `submit.py` for any new PD streams.
+**Always smoke-test one real file locally before submitting a new year.**
+
 ### Open items
-- **v39 (v14 bkg) is incomplete**: 159 dataset-channels partial/missing. Before resuming,
-  add a **file-count cap to `files_per_job`** — 12M events/job with no cap gave 613 files
-  (~650 GB) in one sub-job, which blew out node `/tmp` and hit the 8 h wall.
-- **v14 staging**: era 2022 staged+verified on `/cmsuf` and repointed; 2022EE / 2023 /
-  2023BPix still to do (~34 TB). `make_v14_stage_list.py` + `stage_v14.sh`, gated on a
-  `.staged_<era>` marker. Staged eras skip xrdcp entirely.
+- **DELETE v39.** Superseded by v42. It is 95.6 % complete with 159 dataset-channels
+  partial or missing, and partial event coverage is INVISIBLE to `check.py` — globbing it
+  silently returns wrong statistics (e.g. ~20 % of TTto4Q in the affected channels).
+- **v14 staging is complete**: all 4 eras, bkg + data, 170,459 files / 57 TB under
+  `/cmsuf/data/store/user/phchang/v14stage`, gated by `.staged_<era>_<kind>` markers.
+  Verify with `python3 check_staged_paths.py` before any launch.
 - **v30 contains 1,191 intra-tree alias symlinks** created 2026-09-08 (`<dataset>` →
   `<dataset>Summer24for2025`), origin unknown and not from `link_into_skim.py`. A naive
   glob over a v30 channel dir double-counts those datasets.
