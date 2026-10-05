@@ -113,11 +113,19 @@ void GlobalConfig::GetSampleType(std::string dsname) {
 
 void GlobalConfig::GetConfigs(int in_year) {
     if (in_year > 0) year = in_year;
-    if (year < 2016 || (year > 2018 && year < 2022) || year > 2025) {
+    // No upper bound on purpose. Everything from 2022 on returns immediately
+    // just below -- there are no Run2-style configs to set -- so a hardcoded
+    // ceiling here buys nothing and costs a silent failure every time a new
+    // data year appears. It was "year > 2025" when 2026 data arrived: ParseYear
+    // resolved the year correctly, this guard then rejected it, configs were
+    // left unset and the skim aborted (SIGABRT, exit 134) on every job. The
+    // year itself is already constrained upstream by ParseYear's campaign
+    // keywords, so garbage cannot reach here.
+    if (year < 2016 || (year > 2018 && year < 2022)) {
         std::cout << ">>> Cannot configure for year " << year << "!! Values remain unset!" << std::endl;
         return;
     }
-    // For Run3 years, configs are not yet fully defined; skip Run2-specific setup
+    // Run3 and later: configs are not defined here; skip the Run2-specific setup.
     if (year >= 2022) return;
 
     if (year == 2016 && nanoAOD_ver < 0) {

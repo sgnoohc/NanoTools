@@ -496,7 +496,13 @@ bool VVH::electronID(int idx, VVH::IDLevel id_level, int year) {
         return VVH::electron2024ID(idx, id_level);
         break;
     case (2025):
-        // No dedicated 2025 ID yet; reuse 2024 (conditions ~ 2024)
+    case (2026):
+        // No dedicated 2025 or 2026 ID yet; reuse 2024 (conditions ~ 2024).
+        // NOTE: this is an approximation. Each new data year needs a case here
+        // or the default branch throws and every job aborts (SIGABRT) -- the
+        // year is parsed fine by then, so the failure looks unrelated to the
+        // year. Keep in sync with ElectronSelections.cc / MuonSelections.cc,
+        // Config.cc GetConfigs(), Nano.cc ParseYear() and JetId.h getJsonPath().
         return VVH::electron2024ID(idx, id_level);
         break;
     default:
