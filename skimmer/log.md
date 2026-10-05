@@ -4,6 +4,44 @@
 
 ---
 
+## 2026-10-05 (later) — weight validation: v42 CLEAN; das/v14 event-count caches are ESTIMATES
+
+Added `condor/check_weights.py` — a physics-level check that `check.py` does not do.
+`check.py` validates structure (files exist, non-zombie, paired); it never looks inside
+`runs_summary_*.json`, so a duplicated or dropped job silently corrupts the normalisation
+denominator with no symptom.
+
+The invariant it uses needs no external reference: **every channel reads the same input
+files for a dataset, so summed `genEventSumw` must be identical in every channel.** Any
+spread means jobs saw different inputs than intended. It also cross-checks summed
+`genEventCount` against the cutflow's `AllEvents` — different code paths (Runs tree vs
+cutflow counter), so agreement is meaningful.
+
+**v42 result: CLEAN.** 467 MC dataset groups, **0 cross-channel `genEventSumw`
+disagreements, 0 `genEventCount` vs cutflow mismatches, 0 unreadable summaries**
+(170 data dirs correctly skipped — no gen weights).
+
+Notably this covers the resplit TTWW 2023: `0Lep0FJ` has 6 jobs where every other channel
+has 1, and all report `sumw = 14,598,000` exactly. That is the strongest evidence the
+1→6 resplit partitioned the 52 files with no overlap and no loss.
+
+### ⚠ CORRECTION + a number worth knowing
+
+An earlier entry recorded TTWW's cutflow as 11,281,000 AllEvents and called the cached
+estimate "7 % low". **Both were wrong.** That sum was taken while only 5 of 6 cutflows had
+been written (the missing 3,317,000 is exactly job 4). The true total is **14,598,000**,
+and it agrees with `genEventCount` per job, exactly.
+
+Which makes the real point sharper. `v14_nevents.py` holds counts extrapolated from
+sampling **2 files per sample**, and across 423 datasets they are off by a
+**median of 29 %, mean 35 %, worst 170 %** (DYto2L PTLL-200to400: estimate 31.6 M vs true
+11.7 M). They are perfectly adequate for choosing a job split, which is all they were built
+for — but they must **never** be used as an event count for normalisation. Use the summed
+`genEventCount` / `genEventSumw` from `runs_summary_*.json`, which `check_weights.py`
+now verifies.
+
+---
+
 ## 2026-10-05 — ✅ v42 VALIDATED (full v14) + ✅ v43 VALIDATED (2026 data)
 
 **v42 = the complete v14 PFNano skim. 16,294/16,294 outputs, 80 tags.**
@@ -38,9 +76,7 @@ why a file-count cap could not see it. `MAX_FILES_PER_JOB` bounds INPUT; a
 high-acceptance channel needs splitting on expected OUTPUT.
 
 Verified the repair partitions correctly: 10+10+10+10+10+2 = 52 files, all unique, no
-overlap. The 6 outputs total ~65 GB. Cutflow sums to 11,281,000 AllEvents against a
-cached estimate of 10,452,000 — the cache holds *sampled* counts (2 files/sample), so the
-cutflow is the truth and the estimate was 7 % low. Fine for splitting, never for physics.
+overlap. The 6 outputs total ~65 GB, 14,598,000 AllEvents.
 
 ### v43 needed year-2026 support in FIVE places
 

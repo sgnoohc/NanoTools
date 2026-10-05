@@ -183,8 +183,22 @@ dataset×channel fails repeatedly, check the acceptance before assuming the cap
 covers you, and split on expected OUTPUT size.
 
 **Corollary on event counts:** `v14_nevents.py` holds *sampled estimates*
-(2 files per sample), not DAS truth — TTWW's cached 10.45 M vs the real
-11.28 M. Fine for splitting, never cite them as physics.
+extrapolated from 2 files per sample, not DAS truth. Measured against the real
+totals over 423 datasets they are off by a **median 29 %, mean 35 %, worst
+170 %**. Fine for choosing a job split — that is all they are for — but never
+use them for normalisation. The truth is the summed `genEventCount` /
+`genEventSumw` in `runs_summary_*.json`.
+
+### Validating weights, not just structure
+`check.py` never looks inside `runs_summary_*.json`, so a duplicated or dropped
+job silently corrupts the normalisation denominator. Run:
+```bash
+python3 check_weights.py VBSVVH_skim_vNN
+```
+It asserts (a) summed `genEventSumw` is identical across every channel of a
+dataset — they read the same input files, so any spread means jobs saw the
+wrong inputs — and (b) summed `genEventCount` equals the cutflow `AllEvents`.
+v42: 467 MC dataset groups, 0 disagreements.
 
 ### v14 PFNano: consumed SEPARATELY, not via v30
 **Decision 2026-09-30.** Read v14 from `VBSVVH_skim_v42` (signal: `v40`). It is NOT
