@@ -7,6 +7,7 @@ from vbsvvh_mc import nanoaodv15_run3_bkg_zh4l
 from vbsvvh_hh import nanoaodv15_run3_bkg_hh, nanoaodv13_run3_bkg_hh_bbtautau
 import vbsvvh_v14
 from vbsvvh_vjets import nanoaodv15_run2_bkg_znunu_ht, nanoaodv15_run3_bkg_vjets_ht
+from vbsvvh_ellis import nanoaodv15_run2_bkg_zz4l_extra, nanoaodv15_run2_bkg_vg2l, nanoaodv15_run3_bkg_vg2l
 
 
 # Temporary test group: just the new QCD-4Jets HT-100to200 Run3 Summer24 sample
@@ -122,6 +123,20 @@ SAMPLE_REGISTRY = {
     },
     "run3_bkg_vjets_ht": {
         "samples": nanoaodv15_run3_bkg_vjets_ht,
+        "metadata": {"run": "Run3", "type": "Bkg", "nano": "v15"},
+    },
+    # S. Ellis request (mc_sample_request.txt). Channel-specific by design:
+    # zz4l_extra -> 4Lep, vg2l -> 2Lep1FJ. See vbsvvh_ellis.py.
+    "run2_bkg_zz4l_extra": {
+        "samples": nanoaodv15_run2_bkg_zz4l_extra,
+        "metadata": {"run": "Run2", "type": "Bkg", "nano": "v15"},
+    },
+    "run2_bkg_vg2l": {
+        "samples": nanoaodv15_run2_bkg_vg2l,
+        "metadata": {"run": "Run2", "type": "Bkg", "nano": "v15"},
+    },
+    "run3_bkg_vg2l": {
+        "samples": nanoaodv15_run3_bkg_vg2l,
         "metadata": {"run": "Run3", "type": "Bkg", "nano": "v15"},
     },
 }

@@ -240,17 +240,17 @@ SAMPLE_MATRIX = {
 
     #                                                                                                                                                               4L 3L 22 21 11 03 02 01 00
     # ZZTo4Q_5f
-    "/ZZTo4Q_5f_TuneCP5_13TeV-amcatnloFXFX-pythia8/RunIISummer20UL16NanoAODAPVv15-150X_mcRun2_asymptotic_preVFP_v1-v1/NANOAODSIM"                                : "0  0  1  1  1  1  1  1  1",
-    "/ZZTo4Q_5f_TuneCP5_13TeV-amcatnloFXFX-pythia8/RunIISummer20UL16NanoAODv15-150X_mcRun2_asymptotic_v1-v1/NANOAODSIM"                                          : "0  0  1  1  1  1  1  1  1",
-    "/ZZTo4Q_5f_TuneCP5_13TeV-amcatnloFXFX-pythia8/RunIISummer20UL17NanoAODv15-150X_mc2017_realistic_v1-v1/NANOAODSIM"                                           : "0  0  1  1  1  1  1  1  1",
-    "/ZZTo4Q_5f_TuneCP5_13TeV-amcatnloFXFX-pythia8/RunIISummer20UL18NanoAODv15-150X_mc2018_realistic_v1-v1/NANOAODSIM"                                           : "0  0  1  1  1  1  1  1  1",
+    "/ZZTo4Q_5f_TuneCP5_13TeV-amcatnloFXFX-pythia8/RunIISummer20UL16NanoAODAPVv15-150X_mcRun2_asymptotic_preVFP_v1-v1/NANOAODSIM"                                : "1  0  1  1  1  1  1  1  1",
+    "/ZZTo4Q_5f_TuneCP5_13TeV-amcatnloFXFX-pythia8/RunIISummer20UL16NanoAODv15-150X_mcRun2_asymptotic_v1-v1/NANOAODSIM"                                          : "1  0  1  1  1  1  1  1  1",
+    "/ZZTo4Q_5f_TuneCP5_13TeV-amcatnloFXFX-pythia8/RunIISummer20UL17NanoAODv15-150X_mc2017_realistic_v1-v1/NANOAODSIM"                                           : "1  0  1  1  1  1  1  1  1",
+    "/ZZTo4Q_5f_TuneCP5_13TeV-amcatnloFXFX-pythia8/RunIISummer20UL18NanoAODv15-150X_mc2018_realistic_v1-v1/NANOAODSIM"                                           : "1  0  1  1  1  1  1  1  1",
 
     #                                                                                                                                                               4L 3L 22 21 11 03 02 01 00
     # ZZTo2Q2L_mllmin4p0
-    "/ZZTo2Q2L_mllmin4p0_TuneCP5_13TeV-amcatnloFXFX-pythia8/RunIISummer20UL16NanoAODAPVv15-150X_mcRun2_asymptotic_preVFP_v1-v1/NANOAODSIM"                       : "0  1  1  1  1  1  1  1  1",
-    "/ZZTo2Q2L_mllmin4p0_TuneCP5_13TeV-amcatnloFXFX-pythia8/RunIISummer20UL16NanoAODv15-150X_mcRun2_asymptotic_v1-v1/NANOAODSIM"                                 : "0  1  1  1  1  1  1  1  1",
-    "/ZZTo2Q2L_mllmin4p0_TuneCP5_13TeV-amcatnloFXFX-pythia8/RunIISummer20UL17NanoAODv15-150X_mc2017_realistic_v1-v1/NANOAODSIM"                                  : "0  1  1  1  1  1  1  1  1",
-    "/ZZTo2Q2L_mllmin4p0_TuneCP5_13TeV-amcatnloFXFX-pythia8/RunIISummer20UL18NanoAODv15-150X_mc2018_realistic_v1-v1/NANOAODSIM"                                  : "0  1  1  1  1  1  1  1  1",
+    "/ZZTo2Q2L_mllmin4p0_TuneCP5_13TeV-amcatnloFXFX-pythia8/RunIISummer20UL16NanoAODAPVv15-150X_mcRun2_asymptotic_preVFP_v1-v1/NANOAODSIM"                       : "1  1  1  1  1  1  1  1  1",
+    "/ZZTo2Q2L_mllmin4p0_TuneCP5_13TeV-amcatnloFXFX-pythia8/RunIISummer20UL16NanoAODv15-150X_mcRun2_asymptotic_v1-v1/NANOAODSIM"                                 : "1  1  1  1  1  1  1  1  1",
+    "/ZZTo2Q2L_mllmin4p0_TuneCP5_13TeV-amcatnloFXFX-pythia8/RunIISummer20UL17NanoAODv15-150X_mc2017_realistic_v1-v1/NANOAODSIM"                                  : "1  1  1  1  1  1  1  1  1",
+    "/ZZTo2Q2L_mllmin4p0_TuneCP5_13TeV-amcatnloFXFX-pythia8/RunIISummer20UL18NanoAODv15-150X_mc2018_realistic_v1-v1/NANOAODSIM"                                  : "1  1  1  1  1  1  1  1  1",
 
     #                                                                                                                                                               4L 3L 22 21 11 03 02 01 00
     # WWW_4F
@@ -1490,6 +1490,23 @@ SAMPLE_MATRIX = {
     #                                                                                                                                                   4L 3L 22 21 11 03 02 01 00
     # WtoLNu-4Jets-MLNu-120_TuneCP5_13p6TeV_madgraphMLM-pythia8
     "/WtoLNu-4Jets_Bin-HT-2500-MLNu-120_TuneCP5_13p6TeV_madgraphMLM-pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM" : "0  1  1  1  1  1  1  1  1",
+
+
+    # ============================================================================================
+    # S. Ellis request (mc_sample_request.txt), 4L section.
+    #  ZZJJTo4L (plain, NOT the EWKnotop variant already present) -- ZZ->4L
+    #  fully leptonic, so the same flags as the other ZZ->4L rows.
+    #  ALSO above: ZZTo4Q_5f and ZZTo2Q2L flipped to ALLOW 4Lep at the
+    #  requester's explicit ask. ZZTo4Q is fully hadronic, so that is a
+    #  deliberate divergence from the convention that hadronic samples drop
+    #  4Lep; expect most of those jobs to select zero events.
+    # ============================================================================================
+    #                                                                                                                                                   4L 3L 22 21 11 03 02 01 00
+    "/ZZJJTo4L_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODAPVv15-150X_mcRun2_asymptotic_preVFP_v1-v1/NANOAODSIM"  : "1  1  1  1  0  0  0  0  0",
+    #                                                                                                                                                   4L 3L 22 21 11 03 02 01 00
+    "/ZZJJTo4L_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODv15-150X_mcRun2_asymptotic_v1-v1/NANOAODSIM"            : "1  1  1  1  0  0  0  0  0",
+    #                                                                                                                                                   4L 3L 22 21 11 03 02 01 00
+    "/ZZJJTo4L_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv15-150X_mc2018_realistic_v1-v1/NANOAODSIM"             : "1  1  1  1  0  0  0  0  0",
 
 }
 
