@@ -172,7 +172,11 @@ LEPTON_PDS = {"MuonEG", "DoubleEG", "DoubleMuon", "SingleMuon", "EGamma", "Singl
 # unlisted stream routes to NO channel and is silently skipped at task build
 # time (report_unrouted_pds() prints it, but only if you read the log), so check
 # this set whenever a new era is added.
-HADRONIC_PDS = {"MET", "JetHT", "JetMET", "JetMET0", "JetMET1", "SingleMuon"}
+HADRONIC_PDS = {"MET", "JetHT", "JetMET", "JetMET0", "JetMET1", "SingleMuon",
+                # B-parking HH streams (2023-2026). Routed to the 0Lep channels.
+                # Stream count grows with luminosity: one "ParkingHH" through 2024,
+                # split into ParkingHH0/1 from 2025.
+                "ParkingHH", "ParkingHH0", "ParkingHH1"}
 
 # Primary datasets that exist in some sample indices but are DELIBERATELY not
 # routed to any channel. These are NOT oversights -- CMS primary datasets are not

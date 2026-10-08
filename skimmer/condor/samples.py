@@ -8,6 +8,7 @@ from vbsvvh_hh import nanoaodv15_run3_bkg_hh, nanoaodv13_run3_bkg_hh_bbtautau
 import vbsvvh_v14
 from vbsvvh_vjets import nanoaodv15_run2_bkg_znunu_ht, nanoaodv15_run3_bkg_vjets_ht
 from vbsvvh_ellis import nanoaodv15_run2_bkg_zz4l_extra, nanoaodv15_run2_bkg_vg2l, nanoaodv15_run3_bkg_vg2l
+from vbsvvh_parking import nanoaodv15_run3_data_parking
 
 
 # Temporary test group: just the new QCD-4Jets HT-100to200 Run3 Summer24 sample
@@ -138,6 +139,13 @@ SAMPLE_REGISTRY = {
     "run3_bkg_vg2l": {
         "samples": nanoaodv15_run3_bkg_vg2l,
         "metadata": {"run": "Run3", "type": "Bkg", "nano": "v15"},
+    },
+    # B-parking HH data 2023-2026, for the 0Lep channels.
+    # ** Contains overlapping reprocessings of 7 run ranges -- see the warning
+    # ** at the top of vbsvvh_parking.py before combining these downstream.
+    "run3_data_parking": {
+        "samples": nanoaodv15_run3_data_parking,
+        "metadata": {"run": "Run3", "type": "Data", "nano": "v15"},
     },
 }
 
