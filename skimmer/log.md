@@ -4,6 +4,72 @@
 
 ---
 
+## 2026-10-12 — ✅ v44, v45, v46 VALIDATED; v30 gains its 2Lep4J channel
+
+Three campaigns closed out.
+
+**v46 — 2Lep4J for the main v15 samples. 4692/4692.** `check_v46`: 746 datasets,
+**2 benign `eventCount=0`, 288 benign LHE warnings, 0 structural**. Linked into v30:
+**746 symlinks, 0 collisions, 0 broken**.
+
+The strongest evidence it is correct is a cross-tree weight check: for 348 datasets,
+`genEventSumw` summed over v46's 2Lep4J jobs matches the *same dataset* in v30's
+`0Lep0FJ` to 1e-9 — **348/348, 0 mismatches**. Different channel, different job
+splitting, same input files, so agreement means v46 read exactly the intended inputs
+with no duplication or loss. The in-version `check_weights.py` could not establish this
+because only one channel ran.
+
+**v45 — ParkingHH 2023-2026 for the 0Lep channels. 2520/2520.** 236 datasets,
+**1 benign `eventCount=0`**, 0 warnings. That one is `ParkingHH Run2024A-PromptReco-v1`
+in `0Lep0FJ`: the era has only 2,157 events total and the channel needs ≥8 jets, so a
+genuine zero. **4.30e9 events selected** overall — B-parking behaves as a high-rate
+hadronic stream should in 0Lep. ⚠ Its 59 datasets cover only **47 distinct run sets**;
+see the warning block in `vbsvvh_parking.py` before combining them.
+
+**v44 — S. Ellis request. 158/158.** 49 datasets, 4 benign `eventCount=0` — all four
+are `ZZTo4Q_5f` in 4Lep, exactly as predicted when that matrix row was flipped at the
+requester's ask. A fully-hadronic final state selects no 4-lepton events. The contrast
+confirms the channel works: `ZZJJTo4L` 1,761,038 events, `ZZTo2Q2L` 1,132, `ZZTo4Q` 0.
+
+### v30 now has all ten channel tags
+
+`Run{2,3}_{Bkg,Data}_v15_v30_2Lep4J` created and populated. 2Lep4J had existed since
+v31 but was never in v30, so **every merge since had been silently printing
+`[skip] ..._2Lep4J: no ..._v30_2Lep4J in target`**. Backfilled v33 (44), v41 (46),
+v38 (26+2 via `--tag-subst v13=v15`), then v46 (746).
+
+    Run2_Bkg  466    Run2_Data   86
+    Run3_Bkg  171    Run3_Data  141
+
+v30 now carries **2,220 version symlinks, 0 broken** (v32 344, v33 440, v35 8, v36 20,
+v37 2, v38 280, v41 380, v46 746), plus the 1,329 `Summer24for2025` era aliases.
+v31's 2Lep4J was deliberately NOT linked: v46 covers the same sample groups with the
+current binary, and linking both would mix binary versions in one tag.
+
+### ⚠ TWO CORRECTIONS — both were my measurement errors, not production faults
+
+**1. v46 was never stalled.** I reported a 104-job shortfall and "10 tasks being
+resubmitted". Both were artifacts of reading the driver log: the Metis loop reprints
+`jobs expected` and `Job N submitted` every monitoring pass (244 passes), so summing
+them double-counts, and `tac | grep -m N` surfaced hours-old submission lines as
+current. The authoritative count is each task's `io_mapping`: **756 tasks, 4,692 jobs,
+4,692 outputs, 0 incomplete.** Same mistake as the earlier v43 "132 datasets / 2166
+jobs" misread.
+
+**2. The "195 missing Run3 datasets" that partly justified v46 was wrong.** v30's
+`Run3_Bkg_v15_v30_0Lep0FJ` lists 330 entries, but those decompose into **135 real dirs
++ 28 v38 links + 18 v41 links + 149 `Summer24for2025` aliases**. `run3_bkg` holds 136
+datasets today and v31 had 135 — the real gap was **one dataset**, not 195. An `ls`
+count on a v30 tag is not a dataset count.
+
+v46 still earned its place: a current-binary 2Lep4J for the main v15 samples, and
+**Run3_Data at 141 datasets vs v31's 85** — real new coverage from 2025 data. But it
+was not the large backfill I described.
+
+Both lessons are now in `CLAUDE.md` §7(c).
+
+---
+
 ## 2026-10-05 (later) — weight validation: v42 CLEAN; das/v14 event-count caches are ESTIMATES
 
 Added `condor/check_weights.py` — a physics-level check that `check.py` does not do.

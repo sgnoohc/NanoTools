@@ -142,6 +142,9 @@ COMPLETE → VALIDATED. Full narrative goes in `log.md`; keep this terse.
 
 | Ver | Scope | Status | Notes |
 |---|---|---|---|
+| v46 | `run2_bkg,run3_bkg,run2_data,run3_data`, `--channels 2Lep4J` (756 ds) | ✅ VALIDATED 2026-10-12 | 4692/4692. check: 746 ds, 2 benign `eventCount=0`, 288 benign LHE warns. **Weight cross-check: 348/348 datasets match v30's 0Lep0FJ `genEventSumw` exactly** — same inputs, different channel/splitting. Linked into v30 (746 links). v30 now has all 10 channel tags. |
+| v45 | `run3_data_parking` (59 ds ParkingHH/HH0/HH1 2023-2026), `--channels 0Lep*` | ✅ VALIDATED 2026-10-12 | 2520/2520. check: 236 ds, **1** benign `eventCount=0` (Run2024A, only 2157 events, needs >=8 jets). 4.30e9 events selected. ⚠ **59 datasets cover only 47 DISTINCT RUN SETS** — see vbsvvh_parking.py. |
+| v44 | S. Ellis request: `run2_bkg_zz4l_extra`+2 existing ZZ sets → 4Lep; `run2_bkg_vg2l`,`run3_bkg_vg2l` → 2Lep1FJ | ✅ VALIDATED 2026-10-07 | 158/158. check: 49 ds, 4 benign `eventCount=0` (all ZZTo4Q in 4Lep — fully hadronic, as predicted). Weights clean. |
 | v43 | 2026 PromptReco data (44 ds: EGamma0-5, Muon0-3, MuonEG × eras A-D), `--channels 4Lep` | ✅ VALIDATED 2026-10-05 | 722/722. check: 44 ds, 233 err (all benign `eventCount=0`), 0 warn. Needed year-2026 support in **five** places (see §7) + EGamma4/5 & Muon2/3 added to LEPTON_PDS. Group is channel-agnostic — re-run with `--channels` for other channels, but note it is lepton PDs only (no JetMET) and JetId 2026 falls back to the 2024 recipe. |
 | v42 | **Full v14 PFNano**: bkg + data × 4 eras (8 groups, 4264 tasks / 16294 jobs) | ✅ VALIDATED 2026-10-05 | 16294/16294. check: **4264 ds, 351 errors (all benign `eventCount=0`), 740 benign LHE warnings, 0 structural**. Replaces abandoned v39. All inputs staged on /cmsuf (57 TB, 0 transfer failures). **NOT linked into v30** — see below. Final gap was TTWW 2023 × 0Lep0FJ; see §7. |
 | v41 | `run2_bkg_znunu_ht` + `run3_bkg_vjets_ht` (V+jets HT-binned, M. Mazza request; 46 ds) | ✅ VALIDATED 2026-09-15 | 1524/1524. check: 380 ds, 187 err (all benign `eventCount=0`), 0 warn, 0 OOM. Folded into v30 (334 links). ⚠ 2024 W→ℓν HT is a THIRD description of W+jets alongside the pT- and jet-binned sets in `run3_bkg` — pick one, don't sum. Z→νν is new coverage. Ran `--pack-size 6`. |
@@ -157,7 +160,7 @@ COMPLETE → VALIDATED. Full narrative goes in `log.md`; keep this terse.
 | v29 | abandoned | — | only Run2_Data/3Lep partial; superseded by v30. |
 | ≤v28 | older | complete | under `VBSVVH_skim_v26/27/28/`; v24 dirs sit directly under `skim/`. |
 
-**Next version: v44.** Confirm scope with the user (§1) before submitting.
+**Next version: v47.** Confirm scope with the user (§1) before submitting.
 
 ### §7. Two traps that each cost ~2 days — read before resubmitting anything
 
@@ -181,6 +184,27 @@ had to write **~65 GB** into a single output — it hit the 8 h wall, then
 SIGSEGV'd. The 100-file cap never engaged (its split was 60 < 100). When a
 dataset×channel fails repeatedly, check the acceptance before assuming the cap
 covers you, and split on expected OUTPUT size.
+
+**(c) Read completion from `io_mapping`, NEVER from the driver log.**
+The Metis loop REPRINTS `jobs expected` and `Job N submitted` on every
+monitoring pass (244 passes on v46), so any `grep`/`tail` over the log
+double-counts and any `tac | grep -m N` can surface hours-old lines as if they
+were current. This produced two false alarms: a phantom 104-job shortfall on
+v46, and "10 tasks being resubmitted" that were not. The authoritative check:
+```bash
+python3 - <<'EOF'
+import pickle, os, glob
+for D in glob.glob("/blue/avery/p.chang/tasks/*_vNN_<CHANNEL>"):
+    io = pickle.load(open(f"{D}/backup.pkl","rb"))["io_mapping"]
+    done = sum(os.path.isfile(str(getattr(o,'name',o))) for _,o in io)
+    if done < len(io): print(done, len(io), D)
+EOF
+```
+Related: when comparing coverage, a v30 tag's `ls` count is NOT its real
+dataset count — it mixes real dirs, cross-version symlinks and
+`Summer24for2025` aliases. Decompose with `find -type d` vs `-type l` first.
+A "195 missing datasets" claim on v30 Run3_Bkg turned out to be 135 real dirs
++ 195 links; the true gap was one dataset.
 
 **Corollary on event counts:** `v14_nevents.py` holds *sampled estimates*
 extrapolated from 2 files per sample, not DAS truth. Measured against the real
