@@ -159,6 +159,16 @@ ALL_CHANNELS = [
     "0Lep0FJ",
 ]
 
+# Opt-in channels: valid for --channels but NOT part of the default run.
+# 4LepLoose keeps 300-440x more events than 4Lep (measured on Summer24 v15:
+# 0.0081%->3.61% ttbar, 0.0024%->0.75% DY), so including it in ALL_CHANNELS
+# would silently inflate every future campaign. Must be asked for explicitly.
+EXTRA_CHANNELS = [
+    "4LepLoose",
+]
+
+VALID_CHANNELS = ALL_CHANNELS + EXTRA_CHANNELS
+
 # Primary-dataset prefixes allowed per channel family
 # Lepton PDs (Run2): MuonEG, DoubleEG, DoubleMuon, SingleMuon, EGamma, SingleElectron
 # Lepton PDs (Run3): MuonEG, Muon, Muon0, Muon1, EGamma, EGamma0, EGamma1
@@ -199,6 +209,7 @@ CHANNEL_PDS = {
     "0Lep2FJ": HADRONIC_PDS,
     "0Lep1FJ": HADRONIC_PDS,
     "0Lep0FJ": HADRONIC_PDS,
+    "4LepLoose": LEPTON_PDS,
 }
 
 _unrouted_pds = {}
@@ -280,9 +291,9 @@ if __name__ == "__main__":
     # Restrict non-signal channels if requested
     if args.channels:
         active_channels = [c.strip() for c in args.channels.split(",") if c.strip()]
-        unknown = [c for c in active_channels if c not in ALL_CHANNELS]
+        unknown = [c for c in active_channels if c not in VALID_CHANNELS]
         if unknown:
-            parser.error(f"--channels has unknown tags {unknown}; valid: {ALL_CHANNELS}")
+            parser.error(f"--channels has unknown tags {unknown}; valid: {VALID_CHANNELS}")
     else:
         active_channels = ALL_CHANNELS
 

@@ -246,6 +246,7 @@ bool WWZ::muon2022ID(unsigned int idx, WWZ::IDLevel id_level) {
 bool VVH::muonID(int idx, VVH::IDLevel id_level, int year) {
     // IDskim is year-agnostic (mirrors cmstas/run3-vbsvvh _looseMuons)
     if (id_level == VVH::IDskim) return VVH::muonIDskim((unsigned int)idx);
+    if (id_level == VVH::IDloose4L) return VVH::muonIDloose4L((unsigned int)idx);
     // Year-specific checks
     switch (year) {
     case (2016):
@@ -338,6 +339,17 @@ bool VVH::muon2024ID(unsigned int idx, VVH::IDLevel id_level) {
 }
 // Year-agnostic skim WP. Mirrors cmstas/run3-vbsvvh _looseMuons
 // (preselection/src/selections.cpp): looseId + pfIsoId>=2 with looser dxy/dz.
+// Loose WP for the 4LepLoose channel. pT down to 3 GeV (muons are stored from
+// ~2 GeV), and only enough quality to be a real reconstructed muon rather than
+// a stray track. NO isolation, NO dxy/dz, NO sip3d.
+bool VVH::muonIDloose4L(unsigned int idx) {
+    if (not (Muon_pt().at(idx)        > 3.  )) return false;
+    if (not (fabs(Muon_eta().at(idx)) < 2.4 )) return false;
+    if (not (Muon_isGlobal().at(idx) || Muon_isTracker().at(idx))) return false;
+    if (not (Muon_isPFcand().at(idx)        )) return false;
+    return true;
+}
+
 bool VVH::muonIDskim(unsigned int idx) {
     if (not (Muon_pt().at(idx)               >  10. )) return false;
     if (not (fabs(Muon_eta().at(idx))        <  2.4 )) return false;

@@ -14,6 +14,7 @@
 #include "Analysis_2Leptons_4Jets.h"
 #include "Analysis_3Leptons.h"
 #include "Analysis_4Leptons.h"
+#include "Analysis_4LeptonsLoose.h"
 // NanoTools
 #include "Base.h"
 #include "Config.h"

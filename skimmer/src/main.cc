@@ -48,6 +48,10 @@ int main(int argc, char **argv)
     {
         skimmer = std::make_unique<Analysis_4Leptons>(arbusto, nt, cli, cutflow);
     }
+    else if (cli.analysis_tag == "4LepLoose")
+    {
+        skimmer = std::make_unique<Analysis_4LeptonsLoose>(arbusto, nt, cli, cutflow);
+    }
     else if (cli.analysis_tag == "3Lep")
     {
         skimmer = std::make_unique<Analysis_3Leptons>(arbusto, nt, cli, cutflow);

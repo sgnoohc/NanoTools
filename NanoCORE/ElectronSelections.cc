@@ -475,6 +475,7 @@ bool WWZ::electron2022ID(int idx, WWZ::IDLevel id_level) {
 bool VVH::electronID(int idx, VVH::IDLevel id_level, int year) {
     // IDskim is year-agnostic (mirrors cmstas/run3-vbsvvh _looseElectrons)
     if (id_level == VVH::IDskim) return VVH::electronIDskim(idx);
+    if (id_level == VVH::IDloose4L) return VVH::electronIDloose4L(idx);
     // Year-specific checks
     switch (year) {
     case (2016):
@@ -568,6 +569,18 @@ bool VVH::electron2024ID(int idx, VVH::IDLevel id_level) {
 // Year-agnostic skim WP. Mirrors cmstas/run3-vbsvvh _looseElectrons
 // (preselection/src/selections.cpp): cutBased >= 2 with SC-eta and split
 // barrel/endcap impact-parameter cuts.
+// Loose WP for the 4LepLoose channel. pT down to the NanoAOD storage floor
+// (electrons are not stored below 5 GeV), cutBased>=1 (Veto) and a lost-hits
+// cut to drop obvious track junk. NO isolation, NO dxy/dz, NO sip3d.
+bool VVH::electronIDloose4L(int idx) {
+    float abs_sc_eta = fabs(Electron_eta().at(idx) + Electron_deltaEtaSC().at(idx));
+    if (not (Electron_pt().at(idx) > 5.))      return false;
+    if (not (abs_sc_eta            < 2.5))     return false;
+    if (not (Electron_cutBased().at(idx) >= 1)) return false;  // Veto
+    if (not (Electron_lostHits().at(idx) <= 1)) return false;
+    return true;
+}
+
 bool VVH::electronIDskim(int idx) {
     float sc_eta = Electron_eta().at(idx) + Electron_deltaEtaSC().at(idx);
     float abs_sc_eta = fabs(sc_eta);

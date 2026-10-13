@@ -73,6 +73,7 @@ class Analysis
         cutflow.globals.newVar<double>("vvh_lep_pt_sub", -999);
         cutflow.globals.newVar<LorentzVectors>("vvh_veto_lep_p4s", {});
         cutflow.globals.newVar<LorentzVectors>("vvh_skim_lep_p4s", {});
+        cutflow.globals.newVar<LorentzVectors>("vvh_loose4l_lep_p4s", {});
         cutflow.globals.newVar<LorentzVectors>("vvh_veto_jet_p4s", {});
         cutflow.globals.newVar<LorentzVectors>("vvh_veto_fatjet_p4s", {});
         cutflow.globals.newVar<int>("n_vvh_veto_jets", -999);
@@ -162,6 +163,7 @@ class Analysis
         // Run vvh lepton selection
         leptonSelection.selectVVHVetoLeptons();
         leptonSelection.selectVVHSkimLeptons();
+        leptonSelection.selectVVHLoose4LLeptons();
 
         // Run vvh jets selection
         jetSelection.selectVVHJets();
