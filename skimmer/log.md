@@ -4,6 +4,75 @@
 
 ---
 
+## 2026-10-14 — ✅ v47 VALIDATED: the 4LepLoose channel, and a 7× (not 440×) reality check
+
+**New opt-in channel `4LepLoose`** — the "loosest ≥4 lepton" skim. Working point
+`VVH::IDloose4L`: electrons pT>5, |η_SC|<2.5, cutBased≥1 (Veto), lostHits≤1;
+muons pT>3, |η|<2.4, (isGlobal||isTracker), isPFcand. **No isolation, no
+dxy/dz/sip3d.** It fills a SEPARATE `vvh_loose4l_lep_p4s` collection, so no
+existing channel changes behaviour.
+
+Chosen as "Tier B" from an RDataFrame tier study (`condor/measure_4lep_tiers.py`)
+that compared four WPs without rebuilding the skim. Cross-validated: the C++
+gave 3.6145% on a ttbar file where RDF predicted 3.61492%, and 4Lep on the same
+file was unchanged at 14/145000.
+
+**v47 = `run3_bkg` + `run2_bkg` × `4LepLoose`. 1171/1171 + 818/818.**
+`check_v47_full`: **519 datasets, 0 errors**, 288 benign LHE warnings. Weights
+clean (0 cross-channel sumw spread, 0 genEventCount-vs-cutflow mismatch).
+Notably **zero `eventCount=0`** — unlike every tight-channel campaign, the loose
+WP selects something in every dataset.
+
+| | ds | input | rate | output |
+|---|---|---|---|---|
+| Run2 | 394 | 7.10e9 | 0.661% | 184.4 GB |
+| Run3 | 125 | 13.18e9 | 0.557% | 262.8 GB |
+| **total** | **519** | **20.27e9** | **0.596%** | **447 GB** |
+
+**The headline correction: the gain over tight 4Lep is 7×, not the 300–440× I
+projected.** That estimate came from single DY and ttbar files, where genuine
+4-lepton events are nearly absent (14 of 145,000). Across a realistic background
+mix containing ZZ→4L and friends, v30's 4Lep already selects 0.084%, so the
+loose WP has far less headroom. The tier study's *absolute* loose rate was
+right — it was generalising the *ratio* from an unrepresentative baseline that
+was wrong. Measured head-to-head on byte-identical input coverage
+(13,178,348,813 events both sides): 4Lep 11.06M / 36.9 GB vs 4LepLoose 73.41M /
+262.8 GB. 447 GB total came in well under the 0.8 TB projection.
+
+**QCD was the stated worry and it was unfounded**: 22 QCD datasets, 1.9e9 input
+events, **0.062%** acceptance, 5.6 GB — 2% of the volume. Fake leptons do not
+fake *four* of them. Cost is dominated by real multi-lepton final states
+(gg→ZZ→4ℓ peaks at 52% on one dataset, which is the WP working correctly).
+
+**Bug fixed: `is_mc_allowed()` crashed on every opt-in channel** (971af89).
+It called `CHANNELS.index(channel)` unconditionally → `ValueError` for anything
+outside the 9-entry matrix. run3_bkg survived only by luck (none of its datasets
+are in `SAMPLE_MATRIX`, so it took the early return); run2_bkg died instantly.
+Now returns True for matrix-less channels, matching the adjacent
+`idx >= len(flags)` intent. Would have hit `2LepZ350` too.
+
+**10 DY PTLL datasets are now INVALID in DAS** — they produced zero jobs, which
+is correct behaviour, not a failure. v30 processed them successfully, so they
+were invalidated after v30 ran. **v30 therefore carries events from 10 datasets
+that no longer exist in DAS.** See the new §7 note in CLAUDE.md.
+
+**"All job finished" is unreliable.** Those zero-job tasks never count as
+complete, so the driver loops forever. v47-run3 sat at 1171/1171 and never
+printed it; killed by PID. A **v46 driver was still spinning 4d18h** after v46
+was logged VALIDATED. Poll `io_mapping`, not the process — my first watcher
+waited on the driver to exit and would have hung indefinitely.
+
+**Scheduling note:** run2 sat at 0/818 for ~9 hours on `Reason=Priority`
+(fairshare 0.141, avery account 0.0057; cluster 10.8k pending vs 5k running),
+then cleared overnight and finished in one pass. Packs ran 2.5 min–1.5 h. One
+pack OOM'd (3.18 GB RSS vs 2 GB) and Metis resubmitted it successfully with no
+manual resplit. Waiting rather than switching QOS was the right call.
+
+**Not linked into v30** — it is an opt-in channel; v30 has no 4LepLoose tag.
+Read it from `VBSVVH_skim_v47`.
+
+---
+
 ## 2026-10-12 — ✅ v44, v45, v46 VALIDATED; v30 gains its 2Lep4J channel
 
 Three campaigns closed out.

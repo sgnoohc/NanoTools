@@ -37,11 +37,20 @@ command is always run from `condor/` as `python3 submit.py ... --version vNN`.
   1Lep1FJ 0Lep3FJ 0Lep2FJ 0Lep1FJ 0Lep0FJ 2Lep4J`. Omit `--channels` to run all.
   Signal groups always run the `Sig` channel regardless.
 - **Opt-in channels** (`EXTRA_CHANNELS`, NOT in the default matrix — must be
-  requested explicitly with `--channels`): `2LepZ350` = inclusive ≥2 loose
-  leptons with ≥1 opposite-sign same-flavor pair (e⁺e⁻/µ⁺µ⁻) whose **system
-  pT ≥ 350 GeV** (a *boosted* Z; mass left loose). For ttZ (boosted Z + inclusive
-  ttbar). `src/Analysis_2Leptons_Z.h`, uses lepton PDs. Paired MC groups
-  `run2_bkg_ttz` (218) / `run3_bkg_ttz` (69) in `samples.py`.
+  requested explicitly with `--channels`):
+  - `4LepLoose` = loosest ≥4 lepton skim (`VVH::IDloose4L`): e pT>5 |η_SC|<2.5
+    cutBased≥1 lostHits≤1; μ pT>3 |η|<2.4 (global||tracker) isPFcand. **No isolation,
+    no dxy/dz/sip3d.** `src/Analysis_4LeptonsLoose.h`, fills a SEPARATE
+    `vvh_loose4l_lep_p4s` so existing channels are untouched. 7× the events and
+    7× the size of 4Lep (v47: 447 GB over 519 bkg datasets). Runs on hadronic
+    samples that 4Lep excludes (no matrix column → allowed everywhere), so expect
+    more benign zero-yield datasets than 4Lep.
+  - `2LepZ350` ⚠ **NOT IN THIS BRANCH** — reverted to branch `z350` (see v35 log).
+    The description is retained for when it returns: inclusive ≥2 loose
+    leptons with ≥1 opposite-sign same-flavor pair (e⁺e⁻/µ⁺µ⁻) whose **system
+    pT ≥ 350 GeV** (a *boosted* Z; mass left loose). For ttZ (boosted Z +
+    inclusive ttbar). `src/Analysis_2Leptons_Z.h`, uses lepton PDs. Paired MC
+    groups `run2_bkg_ttz` (218) / `run3_bkg_ttz` (69) in `samples.py`.
 - `--skim-name` auto-derives to `VBSVVH_skim_vNN` if omitted (leave it omitted).
 - Record the exact command in `condor/my_submit.sh` (append a commented line, as
   done for every prior version).
@@ -142,6 +151,7 @@ COMPLETE → VALIDATED. Full narrative goes in `log.md`; keep this terse.
 
 | Ver | Scope | Status | Notes |
 |---|---|---|---|
+| v47 | `run3_bkg` + `run2_bkg`, `--channels 4LepLoose` (519 ds) | ✅ VALIDATED 2026-10-14 | run3 1171/1171 + run2 818/818. check: **519 ds, 0 errors**, 288 benign LHE warnings, **0 `eventCount=0`** (loose WP selects everywhere). Weights clean (0 sumw spread, 0 cutflow mismatch). **447 GB** (Run3 262.8 + Run2 184.4), vs 0.8 TB projected. Acceptance **0.596%** overall (Run2 0.661%, Run3 0.557%) = **7× tight 4Lep**, NOT the 300-440× estimated from single DY/ttbar files — that baseline had almost no real 4L events. 10 DY PTLL datasets produced 0 jobs: **INVALID in DAS** (see below). NOT linked into v30 (opt-in channel). |
 | v46 | `run2_bkg,run3_bkg,run2_data,run3_data`, `--channels 2Lep4J` (756 ds) | ✅ VALIDATED 2026-10-12 | 4692/4692. check: 746 ds, 2 benign `eventCount=0`, 288 benign LHE warns. **Weight cross-check: 348/348 datasets match v30's 0Lep0FJ `genEventSumw` exactly** — same inputs, different channel/splitting. Linked into v30 (746 links). v30 now has all 10 channel tags. |
 | v45 | `run3_data_parking` (59 ds ParkingHH/HH0/HH1 2023-2026), `--channels 0Lep*` | ✅ VALIDATED 2026-10-12 | 2520/2520. check: 236 ds, **1** benign `eventCount=0` (Run2024A, only 2157 events, needs >=8 jets). 4.30e9 events selected. ⚠ **59 datasets cover only 47 DISTINCT RUN SETS** — see vbsvvh_parking.py. |
 | v44 | S. Ellis request: `run2_bkg_zz4l_extra`+2 existing ZZ sets → 4Lep; `run2_bkg_vg2l`,`run3_bkg_vg2l` → 2Lep1FJ | ✅ VALIDATED 2026-10-07 | 158/158. check: 49 ds, 4 benign `eventCount=0` (all ZZTo4Q in 4Lep — fully hadronic, as predicted). Weights clean. |
@@ -160,9 +170,9 @@ COMPLETE → VALIDATED. Full narrative goes in `log.md`; keep this terse.
 | v29 | abandoned | — | only Run2_Data/3Lep partial; superseded by v30. |
 | ≤v28 | older | complete | under `VBSVVH_skim_v26/27/28/`; v24 dirs sit directly under `skim/`. |
 
-**Next version: v47.** Confirm scope with the user (§1) before submitting.
+**Next version: v48.** Confirm scope with the user (§1) before submitting.
 
-### §7. Two traps that each cost ~2 days — read before resubmitting anything
+### §7. Traps that have each cost ~2 days — read before resubmitting anything
 
 **(a) Changing a job split requires DELETING the task dir.**
 `io_mapping` (which files go in which job) is persisted in the task's
@@ -212,6 +222,33 @@ totals over 423 datasets they are off by a **median 29 %, mean 35 %, worst
 170 %**. Fine for choosing a job split — that is all they are for — but never
 use them for normalisation. The truth is the summed `genEventCount` /
 `genEventSumw` in `runs_summary_*.json`.
+
+### (d) "All job finished" is NOT a reliable completion signal
+A dataset that is INVALID in DAS yields a task with an EMPTY `io_mapping`
+(zero jobs). Metis never counts such a task as complete, so the driver loops
+forever even when every real job has finished. v47's run3 driver had all
+1171/1171 jobs done and still never printed "All job finished"; it had to be
+killed by PID. A v46 driver was found still spinning **4 days 18 hours** after
+that version was logged VALIDATED.
+
+Poll `io_mapping` instead (see §7c for the snippet) and treat
+`done == total` as the completion condition. When a watcher script waits on
+the driver process to exit, it will wait forever -- poll the outputs, not the
+process.
+
+### Datasets can be INVALIDATED after you have already skimmed them
+v47 found 10 DY sets producing zero jobs:
+`DYto2L-2Jets_Bin-{1J,2J}-MLL-50-PTLL-{40to100,100to200,200to400,400to600,600}`
+-- all now `INVALID` in DAS, yet all present with real outputs in **v30**.
+Zero jobs here is correct Metis behaviour, not a failure.
+
+Two consequences: (1) a shrinking dataset count between versions is not
+automatically a bug -- check DAS status before investigating;
+(2) **v30 carries events from 10 datasets that no longer exist in DAS**, which
+matters for anything normalising against its DY stack. Check status with:
+```bash
+dasgoclient -query="dataset dataset=<DS> status=* | grep dataset.status"
+```
 
 ### Validating weights, not just structure
 `check.py` never looks inside `runs_summary_*.json`, so a duplicated or dropped

@@ -8,3 +8,7 @@
 
 # v32: new 2025 PromptReco Run3 data only, all channels.
 python3 submit.py --samples run3_data_2025 --pack-size 12 --cpus-per-subjob 1 --version v32
+
+# v47 (2026-10-13/14) — 4LepLoose opt-in channel, full background campaign. VALIDATED.
+# python3 submit.py --samples run3_bkg --version v47 --channels 4LepLoose --pack-size 6 --cpus-per-subjob 1
+# python3 submit.py --samples run2_bkg --version v47 --channels 4LepLoose --pack-size 6 --cpus-per-subjob 1
