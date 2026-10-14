@@ -1515,6 +1515,11 @@ def is_mc_allowed(dsname, channel):
     """Check if MC dataset is allowed for channel. Unlisted samples run everywhere."""
     if dsname not in SAMPLE_MATRIX:
         return True
+    if channel not in CHANNELS:
+        # Opt-in channel (submit.py EXTRA_CHANNELS): it has no column in the
+        # matrix at all, so there is no per-sample opinion to honour. Same
+        # semantics as a channel added after a row was written -> run everywhere.
+        return True
     flags = SAMPLE_MATRIX[dsname].split()
     idx = CHANNELS.index(channel)
     if idx >= len(flags):
