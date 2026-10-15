@@ -32,6 +32,73 @@ typedef std::vector<unsigned int> Indices;
 #define JETID_NJET_MAX 250
 #define JETID_NFATJET_MAX 40
 
+// Reads the extra NanoAODv15 jet-ID inputs through an INDEPENDENT handle on the
+// same file, so the tree Arbusto writes from is never touched.
+//
+// Why this indirection: Arbusto shares buffers between input and output.
+// Arbusto::init() does next_ttree->CopyAddresses(ttree), and Arbusto::fill() is
+// just orig_ttree->GetEntry(entry) followed by ttree->Fill() -- so whatever
+// address an input branch holds at fill() time is what reaches the output file.
+//
+// Calling SetAddress() on those branches to read them ourselves orphaned the
+// output buffers and wrote uninitialised memory: denormal floats and negative
+// multiplicities in Jet_chMultiplicity, Jet_neMultiplicity and the seven
+// FatJet_* branches of the v42 (2022/2023) skims. Saving and restoring the
+// address is not reliable either, because the shared address can still be null
+// when we bind, leaving nothing to restore.
+//
+// A second TFile handle sidesteps the whole problem: separate branch objects,
+// separate buffers, zero interaction with the copy path. Entry numbering is
+// identical (same tree in the same file), and only these nine small branches
+// are enabled, so the extra I/O is negligible.
+class JetIdInputReader
+{
+  public:
+    TFile *file_ = nullptr;
+    TTree *tree_ = nullptr;
+
+    ~JetIdInputReader() { close(); }
+
+    void close()
+    {
+        if (file_) { file_->Close(); delete file_; }
+        file_ = nullptr;
+        tree_ = nullptr;
+    }
+
+    // Open our own handle on the file backing `main_tree`. Returns false if
+    // unavailable, in which case the caller must not use the buffers.
+    bool open(TTree *main_tree)
+    {
+        close();
+        TFile *src = main_tree->GetCurrentFile();
+        if (!src) return false;
+        // TFile::Open() makes the newly opened file the current directory. The
+        // skimmer's output tree lives in the Arbusto output file, so leaving
+        // gDirectory pointing here sends its basket writes to a read-only file
+        // ("basket's WriteBuffer failed") and the output is lost. Restore it.
+        TDirectory *prev = gDirectory;
+        file_ = TFile::Open(src->GetName(), "READ");
+        if (!file_ || file_->IsZombie()) { close(); if (prev) prev->cd(); return false; }
+        tree_ = dynamic_cast<TTree *>(file_->Get(main_tree->GetName()));
+        if (!tree_) { close(); if (prev) prev->cd(); return false; }
+        tree_->SetBranchStatus("*", 0);
+        if (prev) prev->cd();
+        return true;
+    }
+
+    // Enable one branch and point it at our own buffer.
+    bool bind(const char *name, void *buf)
+    {
+        if (!tree_ || !tree_->GetBranch(name)) return false;
+        tree_->SetBranchStatus(name, 1);
+        tree_->SetBranchAddress(name, buf);
+        return true;
+    }
+
+    void loadEntry(int entry) { if (tree_) tree_->GetEntry(entry); }
+};
+
 class JetSelection : public ObjectSelection
 {
   public:
@@ -60,6 +127,9 @@ class JetSelection : public ObjectSelection
     float FatJet_muEF_[JETID_NFATJET_MAX];
     Short_t FatJet_chMultiplicity_[JETID_NFATJET_MAX];
     Short_t FatJet_neMultiplicity_[JETID_NFATJET_MAX];
+
+    // Independent reader for the jet-ID input branches (never touches Arbusto's tree)
+    JetIdInputReader jetIdInputs_;
 
     bool hasJetMultBranches_ = false;
     bool hasFatJetIdBranches_ = false;
@@ -109,56 +179,22 @@ class JetSelection : public ObjectSelection
         }
         jetIdEval_ = std::make_unique<JetIdEvaluator>(jsonPath, gconf.year);
 
-        // AK4 jet multiplicity branches
-        b_Jet_chMultiplicity_ = tree->GetBranch("Jet_chMultiplicity");
-        if (b_Jet_chMultiplicity_)
-        {
-            b_Jet_chMultiplicity_->SetAddress(Jet_chMultiplicity_);
-        }
-        b_Jet_neMultiplicity_ = tree->GetBranch("Jet_neMultiplicity");
-        if (b_Jet_neMultiplicity_)
-        {
-            b_Jet_neMultiplicity_->SetAddress(Jet_neMultiplicity_);
-        }
-        hasJetMultBranches_ = (b_Jet_chMultiplicity_ != nullptr && b_Jet_neMultiplicity_ != nullptr);
+        // Open our own handle on this file and bind the extra jet-ID inputs there,
+        // so Arbusto's copy of these branches is left completely untouched.
+        bool reader_ok = jetIdInputs_.open(tree);
 
-        // AK8 fat jet energy fraction and multiplicity branches
-        b_FatJet_chHEF_ = tree->GetBranch("FatJet_chHEF");
-        if (b_FatJet_chHEF_)
-        {
-            b_FatJet_chHEF_->SetAddress(FatJet_chHEF_);
-        }
-        b_FatJet_neHEF_ = tree->GetBranch("FatJet_neHEF");
-        if (b_FatJet_neHEF_)
-        {
-            b_FatJet_neHEF_->SetAddress(FatJet_neHEF_);
-        }
-        b_FatJet_chEmEF_ = tree->GetBranch("FatJet_chEmEF");
-        if (b_FatJet_chEmEF_)
-        {
-            b_FatJet_chEmEF_->SetAddress(FatJet_chEmEF_);
-        }
-        b_FatJet_neEmEF_ = tree->GetBranch("FatJet_neEmEF");
-        if (b_FatJet_neEmEF_)
-        {
-            b_FatJet_neEmEF_->SetAddress(FatJet_neEmEF_);
-        }
-        b_FatJet_muEF_ = tree->GetBranch("FatJet_muEF");
-        if (b_FatJet_muEF_)
-        {
-            b_FatJet_muEF_->SetAddress(FatJet_muEF_);
-        }
-        b_FatJet_chMultiplicity_ = tree->GetBranch("FatJet_chMultiplicity");
-        if (b_FatJet_chMultiplicity_)
-        {
-            b_FatJet_chMultiplicity_->SetAddress(FatJet_chMultiplicity_);
-        }
-        b_FatJet_neMultiplicity_ = tree->GetBranch("FatJet_neMultiplicity");
-        if (b_FatJet_neMultiplicity_)
-        {
-            b_FatJet_neMultiplicity_->SetAddress(FatJet_neMultiplicity_);
-        }
-        hasFatJetIdBranches_ = (b_FatJet_chHEF_ != nullptr && b_FatJet_neHEF_ != nullptr && b_FatJet_chEmEF_ != nullptr && b_FatJet_neEmEF_ != nullptr && b_FatJet_muEF_ != nullptr && b_FatJet_chMultiplicity_ != nullptr && b_FatJet_neMultiplicity_ != nullptr);
+        hasJetMultBranches_ = reader_ok
+            && jetIdInputs_.bind("Jet_chMultiplicity", Jet_chMultiplicity_)
+            && jetIdInputs_.bind("Jet_neMultiplicity", Jet_neMultiplicity_);
+
+        hasFatJetIdBranches_ = reader_ok
+            && jetIdInputs_.bind("FatJet_chHEF",          FatJet_chHEF_)
+            && jetIdInputs_.bind("FatJet_neHEF",          FatJet_neHEF_)
+            && jetIdInputs_.bind("FatJet_chEmEF",         FatJet_chEmEF_)
+            && jetIdInputs_.bind("FatJet_neEmEF",         FatJet_neEmEF_)
+            && jetIdInputs_.bind("FatJet_muEF",           FatJet_muEF_)
+            && jetIdInputs_.bind("FatJet_chMultiplicity", FatJet_chMultiplicity_)
+            && jetIdInputs_.bind("FatJet_neMultiplicity", FatJet_neMultiplicity_);
 
         // Only create Jet_jetId/FatJet_jetId output branches if the input has the needed v15 branches
         if (!jetIdBranchesCreated_ && (hasJetMultBranches_ || hasFatJetIdBranches_))
@@ -178,24 +214,7 @@ class JetSelection : public ObjectSelection
     // Load the extra NanoAODv15 branches for the current entry
     void loadEntry(int entry)
     {
-        if (b_Jet_chMultiplicity_)
-            b_Jet_chMultiplicity_->GetEntry(entry);
-        if (b_Jet_neMultiplicity_)
-            b_Jet_neMultiplicity_->GetEntry(entry);
-        if (b_FatJet_chHEF_)
-            b_FatJet_chHEF_->GetEntry(entry);
-        if (b_FatJet_neHEF_)
-            b_FatJet_neHEF_->GetEntry(entry);
-        if (b_FatJet_chEmEF_)
-            b_FatJet_chEmEF_->GetEntry(entry);
-        if (b_FatJet_neEmEF_)
-            b_FatJet_neEmEF_->GetEntry(entry);
-        if (b_FatJet_muEF_)
-            b_FatJet_muEF_->GetEntry(entry);
-        if (b_FatJet_chMultiplicity_)
-            b_FatJet_chMultiplicity_->GetEntry(entry);
-        if (b_FatJet_neMultiplicity_)
-            b_FatJet_neMultiplicity_->GetEntry(entry);
+        jetIdInputs_.loadEntry(entry);
     }
 
     // Compute Jet_jetId and FatJet_jetId using correctionlib and store in output branches

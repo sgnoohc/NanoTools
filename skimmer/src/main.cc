@@ -30,7 +30,14 @@ int main(int argc, char **argv)
     bool remove_branches = false;
 
     // Output setting (setting which TBranches to save from original Nano)
-    Arbusto arbusto = Arbusto(output_tfile, cli.input_tchain, {"Electron*", "Muon*", "Jet*", "Tau*", "GenPart*", "GenJet*", "Generator*", "FatJet*", "*MET*", "event*", "run*", "luminosityBlock*", "genWeight*", "btagWeight*", "LHE*", "*Weight*", "Flag*", "SubJet*", "HLT_*", "Pileup*", "*Rho*", "*PV*", "*Puppi*"}, remove_branches);
+    Arbusto arbusto = Arbusto(output_tfile, cli.input_tchain, {"Electron*", "Muon*", "Jet*", "Tau*", "GenPart*", "GenJet*", "Generator*", "FatJet*", "*MET*", "event*", "run*", "luminosityBlock*", "genWeight*", "btagWeight*", "LHE*", "*Weight*", "Flag*", "SubJet*", "HLT_*", "Pileup*", "*Rho*", "*PV*", "*Puppi*"}, remove_branches,
+        // The v12-based PFNano inputs (2022/2023) already carry Jet_jetId, and the
+        // skimmer writes its own recomputed JSON-recipe Jet_jetId. Without this the
+        // output holds TWO branches called Jet_jetId and RDataFrame silently returns
+        // the first (the stale v12 UChar_t one). Rename the input copy so Jet_jetId
+        // always means the recomputed ID, in every year, while the original stays
+        // available for comparison. v15 inputs have no Jet_jetId, so this is a no-op.
+        {{"Jet_jetId", "Jet_jetId_v12"}});
     if (cli.debug)
     {
         std::cout << "--> Initialize arbusto" << std::endl;

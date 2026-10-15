@@ -1,7 +1,26 @@
 Arbusto::Arbusto() {}
 
-Arbusto::Arbusto(TFile* new_tfile, TChain* tchain, std::vector<TString> branch_names, bool remove_branches) 
-: remove_branches(remove_branches), branch_names(branch_names)
+void Arbusto::applyRenames(TTree* tree)
+{
+    if (!tree) return;
+    for (auto& ren : rename_branches)
+    {
+        // Skip if already renamed (init() runs per tree) or the branch is absent
+        if (tree->GetBranch(ren.second)) continue;
+        TBranch* br = tree->GetBranch(ren.first);
+        if (!br) continue;
+        br->SetName(ren.second);
+        TObjArray* leaves = br->GetListOfLeaves();
+        if (leaves && leaves->GetEntries() == 1)
+        {
+            static_cast<TLeaf*>(leaves->At(0))->SetName(ren.second);
+        }
+    }
+}
+
+Arbusto::Arbusto(TFile* new_tfile, TChain* tchain, std::vector<TString> branch_names, bool remove_branches,
+                 std::vector<std::pair<TString, TString>> rename_branches) 
+: remove_branches(remove_branches), branch_names(branch_names), rename_branches(rename_branches)
 {
     // If remove_branches is true, this inverts the selection to drop the listed branches
     tfile = new_tfile;
@@ -13,6 +32,11 @@ Arbusto::Arbusto(TFile* new_tfile, TChain* tchain, std::vector<TString> branch_n
         tchain->SetBranchStatus(branch_name, !remove_branches);
     }
     ttree = (TTree*)tchain->CloneTree(0);
+    // Rename on the OUTPUT clone, not on the chain before cloning: TChain::CloneTree()
+    // reloads the tree from file and discards any in-memory rename, which left the
+    // output holding the old name while init() renamed the input -- CopyAddresses then
+    // could not pair them ("Could not find branch named ...").
+    applyRenames(ttree);
 }
 
 Arbusto::Arbusto(HEPCLI& cli, std::vector<TString> branch_names) 
@@ -49,6 +73,8 @@ void Arbusto::init(TTree* next_ttree)
     {
         next_ttree->SetBranchStatus(branch_name, !remove_branches);
     }
+    // Rename BEFORE CopyAddresses so input and output branch names still match
+    applyRenames(next_ttree);
     next_ttree->CopyAddresses(ttree);
     orig_ttree = next_ttree;
 

@@ -6,6 +6,8 @@
 #include "TLeaf.h"
 #include "TObjArray.h"
 #include <cstring>
+#include <vector>
+#include <utility>
 
 #include "arbol.h"
 #include "hepcli.h"
@@ -22,6 +24,16 @@ protected:
     std::vector<TString> branch_names;
     /** Pointer to current TTree to skim */
     TTree* orig_ttree;
+    /** Input branches to rename before cloning/copying addresses (old -> new) */
+    std::vector<std::pair<TString, TString>> rename_branches;
+    /**
+     * Rename input branches per rename_branches, so a branch the skimmer intends
+     * to recompute under the same name does not end up duplicated in the output.
+     * Must run before CloneTree() and before CopyAddresses() on every new tree.
+     * @param tree pointer to the input TTree
+     * @return none
+     */
+    void applyRenames(TTree* tree);
 public:
     /**
      * Arbusto object constructor
@@ -36,7 +48,8 @@ public:
      * @param remove_branches bool selections so branches are dropped not kept
      * @return none
      */
-    Arbusto(TFile* new_tfile, TChain* tchain, std::vector<TString> branch_names, bool remove_branches);
+    Arbusto(TFile* new_tfile, TChain* tchain, std::vector<TString> branch_names, bool remove_branches,
+            std::vector<std::pair<TString, TString>> rename_branches = {});
     /**
      * Arbusto object overload constructor
      * @param cli HEPCLI object
