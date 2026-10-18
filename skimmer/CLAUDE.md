@@ -151,6 +151,7 @@ COMPLETE → VALIDATED. Full narrative goes in `log.md`; keep this terse.
 
 | Ver | Scope | Status | Notes |
 |---|---|---|---|
+| v48 | **Full `4LepLoose` campaign for the ZZZ analysis** (collaborator request): MC `run2_bkg,run2_bkg_dy_ht,run2_bkg_dy_jet,run2_bkg_zz4l` + `run3_bkg,run3_bkg_hh,run3_bkg_ggzz4l,run3_bkg_hh_bbtautau,run3_bkg_zh4l`; data `run2_data,run3_data,run3_data_2026` | VALIDATING 2026-10-18 | 883 tasks / 5,611 jobs. Four tags: Run2_Bkg (442 ds), Run2_Data (86), Run3_Bkg (160+2 linked), Run3_Data (185, **2022-2026 in ONE dir** — both run3 data groups share the key). Group list chosen by set-cover against the real v30 4Lep listings: 0 uncovered. Run2 is the UNION of v30's 232 and v47's 394 = 442 (4LepLoose has no matrix column so it runs on hadronic samples 4Lep drops). **Run3 is 160 not 170: ten DY PTLL sets are INVALID in DAS.** `finalize_v48.py` links the 2 NanoAODv13 bbtautau ds into the v15 tag and writes the Summer24for2025 aliases (all Summer24 ds — v30 only has 131 of 170). |
 | v47 | `run3_bkg` + `run2_bkg`, `--channels 4LepLoose` (519 ds) | ✅ VALIDATED 2026-10-14 | run3 1171/1171 + run2 818/818. check: **519 ds, 0 errors**, 288 benign LHE warnings, **0 `eventCount=0`** (loose WP selects everywhere). Weights clean (0 sumw spread, 0 cutflow mismatch). **447 GB** (Run3 262.8 + Run2 184.4), vs 0.8 TB projected. Acceptance **0.596%** overall (Run2 0.661%, Run3 0.557%) = **7× tight 4Lep**, NOT the 300-440× estimated from single DY/ttbar files — that baseline had almost no real 4L events. 10 DY PTLL datasets produced 0 jobs: **INVALID in DAS** (see below). NOT linked into v30 (opt-in channel). |
 | v46 | `run2_bkg,run3_bkg,run2_data,run3_data`, `--channels 2Lep4J` (756 ds) | ✅ VALIDATED 2026-10-12 | 4692/4692. check: 746 ds, 2 benign `eventCount=0`, 288 benign LHE warns. **Weight cross-check: 348/348 datasets match v30's 0Lep0FJ `genEventSumw` exactly** — same inputs, different channel/splitting. Linked into v30 (746 links). v30 now has all 10 channel tags. |
 | v45 | `run3_data_parking` (59 ds ParkingHH/HH0/HH1 2023-2026), `--channels 0Lep*` | ✅ VALIDATED 2026-10-12 | 2520/2520. check: 236 ds, **1** benign `eventCount=0` (Run2024A, only 2157 events, needs >=8 jets). 4.30e9 events selected. ⚠ **59 datasets cover only 47 DISTINCT RUN SETS** — see vbsvvh_parking.py. |
@@ -170,7 +171,7 @@ COMPLETE → VALIDATED. Full narrative goes in `log.md`; keep this terse.
 | v29 | abandoned | — | only Run2_Data/3Lep partial; superseded by v30. |
 | ≤v28 | older | complete | under `VBSVVH_skim_v26/27/28/`; v24 dirs sit directly under `skim/`. |
 
-**Next version: v48.** Confirm scope with the user (§1) before submitting.
+**Next version: v49.** Confirm scope with the user (§1) before submitting.
 
 ### §7. Traps that have each cost ~2 days — read before resubmitting anything
 
@@ -249,6 +250,41 @@ matters for anything normalising against its DY stack. Check status with:
 ```bash
 dasgoclient -query="dataset dataset=<DS> status=* | grep dataset.status"
 ```
+
+### (e) Test with MULTI-FILE input, or per-tree bugs stay hidden
+`initPerTTree` / `JetSelection::initTree` run once per input file. A fix
+validated only on single-file inputs can pass every local test and then fail in
+production, where jobs routinely chain 50-100 files. The jet-ID reader fix
+(5a1d279) did exactly that: it segfaulted after 55 of 77 trees, and still
+exited 0, so Metis logged COMPLETED-with-no-output and retried it seven times.
+Always smoke-test with several input files, not one.
+
+### (f) Never run heavy work on a login node
+A 16-worker maintenance pass on `login12` held 359% CPU for 9 minutes on a
+machine already at load 137 with 69 users. Use `sbatch`. Sharding keeps each
+task short -- the same 16k-file pass split 20 ways ran in ~40 s per task. The
+repo now carries sbatch wrappers (`*.sbatch`) for the driver, validation and
+maintenance scripts; prefer QOS `avery` over `avery-b` for small jobs (the
+burst queue sat 100% pending for 9 h while regular `avery` ran).
+
+### (g) `pkill -f` matches the shell that runs it
+It killed the controlling shell four times in one session. Resolve PIDs with
+`pgrep` and kill them explicitly, or use `scancel --name=<jobname>`.
+
+### (h) `make` does not track header dependencies
+Editing `rapido/src/*` or any `.h` does NOT trigger recompilation of
+`src/main.o`. Two separate fixes were silently not compiled in, and the
+resulting debugging chased a stale binary. `touch src/main.cc` (or `make
+clean`) after any header-only change, and re-run `maketar.sh`.
+
+### Waiting for a campaign to finish, correctly
+Two conditions, not one: the expected number of TASK DIRS must exist AND all
+their jobs must be done. Waiting only on "jobs complete" raced badly on v48 --
+a task dir had just been deleted for resubmission, so it was not counted as
+outstanding, the finalize job declared victory and `scancel`'d the driver five
+seconds into its dry run. Use `condor/v48_state.py`, which prints
+`done total zero_job n_tasks` and **aborts loudly** if `PYTHONPATH` is missing
+rather than reporting a false `0 0`.
 
 ### Validating weights, not just structure
 `check.py` never looks inside `runs_summary_*.json`, so a duplicated or dropped

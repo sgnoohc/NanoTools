@@ -4,6 +4,77 @@
 
 ---
 
+## 2026-10-18 — v42 Jet_jetId repaired; skimmer fixed twice; v48 launched for ZZZ
+
+**Collaborator report (2026-10-15), both parts reproduced and both real.**
+
+**(1) Duplicate `Jet_jetId` in the 2022/23 skims.** The v12-based PFNano inputs
+carry their own `Jet_jetId` (UChar_t), Arbusto copies it through as `Jet*`, and
+the skimmer writes its own recomputed JSON-recipe `Jet_jetId` (vector<float>).
+Two branches, same name; RDataFrame returns the first. v15 inputs have no
+`Jet_jetId`, so only 2022/23 were affected. `FatJet_jetId` has only one branch —
+AK4 only.
+
+Physics impact confirmed and larger than reported: at |eta|>3 the v12 ID passes
+**27-29%** of jets vs **86%** for the recomputed one. The collaborator said "about
+half"; it is 57-68% of forward jets accepted by the recipe and rejected by v12.
+
+**(2) Nine corrupted branches.** `Jet_{ch,ne}Multiplicity` and seven `FatJet_*`
+fractions/multiplicities were uninitialised memory in the output — denormal
+floats (~1e-36) and negative multiplicities, against clean values in the input.
+Cause: `Arbusto::fill()` is `orig_ttree->GetEntry(entry); ttree->Fill();` and
+`init()` does `CopyAddresses`, so input and output SHARE buffers.
+`ObjectSelection_Jets::initTree()` called `SetAddress()` on exactly those nine,
+orphaning the output buffers. NanoCORE escapes it only because `nt.Init()` runs
+BEFORE `arbusto.init()`, so `CopyAddresses` puts the shared address back.
+
+**This never affected the recomputed `Jet_jetId`** — `loadEntry()` read correct
+values before `computeJetIds()`; only the copied-to-output sources were bad.
+
+**Repair of existing v42 (16,294 files).** `rename_jetid.py`: renames the v12
+branch and leaf to `Jet_jetId_v12`, metadata-only (no baskets rewritten, 0.02 s
+for an 89 MB file), idempotent, verifies each file after writing, refuses to
+touch a file that has only the v12 branch. Ran 10,434 on a login node (a
+mistake, see below), the remaining 5,860 as a 20-way SLURM array in ~40 s/shard.
+
+Validation, all three passes clean: full re-scan of **16,294/16,294 → already_done**;
+event-level spot check of 343 files reading **every entry — 4.45 M events,
+29.1 M jets, 0 errors**, runs_summary consistent 200/200; `check.py` returns
+**4264 ds / 351 errors / 740 warnings, byte-identical to the pre-rename numbers**,
+so nothing regressed. Forward rates post-rename: v12 27-29%, recomputed 86%.
+
+**Skimmer fixed — twice.** `5a1d279` added a rename map to Arbusto (so
+`Jet_jetId` means the recomputed ID in every year) and read the nine inputs
+through a SECOND TFile handle to keep the copy path untouched. That second
+handle was wrong: `open()`/`close()` run once per tree and it **segfaulted after
+55 of 77 trees** on v48 task `Muon1_Run2025B`, still exiting 0 so Metis retried
+it seven times. Every test I had run used a SINGLE input file, so the
+destructive path never executed. `99030b8` replaced it with the simple thing:
+bind ONE buffer to BOTH the input and output branch (`arbusto.ttree` is public)
+— they cannot diverge because there is only one buffer. Verified on 6 trees /
+52,460 events, all nine branches 52460/52460; v15 regression bit-identical.
+
+**v48 launched** — a self-contained `4LepLoose` campaign for the ZZZ analysis.
+MC group list chosen by greedy set-cover against the real v30 4Lep directory
+listings (0 uncovered). Run2 = 442 (the UNION of v30's 232 and v47's 394, since
+`4LepLoose` has no `SAMPLE_MATRIX` column and so runs on hadronic samples 4Lep
+drops); Run3 = 160 + 2 linked. **Run3 is 160 and not v30's 170 because ten DY
+PTLL datasets are INVALID in DAS** — they cannot be reproduced at all.
+Data: 86 + 185, with Run3 2022-2026 in ONE directory (both run3 data groups
+share the `Run3_Data_v15_v48` key).
+
+Three self-inflicted process errors worth recording, all now in §7:
+- ran the first rename pass on **login12** (359% CPU, 9 min, load 137, 69 users)
+- the finalize job `scancel`'d the driver 5 s into its dry run, because it
+  waited only on "jobs complete" and a just-deleted task dir was not counted
+- `make` does not track header deps, so two fixes were never compiled in and I
+  debugged a stale binary
+
+Published a shareable session handoff covering environment, workflow, ledger,
+the Jet_jetId story and all the traps.
+
+---
+
 ## 2026-10-14 — ✅ v47 VALIDATED: the 4LepLoose channel, and a 7× (not 440×) reality check
 
 **New opt-in channel `4LepLoose`** — the "loosest ≥4 lepton" skim. Working point
