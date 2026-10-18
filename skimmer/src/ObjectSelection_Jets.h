@@ -55,14 +55,10 @@ typedef std::vector<unsigned int> Indices;
 static inline void bindJetIdBranch(TTree *in_tree, TTree *out_tree,
                                    const char *name, void *buf, TBranch **out_br)
 {
+    (void)out_tree;   // unused: see initPerTTree -- CopyAddresses does this for us
     *out_br = in_tree ? in_tree->GetBranch(name) : nullptr;
     if (!*out_br) return;
     (*out_br)->SetAddress(buf);
-    if (out_tree)
-    {
-        TBranch *ob = out_tree->GetBranch(name);
-        if (ob) ob->SetAddress(buf);   // same buffer -> output cannot be orphaned
-    }
 }
 
 class JetSelection : public ObjectSelection

@@ -101,8 +101,22 @@ class Analysis
     // Initialize per TTree, before event loop.
     virtual void initPerTTree(TTree *ttree)
     {
-        // Initialize arbusto
         arbusto.tfile->cd();
+
+        // Config (year, isAPV) first -- the JetId evaluator below needs the year.
+        TString file_name_cfg = cli.input_tchain->GetCurrentFile()->GetName();
+        gconf.GetConfigsFromDatasetName(file_name_cfg.Data());
+
+        // Bind the extra jet-ID input branches BEFORE arbusto.init(). This is the
+        // whole trick: arbusto.init() calls next_ttree->CopyAddresses(ttree), which
+        // propagates each input branch's address to the matching output branch. Bind
+        // first and the output shares our buffer automatically, so the copy can never
+        // be orphaned -- exactly how NanoCORE avoids the same problem, since nt.Init()
+        // also runs before arbusto.init(). Binding AFTER init instead requires poking
+        // the output tree by hand, which corrupts the heap on long input chains.
+        jetSelection.initTree(ttree);
+
+        // Initialize arbusto
         arbusto.init(ttree);
 
         // Store metadata ttrees
@@ -131,12 +145,6 @@ class Analysis
 //            }
 //        }
 
-        // Set config (e.g. year, isAPV)
-        TString file_name = cli.input_tchain->GetCurrentFile()->GetName();
-        gconf.GetConfigsFromDatasetName(file_name.Data());
-
-        // Initialize TTree branch addresses for jet ID computation (NanoAODv15 variables)
-        jetSelection.initTree(ttree);
     }
 
     // Run per event in the event loop
