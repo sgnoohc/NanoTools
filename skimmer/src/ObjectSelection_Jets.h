@@ -32,72 +32,38 @@ typedef std::vector<unsigned int> Indices;
 #define JETID_NJET_MAX 250
 #define JETID_NFATJET_MAX 40
 
-// Reads the extra NanoAODv15 jet-ID inputs through an INDEPENDENT handle on the
-// same file, so the tree Arbusto writes from is never touched.
+// The extra NanoAODv15 jet-ID inputs (Jet_chMultiplicity, Jet_neMultiplicity and
+// the seven FatJet_* fractions/multiplicities) are not in NanoCORE, so the
+// skimmer reads them itself. Doing that naively corrupts the output.
 //
-// Why this indirection: Arbusto shares buffers between input and output.
-// Arbusto::init() does next_ttree->CopyAddresses(ttree), and Arbusto::fill() is
-// just orig_ttree->GetEntry(entry) followed by ttree->Fill() -- so whatever
-// address an input branch holds at fill() time is what reaches the output file.
+// Arbusto shares buffers between input and output: init() calls
+// next_ttree->CopyAddresses(ttree), and fill() is orig_ttree->GetEntry(entry)
+// followed by ttree->Fill(). Whatever address an input branch holds at fill()
+// time is what reaches the file. Pointing the INPUT branch at a private array
+// therefore orphans the OUTPUT buffer, which then writes uninitialised memory --
+// the denormal floats and negative multiplicities seen in the v42 skims.
 //
-// Calling SetAddress() on those branches to read them ourselves orphaned the
-// output buffers and wrote uninitialised memory: denormal floats and negative
-// multiplicities in Jet_chMultiplicity, Jet_neMultiplicity and the seven
-// FatJet_* branches of the v42 (2022/2023) skims. Saving and restoring the
-// address is not reliable either, because the shared address can still be null
-// when we bind, leaving nothing to restore.
+// Two approaches were tried and rejected. Saving and restoring the address
+// around each read is unreliable: the shared address can still be null when we
+// bind, so there is nothing to restore. Opening a second TFile on the same file
+// is worse: open()/close() run once per tree, and on a 77-file job it segfaulted
+// after 55 trees.
 //
-// A second TFile handle sidesteps the whole problem: separate branch objects,
-// separate buffers, zero interaction with the copy path. Entry numbering is
-// identical (same tree in the same file), and only these nine small branches
-// are enabled, so the extra I/O is negligible.
-class JetIdInputReader
+// What works is to bind ONE buffer to BOTH branches. The input branch fills it
+// on GetEntry, the output branch writes from it on Fill, and the two cannot
+// disagree because there is only one buffer.
+static inline void bindJetIdBranch(TTree *in_tree, TTree *out_tree,
+                                   const char *name, void *buf, TBranch **out_br)
 {
-  public:
-    TFile *file_ = nullptr;
-    TTree *tree_ = nullptr;
-
-    ~JetIdInputReader() { close(); }
-
-    void close()
+    *out_br = in_tree ? in_tree->GetBranch(name) : nullptr;
+    if (!*out_br) return;
+    (*out_br)->SetAddress(buf);
+    if (out_tree)
     {
-        if (file_) { file_->Close(); delete file_; }
-        file_ = nullptr;
-        tree_ = nullptr;
+        TBranch *ob = out_tree->GetBranch(name);
+        if (ob) ob->SetAddress(buf);   // same buffer -> output cannot be orphaned
     }
-
-    // Open our own handle on the file backing `main_tree`. Returns false if
-    // unavailable, in which case the caller must not use the buffers.
-    bool open(TTree *main_tree)
-    {
-        close();
-        TFile *src = main_tree->GetCurrentFile();
-        if (!src) return false;
-        // TFile::Open() makes the newly opened file the current directory. The
-        // skimmer's output tree lives in the Arbusto output file, so leaving
-        // gDirectory pointing here sends its basket writes to a read-only file
-        // ("basket's WriteBuffer failed") and the output is lost. Restore it.
-        TDirectory *prev = gDirectory;
-        file_ = TFile::Open(src->GetName(), "READ");
-        if (!file_ || file_->IsZombie()) { close(); if (prev) prev->cd(); return false; }
-        tree_ = dynamic_cast<TTree *>(file_->Get(main_tree->GetName()));
-        if (!tree_) { close(); if (prev) prev->cd(); return false; }
-        tree_->SetBranchStatus("*", 0);
-        if (prev) prev->cd();
-        return true;
-    }
-
-    // Enable one branch and point it at our own buffer.
-    bool bind(const char *name, void *buf)
-    {
-        if (!tree_ || !tree_->GetBranch(name)) return false;
-        tree_->SetBranchStatus(name, 1);
-        tree_->SetBranchAddress(name, buf);
-        return true;
-    }
-
-    void loadEntry(int entry) { if (tree_) tree_->GetEntry(entry); }
-};
+}
 
 class JetSelection : public ObjectSelection
 {
@@ -128,8 +94,8 @@ class JetSelection : public ObjectSelection
     Short_t FatJet_chMultiplicity_[JETID_NFATJET_MAX];
     Short_t FatJet_neMultiplicity_[JETID_NFATJET_MAX];
 
-    // Independent reader for the jet-ID input branches (never touches Arbusto's tree)
-    JetIdInputReader jetIdInputs_;
+    // Input branches we read ourselves for jet-ID recomputation
+    std::vector<TBranch *> jetIdBranches_;
 
     bool hasJetMultBranches_ = false;
     bool hasFatJetIdBranches_ = false;
@@ -179,22 +145,32 @@ class JetSelection : public ObjectSelection
         }
         jetIdEval_ = std::make_unique<JetIdEvaluator>(jsonPath, gconf.year);
 
-        // Open our own handle on this file and bind the extra jet-ID inputs there,
-        // so Arbusto's copy of these branches is left completely untouched.
-        bool reader_ok = jetIdInputs_.open(tree);
+        // Bind each extra input to a buffer shared with the matching OUTPUT branch,
+        // so Arbusto's copy and our read can never diverge (see note above).
+        jetIdBranches_.clear();
+        TTree *out = arbusto.ttree;
+        auto bind = [&](const char *name, void *buf) -> TBranch *
+        {
+            TBranch *b = nullptr;
+            bindJetIdBranch(tree, out, name, buf, &b);
+            if (b) jetIdBranches_.push_back(b);
+            return b;
+        };
 
-        hasJetMultBranches_ = reader_ok
-            && jetIdInputs_.bind("Jet_chMultiplicity", Jet_chMultiplicity_)
-            && jetIdInputs_.bind("Jet_neMultiplicity", Jet_neMultiplicity_);
+        b_Jet_chMultiplicity_ = bind("Jet_chMultiplicity", Jet_chMultiplicity_);
+        b_Jet_neMultiplicity_ = bind("Jet_neMultiplicity", Jet_neMultiplicity_);
+        hasJetMultBranches_ = (b_Jet_chMultiplicity_ && b_Jet_neMultiplicity_);
 
-        hasFatJetIdBranches_ = reader_ok
-            && jetIdInputs_.bind("FatJet_chHEF",          FatJet_chHEF_)
-            && jetIdInputs_.bind("FatJet_neHEF",          FatJet_neHEF_)
-            && jetIdInputs_.bind("FatJet_chEmEF",         FatJet_chEmEF_)
-            && jetIdInputs_.bind("FatJet_neEmEF",         FatJet_neEmEF_)
-            && jetIdInputs_.bind("FatJet_muEF",           FatJet_muEF_)
-            && jetIdInputs_.bind("FatJet_chMultiplicity", FatJet_chMultiplicity_)
-            && jetIdInputs_.bind("FatJet_neMultiplicity", FatJet_neMultiplicity_);
+        b_FatJet_chHEF_          = bind("FatJet_chHEF",          FatJet_chHEF_);
+        b_FatJet_neHEF_          = bind("FatJet_neHEF",          FatJet_neHEF_);
+        b_FatJet_chEmEF_         = bind("FatJet_chEmEF",         FatJet_chEmEF_);
+        b_FatJet_neEmEF_         = bind("FatJet_neEmEF",         FatJet_neEmEF_);
+        b_FatJet_muEF_           = bind("FatJet_muEF",           FatJet_muEF_);
+        b_FatJet_chMultiplicity_ = bind("FatJet_chMultiplicity", FatJet_chMultiplicity_);
+        b_FatJet_neMultiplicity_ = bind("FatJet_neMultiplicity", FatJet_neMultiplicity_);
+        hasFatJetIdBranches_ = (b_FatJet_chHEF_ && b_FatJet_neHEF_ && b_FatJet_chEmEF_
+                                && b_FatJet_neEmEF_ && b_FatJet_muEF_
+                                && b_FatJet_chMultiplicity_ && b_FatJet_neMultiplicity_);
 
         // Only create Jet_jetId/FatJet_jetId output branches if the input has the needed v15 branches
         if (!jetIdBranchesCreated_ && (hasJetMultBranches_ || hasFatJetIdBranches_))
@@ -214,7 +190,7 @@ class JetSelection : public ObjectSelection
     // Load the extra NanoAODv15 branches for the current entry
     void loadEntry(int entry)
     {
-        jetIdInputs_.loadEntry(entry);
+        for (TBranch *b : jetIdBranches_) b->GetEntry(entry);
     }
 
     // Compute Jet_jetId and FatJet_jetId using correctionlib and store in output branches
