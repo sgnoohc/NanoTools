@@ -28,9 +28,13 @@ typedef std::vector<double> Doubles;
 typedef std::vector<int> Integers;
 typedef std::vector<unsigned int> Indices;
 
-// Max array sizes (must match NanoCORE Nano.h)
-#define JETID_NJET_MAX 250
-#define JETID_NFATJET_MAX 40
+// Max array sizes: taken from NanoCORE Nano.h rather than copied, because
+// Nano::CheckBufferSizes() (called in main.cc before runPerEvent) only guards
+// Nano's own limits. A private copy drifted once -- 40 here vs NFATJET_MAX=128
+// -- and a 44-fat-jet 2025 event overflowed FatJet_neMultiplicity_ into
+// jetIdBranches_, segfaulting the next initTree() on Muon1_Run2025B.
+#define JETID_NJET_MAX NJET_MAX
+#define JETID_NFATJET_MAX NFATJET_MAX
 
 // The extra NanoAODv15 jet-ID inputs (Jet_chMultiplicity, Jet_neMultiplicity and
 // the seven FatJet_* fractions/multiplicities) are not in NanoCORE, so the
