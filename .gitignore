@@ -33,3 +33,11 @@ skimmer/condor/__pycache__/
 #   python3 make_filelists.py v14_HVV_private
 # (the generator v14_HVV_private.py IS tracked).
 nanoindex_v14_HVV_private.json
+
+# Local engineering narrative — operational runbook lives in skimmer/CLAUDE.md
+skimmer/log.md
+
+# Campaign logs and check output (local only)
+skimmer/condor/logs_v*/
+skimmer/condor/check_v*.log
+skimmer/condor/*.log

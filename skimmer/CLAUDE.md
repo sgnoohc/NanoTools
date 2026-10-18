@@ -1,7 +1,10 @@
 # START HERE — VBS VVH Skimmer production runbook
 
-This file auto-loads every session. It is the entrypoint: read it, then
-read `log.md` (newest-first narrative history) for full context before acting.
+This file auto-loads every session and is the operational entrypoint: setup,
+workflow, channel definitions, the version ledger and known failure modes.
+
+`log.md` holds the newest-first narrative history. It is deliberately NOT in
+the repo (see `.gitignore`) — read it locally for full context if present.
 
 **When the user says "produce vNN" (e.g. "produce v33"), follow §1–§4 below.**
 Keep the version ledger (§5) up to date — update it the moment a job is
@@ -163,7 +166,7 @@ COMPLETE → VALIDATED. Full narrative goes in `log.md`; keep this terse.
 | v39 | v14 PFNano **background MC**, 4 eras × 9 channels | ⚠️ **95.6% — STOPPED, NOT FINISHED** | 7542 outputs; check clean (480 benign `eventCount=0`, 0 structural). **BUT 80 PARTIAL + 79 MISSING = 159 dataset-channels to redo** — partial event coverage is invisible in the files. Stopped over 407 OOM + node `/tmp` exhaustion (613-file sub-jobs). Needs a `files_per_job` cap before resuming. |
 | v35 | `run3_sig_lowc2v` (8 new low-C2V signal scan points: C2V=0.25 & 0.75 @ C3=1.0 × 4 procs WWH_OS/SS/WZH/ZZH; 100 files each, main base only — AUX has no 0p25/0p75) | ✅ VALIDATED 2026-07-14 | "All job finished" 2026-07-14 01:10 UTC. **8 datasets, 40 files (5 ROOT each).** `check_v35.log`: **0 errors, 0 warnings.** ✅ **Folded into v30**: 8 relative symlinks `VBSVVH_skim_v30/Run3_Sig_v15_v30_Sig/<ds> → ../../VBSVVH_skim_v35/...` (v30 Sig now 40 = 32 real + 8 linked); brand-new datasets → **no double-counting** (unlike v33 DY). Isolated version, v32/`run3_data_2025` pattern. `cache_miss_empty` DAS warnings benign (private ceph signal not in DAS → 20 files/job default). Commits (branch `vvh_skimmer`): 0d4b251 (samples), b06588c (`run3_sig_lowc2v` group). Used existing Jul-8 tarball (Sig output identical to reverted binary; not re-tarred). |
 | v34 (data) | `run2_data,run3_data` (2025 ⊂ run3_data), `--channels 2LepZ350` (lepton PDs auto-filtered: 86 + 141 = **227 unique datasets**) | ✅ VALIDATED 2026-07-08 | Folded into the v34 skim dir alongside MC. **2703 files, 1.7 GB.** check: Run2 86 datasets 0 err; Run3 141 (incl 56 Run2025) 5 benign `eventCount=0`, 0 zombie/missing. NOTE: `run3_data_2025` (72) is a FULL SUBSET of `run3_data` (190) — passing both was redundant (Metis deduped); just use `run2_data,run3_data` next time. Launch: `--samples run2_data,run3_data --version v34 --channels 2LepZ350` (source setup.sh first!). |
-| v34 (MC) | `run2_bkg_ttz` + `run3_bkg_ttz`, `--channels 2LepZ350` only (ttZ boosted-Z bkg: 337 group entries → 336 unique) | ✅ VALIDATED 2026-07-08 | "All job finished". **1390 files, 97 GB.** `check_v34.log`: 336 datasets, 323 errors **all benign `eventCount=0`** (tight boosted-Z cut → 0 events in most low-rate bkg; spot-checked ggZH→Zνν: non-zombie, Runs+genEventSumw intact), 86 benign LHE warnings, 0 zombie/missing. 337→336 = duplicate `TTLL_Bin-MLL-4to50` in source run3_bkg (harmless). | Relaunched 2026-07-08 15:11 UTC to fold in W→ℓν (+36 Run2, +14 Run3; 287→337). Earlier: first launch 14:24 crashed on DIS timeout (`USEDASGOCLIENT` unset → `submit_v34.log.disfail1`); 14:28 relaunch w/ setup.sh sourced ran 287 (`submit_v34.log.pass1`). Proxy valid to Jul 15. Boosted-Z channel (pT(ℓℓ)≥350, OSSF, loose mass). Families: DY, **W→ℓν**, ttbar+ttbb, ttZ, ttW, ttWW, ttWZ, ttH, tZq, tWZ, WZ, ZZ+ggZZ, VH, VVV (hadronic W→qq/Z→qq excluded). Committed 8a00c6a, e79508d, 344864c. |
+| v34 (MC) | `run2_bkg_ttz` + `run3_bkg_ttz`, `--channels 2LepZ350` only (ttZ boosted-Z bkg: 337 group entries → 336 unique) | ✅ VALIDATED 2026-07-08 | "All job finished". **1390 files, 97 GB.** `check_v34.log`: 336 datasets, 323 errors **all benign `eventCount=0`** (tight boosted-Z cut → 0 events in most low-rate bkg; spot-checked ggZH→Zνν: non-zombie, Runs+genEventSumw intact), 86 benign LHE warnings, 0 zombie/missing. 337→336 = duplicate `TTLL_Bin-MLL-4to50` in source run3_bkg (harmless). | Boosted-Z channel (pT(ℓℓ)≥350, OSSF, loose mass). Families: DY, **W→ℓν**, ttbar+ttbb, ttZ, ttW, ttWW, ttWZ, ttH, tZq, tWZ, WZ, ZZ+ggZZ, VH, VVV (hadronic W→qq/Z→qq excluded). Committed 8a00c6a, e79508d, 344864c. |
 | v33 | `run2_bkg_dy_ht` + `run2_bkg_dy_jet`, all channels (high-stat DY: HT-binned 32 + jet-binned 12 = 44 datasets) | VALIDATED 2026-06-26 | Done ~08:43 UTC Jun 25 ("All job finished"). 440/440 dataset dirs, 1110 files. `check_v33.log`: 40 errors, **all benign `eventCount=0`** (tight channels × low-jet DY: 0Lep3FJ×13, 2Lep2FJ×5; spot-checked — intact ROOT + cutflow + genEventSumw), 0 real errors / 0 warnings. New groups in `vbsvvh_mc.py`/`samples.py` (**uncommitted**). DY sets are **alternatives** to inclusive M-50 in `run2_bkg` (stitch downstream). |
 | v32 | `run3_data_2025`, all channels (new 2025 PromptReco Run3 data) | COMPLETE, validating | 400 datasets; check_v32 had 21 errors → 5 missing JSON regenerated, rest are benign `eventCount=0`. Logs in `condor/logs_v32/`, `condor/check_v32*.log`. **2025 data soft-linked into v30** (344 relative symlinks, 9 channels, 2Lep4J skipped) so `VBSVVH_skim_v30/Run3_Data_*` spans 2022–2025. |
 | v31 | `2Lep4J` channel only, run2+run3 data+bkg | done | `--channels 2Lep4J`; signal forced to Sig. |
@@ -173,7 +176,7 @@ COMPLETE → VALIDATED. Full narrative goes in `log.md`; keep this terse.
 
 **Next version: v49.** Confirm scope with the user (§1) before submitting.
 
-### §7. Traps that have each cost ~2 days — read before resubmitting anything
+### §7. Known failure modes — read before resubmitting anything
 
 **(a) Changing a job split requires DELETING the task dir.**
 `io_mapping` (which files go in which job) is persisted in the task's
@@ -184,24 +187,21 @@ Verify on disk, not from the log:
 ```bash
 python3 -c "import pickle; io=pickle.load(open('<taskdir>/backup.pkl','rb'))['io_mapping']; print(len(io),'jobs')"
 ```
-This is why TTWW 2023 × 0Lep0FJ retried the same oversized job seven times over
-~50 h. Deleting the task dir made the resplit take effect and all 6 jobs
-finished in ~3 h.
+Symptom when missed: the same oversized job is resubmitted repeatedly with no
+progress. Deleting the task dir makes the new split take effect.
 
 **(b) `MAX_FILES_PER_JOB` bounds INPUT, not OUTPUT.**
-A high-acceptance channel can make a job unschedulable at a perfectly modest
-file count. TTWW 2023 in `0Lep0FJ` keeps **78 %** of events, so one 52-file job
-had to write **~65 GB** into a single output — it hit the 8 h wall, then
-SIGSEGV'd. The 100-file cap never engaged (its split was 60 < 100). When a
+A high-acceptance channel can make a job unschedulable at a modest file count.
+At 78 % acceptance a 52-file job must write ~65 GB into one output, which
+exceeds the 8 h wall even though a 100-file cap never engages. When a
 dataset×channel fails repeatedly, check the acceptance before assuming the cap
 covers you, and split on expected OUTPUT size.
 
 **(c) Read completion from `io_mapping`, NEVER from the driver log.**
 The Metis loop REPRINTS `jobs expected` and `Job N submitted` on every
-monitoring pass (244 passes on v46), so any `grep`/`tail` over the log
-double-counts and any `tac | grep -m N` can surface hours-old lines as if they
-were current. This produced two false alarms: a phantom 104-job shortfall on
-v46, and "10 tasks being resubmitted" that were not. The authoritative check:
+monitoring pass, so any `grep`/`tail` over the log double-counts and any
+`tac | grep -m N` can surface hours-old lines as if they were current.
+The authoritative check:
 ```bash
 python3 - <<'EOF'
 import pickle, os, glob
@@ -214,8 +214,6 @@ EOF
 Related: when comparing coverage, a v30 tag's `ls` count is NOT its real
 dataset count — it mixes real dirs, cross-version symlinks and
 `Summer24for2025` aliases. Decompose with `find -type d` vs `-type l` first.
-A "195 missing datasets" claim on v30 Run3_Bkg turned out to be 135 real dirs
-+ 195 links; the true gap was one dataset.
 
 **Corollary on event counts:** `v14_nevents.py` holds *sampled estimates*
 extrapolated from 2 files per sample, not DAS truth. Measured against the real
@@ -227,10 +225,8 @@ use them for normalisation. The truth is the summed `genEventCount` /
 ### (d) "All job finished" is NOT a reliable completion signal
 A dataset that is INVALID in DAS yields a task with an EMPTY `io_mapping`
 (zero jobs). Metis never counts such a task as complete, so the driver loops
-forever even when every real job has finished. v47's run3 driver had all
-1171/1171 jobs done and still never printed "All job finished"; it had to be
-killed by PID. A v46 driver was found still spinning **4 days 18 hours** after
-that version was logged VALIDATED.
+forever even when every real job has finished — a driver can stay alive
+indefinitely after its work is complete. Stop it with `scancel --name=<job>`.
 
 Poll `io_mapping` instead (see §7c for the snippet) and treat
 `done == total` as the completion condition. When a watcher script waits on
@@ -254,35 +250,36 @@ dasgoclient -query="dataset dataset=<DS> status=* | grep dataset.status"
 ### (e) Test with MULTI-FILE input, or per-tree bugs stay hidden
 `initPerTTree` / `JetSelection::initTree` run once per input file. A fix
 validated only on single-file inputs can pass every local test and then fail in
-production, where jobs routinely chain 50-100 files. The jet-ID reader fix
-(5a1d279) did exactly that: it segfaulted after 55 of 77 trees, and still
-exited 0, so Metis logged COMPLETED-with-no-output and retried it seven times.
-Always smoke-test with several input files, not one.
+production, where jobs routinely chain 50-100 files. A per-tree fault can
+appear only after dozens of trees, and because the wrapper still exits 0 Metis
+logs COMPLETED-with-no-output and retries indefinitely. Always smoke-test with
+several input files, not one.
 
 ### (f) Never run heavy work on a login node
-A 16-worker maintenance pass on `login12` held 359% CPU for 9 minutes on a
-machine already at load 137 with 69 users. Use `sbatch`. Sharding keeps each
-task short -- the same 16k-file pass split 20 ways ran in ~40 s per task. The
+Login nodes are shared and kill long processes. Use `sbatch`. Sharding keeps
+each task short -- a 16k-file maintenance pass split 20 ways runs in ~40 s per
+task. The
 repo now carries sbatch wrappers (`*.sbatch`) for the driver, validation and
 maintenance scripts; prefer QOS `avery` over `avery-b` for small jobs (the
 burst queue sat 100% pending for 9 h while regular `avery` ran).
 
 ### (g) `pkill -f` matches the shell that runs it
-It killed the controlling shell four times in one session. Resolve PIDs with
-`pgrep` and kill them explicitly, or use `scancel --name=<jobname>`.
+`pkill -f <pattern>` matches its own command line and will kill the shell that
+issued it. Resolve PIDs with `pgrep` and kill them explicitly, or use
+`scancel --name=<jobname>` for SLURM jobs.
 
 ### (h) `make` does not track header dependencies
 Editing `rapido/src/*` or any `.h` does NOT trigger recompilation of
-`src/main.o`. Two separate fixes were silently not compiled in, and the
-resulting debugging chased a stale binary. `touch src/main.cc` (or `make
+`src/main.o`, so a header-only fix is silently not compiled in and the batch
+jobs keep running the old binary. `touch src/main.cc` (or `make
 clean`) after any header-only change, and re-run `maketar.sh`.
 
 ### Waiting for a campaign to finish, correctly
 Two conditions, not one: the expected number of TASK DIRS must exist AND all
-their jobs must be done. Waiting only on "jobs complete" raced badly on v48 --
-a task dir had just been deleted for resubmission, so it was not counted as
-outstanding, the finalize job declared victory and `scancel`'d the driver five
-seconds into its dry run. Use `condor/v48_state.py`, which prints
+their jobs must be done. Waiting only on "jobs complete" races against
+resubmission -- a task dir deleted for resubmission is not counted as
+outstanding, so the campaign reads as finished when it is not.
+Use `condor/v48_state.py`, which prints
 `done total zero_job n_tasks` and **aborts loudly** if `PYTHONPATH` is missing
 rather than reporting a false `0 0`.
 
@@ -322,6 +319,7 @@ parses the year correctly and then aborts later, so the logs show
 5. `NanoCORE/ElectronSelections.cc` `VVH::electronID()` — same
 Plus `skimmer/src/JetId.h` `getJsonPath()` (returns "" → jet IDs silently
 skipped) and `LEPTON_PDS`/`HADRONIC_PDS` in `submit.py` for any new PD streams.
+Missing any one aborts every job at runtime.
 **Always smoke-test one real file locally before submitting a new year.**
 
 ### Open items
