@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 """
-Post-processing for the v48 4LepLoose campaign (ZZZ analysis request).
+Post-processing for the v48 4LepLoose campaign (ZZZ analysis request), and for
+any later campaign over the same groups (v49 4LepLooseNoLH): pass --skim and
+--channel. The defaults are v48's.
 
 Two steps, both idempotent and both pure-symlink (no data is moved or copied):
 
@@ -29,6 +31,7 @@ Two steps, both idempotent and both pure-symlink (no data is moved or copied):
 Usage:
     python3 finalize_v48.py                 # dry run
     python3 finalize_v48.py --execute
+    python3 finalize_v48.py --skim VBSVVH_skim_v49 --channel 4LepLooseNoLH --execute
 """
 import argparse
 import os
@@ -41,12 +44,14 @@ ALIAS = "Summer24for2025"
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--skim", default="VBSVVH_skim_v48")
+    ap.add_argument("--channel", default="4LepLoose")
     ap.add_argument("--execute", action="store_true")
     args = ap.parse_args()
 
     root = os.path.join(BASE, args.skim)
-    v15 = os.path.join(root, "Run3_Bkg_v15_v48_4LepLoose")
-    v13 = os.path.join(root, "Run3_Bkg_v13_v48_4LepLoose")
+    ver = args.skim.rsplit("_", 1)[-1]   # VBSVVH_skim_v48 -> v48
+    v15 = os.path.join(root, f"Run3_Bkg_v15_{ver}_{args.channel}")
+    v13 = os.path.join(root, f"Run3_Bkg_v13_{ver}_{args.channel}")
     if not os.path.isdir(v15):
         sys.exit(f"missing {v15}")
 
@@ -96,7 +101,7 @@ def main():
         broken = [e for e in ents
                   if os.path.islink(os.path.join(v15, e))
                   and not os.path.exists(os.path.join(v15, e))]
-        print(f"\nfinal Run3_Bkg_v15_v48_4LepLoose: {base_n} datasets + {al_n} aliases")
+        print(f"\nfinal {os.path.basename(v15)}: {base_n} datasets + {al_n} aliases")
         print(f"broken symlinks: {len(broken)}")
         for b in broken[:5]:
             print(f"   {b}")

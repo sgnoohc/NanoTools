@@ -21,3 +21,10 @@ python3 submit.py --samples run3_data_2025 --pack-size 12 --cpus-per-subjob 1 --
 #   python3 submit.py --samples "${MC2},${MC3},${DATA}" --version v48 \
 #       --channels 4LepLoose --pack-size 6 --cpus-per-subjob 1
 # See launch_v48.sbatch (dry-run gated) and finalize_validate_v48.sbatch.
+
+# v49 (2026-10-18) — v48's groups with the opt-in 4LepLooseNoLH channel
+# (4LepLoose minus the electron lostHits <= 1 cut; ZZZ analysis, so counted
+# Veto-ID electrons with 2-3 lost hits are a subset of the skim).
+#   python3 submit.py --samples "${MC2},${MC3},${DATA}" --version v49 \
+#       --channels 4LepLooseNoLH --pack-size 6 --cpus-per-subjob 1
+# See launch_v49.sbatch (dry-run gated) and finalize_validate_v49.sbatch.

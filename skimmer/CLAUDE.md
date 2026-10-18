@@ -48,6 +48,11 @@ command is always run from `condor/` as `python3 submit.py ... --version vNN`.
     7× the size of 4Lep (v47: 447 GB over 519 bkg datasets). Runs on hadronic
     samples that 4Lep excludes (no matrix column → allowed everywhere), so expect
     more benign zero-yield datasets than 4Lep.
+  - `4LepLooseNoLH` = `4LepLoose` WITHOUT the electron `lostHits <= 1` cut
+    (`VVH::IDloose4LnoLH`); electrons keep what the Veto cutBased ID allows
+    (<= 2 barrel, <= 3 endcap). `IDloose4L` is built on top of it, so the two
+    differ ONLY by that cut and 4LepLooseNoLH is a strict superset (+0.6-1.9%
+    events). Fills `vvh_loose4lnolh_lep_p4s`. `src/Analysis_4LeptonsLooseNoLH.h`.
   - `2LepZ350` ⚠ **NOT IN THIS BRANCH** — reverted to branch `z350` (see v35 log).
     The description is retained for when it returns: inclusive ≥2 loose
     leptons with ≥1 opposite-sign same-flavor pair (e⁺e⁻/µ⁺µ⁻) whose **system
@@ -154,6 +159,7 @@ COMPLETE → VALIDATED. Full narrative goes in `log.md`; keep this terse.
 
 | Ver | Scope | Status | Notes |
 |---|---|---|---|
+| v49 | v48's 12 groups, `--channels 4LepLooseNoLH` (= 4LepLoose minus electron `lostHits <= 1`; ZZZ analysis, so counted plain-Veto electrons with 2-3 lost hits are a subset of the skim) | RUNNING 2026-10-18 (SLURM `v49_launch` 46549932, waiter `v49_final` 46549933; `logs_v49/`) | Dry run = v48 exactly: 884 ds entries, 883 tasks, 5,723 jobs (dry-run estimate; expect 10 zero-job DAS-invalid DY tasks again). Code `dfd3ce2`. Smoke test (ttbar/ZZ4L/ZZZ, multi-file): superset of 4LepLoose, 0 events lost, +0.6-1.9% events/size → expect ~0.94 TB vs v48's 921 GB. `finalize_v48.py --skim VBSVVH_skim_v49 --channel 4LepLooseNoLH` does the v13 link + era aliases. |
 | v48 | **Full `4LepLoose` campaign for the ZZZ analysis** (collaborator request): MC `run2_bkg,run2_bkg_dy_ht,run2_bkg_dy_jet,run2_bkg_zz4l` + `run3_bkg,run3_bkg_hh,run3_bkg_ggzz4l,run3_bkg_hh_bbtautau,run3_bkg_zh4l`; data `run2_data,run3_data,run3_data_2026` | VALIDATING 2026-10-18 | 883 tasks / 5,611 jobs. Four tags: Run2_Bkg (442 ds), Run2_Data (86), Run3_Bkg (160+2 linked), Run3_Data (185, **2022-2026 in ONE dir** — both run3 data groups share the key). Group list chosen by set-cover against the real v30 4Lep listings: 0 uncovered. Run2 is the UNION of v30's 232 and v47's 394 = 442 (4LepLoose has no matrix column so it runs on hadronic samples 4Lep drops). **Run3 is 160 not 170: ten DY PTLL sets are INVALID in DAS.** `finalize_v48.py` links the 2 NanoAODv13 bbtautau ds into the v15 tag and writes the Summer24for2025 aliases (all Summer24 ds — v30 only has 131 of 170). |
 | v47 | `run3_bkg` + `run2_bkg`, `--channels 4LepLoose` (519 ds) | ✅ VALIDATED 2026-10-14 | run3 1171/1171 + run2 818/818. check: **519 ds, 0 errors**, 288 benign LHE warnings, **0 `eventCount=0`** (loose WP selects everywhere). Weights clean (0 sumw spread, 0 cutflow mismatch). **447 GB** (Run3 262.8 + Run2 184.4), vs 0.8 TB projected. Acceptance **0.596%** overall (Run2 0.661%, Run3 0.557%) = **7× tight 4Lep**, NOT the 300-440× estimated from single DY/ttbar files — that baseline had almost no real 4L events. 10 DY PTLL datasets produced 0 jobs: **INVALID in DAS** (see below). NOT linked into v30 (opt-in channel). |
 | v46 | `run2_bkg,run3_bkg,run2_data,run3_data`, `--channels 2Lep4J` (756 ds) | ✅ VALIDATED 2026-10-12 | 4692/4692. check: 746 ds, 2 benign `eventCount=0`, 288 benign LHE warns. **Weight cross-check: 348/348 datasets match v30's 0Lep0FJ `genEventSumw` exactly** — same inputs, different channel/splitting. Linked into v30 (746 links). v30 now has all 10 channel tags. |
@@ -174,7 +180,7 @@ COMPLETE → VALIDATED. Full narrative goes in `log.md`; keep this terse.
 | v29 | abandoned | — | only Run2_Data/3Lep partial; superseded by v30. |
 | ≤v28 | older | complete | under `VBSVVH_skim_v26/27/28/`; v24 dirs sit directly under `skim/`. |
 
-**Next version: v49.** Confirm scope with the user (§1) before submitting.
+**Next version: v50.** Confirm scope with the user (§1) before submitting.
 
 ### §7. Known failure modes — read before resubmitting anything
 
