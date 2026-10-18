@@ -42,7 +42,11 @@ namespace VVH {
         // junk. Measured on Summer24 v15: >=4 lepton acceptance rises from
         // 0.008% to 3.6% (ttbar) and 0.002% to 0.75% (DY), i.e. 300-440x.
         // NOT a physics-analysis WP: expect large heavy-flavour/fake content.
-        IDloose4L = 4
+        IDloose4L = 4,
+        // IDloose4L with the electron lostHits <= 1 cut removed, so electrons
+        // keep whatever the Veto cutBased ID allows (<= 2 barrel, <= 3 endcap).
+        // A strict superset of IDloose4L; muons are identical (no lostHits cut).
+        IDloose4LnoLH = 5
     };
 }
 

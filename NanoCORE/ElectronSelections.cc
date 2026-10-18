@@ -476,6 +476,7 @@ bool VVH::electronID(int idx, VVH::IDLevel id_level, int year) {
     // IDskim is year-agnostic (mirrors cmstas/run3-vbsvvh _looseElectrons)
     if (id_level == VVH::IDskim) return VVH::electronIDskim(idx);
     if (id_level == VVH::IDloose4L) return VVH::electronIDloose4L(idx);
+    if (id_level == VVH::IDloose4LnoLH) return VVH::electronIDloose4LnoLH(idx);
     // Year-specific checks
     switch (year) {
     case (2016):
@@ -573,11 +574,18 @@ bool VVH::electron2024ID(int idx, VVH::IDLevel id_level) {
 // (electrons are not stored below 5 GeV), cutBased>=1 (Veto) and a lost-hits
 // cut to drop obvious track junk. NO isolation, NO dxy/dz, NO sip3d.
 bool VVH::electronIDloose4L(int idx) {
+    if (not VVH::electronIDloose4LnoLH(idx))     return false;
+    if (not (Electron_lostHits().at(idx) <= 1)) return false;
+    return true;
+}
+
+// WP for the 4LepLooseNoLH channel: IDloose4L without the lostHits cut. Built
+// as the base of IDloose4L so the two can only ever differ by that one cut.
+bool VVH::electronIDloose4LnoLH(int idx) {
     float abs_sc_eta = fabs(Electron_eta().at(idx) + Electron_deltaEtaSC().at(idx));
     if (not (Electron_pt().at(idx) > 5.))      return false;
     if (not (abs_sc_eta            < 2.5))     return false;
     if (not (Electron_cutBased().at(idx) >= 1)) return false;  // Veto
-    if (not (Electron_lostHits().at(idx) <= 1)) return false;
     return true;
 }
 

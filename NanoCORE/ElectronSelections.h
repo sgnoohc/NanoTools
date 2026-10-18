@@ -52,6 +52,7 @@ namespace VVH {
     bool electron2024ID(int idx, VVH::IDLevel id_level);
     bool electronIDskim(int idx); // year-agnostic; mirrors cmstas/run3-vbsvvh _looseElectrons
     bool electronIDloose4L(int idx); // year-agnostic; 4LepLoose WP, no iso / no IP
+    bool electronIDloose4LnoLH(int idx); // year-agnostic; 4LepLooseNoLH WP = IDloose4L minus lostHits
 }
 
 #endif

@@ -247,6 +247,8 @@ bool VVH::muonID(int idx, VVH::IDLevel id_level, int year) {
     // IDskim is year-agnostic (mirrors cmstas/run3-vbsvvh _looseMuons)
     if (id_level == VVH::IDskim) return VVH::muonIDskim((unsigned int)idx);
     if (id_level == VVH::IDloose4L) return VVH::muonIDloose4L((unsigned int)idx);
+    // IDloose4L has no lostHits cut on muons, so the noLH variant is the same WP
+    if (id_level == VVH::IDloose4LnoLH) return VVH::muonIDloose4L((unsigned int)idx);
     // Year-specific checks
     switch (year) {
     case (2016):

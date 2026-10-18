@@ -165,6 +165,7 @@ ALL_CHANNELS = [
 # would silently inflate every future campaign. Must be asked for explicitly.
 EXTRA_CHANNELS = [
     "4LepLoose",
+    "4LepLooseNoLH",  # 4LepLoose without the electron lostHits <= 1 cut
 ]
 
 VALID_CHANNELS = ALL_CHANNELS + EXTRA_CHANNELS
@@ -210,6 +211,7 @@ CHANNEL_PDS = {
     "0Lep1FJ": HADRONIC_PDS,
     "0Lep0FJ": HADRONIC_PDS,
     "4LepLoose": LEPTON_PDS,
+    "4LepLooseNoLH": LEPTON_PDS,
 }
 
 _unrouted_pds = {}

@@ -99,6 +99,24 @@ class LeptonSelection : public ObjectSelection
         globals.setVal<LorentzVectors>("vvh_loose4l_lep_p4s", vvh_loose4l_lep_p4s);
     }
 
+    bool passVVHLoose4LNoLHElecID(unsigned int elec_i) { return VVH::electronID(elec_i, VVH::IDloose4LnoLH, nt.year()); }
+
+    bool passVVHLoose4LNoLHMuonID(unsigned int muon_i) { return VVH::muonID(muon_i, VVH::IDloose4LnoLH, nt.year()); }
+
+    // Counting collection for the opt-in 4LepLooseNoLH channel: same as
+    // vvh_loose4l_lep_p4s but without the electron lostHits cut.
+    void selectVVHLoose4LNoLHLeptons()
+    {
+        LorentzVectors vvh_loose4lnolh_lep_p4s;
+        for (unsigned int elec_i = 0; elec_i < nt.nElectron(); elec_i++)
+            if (passVVHLoose4LNoLHElecID(elec_i)) vvh_loose4lnolh_lep_p4s.push_back(nt.Electron_p4().at(elec_i));
+        for (unsigned int muon_i = 0; muon_i < nt.nMuon(); muon_i++)
+            if (passVVHLoose4LNoLHMuonID(muon_i)) vvh_loose4lnolh_lep_p4s.push_back(nt.Muon_p4().at(muon_i));
+        std::sort(vvh_loose4lnolh_lep_p4s.begin(), vvh_loose4lnolh_lep_p4s.end(),
+                  [](const LorentzVector &a, const LorentzVector &b) { return a.pt() > b.pt(); });
+        globals.setVal<LorentzVectors>("vvh_loose4lnolh_lep_p4s", vvh_loose4lnolh_lep_p4s);
+    }
+
     // Counting collection used by the per-channel skim cuts.
     // Uses VVH::IDskim (mirrors cmstas/run3-vbsvvh _looseElectrons + _looseMuons).
     void selectVVHSkimLeptons()
