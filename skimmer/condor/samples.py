@@ -3,7 +3,7 @@ from vbsvvh_data import nanoaodv15_run3_data, nanoaodv15_run2_data, nanoaodv15_r
 from vbsvvh_mc import nanoaodv15_run2_bkg, nanoaodv15_run2_sig, nanoaodv15_run3_bkg, nanoaodv15_run3_sig
 from vbsvvh_mc import nanoaodv15_run2_bkg_dy_htbinned, nanoaodv15_run2_bkg_dy_jetbinned
 from vbsvvh_mc import nanoaodv15_run2_bkg_zz4l, nanoaodv15_run3_bkg_ggzz4l
-from vbsvvh_mc import nanoaodv15_run3_bkg_zh4l
+from vbsvvh_mc import nanoaodv15_run3_bkg_zh4l, nanoaodv15_run2_bkg_zh4l
 from vbsvvh_hh import nanoaodv15_run3_bkg_hh, nanoaodv13_run3_bkg_hh_bbtautau
 import vbsvvh_v14
 from vbsvvh_vjets import nanoaodv15_run2_bkg_znunu_ht, nanoaodv15_run3_bkg_vjets_ht
@@ -100,6 +100,12 @@ SAMPLE_REGISTRY = {
     "run3_bkg_zh4l": {
         "samples": nanoaodv15_run3_bkg_zh4l,
         "metadata": {"run": "Run3", "type": "Bkg", "nano": "v15"},
+    },
+    # Run2 (4 UL eras) counterpart of run3_bkg_zh4l. 4L skim only (v50:
+    # --channels 4LepLooseNoLH).
+    "run2_bkg_zh4l": {
+        "samples": nanoaodv15_run2_bkg_zh4l,
+        "metadata": {"run": "Run2", "type": "Bkg", "nano": "v15"},
     },
     # Di-Higgs. Summer24 NanoAODv15 -- same campaign as v30's Run3 Bkg, so these
     # fold straight into Run3_Bkg_v15_v30_<channel>. NO overlap with anything

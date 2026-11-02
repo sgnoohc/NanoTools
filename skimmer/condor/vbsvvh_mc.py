@@ -1467,6 +1467,24 @@ nanoaodv15_run3_bkg_zh4l = [
 ]
 
 
+# Run2 counterpart of nanoaodv15_run3_bkg_zh4l: ZH, H->ZZ->4L
+# (powheg2-minlo-HZJ + JHUGen), 4L-filtered, 4 UL eras. Requested for the
+# 4L (ZZZ) skim only -- launched as v50 with --channels 4LepLooseNoLH.
+# Same caveat as Run3: v30 carries GluGluHToZZTo4L (ggH production); this is
+# the ZH production mode, so the two are complementary, NOT overlapping.
+# DAS 2026-11-02: all VALID, 2.09M events / 7 files total.
+nanoaodv15_run2_bkg_zh4l = [
+    # --- 2016preVFP ---
+    DBSSample(dataset="/ZH_HToZZ_4LFilter_M125_TuneCP5_13TeV_powheg2-minlo-HZJ_JHUGenV7011_pythia8/RunIISummer20UL16NanoAODAPVv15-150X_mcRun2_asymptotic_preVFP_v1-v1/NANOAODSIM"),
+    # --- 2016postVFP ---
+    DBSSample(dataset="/ZH_HToZZ_4LFilter_M125_TuneCP5_13TeV_powheg2-minlo-HZJ_JHUGenV7011_pythia8/RunIISummer20UL16NanoAODv15-150X_mcRun2_asymptotic_v1-v1/NANOAODSIM"),
+    # --- 2017 ---
+    DBSSample(dataset="/ZH_HToZZ_4LFilter_M125_TuneCP5_13TeV_powheg2-minlo-HZJ_JHUGenV7011_pythia8/RunIISummer20UL17NanoAODv15-150X_mc2017_realistic_v1-v1/NANOAODSIM"),
+    # --- 2018 ---
+    DBSSample(dataset="/ZH_HToZZ_4LFilter_M125_TuneCP5_13TeV_powheg2-minlo-HZJ_JHUGenV7011_pythia8/RunIISummer20UL18NanoAODv15-150X_mc2018_realistic_v1-v1/NANOAODSIM"),
+]
+
+
 nanoaodv15_run2_sig = [
 
     # c2v=1.0, c3=1.0 -- VBSWWH_OS

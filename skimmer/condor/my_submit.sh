@@ -28,3 +28,9 @@ python3 submit.py --samples run3_data_2025 --pack-size 12 --cpus-per-subjob 1 --
 #   python3 submit.py --samples "${MC2},${MC3},${DATA}" --version v49 \
 #       --channels 4LepLooseNoLH --pack-size 6 --cpus-per-subjob 1
 # See launch_v49.sbatch (dry-run gated) and finalize_validate_v49.sbatch.
+
+# v50 (2026-11-02) — run2_bkg_zh4l (Run2 UL ZH_HToZZ_4LFilter, 4 eras; Run2
+# counterpart of run3_bkg_zh4l) x the loosest 4L skim only (4LepLooseNoLH, the v49 channel).
+#   python3 submit.py --samples run2_bkg_zh4l --version v50 \
+#       --channels 4LepLooseNoLH --pack-size 6 --cpus-per-subjob 1
+# See launch_v50.sbatch (dry-run gated). 4 datasets / 4 jobs.

@@ -1526,4 +1526,8 @@ das_info = {
     "/ParkingHH1/Run2026B-PromptReco-v1/NANOAOD": {"nevents": 129007618, "nfiles": 463, "evts_per_file": 278634},
     "/ParkingHH1/Run2026C-PromptReco-v1/NANOAOD": {"nevents": 11289404, "nfiles": 80, "evts_per_file": 141117},
     "/ParkingHH1/Run2026D-PromptReco-v1/NANOAOD": {"nevents": 86825827, "nfiles": 313, "evts_per_file": 277398},
+    "/ZH_HToZZ_4LFilter_M125_TuneCP5_13TeV_powheg2-minlo-HZJ_JHUGenV7011_pythia8/RunIISummer20UL16NanoAODAPVv15-150X_mcRun2_asymptotic_preVFP_v1-v1/NANOAODSIM": {"nevents": 536247, "nfiles": 3, "evts_per_file": 178749},
+    "/ZH_HToZZ_4LFilter_M125_TuneCP5_13TeV_powheg2-minlo-HZJ_JHUGenV7011_pythia8/RunIISummer20UL16NanoAODv15-150X_mcRun2_asymptotic_v1-v1/NANOAODSIM": {"nevents": 486281, "nfiles": 1, "evts_per_file": 486281},
+    "/ZH_HToZZ_4LFilter_M125_TuneCP5_13TeV_powheg2-minlo-HZJ_JHUGenV7011_pythia8/RunIISummer20UL17NanoAODv15-150X_mc2017_realistic_v1-v1/NANOAODSIM": {"nevents": 520283, "nfiles": 2, "evts_per_file": 260141},
+    "/ZH_HToZZ_4LFilter_M125_TuneCP5_13TeV_powheg2-minlo-HZJ_JHUGenV7011_pythia8/RunIISummer20UL18NanoAODv15-150X_mc2018_realistic_v1-v1/NANOAODSIM": {"nevents": 544550, "nfiles": 1, "evts_per_file": 544550},
 }
