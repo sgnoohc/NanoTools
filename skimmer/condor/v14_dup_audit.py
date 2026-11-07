@@ -16,7 +16,9 @@ WHAT. For every sample whose files span >1 CRAB task inside ONE dataset dir
 every file and decide, at FILE granularity, which files to drop so each lumi is
 read once:
   * tasks are ranked by lumi coverage (largest first); the top task is kept whole
-  * a file of a lower task is KEPT if all its lumis are new, DROPPED if all are
+  * a lower task whose lumis are >= --whole-task-overlap (0.99) already covered
+    is a re-run: DROPPED WHOLE, and the lumis only it had are reported as lost
+  * otherwise a file of a lower task is KEPT if all its lumis are new, DROPPED if all are
     already covered, and reported as PARTIAL otherwise (cannot be fixed by file
     selection -- needs event-level dedup or a decision)
 Different dataset dirs (ext1, 22Sep2023_v1 vs _v2, JetMET0 vs JetMET1) are
@@ -89,6 +91,9 @@ def main():
     ap.add_argument("--out", required=True)
     ap.add_argument("--categories", default="", help="comma list; default all")
     ap.add_argument("-j", "--jobs", type=int, default=8)
+    ap.add_argument("--whole-task-overlap", type=float, default=0.99,
+                    help="drop a lower-ranked task whole if this fraction of its lumis "
+                         "is already covered (default 0.99)")
     args = ap.parse_args()
     cats = set(filter(None, args.categories.split(",")))
 
@@ -107,7 +112,7 @@ def main():
             if (i + 1) % 2000 == 0:
                 print(f"  read {i+1}/{len(urls)}", flush=True)
 
-    result, tot_drop, tot_part, tot_drop_ev = {}, 0, 0, 0
+    result, tot_drop, tot_part, tot_drop_ev, tot_lost = {}, 0, 0, 0, 0
     for key, g in todo:
         rec = {"drop": [], "partial": [], "unreadable": [], "tasks": {}}
         for dsdir, tasks in g.items():
@@ -118,11 +123,24 @@ def main():
             seen = set(cover[order[0]])
             for t in order:
                 kept = dropped = partial = 0
+                lost = 0
+                # A lower-ranked task that is (almost) entirely a re-run of lumis
+                # already read is dropped WHOLE: its files are split at different lumi
+                # boundaries, so per-file selection would leave PARTIAL files that
+                # cannot be taken without double-counting. The price is the few lumis
+                # only it had ("lost_lumis", reported). Found 2026-11-07 on the
+                # 2023BPix data: tasks of 4222 lumis each, 4206 shared.
+                whole = (t != order[0] and cover[t]
+                         and len(cover[t] & seen) / len(cover[t]) >= args.whole_task_overlap)
+                if whole:
+                    lost = len(cover[t] - seen)
                 for u in tasks[t]:
                     if u in errors:
                         rec["unreadable"].append(u); continue
                     if t == order[0]:
                         kept += 1; continue
+                    if whole:
+                        dropped += 1; rec["drop"].append(u); tot_drop_ev += nevs[u]; continue
                     ls = lumis[u]
                     ov = len(ls & seen)
                     if ov == 0:
@@ -133,8 +151,10 @@ def main():
                         partial += 1; rec["partial"].append(u)
                 rec["tasks"][f"{dsdir.rsplit('/',1)[-1]}/{t}"] = dict(
                     files=len(tasks[t]), lumis=len(cover[t]), kept=kept, dropped=dropped,
-                    partial=partial, rank=order.index(t))
+                    partial=partial, rank=order.index(t), whole_task_dropped=bool(whole),
+                    lost_lumis=lost)
         tot_drop += len(rec["drop"]); tot_part += len(rec["partial"])
+        tot_lost += sum(v["lost_lumis"] for v in rec["tasks"].values())
         result[key] = rec
         if rec["drop"] or rec["partial"] or rec["unreadable"]:
             print(f"{key}: drop {len(rec['drop'])}  partial {len(rec['partial'])}  unreadable {len(rec['unreadable'])}")
@@ -143,7 +163,7 @@ def main():
 
     json.dump(result, open(args.out, "w"), indent=1, sort_keys=True)
     print(f"\nSUMMARY samples={len(todo)} files_read={len(lumis)} unreadable={len(errors)} "
-          f"drop={tot_drop} (events {tot_drop_ev}) partial={tot_part}  -> {args.out}")
+          f"drop={tot_drop} (events {tot_drop_ev}) partial={tot_part} lost_lumis={tot_lost}  -> {args.out}")
     return 1 if (tot_part or errors) else 0
 
 
