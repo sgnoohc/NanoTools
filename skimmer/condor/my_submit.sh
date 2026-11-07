@@ -34,3 +34,10 @@ python3 submit.py --samples run3_data_2025 --pack-size 12 --cpus-per-subjob 1 --
 #   python3 submit.py --samples run2_bkg_zh4l --version v50 \
 #       --channels 4LepLooseNoLH --pack-size 6 --cpus-per-subjob 1
 # See launch_v50.sbatch (dry-run gated). 4 datasets / 4 jobs.
+
+# v51 (2026-11-07) — v14 PFNano samples added to the index AFTER v42 (2026-11-06 index):
+# QCD_Mu + W->lnu 4Jets MLNu x HT + Z->nunu 4Jets HT (bkg), MuonEG (data); all default
+# channels. Duplicate-CRAB-task files dropped via v14_dedup.json (v14_dup_audit.py).
+#   python3 submit.py --samples v14_2022_bkg_since42,v14_2022EE_bkg_since42,v14_2023_bkg_since42,v14_2023BPix_bkg_since42,v14_2022_data_since42,v14_2022EE_data_since42,v14_2023_data_since42,v14_2023BPix_data_since42 \
+#       --version v51 --pack-size 6 --cpus-per-subjob 1
+# See launch_v51.sbatch (staging + dry-run gated). 994 tasks / 3792 jobs.

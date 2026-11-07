@@ -64,18 +64,31 @@ def _dropped(era, category, sname):
     """Files to skip for this sample (duplicates of another CRAB task)."""
     global _dedup_cache
     if _dedup_cache is None:
-        _dedup_cache = {}
-        if os.path.isfile(DEDUP_PATH):
-            with open(DEDUP_PATH) as f:
-                for key, rec in json.load(f).items():
-                    # A partially-overlapping file cannot be fixed by file
-                    # selection; refuse rather than double-count part of it.
-                    if rec.get("partial"):
-                        raise RuntimeError(
-                            f"{DEDUP_PATH}: {key} has {len(rec['partial'])} PARTIAL-overlap "
-                            "files -- resolve them before building v14 samples")
-                    _dedup_cache[key] = set(rec.get("drop", ()))
+        _dedup_cache = _load_dedup()
     return _dedup_cache.get(f"{era}|{category}|{sname}", set())
+
+
+def _load_dedup():
+    # Like the index, the drop list is data that lives only in this checkout. A
+    # missing file must not quietly mean "drop nothing": that would silently
+    # re-read ~29k duplicated files (v42's data double count).
+    if DEDUP_PATH.lower() == "none":
+        return {}
+    if not os.path.isfile(DEDUP_PATH):
+        raise RuntimeError(
+            f"{DEDUP_PATH} missing -- regenerate with v14_dup_audit.py, or set "
+            "V14_DEDUP_PATH=none to knowingly read duplicated CRAB tasks")
+    out = {}
+    with open(DEDUP_PATH) as f:
+        for key, rec in json.load(f).items():
+            # A partially-overlapping file cannot be fixed by file
+            # selection; refuse rather than double-count part of it.
+            if rec.get("partial"):
+                raise RuntimeError(
+                    f"{DEDUP_PATH}: {key} has {len(rec['partial'])} PARTIAL-overlap "
+                    "files -- resolve them before building v14 samples")
+            out[key] = set(rec.get("drop", ()))
+    return out
 
 
 def _is_staged(era, kind):
