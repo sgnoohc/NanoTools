@@ -37,6 +37,12 @@ Arbusto::Arbusto(TFile* new_tfile, TChain* tchain, std::vector<TString> branch_n
     // output holding the old name while init() renamed the input -- CopyAddresses then
     // could not pair them ("Could not find branch named ...").
     applyRenames(ttree);
+    // Snapshot the input-derived output branches before the skimmer adds its own.
+    TObjArray* cloned = ttree->GetListOfBranches();
+    for (int i = 0; cloned && i < cloned->GetEntries(); ++i)
+    {
+        cloned_branches.insert(static_cast<TBranch*>(cloned->At(i))->GetName());
+    }
 }
 
 Arbusto::Arbusto(HEPCLI& cli, std::vector<TString> branch_names) 
@@ -51,6 +57,11 @@ Arbusto::Arbusto(HEPCLI& cli, std::vector<TString> branch_names)
         cli.input_tchain->SetBranchStatus(branch_name, 1);
     }
     ttree = (TTree*)cli.input_tchain->CloneTree(0);
+    TObjArray* cloned = ttree->GetListOfBranches();
+    for (int i = 0; cloned && i < cloned->GetEntries(); ++i)
+    {
+        cloned_branches.insert(static_cast<TBranch*>(cloned->At(i))->GetName());
+    }
 }
 
 Arbusto::~Arbusto() 
@@ -78,27 +89,45 @@ void Arbusto::init(TTree* next_ttree)
     next_ttree->CopyAddresses(ttree);
     orig_ttree = next_ttree;
 
-    // Reset output buffers for any branch absent from the new input file, so
-    // events from this file don't inherit stale values from the previous file.
+    // A cloned output branch that is ABSENT from the new input file must read 0 for
+    // this file's events, not a leftover value.
+    //
+    // Its output address still points at the buffer CopyAddresses shared from the
+    // PREVIOUS input tree. TChain deletes that tree (and the buffers it allocated)
+    // when it loads the next file, so the address dangles: zeroing it in place (the
+    // old fix) wrote into freed memory, and Fill() then read whatever reused that
+    // memory. Found 2026-11-07: HLT_PFMET110_PFJet100_looseRecoiling, missing from
+    // one of three chained MuonEG files, came out True for all 139 of that file's
+    // events after an unrelated rebuild moved the heap layout (the old binary
+    // happened to read 0).
+    //
+    // So point such branches at a zeroed buffer Arbusto owns. When a later file has
+    // the branch again, CopyAddresses above re-points it at the live input buffer.
+    // Branches the skimmer adds itself are not in cloned_branches and are untouched.
     TObjArray* out_branches = ttree->GetListOfBranches();
-    if (out_branches)
+    for (int i = 0; out_branches && i < out_branches->GetEntries(); ++i)
     {
-        for (int i = 0; i < out_branches->GetEntries(); ++i)
+        TBranch* out_br = static_cast<TBranch*>(out_branches->At(i));
+        if (!out_br) continue;
+        if (!cloned_branches.count(out_br->GetName())) continue; // skimmer-owned
+        if (next_ttree->GetBranch(out_br->GetName())) continue;  // present: GetEntry fills it
+        TObjArray* leaves = out_br->GetListOfLeaves();
+        if (!leaves || leaves->GetEntries() != 1) continue;      // simple single-leaf branches only
+        TLeaf* leaf = static_cast<TLeaf*>(leaves->At(0));
+        if (!leaf) continue;
+        size_t unit = leaf->GetLenType() > 0 ? leaf->GetLenType() : 0;
+        if (unit == 0) continue;                                  // not a POD leaf
+        // Fixed-size: LenStatic elements. Variable-size (has a count leaf, which is
+        // itself absent and zeroed, so 0 elements get written): still back it with
+        // room for the largest count seen, so nothing can read past the buffer.
+        size_t nelem = leaf->GetLenStatic() > 0 ? leaf->GetLenStatic() : 1;
+        if (TLeaf* cnt = leaf->GetLeafCount())
         {
-            TBranch* out_br = static_cast<TBranch*>(out_branches->At(i));
-            if (!out_br) continue;
-            if (next_ttree->GetBranch(out_br->GetName())) continue; // present in input → GetEntry will fill
-            void* addr = out_br->GetAddress();
-            if (!addr) continue;
-            TObjArray* leaves = out_br->GetListOfLeaves();
-            if (!leaves || leaves->GetEntries() != 1) continue; // only simple, single-leaf POD branches
-            TLeaf* leaf = static_cast<TLeaf*>(leaves->At(0));
-            if (!leaf) continue;
-            int unit = leaf->GetLenType();
-            int len  = leaf->GetLen();
-            if (unit <= 0 || len <= 0) continue; // skip non-POD / variable-size object branches
-            std::memset(addr, 0, static_cast<size_t>(unit) * static_cast<size_t>(len));
+            nelem *= static_cast<size_t>(cnt->GetMaximum() > 1024 ? cnt->GetMaximum() : 1024);
         }
+        std::vector<char>& buf = absent_buffers[out_br->GetName()];
+        buf.assign(unit * nelem, 0);
+        out_br->SetAddress(buf.data());
     }
 }
 

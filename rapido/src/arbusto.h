@@ -6,6 +6,9 @@
 #include "TLeaf.h"
 #include "TObjArray.h"
 #include <cstring>
+#include <map>
+#include <set>
+#include <string>
 #include <vector>
 #include <utility>
 
@@ -26,6 +29,12 @@ protected:
     TTree* orig_ttree;
     /** Input branches to rename before cloning/copying addresses (old -> new) */
     std::vector<std::pair<TString, TString>> rename_branches;
+    /** Output branches that were cloned from the input (snapshot at CloneTree time),
+     *  as opposed to branches the skimmer adds later. Only these are ever re-pointed. */
+    std::set<std::string> cloned_branches;
+    /** Zeroed buffers OWNED by Arbusto, used as the output address of a cloned branch
+     *  while the current input file lacks it (see init()). */
+    std::map<std::string, std::vector<char>> absent_buffers;
     /**
      * Rename input branches per rename_branches, so a branch the skimmer intends
      * to recompute under the same name does not end up duplicated in the output.

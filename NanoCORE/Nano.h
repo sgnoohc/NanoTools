@@ -33,30 +33,30 @@ typedef ROOT::Math::LorentzVector<ROOT::Math::PtEtaPhiM4D<float> > LorentzVector
 #define NGENISOLATEDPHOTON_MAX 15 // for GenIsolatedPhoton_* collection
 #define NGENJETAK8_MAX 24 // for GenJetAK8_* collection
 #define NGENJET_MAX 250 // for GenJet_* collection
-#define NGENPART_MAX 602 // for GenPart_* collection
+#define NGENPART_MAX 2048 // for GenPart_* collection (was 602; v14 QCD_Mu reaches 746)
 #define NGENPROTON_MAX 39 // for GenProton_* collection
 #define NGENVISTAU_MAX 12 // for GenVisTau_* collection
-#define NISOTRACK_MAX 80 // for IsoTrack_* collection
+#define NISOTRACK_MAX 256 // for IsoTrack_* collection (was 80)
 #define NJET_MAX 250 // for Jet_* collection
 #define NLHEPART_MAX 24 // for LHEPart_* collection
 #define NLHEPDFWEIGHT_MAX 312 // for LHEPdfWeight_* collection
 #define NLHEREWEIGHTINGWEIGHT_MAX 200 // for LHEReweightingWeight_* collection
 #define NLHESCALEWEIGHT_MAX 30 // for LHEScaleWeight_* collection
-#define NLOWPTELECTRON_MAX 18 // for LowPtElectron_* collection
+#define NLOWPTELECTRON_MAX 64 // for LowPtElectron_* collection (was 18)
 #define NMUON_MAX 250 // for Muon_* collection
 #define NOTHERPV_MAX 12 // for OtherPV_* collection
 #define NPPSLOCALTRACK_MAX 87 // for PPSLocalTrack_* collection
 #define NPSWEIGHT_MAX 15 // for PSWeight_* collection
 #define NPHOTON_MAX 1200 // for Photon_* collection
 #define NPROTON_MAX 36 // for Proton_* collection
-#define NSV_MAX 24 // for SV_* collection
+#define NSV_MAX 256 // for SV_* collection (was 24; v14 QCD_Mu reaches 75)
 #define NSOFTACTIVITYJET_MAX 21 // for SoftActivityJet_* collection
 #define NSUBGENJETAK8_MAX 42 // for SubGenJetAK8_* collection
 #define NSUBJET_MAX 256 // for SubJet_* collection (bumped from 63 to match larger NFATJET_MAX)
 #define NTAU_MAX 90 // for Tau_* collection
-#define NTRIGOBJ_MAX 117 // for TrigObj_* collection
+#define NTRIGOBJ_MAX 512 // for TrigObj_* collection (was 117; v14 W+jets HT reaches 172)
 #define NWCNAMES_MAX 42 // for WCnames_* collection
-#define NBOOSTEDTAU_MAX 12 // for boostedTau_* collection
+#define NBOOSTEDTAU_MAX 64 // for boostedTau_* collection (was 12; v14 W+jets HT reaches 16)
 
 using namespace std;
 
