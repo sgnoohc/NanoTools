@@ -31,7 +31,7 @@ sys.path.insert(0, os.path.dirname(os.path.realpath(__file__)))
 
 STAGE_ROOT = "/cmsuf/data/store/user/phchang/v14stage"
 INDEX = "/blue/avery/p.chang/work/skim/NanoTools_/nanoindex_v14_HVV_private.json"
-DATA_CATEGORIES = {"JetMET", "EGamma", "Muon", "Tau", "BTagMu"}
+DATA_CATEGORIES = {"JetMET", "EGamma", "Muon", "MuonEG", "Tau", "BTagMu"}
 # Primary datasets that route to NO channel (submit.py UNUSED_PDS): the skim
 # counts electrons and muons only, and BTagMu is a b-tag calibration PD. They
 # would produce zero jobs, so staging their ~10k files is pure cost. Pass

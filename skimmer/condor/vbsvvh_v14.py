@@ -26,7 +26,9 @@ _HERE = os.path.dirname(os.path.realpath(__file__))
 INDEX_PATH = os.path.join(_HERE, "..", "..", "nanoindex_v14_HVV_private.json")
 
 # Categories that are Data, keyed by the primary dataset they correspond to.
-DATA_CATEGORIES = {"JetMET", "EGamma", "Muon", "Tau", "BTagMu"}
+# MuonEG joined the index 2026-11-06; without it here it would have been built
+# as background MC.
+DATA_CATEGORIES = {"JetMET", "EGamma", "Muon", "MuonEG", "Tau", "BTagMu"}
 # The VBS VVH signal scan lives here.
 SIGNAL_CATEGORIES = {"HVV_Signal"}
 # Everything else in the index is MC background.
@@ -35,8 +37,45 @@ ERAS = ["2022", "2022EE", "2023", "2023BPix"]
 
 STAGE_ROOT = "/cmsuf/data/store/user/phchang/v14stage"
 
+# Duplicate-CRAB-task drop list written by v14_dup_audit.py (see its docstring).
+# The index globs every task dir under a sample, and resubmitted CRAB tasks sit
+# next to the originals -- e.g. 2022EE JetMET_Run2022E is indexed twice over,
+# identical lumis, and v42 read both. Keyed "<era>|<category>|<sample>"; each
+# URL listed is a file whose lumis are ALL read from another task already.
+# Applied to every group, so anything built after 2026-11-07 reads each lumi once.
+DEDUP_PATH = os.environ.get("V14_DEDUP_PATH", os.path.join(_HERE, "v14_dedup.json"))
+
+# Samples added to the index after v42 (2026-11-06 index): QCD_Mu, the W->lnu
+# MLNu-binned and Z->nunu HT bins, and MuonEG data. Exposed as *_since42 groups
+# so a version skims only these. Same metadata as the parent group, so the tags
+# (Run3_<era>_<Kind>_v14_vNN_<ch>) line up with v42's.
+SINCE_V42 = {
+    "Bkg": lambda cat, s: cat == "QCD_Mu" or (
+        cat == "VJets_LO" and s.startswith(("WtoLNu-4Jets_MLNu-", "Zto2Nu-4Jets_HT-"))),
+    "Data": lambda cat, s: cat == "MuonEG",
+}
+
 _index_cache = None
 _staged_cache = None
+_dedup_cache = None
+
+
+def _dropped(era, category, sname):
+    """Files to skip for this sample (duplicates of another CRAB task)."""
+    global _dedup_cache
+    if _dedup_cache is None:
+        _dedup_cache = {}
+        if os.path.isfile(DEDUP_PATH):
+            with open(DEDUP_PATH) as f:
+                for key, rec in json.load(f).items():
+                    # A partially-overlapping file cannot be fixed by file
+                    # selection; refuse rather than double-count part of it.
+                    if rec.get("partial"):
+                        raise RuntimeError(
+                            f"{DEDUP_PATH}: {key} has {len(rec['partial'])} PARTIAL-overlap "
+                            "files -- resolve them before building v14 samples")
+                    _dedup_cache[key] = set(rec.get("drop", ()))
+    return _dedup_cache.get(f"{era}|{category}|{sname}", set())
 
 
 def _is_staged(era, kind):
@@ -106,8 +145,8 @@ def dataset_name(era, category, sname):
     return f"/{sname}/{era}_PFNanoV14/{kind}"
 
 
-def _samples_for(era, kind):
-    """kind: 'Data' | 'Sig' | 'Bkg'"""
+def _samples_for(era, kind, select=None):
+    """kind: 'Data' | 'Sig' | 'Bkg'.  select(category, sname) -> bool narrows it."""
     idx = _load_index()
     out = []
     for category, cd in sorted(idx.get(era, {}).items()):
@@ -118,6 +157,11 @@ def _samples_for(era, kind):
         if kind == "Bkg" and (category in DATA_CATEGORIES or category in SIGNAL_CATEGORIES):
             continue
         for sname, files in sorted(cd.items()):
+            if select is not None and not select(category, sname):
+                continue
+            drop = _dropped(era, category, sname)
+            if drop:
+                files = [u for u in files if u not in drop]
             if not files:
                 continue
             # Probe ONE file per sample rather than trusting the marker blindly or
@@ -154,6 +198,13 @@ def get_groups():
                 samples,
                 {"run": f"Run3_{era}", "type": kind, "nano": "v14"},
             )
+        for kind, select in SINCE_V42.items():
+            samples = _samples_for(era, kind, select)
+            if samples:
+                groups[f"v14_{era}_{kind.lower()}_since42"] = (
+                    samples,
+                    {"run": f"Run3_{era}", "type": kind, "nano": "v14"},
+                )
     return groups
 
 
@@ -165,7 +216,8 @@ def summarize():
     for name, (samples, md) in sorted(get_groups().items()):
         nf = sum(len(s.get_files()) for s in samples)
         print(f"{name:24s} {len(samples):8d} {nf:9d}")
-        tot_s += len(samples); tot_f += nf
+        if not name.endswith("_since42"):   # subsets of the parent group
+            tot_s += len(samples); tot_f += nf
     print(f"{'TOTAL':24s} {tot_s:8d} {tot_f:9d}")
 
 
