@@ -269,6 +269,16 @@ if __name__ == "__main__":
                         help="Pack N jobs per SLURM allocation (default 1 = current behavior)")
     parser.add_argument("--cpus-per-subjob", type=int, default=1,
                         help="CPUs per sub-job within a pack (default 1)")
+    parser.add_argument("--time", type=str, default="08:00:00",
+                        help="Wall time of each packed SLURM job (default 08:00:00; avery-b "
+                             "allows 4 days). Applies to (re)submissions made by THIS driver "
+                             "only -- already-running packs keep their limit. Raise it for "
+                             "high-acceptance channels whose OUTPUT size, not input file "
+                             "count, sets the run time (v51: QCD_Mu 0Lep1FJ keeps 84%%, "
+                             "~100 GB per 12M-event job, ~8 h).")
+    parser.add_argument("--mem-per-subjob", type=int, default=2,
+                        help="GB of memory per sub-job; the pack requests pack-size x this "
+                             "(default 2)")
     parser.add_argument("--dataset-match", type=str, default=None, metavar="REGEX",
                         help="Only submit datasets whose name matches REGEX. Use to repair a "
                              "single dataset without touching the rest of its group -- notably "
@@ -508,8 +518,8 @@ if __name__ == "__main__":
                 partition="hpg-default",
                 qos="avery-b",
                 account="avery",
-                time="08:00:00",
-                memory=f"{args.pack_size * 2}gb",
+                time=args.time,
+                memory=f"{args.pack_size * args.mem_per_subjob}gb",
                 extra_directives={
                     # Black-hole nodes (2026-06-12): /blue mount flaky -> packs fail
                     # the startup filesystem check in <1s and get endlessly resubmitted.

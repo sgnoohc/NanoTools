@@ -32,7 +32,7 @@ python3 -u check_staged_paths.py bkg data || { echo "STAGING GATE FAILED -- refu
 
 echo "=== GATE 2: dry run ==="
 python3 -u submit.py --samples "${SAMPLES}" --version v51 \
-    --pack-size 6 --dry-run > logs_v51/dryrun_gate_v51.log 2>&1
+    --pack-size 6 --dry-run ${EXTRA_ARGS:-} > logs_v51/dryrun_gate_v51.log 2>&1
 rc=$?
 echo "dry-run rc=${rc}"
 grep -E "^=== Group" logs_v51/dryrun_gate_v51.log
@@ -43,7 +43,14 @@ if [ "$rc" -ne 0 ]; then
     exit 1
 fi
 
-echo "=== REAL SUBMISSION ==="
+echo "=== REAL SUBMISSION === EXTRA_ARGS='${EXTRA_ARGS:-}'"
+# Relaunch 2026-11-08 for the QCD_Mu 0Lep1FJ stragglers (8 h timeouts, 12 GB pack OOMs, and
+# jobs whose output would pass ROOT's 100 GB TTree limit). The 16 incomplete tasks were moved
+# to tasks/_moved_resplit_v51-20261108 (outputs to skim/_resplit_old_v51-20261108) and
+# re-split. Pass EXTRA_ARGS via the environment -- --export=VAR=... would split on its commas:
+#   EXTRA_ARGS="--time 24:00:00 --mem-per-subjob 4 --max-files-per-job 20 --channels 0Lep1FJ,0Lep2FJ
+#     --dataset-match (QCD_PT-(1000|300to470|470to600|600to800|800to1000)_MuEnriched|Zto2Nu-4Jets_HT-(1500to2500|2500)_)"
+#     sbatch launch_v51.sbatch
 python3 -u submit.py --samples "${SAMPLES}" --version v51 \
-    --pack-size 6 --cpus-per-subjob 1
+    --pack-size 6 --cpus-per-subjob 1 ${EXTRA_ARGS:-}
 echo "V51_RC=$?  end=$(date)"
