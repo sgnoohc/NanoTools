@@ -382,7 +382,7 @@ Missing any one aborts every job at runtime.
   `GluGlu2Zto*`, all 169 in 2Lep4J). 453 added (ZH-Hto2Z 4Lep by hand + 452 via
   `local_v30_alias_fill/fill_aliases.py`; undo list `created.txt`). Every `Run3_Bkg_v15_v30_*` tag now has
   exactly one alias per `RunIII2024Summer24` dataset, 0 broken, all bare relative sibling links -- now
-  1,191 + 453 = 1,644 aliases. **`Run3_Sig_v15_v30_Sig` deliberately NOT filled:** only the 3 benchmark
+  1,782 aliases in v30 (counted; 1,329 before this fill -- the 1,191 above is stale). **`Run3_Sig_v15_v30_Sig` deliberately NOT filled:** only the 3 benchmark
   couplings (c2v1p0_c3_1p0, c2v1p0_c3_10p0, c2v1p5_c3_1p0) x 4 processes are aliased, and 20 other points
   present in the same base run were skipped at the time -> a choice, not the 'added later' gap.
 
