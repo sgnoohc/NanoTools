@@ -377,10 +377,14 @@ Missing any one aborts every job at runtime.
 - **v30 contains 1,191 intra-tree alias symlinks** created 2026-09-08 (`<dataset>` →
   `<dataset>Summer24for2025`), origin unknown and not from `link_into_skim.py`. A naive
   glob over a v30 channel dir double-counts those datasets.
-  **The alias set is incomplete** (audit 2026-11-21): Summer24 datasets linked in later have none -- 30 missing
-  in each 0Lep*/1Lep1FJ/2Lep1FJ/2Lep2FJ tag, 37 in 3Lep and 4Lep (incl. the six ggZZ `GluGlu2Zto*`, HH, TTBB),
-  all 169 in 2Lep4J. Added by hand on request 2026-11-21: `Run3_Bkg_v15_v30_4Lep/ZH-Hto2Z_Fil-4L...Summer24for2025`
-  (same form as the others: bare relative link to the sibling dataset name).
+  **Bkg alias set completed 2026-11-21** (user request): the Summer24 datasets linked in after the original
+  aliasing never got one (30 per 0Lep*/1Lep1FJ/2Lep1FJ/2Lep2FJ tag, 37 in 3Lep/4Lep incl. the six ggZZ
+  `GluGlu2Zto*`, all 169 in 2Lep4J). 453 added (ZH-Hto2Z 4Lep by hand + 452 via
+  `local_v30_alias_fill/fill_aliases.py`; undo list `created.txt`). Every `Run3_Bkg_v15_v30_*` tag now has
+  exactly one alias per `RunIII2024Summer24` dataset, 0 broken, all bare relative sibling links -- now
+  1,191 + 453 = 1,644 aliases. **`Run3_Sig_v15_v30_Sig` deliberately NOT filled:** only the 3 benchmark
+  couplings (c2v1p0_c3_1p0, c2v1p0_c3_10p0, c2v1p5_c3_1p0) x 4 processes are aliased, and 20 other points
+  present in the same base run were skipped at the time -> a choice, not the 'added later' gap.
 
 ---
 
