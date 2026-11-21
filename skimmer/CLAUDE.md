@@ -377,6 +377,10 @@ Missing any one aborts every job at runtime.
 - **v30 contains 1,191 intra-tree alias symlinks** created 2026-09-08 (`<dataset>` →
   `<dataset>Summer24for2025`), origin unknown and not from `link_into_skim.py`. A naive
   glob over a v30 channel dir double-counts those datasets.
+  **The alias set is incomplete** (audit 2026-11-21): Summer24 datasets linked in later have none -- 30 missing
+  in each 0Lep*/1Lep1FJ/2Lep1FJ/2Lep2FJ tag, 37 in 3Lep and 4Lep (incl. the six ggZZ `GluGlu2Zto*`, HH, TTBB),
+  all 169 in 2Lep4J. Added by hand on request 2026-11-21: `Run3_Bkg_v15_v30_4Lep/ZH-Hto2Z_Fil-4L...Summer24for2025`
+  (same form as the others: bare relative link to the sibling dataset name).
 
 ---
 
