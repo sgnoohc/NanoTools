@@ -22,6 +22,14 @@ if [ "${NT:-0}" -ne 45 ] || [ "${T:-0}" -ne 45 ] || [ "${D:-0}" -ne 45 ]; then
   echo "NOT COMPLETE -- refusing to validate"; exit 1
 fi
 
+# v48_state counts a job done once output_N.root EXISTS, but the packed wrapper copies a big output into place
+# before writing cutflow/runs_summary (v53 TWZ 2Lep4J: 37.6 GB, minutes). Validating then would let the regen
+# step rebuild a runs_summary from a half-written file. So also wait for this version's packed__ jobs to exit.
+inflight() { for j in $(squeue -u "$USER" -h -o '%i %j' | awk '$2 ~ /^packed__/ {print $1}'); do
+  scontrol show job "$j" 2>/dev/null | grep -q '_v53_' && echo "$j"; done; }
+for i in $(seq 1 60); do [ -z "$(inflight)" ] && break; echo "packed jobs still running: $(inflight | xargs)"; sleep 60; done
+[ -n "$(inflight)" ] && { echo "packed jobs still running after 60 min -- refusing to validate"; exit 1; }
+
 # Let the driver exit on its own ("All job finished"); cancel by name if it lingers.
 for i in $(seq 1 40); do squeue -h -n v53_launch | grep -q . || break; sleep 30; done
 if squeue -h -n v53_launch | grep -q .; then echo "driver still alive -> scancel"; scancel --name=v53_launch; sleep 15; fi
