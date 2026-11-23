@@ -41,6 +41,13 @@ python3 submit.py --samples run3_data_2025 --pack-size 12 --cpus-per-subjob 1 --
 #       --channels 4Lep --pack-size 6 --cpus-per-subjob 1
 # See launch_v52.sbatch (dry-run gated). 4 datasets / 4 jobs.
 
+# v53 (2026-11-23) -- run2_bkg_ttz_lowmass (Run2 UL TTZToLL_M-1to10, 4 eras; low-mass complement
+# of v30's TTZToLLNuNu_M-10) x ALL default channels, + run3_bkg_twz (Summer24
+# TWZ-TtoLNu-WtoLNu-Zto2L-DR1; matrix row = Run2 TWZToLL_tlept_Wlept -> 5 channels).
+# Both linked into VBSVVH_skim_v30.
+#   python3 submit.py --samples run2_bkg_ttz_lowmass,run3_bkg_twz --version v53 --pack-size 6 --cpus-per-subjob 1
+# See launch_v53.sbatch (dry-run gated). 4x10 + 1x5 = 45 tasks / 45 jobs.
+
 # v51 (2026-11-07) — v14 PFNano samples added to the index AFTER v42 (2026-11-06 index):
 # QCD_Mu + W->lnu 4Jets MLNu x HT + Z->nunu 4Jets HT (bkg), MuonEG (data); all default
 # channels. Duplicate-CRAB-task files dropped via v14_dedup.json (v14_dup_audit.py).

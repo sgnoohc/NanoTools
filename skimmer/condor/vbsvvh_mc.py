@@ -1484,6 +1484,24 @@ nanoaodv15_run2_bkg_zh4l = [
     DBSSample(dataset="/ZH_HToZZ_4LFilter_M125_TuneCP5_13TeV_powheg2-minlo-HZJ_JHUGenV7011_pythia8/RunIISummer20UL18NanoAODv15-150X_mc2018_realistic_v1-v1/NANOAODSIM"),
 ]
 
+# Low-mass ttZ/gamma* -> ll (M 1-10), the complement of TTZToLLNuNu_M-10 (in v30, all channels).
+nanoaodv15_run2_bkg_ttz_lowmass = [
+    # --- 2016preVFP ---
+    DBSSample(dataset="/TTZToLL_M-1to10_TuneCP5_13TeV-amcatnlo-pythia8/RunIISummer20UL16NanoAODAPVv15-150X_mcRun2_asymptotic_preVFP_v1-v1/NANOAODSIM"),
+    # --- 2016postVFP ---
+    DBSSample(dataset="/TTZToLL_M-1to10_TuneCP5_13TeV-amcatnlo-pythia8/RunIISummer20UL16NanoAODv15-150X_mcRun2_asymptotic_v1-v1/NANOAODSIM"),
+    # --- 2017 ---
+    DBSSample(dataset="/TTZToLL_M-1to10_TuneCP5_13TeV-amcatnlo-pythia8/RunIISummer20UL17NanoAODv15-150X_mc2017_realistic_v1-v1/NANOAODSIM"),
+    # --- 2018 ---
+    DBSSample(dataset="/TTZToLL_M-1to10_TuneCP5_13TeV-amcatnlo-pythia8/RunIISummer20UL18NanoAODv15-150X_mc2018_realistic_v1-v1/NANOAODSIM"),
+]
+
+# Run3 Summer24 tWZ, all three bosons/top leptonic (DR1). Run3 counterpart of v30's Run2
+# TWZToLL_tlept_Wlept_5f_DR; same channel-matrix row.
+nanoaodv15_run3_bkg_twz = [
+    DBSSample(dataset="/TWZ-TtoLNu-WtoLNu-Zto2L-DR1_TuneCP5_13p6TeV_amcatnlo-pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM"),
+]
+
 
 nanoaodv15_run2_sig = [
 

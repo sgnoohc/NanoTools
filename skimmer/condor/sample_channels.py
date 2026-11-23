@@ -1508,6 +1508,13 @@ SAMPLE_MATRIX = {
     #                                                                                                                                                   4L 3L 22 21 11 03 02 01 00
     "/ZZJJTo4L_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv15-150X_mc2018_realistic_v1-v1/NANOAODSIM"             : "1  1  1  1  0  0  0  0  0",
 
+
+    # ============================================================================================
+    # v53 (2026-11-23): Run3 Summer24 TWZ, t->lnu W->lnu Z->2l (DR1). Same fully leptonic final
+    # state as Run2 TWZToLL_tlept_Wlept_5f_DR above -> identical row (4L 3L 2L2FJ 2L1FJ, + 2Lep4J
+    # by default; no 1Lep1FJ / 0Lep*).
+    #                                                  4L 3L 22 21 11 03 02 01 00
+    "/TWZ-TtoLNu-WtoLNu-Zto2L-DR1_TuneCP5_13p6TeV_amcatnlo-pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM" : "1  1  1  1  0  0  0  0  0",
 }
 
 
