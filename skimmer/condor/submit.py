@@ -166,6 +166,7 @@ ALL_CHANNELS = [
 EXTRA_CHANNELS = [
     "4LepLoose",
     "4LepLooseNoLH",  # 4LepLoose without the electron lostHits <= 1 cut
+    "4LepExtra",      # 4Lep selection + IsoTrack/Photon/TrigObj collections (same samples as 4Lep)
 ]
 
 VALID_CHANNELS = ALL_CHANNELS + EXTRA_CHANNELS
@@ -212,6 +213,7 @@ CHANNEL_PDS = {
     "0Lep0FJ": HADRONIC_PDS,
     "4LepLoose": LEPTON_PDS,
     "4LepLooseNoLH": LEPTON_PDS,
+    "4LepExtra": LEPTON_PDS,
 }
 
 _unrouted_pds = {}

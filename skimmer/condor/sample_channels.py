@@ -1518,8 +1518,14 @@ SAMPLE_MATRIX = {
 }
 
 
+# Opt-in channels that run the SAME events on the SAME samples as a matrix channel
+# and differ only in which branches they write. They read that channel's column,
+# so e.g. 4LepExtra never runs on a sample that 4Lep skips.
+COLUMN_ALIAS = {"4LepExtra": "4Lep"}
+
 def is_mc_allowed(dsname, channel):
     """Check if MC dataset is allowed for channel. Unlisted samples run everywhere."""
+    channel = COLUMN_ALIAS.get(channel, channel)
     if dsname not in SAMPLE_MATRIX:
         return True
     if channel not in CHANNELS:

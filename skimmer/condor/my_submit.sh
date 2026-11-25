@@ -48,6 +48,13 @@ python3 submit.py --samples run3_data_2025 --pack-size 12 --cpus-per-subjob 1 --
 #   python3 submit.py --samples run2_bkg_ttz_lowmass,run3_bkg_twz --version v53 --pack-size 6 --cpus-per-subjob 1
 # See launch_v53.sbatch (dry-run gated). 4x10 + 1x5 = 45 tasks / 45 jobs.
 
+# v54 (2026-11-25) -- the v30 4Lep skim re-run with IsoTrack/Photon/TrigObj added, via the
+# opt-in channel 4LepExtra (same selection, 4Lep matrix column, lepton PDs). SEPARATE
+# campaign, NOT linked into v30. Groups reproduce v30's four 4Lep tags (+8 ZZTo4Q/ZZTo2Q2L).
+#   python3 submit.py --samples run2_bkg,run2_bkg_dy_ht,run2_bkg_dy_jet,run2_bkg_ttz_lowmass,run2_bkg_zh4l,run2_bkg_zz4l,run2_data,run3_bkg,run3_bkg_ggzz4l,run3_bkg_hh,run3_bkg_hh_bbtautau,run3_bkg_twz,run3_bkg_zh4l,run3_data \
+#       --channels 4LepExtra --version v54 --pack-size 6 --cpus-per-subjob 1
+# See launch_v54.sbatch (dry-run gated). 646 tasks (10 = INVALID DY PTLL -> 0 jobs) / 4431 jobs.
+
 # v51 (2026-11-07) — v14 PFNano samples added to the index AFTER v42 (2026-11-06 index):
 # QCD_Mu + W->lnu 4Jets MLNu x HT + Z->nunu 4Jets HT (bkg), MuonEG (data); all default
 # channels. Duplicate-CRAB-task files dropped via v14_dedup.json (v14_dup_audit.py).

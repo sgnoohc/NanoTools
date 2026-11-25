@@ -30,7 +30,16 @@ int main(int argc, char **argv)
     bool remove_branches = false;
 
     // Output setting (setting which TBranches to save from original Nano)
-    Arbusto arbusto = Arbusto(output_tfile, cli.input_tchain, {"Electron*", "Muon*", "Jet*", "Tau*", "GenPart*", "GenJet*", "Generator*", "FatJet*", "*MET*", "event*", "run*", "luminosityBlock*", "genWeight*", "btagWeight*", "LHE*", "*Weight*", "Flag*", "SubJet*", "HLT_*", "Pileup*", "*Rho*", "*PV*", "*Puppi*"}, remove_branches,
+    std::vector<TString> keep_branches = {"Electron*", "Muon*", "Jet*", "Tau*", "GenPart*", "GenJet*", "Generator*", "FatJet*", "*MET*", "event*", "run*", "luminosityBlock*", "genWeight*", "btagWeight*", "LHE*", "*Weight*", "Flag*", "SubJet*", "HLT_*", "Pileup*", "*Rho*", "*PV*", "*Puppi*"};
+    // 4LepExtra = the 4Lep selection, unchanged, plus three whole NanoAOD collections
+    // (IsoTrack, Photon, TrigObj). Opt-in only: TrigObj alone is tens of objects per
+    // event, so adding these to every channel would inflate every campaign. ROOT
+    // enables each collection's counter (nIsoTrack/nPhoton/nTrigObj) with its arrays.
+    if (cli.analysis_tag == "4LepExtra")
+    {
+        keep_branches.insert(keep_branches.end(), {"IsoTrack*", "Photon*", "TrigObj*"});
+    }
+    Arbusto arbusto = Arbusto(output_tfile, cli.input_tchain, keep_branches, remove_branches,
         // The v12-based PFNano inputs (2022/2023) already carry Jet_jetId, and the
         // skimmer writes its own recomputed JSON-recipe Jet_jetId. Without this the
         // output holds TWO branches called Jet_jetId and RDataFrame silently returns
@@ -51,7 +60,7 @@ int main(int argc, char **argv)
 
     std::cout << "--> Running analyzer: " << cli.analysis_tag << std::endl;
 
-    if (cli.analysis_tag == "4Lep")
+    if (cli.analysis_tag == "4Lep" || cli.analysis_tag == "4LepExtra")
     {
         skimmer = std::make_unique<Analysis_4Leptons>(arbusto, nt, cli, cutflow);
     }
