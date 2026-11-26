@@ -285,13 +285,18 @@ burst queue sat 100% pending for 9 h while regular `avery` ran).
 issued it. Resolve PIDs with `pgrep` and kill them explicitly, or use
 `scancel --name=<jobname>` for SLURM jobs.
 
-### (i) Private fixed-size branch buffers must use Nano.h's `*_MAX`
-`Nano::CheckBufferSizes()` only guards Nano's own arrays. A private copy of a
-limit in skimmer code drifts silently: `ObjectSelection_Jets.h` kept
-`JETID_NFATJET_MAX 40` after Nano.h went to 128, and one 44-fat-jet 2025 event
-overwrote the adjacent `jetIdBranches_` vector. The crash came dozens of files
-later, the wrapper exited 0, and Metis retried forever (v48/v49 stuck at
-5610/5611). Size any new `SetAddress` buffer with `NJET_MAX`/`NFATJET_MAX`/etc.
+### (i) Branch buffers are sized per input file -- there are no `*_MAX` limits (branch `dynamic-nano-buffers`)
+History: Nano.h had 33 compile-time `N*_MAX` limits (and the skimmer private copies of two), and they
+overflowed one after another (nGenPart 746, nSV 75, nFatJet 44 -> a drifted private copy crashed v48/v49,
+nTrigObj 597 -> v54). Now every array buffer is a `NanoBuf` (`NanoCORE/NanoBuf.h`): `Nano::Init()` grows it,
+for each input file, to the most BYTES one entry can take there -- the counter's recorded maximum
+(`TLeaf::GetMaximum`) x the ON-DISK element width. Bytes, not elements: `TBranch::SetAddress` does no type
+conversion and NanoAODv15 widened types Nano.h declares narrow (`TrigObj_filterBits` int vs ULong64_t), which
+the old oversized arrays had only hidden. Scalars can't grow, so `Nano::CheckScalarWidths()` (called per file
+after `arbusto.init()`) throws if a branch that is READ is wider on disk than its member.
+**Any new private `SetAddress` buffer must be a `NanoBuf` bound with `buf.growFor(branch)`** (see the jet-ID
+buffers in `ObjectSelection_Jets.h`). Regenerate Nano.h with `utils/make_nanoclassfiles.py` (it emits this
+scheme); `NanoCORE/make_buffers_dynamic.py` was the one-time migration of the hand-edited Nano.h.
 
 ### (j) Arbusto: a branch missing from one file of a chain read garbage (fixed 25276d6)
 An output branch cloned from the input but ABSENT from a later file in the job's
@@ -321,11 +326,11 @@ with outputs near 100 GB. v51 recovery: the 16 incomplete tasks were moved to
 deleted 2026-11-12 after validation) and re-split at 20 files/job — see `launch_v51.sbatch`. Holding-dir names must NOT contain
 `_v51_`, or the `*_v51_*` globs count them as tasks.
 
-### (h) `make` does not track header dependencies
-Editing `rapido/src/*` or any `.h` does NOT trigger recompilation of
-`src/main.o`, so a header-only fix is silently not compiled in and the batch
-jobs keep running the old binary. `touch src/main.cc` (or `make
-clean`) after any header-only change, and re-run `maketar.sh`.
+### (h) `make` and header dependencies
+Skimmer objects and NanoCORE objects now rebuild when a skimmer or NanoCORE header changes (the NanoCORE
+rule was added with the dynamic buffers: a `Nano.o` built against an older `Nano.h` has the wrong class
+layout, i.e. silent memory corruption). Headers under `rapido/src/` are still NOT tracked: after editing
+one, `touch src/main.cc` (or `make cleanall`). Always re-run `maketar.sh` after rebuilding.
 
 ### Waiting for a campaign to finish, correctly
 Two conditions, not one: the expected number of TASK DIRS must exist AND all
