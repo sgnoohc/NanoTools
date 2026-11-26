@@ -25,15 +25,15 @@ void Nano::Init(TTree *tree) {
     b_ChsMET_sumEt_ = tree->GetBranch("ChsMET_sumEt");
     if (b_ChsMET_sumEt_) { b_ChsMET_sumEt_->SetAddress(&ChsMET_sumEt_); }
     b_CorrT1METJet_area_ = tree->GetBranch("CorrT1METJet_area");
-    if (b_CorrT1METJet_area_) { b_CorrT1METJet_area_->SetAddress(&CorrT1METJet_area_); }
+    if (b_CorrT1METJet_area_) { b_CorrT1METJet_area_->SetAddress(CorrT1METJet_area_.grow(nanoBufLen(b_CorrT1METJet_area_))); }
     b_CorrT1METJet_eta_ = tree->GetBranch("CorrT1METJet_eta");
-    if (b_CorrT1METJet_eta_) { b_CorrT1METJet_eta_->SetAddress(&CorrT1METJet_eta_); }
+    if (b_CorrT1METJet_eta_) { b_CorrT1METJet_eta_->SetAddress(CorrT1METJet_eta_.grow(nanoBufLen(b_CorrT1METJet_eta_))); }
     b_CorrT1METJet_muonSubtrFactor_ = tree->GetBranch("CorrT1METJet_muonSubtrFactor");
-    if (b_CorrT1METJet_muonSubtrFactor_) { b_CorrT1METJet_muonSubtrFactor_->SetAddress(&CorrT1METJet_muonSubtrFactor_); }
+    if (b_CorrT1METJet_muonSubtrFactor_) { b_CorrT1METJet_muonSubtrFactor_->SetAddress(CorrT1METJet_muonSubtrFactor_.grow(nanoBufLen(b_CorrT1METJet_muonSubtrFactor_))); }
     b_CorrT1METJet_phi_ = tree->GetBranch("CorrT1METJet_phi");
-    if (b_CorrT1METJet_phi_) { b_CorrT1METJet_phi_->SetAddress(&CorrT1METJet_phi_); }
+    if (b_CorrT1METJet_phi_) { b_CorrT1METJet_phi_->SetAddress(CorrT1METJet_phi_.grow(nanoBufLen(b_CorrT1METJet_phi_))); }
     b_CorrT1METJet_rawPt_ = tree->GetBranch("CorrT1METJet_rawPt");
-    if (b_CorrT1METJet_rawPt_) { b_CorrT1METJet_rawPt_->SetAddress(&CorrT1METJet_rawPt_); }
+    if (b_CorrT1METJet_rawPt_) { b_CorrT1METJet_rawPt_->SetAddress(CorrT1METJet_rawPt_.grow(nanoBufLen(b_CorrT1METJet_rawPt_))); }
     b_DeepMETResolutionTune_phi_ = tree->GetBranch("DeepMETResolutionTune_phi");
     if (b_DeepMETResolutionTune_phi_) { b_DeepMETResolutionTune_phi_->SetAddress(&DeepMETResolutionTune_phi_); }
     b_DeepMETResolutionTune_pt_ = tree->GetBranch("DeepMETResolutionTune_pt");
@@ -43,473 +43,473 @@ void Nano::Init(TTree *tree) {
     b_DeepMETResponseTune_pt_ = tree->GetBranch("DeepMETResponseTune_pt");
     if (b_DeepMETResponseTune_pt_) { b_DeepMETResponseTune_pt_->SetAddress(&DeepMETResponseTune_pt_); }
     b_EFTfitCoefficients_ = tree->GetBranch("EFTfitCoefficients");
-    if (b_EFTfitCoefficients_) { b_EFTfitCoefficients_->SetAddress(&EFTfitCoefficients_); }
+    if (b_EFTfitCoefficients_) { b_EFTfitCoefficients_->SetAddress(EFTfitCoefficients_.grow(nanoBufLen(b_EFTfitCoefficients_))); }
     b_Electron_CutBased_LooseID_SF_ = tree->GetBranch("Electron_CutBased_LooseID_SF");
-    if (b_Electron_CutBased_LooseID_SF_) { b_Electron_CutBased_LooseID_SF_->SetAddress(&Electron_CutBased_LooseID_SF_); }
+    if (b_Electron_CutBased_LooseID_SF_) { b_Electron_CutBased_LooseID_SF_->SetAddress(Electron_CutBased_LooseID_SF_.grow(nanoBufLen(b_Electron_CutBased_LooseID_SF_))); }
     b_Electron_CutBased_LooseID_SFerr_ = tree->GetBranch("Electron_CutBased_LooseID_SFerr");
-    if (b_Electron_CutBased_LooseID_SFerr_) { b_Electron_CutBased_LooseID_SFerr_->SetAddress(&Electron_CutBased_LooseID_SFerr_); }
+    if (b_Electron_CutBased_LooseID_SFerr_) { b_Electron_CutBased_LooseID_SFerr_->SetAddress(Electron_CutBased_LooseID_SFerr_.grow(nanoBufLen(b_Electron_CutBased_LooseID_SFerr_))); }
     b_Electron_CutBased_MediumID_SF_ = tree->GetBranch("Electron_CutBased_MediumID_SF");
-    if (b_Electron_CutBased_MediumID_SF_) { b_Electron_CutBased_MediumID_SF_->SetAddress(&Electron_CutBased_MediumID_SF_); }
+    if (b_Electron_CutBased_MediumID_SF_) { b_Electron_CutBased_MediumID_SF_->SetAddress(Electron_CutBased_MediumID_SF_.grow(nanoBufLen(b_Electron_CutBased_MediumID_SF_))); }
     b_Electron_CutBased_MediumID_SFerr_ = tree->GetBranch("Electron_CutBased_MediumID_SFerr");
-    if (b_Electron_CutBased_MediumID_SFerr_) { b_Electron_CutBased_MediumID_SFerr_->SetAddress(&Electron_CutBased_MediumID_SFerr_); }
+    if (b_Electron_CutBased_MediumID_SFerr_) { b_Electron_CutBased_MediumID_SFerr_->SetAddress(Electron_CutBased_MediumID_SFerr_.grow(nanoBufLen(b_Electron_CutBased_MediumID_SFerr_))); }
     b_Electron_CutBased_TightID_SF_ = tree->GetBranch("Electron_CutBased_TightID_SF");
-    if (b_Electron_CutBased_TightID_SF_) { b_Electron_CutBased_TightID_SF_->SetAddress(&Electron_CutBased_TightID_SF_); }
+    if (b_Electron_CutBased_TightID_SF_) { b_Electron_CutBased_TightID_SF_->SetAddress(Electron_CutBased_TightID_SF_.grow(nanoBufLen(b_Electron_CutBased_TightID_SF_))); }
     b_Electron_CutBased_TightID_SFerr_ = tree->GetBranch("Electron_CutBased_TightID_SFerr");
-    if (b_Electron_CutBased_TightID_SFerr_) { b_Electron_CutBased_TightID_SFerr_->SetAddress(&Electron_CutBased_TightID_SFerr_); }
+    if (b_Electron_CutBased_TightID_SFerr_) { b_Electron_CutBased_TightID_SFerr_->SetAddress(Electron_CutBased_TightID_SFerr_.grow(nanoBufLen(b_Electron_CutBased_TightID_SFerr_))); }
     b_Electron_CutBased_VetoID_SF_ = tree->GetBranch("Electron_CutBased_VetoID_SF");
-    if (b_Electron_CutBased_VetoID_SF_) { b_Electron_CutBased_VetoID_SF_->SetAddress(&Electron_CutBased_VetoID_SF_); }
+    if (b_Electron_CutBased_VetoID_SF_) { b_Electron_CutBased_VetoID_SF_->SetAddress(Electron_CutBased_VetoID_SF_.grow(nanoBufLen(b_Electron_CutBased_VetoID_SF_))); }
     b_Electron_CutBased_VetoID_SFerr_ = tree->GetBranch("Electron_CutBased_VetoID_SFerr");
-    if (b_Electron_CutBased_VetoID_SFerr_) { b_Electron_CutBased_VetoID_SFerr_->SetAddress(&Electron_CutBased_VetoID_SFerr_); }
+    if (b_Electron_CutBased_VetoID_SFerr_) { b_Electron_CutBased_VetoID_SFerr_->SetAddress(Electron_CutBased_VetoID_SFerr_.grow(nanoBufLen(b_Electron_CutBased_VetoID_SFerr_))); }
     b_Electron_MVAFall17V2Iso_WP80_SF_ = tree->GetBranch("Electron_MVAFall17V2Iso_WP80_SF");
-    if (b_Electron_MVAFall17V2Iso_WP80_SF_) { b_Electron_MVAFall17V2Iso_WP80_SF_->SetAddress(&Electron_MVAFall17V2Iso_WP80_SF_); }
+    if (b_Electron_MVAFall17V2Iso_WP80_SF_) { b_Electron_MVAFall17V2Iso_WP80_SF_->SetAddress(Electron_MVAFall17V2Iso_WP80_SF_.grow(nanoBufLen(b_Electron_MVAFall17V2Iso_WP80_SF_))); }
     b_Electron_MVAFall17V2Iso_WP80_SFerr_ = tree->GetBranch("Electron_MVAFall17V2Iso_WP80_SFerr");
-    if (b_Electron_MVAFall17V2Iso_WP80_SFerr_) { b_Electron_MVAFall17V2Iso_WP80_SFerr_->SetAddress(&Electron_MVAFall17V2Iso_WP80_SFerr_); }
+    if (b_Electron_MVAFall17V2Iso_WP80_SFerr_) { b_Electron_MVAFall17V2Iso_WP80_SFerr_->SetAddress(Electron_MVAFall17V2Iso_WP80_SFerr_.grow(nanoBufLen(b_Electron_MVAFall17V2Iso_WP80_SFerr_))); }
     b_Electron_MVAFall17V2Iso_WP90_SF_ = tree->GetBranch("Electron_MVAFall17V2Iso_WP90_SF");
-    if (b_Electron_MVAFall17V2Iso_WP90_SF_) { b_Electron_MVAFall17V2Iso_WP90_SF_->SetAddress(&Electron_MVAFall17V2Iso_WP90_SF_); }
+    if (b_Electron_MVAFall17V2Iso_WP90_SF_) { b_Electron_MVAFall17V2Iso_WP90_SF_->SetAddress(Electron_MVAFall17V2Iso_WP90_SF_.grow(nanoBufLen(b_Electron_MVAFall17V2Iso_WP90_SF_))); }
     b_Electron_MVAFall17V2Iso_WP90_SFerr_ = tree->GetBranch("Electron_MVAFall17V2Iso_WP90_SFerr");
-    if (b_Electron_MVAFall17V2Iso_WP90_SFerr_) { b_Electron_MVAFall17V2Iso_WP90_SFerr_->SetAddress(&Electron_MVAFall17V2Iso_WP90_SFerr_); }
+    if (b_Electron_MVAFall17V2Iso_WP90_SFerr_) { b_Electron_MVAFall17V2Iso_WP90_SFerr_->SetAddress(Electron_MVAFall17V2Iso_WP90_SFerr_.grow(nanoBufLen(b_Electron_MVAFall17V2Iso_WP90_SFerr_))); }
     b_Electron_MVAFall17V2noIso_WP80_SF_ = tree->GetBranch("Electron_MVAFall17V2noIso_WP80_SF");
-    if (b_Electron_MVAFall17V2noIso_WP80_SF_) { b_Electron_MVAFall17V2noIso_WP80_SF_->SetAddress(&Electron_MVAFall17V2noIso_WP80_SF_); }
+    if (b_Electron_MVAFall17V2noIso_WP80_SF_) { b_Electron_MVAFall17V2noIso_WP80_SF_->SetAddress(Electron_MVAFall17V2noIso_WP80_SF_.grow(nanoBufLen(b_Electron_MVAFall17V2noIso_WP80_SF_))); }
     b_Electron_MVAFall17V2noIso_WP80_SFerr_ = tree->GetBranch("Electron_MVAFall17V2noIso_WP80_SFerr");
-    if (b_Electron_MVAFall17V2noIso_WP80_SFerr_) { b_Electron_MVAFall17V2noIso_WP80_SFerr_->SetAddress(&Electron_MVAFall17V2noIso_WP80_SFerr_); }
+    if (b_Electron_MVAFall17V2noIso_WP80_SFerr_) { b_Electron_MVAFall17V2noIso_WP80_SFerr_->SetAddress(Electron_MVAFall17V2noIso_WP80_SFerr_.grow(nanoBufLen(b_Electron_MVAFall17V2noIso_WP80_SFerr_))); }
     b_Electron_MVAFall17V2noIso_WP90_SF_ = tree->GetBranch("Electron_MVAFall17V2noIso_WP90_SF");
-    if (b_Electron_MVAFall17V2noIso_WP90_SF_) { b_Electron_MVAFall17V2noIso_WP90_SF_->SetAddress(&Electron_MVAFall17V2noIso_WP90_SF_); }
+    if (b_Electron_MVAFall17V2noIso_WP90_SF_) { b_Electron_MVAFall17V2noIso_WP90_SF_->SetAddress(Electron_MVAFall17V2noIso_WP90_SF_.grow(nanoBufLen(b_Electron_MVAFall17V2noIso_WP90_SF_))); }
     b_Electron_MVAFall17V2noIso_WP90_SFerr_ = tree->GetBranch("Electron_MVAFall17V2noIso_WP90_SFerr");
-    if (b_Electron_MVAFall17V2noIso_WP90_SFerr_) { b_Electron_MVAFall17V2noIso_WP90_SFerr_->SetAddress(&Electron_MVAFall17V2noIso_WP90_SFerr_); }
+    if (b_Electron_MVAFall17V2noIso_WP90_SFerr_) { b_Electron_MVAFall17V2noIso_WP90_SFerr_->SetAddress(Electron_MVAFall17V2noIso_WP90_SFerr_.grow(nanoBufLen(b_Electron_MVAFall17V2noIso_WP90_SFerr_))); }
     b_Electron_RECO_SF_ = tree->GetBranch("Electron_RECO_SF");
-    if (b_Electron_RECO_SF_) { b_Electron_RECO_SF_->SetAddress(&Electron_RECO_SF_); }
+    if (b_Electron_RECO_SF_) { b_Electron_RECO_SF_->SetAddress(Electron_RECO_SF_.grow(nanoBufLen(b_Electron_RECO_SF_))); }
     b_Electron_RECO_SFerr_ = tree->GetBranch("Electron_RECO_SFerr");
-    if (b_Electron_RECO_SFerr_) { b_Electron_RECO_SFerr_->SetAddress(&Electron_RECO_SFerr_); }
+    if (b_Electron_RECO_SFerr_) { b_Electron_RECO_SFerr_->SetAddress(Electron_RECO_SFerr_.grow(nanoBufLen(b_Electron_RECO_SFerr_))); }
     b_Electron_charge_ = tree->GetBranch("Electron_charge");
-    if (b_Electron_charge_) { b_Electron_charge_->SetAddress(&Electron_charge_); }
+    if (b_Electron_charge_) { b_Electron_charge_->SetAddress(Electron_charge_.grow(nanoBufLen(b_Electron_charge_))); }
     b_Electron_cleanmask_ = tree->GetBranch("Electron_cleanmask");
-    if (b_Electron_cleanmask_) { b_Electron_cleanmask_->SetAddress(&Electron_cleanmask_); }
+    if (b_Electron_cleanmask_) { b_Electron_cleanmask_->SetAddress(Electron_cleanmask_.grow(nanoBufLen(b_Electron_cleanmask_))); }
     b_Electron_convVeto_ = tree->GetBranch("Electron_convVeto");
-    if (b_Electron_convVeto_) { b_Electron_convVeto_->SetAddress(&Electron_convVeto_); }
+    if (b_Electron_convVeto_) { b_Electron_convVeto_->SetAddress(Electron_convVeto_.grow(nanoBufLen(b_Electron_convVeto_))); }
     b_Electron_cutBased_ = tree->GetBranch("Electron_cutBased");
-    if (b_Electron_cutBased_) { b_Electron_cutBased_->SetAddress(&Electron_cutBased_); }
+    if (b_Electron_cutBased_) { b_Electron_cutBased_->SetAddress(Electron_cutBased_.grow(nanoBufLen(b_Electron_cutBased_))); }
     b_Electron_cutBased17_ = tree->GetBranch("Electron_cutBased17");
-    if (b_Electron_cutBased17_) { b_Electron_cutBased17_->SetAddress(&Electron_cutBased17_); }
+    if (b_Electron_cutBased17_) { b_Electron_cutBased17_->SetAddress(Electron_cutBased17_.grow(nanoBufLen(b_Electron_cutBased17_))); }
     b_Electron_cutBased_Fall17V2_ = tree->GetBranch("Electron_cutBased_Fall17V2");
-    if (b_Electron_cutBased_Fall17V2_) { b_Electron_cutBased_Fall17V2_->SetAddress(&Electron_cutBased_Fall17V2_); }
+    if (b_Electron_cutBased_Fall17V2_) { b_Electron_cutBased_Fall17V2_->SetAddress(Electron_cutBased_Fall17V2_.grow(nanoBufLen(b_Electron_cutBased_Fall17V2_))); }
     b_Electron_cutBased_Fall17_V1_ = tree->GetBranch("Electron_cutBased_Fall17_V1");
-    if (b_Electron_cutBased_Fall17_V1_) { b_Electron_cutBased_Fall17_V1_->SetAddress(&Electron_cutBased_Fall17_V1_); }
+    if (b_Electron_cutBased_Fall17_V1_) { b_Electron_cutBased_Fall17_V1_->SetAddress(Electron_cutBased_Fall17_V1_.grow(nanoBufLen(b_Electron_cutBased_Fall17_V1_))); }
     b_Electron_cutBased_HEEP_ = tree->GetBranch("Electron_cutBased_HEEP");
-    if (b_Electron_cutBased_HEEP_) { b_Electron_cutBased_HEEP_->SetAddress(&Electron_cutBased_HEEP_); }
+    if (b_Electron_cutBased_HEEP_) { b_Electron_cutBased_HEEP_->SetAddress(Electron_cutBased_HEEP_.grow(nanoBufLen(b_Electron_cutBased_HEEP_))); }
     b_Electron_cutBased_HLTPreSel_ = tree->GetBranch("Electron_cutBased_HLTPreSel");
-    if (b_Electron_cutBased_HLTPreSel_) { b_Electron_cutBased_HLTPreSel_->SetAddress(&Electron_cutBased_HLTPreSel_); }
+    if (b_Electron_cutBased_HLTPreSel_) { b_Electron_cutBased_HLTPreSel_->SetAddress(Electron_cutBased_HLTPreSel_.grow(nanoBufLen(b_Electron_cutBased_HLTPreSel_))); }
     b_Electron_dEscaleDown_ = tree->GetBranch("Electron_dEscaleDown");
-    if (b_Electron_dEscaleDown_) { b_Electron_dEscaleDown_->SetAddress(&Electron_dEscaleDown_); }
+    if (b_Electron_dEscaleDown_) { b_Electron_dEscaleDown_->SetAddress(Electron_dEscaleDown_.grow(nanoBufLen(b_Electron_dEscaleDown_))); }
     b_Electron_dEscaleUp_ = tree->GetBranch("Electron_dEscaleUp");
-    if (b_Electron_dEscaleUp_) { b_Electron_dEscaleUp_->SetAddress(&Electron_dEscaleUp_); }
+    if (b_Electron_dEscaleUp_) { b_Electron_dEscaleUp_->SetAddress(Electron_dEscaleUp_.grow(nanoBufLen(b_Electron_dEscaleUp_))); }
     b_Electron_dEsigmaDown_ = tree->GetBranch("Electron_dEsigmaDown");
-    if (b_Electron_dEsigmaDown_) { b_Electron_dEsigmaDown_->SetAddress(&Electron_dEsigmaDown_); }
+    if (b_Electron_dEsigmaDown_) { b_Electron_dEsigmaDown_->SetAddress(Electron_dEsigmaDown_.grow(nanoBufLen(b_Electron_dEsigmaDown_))); }
     b_Electron_dEsigmaUp_ = tree->GetBranch("Electron_dEsigmaUp");
-    if (b_Electron_dEsigmaUp_) { b_Electron_dEsigmaUp_->SetAddress(&Electron_dEsigmaUp_); }
+    if (b_Electron_dEsigmaUp_) { b_Electron_dEsigmaUp_->SetAddress(Electron_dEsigmaUp_.grow(nanoBufLen(b_Electron_dEsigmaUp_))); }
     b_Electron_deltaEtaSC_ = tree->GetBranch("Electron_deltaEtaSC");
-    if (b_Electron_deltaEtaSC_) { b_Electron_deltaEtaSC_->SetAddress(&Electron_deltaEtaSC_); }
+    if (b_Electron_deltaEtaSC_) { b_Electron_deltaEtaSC_->SetAddress(Electron_deltaEtaSC_.grow(nanoBufLen(b_Electron_deltaEtaSC_))); }
     b_Electron_dr03EcalRecHitSumEt_ = tree->GetBranch("Electron_dr03EcalRecHitSumEt");
-    if (b_Electron_dr03EcalRecHitSumEt_) { b_Electron_dr03EcalRecHitSumEt_->SetAddress(&Electron_dr03EcalRecHitSumEt_); }
+    if (b_Electron_dr03EcalRecHitSumEt_) { b_Electron_dr03EcalRecHitSumEt_->SetAddress(Electron_dr03EcalRecHitSumEt_.grow(nanoBufLen(b_Electron_dr03EcalRecHitSumEt_))); }
     b_Electron_dr03HcalDepth1TowerSumEt_ = tree->GetBranch("Electron_dr03HcalDepth1TowerSumEt");
-    if (b_Electron_dr03HcalDepth1TowerSumEt_) { b_Electron_dr03HcalDepth1TowerSumEt_->SetAddress(&Electron_dr03HcalDepth1TowerSumEt_); }
+    if (b_Electron_dr03HcalDepth1TowerSumEt_) { b_Electron_dr03HcalDepth1TowerSumEt_->SetAddress(Electron_dr03HcalDepth1TowerSumEt_.grow(nanoBufLen(b_Electron_dr03HcalDepth1TowerSumEt_))); }
     b_Electron_dr03TkSumPt_ = tree->GetBranch("Electron_dr03TkSumPt");
-    if (b_Electron_dr03TkSumPt_) { b_Electron_dr03TkSumPt_->SetAddress(&Electron_dr03TkSumPt_); }
+    if (b_Electron_dr03TkSumPt_) { b_Electron_dr03TkSumPt_->SetAddress(Electron_dr03TkSumPt_.grow(nanoBufLen(b_Electron_dr03TkSumPt_))); }
     b_Electron_dr03TkSumPtHEEP_ = tree->GetBranch("Electron_dr03TkSumPtHEEP");
-    if (b_Electron_dr03TkSumPtHEEP_) { b_Electron_dr03TkSumPtHEEP_->SetAddress(&Electron_dr03TkSumPtHEEP_); }
+    if (b_Electron_dr03TkSumPtHEEP_) { b_Electron_dr03TkSumPtHEEP_->SetAddress(Electron_dr03TkSumPtHEEP_.grow(nanoBufLen(b_Electron_dr03TkSumPtHEEP_))); }
     b_Electron_dxy_ = tree->GetBranch("Electron_dxy");
-    if (b_Electron_dxy_) { b_Electron_dxy_->SetAddress(&Electron_dxy_); }
+    if (b_Electron_dxy_) { b_Electron_dxy_->SetAddress(Electron_dxy_.grow(nanoBufLen(b_Electron_dxy_))); }
     b_Electron_dxyErr_ = tree->GetBranch("Electron_dxyErr");
-    if (b_Electron_dxyErr_) { b_Electron_dxyErr_->SetAddress(&Electron_dxyErr_); }
+    if (b_Electron_dxyErr_) { b_Electron_dxyErr_->SetAddress(Electron_dxyErr_.grow(nanoBufLen(b_Electron_dxyErr_))); }
     b_Electron_dz_ = tree->GetBranch("Electron_dz");
-    if (b_Electron_dz_) { b_Electron_dz_->SetAddress(&Electron_dz_); }
+    if (b_Electron_dz_) { b_Electron_dz_->SetAddress(Electron_dz_.grow(nanoBufLen(b_Electron_dz_))); }
     b_Electron_dzErr_ = tree->GetBranch("Electron_dzErr");
-    if (b_Electron_dzErr_) { b_Electron_dzErr_->SetAddress(&Electron_dzErr_); }
+    if (b_Electron_dzErr_) { b_Electron_dzErr_->SetAddress(Electron_dzErr_.grow(nanoBufLen(b_Electron_dzErr_))); }
     b_Electron_eCorr_ = tree->GetBranch("Electron_eCorr");
-    if (b_Electron_eCorr_) { b_Electron_eCorr_->SetAddress(&Electron_eCorr_); }
+    if (b_Electron_eCorr_) { b_Electron_eCorr_->SetAddress(Electron_eCorr_.grow(nanoBufLen(b_Electron_eCorr_))); }
     b_Electron_eInvMinusPInv_ = tree->GetBranch("Electron_eInvMinusPInv");
-    if (b_Electron_eInvMinusPInv_) { b_Electron_eInvMinusPInv_->SetAddress(&Electron_eInvMinusPInv_); }
+    if (b_Electron_eInvMinusPInv_) { b_Electron_eInvMinusPInv_->SetAddress(Electron_eInvMinusPInv_.grow(nanoBufLen(b_Electron_eInvMinusPInv_))); }
     b_Electron_energyErr_ = tree->GetBranch("Electron_energyErr");
-    if (b_Electron_energyErr_) { b_Electron_energyErr_->SetAddress(&Electron_energyErr_); }
+    if (b_Electron_energyErr_) { b_Electron_energyErr_->SetAddress(Electron_energyErr_.grow(nanoBufLen(b_Electron_energyErr_))); }
     b_Electron_eta_ = tree->GetBranch("Electron_eta");
-    if (b_Electron_eta_) { b_Electron_eta_->SetAddress(&Electron_eta_); }
+    if (b_Electron_eta_) { b_Electron_eta_->SetAddress(Electron_eta_.grow(nanoBufLen(b_Electron_eta_))); }
     b_Electron_fsrPhotonIdx_ = tree->GetBranch("Electron_fsrPhotonIdx");
-    if (b_Electron_fsrPhotonIdx_) { b_Electron_fsrPhotonIdx_->SetAddress(&Electron_fsrPhotonIdx_); }
+    if (b_Electron_fsrPhotonIdx_) { b_Electron_fsrPhotonIdx_->SetAddress(Electron_fsrPhotonIdx_.grow(nanoBufLen(b_Electron_fsrPhotonIdx_))); }
     b_Electron_genPartFlav_ = tree->GetBranch("Electron_genPartFlav");
-    if (b_Electron_genPartFlav_) { b_Electron_genPartFlav_->SetAddress(&Electron_genPartFlav_); }
+    if (b_Electron_genPartFlav_) { b_Electron_genPartFlav_->SetAddress(Electron_genPartFlav_.grow(nanoBufLen(b_Electron_genPartFlav_))); }
     b_Electron_genPartIdx_ = tree->GetBranch("Electron_genPartIdx");
-    if (b_Electron_genPartIdx_) { b_Electron_genPartIdx_->SetAddress(&Electron_genPartIdx_); }
+    if (b_Electron_genPartIdx_) { b_Electron_genPartIdx_->SetAddress(Electron_genPartIdx_.grow(nanoBufLen(b_Electron_genPartIdx_))); }
     b_Electron_hoe_ = tree->GetBranch("Electron_hoe");
-    if (b_Electron_hoe_) { b_Electron_hoe_->SetAddress(&Electron_hoe_); }
+    if (b_Electron_hoe_) { b_Electron_hoe_->SetAddress(Electron_hoe_.grow(nanoBufLen(b_Electron_hoe_))); }
     b_Electron_ip3d_ = tree->GetBranch("Electron_ip3d");
-    if (b_Electron_ip3d_) { b_Electron_ip3d_->SetAddress(&Electron_ip3d_); }
+    if (b_Electron_ip3d_) { b_Electron_ip3d_->SetAddress(Electron_ip3d_.grow(nanoBufLen(b_Electron_ip3d_))); }
     b_Electron_isPFcand_ = tree->GetBranch("Electron_isPFcand");
-    if (b_Electron_isPFcand_) { b_Electron_isPFcand_->SetAddress(&Electron_isPFcand_); }
+    if (b_Electron_isPFcand_) { b_Electron_isPFcand_->SetAddress(Electron_isPFcand_.grow(nanoBufLen(b_Electron_isPFcand_))); }
     b_Electron_jetIdx_ = tree->GetBranch("Electron_jetIdx");
-    if (b_Electron_jetIdx_) { b_Electron_jetIdx_->SetAddress(&Electron_jetIdx_); }
+    if (b_Electron_jetIdx_) { b_Electron_jetIdx_->SetAddress(Electron_jetIdx_.grow(nanoBufLen(b_Electron_jetIdx_))); }
     b_Electron_jetNDauCharged_ = tree->GetBranch("Electron_jetNDauCharged");
-    if (b_Electron_jetNDauCharged_) { b_Electron_jetNDauCharged_->SetAddress(&Electron_jetNDauCharged_); }
+    if (b_Electron_jetNDauCharged_) { b_Electron_jetNDauCharged_->SetAddress(Electron_jetNDauCharged_.grow(nanoBufLen(b_Electron_jetNDauCharged_))); }
     b_Electron_jetPtRelv2_ = tree->GetBranch("Electron_jetPtRelv2");
-    if (b_Electron_jetPtRelv2_) { b_Electron_jetPtRelv2_->SetAddress(&Electron_jetPtRelv2_); }
+    if (b_Electron_jetPtRelv2_) { b_Electron_jetPtRelv2_->SetAddress(Electron_jetPtRelv2_.grow(nanoBufLen(b_Electron_jetPtRelv2_))); }
     b_Electron_jetRelIso_ = tree->GetBranch("Electron_jetRelIso");
-    if (b_Electron_jetRelIso_) { b_Electron_jetRelIso_->SetAddress(&Electron_jetRelIso_); }
+    if (b_Electron_jetRelIso_) { b_Electron_jetRelIso_->SetAddress(Electron_jetRelIso_.grow(nanoBufLen(b_Electron_jetRelIso_))); }
     b_Electron_jetRelIso_Fall17V2_ = tree->GetBranch("Electron_jetRelIso_Fall17V2");
-    if (b_Electron_jetRelIso_Fall17V2_) { b_Electron_jetRelIso_Fall17V2_->SetAddress(&Electron_jetRelIso_Fall17V2_); }
+    if (b_Electron_jetRelIso_Fall17V2_) { b_Electron_jetRelIso_Fall17V2_->SetAddress(Electron_jetRelIso_Fall17V2_.grow(nanoBufLen(b_Electron_jetRelIso_Fall17V2_))); }
     b_Electron_lostHits_ = tree->GetBranch("Electron_lostHits");
-    if (b_Electron_lostHits_) { b_Electron_lostHits_->SetAddress(&Electron_lostHits_); }
+    if (b_Electron_lostHits_) { b_Electron_lostHits_->SetAddress(Electron_lostHits_.grow(nanoBufLen(b_Electron_lostHits_))); }
     b_Electron_mass_ = tree->GetBranch("Electron_mass");
-    if (b_Electron_mass_) { b_Electron_mass_->SetAddress(&Electron_mass_); }
+    if (b_Electron_mass_) { b_Electron_mass_->SetAddress(Electron_mass_.grow(nanoBufLen(b_Electron_mass_))); }
     b_Electron_miniPFRelIso_all_ = tree->GetBranch("Electron_miniPFRelIso_all");
-    if (b_Electron_miniPFRelIso_all_) { b_Electron_miniPFRelIso_all_->SetAddress(&Electron_miniPFRelIso_all_); }
+    if (b_Electron_miniPFRelIso_all_) { b_Electron_miniPFRelIso_all_->SetAddress(Electron_miniPFRelIso_all_.grow(nanoBufLen(b_Electron_miniPFRelIso_all_))); }
     b_Electron_miniPFRelIso_all_Fall17V2_ = tree->GetBranch("Electron_miniPFRelIso_all_Fall17V2");
-    if (b_Electron_miniPFRelIso_all_Fall17V2_) { b_Electron_miniPFRelIso_all_Fall17V2_->SetAddress(&Electron_miniPFRelIso_all_Fall17V2_); }
+    if (b_Electron_miniPFRelIso_all_Fall17V2_) { b_Electron_miniPFRelIso_all_Fall17V2_->SetAddress(Electron_miniPFRelIso_all_Fall17V2_.grow(nanoBufLen(b_Electron_miniPFRelIso_all_Fall17V2_))); }
     b_Electron_miniPFRelIso_chg_ = tree->GetBranch("Electron_miniPFRelIso_chg");
-    if (b_Electron_miniPFRelIso_chg_) { b_Electron_miniPFRelIso_chg_->SetAddress(&Electron_miniPFRelIso_chg_); }
+    if (b_Electron_miniPFRelIso_chg_) { b_Electron_miniPFRelIso_chg_->SetAddress(Electron_miniPFRelIso_chg_.grow(nanoBufLen(b_Electron_miniPFRelIso_chg_))); }
     b_Electron_miniPFRelIso_chg_Fall17V2_ = tree->GetBranch("Electron_miniPFRelIso_chg_Fall17V2");
-    if (b_Electron_miniPFRelIso_chg_Fall17V2_) { b_Electron_miniPFRelIso_chg_Fall17V2_->SetAddress(&Electron_miniPFRelIso_chg_Fall17V2_); }
+    if (b_Electron_miniPFRelIso_chg_Fall17V2_) { b_Electron_miniPFRelIso_chg_Fall17V2_->SetAddress(Electron_miniPFRelIso_chg_Fall17V2_.grow(nanoBufLen(b_Electron_miniPFRelIso_chg_Fall17V2_))); }
     b_Electron_mvaFall17Iso_ = tree->GetBranch("Electron_mvaFall17Iso");
-    if (b_Electron_mvaFall17Iso_) { b_Electron_mvaFall17Iso_->SetAddress(&Electron_mvaFall17Iso_); }
+    if (b_Electron_mvaFall17Iso_) { b_Electron_mvaFall17Iso_->SetAddress(Electron_mvaFall17Iso_.grow(nanoBufLen(b_Electron_mvaFall17Iso_))); }
     b_Electron_mvaFall17Iso_WP80_ = tree->GetBranch("Electron_mvaFall17Iso_WP80");
-    if (b_Electron_mvaFall17Iso_WP80_) { b_Electron_mvaFall17Iso_WP80_->SetAddress(&Electron_mvaFall17Iso_WP80_); }
+    if (b_Electron_mvaFall17Iso_WP80_) { b_Electron_mvaFall17Iso_WP80_->SetAddress(Electron_mvaFall17Iso_WP80_.grow(nanoBufLen(b_Electron_mvaFall17Iso_WP80_))); }
     b_Electron_mvaFall17Iso_WP90_ = tree->GetBranch("Electron_mvaFall17Iso_WP90");
-    if (b_Electron_mvaFall17Iso_WP90_) { b_Electron_mvaFall17Iso_WP90_->SetAddress(&Electron_mvaFall17Iso_WP90_); }
+    if (b_Electron_mvaFall17Iso_WP90_) { b_Electron_mvaFall17Iso_WP90_->SetAddress(Electron_mvaFall17Iso_WP90_.grow(nanoBufLen(b_Electron_mvaFall17Iso_WP90_))); }
     b_Electron_mvaFall17Iso_WPL_ = tree->GetBranch("Electron_mvaFall17Iso_WPL");
-    if (b_Electron_mvaFall17Iso_WPL_) { b_Electron_mvaFall17Iso_WPL_->SetAddress(&Electron_mvaFall17Iso_WPL_); }
+    if (b_Electron_mvaFall17Iso_WPL_) { b_Electron_mvaFall17Iso_WPL_->SetAddress(Electron_mvaFall17Iso_WPL_.grow(nanoBufLen(b_Electron_mvaFall17Iso_WPL_))); }
     b_Electron_mvaFall17V1Iso_ = tree->GetBranch("Electron_mvaFall17V1Iso");
-    if (b_Electron_mvaFall17V1Iso_) { b_Electron_mvaFall17V1Iso_->SetAddress(&Electron_mvaFall17V1Iso_); }
+    if (b_Electron_mvaFall17V1Iso_) { b_Electron_mvaFall17V1Iso_->SetAddress(Electron_mvaFall17V1Iso_.grow(nanoBufLen(b_Electron_mvaFall17V1Iso_))); }
     b_Electron_mvaFall17V1Iso_WP80_ = tree->GetBranch("Electron_mvaFall17V1Iso_WP80");
-    if (b_Electron_mvaFall17V1Iso_WP80_) { b_Electron_mvaFall17V1Iso_WP80_->SetAddress(&Electron_mvaFall17V1Iso_WP80_); }
+    if (b_Electron_mvaFall17V1Iso_WP80_) { b_Electron_mvaFall17V1Iso_WP80_->SetAddress(Electron_mvaFall17V1Iso_WP80_.grow(nanoBufLen(b_Electron_mvaFall17V1Iso_WP80_))); }
     b_Electron_mvaFall17V1Iso_WP90_ = tree->GetBranch("Electron_mvaFall17V1Iso_WP90");
-    if (b_Electron_mvaFall17V1Iso_WP90_) { b_Electron_mvaFall17V1Iso_WP90_->SetAddress(&Electron_mvaFall17V1Iso_WP90_); }
+    if (b_Electron_mvaFall17V1Iso_WP90_) { b_Electron_mvaFall17V1Iso_WP90_->SetAddress(Electron_mvaFall17V1Iso_WP90_.grow(nanoBufLen(b_Electron_mvaFall17V1Iso_WP90_))); }
     b_Electron_mvaFall17V1Iso_WPL_ = tree->GetBranch("Electron_mvaFall17V1Iso_WPL");
-    if (b_Electron_mvaFall17V1Iso_WPL_) { b_Electron_mvaFall17V1Iso_WPL_->SetAddress(&Electron_mvaFall17V1Iso_WPL_); }
+    if (b_Electron_mvaFall17V1Iso_WPL_) { b_Electron_mvaFall17V1Iso_WPL_->SetAddress(Electron_mvaFall17V1Iso_WPL_.grow(nanoBufLen(b_Electron_mvaFall17V1Iso_WPL_))); }
     b_Electron_mvaFall17V1noIso_ = tree->GetBranch("Electron_mvaFall17V1noIso");
-    if (b_Electron_mvaFall17V1noIso_) { b_Electron_mvaFall17V1noIso_->SetAddress(&Electron_mvaFall17V1noIso_); }
+    if (b_Electron_mvaFall17V1noIso_) { b_Electron_mvaFall17V1noIso_->SetAddress(Electron_mvaFall17V1noIso_.grow(nanoBufLen(b_Electron_mvaFall17V1noIso_))); }
     b_Electron_mvaFall17V1noIso_WP80_ = tree->GetBranch("Electron_mvaFall17V1noIso_WP80");
-    if (b_Electron_mvaFall17V1noIso_WP80_) { b_Electron_mvaFall17V1noIso_WP80_->SetAddress(&Electron_mvaFall17V1noIso_WP80_); }
+    if (b_Electron_mvaFall17V1noIso_WP80_) { b_Electron_mvaFall17V1noIso_WP80_->SetAddress(Electron_mvaFall17V1noIso_WP80_.grow(nanoBufLen(b_Electron_mvaFall17V1noIso_WP80_))); }
     b_Electron_mvaFall17V1noIso_WP90_ = tree->GetBranch("Electron_mvaFall17V1noIso_WP90");
-    if (b_Electron_mvaFall17V1noIso_WP90_) { b_Electron_mvaFall17V1noIso_WP90_->SetAddress(&Electron_mvaFall17V1noIso_WP90_); }
+    if (b_Electron_mvaFall17V1noIso_WP90_) { b_Electron_mvaFall17V1noIso_WP90_->SetAddress(Electron_mvaFall17V1noIso_WP90_.grow(nanoBufLen(b_Electron_mvaFall17V1noIso_WP90_))); }
     b_Electron_mvaFall17V1noIso_WPL_ = tree->GetBranch("Electron_mvaFall17V1noIso_WPL");
-    if (b_Electron_mvaFall17V1noIso_WPL_) { b_Electron_mvaFall17V1noIso_WPL_->SetAddress(&Electron_mvaFall17V1noIso_WPL_); }
+    if (b_Electron_mvaFall17V1noIso_WPL_) { b_Electron_mvaFall17V1noIso_WPL_->SetAddress(Electron_mvaFall17V1noIso_WPL_.grow(nanoBufLen(b_Electron_mvaFall17V1noIso_WPL_))); }
     b_Electron_mvaFall17V2Iso_ = tree->GetBranch("Electron_mvaFall17V2Iso");
-    if (b_Electron_mvaFall17V2Iso_) { b_Electron_mvaFall17V2Iso_->SetAddress(&Electron_mvaFall17V2Iso_); }
+    if (b_Electron_mvaFall17V2Iso_) { b_Electron_mvaFall17V2Iso_->SetAddress(Electron_mvaFall17V2Iso_.grow(nanoBufLen(b_Electron_mvaFall17V2Iso_))); }
     b_Electron_mvaFall17V2Iso_WP80_ = tree->GetBranch("Electron_mvaFall17V2Iso_WP80");
-    if (b_Electron_mvaFall17V2Iso_WP80_) { b_Electron_mvaFall17V2Iso_WP80_->SetAddress(&Electron_mvaFall17V2Iso_WP80_); }
+    if (b_Electron_mvaFall17V2Iso_WP80_) { b_Electron_mvaFall17V2Iso_WP80_->SetAddress(Electron_mvaFall17V2Iso_WP80_.grow(nanoBufLen(b_Electron_mvaFall17V2Iso_WP80_))); }
     b_Electron_mvaFall17V2Iso_WP90_ = tree->GetBranch("Electron_mvaFall17V2Iso_WP90");
-    if (b_Electron_mvaFall17V2Iso_WP90_) { b_Electron_mvaFall17V2Iso_WP90_->SetAddress(&Electron_mvaFall17V2Iso_WP90_); }
+    if (b_Electron_mvaFall17V2Iso_WP90_) { b_Electron_mvaFall17V2Iso_WP90_->SetAddress(Electron_mvaFall17V2Iso_WP90_.grow(nanoBufLen(b_Electron_mvaFall17V2Iso_WP90_))); }
     b_Electron_mvaFall17V2Iso_WPL_ = tree->GetBranch("Electron_mvaFall17V2Iso_WPL");
-    if (b_Electron_mvaFall17V2Iso_WPL_) { b_Electron_mvaFall17V2Iso_WPL_->SetAddress(&Electron_mvaFall17V2Iso_WPL_); }
+    if (b_Electron_mvaFall17V2Iso_WPL_) { b_Electron_mvaFall17V2Iso_WPL_->SetAddress(Electron_mvaFall17V2Iso_WPL_.grow(nanoBufLen(b_Electron_mvaFall17V2Iso_WPL_))); }
     b_Electron_mvaFall17V2noIso_ = tree->GetBranch("Electron_mvaFall17V2noIso");
-    if (b_Electron_mvaFall17V2noIso_) { b_Electron_mvaFall17V2noIso_->SetAddress(&Electron_mvaFall17V2noIso_); }
+    if (b_Electron_mvaFall17V2noIso_) { b_Electron_mvaFall17V2noIso_->SetAddress(Electron_mvaFall17V2noIso_.grow(nanoBufLen(b_Electron_mvaFall17V2noIso_))); }
     b_Electron_mvaFall17V2noIso_WP80_ = tree->GetBranch("Electron_mvaFall17V2noIso_WP80");
-    if (b_Electron_mvaFall17V2noIso_WP80_) { b_Electron_mvaFall17V2noIso_WP80_->SetAddress(&Electron_mvaFall17V2noIso_WP80_); }
+    if (b_Electron_mvaFall17V2noIso_WP80_) { b_Electron_mvaFall17V2noIso_WP80_->SetAddress(Electron_mvaFall17V2noIso_WP80_.grow(nanoBufLen(b_Electron_mvaFall17V2noIso_WP80_))); }
     b_Electron_mvaFall17V2noIso_WP90_ = tree->GetBranch("Electron_mvaFall17V2noIso_WP90");
-    if (b_Electron_mvaFall17V2noIso_WP90_) { b_Electron_mvaFall17V2noIso_WP90_->SetAddress(&Electron_mvaFall17V2noIso_WP90_); }
+    if (b_Electron_mvaFall17V2noIso_WP90_) { b_Electron_mvaFall17V2noIso_WP90_->SetAddress(Electron_mvaFall17V2noIso_WP90_.grow(nanoBufLen(b_Electron_mvaFall17V2noIso_WP90_))); }
     b_Electron_mvaFall17V2noIso_WPL_ = tree->GetBranch("Electron_mvaFall17V2noIso_WPL");
-    if (b_Electron_mvaFall17V2noIso_WPL_) { b_Electron_mvaFall17V2noIso_WPL_->SetAddress(&Electron_mvaFall17V2noIso_WPL_); }
+    if (b_Electron_mvaFall17V2noIso_WPL_) { b_Electron_mvaFall17V2noIso_WPL_->SetAddress(Electron_mvaFall17V2noIso_WPL_.grow(nanoBufLen(b_Electron_mvaFall17V2noIso_WPL_))); }
     b_Electron_mvaFall17noIso_ = tree->GetBranch("Electron_mvaFall17noIso");
-    if (b_Electron_mvaFall17noIso_) { b_Electron_mvaFall17noIso_->SetAddress(&Electron_mvaFall17noIso_); }
+    if (b_Electron_mvaFall17noIso_) { b_Electron_mvaFall17noIso_->SetAddress(Electron_mvaFall17noIso_.grow(nanoBufLen(b_Electron_mvaFall17noIso_))); }
     b_Electron_mvaFall17noIso_WP80_ = tree->GetBranch("Electron_mvaFall17noIso_WP80");
-    if (b_Electron_mvaFall17noIso_WP80_) { b_Electron_mvaFall17noIso_WP80_->SetAddress(&Electron_mvaFall17noIso_WP80_); }
+    if (b_Electron_mvaFall17noIso_WP80_) { b_Electron_mvaFall17noIso_WP80_->SetAddress(Electron_mvaFall17noIso_WP80_.grow(nanoBufLen(b_Electron_mvaFall17noIso_WP80_))); }
     b_Electron_mvaFall17noIso_WP90_ = tree->GetBranch("Electron_mvaFall17noIso_WP90");
-    if (b_Electron_mvaFall17noIso_WP90_) { b_Electron_mvaFall17noIso_WP90_->SetAddress(&Electron_mvaFall17noIso_WP90_); }
+    if (b_Electron_mvaFall17noIso_WP90_) { b_Electron_mvaFall17noIso_WP90_->SetAddress(Electron_mvaFall17noIso_WP90_.grow(nanoBufLen(b_Electron_mvaFall17noIso_WP90_))); }
     b_Electron_mvaFall17noIso_WPL_ = tree->GetBranch("Electron_mvaFall17noIso_WPL");
-    if (b_Electron_mvaFall17noIso_WPL_) { b_Electron_mvaFall17noIso_WPL_->SetAddress(&Electron_mvaFall17noIso_WPL_); }
+    if (b_Electron_mvaFall17noIso_WPL_) { b_Electron_mvaFall17noIso_WPL_->SetAddress(Electron_mvaFall17noIso_WPL_.grow(nanoBufLen(b_Electron_mvaFall17noIso_WPL_))); }
     b_Electron_mvaHZZIso_ = tree->GetBranch("Electron_mvaHZZIso");
-    if (b_Electron_mvaHZZIso_) { b_Electron_mvaHZZIso_->SetAddress(&Electron_mvaHZZIso_); }
+    if (b_Electron_mvaHZZIso_) { b_Electron_mvaHZZIso_->SetAddress(Electron_mvaHZZIso_.grow(nanoBufLen(b_Electron_mvaHZZIso_))); }
     b_Electron_mvaIso_ = tree->GetBranch("Electron_mvaIso");
-    if (b_Electron_mvaIso_) { b_Electron_mvaIso_->SetAddress(&Electron_mvaIso_); }
+    if (b_Electron_mvaIso_) { b_Electron_mvaIso_->SetAddress(Electron_mvaIso_.grow(nanoBufLen(b_Electron_mvaIso_))); }
     b_Electron_mvaIso_Fall17V2_ = tree->GetBranch("Electron_mvaIso_Fall17V2");
-    if (b_Electron_mvaIso_Fall17V2_) { b_Electron_mvaIso_Fall17V2_->SetAddress(&Electron_mvaIso_Fall17V2_); }
+    if (b_Electron_mvaIso_Fall17V2_) { b_Electron_mvaIso_Fall17V2_->SetAddress(Electron_mvaIso_Fall17V2_.grow(nanoBufLen(b_Electron_mvaIso_Fall17V2_))); }
     b_Electron_mvaIso_Fall17V2_WP80_ = tree->GetBranch("Electron_mvaIso_Fall17V2_WP80");
-    if (b_Electron_mvaIso_Fall17V2_WP80_) { b_Electron_mvaIso_Fall17V2_WP80_->SetAddress(&Electron_mvaIso_Fall17V2_WP80_); }
+    if (b_Electron_mvaIso_Fall17V2_WP80_) { b_Electron_mvaIso_Fall17V2_WP80_->SetAddress(Electron_mvaIso_Fall17V2_WP80_.grow(nanoBufLen(b_Electron_mvaIso_Fall17V2_WP80_))); }
     b_Electron_mvaIso_Fall17V2_WP90_ = tree->GetBranch("Electron_mvaIso_Fall17V2_WP90");
-    if (b_Electron_mvaIso_Fall17V2_WP90_) { b_Electron_mvaIso_Fall17V2_WP90_->SetAddress(&Electron_mvaIso_Fall17V2_WP90_); }
+    if (b_Electron_mvaIso_Fall17V2_WP90_) { b_Electron_mvaIso_Fall17V2_WP90_->SetAddress(Electron_mvaIso_Fall17V2_WP90_.grow(nanoBufLen(b_Electron_mvaIso_Fall17V2_WP90_))); }
     b_Electron_mvaIso_Fall17V2_WPL_ = tree->GetBranch("Electron_mvaIso_Fall17V2_WPL");
-    if (b_Electron_mvaIso_Fall17V2_WPL_) { b_Electron_mvaIso_Fall17V2_WPL_->SetAddress(&Electron_mvaIso_Fall17V2_WPL_); }
+    if (b_Electron_mvaIso_Fall17V2_WPL_) { b_Electron_mvaIso_Fall17V2_WPL_->SetAddress(Electron_mvaIso_Fall17V2_WPL_.grow(nanoBufLen(b_Electron_mvaIso_Fall17V2_WPL_))); }
     b_Electron_mvaIso_WP80_ = tree->GetBranch("Electron_mvaIso_WP80");
-    if (b_Electron_mvaIso_WP80_) { b_Electron_mvaIso_WP80_->SetAddress(&Electron_mvaIso_WP80_); }
+    if (b_Electron_mvaIso_WP80_) { b_Electron_mvaIso_WP80_->SetAddress(Electron_mvaIso_WP80_.grow(nanoBufLen(b_Electron_mvaIso_WP80_))); }
     b_Electron_mvaIso_WP90_ = tree->GetBranch("Electron_mvaIso_WP90");
-    if (b_Electron_mvaIso_WP90_) { b_Electron_mvaIso_WP90_->SetAddress(&Electron_mvaIso_WP90_); }
+    if (b_Electron_mvaIso_WP90_) { b_Electron_mvaIso_WP90_->SetAddress(Electron_mvaIso_WP90_.grow(nanoBufLen(b_Electron_mvaIso_WP90_))); }
     b_Electron_mvaNoIso_ = tree->GetBranch("Electron_mvaNoIso");
-    if (b_Electron_mvaNoIso_) { b_Electron_mvaNoIso_->SetAddress(&Electron_mvaNoIso_); }
+    if (b_Electron_mvaNoIso_) { b_Electron_mvaNoIso_->SetAddress(Electron_mvaNoIso_.grow(nanoBufLen(b_Electron_mvaNoIso_))); }
     b_Electron_mvaNoIso_Fall17V2_ = tree->GetBranch("Electron_mvaNoIso_Fall17V2");
-    if (b_Electron_mvaNoIso_Fall17V2_) { b_Electron_mvaNoIso_Fall17V2_->SetAddress(&Electron_mvaNoIso_Fall17V2_); }
+    if (b_Electron_mvaNoIso_Fall17V2_) { b_Electron_mvaNoIso_Fall17V2_->SetAddress(Electron_mvaNoIso_Fall17V2_.grow(nanoBufLen(b_Electron_mvaNoIso_Fall17V2_))); }
     b_Electron_mvaNoIso_Fall17V2_WP80_ = tree->GetBranch("Electron_mvaNoIso_Fall17V2_WP80");
-    if (b_Electron_mvaNoIso_Fall17V2_WP80_) { b_Electron_mvaNoIso_Fall17V2_WP80_->SetAddress(&Electron_mvaNoIso_Fall17V2_WP80_); }
+    if (b_Electron_mvaNoIso_Fall17V2_WP80_) { b_Electron_mvaNoIso_Fall17V2_WP80_->SetAddress(Electron_mvaNoIso_Fall17V2_WP80_.grow(nanoBufLen(b_Electron_mvaNoIso_Fall17V2_WP80_))); }
     b_Electron_mvaNoIso_Fall17V2_WP90_ = tree->GetBranch("Electron_mvaNoIso_Fall17V2_WP90");
-    if (b_Electron_mvaNoIso_Fall17V2_WP90_) { b_Electron_mvaNoIso_Fall17V2_WP90_->SetAddress(&Electron_mvaNoIso_Fall17V2_WP90_); }
+    if (b_Electron_mvaNoIso_Fall17V2_WP90_) { b_Electron_mvaNoIso_Fall17V2_WP90_->SetAddress(Electron_mvaNoIso_Fall17V2_WP90_.grow(nanoBufLen(b_Electron_mvaNoIso_Fall17V2_WP90_))); }
     b_Electron_mvaNoIso_Fall17V2_WPL_ = tree->GetBranch("Electron_mvaNoIso_Fall17V2_WPL");
-    if (b_Electron_mvaNoIso_Fall17V2_WPL_) { b_Electron_mvaNoIso_Fall17V2_WPL_->SetAddress(&Electron_mvaNoIso_Fall17V2_WPL_); }
+    if (b_Electron_mvaNoIso_Fall17V2_WPL_) { b_Electron_mvaNoIso_Fall17V2_WPL_->SetAddress(Electron_mvaNoIso_Fall17V2_WPL_.grow(nanoBufLen(b_Electron_mvaNoIso_Fall17V2_WPL_))); }
     b_Electron_mvaNoIso_WP80_ = tree->GetBranch("Electron_mvaNoIso_WP80");
-    if (b_Electron_mvaNoIso_WP80_) { b_Electron_mvaNoIso_WP80_->SetAddress(&Electron_mvaNoIso_WP80_); }
+    if (b_Electron_mvaNoIso_WP80_) { b_Electron_mvaNoIso_WP80_->SetAddress(Electron_mvaNoIso_WP80_.grow(nanoBufLen(b_Electron_mvaNoIso_WP80_))); }
     b_Electron_mvaNoIso_WP90_ = tree->GetBranch("Electron_mvaNoIso_WP90");
-    if (b_Electron_mvaNoIso_WP90_) { b_Electron_mvaNoIso_WP90_->SetAddress(&Electron_mvaNoIso_WP90_); }
+    if (b_Electron_mvaNoIso_WP90_) { b_Electron_mvaNoIso_WP90_->SetAddress(Electron_mvaNoIso_WP90_.grow(nanoBufLen(b_Electron_mvaNoIso_WP90_))); }
     b_Electron_mvaSpring16GP_ = tree->GetBranch("Electron_mvaSpring16GP");
-    if (b_Electron_mvaSpring16GP_) { b_Electron_mvaSpring16GP_->SetAddress(&Electron_mvaSpring16GP_); }
+    if (b_Electron_mvaSpring16GP_) { b_Electron_mvaSpring16GP_->SetAddress(Electron_mvaSpring16GP_.grow(nanoBufLen(b_Electron_mvaSpring16GP_))); }
     b_Electron_mvaSpring16GP_WP80_ = tree->GetBranch("Electron_mvaSpring16GP_WP80");
-    if (b_Electron_mvaSpring16GP_WP80_) { b_Electron_mvaSpring16GP_WP80_->SetAddress(&Electron_mvaSpring16GP_WP80_); }
+    if (b_Electron_mvaSpring16GP_WP80_) { b_Electron_mvaSpring16GP_WP80_->SetAddress(Electron_mvaSpring16GP_WP80_.grow(nanoBufLen(b_Electron_mvaSpring16GP_WP80_))); }
     b_Electron_mvaSpring16GP_WP90_ = tree->GetBranch("Electron_mvaSpring16GP_WP90");
-    if (b_Electron_mvaSpring16GP_WP90_) { b_Electron_mvaSpring16GP_WP90_->SetAddress(&Electron_mvaSpring16GP_WP90_); }
+    if (b_Electron_mvaSpring16GP_WP90_) { b_Electron_mvaSpring16GP_WP90_->SetAddress(Electron_mvaSpring16GP_WP90_.grow(nanoBufLen(b_Electron_mvaSpring16GP_WP90_))); }
     b_Electron_mvaSpring16HZZ_ = tree->GetBranch("Electron_mvaSpring16HZZ");
-    if (b_Electron_mvaSpring16HZZ_) { b_Electron_mvaSpring16HZZ_->SetAddress(&Electron_mvaSpring16HZZ_); }
+    if (b_Electron_mvaSpring16HZZ_) { b_Electron_mvaSpring16HZZ_->SetAddress(Electron_mvaSpring16HZZ_.grow(nanoBufLen(b_Electron_mvaSpring16HZZ_))); }
     b_Electron_mvaSpring16HZZ_WPL_ = tree->GetBranch("Electron_mvaSpring16HZZ_WPL");
-    if (b_Electron_mvaSpring16HZZ_WPL_) { b_Electron_mvaSpring16HZZ_WPL_->SetAddress(&Electron_mvaSpring16HZZ_WPL_); }
+    if (b_Electron_mvaSpring16HZZ_WPL_) { b_Electron_mvaSpring16HZZ_WPL_->SetAddress(Electron_mvaSpring16HZZ_WPL_.grow(nanoBufLen(b_Electron_mvaSpring16HZZ_WPL_))); }
     b_Electron_mvaTTH_ = tree->GetBranch("Electron_mvaTTH");
-    if (b_Electron_mvaTTH_) { b_Electron_mvaTTH_->SetAddress(&Electron_mvaTTH_); }
+    if (b_Electron_mvaTTH_) { b_Electron_mvaTTH_->SetAddress(Electron_mvaTTH_.grow(nanoBufLen(b_Electron_mvaTTH_))); }
     // NOTE: this is a custom branch; temporarily added for convenience
     b_Electron_mvaTTHUL_ = tree->GetBranch("Electron_mvaTTHUL");
-    if (b_Electron_mvaTTHUL_) { b_Electron_mvaTTHUL_->SetAddress(&Electron_mvaTTHUL_); }
+    if (b_Electron_mvaTTHUL_) { b_Electron_mvaTTHUL_->SetAddress(Electron_mvaTTHUL_.grow(nanoBufLen(b_Electron_mvaTTHUL_))); }
     //
     b_Electron_pdgId_ = tree->GetBranch("Electron_pdgId");
-    if (b_Electron_pdgId_) { b_Electron_pdgId_->SetAddress(&Electron_pdgId_); }
+    if (b_Electron_pdgId_) { b_Electron_pdgId_->SetAddress(Electron_pdgId_.grow(nanoBufLen(b_Electron_pdgId_))); }
     b_Electron_pfRelIso03_all_ = tree->GetBranch("Electron_pfRelIso03_all");
-    if (b_Electron_pfRelIso03_all_) { b_Electron_pfRelIso03_all_->SetAddress(&Electron_pfRelIso03_all_); }
+    if (b_Electron_pfRelIso03_all_) { b_Electron_pfRelIso03_all_->SetAddress(Electron_pfRelIso03_all_.grow(nanoBufLen(b_Electron_pfRelIso03_all_))); }
     b_Electron_pfRelIso03_all_Fall17V2_ = tree->GetBranch("Electron_pfRelIso03_all_Fall17V2");
-    if (b_Electron_pfRelIso03_all_Fall17V2_) { b_Electron_pfRelIso03_all_Fall17V2_->SetAddress(&Electron_pfRelIso03_all_Fall17V2_); }
+    if (b_Electron_pfRelIso03_all_Fall17V2_) { b_Electron_pfRelIso03_all_Fall17V2_->SetAddress(Electron_pfRelIso03_all_Fall17V2_.grow(nanoBufLen(b_Electron_pfRelIso03_all_Fall17V2_))); }
     b_Electron_pfRelIso03_chg_ = tree->GetBranch("Electron_pfRelIso03_chg");
-    if (b_Electron_pfRelIso03_chg_) { b_Electron_pfRelIso03_chg_->SetAddress(&Electron_pfRelIso03_chg_); }
+    if (b_Electron_pfRelIso03_chg_) { b_Electron_pfRelIso03_chg_->SetAddress(Electron_pfRelIso03_chg_.grow(nanoBufLen(b_Electron_pfRelIso03_chg_))); }
     b_Electron_pfRelIso03_chg_Fall17V2_ = tree->GetBranch("Electron_pfRelIso03_chg_Fall17V2");
-    if (b_Electron_pfRelIso03_chg_Fall17V2_) { b_Electron_pfRelIso03_chg_Fall17V2_->SetAddress(&Electron_pfRelIso03_chg_Fall17V2_); }
+    if (b_Electron_pfRelIso03_chg_Fall17V2_) { b_Electron_pfRelIso03_chg_Fall17V2_->SetAddress(Electron_pfRelIso03_chg_Fall17V2_.grow(nanoBufLen(b_Electron_pfRelIso03_chg_Fall17V2_))); }
     b_Electron_phi_ = tree->GetBranch("Electron_phi");
-    if (b_Electron_phi_) { b_Electron_phi_->SetAddress(&Electron_phi_); }
+    if (b_Electron_phi_) { b_Electron_phi_->SetAddress(Electron_phi_.grow(nanoBufLen(b_Electron_phi_))); }
     b_Electron_photonIdx_ = tree->GetBranch("Electron_photonIdx");
-    if (b_Electron_photonIdx_) { b_Electron_photonIdx_->SetAddress(&Electron_photonIdx_); }
+    if (b_Electron_photonIdx_) { b_Electron_photonIdx_->SetAddress(Electron_photonIdx_.grow(nanoBufLen(b_Electron_photonIdx_))); }
     b_Electron_pt_ = tree->GetBranch("Electron_pt");
-    if (b_Electron_pt_) { b_Electron_pt_->SetAddress(&Electron_pt_); }
+    if (b_Electron_pt_) { b_Electron_pt_->SetAddress(Electron_pt_.grow(nanoBufLen(b_Electron_pt_))); }
     b_Electron_r9_ = tree->GetBranch("Electron_r9");
-    if (b_Electron_r9_) { b_Electron_r9_->SetAddress(&Electron_r9_); }
+    if (b_Electron_r9_) { b_Electron_r9_->SetAddress(Electron_r9_.grow(nanoBufLen(b_Electron_r9_))); }
     b_Electron_scEtOverPt_ = tree->GetBranch("Electron_scEtOverPt");
-    if (b_Electron_scEtOverPt_) { b_Electron_scEtOverPt_->SetAddress(&Electron_scEtOverPt_); }
+    if (b_Electron_scEtOverPt_) { b_Electron_scEtOverPt_->SetAddress(Electron_scEtOverPt_.grow(nanoBufLen(b_Electron_scEtOverPt_))); }
     b_Electron_seedGain_ = tree->GetBranch("Electron_seedGain");
-    if (b_Electron_seedGain_) { b_Electron_seedGain_->SetAddress(&Electron_seedGain_); }
+    if (b_Electron_seedGain_) { b_Electron_seedGain_->SetAddress(Electron_seedGain_.grow(nanoBufLen(b_Electron_seedGain_))); }
     b_Electron_seediEtaOriX_ = tree->GetBranch("Electron_seediEtaOriX");
-    if (b_Electron_seediEtaOriX_) { b_Electron_seediEtaOriX_->SetAddress(&Electron_seediEtaOriX_); }
+    if (b_Electron_seediEtaOriX_) { b_Electron_seediEtaOriX_->SetAddress(Electron_seediEtaOriX_.grow(nanoBufLen(b_Electron_seediEtaOriX_))); }
     b_Electron_seediPhiOriY_ = tree->GetBranch("Electron_seediPhiOriY");
-    if (b_Electron_seediPhiOriY_) { b_Electron_seediPhiOriY_->SetAddress(&Electron_seediPhiOriY_); }
+    if (b_Electron_seediPhiOriY_) { b_Electron_seediPhiOriY_->SetAddress(Electron_seediPhiOriY_.grow(nanoBufLen(b_Electron_seediPhiOriY_))); }
     b_Electron_sieie_ = tree->GetBranch("Electron_sieie");
-    if (b_Electron_sieie_) { b_Electron_sieie_->SetAddress(&Electron_sieie_); }
+    if (b_Electron_sieie_) { b_Electron_sieie_->SetAddress(Electron_sieie_.grow(nanoBufLen(b_Electron_sieie_))); }
     b_Electron_sip3d_ = tree->GetBranch("Electron_sip3d");
-    if (b_Electron_sip3d_) { b_Electron_sip3d_->SetAddress(&Electron_sip3d_); }
+    if (b_Electron_sip3d_) { b_Electron_sip3d_->SetAddress(Electron_sip3d_.grow(nanoBufLen(b_Electron_sip3d_))); }
     b_Electron_svIdx_ = tree->GetBranch("Electron_svIdx");
-    if (b_Electron_svIdx_) { b_Electron_svIdx_->SetAddress(&Electron_svIdx_); }
+    if (b_Electron_svIdx_) { b_Electron_svIdx_->SetAddress(Electron_svIdx_.grow(nanoBufLen(b_Electron_svIdx_))); }
     b_Electron_tightCharge_ = tree->GetBranch("Electron_tightCharge");
-    if (b_Electron_tightCharge_) { b_Electron_tightCharge_->SetAddress(&Electron_tightCharge_); }
+    if (b_Electron_tightCharge_) { b_Electron_tightCharge_->SetAddress(Electron_tightCharge_.grow(nanoBufLen(b_Electron_tightCharge_))); }
     b_Electron_vidNestedWPBitmap_ = tree->GetBranch("Electron_vidNestedWPBitmap");
-    if (b_Electron_vidNestedWPBitmap_) { b_Electron_vidNestedWPBitmap_->SetAddress(&Electron_vidNestedWPBitmap_); }
+    if (b_Electron_vidNestedWPBitmap_) { b_Electron_vidNestedWPBitmap_->SetAddress(Electron_vidNestedWPBitmap_.grow(nanoBufLen(b_Electron_vidNestedWPBitmap_))); }
     b_Electron_vidNestedWPBitmapHEEP_ = tree->GetBranch("Electron_vidNestedWPBitmapHEEP");
-    if (b_Electron_vidNestedWPBitmapHEEP_) { b_Electron_vidNestedWPBitmapHEEP_->SetAddress(&Electron_vidNestedWPBitmapHEEP_); }
+    if (b_Electron_vidNestedWPBitmapHEEP_) { b_Electron_vidNestedWPBitmapHEEP_->SetAddress(Electron_vidNestedWPBitmapHEEP_.grow(nanoBufLen(b_Electron_vidNestedWPBitmapHEEP_))); }
     b_Electron_vidNestedWPBitmap_Fall17V2_ = tree->GetBranch("Electron_vidNestedWPBitmap_Fall17V2");
-    if (b_Electron_vidNestedWPBitmap_Fall17V2_) { b_Electron_vidNestedWPBitmap_Fall17V2_->SetAddress(&Electron_vidNestedWPBitmap_Fall17V2_); }
+    if (b_Electron_vidNestedWPBitmap_Fall17V2_) { b_Electron_vidNestedWPBitmap_Fall17V2_->SetAddress(Electron_vidNestedWPBitmap_Fall17V2_.grow(nanoBufLen(b_Electron_vidNestedWPBitmap_Fall17V2_))); }
     b_FatJet_area_ = tree->GetBranch("FatJet_area");
-    if (b_FatJet_area_) { b_FatJet_area_->SetAddress(&FatJet_area_); }
+    if (b_FatJet_area_) { b_FatJet_area_->SetAddress(FatJet_area_.grow(nanoBufLen(b_FatJet_area_))); }
     b_FatJet_btagCMVA_ = tree->GetBranch("FatJet_btagCMVA");
-    if (b_FatJet_btagCMVA_) { b_FatJet_btagCMVA_->SetAddress(&FatJet_btagCMVA_); }
+    if (b_FatJet_btagCMVA_) { b_FatJet_btagCMVA_->SetAddress(FatJet_btagCMVA_.grow(nanoBufLen(b_FatJet_btagCMVA_))); }
     b_FatJet_btagCSVV2_ = tree->GetBranch("FatJet_btagCSVV2");
-    if (b_FatJet_btagCSVV2_) { b_FatJet_btagCSVV2_->SetAddress(&FatJet_btagCSVV2_); }
+    if (b_FatJet_btagCSVV2_) { b_FatJet_btagCSVV2_->SetAddress(FatJet_btagCSVV2_.grow(nanoBufLen(b_FatJet_btagCSVV2_))); }
     b_FatJet_btagDDBvL_ = tree->GetBranch("FatJet_btagDDBvL");
-    if (b_FatJet_btagDDBvL_) { b_FatJet_btagDDBvL_->SetAddress(&FatJet_btagDDBvL_); }
+    if (b_FatJet_btagDDBvL_) { b_FatJet_btagDDBvL_->SetAddress(FatJet_btagDDBvL_.grow(nanoBufLen(b_FatJet_btagDDBvL_))); }
     b_FatJet_btagDDBvLV2_ = tree->GetBranch("FatJet_btagDDBvLV2");
-    if (b_FatJet_btagDDBvLV2_) { b_FatJet_btagDDBvLV2_->SetAddress(&FatJet_btagDDBvLV2_); }
+    if (b_FatJet_btagDDBvLV2_) { b_FatJet_btagDDBvLV2_->SetAddress(FatJet_btagDDBvLV2_.grow(nanoBufLen(b_FatJet_btagDDBvLV2_))); }
     b_FatJet_btagDDBvL_noMD_ = tree->GetBranch("FatJet_btagDDBvL_noMD");
-    if (b_FatJet_btagDDBvL_noMD_) { b_FatJet_btagDDBvL_noMD_->SetAddress(&FatJet_btagDDBvL_noMD_); }
+    if (b_FatJet_btagDDBvL_noMD_) { b_FatJet_btagDDBvL_noMD_->SetAddress(FatJet_btagDDBvL_noMD_.grow(nanoBufLen(b_FatJet_btagDDBvL_noMD_))); }
     b_FatJet_btagDDCvB_ = tree->GetBranch("FatJet_btagDDCvB");
-    if (b_FatJet_btagDDCvB_) { b_FatJet_btagDDCvB_->SetAddress(&FatJet_btagDDCvB_); }
+    if (b_FatJet_btagDDCvB_) { b_FatJet_btagDDCvB_->SetAddress(FatJet_btagDDCvB_.grow(nanoBufLen(b_FatJet_btagDDCvB_))); }
     b_FatJet_btagDDCvBV2_ = tree->GetBranch("FatJet_btagDDCvBV2");
-    if (b_FatJet_btagDDCvBV2_) { b_FatJet_btagDDCvBV2_->SetAddress(&FatJet_btagDDCvBV2_); }
+    if (b_FatJet_btagDDCvBV2_) { b_FatJet_btagDDCvBV2_->SetAddress(FatJet_btagDDCvBV2_.grow(nanoBufLen(b_FatJet_btagDDCvBV2_))); }
     b_FatJet_btagDDCvB_noMD_ = tree->GetBranch("FatJet_btagDDCvB_noMD");
-    if (b_FatJet_btagDDCvB_noMD_) { b_FatJet_btagDDCvB_noMD_->SetAddress(&FatJet_btagDDCvB_noMD_); }
+    if (b_FatJet_btagDDCvB_noMD_) { b_FatJet_btagDDCvB_noMD_->SetAddress(FatJet_btagDDCvB_noMD_.grow(nanoBufLen(b_FatJet_btagDDCvB_noMD_))); }
     b_FatJet_btagDDCvL_ = tree->GetBranch("FatJet_btagDDCvL");
-    if (b_FatJet_btagDDCvL_) { b_FatJet_btagDDCvL_->SetAddress(&FatJet_btagDDCvL_); }
+    if (b_FatJet_btagDDCvL_) { b_FatJet_btagDDCvL_->SetAddress(FatJet_btagDDCvL_.grow(nanoBufLen(b_FatJet_btagDDCvL_))); }
     b_FatJet_btagDDCvLV2_ = tree->GetBranch("FatJet_btagDDCvLV2");
-    if (b_FatJet_btagDDCvLV2_) { b_FatJet_btagDDCvLV2_->SetAddress(&FatJet_btagDDCvLV2_); }
+    if (b_FatJet_btagDDCvLV2_) { b_FatJet_btagDDCvLV2_->SetAddress(FatJet_btagDDCvLV2_.grow(nanoBufLen(b_FatJet_btagDDCvLV2_))); }
     b_FatJet_btagDDCvL_noMD_ = tree->GetBranch("FatJet_btagDDCvL_noMD");
-    if (b_FatJet_btagDDCvL_noMD_) { b_FatJet_btagDDCvL_noMD_->SetAddress(&FatJet_btagDDCvL_noMD_); }
+    if (b_FatJet_btagDDCvL_noMD_) { b_FatJet_btagDDCvL_noMD_->SetAddress(FatJet_btagDDCvL_noMD_.grow(nanoBufLen(b_FatJet_btagDDCvL_noMD_))); }
     b_FatJet_btagDeepB_ = tree->GetBranch("FatJet_btagDeepB");
-    if (b_FatJet_btagDeepB_) { b_FatJet_btagDeepB_->SetAddress(&FatJet_btagDeepB_); }
+    if (b_FatJet_btagDeepB_) { b_FatJet_btagDeepB_->SetAddress(FatJet_btagDeepB_.grow(nanoBufLen(b_FatJet_btagDeepB_))); }
     b_FatJet_btagHbb_ = tree->GetBranch("FatJet_btagHbb");
-    if (b_FatJet_btagHbb_) { b_FatJet_btagHbb_->SetAddress(&FatJet_btagHbb_); }
+    if (b_FatJet_btagHbb_) { b_FatJet_btagHbb_->SetAddress(FatJet_btagHbb_.grow(nanoBufLen(b_FatJet_btagHbb_))); }
     b_FatJet_corr_JEC_ = tree->GetBranch("FatJet_corr_JEC");
-    if (b_FatJet_corr_JEC_) { b_FatJet_corr_JEC_->SetAddress(&FatJet_corr_JEC_); }
+    if (b_FatJet_corr_JEC_) { b_FatJet_corr_JEC_->SetAddress(FatJet_corr_JEC_.grow(nanoBufLen(b_FatJet_corr_JEC_))); }
     b_FatJet_corr_JER_ = tree->GetBranch("FatJet_corr_JER");
-    if (b_FatJet_corr_JER_) { b_FatJet_corr_JER_->SetAddress(&FatJet_corr_JER_); }
+    if (b_FatJet_corr_JER_) { b_FatJet_corr_JER_->SetAddress(FatJet_corr_JER_.grow(nanoBufLen(b_FatJet_corr_JER_))); }
     b_FatJet_corr_JMR_ = tree->GetBranch("FatJet_corr_JMR");
-    if (b_FatJet_corr_JMR_) { b_FatJet_corr_JMR_->SetAddress(&FatJet_corr_JMR_); }
+    if (b_FatJet_corr_JMR_) { b_FatJet_corr_JMR_->SetAddress(FatJet_corr_JMR_.grow(nanoBufLen(b_FatJet_corr_JMR_))); }
     b_FatJet_corr_JMS_ = tree->GetBranch("FatJet_corr_JMS");
-    if (b_FatJet_corr_JMS_) { b_FatJet_corr_JMS_->SetAddress(&FatJet_corr_JMS_); }
+    if (b_FatJet_corr_JMS_) { b_FatJet_corr_JMS_->SetAddress(FatJet_corr_JMS_.grow(nanoBufLen(b_FatJet_corr_JMS_))); }
     b_FatJet_deepTagMD_H4qvsQCD_ = tree->GetBranch("FatJet_deepTagMD_H4qvsQCD");
-    if (b_FatJet_deepTagMD_H4qvsQCD_) { b_FatJet_deepTagMD_H4qvsQCD_->SetAddress(&FatJet_deepTagMD_H4qvsQCD_); }
+    if (b_FatJet_deepTagMD_H4qvsQCD_) { b_FatJet_deepTagMD_H4qvsQCD_->SetAddress(FatJet_deepTagMD_H4qvsQCD_.grow(nanoBufLen(b_FatJet_deepTagMD_H4qvsQCD_))); }
     b_FatJet_deepTagMD_HbbvsQCD_ = tree->GetBranch("FatJet_deepTagMD_HbbvsQCD");
-    if (b_FatJet_deepTagMD_HbbvsQCD_) { b_FatJet_deepTagMD_HbbvsQCD_->SetAddress(&FatJet_deepTagMD_HbbvsQCD_); }
+    if (b_FatJet_deepTagMD_HbbvsQCD_) { b_FatJet_deepTagMD_HbbvsQCD_->SetAddress(FatJet_deepTagMD_HbbvsQCD_.grow(nanoBufLen(b_FatJet_deepTagMD_HbbvsQCD_))); }
     b_FatJet_deepTagMD_TvsQCD_ = tree->GetBranch("FatJet_deepTagMD_TvsQCD");
-    if (b_FatJet_deepTagMD_TvsQCD_) { b_FatJet_deepTagMD_TvsQCD_->SetAddress(&FatJet_deepTagMD_TvsQCD_); }
+    if (b_FatJet_deepTagMD_TvsQCD_) { b_FatJet_deepTagMD_TvsQCD_->SetAddress(FatJet_deepTagMD_TvsQCD_.grow(nanoBufLen(b_FatJet_deepTagMD_TvsQCD_))); }
     b_FatJet_deepTagMD_WvsQCD_ = tree->GetBranch("FatJet_deepTagMD_WvsQCD");
-    if (b_FatJet_deepTagMD_WvsQCD_) { b_FatJet_deepTagMD_WvsQCD_->SetAddress(&FatJet_deepTagMD_WvsQCD_); }
+    if (b_FatJet_deepTagMD_WvsQCD_) { b_FatJet_deepTagMD_WvsQCD_->SetAddress(FatJet_deepTagMD_WvsQCD_.grow(nanoBufLen(b_FatJet_deepTagMD_WvsQCD_))); }
     b_FatJet_deepTagMD_ZHbbvsQCD_ = tree->GetBranch("FatJet_deepTagMD_ZHbbvsQCD");
-    if (b_FatJet_deepTagMD_ZHbbvsQCD_) { b_FatJet_deepTagMD_ZHbbvsQCD_->SetAddress(&FatJet_deepTagMD_ZHbbvsQCD_); }
+    if (b_FatJet_deepTagMD_ZHbbvsQCD_) { b_FatJet_deepTagMD_ZHbbvsQCD_->SetAddress(FatJet_deepTagMD_ZHbbvsQCD_.grow(nanoBufLen(b_FatJet_deepTagMD_ZHbbvsQCD_))); }
     b_FatJet_deepTagMD_ZHccvsQCD_ = tree->GetBranch("FatJet_deepTagMD_ZHccvsQCD");
-    if (b_FatJet_deepTagMD_ZHccvsQCD_) { b_FatJet_deepTagMD_ZHccvsQCD_->SetAddress(&FatJet_deepTagMD_ZHccvsQCD_); }
+    if (b_FatJet_deepTagMD_ZHccvsQCD_) { b_FatJet_deepTagMD_ZHccvsQCD_->SetAddress(FatJet_deepTagMD_ZHccvsQCD_.grow(nanoBufLen(b_FatJet_deepTagMD_ZHccvsQCD_))); }
     b_FatJet_deepTagMD_ZbbvsQCD_ = tree->GetBranch("FatJet_deepTagMD_ZbbvsQCD");
-    if (b_FatJet_deepTagMD_ZbbvsQCD_) { b_FatJet_deepTagMD_ZbbvsQCD_->SetAddress(&FatJet_deepTagMD_ZbbvsQCD_); }
+    if (b_FatJet_deepTagMD_ZbbvsQCD_) { b_FatJet_deepTagMD_ZbbvsQCD_->SetAddress(FatJet_deepTagMD_ZbbvsQCD_.grow(nanoBufLen(b_FatJet_deepTagMD_ZbbvsQCD_))); }
     b_FatJet_deepTagMD_ZvsQCD_ = tree->GetBranch("FatJet_deepTagMD_ZvsQCD");
-    if (b_FatJet_deepTagMD_ZvsQCD_) { b_FatJet_deepTagMD_ZvsQCD_->SetAddress(&FatJet_deepTagMD_ZvsQCD_); }
+    if (b_FatJet_deepTagMD_ZvsQCD_) { b_FatJet_deepTagMD_ZvsQCD_->SetAddress(FatJet_deepTagMD_ZvsQCD_.grow(nanoBufLen(b_FatJet_deepTagMD_ZvsQCD_))); }
     b_FatJet_deepTagMD_bbvsLight_ = tree->GetBranch("FatJet_deepTagMD_bbvsLight");
-    if (b_FatJet_deepTagMD_bbvsLight_) { b_FatJet_deepTagMD_bbvsLight_->SetAddress(&FatJet_deepTagMD_bbvsLight_); }
+    if (b_FatJet_deepTagMD_bbvsLight_) { b_FatJet_deepTagMD_bbvsLight_->SetAddress(FatJet_deepTagMD_bbvsLight_.grow(nanoBufLen(b_FatJet_deepTagMD_bbvsLight_))); }
     b_FatJet_deepTagMD_ccvsLight_ = tree->GetBranch("FatJet_deepTagMD_ccvsLight");
-    if (b_FatJet_deepTagMD_ccvsLight_) { b_FatJet_deepTagMD_ccvsLight_->SetAddress(&FatJet_deepTagMD_ccvsLight_); }
+    if (b_FatJet_deepTagMD_ccvsLight_) { b_FatJet_deepTagMD_ccvsLight_->SetAddress(FatJet_deepTagMD_ccvsLight_.grow(nanoBufLen(b_FatJet_deepTagMD_ccvsLight_))); }
     b_FatJet_deepTag_H_ = tree->GetBranch("FatJet_deepTag_H");
-    if (b_FatJet_deepTag_H_) { b_FatJet_deepTag_H_->SetAddress(&FatJet_deepTag_H_); }
+    if (b_FatJet_deepTag_H_) { b_FatJet_deepTag_H_->SetAddress(FatJet_deepTag_H_.grow(nanoBufLen(b_FatJet_deepTag_H_))); }
     b_FatJet_deepTag_QCD_ = tree->GetBranch("FatJet_deepTag_QCD");
-    if (b_FatJet_deepTag_QCD_) { b_FatJet_deepTag_QCD_->SetAddress(&FatJet_deepTag_QCD_); }
+    if (b_FatJet_deepTag_QCD_) { b_FatJet_deepTag_QCD_->SetAddress(FatJet_deepTag_QCD_.grow(nanoBufLen(b_FatJet_deepTag_QCD_))); }
     b_FatJet_deepTag_QCDothers_ = tree->GetBranch("FatJet_deepTag_QCDothers");
-    if (b_FatJet_deepTag_QCDothers_) { b_FatJet_deepTag_QCDothers_->SetAddress(&FatJet_deepTag_QCDothers_); }
+    if (b_FatJet_deepTag_QCDothers_) { b_FatJet_deepTag_QCDothers_->SetAddress(FatJet_deepTag_QCDothers_.grow(nanoBufLen(b_FatJet_deepTag_QCDothers_))); }
     b_FatJet_deepTag_TvsQCD_ = tree->GetBranch("FatJet_deepTag_TvsQCD");
-    if (b_FatJet_deepTag_TvsQCD_) { b_FatJet_deepTag_TvsQCD_->SetAddress(&FatJet_deepTag_TvsQCD_); }
+    if (b_FatJet_deepTag_TvsQCD_) { b_FatJet_deepTag_TvsQCD_->SetAddress(FatJet_deepTag_TvsQCD_.grow(nanoBufLen(b_FatJet_deepTag_TvsQCD_))); }
     b_FatJet_deepTag_WvsQCD_ = tree->GetBranch("FatJet_deepTag_WvsQCD");
-    if (b_FatJet_deepTag_WvsQCD_) { b_FatJet_deepTag_WvsQCD_->SetAddress(&FatJet_deepTag_WvsQCD_); }
+    if (b_FatJet_deepTag_WvsQCD_) { b_FatJet_deepTag_WvsQCD_->SetAddress(FatJet_deepTag_WvsQCD_.grow(nanoBufLen(b_FatJet_deepTag_WvsQCD_))); }
     b_FatJet_deepTag_ZvsQCD_ = tree->GetBranch("FatJet_deepTag_ZvsQCD");
-    if (b_FatJet_deepTag_ZvsQCD_) { b_FatJet_deepTag_ZvsQCD_->SetAddress(&FatJet_deepTag_ZvsQCD_); }
+    if (b_FatJet_deepTag_ZvsQCD_) { b_FatJet_deepTag_ZvsQCD_->SetAddress(FatJet_deepTag_ZvsQCD_.grow(nanoBufLen(b_FatJet_deepTag_ZvsQCD_))); }
     b_FatJet_electronIdx3SJ_ = tree->GetBranch("FatJet_electronIdx3SJ");
-    if (b_FatJet_electronIdx3SJ_) { b_FatJet_electronIdx3SJ_->SetAddress(&FatJet_electronIdx3SJ_); }
+    if (b_FatJet_electronIdx3SJ_) { b_FatJet_electronIdx3SJ_->SetAddress(FatJet_electronIdx3SJ_.grow(nanoBufLen(b_FatJet_electronIdx3SJ_))); }
     b_FatJet_eta_ = tree->GetBranch("FatJet_eta");
-    if (b_FatJet_eta_) { b_FatJet_eta_->SetAddress(&FatJet_eta_); }
+    if (b_FatJet_eta_) { b_FatJet_eta_->SetAddress(FatJet_eta_.grow(nanoBufLen(b_FatJet_eta_))); }
     b_FatJet_genJetAK8Idx_ = tree->GetBranch("FatJet_genJetAK8Idx");
-    if (b_FatJet_genJetAK8Idx_) { b_FatJet_genJetAK8Idx_->SetAddress(&FatJet_genJetAK8Idx_); }
+    if (b_FatJet_genJetAK8Idx_) { b_FatJet_genJetAK8Idx_->SetAddress(FatJet_genJetAK8Idx_.grow(nanoBufLen(b_FatJet_genJetAK8Idx_))); }
     b_FatJet_hadronFlavour_ = tree->GetBranch("FatJet_hadronFlavour");
-    if (b_FatJet_hadronFlavour_) { b_FatJet_hadronFlavour_->SetAddress(&FatJet_hadronFlavour_); }
+    if (b_FatJet_hadronFlavour_) { b_FatJet_hadronFlavour_->SetAddress(FatJet_hadronFlavour_.grow(nanoBufLen(b_FatJet_hadronFlavour_))); }
     b_FatJet_jetId_ = tree->GetBranch("FatJet_jetId");
-    if (b_FatJet_jetId_) { b_FatJet_jetId_->SetAddress(&FatJet_jetId_); }
+    if (b_FatJet_jetId_) { b_FatJet_jetId_->SetAddress(FatJet_jetId_.grow(nanoBufLen(b_FatJet_jetId_))); }
     b_FatJet_lsf3_ = tree->GetBranch("FatJet_lsf3");
-    if (b_FatJet_lsf3_) { b_FatJet_lsf3_->SetAddress(&FatJet_lsf3_); }
+    if (b_FatJet_lsf3_) { b_FatJet_lsf3_->SetAddress(FatJet_lsf3_.grow(nanoBufLen(b_FatJet_lsf3_))); }
     b_FatJet_mass_ = tree->GetBranch("FatJet_mass");
-    if (b_FatJet_mass_) { b_FatJet_mass_->SetAddress(&FatJet_mass_); }
+    if (b_FatJet_mass_) { b_FatJet_mass_->SetAddress(FatJet_mass_.grow(nanoBufLen(b_FatJet_mass_))); }
     b_FatJet_mass_jerDown_ = tree->GetBranch("FatJet_mass_jerDown");
-    if (b_FatJet_mass_jerDown_) { b_FatJet_mass_jerDown_->SetAddress(&FatJet_mass_jerDown_); }
+    if (b_FatJet_mass_jerDown_) { b_FatJet_mass_jerDown_->SetAddress(FatJet_mass_jerDown_.grow(nanoBufLen(b_FatJet_mass_jerDown_))); }
     b_FatJet_mass_jerUp_ = tree->GetBranch("FatJet_mass_jerUp");
-    if (b_FatJet_mass_jerUp_) { b_FatJet_mass_jerUp_->SetAddress(&FatJet_mass_jerUp_); }
+    if (b_FatJet_mass_jerUp_) { b_FatJet_mass_jerUp_->SetAddress(FatJet_mass_jerUp_.grow(nanoBufLen(b_FatJet_mass_jerUp_))); }
     b_FatJet_mass_jesTotalDown_ = tree->GetBranch("FatJet_mass_jesTotalDown");
-    if (b_FatJet_mass_jesTotalDown_) { b_FatJet_mass_jesTotalDown_->SetAddress(&FatJet_mass_jesTotalDown_); }
+    if (b_FatJet_mass_jesTotalDown_) { b_FatJet_mass_jesTotalDown_->SetAddress(FatJet_mass_jesTotalDown_.grow(nanoBufLen(b_FatJet_mass_jesTotalDown_))); }
     b_FatJet_mass_jesTotalUp_ = tree->GetBranch("FatJet_mass_jesTotalUp");
-    if (b_FatJet_mass_jesTotalUp_) { b_FatJet_mass_jesTotalUp_->SetAddress(&FatJet_mass_jesTotalUp_); }
+    if (b_FatJet_mass_jesTotalUp_) { b_FatJet_mass_jesTotalUp_->SetAddress(FatJet_mass_jesTotalUp_.grow(nanoBufLen(b_FatJet_mass_jesTotalUp_))); }
     b_FatJet_mass_jmrDown_ = tree->GetBranch("FatJet_mass_jmrDown");
-    if (b_FatJet_mass_jmrDown_) { b_FatJet_mass_jmrDown_->SetAddress(&FatJet_mass_jmrDown_); }
+    if (b_FatJet_mass_jmrDown_) { b_FatJet_mass_jmrDown_->SetAddress(FatJet_mass_jmrDown_.grow(nanoBufLen(b_FatJet_mass_jmrDown_))); }
     b_FatJet_mass_jmrUp_ = tree->GetBranch("FatJet_mass_jmrUp");
-    if (b_FatJet_mass_jmrUp_) { b_FatJet_mass_jmrUp_->SetAddress(&FatJet_mass_jmrUp_); }
+    if (b_FatJet_mass_jmrUp_) { b_FatJet_mass_jmrUp_->SetAddress(FatJet_mass_jmrUp_.grow(nanoBufLen(b_FatJet_mass_jmrUp_))); }
     b_FatJet_mass_jmsDown_ = tree->GetBranch("FatJet_mass_jmsDown");
-    if (b_FatJet_mass_jmsDown_) { b_FatJet_mass_jmsDown_->SetAddress(&FatJet_mass_jmsDown_); }
+    if (b_FatJet_mass_jmsDown_) { b_FatJet_mass_jmsDown_->SetAddress(FatJet_mass_jmsDown_.grow(nanoBufLen(b_FatJet_mass_jmsDown_))); }
     b_FatJet_mass_jmsUp_ = tree->GetBranch("FatJet_mass_jmsUp");
-    if (b_FatJet_mass_jmsUp_) { b_FatJet_mass_jmsUp_->SetAddress(&FatJet_mass_jmsUp_); }
+    if (b_FatJet_mass_jmsUp_) { b_FatJet_mass_jmsUp_->SetAddress(FatJet_mass_jmsUp_.grow(nanoBufLen(b_FatJet_mass_jmsUp_))); }
     b_FatJet_mass_nom_ = tree->GetBranch("FatJet_mass_nom");
-    if (b_FatJet_mass_nom_) { b_FatJet_mass_nom_->SetAddress(&FatJet_mass_nom_); }
+    if (b_FatJet_mass_nom_) { b_FatJet_mass_nom_->SetAddress(FatJet_mass_nom_.grow(nanoBufLen(b_FatJet_mass_nom_))); }
     b_FatJet_mass_raw_ = tree->GetBranch("FatJet_mass_raw");
-    if (b_FatJet_mass_raw_) { b_FatJet_mass_raw_->SetAddress(&FatJet_mass_raw_); }
+    if (b_FatJet_mass_raw_) { b_FatJet_mass_raw_->SetAddress(FatJet_mass_raw_.grow(nanoBufLen(b_FatJet_mass_raw_))); }
     b_FatJet_msoftdrop_ = tree->GetBranch("FatJet_msoftdrop");
-    if (b_FatJet_msoftdrop_) { b_FatJet_msoftdrop_->SetAddress(&FatJet_msoftdrop_); }
+    if (b_FatJet_msoftdrop_) { b_FatJet_msoftdrop_->SetAddress(FatJet_msoftdrop_.grow(nanoBufLen(b_FatJet_msoftdrop_))); }
     b_FatJet_msoftdrop_corr_JMR_ = tree->GetBranch("FatJet_msoftdrop_corr_JMR");
-    if (b_FatJet_msoftdrop_corr_JMR_) { b_FatJet_msoftdrop_corr_JMR_->SetAddress(&FatJet_msoftdrop_corr_JMR_); }
+    if (b_FatJet_msoftdrop_corr_JMR_) { b_FatJet_msoftdrop_corr_JMR_->SetAddress(FatJet_msoftdrop_corr_JMR_.grow(nanoBufLen(b_FatJet_msoftdrop_corr_JMR_))); }
     b_FatJet_msoftdrop_corr_JMS_ = tree->GetBranch("FatJet_msoftdrop_corr_JMS");
-    if (b_FatJet_msoftdrop_corr_JMS_) { b_FatJet_msoftdrop_corr_JMS_->SetAddress(&FatJet_msoftdrop_corr_JMS_); }
+    if (b_FatJet_msoftdrop_corr_JMS_) { b_FatJet_msoftdrop_corr_JMS_->SetAddress(FatJet_msoftdrop_corr_JMS_.grow(nanoBufLen(b_FatJet_msoftdrop_corr_JMS_))); }
     b_FatJet_msoftdrop_corr_PUPPI_ = tree->GetBranch("FatJet_msoftdrop_corr_PUPPI");
-    if (b_FatJet_msoftdrop_corr_PUPPI_) { b_FatJet_msoftdrop_corr_PUPPI_->SetAddress(&FatJet_msoftdrop_corr_PUPPI_); }
+    if (b_FatJet_msoftdrop_corr_PUPPI_) { b_FatJet_msoftdrop_corr_PUPPI_->SetAddress(FatJet_msoftdrop_corr_PUPPI_.grow(nanoBufLen(b_FatJet_msoftdrop_corr_PUPPI_))); }
     b_FatJet_msoftdrop_jerDown_ = tree->GetBranch("FatJet_msoftdrop_jerDown");
-    if (b_FatJet_msoftdrop_jerDown_) { b_FatJet_msoftdrop_jerDown_->SetAddress(&FatJet_msoftdrop_jerDown_); }
+    if (b_FatJet_msoftdrop_jerDown_) { b_FatJet_msoftdrop_jerDown_->SetAddress(FatJet_msoftdrop_jerDown_.grow(nanoBufLen(b_FatJet_msoftdrop_jerDown_))); }
     b_FatJet_msoftdrop_jerUp_ = tree->GetBranch("FatJet_msoftdrop_jerUp");
-    if (b_FatJet_msoftdrop_jerUp_) { b_FatJet_msoftdrop_jerUp_->SetAddress(&FatJet_msoftdrop_jerUp_); }
+    if (b_FatJet_msoftdrop_jerUp_) { b_FatJet_msoftdrop_jerUp_->SetAddress(FatJet_msoftdrop_jerUp_.grow(nanoBufLen(b_FatJet_msoftdrop_jerUp_))); }
     b_FatJet_msoftdrop_jesTotalDown_ = tree->GetBranch("FatJet_msoftdrop_jesTotalDown");
-    if (b_FatJet_msoftdrop_jesTotalDown_) { b_FatJet_msoftdrop_jesTotalDown_->SetAddress(&FatJet_msoftdrop_jesTotalDown_); }
+    if (b_FatJet_msoftdrop_jesTotalDown_) { b_FatJet_msoftdrop_jesTotalDown_->SetAddress(FatJet_msoftdrop_jesTotalDown_.grow(nanoBufLen(b_FatJet_msoftdrop_jesTotalDown_))); }
     b_FatJet_msoftdrop_jesTotalUp_ = tree->GetBranch("FatJet_msoftdrop_jesTotalUp");
-    if (b_FatJet_msoftdrop_jesTotalUp_) { b_FatJet_msoftdrop_jesTotalUp_->SetAddress(&FatJet_msoftdrop_jesTotalUp_); }
+    if (b_FatJet_msoftdrop_jesTotalUp_) { b_FatJet_msoftdrop_jesTotalUp_->SetAddress(FatJet_msoftdrop_jesTotalUp_.grow(nanoBufLen(b_FatJet_msoftdrop_jesTotalUp_))); }
     b_FatJet_msoftdrop_jmrDown_ = tree->GetBranch("FatJet_msoftdrop_jmrDown");
-    if (b_FatJet_msoftdrop_jmrDown_) { b_FatJet_msoftdrop_jmrDown_->SetAddress(&FatJet_msoftdrop_jmrDown_); }
+    if (b_FatJet_msoftdrop_jmrDown_) { b_FatJet_msoftdrop_jmrDown_->SetAddress(FatJet_msoftdrop_jmrDown_.grow(nanoBufLen(b_FatJet_msoftdrop_jmrDown_))); }
     b_FatJet_msoftdrop_jmrUp_ = tree->GetBranch("FatJet_msoftdrop_jmrUp");
-    if (b_FatJet_msoftdrop_jmrUp_) { b_FatJet_msoftdrop_jmrUp_->SetAddress(&FatJet_msoftdrop_jmrUp_); }
+    if (b_FatJet_msoftdrop_jmrUp_) { b_FatJet_msoftdrop_jmrUp_->SetAddress(FatJet_msoftdrop_jmrUp_.grow(nanoBufLen(b_FatJet_msoftdrop_jmrUp_))); }
     b_FatJet_msoftdrop_jmsDown_ = tree->GetBranch("FatJet_msoftdrop_jmsDown");
-    if (b_FatJet_msoftdrop_jmsDown_) { b_FatJet_msoftdrop_jmsDown_->SetAddress(&FatJet_msoftdrop_jmsDown_); }
+    if (b_FatJet_msoftdrop_jmsDown_) { b_FatJet_msoftdrop_jmsDown_->SetAddress(FatJet_msoftdrop_jmsDown_.grow(nanoBufLen(b_FatJet_msoftdrop_jmsDown_))); }
     b_FatJet_msoftdrop_jmsUp_ = tree->GetBranch("FatJet_msoftdrop_jmsUp");
-    if (b_FatJet_msoftdrop_jmsUp_) { b_FatJet_msoftdrop_jmsUp_->SetAddress(&FatJet_msoftdrop_jmsUp_); }
+    if (b_FatJet_msoftdrop_jmsUp_) { b_FatJet_msoftdrop_jmsUp_->SetAddress(FatJet_msoftdrop_jmsUp_.grow(nanoBufLen(b_FatJet_msoftdrop_jmsUp_))); }
     b_FatJet_msoftdrop_nom_ = tree->GetBranch("FatJet_msoftdrop_nom");
-    if (b_FatJet_msoftdrop_nom_) { b_FatJet_msoftdrop_nom_->SetAddress(&FatJet_msoftdrop_nom_); }
+    if (b_FatJet_msoftdrop_nom_) { b_FatJet_msoftdrop_nom_->SetAddress(FatJet_msoftdrop_nom_.grow(nanoBufLen(b_FatJet_msoftdrop_nom_))); }
     b_FatJet_msoftdrop_raw_ = tree->GetBranch("FatJet_msoftdrop_raw");
-    if (b_FatJet_msoftdrop_raw_) { b_FatJet_msoftdrop_raw_->SetAddress(&FatJet_msoftdrop_raw_); }
+    if (b_FatJet_msoftdrop_raw_) { b_FatJet_msoftdrop_raw_->SetAddress(FatJet_msoftdrop_raw_.grow(nanoBufLen(b_FatJet_msoftdrop_raw_))); }
     b_FatJet_msoftdrop_tau21DDT_jerDown_ = tree->GetBranch("FatJet_msoftdrop_tau21DDT_jerDown");
-    if (b_FatJet_msoftdrop_tau21DDT_jerDown_) { b_FatJet_msoftdrop_tau21DDT_jerDown_->SetAddress(&FatJet_msoftdrop_tau21DDT_jerDown_); }
+    if (b_FatJet_msoftdrop_tau21DDT_jerDown_) { b_FatJet_msoftdrop_tau21DDT_jerDown_->SetAddress(FatJet_msoftdrop_tau21DDT_jerDown_.grow(nanoBufLen(b_FatJet_msoftdrop_tau21DDT_jerDown_))); }
     b_FatJet_msoftdrop_tau21DDT_jerUp_ = tree->GetBranch("FatJet_msoftdrop_tau21DDT_jerUp");
-    if (b_FatJet_msoftdrop_tau21DDT_jerUp_) { b_FatJet_msoftdrop_tau21DDT_jerUp_->SetAddress(&FatJet_msoftdrop_tau21DDT_jerUp_); }
+    if (b_FatJet_msoftdrop_tau21DDT_jerUp_) { b_FatJet_msoftdrop_tau21DDT_jerUp_->SetAddress(FatJet_msoftdrop_tau21DDT_jerUp_.grow(nanoBufLen(b_FatJet_msoftdrop_tau21DDT_jerUp_))); }
     b_FatJet_msoftdrop_tau21DDT_jmrDown_ = tree->GetBranch("FatJet_msoftdrop_tau21DDT_jmrDown");
-    if (b_FatJet_msoftdrop_tau21DDT_jmrDown_) { b_FatJet_msoftdrop_tau21DDT_jmrDown_->SetAddress(&FatJet_msoftdrop_tau21DDT_jmrDown_); }
+    if (b_FatJet_msoftdrop_tau21DDT_jmrDown_) { b_FatJet_msoftdrop_tau21DDT_jmrDown_->SetAddress(FatJet_msoftdrop_tau21DDT_jmrDown_.grow(nanoBufLen(b_FatJet_msoftdrop_tau21DDT_jmrDown_))); }
     b_FatJet_msoftdrop_tau21DDT_jmrUp_ = tree->GetBranch("FatJet_msoftdrop_tau21DDT_jmrUp");
-    if (b_FatJet_msoftdrop_tau21DDT_jmrUp_) { b_FatJet_msoftdrop_tau21DDT_jmrUp_->SetAddress(&FatJet_msoftdrop_tau21DDT_jmrUp_); }
+    if (b_FatJet_msoftdrop_tau21DDT_jmrUp_) { b_FatJet_msoftdrop_tau21DDT_jmrUp_->SetAddress(FatJet_msoftdrop_tau21DDT_jmrUp_.grow(nanoBufLen(b_FatJet_msoftdrop_tau21DDT_jmrUp_))); }
     b_FatJet_msoftdrop_tau21DDT_jmsDown_ = tree->GetBranch("FatJet_msoftdrop_tau21DDT_jmsDown");
-    if (b_FatJet_msoftdrop_tau21DDT_jmsDown_) { b_FatJet_msoftdrop_tau21DDT_jmsDown_->SetAddress(&FatJet_msoftdrop_tau21DDT_jmsDown_); }
+    if (b_FatJet_msoftdrop_tau21DDT_jmsDown_) { b_FatJet_msoftdrop_tau21DDT_jmsDown_->SetAddress(FatJet_msoftdrop_tau21DDT_jmsDown_.grow(nanoBufLen(b_FatJet_msoftdrop_tau21DDT_jmsDown_))); }
     b_FatJet_msoftdrop_tau21DDT_jmsUp_ = tree->GetBranch("FatJet_msoftdrop_tau21DDT_jmsUp");
-    if (b_FatJet_msoftdrop_tau21DDT_jmsUp_) { b_FatJet_msoftdrop_tau21DDT_jmsUp_->SetAddress(&FatJet_msoftdrop_tau21DDT_jmsUp_); }
+    if (b_FatJet_msoftdrop_tau21DDT_jmsUp_) { b_FatJet_msoftdrop_tau21DDT_jmsUp_->SetAddress(FatJet_msoftdrop_tau21DDT_jmsUp_.grow(nanoBufLen(b_FatJet_msoftdrop_tau21DDT_jmsUp_))); }
     b_FatJet_msoftdrop_tau21DDT_nom_ = tree->GetBranch("FatJet_msoftdrop_tau21DDT_nom");
-    if (b_FatJet_msoftdrop_tau21DDT_nom_) { b_FatJet_msoftdrop_tau21DDT_nom_->SetAddress(&FatJet_msoftdrop_tau21DDT_nom_); }
+    if (b_FatJet_msoftdrop_tau21DDT_nom_) { b_FatJet_msoftdrop_tau21DDT_nom_->SetAddress(FatJet_msoftdrop_tau21DDT_nom_.grow(nanoBufLen(b_FatJet_msoftdrop_tau21DDT_nom_))); }
     b_FatJet_muonIdx3SJ_ = tree->GetBranch("FatJet_muonIdx3SJ");
-    if (b_FatJet_muonIdx3SJ_) { b_FatJet_muonIdx3SJ_->SetAddress(&FatJet_muonIdx3SJ_); }
+    if (b_FatJet_muonIdx3SJ_) { b_FatJet_muonIdx3SJ_->SetAddress(FatJet_muonIdx3SJ_.grow(nanoBufLen(b_FatJet_muonIdx3SJ_))); }
     b_FatJet_n2b1_ = tree->GetBranch("FatJet_n2b1");
-    if (b_FatJet_n2b1_) { b_FatJet_n2b1_->SetAddress(&FatJet_n2b1_); }
+    if (b_FatJet_n2b1_) { b_FatJet_n2b1_->SetAddress(FatJet_n2b1_.grow(nanoBufLen(b_FatJet_n2b1_))); }
     b_FatJet_n3b1_ = tree->GetBranch("FatJet_n3b1");
-    if (b_FatJet_n3b1_) { b_FatJet_n3b1_->SetAddress(&FatJet_n3b1_); }
+    if (b_FatJet_n3b1_) { b_FatJet_n3b1_->SetAddress(FatJet_n3b1_.grow(nanoBufLen(b_FatJet_n3b1_))); }
     b_FatJet_nBHadrons_ = tree->GetBranch("FatJet_nBHadrons");
-    if (b_FatJet_nBHadrons_) { b_FatJet_nBHadrons_->SetAddress(&FatJet_nBHadrons_); }
+    if (b_FatJet_nBHadrons_) { b_FatJet_nBHadrons_->SetAddress(FatJet_nBHadrons_.grow(nanoBufLen(b_FatJet_nBHadrons_))); }
     b_FatJet_nCHadrons_ = tree->GetBranch("FatJet_nCHadrons");
-    if (b_FatJet_nCHadrons_) { b_FatJet_nCHadrons_->SetAddress(&FatJet_nCHadrons_); }
+    if (b_FatJet_nCHadrons_) { b_FatJet_nCHadrons_->SetAddress(FatJet_nCHadrons_.grow(nanoBufLen(b_FatJet_nCHadrons_))); }
     b_FatJet_nConstituents_ = tree->GetBranch("FatJet_nConstituents");
-    if (b_FatJet_nConstituents_) { b_FatJet_nConstituents_->SetAddress(&FatJet_nConstituents_); }
+    if (b_FatJet_nConstituents_) { b_FatJet_nConstituents_->SetAddress(FatJet_nConstituents_.grow(nanoBufLen(b_FatJet_nConstituents_))); }
     b_FatJet_particleNetMD_QCD_ = tree->GetBranch("FatJet_particleNetMD_QCD");
-    if (b_FatJet_particleNetMD_QCD_) { b_FatJet_particleNetMD_QCD_->SetAddress(&FatJet_particleNetMD_QCD_); }
+    if (b_FatJet_particleNetMD_QCD_) { b_FatJet_particleNetMD_QCD_->SetAddress(FatJet_particleNetMD_QCD_.grow(nanoBufLen(b_FatJet_particleNetMD_QCD_))); }
     b_FatJet_particleNetMD_Xbb_ = tree->GetBranch("FatJet_particleNetMD_Xbb");
-    if (b_FatJet_particleNetMD_Xbb_) { b_FatJet_particleNetMD_Xbb_->SetAddress(&FatJet_particleNetMD_Xbb_); }
+    if (b_FatJet_particleNetMD_Xbb_) { b_FatJet_particleNetMD_Xbb_->SetAddress(FatJet_particleNetMD_Xbb_.grow(nanoBufLen(b_FatJet_particleNetMD_Xbb_))); }
     b_FatJet_particleNetMD_Xcc_ = tree->GetBranch("FatJet_particleNetMD_Xcc");
-    if (b_FatJet_particleNetMD_Xcc_) { b_FatJet_particleNetMD_Xcc_->SetAddress(&FatJet_particleNetMD_Xcc_); }
+    if (b_FatJet_particleNetMD_Xcc_) { b_FatJet_particleNetMD_Xcc_->SetAddress(FatJet_particleNetMD_Xcc_.grow(nanoBufLen(b_FatJet_particleNetMD_Xcc_))); }
     b_FatJet_particleNetMD_Xqq_ = tree->GetBranch("FatJet_particleNetMD_Xqq");
-    if (b_FatJet_particleNetMD_Xqq_) { b_FatJet_particleNetMD_Xqq_->SetAddress(&FatJet_particleNetMD_Xqq_); }
+    if (b_FatJet_particleNetMD_Xqq_) { b_FatJet_particleNetMD_Xqq_->SetAddress(FatJet_particleNetMD_Xqq_.grow(nanoBufLen(b_FatJet_particleNetMD_Xqq_))); }
     b_FatJet_particleNet_H4qvsQCD_ = tree->GetBranch("FatJet_particleNet_H4qvsQCD");
-    if (b_FatJet_particleNet_H4qvsQCD_) { b_FatJet_particleNet_H4qvsQCD_->SetAddress(&FatJet_particleNet_H4qvsQCD_); }
+    if (b_FatJet_particleNet_H4qvsQCD_) { b_FatJet_particleNet_H4qvsQCD_->SetAddress(FatJet_particleNet_H4qvsQCD_.grow(nanoBufLen(b_FatJet_particleNet_H4qvsQCD_))); }
     b_FatJet_particleNet_HbbvsQCD_ = tree->GetBranch("FatJet_particleNet_HbbvsQCD");
-    if (b_FatJet_particleNet_HbbvsQCD_) { b_FatJet_particleNet_HbbvsQCD_->SetAddress(&FatJet_particleNet_HbbvsQCD_); }
+    if (b_FatJet_particleNet_HbbvsQCD_) { b_FatJet_particleNet_HbbvsQCD_->SetAddress(FatJet_particleNet_HbbvsQCD_.grow(nanoBufLen(b_FatJet_particleNet_HbbvsQCD_))); }
     b_FatJet_particleNet_HccvsQCD_ = tree->GetBranch("FatJet_particleNet_HccvsQCD");
-    if (b_FatJet_particleNet_HccvsQCD_) { b_FatJet_particleNet_HccvsQCD_->SetAddress(&FatJet_particleNet_HccvsQCD_); }
+    if (b_FatJet_particleNet_HccvsQCD_) { b_FatJet_particleNet_HccvsQCD_->SetAddress(FatJet_particleNet_HccvsQCD_.grow(nanoBufLen(b_FatJet_particleNet_HccvsQCD_))); }
     b_FatJet_particleNet_QCD_ = tree->GetBranch("FatJet_particleNet_QCD");
-    if (b_FatJet_particleNet_QCD_) { b_FatJet_particleNet_QCD_->SetAddress(&FatJet_particleNet_QCD_); }
+    if (b_FatJet_particleNet_QCD_) { b_FatJet_particleNet_QCD_->SetAddress(FatJet_particleNet_QCD_.grow(nanoBufLen(b_FatJet_particleNet_QCD_))); }
     b_FatJet_particleNet_TvsQCD_ = tree->GetBranch("FatJet_particleNet_TvsQCD");
-    if (b_FatJet_particleNet_TvsQCD_) { b_FatJet_particleNet_TvsQCD_->SetAddress(&FatJet_particleNet_TvsQCD_); }
+    if (b_FatJet_particleNet_TvsQCD_) { b_FatJet_particleNet_TvsQCD_->SetAddress(FatJet_particleNet_TvsQCD_.grow(nanoBufLen(b_FatJet_particleNet_TvsQCD_))); }
     b_FatJet_particleNet_WvsQCD_ = tree->GetBranch("FatJet_particleNet_WvsQCD");
-    if (b_FatJet_particleNet_WvsQCD_) { b_FatJet_particleNet_WvsQCD_->SetAddress(&FatJet_particleNet_WvsQCD_); }
+    if (b_FatJet_particleNet_WvsQCD_) { b_FatJet_particleNet_WvsQCD_->SetAddress(FatJet_particleNet_WvsQCD_.grow(nanoBufLen(b_FatJet_particleNet_WvsQCD_))); }
     b_FatJet_particleNet_ZvsQCD_ = tree->GetBranch("FatJet_particleNet_ZvsQCD");
-    if (b_FatJet_particleNet_ZvsQCD_) { b_FatJet_particleNet_ZvsQCD_->SetAddress(&FatJet_particleNet_ZvsQCD_); }
+    if (b_FatJet_particleNet_ZvsQCD_) { b_FatJet_particleNet_ZvsQCD_->SetAddress(FatJet_particleNet_ZvsQCD_.grow(nanoBufLen(b_FatJet_particleNet_ZvsQCD_))); }
     b_FatJet_particleNet_mass_ = tree->GetBranch("FatJet_particleNet_mass");
-    if (b_FatJet_particleNet_mass_) { b_FatJet_particleNet_mass_->SetAddress(&FatJet_particleNet_mass_); }
+    if (b_FatJet_particleNet_mass_) { b_FatJet_particleNet_mass_->SetAddress(FatJet_particleNet_mass_.grow(nanoBufLen(b_FatJet_particleNet_mass_))); }
     b_FatJet_phi_ = tree->GetBranch("FatJet_phi");
-    if (b_FatJet_phi_) { b_FatJet_phi_->SetAddress(&FatJet_phi_); }
+    if (b_FatJet_phi_) { b_FatJet_phi_->SetAddress(FatJet_phi_.grow(nanoBufLen(b_FatJet_phi_))); }
     b_FatJet_pt_ = tree->GetBranch("FatJet_pt");
-    if (b_FatJet_pt_) { b_FatJet_pt_->SetAddress(&FatJet_pt_); }
+    if (b_FatJet_pt_) { b_FatJet_pt_->SetAddress(FatJet_pt_.grow(nanoBufLen(b_FatJet_pt_))); }
     b_FatJet_pt_jerDown_ = tree->GetBranch("FatJet_pt_jerDown");
-    if (b_FatJet_pt_jerDown_) { b_FatJet_pt_jerDown_->SetAddress(&FatJet_pt_jerDown_); }
+    if (b_FatJet_pt_jerDown_) { b_FatJet_pt_jerDown_->SetAddress(FatJet_pt_jerDown_.grow(nanoBufLen(b_FatJet_pt_jerDown_))); }
     b_FatJet_pt_jerUp_ = tree->GetBranch("FatJet_pt_jerUp");
-    if (b_FatJet_pt_jerUp_) { b_FatJet_pt_jerUp_->SetAddress(&FatJet_pt_jerUp_); }
+    if (b_FatJet_pt_jerUp_) { b_FatJet_pt_jerUp_->SetAddress(FatJet_pt_jerUp_.grow(nanoBufLen(b_FatJet_pt_jerUp_))); }
     b_FatJet_pt_jesTotalDown_ = tree->GetBranch("FatJet_pt_jesTotalDown");
-    if (b_FatJet_pt_jesTotalDown_) { b_FatJet_pt_jesTotalDown_->SetAddress(&FatJet_pt_jesTotalDown_); }
+    if (b_FatJet_pt_jesTotalDown_) { b_FatJet_pt_jesTotalDown_->SetAddress(FatJet_pt_jesTotalDown_.grow(nanoBufLen(b_FatJet_pt_jesTotalDown_))); }
     b_FatJet_pt_jesTotalUp_ = tree->GetBranch("FatJet_pt_jesTotalUp");
-    if (b_FatJet_pt_jesTotalUp_) { b_FatJet_pt_jesTotalUp_->SetAddress(&FatJet_pt_jesTotalUp_); }
+    if (b_FatJet_pt_jesTotalUp_) { b_FatJet_pt_jesTotalUp_->SetAddress(FatJet_pt_jesTotalUp_.grow(nanoBufLen(b_FatJet_pt_jesTotalUp_))); }
     b_FatJet_pt_nom_ = tree->GetBranch("FatJet_pt_nom");
-    if (b_FatJet_pt_nom_) { b_FatJet_pt_nom_->SetAddress(&FatJet_pt_nom_); }
+    if (b_FatJet_pt_nom_) { b_FatJet_pt_nom_->SetAddress(FatJet_pt_nom_.grow(nanoBufLen(b_FatJet_pt_nom_))); }
     b_FatJet_pt_raw_ = tree->GetBranch("FatJet_pt_raw");
-    if (b_FatJet_pt_raw_) { b_FatJet_pt_raw_->SetAddress(&FatJet_pt_raw_); }
+    if (b_FatJet_pt_raw_) { b_FatJet_pt_raw_->SetAddress(FatJet_pt_raw_.grow(nanoBufLen(b_FatJet_pt_raw_))); }
     b_FatJet_rawFactor_ = tree->GetBranch("FatJet_rawFactor");
-    if (b_FatJet_rawFactor_) { b_FatJet_rawFactor_->SetAddress(&FatJet_rawFactor_); }
+    if (b_FatJet_rawFactor_) { b_FatJet_rawFactor_->SetAddress(FatJet_rawFactor_.grow(nanoBufLen(b_FatJet_rawFactor_))); }
     b_FatJet_subJetIdx1_ = tree->GetBranch("FatJet_subJetIdx1");
-    if (b_FatJet_subJetIdx1_) { b_FatJet_subJetIdx1_->SetAddress(&FatJet_subJetIdx1_); }
+    if (b_FatJet_subJetIdx1_) { b_FatJet_subJetIdx1_->SetAddress(FatJet_subJetIdx1_.grow(nanoBufLen(b_FatJet_subJetIdx1_))); }
     b_FatJet_subJetIdx2_ = tree->GetBranch("FatJet_subJetIdx2");
-    if (b_FatJet_subJetIdx2_) { b_FatJet_subJetIdx2_->SetAddress(&FatJet_subJetIdx2_); }
+    if (b_FatJet_subJetIdx2_) { b_FatJet_subJetIdx2_->SetAddress(FatJet_subJetIdx2_.grow(nanoBufLen(b_FatJet_subJetIdx2_))); }
     b_FatJet_tau1_ = tree->GetBranch("FatJet_tau1");
-    if (b_FatJet_tau1_) { b_FatJet_tau1_->SetAddress(&FatJet_tau1_); }
+    if (b_FatJet_tau1_) { b_FatJet_tau1_->SetAddress(FatJet_tau1_.grow(nanoBufLen(b_FatJet_tau1_))); }
     b_FatJet_tau2_ = tree->GetBranch("FatJet_tau2");
-    if (b_FatJet_tau2_) { b_FatJet_tau2_->SetAddress(&FatJet_tau2_); }
+    if (b_FatJet_tau2_) { b_FatJet_tau2_->SetAddress(FatJet_tau2_.grow(nanoBufLen(b_FatJet_tau2_))); }
     b_FatJet_tau3_ = tree->GetBranch("FatJet_tau3");
-    if (b_FatJet_tau3_) { b_FatJet_tau3_->SetAddress(&FatJet_tau3_); }
+    if (b_FatJet_tau3_) { b_FatJet_tau3_->SetAddress(FatJet_tau3_.grow(nanoBufLen(b_FatJet_tau3_))); }
     b_FatJet_tau4_ = tree->GetBranch("FatJet_tau4");
-    if (b_FatJet_tau4_) { b_FatJet_tau4_->SetAddress(&FatJet_tau4_); }
+    if (b_FatJet_tau4_) { b_FatJet_tau4_->SetAddress(FatJet_tau4_.grow(nanoBufLen(b_FatJet_tau4_))); }
     b_Flag_BadChargedCandidateFilter_ = tree->GetBranch("Flag_BadChargedCandidateFilter");
     if (b_Flag_BadChargedCandidateFilter_) { b_Flag_BadChargedCandidateFilter_->SetAddress(&Flag_BadChargedCandidateFilter_); }
     b_Flag_BadChargedCandidateFilter_pRECO_ = tree->GetBranch("Flag_BadChargedCandidateFilter_pRECO");
@@ -619,107 +619,107 @@ void Nano::Init(TTree *tree) {
     b_Flag_trkPOG_toomanystripclus53X_pRECO_ = tree->GetBranch("Flag_trkPOG_toomanystripclus53X_pRECO");
     if (b_Flag_trkPOG_toomanystripclus53X_pRECO_) { b_Flag_trkPOG_toomanystripclus53X_pRECO_->SetAddress(&Flag_trkPOG_toomanystripclus53X_pRECO_); }
     b_FsrPhoton_dROverEt2_ = tree->GetBranch("FsrPhoton_dROverEt2");
-    if (b_FsrPhoton_dROverEt2_) { b_FsrPhoton_dROverEt2_->SetAddress(&FsrPhoton_dROverEt2_); }
+    if (b_FsrPhoton_dROverEt2_) { b_FsrPhoton_dROverEt2_->SetAddress(FsrPhoton_dROverEt2_.grow(nanoBufLen(b_FsrPhoton_dROverEt2_))); }
     b_FsrPhoton_electronIdx_ = tree->GetBranch("FsrPhoton_electronIdx");
-    if (b_FsrPhoton_electronIdx_) { b_FsrPhoton_electronIdx_->SetAddress(&FsrPhoton_electronIdx_); }
+    if (b_FsrPhoton_electronIdx_) { b_FsrPhoton_electronIdx_->SetAddress(FsrPhoton_electronIdx_.grow(nanoBufLen(b_FsrPhoton_electronIdx_))); }
     b_FsrPhoton_eta_ = tree->GetBranch("FsrPhoton_eta");
-    if (b_FsrPhoton_eta_) { b_FsrPhoton_eta_->SetAddress(&FsrPhoton_eta_); }
+    if (b_FsrPhoton_eta_) { b_FsrPhoton_eta_->SetAddress(FsrPhoton_eta_.grow(nanoBufLen(b_FsrPhoton_eta_))); }
     b_FsrPhoton_muonIdx_ = tree->GetBranch("FsrPhoton_muonIdx");
-    if (b_FsrPhoton_muonIdx_) { b_FsrPhoton_muonIdx_->SetAddress(&FsrPhoton_muonIdx_); }
+    if (b_FsrPhoton_muonIdx_) { b_FsrPhoton_muonIdx_->SetAddress(FsrPhoton_muonIdx_.grow(nanoBufLen(b_FsrPhoton_muonIdx_))); }
     b_FsrPhoton_phi_ = tree->GetBranch("FsrPhoton_phi");
-    if (b_FsrPhoton_phi_) { b_FsrPhoton_phi_->SetAddress(&FsrPhoton_phi_); }
+    if (b_FsrPhoton_phi_) { b_FsrPhoton_phi_->SetAddress(FsrPhoton_phi_.grow(nanoBufLen(b_FsrPhoton_phi_))); }
     b_FsrPhoton_pt_ = tree->GetBranch("FsrPhoton_pt");
-    if (b_FsrPhoton_pt_) { b_FsrPhoton_pt_->SetAddress(&FsrPhoton_pt_); }
+    if (b_FsrPhoton_pt_) { b_FsrPhoton_pt_->SetAddress(FsrPhoton_pt_.grow(nanoBufLen(b_FsrPhoton_pt_))); }
     b_FsrPhoton_relIso03_ = tree->GetBranch("FsrPhoton_relIso03");
-    if (b_FsrPhoton_relIso03_) { b_FsrPhoton_relIso03_->SetAddress(&FsrPhoton_relIso03_); }
+    if (b_FsrPhoton_relIso03_) { b_FsrPhoton_relIso03_->SetAddress(FsrPhoton_relIso03_.grow(nanoBufLen(b_FsrPhoton_relIso03_))); }
     b_GenDressedLepton_eta_ = tree->GetBranch("GenDressedLepton_eta");
-    if (b_GenDressedLepton_eta_) { b_GenDressedLepton_eta_->SetAddress(&GenDressedLepton_eta_); }
+    if (b_GenDressedLepton_eta_) { b_GenDressedLepton_eta_->SetAddress(GenDressedLepton_eta_.grow(nanoBufLen(b_GenDressedLepton_eta_))); }
     b_GenDressedLepton_hasTauAnc_ = tree->GetBranch("GenDressedLepton_hasTauAnc");
-    if (b_GenDressedLepton_hasTauAnc_) { b_GenDressedLepton_hasTauAnc_->SetAddress(&GenDressedLepton_hasTauAnc_); }
+    if (b_GenDressedLepton_hasTauAnc_) { b_GenDressedLepton_hasTauAnc_->SetAddress(GenDressedLepton_hasTauAnc_.grow(nanoBufLen(b_GenDressedLepton_hasTauAnc_))); }
     b_GenDressedLepton_mass_ = tree->GetBranch("GenDressedLepton_mass");
-    if (b_GenDressedLepton_mass_) { b_GenDressedLepton_mass_->SetAddress(&GenDressedLepton_mass_); }
+    if (b_GenDressedLepton_mass_) { b_GenDressedLepton_mass_->SetAddress(GenDressedLepton_mass_.grow(nanoBufLen(b_GenDressedLepton_mass_))); }
     b_GenDressedLepton_pdgId_ = tree->GetBranch("GenDressedLepton_pdgId");
-    if (b_GenDressedLepton_pdgId_) { b_GenDressedLepton_pdgId_->SetAddress(&GenDressedLepton_pdgId_); }
+    if (b_GenDressedLepton_pdgId_) { b_GenDressedLepton_pdgId_->SetAddress(GenDressedLepton_pdgId_.grow(nanoBufLen(b_GenDressedLepton_pdgId_))); }
     b_GenDressedLepton_phi_ = tree->GetBranch("GenDressedLepton_phi");
-    if (b_GenDressedLepton_phi_) { b_GenDressedLepton_phi_->SetAddress(&GenDressedLepton_phi_); }
+    if (b_GenDressedLepton_phi_) { b_GenDressedLepton_phi_->SetAddress(GenDressedLepton_phi_.grow(nanoBufLen(b_GenDressedLepton_phi_))); }
     b_GenDressedLepton_pt_ = tree->GetBranch("GenDressedLepton_pt");
-    if (b_GenDressedLepton_pt_) { b_GenDressedLepton_pt_->SetAddress(&GenDressedLepton_pt_); }
+    if (b_GenDressedLepton_pt_) { b_GenDressedLepton_pt_->SetAddress(GenDressedLepton_pt_.grow(nanoBufLen(b_GenDressedLepton_pt_))); }
     b_GenIsolatedPhoton_eta_ = tree->GetBranch("GenIsolatedPhoton_eta");
-    if (b_GenIsolatedPhoton_eta_) { b_GenIsolatedPhoton_eta_->SetAddress(&GenIsolatedPhoton_eta_); }
+    if (b_GenIsolatedPhoton_eta_) { b_GenIsolatedPhoton_eta_->SetAddress(GenIsolatedPhoton_eta_.grow(nanoBufLen(b_GenIsolatedPhoton_eta_))); }
     b_GenIsolatedPhoton_mass_ = tree->GetBranch("GenIsolatedPhoton_mass");
-    if (b_GenIsolatedPhoton_mass_) { b_GenIsolatedPhoton_mass_->SetAddress(&GenIsolatedPhoton_mass_); }
+    if (b_GenIsolatedPhoton_mass_) { b_GenIsolatedPhoton_mass_->SetAddress(GenIsolatedPhoton_mass_.grow(nanoBufLen(b_GenIsolatedPhoton_mass_))); }
     b_GenIsolatedPhoton_phi_ = tree->GetBranch("GenIsolatedPhoton_phi");
-    if (b_GenIsolatedPhoton_phi_) { b_GenIsolatedPhoton_phi_->SetAddress(&GenIsolatedPhoton_phi_); }
+    if (b_GenIsolatedPhoton_phi_) { b_GenIsolatedPhoton_phi_->SetAddress(GenIsolatedPhoton_phi_.grow(nanoBufLen(b_GenIsolatedPhoton_phi_))); }
     b_GenIsolatedPhoton_pt_ = tree->GetBranch("GenIsolatedPhoton_pt");
-    if (b_GenIsolatedPhoton_pt_) { b_GenIsolatedPhoton_pt_->SetAddress(&GenIsolatedPhoton_pt_); }
+    if (b_GenIsolatedPhoton_pt_) { b_GenIsolatedPhoton_pt_->SetAddress(GenIsolatedPhoton_pt_.grow(nanoBufLen(b_GenIsolatedPhoton_pt_))); }
     b_GenJetAK8_eta_ = tree->GetBranch("GenJetAK8_eta");
-    if (b_GenJetAK8_eta_) { b_GenJetAK8_eta_->SetAddress(&GenJetAK8_eta_); }
+    if (b_GenJetAK8_eta_) { b_GenJetAK8_eta_->SetAddress(GenJetAK8_eta_.grow(nanoBufLen(b_GenJetAK8_eta_))); }
     b_GenJetAK8_hadronFlavour_ = tree->GetBranch("GenJetAK8_hadronFlavour");
-    if (b_GenJetAK8_hadronFlavour_) { b_GenJetAK8_hadronFlavour_->SetAddress(&GenJetAK8_hadronFlavour_); }
+    if (b_GenJetAK8_hadronFlavour_) { b_GenJetAK8_hadronFlavour_->SetAddress(GenJetAK8_hadronFlavour_.grow(nanoBufLen(b_GenJetAK8_hadronFlavour_))); }
     b_GenJetAK8_mass_ = tree->GetBranch("GenJetAK8_mass");
-    if (b_GenJetAK8_mass_) { b_GenJetAK8_mass_->SetAddress(&GenJetAK8_mass_); }
+    if (b_GenJetAK8_mass_) { b_GenJetAK8_mass_->SetAddress(GenJetAK8_mass_.grow(nanoBufLen(b_GenJetAK8_mass_))); }
     b_GenJetAK8_partonFlavour_ = tree->GetBranch("GenJetAK8_partonFlavour");
-    if (b_GenJetAK8_partonFlavour_) { b_GenJetAK8_partonFlavour_->SetAddress(&GenJetAK8_partonFlavour_); }
+    if (b_GenJetAK8_partonFlavour_) { b_GenJetAK8_partonFlavour_->SetAddress(GenJetAK8_partonFlavour_.grow(nanoBufLen(b_GenJetAK8_partonFlavour_))); }
     b_GenJetAK8_phi_ = tree->GetBranch("GenJetAK8_phi");
-    if (b_GenJetAK8_phi_) { b_GenJetAK8_phi_->SetAddress(&GenJetAK8_phi_); }
+    if (b_GenJetAK8_phi_) { b_GenJetAK8_phi_->SetAddress(GenJetAK8_phi_.grow(nanoBufLen(b_GenJetAK8_phi_))); }
     b_GenJetAK8_pt_ = tree->GetBranch("GenJetAK8_pt");
-    if (b_GenJetAK8_pt_) { b_GenJetAK8_pt_->SetAddress(&GenJetAK8_pt_); }
+    if (b_GenJetAK8_pt_) { b_GenJetAK8_pt_->SetAddress(GenJetAK8_pt_.grow(nanoBufLen(b_GenJetAK8_pt_))); }
     b_GenJet_eta_ = tree->GetBranch("GenJet_eta");
-    if (b_GenJet_eta_) { b_GenJet_eta_->SetAddress(&GenJet_eta_); }
+    if (b_GenJet_eta_) { b_GenJet_eta_->SetAddress(GenJet_eta_.grow(nanoBufLen(b_GenJet_eta_))); }
     b_GenJet_hadronFlavour_ = tree->GetBranch("GenJet_hadronFlavour");
-    if (b_GenJet_hadronFlavour_) { b_GenJet_hadronFlavour_->SetAddress(&GenJet_hadronFlavour_); }
+    if (b_GenJet_hadronFlavour_) { b_GenJet_hadronFlavour_->SetAddress(GenJet_hadronFlavour_.grow(nanoBufLen(b_GenJet_hadronFlavour_))); }
     b_GenJet_mass_ = tree->GetBranch("GenJet_mass");
-    if (b_GenJet_mass_) { b_GenJet_mass_->SetAddress(&GenJet_mass_); }
+    if (b_GenJet_mass_) { b_GenJet_mass_->SetAddress(GenJet_mass_.grow(nanoBufLen(b_GenJet_mass_))); }
     b_GenJet_partonFlavour_ = tree->GetBranch("GenJet_partonFlavour");
-    if (b_GenJet_partonFlavour_) { b_GenJet_partonFlavour_->SetAddress(&GenJet_partonFlavour_); }
+    if (b_GenJet_partonFlavour_) { b_GenJet_partonFlavour_->SetAddress(GenJet_partonFlavour_.grow(nanoBufLen(b_GenJet_partonFlavour_))); }
     b_GenJet_phi_ = tree->GetBranch("GenJet_phi");
-    if (b_GenJet_phi_) { b_GenJet_phi_->SetAddress(&GenJet_phi_); }
+    if (b_GenJet_phi_) { b_GenJet_phi_->SetAddress(GenJet_phi_.grow(nanoBufLen(b_GenJet_phi_))); }
     b_GenJet_pt_ = tree->GetBranch("GenJet_pt");
-    if (b_GenJet_pt_) { b_GenJet_pt_->SetAddress(&GenJet_pt_); }
+    if (b_GenJet_pt_) { b_GenJet_pt_->SetAddress(GenJet_pt_.grow(nanoBufLen(b_GenJet_pt_))); }
     b_GenMET_phi_ = tree->GetBranch("GenMET_phi");
     if (b_GenMET_phi_) { b_GenMET_phi_->SetAddress(&GenMET_phi_); }
     b_GenMET_pt_ = tree->GetBranch("GenMET_pt");
     if (b_GenMET_pt_) { b_GenMET_pt_->SetAddress(&GenMET_pt_); }
     b_GenPart_eta_ = tree->GetBranch("GenPart_eta");
-    if (b_GenPart_eta_) { b_GenPart_eta_->SetAddress(&GenPart_eta_); }
+    if (b_GenPart_eta_) { b_GenPart_eta_->SetAddress(GenPart_eta_.grow(nanoBufLen(b_GenPart_eta_))); }
     b_GenPart_genPartIdxMother_ = tree->GetBranch("GenPart_genPartIdxMother");
-    if (b_GenPart_genPartIdxMother_) { b_GenPart_genPartIdxMother_->SetAddress(&GenPart_genPartIdxMother_); }
+    if (b_GenPart_genPartIdxMother_) { b_GenPart_genPartIdxMother_->SetAddress(GenPart_genPartIdxMother_.grow(nanoBufLen(b_GenPart_genPartIdxMother_))); }
     b_GenPart_mass_ = tree->GetBranch("GenPart_mass");
-    if (b_GenPart_mass_) { b_GenPart_mass_->SetAddress(&GenPart_mass_); }
+    if (b_GenPart_mass_) { b_GenPart_mass_->SetAddress(GenPart_mass_.grow(nanoBufLen(b_GenPart_mass_))); }
     b_GenPart_pdgId_ = tree->GetBranch("GenPart_pdgId");
-    if (b_GenPart_pdgId_) { b_GenPart_pdgId_->SetAddress(&GenPart_pdgId_); }
+    if (b_GenPart_pdgId_) { b_GenPart_pdgId_->SetAddress(GenPart_pdgId_.grow(nanoBufLen(b_GenPart_pdgId_))); }
     b_GenPart_phi_ = tree->GetBranch("GenPart_phi");
-    if (b_GenPart_phi_) { b_GenPart_phi_->SetAddress(&GenPart_phi_); }
+    if (b_GenPart_phi_) { b_GenPart_phi_->SetAddress(GenPart_phi_.grow(nanoBufLen(b_GenPart_phi_))); }
     b_GenPart_pt_ = tree->GetBranch("GenPart_pt");
-    if (b_GenPart_pt_) { b_GenPart_pt_->SetAddress(&GenPart_pt_); }
+    if (b_GenPart_pt_) { b_GenPart_pt_->SetAddress(GenPart_pt_.grow(nanoBufLen(b_GenPart_pt_))); }
     b_GenPart_status_ = tree->GetBranch("GenPart_status");
-    if (b_GenPart_status_) { b_GenPart_status_->SetAddress(&GenPart_status_); }
+    if (b_GenPart_status_) { b_GenPart_status_->SetAddress(GenPart_status_.grow(nanoBufLen(b_GenPart_status_))); }
     b_GenPart_statusFlags_ = tree->GetBranch("GenPart_statusFlags");
-    if (b_GenPart_statusFlags_) { b_GenPart_statusFlags_->SetAddress(&GenPart_statusFlags_); }
+    if (b_GenPart_statusFlags_) { b_GenPart_statusFlags_->SetAddress(GenPart_statusFlags_.grow(nanoBufLen(b_GenPart_statusFlags_))); }
     b_GenProton_isPU_ = tree->GetBranch("GenProton_isPU");
-    if (b_GenProton_isPU_) { b_GenProton_isPU_->SetAddress(&GenProton_isPU_); }
+    if (b_GenProton_isPU_) { b_GenProton_isPU_->SetAddress(GenProton_isPU_.grow(nanoBufLen(b_GenProton_isPU_))); }
     b_GenProton_px_ = tree->GetBranch("GenProton_px");
-    if (b_GenProton_px_) { b_GenProton_px_->SetAddress(&GenProton_px_); }
+    if (b_GenProton_px_) { b_GenProton_px_->SetAddress(GenProton_px_.grow(nanoBufLen(b_GenProton_px_))); }
     b_GenProton_py_ = tree->GetBranch("GenProton_py");
-    if (b_GenProton_py_) { b_GenProton_py_->SetAddress(&GenProton_py_); }
+    if (b_GenProton_py_) { b_GenProton_py_->SetAddress(GenProton_py_.grow(nanoBufLen(b_GenProton_py_))); }
     b_GenProton_pz_ = tree->GetBranch("GenProton_pz");
-    if (b_GenProton_pz_) { b_GenProton_pz_->SetAddress(&GenProton_pz_); }
+    if (b_GenProton_pz_) { b_GenProton_pz_->SetAddress(GenProton_pz_.grow(nanoBufLen(b_GenProton_pz_))); }
     b_GenProton_vz_ = tree->GetBranch("GenProton_vz");
-    if (b_GenProton_vz_) { b_GenProton_vz_->SetAddress(&GenProton_vz_); }
+    if (b_GenProton_vz_) { b_GenProton_vz_->SetAddress(GenProton_vz_.grow(nanoBufLen(b_GenProton_vz_))); }
     b_GenVisTau_charge_ = tree->GetBranch("GenVisTau_charge");
-    if (b_GenVisTau_charge_) { b_GenVisTau_charge_->SetAddress(&GenVisTau_charge_); }
+    if (b_GenVisTau_charge_) { b_GenVisTau_charge_->SetAddress(GenVisTau_charge_.grow(nanoBufLen(b_GenVisTau_charge_))); }
     b_GenVisTau_eta_ = tree->GetBranch("GenVisTau_eta");
-    if (b_GenVisTau_eta_) { b_GenVisTau_eta_->SetAddress(&GenVisTau_eta_); }
+    if (b_GenVisTau_eta_) { b_GenVisTau_eta_->SetAddress(GenVisTau_eta_.grow(nanoBufLen(b_GenVisTau_eta_))); }
     b_GenVisTau_genPartIdxMother_ = tree->GetBranch("GenVisTau_genPartIdxMother");
-    if (b_GenVisTau_genPartIdxMother_) { b_GenVisTau_genPartIdxMother_->SetAddress(&GenVisTau_genPartIdxMother_); }
+    if (b_GenVisTau_genPartIdxMother_) { b_GenVisTau_genPartIdxMother_->SetAddress(GenVisTau_genPartIdxMother_.grow(nanoBufLen(b_GenVisTau_genPartIdxMother_))); }
     b_GenVisTau_mass_ = tree->GetBranch("GenVisTau_mass");
-    if (b_GenVisTau_mass_) { b_GenVisTau_mass_->SetAddress(&GenVisTau_mass_); }
+    if (b_GenVisTau_mass_) { b_GenVisTau_mass_->SetAddress(GenVisTau_mass_.grow(nanoBufLen(b_GenVisTau_mass_))); }
     b_GenVisTau_phi_ = tree->GetBranch("GenVisTau_phi");
-    if (b_GenVisTau_phi_) { b_GenVisTau_phi_->SetAddress(&GenVisTau_phi_); }
+    if (b_GenVisTau_phi_) { b_GenVisTau_phi_->SetAddress(GenVisTau_phi_.grow(nanoBufLen(b_GenVisTau_phi_))); }
     b_GenVisTau_pt_ = tree->GetBranch("GenVisTau_pt");
-    if (b_GenVisTau_pt_) { b_GenVisTau_pt_->SetAddress(&GenVisTau_pt_); }
+    if (b_GenVisTau_pt_) { b_GenVisTau_pt_->SetAddress(GenVisTau_pt_.grow(nanoBufLen(b_GenVisTau_pt_))); }
     b_GenVisTau_status_ = tree->GetBranch("GenVisTau_status");
-    if (b_GenVisTau_status_) { b_GenVisTau_status_->SetAddress(&GenVisTau_status_); }
+    if (b_GenVisTau_status_) { b_GenVisTau_status_->SetAddress(GenVisTau_status_.grow(nanoBufLen(b_GenVisTau_status_))); }
     b_GenVtx_t0_ = tree->GetBranch("GenVtx_t0");
     if (b_GenVtx_t0_) { b_GenVtx_t0_->SetAddress(&GenVtx_t0_); }
     b_GenVtx_x_ = tree->GetBranch("GenVtx_x");
@@ -3807,179 +3807,179 @@ void Nano::Init(TTree *tree) {
     b_HTXS_stage_1_pTjet30_ = tree->GetBranch("HTXS_stage_1_pTjet30");
     if (b_HTXS_stage_1_pTjet30_) { b_HTXS_stage_1_pTjet30_->SetAddress(&HTXS_stage_1_pTjet30_); }
     b_IsoTrack_charge_ = tree->GetBranch("IsoTrack_charge");
-    if (b_IsoTrack_charge_) { b_IsoTrack_charge_->SetAddress(&IsoTrack_charge_); }
+    if (b_IsoTrack_charge_) { b_IsoTrack_charge_->SetAddress(IsoTrack_charge_.grow(nanoBufLen(b_IsoTrack_charge_))); }
     b_IsoTrack_dxy_ = tree->GetBranch("IsoTrack_dxy");
-    if (b_IsoTrack_dxy_) { b_IsoTrack_dxy_->SetAddress(&IsoTrack_dxy_); }
+    if (b_IsoTrack_dxy_) { b_IsoTrack_dxy_->SetAddress(IsoTrack_dxy_.grow(nanoBufLen(b_IsoTrack_dxy_))); }
     b_IsoTrack_dz_ = tree->GetBranch("IsoTrack_dz");
-    if (b_IsoTrack_dz_) { b_IsoTrack_dz_->SetAddress(&IsoTrack_dz_); }
+    if (b_IsoTrack_dz_) { b_IsoTrack_dz_->SetAddress(IsoTrack_dz_.grow(nanoBufLen(b_IsoTrack_dz_))); }
     b_IsoTrack_eta_ = tree->GetBranch("IsoTrack_eta");
-    if (b_IsoTrack_eta_) { b_IsoTrack_eta_->SetAddress(&IsoTrack_eta_); }
+    if (b_IsoTrack_eta_) { b_IsoTrack_eta_->SetAddress(IsoTrack_eta_.grow(nanoBufLen(b_IsoTrack_eta_))); }
     b_IsoTrack_fromPV_ = tree->GetBranch("IsoTrack_fromPV");
-    if (b_IsoTrack_fromPV_) { b_IsoTrack_fromPV_->SetAddress(&IsoTrack_fromPV_); }
+    if (b_IsoTrack_fromPV_) { b_IsoTrack_fromPV_->SetAddress(IsoTrack_fromPV_.grow(nanoBufLen(b_IsoTrack_fromPV_))); }
     b_IsoTrack_isFromLostTrack_ = tree->GetBranch("IsoTrack_isFromLostTrack");
-    if (b_IsoTrack_isFromLostTrack_) { b_IsoTrack_isFromLostTrack_->SetAddress(&IsoTrack_isFromLostTrack_); }
+    if (b_IsoTrack_isFromLostTrack_) { b_IsoTrack_isFromLostTrack_->SetAddress(IsoTrack_isFromLostTrack_.grow(nanoBufLen(b_IsoTrack_isFromLostTrack_))); }
     b_IsoTrack_isHighPurityTrack_ = tree->GetBranch("IsoTrack_isHighPurityTrack");
-    if (b_IsoTrack_isHighPurityTrack_) { b_IsoTrack_isHighPurityTrack_->SetAddress(&IsoTrack_isHighPurityTrack_); }
+    if (b_IsoTrack_isHighPurityTrack_) { b_IsoTrack_isHighPurityTrack_->SetAddress(IsoTrack_isHighPurityTrack_.grow(nanoBufLen(b_IsoTrack_isHighPurityTrack_))); }
     b_IsoTrack_isPFcand_ = tree->GetBranch("IsoTrack_isPFcand");
-    if (b_IsoTrack_isPFcand_) { b_IsoTrack_isPFcand_->SetAddress(&IsoTrack_isPFcand_); }
+    if (b_IsoTrack_isPFcand_) { b_IsoTrack_isPFcand_->SetAddress(IsoTrack_isPFcand_.grow(nanoBufLen(b_IsoTrack_isPFcand_))); }
     b_IsoTrack_miniPFRelIso_all_ = tree->GetBranch("IsoTrack_miniPFRelIso_all");
-    if (b_IsoTrack_miniPFRelIso_all_) { b_IsoTrack_miniPFRelIso_all_->SetAddress(&IsoTrack_miniPFRelIso_all_); }
+    if (b_IsoTrack_miniPFRelIso_all_) { b_IsoTrack_miniPFRelIso_all_->SetAddress(IsoTrack_miniPFRelIso_all_.grow(nanoBufLen(b_IsoTrack_miniPFRelIso_all_))); }
     b_IsoTrack_miniPFRelIso_chg_ = tree->GetBranch("IsoTrack_miniPFRelIso_chg");
-    if (b_IsoTrack_miniPFRelIso_chg_) { b_IsoTrack_miniPFRelIso_chg_->SetAddress(&IsoTrack_miniPFRelIso_chg_); }
+    if (b_IsoTrack_miniPFRelIso_chg_) { b_IsoTrack_miniPFRelIso_chg_->SetAddress(IsoTrack_miniPFRelIso_chg_.grow(nanoBufLen(b_IsoTrack_miniPFRelIso_chg_))); }
     b_IsoTrack_pdgId_ = tree->GetBranch("IsoTrack_pdgId");
-    if (b_IsoTrack_pdgId_) { b_IsoTrack_pdgId_->SetAddress(&IsoTrack_pdgId_); }
+    if (b_IsoTrack_pdgId_) { b_IsoTrack_pdgId_->SetAddress(IsoTrack_pdgId_.grow(nanoBufLen(b_IsoTrack_pdgId_))); }
     b_IsoTrack_pfRelIso03_all_ = tree->GetBranch("IsoTrack_pfRelIso03_all");
-    if (b_IsoTrack_pfRelIso03_all_) { b_IsoTrack_pfRelIso03_all_->SetAddress(&IsoTrack_pfRelIso03_all_); }
+    if (b_IsoTrack_pfRelIso03_all_) { b_IsoTrack_pfRelIso03_all_->SetAddress(IsoTrack_pfRelIso03_all_.grow(nanoBufLen(b_IsoTrack_pfRelIso03_all_))); }
     b_IsoTrack_pfRelIso03_chg_ = tree->GetBranch("IsoTrack_pfRelIso03_chg");
-    if (b_IsoTrack_pfRelIso03_chg_) { b_IsoTrack_pfRelIso03_chg_->SetAddress(&IsoTrack_pfRelIso03_chg_); }
+    if (b_IsoTrack_pfRelIso03_chg_) { b_IsoTrack_pfRelIso03_chg_->SetAddress(IsoTrack_pfRelIso03_chg_.grow(nanoBufLen(b_IsoTrack_pfRelIso03_chg_))); }
     b_IsoTrack_phi_ = tree->GetBranch("IsoTrack_phi");
-    if (b_IsoTrack_phi_) { b_IsoTrack_phi_->SetAddress(&IsoTrack_phi_); }
+    if (b_IsoTrack_phi_) { b_IsoTrack_phi_->SetAddress(IsoTrack_phi_.grow(nanoBufLen(b_IsoTrack_phi_))); }
     b_IsoTrack_pt_ = tree->GetBranch("IsoTrack_pt");
-    if (b_IsoTrack_pt_) { b_IsoTrack_pt_->SetAddress(&IsoTrack_pt_); }
+    if (b_IsoTrack_pt_) { b_IsoTrack_pt_->SetAddress(IsoTrack_pt_.grow(nanoBufLen(b_IsoTrack_pt_))); }
     b_Jet_area_ = tree->GetBranch("Jet_area");
-    if (b_Jet_area_) { b_Jet_area_->SetAddress(&Jet_area_); }
+    if (b_Jet_area_) { b_Jet_area_->SetAddress(Jet_area_.grow(nanoBufLen(b_Jet_area_))); }
     b_Jet_bReg_ = tree->GetBranch("Jet_bReg");
-    if (b_Jet_bReg_) { b_Jet_bReg_->SetAddress(&Jet_bReg_); }
+    if (b_Jet_bReg_) { b_Jet_bReg_->SetAddress(Jet_bReg_.grow(nanoBufLen(b_Jet_bReg_))); }
     b_Jet_bRegCorr_ = tree->GetBranch("Jet_bRegCorr");
-    if (b_Jet_bRegCorr_) { b_Jet_bRegCorr_->SetAddress(&Jet_bRegCorr_); }
+    if (b_Jet_bRegCorr_) { b_Jet_bRegCorr_->SetAddress(Jet_bRegCorr_.grow(nanoBufLen(b_Jet_bRegCorr_))); }
     b_Jet_bRegRes_ = tree->GetBranch("Jet_bRegRes");
-    if (b_Jet_bRegRes_) { b_Jet_bRegRes_->SetAddress(&Jet_bRegRes_); }
+    if (b_Jet_bRegRes_) { b_Jet_bRegRes_->SetAddress(Jet_bRegRes_.grow(nanoBufLen(b_Jet_bRegRes_))); }
     b_Jet_btagCMVA_ = tree->GetBranch("Jet_btagCMVA");
-    if (b_Jet_btagCMVA_) { b_Jet_btagCMVA_->SetAddress(&Jet_btagCMVA_); }
+    if (b_Jet_btagCMVA_) { b_Jet_btagCMVA_->SetAddress(Jet_btagCMVA_.grow(nanoBufLen(b_Jet_btagCMVA_))); }
     b_Jet_btagCSVV2_ = tree->GetBranch("Jet_btagCSVV2");
-    if (b_Jet_btagCSVV2_) { b_Jet_btagCSVV2_->SetAddress(&Jet_btagCSVV2_); }
+    if (b_Jet_btagCSVV2_) { b_Jet_btagCSVV2_->SetAddress(Jet_btagCSVV2_.grow(nanoBufLen(b_Jet_btagCSVV2_))); }
     b_Jet_btagDeepB_ = tree->GetBranch("Jet_btagDeepB");
-    if (b_Jet_btagDeepB_) { b_Jet_btagDeepB_->SetAddress(&Jet_btagDeepB_); }
+    if (b_Jet_btagDeepB_) { b_Jet_btagDeepB_->SetAddress(Jet_btagDeepB_.grow(nanoBufLen(b_Jet_btagDeepB_))); }
     b_Jet_btagDeepC_ = tree->GetBranch("Jet_btagDeepC");
-    if (b_Jet_btagDeepC_) { b_Jet_btagDeepC_->SetAddress(&Jet_btagDeepC_); }
+    if (b_Jet_btagDeepC_) { b_Jet_btagDeepC_->SetAddress(Jet_btagDeepC_.grow(nanoBufLen(b_Jet_btagDeepC_))); }
     b_Jet_btagDeepCvB_ = tree->GetBranch("Jet_btagDeepCvB");
-    if (b_Jet_btagDeepCvB_) { b_Jet_btagDeepCvB_->SetAddress(&Jet_btagDeepCvB_); }
+    if (b_Jet_btagDeepCvB_) { b_Jet_btagDeepCvB_->SetAddress(Jet_btagDeepCvB_.grow(nanoBufLen(b_Jet_btagDeepCvB_))); }
     b_Jet_btagDeepCvL_ = tree->GetBranch("Jet_btagDeepCvL");
-    if (b_Jet_btagDeepCvL_) { b_Jet_btagDeepCvL_->SetAddress(&Jet_btagDeepCvL_); }
+    if (b_Jet_btagDeepCvL_) { b_Jet_btagDeepCvL_->SetAddress(Jet_btagDeepCvL_.grow(nanoBufLen(b_Jet_btagDeepCvL_))); }
     b_Jet_btagDeepFlavB_ = tree->GetBranch("Jet_btagDeepFlavB");
-    if (b_Jet_btagDeepFlavB_) { b_Jet_btagDeepFlavB_->SetAddress(&Jet_btagDeepFlavB_); }
+    if (b_Jet_btagDeepFlavB_) { b_Jet_btagDeepFlavB_->SetAddress(Jet_btagDeepFlavB_.grow(nanoBufLen(b_Jet_btagDeepFlavB_))); }
     b_Jet_btagDeepFlavC_ = tree->GetBranch("Jet_btagDeepFlavC");
-    if (b_Jet_btagDeepFlavC_) { b_Jet_btagDeepFlavC_->SetAddress(&Jet_btagDeepFlavC_); }
+    if (b_Jet_btagDeepFlavC_) { b_Jet_btagDeepFlavC_->SetAddress(Jet_btagDeepFlavC_.grow(nanoBufLen(b_Jet_btagDeepFlavC_))); }
     b_Jet_btagDeepFlavCvB_ = tree->GetBranch("Jet_btagDeepFlavCvB");
-    if (b_Jet_btagDeepFlavCvB_) { b_Jet_btagDeepFlavCvB_->SetAddress(&Jet_btagDeepFlavCvB_); }
+    if (b_Jet_btagDeepFlavCvB_) { b_Jet_btagDeepFlavCvB_->SetAddress(Jet_btagDeepFlavCvB_.grow(nanoBufLen(b_Jet_btagDeepFlavCvB_))); }
     b_Jet_btagDeepFlavCvL_ = tree->GetBranch("Jet_btagDeepFlavCvL");
-    if (b_Jet_btagDeepFlavCvL_) { b_Jet_btagDeepFlavCvL_->SetAddress(&Jet_btagDeepFlavCvL_); }
+    if (b_Jet_btagDeepFlavCvL_) { b_Jet_btagDeepFlavCvL_->SetAddress(Jet_btagDeepFlavCvL_.grow(nanoBufLen(b_Jet_btagDeepFlavCvL_))); }
     b_Jet_btagDeepFlavQG_ = tree->GetBranch("Jet_btagDeepFlavQG");
-    if (b_Jet_btagDeepFlavQG_) { b_Jet_btagDeepFlavQG_->SetAddress(&Jet_btagDeepFlavQG_); }
+    if (b_Jet_btagDeepFlavQG_) { b_Jet_btagDeepFlavQG_->SetAddress(Jet_btagDeepFlavQG_.grow(nanoBufLen(b_Jet_btagDeepFlavQG_))); }
     b_Jet_cRegCorr_ = tree->GetBranch("Jet_cRegCorr");
-    if (b_Jet_cRegCorr_) { b_Jet_cRegCorr_->SetAddress(&Jet_cRegCorr_); }
+    if (b_Jet_cRegCorr_) { b_Jet_cRegCorr_->SetAddress(Jet_cRegCorr_.grow(nanoBufLen(b_Jet_cRegCorr_))); }
     b_Jet_cRegRes_ = tree->GetBranch("Jet_cRegRes");
-    if (b_Jet_cRegRes_) { b_Jet_cRegRes_->SetAddress(&Jet_cRegRes_); }
+    if (b_Jet_cRegRes_) { b_Jet_cRegRes_->SetAddress(Jet_cRegRes_.grow(nanoBufLen(b_Jet_cRegRes_))); }
     b_Jet_chEmEF_ = tree->GetBranch("Jet_chEmEF");
-    if (b_Jet_chEmEF_) { b_Jet_chEmEF_->SetAddress(&Jet_chEmEF_); }
+    if (b_Jet_chEmEF_) { b_Jet_chEmEF_->SetAddress(Jet_chEmEF_.grow(nanoBufLen(b_Jet_chEmEF_))); }
     b_Jet_chFPV0EF_ = tree->GetBranch("Jet_chFPV0EF");
-    if (b_Jet_chFPV0EF_) { b_Jet_chFPV0EF_->SetAddress(&Jet_chFPV0EF_); }
+    if (b_Jet_chFPV0EF_) { b_Jet_chFPV0EF_->SetAddress(Jet_chFPV0EF_.grow(nanoBufLen(b_Jet_chFPV0EF_))); }
     b_Jet_chFPV1EF_ = tree->GetBranch("Jet_chFPV1EF");
-    if (b_Jet_chFPV1EF_) { b_Jet_chFPV1EF_->SetAddress(&Jet_chFPV1EF_); }
+    if (b_Jet_chFPV1EF_) { b_Jet_chFPV1EF_->SetAddress(Jet_chFPV1EF_.grow(nanoBufLen(b_Jet_chFPV1EF_))); }
     b_Jet_chFPV2EF_ = tree->GetBranch("Jet_chFPV2EF");
-    if (b_Jet_chFPV2EF_) { b_Jet_chFPV2EF_->SetAddress(&Jet_chFPV2EF_); }
+    if (b_Jet_chFPV2EF_) { b_Jet_chFPV2EF_->SetAddress(Jet_chFPV2EF_.grow(nanoBufLen(b_Jet_chFPV2EF_))); }
     b_Jet_chFPV3EF_ = tree->GetBranch("Jet_chFPV3EF");
-    if (b_Jet_chFPV3EF_) { b_Jet_chFPV3EF_->SetAddress(&Jet_chFPV3EF_); }
+    if (b_Jet_chFPV3EF_) { b_Jet_chFPV3EF_->SetAddress(Jet_chFPV3EF_.grow(nanoBufLen(b_Jet_chFPV3EF_))); }
     b_Jet_chHEF_ = tree->GetBranch("Jet_chHEF");
-    if (b_Jet_chHEF_) { b_Jet_chHEF_->SetAddress(&Jet_chHEF_); }
+    if (b_Jet_chHEF_) { b_Jet_chHEF_->SetAddress(Jet_chHEF_.grow(nanoBufLen(b_Jet_chHEF_))); }
     b_Jet_cleanmask_ = tree->GetBranch("Jet_cleanmask");
-    if (b_Jet_cleanmask_) { b_Jet_cleanmask_->SetAddress(&Jet_cleanmask_); }
+    if (b_Jet_cleanmask_) { b_Jet_cleanmask_->SetAddress(Jet_cleanmask_.grow(nanoBufLen(b_Jet_cleanmask_))); }
     b_Jet_corr_JEC_ = tree->GetBranch("Jet_corr_JEC");
-    if (b_Jet_corr_JEC_) { b_Jet_corr_JEC_->SetAddress(&Jet_corr_JEC_); }
+    if (b_Jet_corr_JEC_) { b_Jet_corr_JEC_->SetAddress(Jet_corr_JEC_.grow(nanoBufLen(b_Jet_corr_JEC_))); }
     b_Jet_corr_JER_ = tree->GetBranch("Jet_corr_JER");
-    if (b_Jet_corr_JER_) { b_Jet_corr_JER_->SetAddress(&Jet_corr_JER_); }
+    if (b_Jet_corr_JER_) { b_Jet_corr_JER_->SetAddress(Jet_corr_JER_.grow(nanoBufLen(b_Jet_corr_JER_))); }
     b_Jet_electronIdx1_ = tree->GetBranch("Jet_electronIdx1");
-    if (b_Jet_electronIdx1_) { b_Jet_electronIdx1_->SetAddress(&Jet_electronIdx1_); }
+    if (b_Jet_electronIdx1_) { b_Jet_electronIdx1_->SetAddress(Jet_electronIdx1_.grow(nanoBufLen(b_Jet_electronIdx1_))); }
     b_Jet_electronIdx2_ = tree->GetBranch("Jet_electronIdx2");
-    if (b_Jet_electronIdx2_) { b_Jet_electronIdx2_->SetAddress(&Jet_electronIdx2_); }
+    if (b_Jet_electronIdx2_) { b_Jet_electronIdx2_->SetAddress(Jet_electronIdx2_.grow(nanoBufLen(b_Jet_electronIdx2_))); }
     b_Jet_eta_ = tree->GetBranch("Jet_eta");
-    if (b_Jet_eta_) { b_Jet_eta_->SetAddress(&Jet_eta_); }
+    if (b_Jet_eta_) { b_Jet_eta_->SetAddress(Jet_eta_.grow(nanoBufLen(b_Jet_eta_))); }
     b_Jet_genJetIdx_ = tree->GetBranch("Jet_genJetIdx");
-    if (b_Jet_genJetIdx_) { b_Jet_genJetIdx_->SetAddress(&Jet_genJetIdx_); }
+    if (b_Jet_genJetIdx_) { b_Jet_genJetIdx_->SetAddress(Jet_genJetIdx_.grow(nanoBufLen(b_Jet_genJetIdx_))); }
     b_Jet_hadronFlavour_ = tree->GetBranch("Jet_hadronFlavour");
-    if (b_Jet_hadronFlavour_) { b_Jet_hadronFlavour_->SetAddress(&Jet_hadronFlavour_); }
+    if (b_Jet_hadronFlavour_) { b_Jet_hadronFlavour_->SetAddress(Jet_hadronFlavour_.grow(nanoBufLen(b_Jet_hadronFlavour_))); }
     b_Jet_hfadjacentEtaStripsSize_ = tree->GetBranch("Jet_hfadjacentEtaStripsSize");
-    if (b_Jet_hfadjacentEtaStripsSize_) { b_Jet_hfadjacentEtaStripsSize_->SetAddress(&Jet_hfadjacentEtaStripsSize_); }
+    if (b_Jet_hfadjacentEtaStripsSize_) { b_Jet_hfadjacentEtaStripsSize_->SetAddress(Jet_hfadjacentEtaStripsSize_.grow(nanoBufLen(b_Jet_hfadjacentEtaStripsSize_))); }
     b_Jet_hfcentralEtaStripSize_ = tree->GetBranch("Jet_hfcentralEtaStripSize");
-    if (b_Jet_hfcentralEtaStripSize_) { b_Jet_hfcentralEtaStripSize_->SetAddress(&Jet_hfcentralEtaStripSize_); }
+    if (b_Jet_hfcentralEtaStripSize_) { b_Jet_hfcentralEtaStripSize_->SetAddress(Jet_hfcentralEtaStripSize_.grow(nanoBufLen(b_Jet_hfcentralEtaStripSize_))); }
     b_Jet_hfsigmaEtaEta_ = tree->GetBranch("Jet_hfsigmaEtaEta");
-    if (b_Jet_hfsigmaEtaEta_) { b_Jet_hfsigmaEtaEta_->SetAddress(&Jet_hfsigmaEtaEta_); }
+    if (b_Jet_hfsigmaEtaEta_) { b_Jet_hfsigmaEtaEta_->SetAddress(Jet_hfsigmaEtaEta_.grow(nanoBufLen(b_Jet_hfsigmaEtaEta_))); }
     b_Jet_hfsigmaPhiPhi_ = tree->GetBranch("Jet_hfsigmaPhiPhi");
-    if (b_Jet_hfsigmaPhiPhi_) { b_Jet_hfsigmaPhiPhi_->SetAddress(&Jet_hfsigmaPhiPhi_); }
+    if (b_Jet_hfsigmaPhiPhi_) { b_Jet_hfsigmaPhiPhi_->SetAddress(Jet_hfsigmaPhiPhi_.grow(nanoBufLen(b_Jet_hfsigmaPhiPhi_))); }
     b_Jet_jetId_ = tree->GetBranch("Jet_jetId");
-    if (b_Jet_jetId_) { b_Jet_jetId_->SetAddress(&Jet_jetId_); }
+    if (b_Jet_jetId_) { b_Jet_jetId_->SetAddress(Jet_jetId_.grow(nanoBufLen(b_Jet_jetId_))); }
     b_Jet_mass_ = tree->GetBranch("Jet_mass");
-    if (b_Jet_mass_) { b_Jet_mass_->SetAddress(&Jet_mass_); }
+    if (b_Jet_mass_) { b_Jet_mass_->SetAddress(Jet_mass_.grow(nanoBufLen(b_Jet_mass_))); }
     b_Jet_mass_jerDown_ = tree->GetBranch("Jet_mass_jerDown");
-    if (b_Jet_mass_jerDown_) { b_Jet_mass_jerDown_->SetAddress(&Jet_mass_jerDown_); }
+    if (b_Jet_mass_jerDown_) { b_Jet_mass_jerDown_->SetAddress(Jet_mass_jerDown_.grow(nanoBufLen(b_Jet_mass_jerDown_))); }
     b_Jet_mass_jerUp_ = tree->GetBranch("Jet_mass_jerUp");
-    if (b_Jet_mass_jerUp_) { b_Jet_mass_jerUp_->SetAddress(&Jet_mass_jerUp_); }
+    if (b_Jet_mass_jerUp_) { b_Jet_mass_jerUp_->SetAddress(Jet_mass_jerUp_.grow(nanoBufLen(b_Jet_mass_jerUp_))); }
     b_Jet_mass_jesHEMIssueDown_ = tree->GetBranch("Jet_mass_jesHEMIssueDown");
-    if (b_Jet_mass_jesHEMIssueDown_) { b_Jet_mass_jesHEMIssueDown_->SetAddress(&Jet_mass_jesHEMIssueDown_); }
+    if (b_Jet_mass_jesHEMIssueDown_) { b_Jet_mass_jesHEMIssueDown_->SetAddress(Jet_mass_jesHEMIssueDown_.grow(nanoBufLen(b_Jet_mass_jesHEMIssueDown_))); }
     b_Jet_mass_jesHEMIssueUp_ = tree->GetBranch("Jet_mass_jesHEMIssueUp");
-    if (b_Jet_mass_jesHEMIssueUp_) { b_Jet_mass_jesHEMIssueUp_->SetAddress(&Jet_mass_jesHEMIssueUp_); }
+    if (b_Jet_mass_jesHEMIssueUp_) { b_Jet_mass_jesHEMIssueUp_->SetAddress(Jet_mass_jesHEMIssueUp_.grow(nanoBufLen(b_Jet_mass_jesHEMIssueUp_))); }
     b_Jet_mass_jesTotalDown_ = tree->GetBranch("Jet_mass_jesTotalDown");
-    if (b_Jet_mass_jesTotalDown_) { b_Jet_mass_jesTotalDown_->SetAddress(&Jet_mass_jesTotalDown_); }
+    if (b_Jet_mass_jesTotalDown_) { b_Jet_mass_jesTotalDown_->SetAddress(Jet_mass_jesTotalDown_.grow(nanoBufLen(b_Jet_mass_jesTotalDown_))); }
     b_Jet_mass_jesTotalUp_ = tree->GetBranch("Jet_mass_jesTotalUp");
-    if (b_Jet_mass_jesTotalUp_) { b_Jet_mass_jesTotalUp_->SetAddress(&Jet_mass_jesTotalUp_); }
+    if (b_Jet_mass_jesTotalUp_) { b_Jet_mass_jesTotalUp_->SetAddress(Jet_mass_jesTotalUp_.grow(nanoBufLen(b_Jet_mass_jesTotalUp_))); }
     b_Jet_mass_nom_ = tree->GetBranch("Jet_mass_nom");
-    if (b_Jet_mass_nom_) { b_Jet_mass_nom_->SetAddress(&Jet_mass_nom_); }
+    if (b_Jet_mass_nom_) { b_Jet_mass_nom_->SetAddress(Jet_mass_nom_.grow(nanoBufLen(b_Jet_mass_nom_))); }
     b_Jet_mass_raw_ = tree->GetBranch("Jet_mass_raw");
-    if (b_Jet_mass_raw_) { b_Jet_mass_raw_->SetAddress(&Jet_mass_raw_); }
+    if (b_Jet_mass_raw_) { b_Jet_mass_raw_->SetAddress(Jet_mass_raw_.grow(nanoBufLen(b_Jet_mass_raw_))); }
     b_Jet_muEF_ = tree->GetBranch("Jet_muEF");
-    if (b_Jet_muEF_) { b_Jet_muEF_->SetAddress(&Jet_muEF_); }
+    if (b_Jet_muEF_) { b_Jet_muEF_->SetAddress(Jet_muEF_.grow(nanoBufLen(b_Jet_muEF_))); }
     b_Jet_muonIdx1_ = tree->GetBranch("Jet_muonIdx1");
-    if (b_Jet_muonIdx1_) { b_Jet_muonIdx1_->SetAddress(&Jet_muonIdx1_); }
+    if (b_Jet_muonIdx1_) { b_Jet_muonIdx1_->SetAddress(Jet_muonIdx1_.grow(nanoBufLen(b_Jet_muonIdx1_))); }
     b_Jet_muonIdx2_ = tree->GetBranch("Jet_muonIdx2");
-    if (b_Jet_muonIdx2_) { b_Jet_muonIdx2_->SetAddress(&Jet_muonIdx2_); }
+    if (b_Jet_muonIdx2_) { b_Jet_muonIdx2_->SetAddress(Jet_muonIdx2_.grow(nanoBufLen(b_Jet_muonIdx2_))); }
     b_Jet_muonSubtrFactor_ = tree->GetBranch("Jet_muonSubtrFactor");
-    if (b_Jet_muonSubtrFactor_) { b_Jet_muonSubtrFactor_->SetAddress(&Jet_muonSubtrFactor_); }
+    if (b_Jet_muonSubtrFactor_) { b_Jet_muonSubtrFactor_->SetAddress(Jet_muonSubtrFactor_.grow(nanoBufLen(b_Jet_muonSubtrFactor_))); }
     b_Jet_nConstituents_ = tree->GetBranch("Jet_nConstituents");
-    if (b_Jet_nConstituents_) { b_Jet_nConstituents_->SetAddress(&Jet_nConstituents_); }
+    if (b_Jet_nConstituents_) { b_Jet_nConstituents_->SetAddress(Jet_nConstituents_.grow(nanoBufLen(b_Jet_nConstituents_))); }
     b_Jet_nElectrons_ = tree->GetBranch("Jet_nElectrons");
-    if (b_Jet_nElectrons_) { b_Jet_nElectrons_->SetAddress(&Jet_nElectrons_); }
+    if (b_Jet_nElectrons_) { b_Jet_nElectrons_->SetAddress(Jet_nElectrons_.grow(nanoBufLen(b_Jet_nElectrons_))); }
     b_Jet_nMuons_ = tree->GetBranch("Jet_nMuons");
-    if (b_Jet_nMuons_) { b_Jet_nMuons_->SetAddress(&Jet_nMuons_); }
+    if (b_Jet_nMuons_) { b_Jet_nMuons_->SetAddress(Jet_nMuons_.grow(nanoBufLen(b_Jet_nMuons_))); }
     b_Jet_nSVs_ = tree->GetBranch("Jet_nSVs");
-    if (b_Jet_nSVs_) { b_Jet_nSVs_->SetAddress(&Jet_nSVs_); }
+    if (b_Jet_nSVs_) { b_Jet_nSVs_->SetAddress(Jet_nSVs_.grow(nanoBufLen(b_Jet_nSVs_))); }
     b_Jet_neEmEF_ = tree->GetBranch("Jet_neEmEF");
-    if (b_Jet_neEmEF_) { b_Jet_neEmEF_->SetAddress(&Jet_neEmEF_); }
+    if (b_Jet_neEmEF_) { b_Jet_neEmEF_->SetAddress(Jet_neEmEF_.grow(nanoBufLen(b_Jet_neEmEF_))); }
     b_Jet_neHEF_ = tree->GetBranch("Jet_neHEF");
-    if (b_Jet_neHEF_) { b_Jet_neHEF_->SetAddress(&Jet_neHEF_); }
+    if (b_Jet_neHEF_) { b_Jet_neHEF_->SetAddress(Jet_neHEF_.grow(nanoBufLen(b_Jet_neHEF_))); }
     b_Jet_partonFlavour_ = tree->GetBranch("Jet_partonFlavour");
-    if (b_Jet_partonFlavour_) { b_Jet_partonFlavour_->SetAddress(&Jet_partonFlavour_); }
+    if (b_Jet_partonFlavour_) { b_Jet_partonFlavour_->SetAddress(Jet_partonFlavour_.grow(nanoBufLen(b_Jet_partonFlavour_))); }
     b_Jet_phi_ = tree->GetBranch("Jet_phi");
-    if (b_Jet_phi_) { b_Jet_phi_->SetAddress(&Jet_phi_); }
+    if (b_Jet_phi_) { b_Jet_phi_->SetAddress(Jet_phi_.grow(nanoBufLen(b_Jet_phi_))); }
     b_Jet_pt_ = tree->GetBranch("Jet_pt");
-    if (b_Jet_pt_) { b_Jet_pt_->SetAddress(&Jet_pt_); }
+    if (b_Jet_pt_) { b_Jet_pt_->SetAddress(Jet_pt_.grow(nanoBufLen(b_Jet_pt_))); }
     b_Jet_pt_jerDown_ = tree->GetBranch("Jet_pt_jerDown");
-    if (b_Jet_pt_jerDown_) { b_Jet_pt_jerDown_->SetAddress(&Jet_pt_jerDown_); }
+    if (b_Jet_pt_jerDown_) { b_Jet_pt_jerDown_->SetAddress(Jet_pt_jerDown_.grow(nanoBufLen(b_Jet_pt_jerDown_))); }
     b_Jet_pt_jerUp_ = tree->GetBranch("Jet_pt_jerUp");
-    if (b_Jet_pt_jerUp_) { b_Jet_pt_jerUp_->SetAddress(&Jet_pt_jerUp_); }
+    if (b_Jet_pt_jerUp_) { b_Jet_pt_jerUp_->SetAddress(Jet_pt_jerUp_.grow(nanoBufLen(b_Jet_pt_jerUp_))); }
     b_Jet_pt_jesHEMIssueDown_ = tree->GetBranch("Jet_pt_jesHEMIssueDown");
-    if (b_Jet_pt_jesHEMIssueDown_) { b_Jet_pt_jesHEMIssueDown_->SetAddress(&Jet_pt_jesHEMIssueDown_); }
+    if (b_Jet_pt_jesHEMIssueDown_) { b_Jet_pt_jesHEMIssueDown_->SetAddress(Jet_pt_jesHEMIssueDown_.grow(nanoBufLen(b_Jet_pt_jesHEMIssueDown_))); }
     b_Jet_pt_jesHEMIssueUp_ = tree->GetBranch("Jet_pt_jesHEMIssueUp");
-    if (b_Jet_pt_jesHEMIssueUp_) { b_Jet_pt_jesHEMIssueUp_->SetAddress(&Jet_pt_jesHEMIssueUp_); }
+    if (b_Jet_pt_jesHEMIssueUp_) { b_Jet_pt_jesHEMIssueUp_->SetAddress(Jet_pt_jesHEMIssueUp_.grow(nanoBufLen(b_Jet_pt_jesHEMIssueUp_))); }
     b_Jet_pt_jesTotalDown_ = tree->GetBranch("Jet_pt_jesTotalDown");
-    if (b_Jet_pt_jesTotalDown_) { b_Jet_pt_jesTotalDown_->SetAddress(&Jet_pt_jesTotalDown_); }
+    if (b_Jet_pt_jesTotalDown_) { b_Jet_pt_jesTotalDown_->SetAddress(Jet_pt_jesTotalDown_.grow(nanoBufLen(b_Jet_pt_jesTotalDown_))); }
     b_Jet_pt_jesTotalUp_ = tree->GetBranch("Jet_pt_jesTotalUp");
-    if (b_Jet_pt_jesTotalUp_) { b_Jet_pt_jesTotalUp_->SetAddress(&Jet_pt_jesTotalUp_); }
+    if (b_Jet_pt_jesTotalUp_) { b_Jet_pt_jesTotalUp_->SetAddress(Jet_pt_jesTotalUp_.grow(nanoBufLen(b_Jet_pt_jesTotalUp_))); }
     b_Jet_pt_nom_ = tree->GetBranch("Jet_pt_nom");
-    if (b_Jet_pt_nom_) { b_Jet_pt_nom_->SetAddress(&Jet_pt_nom_); }
+    if (b_Jet_pt_nom_) { b_Jet_pt_nom_->SetAddress(Jet_pt_nom_.grow(nanoBufLen(b_Jet_pt_nom_))); }
     b_Jet_pt_raw_ = tree->GetBranch("Jet_pt_raw");
-    if (b_Jet_pt_raw_) { b_Jet_pt_raw_->SetAddress(&Jet_pt_raw_); }
+    if (b_Jet_pt_raw_) { b_Jet_pt_raw_->SetAddress(Jet_pt_raw_.grow(nanoBufLen(b_Jet_pt_raw_))); }
     b_Jet_puId_ = tree->GetBranch("Jet_puId");
-    if (b_Jet_puId_) { b_Jet_puId_->SetAddress(&Jet_puId_); }
+    if (b_Jet_puId_) { b_Jet_puId_->SetAddress(Jet_puId_.grow(nanoBufLen(b_Jet_puId_))); }
     b_Jet_puIdDisc_ = tree->GetBranch("Jet_puIdDisc");
-    if (b_Jet_puIdDisc_) { b_Jet_puIdDisc_->SetAddress(&Jet_puIdDisc_); }
+    if (b_Jet_puIdDisc_) { b_Jet_puIdDisc_->SetAddress(Jet_puIdDisc_.grow(nanoBufLen(b_Jet_puIdDisc_))); }
     b_Jet_qgl_ = tree->GetBranch("Jet_qgl");
-    if (b_Jet_qgl_) { b_Jet_qgl_->SetAddress(&Jet_qgl_); }
+    if (b_Jet_qgl_) { b_Jet_qgl_->SetAddress(Jet_qgl_.grow(nanoBufLen(b_Jet_qgl_))); }
     b_Jet_rawFactor_ = tree->GetBranch("Jet_rawFactor");
-    if (b_Jet_rawFactor_) { b_Jet_rawFactor_->SetAddress(&Jet_rawFactor_); }
+    if (b_Jet_rawFactor_) { b_Jet_rawFactor_->SetAddress(Jet_rawFactor_.grow(nanoBufLen(b_Jet_rawFactor_))); }
     b_Jet_svIdx1_ = tree->GetBranch("Jet_svIdx1");
-    if (b_Jet_svIdx1_) { b_Jet_svIdx1_->SetAddress(&Jet_svIdx1_); }
+    if (b_Jet_svIdx1_) { b_Jet_svIdx1_->SetAddress(Jet_svIdx1_.grow(nanoBufLen(b_Jet_svIdx1_))); }
     b_Jet_svIdx2_ = tree->GetBranch("Jet_svIdx2");
-    if (b_Jet_svIdx2_) { b_Jet_svIdx2_->SetAddress(&Jet_svIdx2_); }
+    if (b_Jet_svIdx2_) { b_Jet_svIdx2_->SetAddress(Jet_svIdx2_.grow(nanoBufLen(b_Jet_svIdx2_))); }
     b_L1PreFiringWeight_Dn_ = tree->GetBranch("L1PreFiringWeight_Dn");
     if (b_L1PreFiringWeight_Dn_) { b_L1PreFiringWeight_Dn_->SetAddress(&L1PreFiringWeight_Dn_); }
     b_L1PreFiringWeight_ECAL_Dn_ = tree->GetBranch("L1PreFiringWeight_ECAL_Dn");
@@ -5965,27 +5965,27 @@ void Nano::Init(TTree *tree) {
     b_L1simulation_step_ = tree->GetBranch("L1simulation_step");
     if (b_L1simulation_step_) { b_L1simulation_step_->SetAddress(&L1simulation_step_); }
     b_LHEPart_eta_ = tree->GetBranch("LHEPart_eta");
-    if (b_LHEPart_eta_) { b_LHEPart_eta_->SetAddress(&LHEPart_eta_); }
+    if (b_LHEPart_eta_) { b_LHEPart_eta_->SetAddress(LHEPart_eta_.grow(nanoBufLen(b_LHEPart_eta_))); }
     b_LHEPart_incomingpz_ = tree->GetBranch("LHEPart_incomingpz");
-    if (b_LHEPart_incomingpz_) { b_LHEPart_incomingpz_->SetAddress(&LHEPart_incomingpz_); }
+    if (b_LHEPart_incomingpz_) { b_LHEPart_incomingpz_->SetAddress(LHEPart_incomingpz_.grow(nanoBufLen(b_LHEPart_incomingpz_))); }
     b_LHEPart_mass_ = tree->GetBranch("LHEPart_mass");
-    if (b_LHEPart_mass_) { b_LHEPart_mass_->SetAddress(&LHEPart_mass_); }
+    if (b_LHEPart_mass_) { b_LHEPart_mass_->SetAddress(LHEPart_mass_.grow(nanoBufLen(b_LHEPart_mass_))); }
     b_LHEPart_pdgId_ = tree->GetBranch("LHEPart_pdgId");
-    if (b_LHEPart_pdgId_) { b_LHEPart_pdgId_->SetAddress(&LHEPart_pdgId_); }
+    if (b_LHEPart_pdgId_) { b_LHEPart_pdgId_->SetAddress(LHEPart_pdgId_.grow(nanoBufLen(b_LHEPart_pdgId_))); }
     b_LHEPart_phi_ = tree->GetBranch("LHEPart_phi");
-    if (b_LHEPart_phi_) { b_LHEPart_phi_->SetAddress(&LHEPart_phi_); }
+    if (b_LHEPart_phi_) { b_LHEPart_phi_->SetAddress(LHEPart_phi_.grow(nanoBufLen(b_LHEPart_phi_))); }
     b_LHEPart_pt_ = tree->GetBranch("LHEPart_pt");
-    if (b_LHEPart_pt_) { b_LHEPart_pt_->SetAddress(&LHEPart_pt_); }
+    if (b_LHEPart_pt_) { b_LHEPart_pt_->SetAddress(LHEPart_pt_.grow(nanoBufLen(b_LHEPart_pt_))); }
     b_LHEPart_spin_ = tree->GetBranch("LHEPart_spin");
-    if (b_LHEPart_spin_) { b_LHEPart_spin_->SetAddress(&LHEPart_spin_); }
+    if (b_LHEPart_spin_) { b_LHEPart_spin_->SetAddress(LHEPart_spin_.grow(nanoBufLen(b_LHEPart_spin_))); }
     b_LHEPart_status_ = tree->GetBranch("LHEPart_status");
-    if (b_LHEPart_status_) { b_LHEPart_status_->SetAddress(&LHEPart_status_); }
+    if (b_LHEPart_status_) { b_LHEPart_status_->SetAddress(LHEPart_status_.grow(nanoBufLen(b_LHEPart_status_))); }
     b_LHEPdfWeight_ = tree->GetBranch("LHEPdfWeight");
-    if (b_LHEPdfWeight_) { b_LHEPdfWeight_->SetAddress(&LHEPdfWeight_); }
+    if (b_LHEPdfWeight_) { b_LHEPdfWeight_->SetAddress(LHEPdfWeight_.grow(nanoBufLen(b_LHEPdfWeight_))); }
     b_LHEReweightingWeight_ = tree->GetBranch("LHEReweightingWeight");
-    if (b_LHEReweightingWeight_) { b_LHEReweightingWeight_->SetAddress(&LHEReweightingWeight_); }
+    if (b_LHEReweightingWeight_) { b_LHEReweightingWeight_->SetAddress(LHEReweightingWeight_.grow(nanoBufLen(b_LHEReweightingWeight_))); }
     b_LHEScaleWeight_ = tree->GetBranch("LHEScaleWeight");
-    if (b_LHEScaleWeight_) { b_LHEScaleWeight_->SetAddress(&LHEScaleWeight_); }
+    if (b_LHEScaleWeight_) { b_LHEScaleWeight_->SetAddress(LHEScaleWeight_.grow(nanoBufLen(b_LHEScaleWeight_))); }
     b_LHEWeight_dummy_ = tree->GetBranch("LHEWeight_dummy");
     if (b_LHEWeight_dummy_) { b_LHEWeight_dummy_->SetAddress(&LHEWeight_dummy_); }
     b_LHEWeight_originalXWGTUP_ = tree->GetBranch("LHEWeight_originalXWGTUP");
@@ -6013,67 +6013,67 @@ void Nano::Init(TTree *tree) {
     b_LHE_Vpt_ = tree->GetBranch("LHE_Vpt");
     if (b_LHE_Vpt_) { b_LHE_Vpt_->SetAddress(&LHE_Vpt_); }
     b_LowPtElectron_ID_ = tree->GetBranch("LowPtElectron_ID");
-    if (b_LowPtElectron_ID_) { b_LowPtElectron_ID_->SetAddress(&LowPtElectron_ID_); }
+    if (b_LowPtElectron_ID_) { b_LowPtElectron_ID_->SetAddress(LowPtElectron_ID_.grow(nanoBufLen(b_LowPtElectron_ID_))); }
     b_LowPtElectron_charge_ = tree->GetBranch("LowPtElectron_charge");
-    if (b_LowPtElectron_charge_) { b_LowPtElectron_charge_->SetAddress(&LowPtElectron_charge_); }
+    if (b_LowPtElectron_charge_) { b_LowPtElectron_charge_->SetAddress(LowPtElectron_charge_.grow(nanoBufLen(b_LowPtElectron_charge_))); }
     b_LowPtElectron_convVeto_ = tree->GetBranch("LowPtElectron_convVeto");
-    if (b_LowPtElectron_convVeto_) { b_LowPtElectron_convVeto_->SetAddress(&LowPtElectron_convVeto_); }
+    if (b_LowPtElectron_convVeto_) { b_LowPtElectron_convVeto_->SetAddress(LowPtElectron_convVeto_.grow(nanoBufLen(b_LowPtElectron_convVeto_))); }
     b_LowPtElectron_convVtxRadius_ = tree->GetBranch("LowPtElectron_convVtxRadius");
-    if (b_LowPtElectron_convVtxRadius_) { b_LowPtElectron_convVtxRadius_->SetAddress(&LowPtElectron_convVtxRadius_); }
+    if (b_LowPtElectron_convVtxRadius_) { b_LowPtElectron_convVtxRadius_->SetAddress(LowPtElectron_convVtxRadius_.grow(nanoBufLen(b_LowPtElectron_convVtxRadius_))); }
     b_LowPtElectron_convWP_ = tree->GetBranch("LowPtElectron_convWP");
-    if (b_LowPtElectron_convWP_) { b_LowPtElectron_convWP_->SetAddress(&LowPtElectron_convWP_); }
+    if (b_LowPtElectron_convWP_) { b_LowPtElectron_convWP_->SetAddress(LowPtElectron_convWP_.grow(nanoBufLen(b_LowPtElectron_convWP_))); }
     b_LowPtElectron_deltaEtaSC_ = tree->GetBranch("LowPtElectron_deltaEtaSC");
-    if (b_LowPtElectron_deltaEtaSC_) { b_LowPtElectron_deltaEtaSC_->SetAddress(&LowPtElectron_deltaEtaSC_); }
+    if (b_LowPtElectron_deltaEtaSC_) { b_LowPtElectron_deltaEtaSC_->SetAddress(LowPtElectron_deltaEtaSC_.grow(nanoBufLen(b_LowPtElectron_deltaEtaSC_))); }
     b_LowPtElectron_dxy_ = tree->GetBranch("LowPtElectron_dxy");
-    if (b_LowPtElectron_dxy_) { b_LowPtElectron_dxy_->SetAddress(&LowPtElectron_dxy_); }
+    if (b_LowPtElectron_dxy_) { b_LowPtElectron_dxy_->SetAddress(LowPtElectron_dxy_.grow(nanoBufLen(b_LowPtElectron_dxy_))); }
     b_LowPtElectron_dxyErr_ = tree->GetBranch("LowPtElectron_dxyErr");
-    if (b_LowPtElectron_dxyErr_) { b_LowPtElectron_dxyErr_->SetAddress(&LowPtElectron_dxyErr_); }
+    if (b_LowPtElectron_dxyErr_) { b_LowPtElectron_dxyErr_->SetAddress(LowPtElectron_dxyErr_.grow(nanoBufLen(b_LowPtElectron_dxyErr_))); }
     b_LowPtElectron_dz_ = tree->GetBranch("LowPtElectron_dz");
-    if (b_LowPtElectron_dz_) { b_LowPtElectron_dz_->SetAddress(&LowPtElectron_dz_); }
+    if (b_LowPtElectron_dz_) { b_LowPtElectron_dz_->SetAddress(LowPtElectron_dz_.grow(nanoBufLen(b_LowPtElectron_dz_))); }
     b_LowPtElectron_dzErr_ = tree->GetBranch("LowPtElectron_dzErr");
-    if (b_LowPtElectron_dzErr_) { b_LowPtElectron_dzErr_->SetAddress(&LowPtElectron_dzErr_); }
+    if (b_LowPtElectron_dzErr_) { b_LowPtElectron_dzErr_->SetAddress(LowPtElectron_dzErr_.grow(nanoBufLen(b_LowPtElectron_dzErr_))); }
     b_LowPtElectron_eInvMinusPInv_ = tree->GetBranch("LowPtElectron_eInvMinusPInv");
-    if (b_LowPtElectron_eInvMinusPInv_) { b_LowPtElectron_eInvMinusPInv_->SetAddress(&LowPtElectron_eInvMinusPInv_); }
+    if (b_LowPtElectron_eInvMinusPInv_) { b_LowPtElectron_eInvMinusPInv_->SetAddress(LowPtElectron_eInvMinusPInv_.grow(nanoBufLen(b_LowPtElectron_eInvMinusPInv_))); }
     b_LowPtElectron_electronIdx_ = tree->GetBranch("LowPtElectron_electronIdx");
-    if (b_LowPtElectron_electronIdx_) { b_LowPtElectron_electronIdx_->SetAddress(&LowPtElectron_electronIdx_); }
+    if (b_LowPtElectron_electronIdx_) { b_LowPtElectron_electronIdx_->SetAddress(LowPtElectron_electronIdx_.grow(nanoBufLen(b_LowPtElectron_electronIdx_))); }
     b_LowPtElectron_embeddedID_ = tree->GetBranch("LowPtElectron_embeddedID");
-    if (b_LowPtElectron_embeddedID_) { b_LowPtElectron_embeddedID_->SetAddress(&LowPtElectron_embeddedID_); }
+    if (b_LowPtElectron_embeddedID_) { b_LowPtElectron_embeddedID_->SetAddress(LowPtElectron_embeddedID_.grow(nanoBufLen(b_LowPtElectron_embeddedID_))); }
     b_LowPtElectron_energyErr_ = tree->GetBranch("LowPtElectron_energyErr");
-    if (b_LowPtElectron_energyErr_) { b_LowPtElectron_energyErr_->SetAddress(&LowPtElectron_energyErr_); }
+    if (b_LowPtElectron_energyErr_) { b_LowPtElectron_energyErr_->SetAddress(LowPtElectron_energyErr_.grow(nanoBufLen(b_LowPtElectron_energyErr_))); }
     b_LowPtElectron_eta_ = tree->GetBranch("LowPtElectron_eta");
-    if (b_LowPtElectron_eta_) { b_LowPtElectron_eta_->SetAddress(&LowPtElectron_eta_); }
+    if (b_LowPtElectron_eta_) { b_LowPtElectron_eta_->SetAddress(LowPtElectron_eta_.grow(nanoBufLen(b_LowPtElectron_eta_))); }
     b_LowPtElectron_genPartFlav_ = tree->GetBranch("LowPtElectron_genPartFlav");
-    if (b_LowPtElectron_genPartFlav_) { b_LowPtElectron_genPartFlav_->SetAddress(&LowPtElectron_genPartFlav_); }
+    if (b_LowPtElectron_genPartFlav_) { b_LowPtElectron_genPartFlav_->SetAddress(LowPtElectron_genPartFlav_.grow(nanoBufLen(b_LowPtElectron_genPartFlav_))); }
     b_LowPtElectron_genPartIdx_ = tree->GetBranch("LowPtElectron_genPartIdx");
-    if (b_LowPtElectron_genPartIdx_) { b_LowPtElectron_genPartIdx_->SetAddress(&LowPtElectron_genPartIdx_); }
+    if (b_LowPtElectron_genPartIdx_) { b_LowPtElectron_genPartIdx_->SetAddress(LowPtElectron_genPartIdx_.grow(nanoBufLen(b_LowPtElectron_genPartIdx_))); }
     b_LowPtElectron_hoe_ = tree->GetBranch("LowPtElectron_hoe");
-    if (b_LowPtElectron_hoe_) { b_LowPtElectron_hoe_->SetAddress(&LowPtElectron_hoe_); }
+    if (b_LowPtElectron_hoe_) { b_LowPtElectron_hoe_->SetAddress(LowPtElectron_hoe_.grow(nanoBufLen(b_LowPtElectron_hoe_))); }
     b_LowPtElectron_lostHits_ = tree->GetBranch("LowPtElectron_lostHits");
-    if (b_LowPtElectron_lostHits_) { b_LowPtElectron_lostHits_->SetAddress(&LowPtElectron_lostHits_); }
+    if (b_LowPtElectron_lostHits_) { b_LowPtElectron_lostHits_->SetAddress(LowPtElectron_lostHits_.grow(nanoBufLen(b_LowPtElectron_lostHits_))); }
     b_LowPtElectron_mass_ = tree->GetBranch("LowPtElectron_mass");
-    if (b_LowPtElectron_mass_) { b_LowPtElectron_mass_->SetAddress(&LowPtElectron_mass_); }
+    if (b_LowPtElectron_mass_) { b_LowPtElectron_mass_->SetAddress(LowPtElectron_mass_.grow(nanoBufLen(b_LowPtElectron_mass_))); }
     b_LowPtElectron_miniPFRelIso_all_ = tree->GetBranch("LowPtElectron_miniPFRelIso_all");
-    if (b_LowPtElectron_miniPFRelIso_all_) { b_LowPtElectron_miniPFRelIso_all_->SetAddress(&LowPtElectron_miniPFRelIso_all_); }
+    if (b_LowPtElectron_miniPFRelIso_all_) { b_LowPtElectron_miniPFRelIso_all_->SetAddress(LowPtElectron_miniPFRelIso_all_.grow(nanoBufLen(b_LowPtElectron_miniPFRelIso_all_))); }
     b_LowPtElectron_miniPFRelIso_chg_ = tree->GetBranch("LowPtElectron_miniPFRelIso_chg");
-    if (b_LowPtElectron_miniPFRelIso_chg_) { b_LowPtElectron_miniPFRelIso_chg_->SetAddress(&LowPtElectron_miniPFRelIso_chg_); }
+    if (b_LowPtElectron_miniPFRelIso_chg_) { b_LowPtElectron_miniPFRelIso_chg_->SetAddress(LowPtElectron_miniPFRelIso_chg_.grow(nanoBufLen(b_LowPtElectron_miniPFRelIso_chg_))); }
     b_LowPtElectron_pdgId_ = tree->GetBranch("LowPtElectron_pdgId");
-    if (b_LowPtElectron_pdgId_) { b_LowPtElectron_pdgId_->SetAddress(&LowPtElectron_pdgId_); }
+    if (b_LowPtElectron_pdgId_) { b_LowPtElectron_pdgId_->SetAddress(LowPtElectron_pdgId_.grow(nanoBufLen(b_LowPtElectron_pdgId_))); }
     b_LowPtElectron_phi_ = tree->GetBranch("LowPtElectron_phi");
-    if (b_LowPtElectron_phi_) { b_LowPtElectron_phi_->SetAddress(&LowPtElectron_phi_); }
+    if (b_LowPtElectron_phi_) { b_LowPtElectron_phi_->SetAddress(LowPtElectron_phi_.grow(nanoBufLen(b_LowPtElectron_phi_))); }
     b_LowPtElectron_photonIdx_ = tree->GetBranch("LowPtElectron_photonIdx");
-    if (b_LowPtElectron_photonIdx_) { b_LowPtElectron_photonIdx_->SetAddress(&LowPtElectron_photonIdx_); }
+    if (b_LowPtElectron_photonIdx_) { b_LowPtElectron_photonIdx_->SetAddress(LowPtElectron_photonIdx_.grow(nanoBufLen(b_LowPtElectron_photonIdx_))); }
     b_LowPtElectron_pt_ = tree->GetBranch("LowPtElectron_pt");
-    if (b_LowPtElectron_pt_) { b_LowPtElectron_pt_->SetAddress(&LowPtElectron_pt_); }
+    if (b_LowPtElectron_pt_) { b_LowPtElectron_pt_->SetAddress(LowPtElectron_pt_.grow(nanoBufLen(b_LowPtElectron_pt_))); }
     b_LowPtElectron_ptbiased_ = tree->GetBranch("LowPtElectron_ptbiased");
-    if (b_LowPtElectron_ptbiased_) { b_LowPtElectron_ptbiased_->SetAddress(&LowPtElectron_ptbiased_); }
+    if (b_LowPtElectron_ptbiased_) { b_LowPtElectron_ptbiased_->SetAddress(LowPtElectron_ptbiased_.grow(nanoBufLen(b_LowPtElectron_ptbiased_))); }
     b_LowPtElectron_r9_ = tree->GetBranch("LowPtElectron_r9");
-    if (b_LowPtElectron_r9_) { b_LowPtElectron_r9_->SetAddress(&LowPtElectron_r9_); }
+    if (b_LowPtElectron_r9_) { b_LowPtElectron_r9_->SetAddress(LowPtElectron_r9_.grow(nanoBufLen(b_LowPtElectron_r9_))); }
     b_LowPtElectron_scEtOverPt_ = tree->GetBranch("LowPtElectron_scEtOverPt");
-    if (b_LowPtElectron_scEtOverPt_) { b_LowPtElectron_scEtOverPt_->SetAddress(&LowPtElectron_scEtOverPt_); }
+    if (b_LowPtElectron_scEtOverPt_) { b_LowPtElectron_scEtOverPt_->SetAddress(LowPtElectron_scEtOverPt_.grow(nanoBufLen(b_LowPtElectron_scEtOverPt_))); }
     b_LowPtElectron_sieie_ = tree->GetBranch("LowPtElectron_sieie");
-    if (b_LowPtElectron_sieie_) { b_LowPtElectron_sieie_->SetAddress(&LowPtElectron_sieie_); }
+    if (b_LowPtElectron_sieie_) { b_LowPtElectron_sieie_->SetAddress(LowPtElectron_sieie_.grow(nanoBufLen(b_LowPtElectron_sieie_))); }
     b_LowPtElectron_unbiased_ = tree->GetBranch("LowPtElectron_unbiased");
-    if (b_LowPtElectron_unbiased_) { b_LowPtElectron_unbiased_->SetAddress(&LowPtElectron_unbiased_); }
+    if (b_LowPtElectron_unbiased_) { b_LowPtElectron_unbiased_->SetAddress(LowPtElectron_unbiased_.grow(nanoBufLen(b_LowPtElectron_unbiased_))); }
     b_MET_MetUnclustEnUpDeltaX_ = tree->GetBranch("MET_MetUnclustEnUpDeltaX");
     if (b_MET_MetUnclustEnUpDeltaX_) { b_MET_MetUnclustEnUpDeltaX_->SetAddress(&MET_MetUnclustEnUpDeltaX_); }
     b_MET_MetUnclustEnUpDeltaY_ = tree->GetBranch("MET_MetUnclustEnUpDeltaY");
@@ -6171,229 +6171,229 @@ void Nano::Init(TTree *tree) {
     b_MET_sumPtUnclustered_ = tree->GetBranch("MET_sumPtUnclustered");
     if (b_MET_sumPtUnclustered_) { b_MET_sumPtUnclustered_->SetAddress(&MET_sumPtUnclustered_); }
     b_Muon_CutBased_HighPtID_SF_ = tree->GetBranch("Muon_CutBased_HighPtID_SF");
-    if (b_Muon_CutBased_HighPtID_SF_) { b_Muon_CutBased_HighPtID_SF_->SetAddress(&Muon_CutBased_HighPtID_SF_); }
+    if (b_Muon_CutBased_HighPtID_SF_) { b_Muon_CutBased_HighPtID_SF_->SetAddress(Muon_CutBased_HighPtID_SF_.grow(nanoBufLen(b_Muon_CutBased_HighPtID_SF_))); }
     b_Muon_CutBased_HighPtID_SFerr_ = tree->GetBranch("Muon_CutBased_HighPtID_SFerr");
-    if (b_Muon_CutBased_HighPtID_SFerr_) { b_Muon_CutBased_HighPtID_SFerr_->SetAddress(&Muon_CutBased_HighPtID_SFerr_); }
+    if (b_Muon_CutBased_HighPtID_SFerr_) { b_Muon_CutBased_HighPtID_SFerr_->SetAddress(Muon_CutBased_HighPtID_SFerr_.grow(nanoBufLen(b_Muon_CutBased_HighPtID_SFerr_))); }
     b_Muon_CutBased_LooseID_SF_ = tree->GetBranch("Muon_CutBased_LooseID_SF");
-    if (b_Muon_CutBased_LooseID_SF_) { b_Muon_CutBased_LooseID_SF_->SetAddress(&Muon_CutBased_LooseID_SF_); }
+    if (b_Muon_CutBased_LooseID_SF_) { b_Muon_CutBased_LooseID_SF_->SetAddress(Muon_CutBased_LooseID_SF_.grow(nanoBufLen(b_Muon_CutBased_LooseID_SF_))); }
     b_Muon_CutBased_LooseID_SFerr_ = tree->GetBranch("Muon_CutBased_LooseID_SFerr");
-    if (b_Muon_CutBased_LooseID_SFerr_) { b_Muon_CutBased_LooseID_SFerr_->SetAddress(&Muon_CutBased_LooseID_SFerr_); }
+    if (b_Muon_CutBased_LooseID_SFerr_) { b_Muon_CutBased_LooseID_SFerr_->SetAddress(Muon_CutBased_LooseID_SFerr_.grow(nanoBufLen(b_Muon_CutBased_LooseID_SFerr_))); }
     b_Muon_CutBased_MediumID_SF_ = tree->GetBranch("Muon_CutBased_MediumID_SF");
-    if (b_Muon_CutBased_MediumID_SF_) { b_Muon_CutBased_MediumID_SF_->SetAddress(&Muon_CutBased_MediumID_SF_); }
+    if (b_Muon_CutBased_MediumID_SF_) { b_Muon_CutBased_MediumID_SF_->SetAddress(Muon_CutBased_MediumID_SF_.grow(nanoBufLen(b_Muon_CutBased_MediumID_SF_))); }
     b_Muon_CutBased_MediumID_SFerr_ = tree->GetBranch("Muon_CutBased_MediumID_SFerr");
-    if (b_Muon_CutBased_MediumID_SFerr_) { b_Muon_CutBased_MediumID_SFerr_->SetAddress(&Muon_CutBased_MediumID_SFerr_); }
+    if (b_Muon_CutBased_MediumID_SFerr_) { b_Muon_CutBased_MediumID_SFerr_->SetAddress(Muon_CutBased_MediumID_SFerr_.grow(nanoBufLen(b_Muon_CutBased_MediumID_SFerr_))); }
     b_Muon_CutBased_MediumPromptID_SF_ = tree->GetBranch("Muon_CutBased_MediumPromptID_SF");
-    if (b_Muon_CutBased_MediumPromptID_SF_) { b_Muon_CutBased_MediumPromptID_SF_->SetAddress(&Muon_CutBased_MediumPromptID_SF_); }
+    if (b_Muon_CutBased_MediumPromptID_SF_) { b_Muon_CutBased_MediumPromptID_SF_->SetAddress(Muon_CutBased_MediumPromptID_SF_.grow(nanoBufLen(b_Muon_CutBased_MediumPromptID_SF_))); }
     b_Muon_CutBased_MediumPromptID_SFerr_ = tree->GetBranch("Muon_CutBased_MediumPromptID_SFerr");
-    if (b_Muon_CutBased_MediumPromptID_SFerr_) { b_Muon_CutBased_MediumPromptID_SFerr_->SetAddress(&Muon_CutBased_MediumPromptID_SFerr_); }
+    if (b_Muon_CutBased_MediumPromptID_SFerr_) { b_Muon_CutBased_MediumPromptID_SFerr_->SetAddress(Muon_CutBased_MediumPromptID_SFerr_.grow(nanoBufLen(b_Muon_CutBased_MediumPromptID_SFerr_))); }
     b_Muon_CutBased_SoftID_SF_ = tree->GetBranch("Muon_CutBased_SoftID_SF");
-    if (b_Muon_CutBased_SoftID_SF_) { b_Muon_CutBased_SoftID_SF_->SetAddress(&Muon_CutBased_SoftID_SF_); }
+    if (b_Muon_CutBased_SoftID_SF_) { b_Muon_CutBased_SoftID_SF_->SetAddress(Muon_CutBased_SoftID_SF_.grow(nanoBufLen(b_Muon_CutBased_SoftID_SF_))); }
     b_Muon_CutBased_SoftID_SFerr_ = tree->GetBranch("Muon_CutBased_SoftID_SFerr");
-    if (b_Muon_CutBased_SoftID_SFerr_) { b_Muon_CutBased_SoftID_SFerr_->SetAddress(&Muon_CutBased_SoftID_SFerr_); }
+    if (b_Muon_CutBased_SoftID_SFerr_) { b_Muon_CutBased_SoftID_SFerr_->SetAddress(Muon_CutBased_SoftID_SFerr_.grow(nanoBufLen(b_Muon_CutBased_SoftID_SFerr_))); }
     b_Muon_CutBased_TightID_SF_ = tree->GetBranch("Muon_CutBased_TightID_SF");
-    if (b_Muon_CutBased_TightID_SF_) { b_Muon_CutBased_TightID_SF_->SetAddress(&Muon_CutBased_TightID_SF_); }
+    if (b_Muon_CutBased_TightID_SF_) { b_Muon_CutBased_TightID_SF_->SetAddress(Muon_CutBased_TightID_SF_.grow(nanoBufLen(b_Muon_CutBased_TightID_SF_))); }
     b_Muon_CutBased_TightID_SFerr_ = tree->GetBranch("Muon_CutBased_TightID_SFerr");
-    if (b_Muon_CutBased_TightID_SFerr_) { b_Muon_CutBased_TightID_SFerr_->SetAddress(&Muon_CutBased_TightID_SFerr_); }
+    if (b_Muon_CutBased_TightID_SFerr_) { b_Muon_CutBased_TightID_SFerr_->SetAddress(Muon_CutBased_TightID_SFerr_.grow(nanoBufLen(b_Muon_CutBased_TightID_SFerr_))); }
     b_Muon_CutBased_TrkHighPtID_SF_ = tree->GetBranch("Muon_CutBased_TrkHighPtID_SF");
-    if (b_Muon_CutBased_TrkHighPtID_SF_) { b_Muon_CutBased_TrkHighPtID_SF_->SetAddress(&Muon_CutBased_TrkHighPtID_SF_); }
+    if (b_Muon_CutBased_TrkHighPtID_SF_) { b_Muon_CutBased_TrkHighPtID_SF_->SetAddress(Muon_CutBased_TrkHighPtID_SF_.grow(nanoBufLen(b_Muon_CutBased_TrkHighPtID_SF_))); }
     b_Muon_CutBased_TrkHighPtID_SFerr_ = tree->GetBranch("Muon_CutBased_TrkHighPtID_SFerr");
-    if (b_Muon_CutBased_TrkHighPtID_SFerr_) { b_Muon_CutBased_TrkHighPtID_SFerr_->SetAddress(&Muon_CutBased_TrkHighPtID_SFerr_); }
+    if (b_Muon_CutBased_TrkHighPtID_SFerr_) { b_Muon_CutBased_TrkHighPtID_SFerr_->SetAddress(Muon_CutBased_TrkHighPtID_SFerr_.grow(nanoBufLen(b_Muon_CutBased_TrkHighPtID_SFerr_))); }
     b_Muon_LooseRelIso_LooseID_SF_ = tree->GetBranch("Muon_LooseRelIso_LooseID_SF");
-    if (b_Muon_LooseRelIso_LooseID_SF_) { b_Muon_LooseRelIso_LooseID_SF_->SetAddress(&Muon_LooseRelIso_LooseID_SF_); }
+    if (b_Muon_LooseRelIso_LooseID_SF_) { b_Muon_LooseRelIso_LooseID_SF_->SetAddress(Muon_LooseRelIso_LooseID_SF_.grow(nanoBufLen(b_Muon_LooseRelIso_LooseID_SF_))); }
     b_Muon_LooseRelIso_LooseID_SFerr_ = tree->GetBranch("Muon_LooseRelIso_LooseID_SFerr");
-    if (b_Muon_LooseRelIso_LooseID_SFerr_) { b_Muon_LooseRelIso_LooseID_SFerr_->SetAddress(&Muon_LooseRelIso_LooseID_SFerr_); }
+    if (b_Muon_LooseRelIso_LooseID_SFerr_) { b_Muon_LooseRelIso_LooseID_SFerr_->SetAddress(Muon_LooseRelIso_LooseID_SFerr_.grow(nanoBufLen(b_Muon_LooseRelIso_LooseID_SFerr_))); }
     b_Muon_LooseRelIso_MediumID_SF_ = tree->GetBranch("Muon_LooseRelIso_MediumID_SF");
-    if (b_Muon_LooseRelIso_MediumID_SF_) { b_Muon_LooseRelIso_MediumID_SF_->SetAddress(&Muon_LooseRelIso_MediumID_SF_); }
+    if (b_Muon_LooseRelIso_MediumID_SF_) { b_Muon_LooseRelIso_MediumID_SF_->SetAddress(Muon_LooseRelIso_MediumID_SF_.grow(nanoBufLen(b_Muon_LooseRelIso_MediumID_SF_))); }
     b_Muon_LooseRelIso_MediumID_SFerr_ = tree->GetBranch("Muon_LooseRelIso_MediumID_SFerr");
-    if (b_Muon_LooseRelIso_MediumID_SFerr_) { b_Muon_LooseRelIso_MediumID_SFerr_->SetAddress(&Muon_LooseRelIso_MediumID_SFerr_); }
+    if (b_Muon_LooseRelIso_MediumID_SFerr_) { b_Muon_LooseRelIso_MediumID_SFerr_->SetAddress(Muon_LooseRelIso_MediumID_SFerr_.grow(nanoBufLen(b_Muon_LooseRelIso_MediumID_SFerr_))); }
     b_Muon_LooseRelIso_MediumPromptID_SF_ = tree->GetBranch("Muon_LooseRelIso_MediumPromptID_SF");
-    if (b_Muon_LooseRelIso_MediumPromptID_SF_) { b_Muon_LooseRelIso_MediumPromptID_SF_->SetAddress(&Muon_LooseRelIso_MediumPromptID_SF_); }
+    if (b_Muon_LooseRelIso_MediumPromptID_SF_) { b_Muon_LooseRelIso_MediumPromptID_SF_->SetAddress(Muon_LooseRelIso_MediumPromptID_SF_.grow(nanoBufLen(b_Muon_LooseRelIso_MediumPromptID_SF_))); }
     b_Muon_LooseRelIso_MediumPromptID_SFerr_ = tree->GetBranch("Muon_LooseRelIso_MediumPromptID_SFerr");
-    if (b_Muon_LooseRelIso_MediumPromptID_SFerr_) { b_Muon_LooseRelIso_MediumPromptID_SFerr_->SetAddress(&Muon_LooseRelIso_MediumPromptID_SFerr_); }
+    if (b_Muon_LooseRelIso_MediumPromptID_SFerr_) { b_Muon_LooseRelIso_MediumPromptID_SFerr_->SetAddress(Muon_LooseRelIso_MediumPromptID_SFerr_.grow(nanoBufLen(b_Muon_LooseRelIso_MediumPromptID_SFerr_))); }
     b_Muon_LooseRelIso_TightIDandIPCut_SF_ = tree->GetBranch("Muon_LooseRelIso_TightIDandIPCut_SF");
-    if (b_Muon_LooseRelIso_TightIDandIPCut_SF_) { b_Muon_LooseRelIso_TightIDandIPCut_SF_->SetAddress(&Muon_LooseRelIso_TightIDandIPCut_SF_); }
+    if (b_Muon_LooseRelIso_TightIDandIPCut_SF_) { b_Muon_LooseRelIso_TightIDandIPCut_SF_->SetAddress(Muon_LooseRelIso_TightIDandIPCut_SF_.grow(nanoBufLen(b_Muon_LooseRelIso_TightIDandIPCut_SF_))); }
     b_Muon_LooseRelIso_TightIDandIPCut_SFerr_ = tree->GetBranch("Muon_LooseRelIso_TightIDandIPCut_SFerr");
-    if (b_Muon_LooseRelIso_TightIDandIPCut_SFerr_) { b_Muon_LooseRelIso_TightIDandIPCut_SFerr_->SetAddress(&Muon_LooseRelIso_TightIDandIPCut_SFerr_); }
+    if (b_Muon_LooseRelIso_TightIDandIPCut_SFerr_) { b_Muon_LooseRelIso_TightIDandIPCut_SFerr_->SetAddress(Muon_LooseRelIso_TightIDandIPCut_SFerr_.grow(nanoBufLen(b_Muon_LooseRelIso_TightIDandIPCut_SFerr_))); }
     b_Muon_LooseRelTkIso_HighPtIDandIPCut_SF_ = tree->GetBranch("Muon_LooseRelTkIso_HighPtIDandIPCut_SF");
-    if (b_Muon_LooseRelTkIso_HighPtIDandIPCut_SF_) { b_Muon_LooseRelTkIso_HighPtIDandIPCut_SF_->SetAddress(&Muon_LooseRelTkIso_HighPtIDandIPCut_SF_); }
+    if (b_Muon_LooseRelTkIso_HighPtIDandIPCut_SF_) { b_Muon_LooseRelTkIso_HighPtIDandIPCut_SF_->SetAddress(Muon_LooseRelTkIso_HighPtIDandIPCut_SF_.grow(nanoBufLen(b_Muon_LooseRelTkIso_HighPtIDandIPCut_SF_))); }
     b_Muon_LooseRelTkIso_HighPtIDandIPCut_SFerr_ = tree->GetBranch("Muon_LooseRelTkIso_HighPtIDandIPCut_SFerr");
-    if (b_Muon_LooseRelTkIso_HighPtIDandIPCut_SFerr_) { b_Muon_LooseRelTkIso_HighPtIDandIPCut_SFerr_->SetAddress(&Muon_LooseRelTkIso_HighPtIDandIPCut_SFerr_); }
+    if (b_Muon_LooseRelTkIso_HighPtIDandIPCut_SFerr_) { b_Muon_LooseRelTkIso_HighPtIDandIPCut_SFerr_->SetAddress(Muon_LooseRelTkIso_HighPtIDandIPCut_SFerr_.grow(nanoBufLen(b_Muon_LooseRelTkIso_HighPtIDandIPCut_SFerr_))); }
     b_Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SF_ = tree->GetBranch("Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SF");
-    if (b_Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SF_) { b_Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SF_->SetAddress(&Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SF_); }
+    if (b_Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SF_) { b_Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SF_->SetAddress(Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SF_.grow(nanoBufLen(b_Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SF_))); }
     b_Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SFerr_ = tree->GetBranch("Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SFerr");
-    if (b_Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SFerr_) { b_Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SFerr_->SetAddress(&Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SFerr_); }
+    if (b_Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SFerr_) { b_Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SFerr_->SetAddress(Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SFerr_.grow(nanoBufLen(b_Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SFerr_))); }
     b_Muon_TightRelIso_MediumID_SF_ = tree->GetBranch("Muon_TightRelIso_MediumID_SF");
-    if (b_Muon_TightRelIso_MediumID_SF_) { b_Muon_TightRelIso_MediumID_SF_->SetAddress(&Muon_TightRelIso_MediumID_SF_); }
+    if (b_Muon_TightRelIso_MediumID_SF_) { b_Muon_TightRelIso_MediumID_SF_->SetAddress(Muon_TightRelIso_MediumID_SF_.grow(nanoBufLen(b_Muon_TightRelIso_MediumID_SF_))); }
     b_Muon_TightRelIso_MediumID_SFerr_ = tree->GetBranch("Muon_TightRelIso_MediumID_SFerr");
-    if (b_Muon_TightRelIso_MediumID_SFerr_) { b_Muon_TightRelIso_MediumID_SFerr_->SetAddress(&Muon_TightRelIso_MediumID_SFerr_); }
+    if (b_Muon_TightRelIso_MediumID_SFerr_) { b_Muon_TightRelIso_MediumID_SFerr_->SetAddress(Muon_TightRelIso_MediumID_SFerr_.grow(nanoBufLen(b_Muon_TightRelIso_MediumID_SFerr_))); }
     b_Muon_TightRelIso_MediumPromptID_SF_ = tree->GetBranch("Muon_TightRelIso_MediumPromptID_SF");
-    if (b_Muon_TightRelIso_MediumPromptID_SF_) { b_Muon_TightRelIso_MediumPromptID_SF_->SetAddress(&Muon_TightRelIso_MediumPromptID_SF_); }
+    if (b_Muon_TightRelIso_MediumPromptID_SF_) { b_Muon_TightRelIso_MediumPromptID_SF_->SetAddress(Muon_TightRelIso_MediumPromptID_SF_.grow(nanoBufLen(b_Muon_TightRelIso_MediumPromptID_SF_))); }
     b_Muon_TightRelIso_MediumPromptID_SFerr_ = tree->GetBranch("Muon_TightRelIso_MediumPromptID_SFerr");
-    if (b_Muon_TightRelIso_MediumPromptID_SFerr_) { b_Muon_TightRelIso_MediumPromptID_SFerr_->SetAddress(&Muon_TightRelIso_MediumPromptID_SFerr_); }
+    if (b_Muon_TightRelIso_MediumPromptID_SFerr_) { b_Muon_TightRelIso_MediumPromptID_SFerr_->SetAddress(Muon_TightRelIso_MediumPromptID_SFerr_.grow(nanoBufLen(b_Muon_TightRelIso_MediumPromptID_SFerr_))); }
     b_Muon_TightRelIso_TightIDandIPCut_SF_ = tree->GetBranch("Muon_TightRelIso_TightIDandIPCut_SF");
-    if (b_Muon_TightRelIso_TightIDandIPCut_SF_) { b_Muon_TightRelIso_TightIDandIPCut_SF_->SetAddress(&Muon_TightRelIso_TightIDandIPCut_SF_); }
+    if (b_Muon_TightRelIso_TightIDandIPCut_SF_) { b_Muon_TightRelIso_TightIDandIPCut_SF_->SetAddress(Muon_TightRelIso_TightIDandIPCut_SF_.grow(nanoBufLen(b_Muon_TightRelIso_TightIDandIPCut_SF_))); }
     b_Muon_TightRelIso_TightIDandIPCut_SFerr_ = tree->GetBranch("Muon_TightRelIso_TightIDandIPCut_SFerr");
-    if (b_Muon_TightRelIso_TightIDandIPCut_SFerr_) { b_Muon_TightRelIso_TightIDandIPCut_SFerr_->SetAddress(&Muon_TightRelIso_TightIDandIPCut_SFerr_); }
+    if (b_Muon_TightRelIso_TightIDandIPCut_SFerr_) { b_Muon_TightRelIso_TightIDandIPCut_SFerr_->SetAddress(Muon_TightRelIso_TightIDandIPCut_SFerr_.grow(nanoBufLen(b_Muon_TightRelIso_TightIDandIPCut_SFerr_))); }
     b_Muon_TightRelTkIso_HighPtIDandIPCut_SF_ = tree->GetBranch("Muon_TightRelTkIso_HighPtIDandIPCut_SF");
-    if (b_Muon_TightRelTkIso_HighPtIDandIPCut_SF_) { b_Muon_TightRelTkIso_HighPtIDandIPCut_SF_->SetAddress(&Muon_TightRelTkIso_HighPtIDandIPCut_SF_); }
+    if (b_Muon_TightRelTkIso_HighPtIDandIPCut_SF_) { b_Muon_TightRelTkIso_HighPtIDandIPCut_SF_->SetAddress(Muon_TightRelTkIso_HighPtIDandIPCut_SF_.grow(nanoBufLen(b_Muon_TightRelTkIso_HighPtIDandIPCut_SF_))); }
     b_Muon_TightRelTkIso_HighPtIDandIPCut_SFerr_ = tree->GetBranch("Muon_TightRelTkIso_HighPtIDandIPCut_SFerr");
-    if (b_Muon_TightRelTkIso_HighPtIDandIPCut_SFerr_) { b_Muon_TightRelTkIso_HighPtIDandIPCut_SFerr_->SetAddress(&Muon_TightRelTkIso_HighPtIDandIPCut_SFerr_); }
+    if (b_Muon_TightRelTkIso_HighPtIDandIPCut_SFerr_) { b_Muon_TightRelTkIso_HighPtIDandIPCut_SFerr_->SetAddress(Muon_TightRelTkIso_HighPtIDandIPCut_SFerr_.grow(nanoBufLen(b_Muon_TightRelTkIso_HighPtIDandIPCut_SFerr_))); }
     b_Muon_TightRelTkIso_TrkHighPtIDandIPCut_SF_ = tree->GetBranch("Muon_TightRelTkIso_TrkHighPtIDandIPCut_SF");
-    if (b_Muon_TightRelTkIso_TrkHighPtIDandIPCut_SF_) { b_Muon_TightRelTkIso_TrkHighPtIDandIPCut_SF_->SetAddress(&Muon_TightRelTkIso_TrkHighPtIDandIPCut_SF_); }
+    if (b_Muon_TightRelTkIso_TrkHighPtIDandIPCut_SF_) { b_Muon_TightRelTkIso_TrkHighPtIDandIPCut_SF_->SetAddress(Muon_TightRelTkIso_TrkHighPtIDandIPCut_SF_.grow(nanoBufLen(b_Muon_TightRelTkIso_TrkHighPtIDandIPCut_SF_))); }
     b_Muon_TightRelTkIso_TrkHighPtIDandIPCut_SFerr_ = tree->GetBranch("Muon_TightRelTkIso_TrkHighPtIDandIPCut_SFerr");
-    if (b_Muon_TightRelTkIso_TrkHighPtIDandIPCut_SFerr_) { b_Muon_TightRelTkIso_TrkHighPtIDandIPCut_SFerr_->SetAddress(&Muon_TightRelTkIso_TrkHighPtIDandIPCut_SFerr_); }
+    if (b_Muon_TightRelTkIso_TrkHighPtIDandIPCut_SFerr_) { b_Muon_TightRelTkIso_TrkHighPtIDandIPCut_SFerr_->SetAddress(Muon_TightRelTkIso_TrkHighPtIDandIPCut_SFerr_.grow(nanoBufLen(b_Muon_TightRelTkIso_TrkHighPtIDandIPCut_SFerr_))); }
     b_Muon_charge_ = tree->GetBranch("Muon_charge");
-    if (b_Muon_charge_) { b_Muon_charge_->SetAddress(&Muon_charge_); }
+    if (b_Muon_charge_) { b_Muon_charge_->SetAddress(Muon_charge_.grow(nanoBufLen(b_Muon_charge_))); }
     b_Muon_cleanmask_ = tree->GetBranch("Muon_cleanmask");
-    if (b_Muon_cleanmask_) { b_Muon_cleanmask_->SetAddress(&Muon_cleanmask_); }
+    if (b_Muon_cleanmask_) { b_Muon_cleanmask_->SetAddress(Muon_cleanmask_.grow(nanoBufLen(b_Muon_cleanmask_))); }
     b_Muon_correctedDown_pt_ = tree->GetBranch("Muon_correctedDown_pt");
-    if (b_Muon_correctedDown_pt_) { b_Muon_correctedDown_pt_->SetAddress(&Muon_correctedDown_pt_); }
+    if (b_Muon_correctedDown_pt_) { b_Muon_correctedDown_pt_->SetAddress(Muon_correctedDown_pt_.grow(nanoBufLen(b_Muon_correctedDown_pt_))); }
     b_Muon_correctedUp_pt_ = tree->GetBranch("Muon_correctedUp_pt");
-    if (b_Muon_correctedUp_pt_) { b_Muon_correctedUp_pt_->SetAddress(&Muon_correctedUp_pt_); }
+    if (b_Muon_correctedUp_pt_) { b_Muon_correctedUp_pt_->SetAddress(Muon_correctedUp_pt_.grow(nanoBufLen(b_Muon_correctedUp_pt_))); }
     b_Muon_corrected_pt_ = tree->GetBranch("Muon_corrected_pt");
-    if (b_Muon_corrected_pt_) { b_Muon_corrected_pt_->SetAddress(&Muon_corrected_pt_); }
+    if (b_Muon_corrected_pt_) { b_Muon_corrected_pt_->SetAddress(Muon_corrected_pt_.grow(nanoBufLen(b_Muon_corrected_pt_))); }
     b_Muon_dxy_ = tree->GetBranch("Muon_dxy");
-    if (b_Muon_dxy_) { b_Muon_dxy_->SetAddress(&Muon_dxy_); }
+    if (b_Muon_dxy_) { b_Muon_dxy_->SetAddress(Muon_dxy_.grow(nanoBufLen(b_Muon_dxy_))); }
     b_Muon_dxyErr_ = tree->GetBranch("Muon_dxyErr");
-    if (b_Muon_dxyErr_) { b_Muon_dxyErr_->SetAddress(&Muon_dxyErr_); }
+    if (b_Muon_dxyErr_) { b_Muon_dxyErr_->SetAddress(Muon_dxyErr_.grow(nanoBufLen(b_Muon_dxyErr_))); }
     b_Muon_dxybs_ = tree->GetBranch("Muon_dxybs");
-    if (b_Muon_dxybs_) { b_Muon_dxybs_->SetAddress(&Muon_dxybs_); }
+    if (b_Muon_dxybs_) { b_Muon_dxybs_->SetAddress(Muon_dxybs_.grow(nanoBufLen(b_Muon_dxybs_))); }
     b_Muon_dz_ = tree->GetBranch("Muon_dz");
-    if (b_Muon_dz_) { b_Muon_dz_->SetAddress(&Muon_dz_); }
+    if (b_Muon_dz_) { b_Muon_dz_->SetAddress(Muon_dz_.grow(nanoBufLen(b_Muon_dz_))); }
     b_Muon_dzErr_ = tree->GetBranch("Muon_dzErr");
-    if (b_Muon_dzErr_) { b_Muon_dzErr_->SetAddress(&Muon_dzErr_); }
+    if (b_Muon_dzErr_) { b_Muon_dzErr_->SetAddress(Muon_dzErr_.grow(nanoBufLen(b_Muon_dzErr_))); }
     b_Muon_eta_ = tree->GetBranch("Muon_eta");
-    if (b_Muon_eta_) { b_Muon_eta_->SetAddress(&Muon_eta_); }
+    if (b_Muon_eta_) { b_Muon_eta_->SetAddress(Muon_eta_.grow(nanoBufLen(b_Muon_eta_))); }
     b_Muon_fsrPhotonIdx_ = tree->GetBranch("Muon_fsrPhotonIdx");
-    if (b_Muon_fsrPhotonIdx_) { b_Muon_fsrPhotonIdx_->SetAddress(&Muon_fsrPhotonIdx_); }
+    if (b_Muon_fsrPhotonIdx_) { b_Muon_fsrPhotonIdx_->SetAddress(Muon_fsrPhotonIdx_.grow(nanoBufLen(b_Muon_fsrPhotonIdx_))); }
     b_Muon_genPartFlav_ = tree->GetBranch("Muon_genPartFlav");
-    if (b_Muon_genPartFlav_) { b_Muon_genPartFlav_->SetAddress(&Muon_genPartFlav_); }
+    if (b_Muon_genPartFlav_) { b_Muon_genPartFlav_->SetAddress(Muon_genPartFlav_.grow(nanoBufLen(b_Muon_genPartFlav_))); }
     b_Muon_genPartIdx_ = tree->GetBranch("Muon_genPartIdx");
-    if (b_Muon_genPartIdx_) { b_Muon_genPartIdx_->SetAddress(&Muon_genPartIdx_); }
+    if (b_Muon_genPartIdx_) { b_Muon_genPartIdx_->SetAddress(Muon_genPartIdx_.grow(nanoBufLen(b_Muon_genPartIdx_))); }
     b_Muon_highPtId_ = tree->GetBranch("Muon_highPtId");
-    if (b_Muon_highPtId_) { b_Muon_highPtId_->SetAddress(&Muon_highPtId_); }
+    if (b_Muon_highPtId_) { b_Muon_highPtId_->SetAddress(Muon_highPtId_.grow(nanoBufLen(b_Muon_highPtId_))); }
     b_Muon_highPurity_ = tree->GetBranch("Muon_highPurity");
-    if (b_Muon_highPurity_) { b_Muon_highPurity_->SetAddress(&Muon_highPurity_); }
+    if (b_Muon_highPurity_) { b_Muon_highPurity_->SetAddress(Muon_highPurity_.grow(nanoBufLen(b_Muon_highPurity_))); }
     b_Muon_inTimeMuon_ = tree->GetBranch("Muon_inTimeMuon");
-    if (b_Muon_inTimeMuon_) { b_Muon_inTimeMuon_->SetAddress(&Muon_inTimeMuon_); }
+    if (b_Muon_inTimeMuon_) { b_Muon_inTimeMuon_->SetAddress(Muon_inTimeMuon_.grow(nanoBufLen(b_Muon_inTimeMuon_))); }
     b_Muon_ip3d_ = tree->GetBranch("Muon_ip3d");
-    if (b_Muon_ip3d_) { b_Muon_ip3d_->SetAddress(&Muon_ip3d_); }
+    if (b_Muon_ip3d_) { b_Muon_ip3d_->SetAddress(Muon_ip3d_.grow(nanoBufLen(b_Muon_ip3d_))); }
     b_Muon_isGlobal_ = tree->GetBranch("Muon_isGlobal");
-    if (b_Muon_isGlobal_) { b_Muon_isGlobal_->SetAddress(&Muon_isGlobal_); }
+    if (b_Muon_isGlobal_) { b_Muon_isGlobal_->SetAddress(Muon_isGlobal_.grow(nanoBufLen(b_Muon_isGlobal_))); }
     b_Muon_isPFcand_ = tree->GetBranch("Muon_isPFcand");
-    if (b_Muon_isPFcand_) { b_Muon_isPFcand_->SetAddress(&Muon_isPFcand_); }
+    if (b_Muon_isPFcand_) { b_Muon_isPFcand_->SetAddress(Muon_isPFcand_.grow(nanoBufLen(b_Muon_isPFcand_))); }
     b_Muon_isStandalone_ = tree->GetBranch("Muon_isStandalone");
-    if (b_Muon_isStandalone_) { b_Muon_isStandalone_->SetAddress(&Muon_isStandalone_); }
+    if (b_Muon_isStandalone_) { b_Muon_isStandalone_->SetAddress(Muon_isStandalone_.grow(nanoBufLen(b_Muon_isStandalone_))); }
     b_Muon_isTracker_ = tree->GetBranch("Muon_isTracker");
-    if (b_Muon_isTracker_) { b_Muon_isTracker_->SetAddress(&Muon_isTracker_); }
+    if (b_Muon_isTracker_) { b_Muon_isTracker_->SetAddress(Muon_isTracker_.grow(nanoBufLen(b_Muon_isTracker_))); }
     b_Muon_jetIdx_ = tree->GetBranch("Muon_jetIdx");
-    if (b_Muon_jetIdx_) { b_Muon_jetIdx_->SetAddress(&Muon_jetIdx_); }
+    if (b_Muon_jetIdx_) { b_Muon_jetIdx_->SetAddress(Muon_jetIdx_.grow(nanoBufLen(b_Muon_jetIdx_))); }
     b_Muon_jetNDauCharged_ = tree->GetBranch("Muon_jetNDauCharged");
-    if (b_Muon_jetNDauCharged_) { b_Muon_jetNDauCharged_->SetAddress(&Muon_jetNDauCharged_); }
+    if (b_Muon_jetNDauCharged_) { b_Muon_jetNDauCharged_->SetAddress(Muon_jetNDauCharged_.grow(nanoBufLen(b_Muon_jetNDauCharged_))); }
     b_Muon_jetPtRelv2_ = tree->GetBranch("Muon_jetPtRelv2");
-    if (b_Muon_jetPtRelv2_) { b_Muon_jetPtRelv2_->SetAddress(&Muon_jetPtRelv2_); }
+    if (b_Muon_jetPtRelv2_) { b_Muon_jetPtRelv2_->SetAddress(Muon_jetPtRelv2_.grow(nanoBufLen(b_Muon_jetPtRelv2_))); }
     b_Muon_jetRelIso_ = tree->GetBranch("Muon_jetRelIso");
-    if (b_Muon_jetRelIso_) { b_Muon_jetRelIso_->SetAddress(&Muon_jetRelIso_); }
+    if (b_Muon_jetRelIso_) { b_Muon_jetRelIso_->SetAddress(Muon_jetRelIso_.grow(nanoBufLen(b_Muon_jetRelIso_))); }
     b_Muon_looseId_ = tree->GetBranch("Muon_looseId");
-    if (b_Muon_looseId_) { b_Muon_looseId_->SetAddress(&Muon_looseId_); }
+    if (b_Muon_looseId_) { b_Muon_looseId_->SetAddress(Muon_looseId_.grow(nanoBufLen(b_Muon_looseId_))); }
     b_Muon_mass_ = tree->GetBranch("Muon_mass");
-    if (b_Muon_mass_) { b_Muon_mass_->SetAddress(&Muon_mass_); }
+    if (b_Muon_mass_) { b_Muon_mass_->SetAddress(Muon_mass_.grow(nanoBufLen(b_Muon_mass_))); }
     b_Muon_mediumId_ = tree->GetBranch("Muon_mediumId");
-    if (b_Muon_mediumId_) { b_Muon_mediumId_->SetAddress(&Muon_mediumId_); }
+    if (b_Muon_mediumId_) { b_Muon_mediumId_->SetAddress(Muon_mediumId_.grow(nanoBufLen(b_Muon_mediumId_))); }
     b_Muon_mediumPromptId_ = tree->GetBranch("Muon_mediumPromptId");
-    if (b_Muon_mediumPromptId_) { b_Muon_mediumPromptId_->SetAddress(&Muon_mediumPromptId_); }
+    if (b_Muon_mediumPromptId_) { b_Muon_mediumPromptId_->SetAddress(Muon_mediumPromptId_.grow(nanoBufLen(b_Muon_mediumPromptId_))); }
     b_Muon_miniIsoId_ = tree->GetBranch("Muon_miniIsoId");
-    if (b_Muon_miniIsoId_) { b_Muon_miniIsoId_->SetAddress(&Muon_miniIsoId_); }
+    if (b_Muon_miniIsoId_) { b_Muon_miniIsoId_->SetAddress(Muon_miniIsoId_.grow(nanoBufLen(b_Muon_miniIsoId_))); }
     b_Muon_miniPFRelIso_all_ = tree->GetBranch("Muon_miniPFRelIso_all");
-    if (b_Muon_miniPFRelIso_all_) { b_Muon_miniPFRelIso_all_->SetAddress(&Muon_miniPFRelIso_all_); }
+    if (b_Muon_miniPFRelIso_all_) { b_Muon_miniPFRelIso_all_->SetAddress(Muon_miniPFRelIso_all_.grow(nanoBufLen(b_Muon_miniPFRelIso_all_))); }
     b_Muon_miniPFRelIso_chg_ = tree->GetBranch("Muon_miniPFRelIso_chg");
-    if (b_Muon_miniPFRelIso_chg_) { b_Muon_miniPFRelIso_chg_->SetAddress(&Muon_miniPFRelIso_chg_); }
+    if (b_Muon_miniPFRelIso_chg_) { b_Muon_miniPFRelIso_chg_->SetAddress(Muon_miniPFRelIso_chg_.grow(nanoBufLen(b_Muon_miniPFRelIso_chg_))); }
     b_Muon_multiIsoId_ = tree->GetBranch("Muon_multiIsoId");
-    if (b_Muon_multiIsoId_) { b_Muon_multiIsoId_->SetAddress(&Muon_multiIsoId_); }
+    if (b_Muon_multiIsoId_) { b_Muon_multiIsoId_->SetAddress(Muon_multiIsoId_.grow(nanoBufLen(b_Muon_multiIsoId_))); }
     b_Muon_mvaId_ = tree->GetBranch("Muon_mvaId");
-    if (b_Muon_mvaId_) { b_Muon_mvaId_->SetAddress(&Muon_mvaId_); }
+    if (b_Muon_mvaId_) { b_Muon_mvaId_->SetAddress(Muon_mvaId_.grow(nanoBufLen(b_Muon_mvaId_))); }
     b_Muon_mvaLowPt_ = tree->GetBranch("Muon_mvaLowPt");
-    if (b_Muon_mvaLowPt_) { b_Muon_mvaLowPt_->SetAddress(&Muon_mvaLowPt_); }
+    if (b_Muon_mvaLowPt_) { b_Muon_mvaLowPt_->SetAddress(Muon_mvaLowPt_.grow(nanoBufLen(b_Muon_mvaLowPt_))); }
     b_Muon_mvaLowPtId_ = tree->GetBranch("Muon_mvaLowPtId");
-    if (b_Muon_mvaLowPtId_) { b_Muon_mvaLowPtId_->SetAddress(&Muon_mvaLowPtId_); }
+    if (b_Muon_mvaLowPtId_) { b_Muon_mvaLowPtId_->SetAddress(Muon_mvaLowPtId_.grow(nanoBufLen(b_Muon_mvaLowPtId_))); }
     b_Muon_mvaMuID_ = tree->GetBranch("Muon_mvaMuID");
-    if (b_Muon_mvaMuID_) { b_Muon_mvaMuID_->SetAddress(&Muon_mvaMuID_); }
+    if (b_Muon_mvaMuID_) { b_Muon_mvaMuID_->SetAddress(Muon_mvaMuID_.grow(nanoBufLen(b_Muon_mvaMuID_))); }
     b_Muon_mvaMuID_WP_ = tree->GetBranch("Muon_mvaMuID_WP");
-    if (b_Muon_mvaMuID_WP_) { b_Muon_mvaMuID_WP_->SetAddress(&Muon_mvaMuID_WP_); }
+    if (b_Muon_mvaMuID_WP_) { b_Muon_mvaMuID_WP_->SetAddress(Muon_mvaMuID_WP_.grow(nanoBufLen(b_Muon_mvaMuID_WP_))); }
     b_Muon_mvaTTH_ = tree->GetBranch("Muon_mvaTTH");
-    if (b_Muon_mvaTTH_) { b_Muon_mvaTTH_->SetAddress(&Muon_mvaTTH_); }
+    if (b_Muon_mvaTTH_) { b_Muon_mvaTTH_->SetAddress(Muon_mvaTTH_.grow(nanoBufLen(b_Muon_mvaTTH_))); }
     // NOTE: this is a custom branch; temporarily added for convenience
     b_Muon_mvaTTHUL_ = tree->GetBranch("Muon_mvaTTHUL");
-    if (b_Muon_mvaTTHUL_) { b_Muon_mvaTTHUL_->SetAddress(&Muon_mvaTTHUL_); }
+    if (b_Muon_mvaTTHUL_) { b_Muon_mvaTTHUL_->SetAddress(Muon_mvaTTHUL_.grow(nanoBufLen(b_Muon_mvaTTHUL_))); }
     //
     b_Muon_nStations_ = tree->GetBranch("Muon_nStations");
-    if (b_Muon_nStations_) { b_Muon_nStations_->SetAddress(&Muon_nStations_); }
+    if (b_Muon_nStations_) { b_Muon_nStations_->SetAddress(Muon_nStations_.grow(nanoBufLen(b_Muon_nStations_))); }
     b_Muon_nTrackerLayers_ = tree->GetBranch("Muon_nTrackerLayers");
-    if (b_Muon_nTrackerLayers_) { b_Muon_nTrackerLayers_->SetAddress(&Muon_nTrackerLayers_); }
+    if (b_Muon_nTrackerLayers_) { b_Muon_nTrackerLayers_->SetAddress(Muon_nTrackerLayers_.grow(nanoBufLen(b_Muon_nTrackerLayers_))); }
     b_Muon_pdgId_ = tree->GetBranch("Muon_pdgId");
-    if (b_Muon_pdgId_) { b_Muon_pdgId_->SetAddress(&Muon_pdgId_); }
+    if (b_Muon_pdgId_) { b_Muon_pdgId_->SetAddress(Muon_pdgId_.grow(nanoBufLen(b_Muon_pdgId_))); }
     b_Muon_pfIsoId_ = tree->GetBranch("Muon_pfIsoId");
-    if (b_Muon_pfIsoId_) { b_Muon_pfIsoId_->SetAddress(&Muon_pfIsoId_); }
+    if (b_Muon_pfIsoId_) { b_Muon_pfIsoId_->SetAddress(Muon_pfIsoId_.grow(nanoBufLen(b_Muon_pfIsoId_))); }
     b_Muon_pfRelIso03_all_ = tree->GetBranch("Muon_pfRelIso03_all");
-    if (b_Muon_pfRelIso03_all_) { b_Muon_pfRelIso03_all_->SetAddress(&Muon_pfRelIso03_all_); }
+    if (b_Muon_pfRelIso03_all_) { b_Muon_pfRelIso03_all_->SetAddress(Muon_pfRelIso03_all_.grow(nanoBufLen(b_Muon_pfRelIso03_all_))); }
     b_Muon_pfRelIso03_chg_ = tree->GetBranch("Muon_pfRelIso03_chg");
-    if (b_Muon_pfRelIso03_chg_) { b_Muon_pfRelIso03_chg_->SetAddress(&Muon_pfRelIso03_chg_); }
+    if (b_Muon_pfRelIso03_chg_) { b_Muon_pfRelIso03_chg_->SetAddress(Muon_pfRelIso03_chg_.grow(nanoBufLen(b_Muon_pfRelIso03_chg_))); }
     b_Muon_pfRelIso04_all_ = tree->GetBranch("Muon_pfRelIso04_all");
-    if (b_Muon_pfRelIso04_all_) { b_Muon_pfRelIso04_all_->SetAddress(&Muon_pfRelIso04_all_); }
+    if (b_Muon_pfRelIso04_all_) { b_Muon_pfRelIso04_all_->SetAddress(Muon_pfRelIso04_all_.grow(nanoBufLen(b_Muon_pfRelIso04_all_))); }
     b_Muon_phi_ = tree->GetBranch("Muon_phi");
-    if (b_Muon_phi_) { b_Muon_phi_->SetAddress(&Muon_phi_); }
+    if (b_Muon_phi_) { b_Muon_phi_->SetAddress(Muon_phi_.grow(nanoBufLen(b_Muon_phi_))); }
     b_Muon_pt_ = tree->GetBranch("Muon_pt");
-    if (b_Muon_pt_) { b_Muon_pt_->SetAddress(&Muon_pt_); }
+    if (b_Muon_pt_) { b_Muon_pt_->SetAddress(Muon_pt_.grow(nanoBufLen(b_Muon_pt_))); }
     b_Muon_ptErr_ = tree->GetBranch("Muon_ptErr");
-    if (b_Muon_ptErr_) { b_Muon_ptErr_->SetAddress(&Muon_ptErr_); }
+    if (b_Muon_ptErr_) { b_Muon_ptErr_->SetAddress(Muon_ptErr_.grow(nanoBufLen(b_Muon_ptErr_))); }
     b_Muon_puppiIsoId_ = tree->GetBranch("Muon_puppiIsoId");
-    if (b_Muon_puppiIsoId_) { b_Muon_puppiIsoId_->SetAddress(&Muon_puppiIsoId_); }
+    if (b_Muon_puppiIsoId_) { b_Muon_puppiIsoId_->SetAddress(Muon_puppiIsoId_.grow(nanoBufLen(b_Muon_puppiIsoId_))); }
     b_Muon_segmentComp_ = tree->GetBranch("Muon_segmentComp");
-    if (b_Muon_segmentComp_) { b_Muon_segmentComp_->SetAddress(&Muon_segmentComp_); }
+    if (b_Muon_segmentComp_) { b_Muon_segmentComp_->SetAddress(Muon_segmentComp_.grow(nanoBufLen(b_Muon_segmentComp_))); }
     b_Muon_sip3d_ = tree->GetBranch("Muon_sip3d");
-    if (b_Muon_sip3d_) { b_Muon_sip3d_->SetAddress(&Muon_sip3d_); }
+    if (b_Muon_sip3d_) { b_Muon_sip3d_->SetAddress(Muon_sip3d_.grow(nanoBufLen(b_Muon_sip3d_))); }
     b_Muon_softId_ = tree->GetBranch("Muon_softId");
-    if (b_Muon_softId_) { b_Muon_softId_->SetAddress(&Muon_softId_); }
+    if (b_Muon_softId_) { b_Muon_softId_->SetAddress(Muon_softId_.grow(nanoBufLen(b_Muon_softId_))); }
     b_Muon_softMva_ = tree->GetBranch("Muon_softMva");
-    if (b_Muon_softMva_) { b_Muon_softMva_->SetAddress(&Muon_softMva_); }
+    if (b_Muon_softMva_) { b_Muon_softMva_->SetAddress(Muon_softMva_.grow(nanoBufLen(b_Muon_softMva_))); }
     b_Muon_softMvaId_ = tree->GetBranch("Muon_softMvaId");
-    if (b_Muon_softMvaId_) { b_Muon_softMvaId_->SetAddress(&Muon_softMvaId_); }
+    if (b_Muon_softMvaId_) { b_Muon_softMvaId_->SetAddress(Muon_softMvaId_.grow(nanoBufLen(b_Muon_softMvaId_))); }
     b_Muon_svIdx_ = tree->GetBranch("Muon_svIdx");
-    if (b_Muon_svIdx_) { b_Muon_svIdx_->SetAddress(&Muon_svIdx_); }
+    if (b_Muon_svIdx_) { b_Muon_svIdx_->SetAddress(Muon_svIdx_.grow(nanoBufLen(b_Muon_svIdx_))); }
     b_Muon_tightCharge_ = tree->GetBranch("Muon_tightCharge");
-    if (b_Muon_tightCharge_) { b_Muon_tightCharge_->SetAddress(&Muon_tightCharge_); }
+    if (b_Muon_tightCharge_) { b_Muon_tightCharge_->SetAddress(Muon_tightCharge_.grow(nanoBufLen(b_Muon_tightCharge_))); }
     b_Muon_tightId_ = tree->GetBranch("Muon_tightId");
-    if (b_Muon_tightId_) { b_Muon_tightId_->SetAddress(&Muon_tightId_); }
+    if (b_Muon_tightId_) { b_Muon_tightId_->SetAddress(Muon_tightId_.grow(nanoBufLen(b_Muon_tightId_))); }
     b_Muon_tkIsoId_ = tree->GetBranch("Muon_tkIsoId");
-    if (b_Muon_tkIsoId_) { b_Muon_tkIsoId_->SetAddress(&Muon_tkIsoId_); }
+    if (b_Muon_tkIsoId_) { b_Muon_tkIsoId_->SetAddress(Muon_tkIsoId_.grow(nanoBufLen(b_Muon_tkIsoId_))); }
     b_Muon_tkRelIso_ = tree->GetBranch("Muon_tkRelIso");
-    if (b_Muon_tkRelIso_) { b_Muon_tkRelIso_->SetAddress(&Muon_tkRelIso_); }
+    if (b_Muon_tkRelIso_) { b_Muon_tkRelIso_->SetAddress(Muon_tkRelIso_.grow(nanoBufLen(b_Muon_tkRelIso_))); }
     b_Muon_triggerIdLoose_ = tree->GetBranch("Muon_triggerIdLoose");
-    if (b_Muon_triggerIdLoose_) { b_Muon_triggerIdLoose_->SetAddress(&Muon_triggerIdLoose_); }
+    if (b_Muon_triggerIdLoose_) { b_Muon_triggerIdLoose_->SetAddress(Muon_triggerIdLoose_.grow(nanoBufLen(b_Muon_triggerIdLoose_))); }
     b_Muon_tunepRelPt_ = tree->GetBranch("Muon_tunepRelPt");
-    if (b_Muon_tunepRelPt_) { b_Muon_tunepRelPt_->SetAddress(&Muon_tunepRelPt_); }
+    if (b_Muon_tunepRelPt_) { b_Muon_tunepRelPt_->SetAddress(Muon_tunepRelPt_.grow(nanoBufLen(b_Muon_tunepRelPt_))); }
     b_OtherPV_score_ = tree->GetBranch("OtherPV_score");
-    if (b_OtherPV_score_) { b_OtherPV_score_->SetAddress(&OtherPV_score_); }
+    if (b_OtherPV_score_) { b_OtherPV_score_->SetAddress(OtherPV_score_.grow(nanoBufLen(b_OtherPV_score_))); }
     b_OtherPV_z_ = tree->GetBranch("OtherPV_z");
-    if (b_OtherPV_z_) { b_OtherPV_z_->SetAddress(&OtherPV_z_); }
+    if (b_OtherPV_z_) { b_OtherPV_z_->SetAddress(OtherPV_z_.grow(nanoBufLen(b_OtherPV_z_))); }
     b_PPSLocalTrack_decRPId_ = tree->GetBranch("PPSLocalTrack_decRPId");
-    if (b_PPSLocalTrack_decRPId_) { b_PPSLocalTrack_decRPId_->SetAddress(&PPSLocalTrack_decRPId_); }
+    if (b_PPSLocalTrack_decRPId_) { b_PPSLocalTrack_decRPId_->SetAddress(PPSLocalTrack_decRPId_.grow(nanoBufLen(b_PPSLocalTrack_decRPId_))); }
     b_PPSLocalTrack_multiRPProtonIdx_ = tree->GetBranch("PPSLocalTrack_multiRPProtonIdx");
-    if (b_PPSLocalTrack_multiRPProtonIdx_) { b_PPSLocalTrack_multiRPProtonIdx_->SetAddress(&PPSLocalTrack_multiRPProtonIdx_); }
+    if (b_PPSLocalTrack_multiRPProtonIdx_) { b_PPSLocalTrack_multiRPProtonIdx_->SetAddress(PPSLocalTrack_multiRPProtonIdx_.grow(nanoBufLen(b_PPSLocalTrack_multiRPProtonIdx_))); }
     b_PPSLocalTrack_rpType_ = tree->GetBranch("PPSLocalTrack_rpType");
-    if (b_PPSLocalTrack_rpType_) { b_PPSLocalTrack_rpType_->SetAddress(&PPSLocalTrack_rpType_); }
+    if (b_PPSLocalTrack_rpType_) { b_PPSLocalTrack_rpType_->SetAddress(PPSLocalTrack_rpType_.grow(nanoBufLen(b_PPSLocalTrack_rpType_))); }
     b_PPSLocalTrack_singleRPProtonIdx_ = tree->GetBranch("PPSLocalTrack_singleRPProtonIdx");
-    if (b_PPSLocalTrack_singleRPProtonIdx_) { b_PPSLocalTrack_singleRPProtonIdx_->SetAddress(&PPSLocalTrack_singleRPProtonIdx_); }
+    if (b_PPSLocalTrack_singleRPProtonIdx_) { b_PPSLocalTrack_singleRPProtonIdx_->SetAddress(PPSLocalTrack_singleRPProtonIdx_.grow(nanoBufLen(b_PPSLocalTrack_singleRPProtonIdx_))); }
     b_PPSLocalTrack_time_ = tree->GetBranch("PPSLocalTrack_time");
-    if (b_PPSLocalTrack_time_) { b_PPSLocalTrack_time_->SetAddress(&PPSLocalTrack_time_); }
+    if (b_PPSLocalTrack_time_) { b_PPSLocalTrack_time_->SetAddress(PPSLocalTrack_time_.grow(nanoBufLen(b_PPSLocalTrack_time_))); }
     b_PPSLocalTrack_timeUnc_ = tree->GetBranch("PPSLocalTrack_timeUnc");
-    if (b_PPSLocalTrack_timeUnc_) { b_PPSLocalTrack_timeUnc_->SetAddress(&PPSLocalTrack_timeUnc_); }
+    if (b_PPSLocalTrack_timeUnc_) { b_PPSLocalTrack_timeUnc_->SetAddress(PPSLocalTrack_timeUnc_.grow(nanoBufLen(b_PPSLocalTrack_timeUnc_))); }
     b_PPSLocalTrack_x_ = tree->GetBranch("PPSLocalTrack_x");
-    if (b_PPSLocalTrack_x_) { b_PPSLocalTrack_x_->SetAddress(&PPSLocalTrack_x_); }
+    if (b_PPSLocalTrack_x_) { b_PPSLocalTrack_x_->SetAddress(PPSLocalTrack_x_.grow(nanoBufLen(b_PPSLocalTrack_x_))); }
     b_PPSLocalTrack_y_ = tree->GetBranch("PPSLocalTrack_y");
-    if (b_PPSLocalTrack_y_) { b_PPSLocalTrack_y_->SetAddress(&PPSLocalTrack_y_); }
+    if (b_PPSLocalTrack_y_) { b_PPSLocalTrack_y_->SetAddress(PPSLocalTrack_y_.grow(nanoBufLen(b_PPSLocalTrack_y_))); }
     b_PSWeight_ = tree->GetBranch("PSWeight");
-    if (b_PSWeight_) { b_PSWeight_->SetAddress(&PSWeight_); }
+    if (b_PSWeight_) { b_PSWeight_->SetAddress(PSWeight_.grow(nanoBufLen(b_PSWeight_))); }
     b_PV_chi2_ = tree->GetBranch("PV_chi2");
     if (b_PV_chi2_) { b_PV_chi2_->SetAddress(&PV_chi2_); }
     b_PV_ndof_ = tree->GetBranch("PV_ndof");
@@ -6411,137 +6411,137 @@ void Nano::Init(TTree *tree) {
     b_PV_z_ = tree->GetBranch("PV_z");
     if (b_PV_z_) { b_PV_z_->SetAddress(&PV_z_); }
     b_Photon_charge_ = tree->GetBranch("Photon_charge");
-    if (b_Photon_charge_) { b_Photon_charge_->SetAddress(&Photon_charge_); }
+    if (b_Photon_charge_) { b_Photon_charge_->SetAddress(Photon_charge_.grow(nanoBufLen(b_Photon_charge_))); }
     b_Photon_cleanmask_ = tree->GetBranch("Photon_cleanmask");
-    if (b_Photon_cleanmask_) { b_Photon_cleanmask_->SetAddress(&Photon_cleanmask_); }
+    if (b_Photon_cleanmask_) { b_Photon_cleanmask_->SetAddress(Photon_cleanmask_.grow(nanoBufLen(b_Photon_cleanmask_))); }
     b_Photon_cutBased_ = tree->GetBranch("Photon_cutBased");
-    if (b_Photon_cutBased_) { b_Photon_cutBased_->SetAddress(&Photon_cutBased_); }
+    if (b_Photon_cutBased_) { b_Photon_cutBased_->SetAddress(Photon_cutBased_.grow(nanoBufLen(b_Photon_cutBased_))); }
     b_Photon_cutBased17Bitmap_ = tree->GetBranch("Photon_cutBased17Bitmap");
-    if (b_Photon_cutBased17Bitmap_) { b_Photon_cutBased17Bitmap_->SetAddress(&Photon_cutBased17Bitmap_); }
+    if (b_Photon_cutBased17Bitmap_) { b_Photon_cutBased17Bitmap_->SetAddress(Photon_cutBased17Bitmap_.grow(nanoBufLen(b_Photon_cutBased17Bitmap_))); }
     b_Photon_cutBasedBitmap_ = tree->GetBranch("Photon_cutBasedBitmap");
-    if (b_Photon_cutBasedBitmap_) { b_Photon_cutBasedBitmap_->SetAddress(&Photon_cutBasedBitmap_); }
+    if (b_Photon_cutBasedBitmap_) { b_Photon_cutBasedBitmap_->SetAddress(Photon_cutBasedBitmap_.grow(nanoBufLen(b_Photon_cutBasedBitmap_))); }
     b_Photon_cutBased_Fall17V1Bitmap_ = tree->GetBranch("Photon_cutBased_Fall17V1Bitmap");
-    if (b_Photon_cutBased_Fall17V1Bitmap_) { b_Photon_cutBased_Fall17V1Bitmap_->SetAddress(&Photon_cutBased_Fall17V1Bitmap_); }
+    if (b_Photon_cutBased_Fall17V1Bitmap_) { b_Photon_cutBased_Fall17V1Bitmap_->SetAddress(Photon_cutBased_Fall17V1Bitmap_.grow(nanoBufLen(b_Photon_cutBased_Fall17V1Bitmap_))); }
     b_Photon_cutBased_Fall17V2_ = tree->GetBranch("Photon_cutBased_Fall17V2");
-    if (b_Photon_cutBased_Fall17V2_) { b_Photon_cutBased_Fall17V2_->SetAddress(&Photon_cutBased_Fall17V2_); }
+    if (b_Photon_cutBased_Fall17V2_) { b_Photon_cutBased_Fall17V2_->SetAddress(Photon_cutBased_Fall17V2_.grow(nanoBufLen(b_Photon_cutBased_Fall17V2_))); }
     b_Photon_dEscaleDown_ = tree->GetBranch("Photon_dEscaleDown");
-    if (b_Photon_dEscaleDown_) { b_Photon_dEscaleDown_->SetAddress(&Photon_dEscaleDown_); }
+    if (b_Photon_dEscaleDown_) { b_Photon_dEscaleDown_->SetAddress(Photon_dEscaleDown_.grow(nanoBufLen(b_Photon_dEscaleDown_))); }
     b_Photon_dEscaleUp_ = tree->GetBranch("Photon_dEscaleUp");
-    if (b_Photon_dEscaleUp_) { b_Photon_dEscaleUp_->SetAddress(&Photon_dEscaleUp_); }
+    if (b_Photon_dEscaleUp_) { b_Photon_dEscaleUp_->SetAddress(Photon_dEscaleUp_.grow(nanoBufLen(b_Photon_dEscaleUp_))); }
     b_Photon_dEsigmaDown_ = tree->GetBranch("Photon_dEsigmaDown");
-    if (b_Photon_dEsigmaDown_) { b_Photon_dEsigmaDown_->SetAddress(&Photon_dEsigmaDown_); }
+    if (b_Photon_dEsigmaDown_) { b_Photon_dEsigmaDown_->SetAddress(Photon_dEsigmaDown_.grow(nanoBufLen(b_Photon_dEsigmaDown_))); }
     b_Photon_dEsigmaUp_ = tree->GetBranch("Photon_dEsigmaUp");
-    if (b_Photon_dEsigmaUp_) { b_Photon_dEsigmaUp_->SetAddress(&Photon_dEsigmaUp_); }
+    if (b_Photon_dEsigmaUp_) { b_Photon_dEsigmaUp_->SetAddress(Photon_dEsigmaUp_.grow(nanoBufLen(b_Photon_dEsigmaUp_))); }
     b_Photon_eCorr_ = tree->GetBranch("Photon_eCorr");
-    if (b_Photon_eCorr_) { b_Photon_eCorr_->SetAddress(&Photon_eCorr_); }
+    if (b_Photon_eCorr_) { b_Photon_eCorr_->SetAddress(Photon_eCorr_.grow(nanoBufLen(b_Photon_eCorr_))); }
     b_Photon_electronIdx_ = tree->GetBranch("Photon_electronIdx");
-    if (b_Photon_electronIdx_) { b_Photon_electronIdx_->SetAddress(&Photon_electronIdx_); }
+    if (b_Photon_electronIdx_) { b_Photon_electronIdx_->SetAddress(Photon_electronIdx_.grow(nanoBufLen(b_Photon_electronIdx_))); }
     b_Photon_electronVeto_ = tree->GetBranch("Photon_electronVeto");
-    if (b_Photon_electronVeto_) { b_Photon_electronVeto_->SetAddress(&Photon_electronVeto_); }
+    if (b_Photon_electronVeto_) { b_Photon_electronVeto_->SetAddress(Photon_electronVeto_.grow(nanoBufLen(b_Photon_electronVeto_))); }
     b_Photon_energyErr_ = tree->GetBranch("Photon_energyErr");
-    if (b_Photon_energyErr_) { b_Photon_energyErr_->SetAddress(&Photon_energyErr_); }
+    if (b_Photon_energyErr_) { b_Photon_energyErr_->SetAddress(Photon_energyErr_.grow(nanoBufLen(b_Photon_energyErr_))); }
     b_Photon_energyRaw_ = tree->GetBranch("Photon_energyRaw");
-    if (b_Photon_energyRaw_) { b_Photon_energyRaw_->SetAddress(&Photon_energyRaw_); }
+    if (b_Photon_energyRaw_) { b_Photon_energyRaw_->SetAddress(Photon_energyRaw_.grow(nanoBufLen(b_Photon_energyRaw_))); }
     b_Photon_esEffSigmaRR_ = tree->GetBranch("Photon_esEffSigmaRR");
-    if (b_Photon_esEffSigmaRR_) { b_Photon_esEffSigmaRR_->SetAddress(&Photon_esEffSigmaRR_); }
+    if (b_Photon_esEffSigmaRR_) { b_Photon_esEffSigmaRR_->SetAddress(Photon_esEffSigmaRR_.grow(nanoBufLen(b_Photon_esEffSigmaRR_))); }
     b_Photon_esEnergyOverRawE_ = tree->GetBranch("Photon_esEnergyOverRawE");
-    if (b_Photon_esEnergyOverRawE_) { b_Photon_esEnergyOverRawE_->SetAddress(&Photon_esEnergyOverRawE_); }
+    if (b_Photon_esEnergyOverRawE_) { b_Photon_esEnergyOverRawE_->SetAddress(Photon_esEnergyOverRawE_.grow(nanoBufLen(b_Photon_esEnergyOverRawE_))); }
     b_Photon_eta_ = tree->GetBranch("Photon_eta");
-    if (b_Photon_eta_) { b_Photon_eta_->SetAddress(&Photon_eta_); }
+    if (b_Photon_eta_) { b_Photon_eta_->SetAddress(Photon_eta_.grow(nanoBufLen(b_Photon_eta_))); }
     b_Photon_etaWidth_ = tree->GetBranch("Photon_etaWidth");
-    if (b_Photon_etaWidth_) { b_Photon_etaWidth_->SetAddress(&Photon_etaWidth_); }
+    if (b_Photon_etaWidth_) { b_Photon_etaWidth_->SetAddress(Photon_etaWidth_.grow(nanoBufLen(b_Photon_etaWidth_))); }
     b_Photon_genPartFlav_ = tree->GetBranch("Photon_genPartFlav");
-    if (b_Photon_genPartFlav_) { b_Photon_genPartFlav_->SetAddress(&Photon_genPartFlav_); }
+    if (b_Photon_genPartFlav_) { b_Photon_genPartFlav_->SetAddress(Photon_genPartFlav_.grow(nanoBufLen(b_Photon_genPartFlav_))); }
     b_Photon_genPartIdx_ = tree->GetBranch("Photon_genPartIdx");
-    if (b_Photon_genPartIdx_) { b_Photon_genPartIdx_->SetAddress(&Photon_genPartIdx_); }
+    if (b_Photon_genPartIdx_) { b_Photon_genPartIdx_->SetAddress(Photon_genPartIdx_.grow(nanoBufLen(b_Photon_genPartIdx_))); }
     b_Photon_haloTaggerMVAVal_ = tree->GetBranch("Photon_haloTaggerMVAVal");
-    if (b_Photon_haloTaggerMVAVal_) { b_Photon_haloTaggerMVAVal_->SetAddress(&Photon_haloTaggerMVAVal_); }
+    if (b_Photon_haloTaggerMVAVal_) { b_Photon_haloTaggerMVAVal_->SetAddress(Photon_haloTaggerMVAVal_.grow(nanoBufLen(b_Photon_haloTaggerMVAVal_))); }
     b_Photon_hoe_ = tree->GetBranch("Photon_hoe");
-    if (b_Photon_hoe_) { b_Photon_hoe_->SetAddress(&Photon_hoe_); }
+    if (b_Photon_hoe_) { b_Photon_hoe_->SetAddress(Photon_hoe_.grow(nanoBufLen(b_Photon_hoe_))); }
     b_Photon_hoe_PUcorr_ = tree->GetBranch("Photon_hoe_PUcorr");
-    if (b_Photon_hoe_PUcorr_) { b_Photon_hoe_PUcorr_->SetAddress(&Photon_hoe_PUcorr_); }
+    if (b_Photon_hoe_PUcorr_) { b_Photon_hoe_PUcorr_->SetAddress(Photon_hoe_PUcorr_.grow(nanoBufLen(b_Photon_hoe_PUcorr_))); }
     b_Photon_isScEtaEB_ = tree->GetBranch("Photon_isScEtaEB");
-    if (b_Photon_isScEtaEB_) { b_Photon_isScEtaEB_->SetAddress(&Photon_isScEtaEB_); }
+    if (b_Photon_isScEtaEB_) { b_Photon_isScEtaEB_->SetAddress(Photon_isScEtaEB_.grow(nanoBufLen(b_Photon_isScEtaEB_))); }
     b_Photon_isScEtaEE_ = tree->GetBranch("Photon_isScEtaEE");
-    if (b_Photon_isScEtaEE_) { b_Photon_isScEtaEE_->SetAddress(&Photon_isScEtaEE_); }
+    if (b_Photon_isScEtaEE_) { b_Photon_isScEtaEE_->SetAddress(Photon_isScEtaEE_.grow(nanoBufLen(b_Photon_isScEtaEE_))); }
     b_Photon_jetIdx_ = tree->GetBranch("Photon_jetIdx");
-    if (b_Photon_jetIdx_) { b_Photon_jetIdx_->SetAddress(&Photon_jetIdx_); }
+    if (b_Photon_jetIdx_) { b_Photon_jetIdx_->SetAddress(Photon_jetIdx_.grow(nanoBufLen(b_Photon_jetIdx_))); }
     b_Photon_mass_ = tree->GetBranch("Photon_mass");
-    if (b_Photon_mass_) { b_Photon_mass_->SetAddress(&Photon_mass_); }
+    if (b_Photon_mass_) { b_Photon_mass_->SetAddress(Photon_mass_.grow(nanoBufLen(b_Photon_mass_))); }
     b_Photon_mvaID_ = tree->GetBranch("Photon_mvaID");
-    if (b_Photon_mvaID_) { b_Photon_mvaID_->SetAddress(&Photon_mvaID_); }
+    if (b_Photon_mvaID_) { b_Photon_mvaID_->SetAddress(Photon_mvaID_.grow(nanoBufLen(b_Photon_mvaID_))); }
     b_Photon_mvaID17_ = tree->GetBranch("Photon_mvaID17");
-    if (b_Photon_mvaID17_) { b_Photon_mvaID17_->SetAddress(&Photon_mvaID17_); }
+    if (b_Photon_mvaID17_) { b_Photon_mvaID17_->SetAddress(Photon_mvaID17_.grow(nanoBufLen(b_Photon_mvaID17_))); }
     b_Photon_mvaID17_WP80_ = tree->GetBranch("Photon_mvaID17_WP80");
-    if (b_Photon_mvaID17_WP80_) { b_Photon_mvaID17_WP80_->SetAddress(&Photon_mvaID17_WP80_); }
+    if (b_Photon_mvaID17_WP80_) { b_Photon_mvaID17_WP80_->SetAddress(Photon_mvaID17_WP80_.grow(nanoBufLen(b_Photon_mvaID17_WP80_))); }
     b_Photon_mvaID17_WP90_ = tree->GetBranch("Photon_mvaID17_WP90");
-    if (b_Photon_mvaID17_WP90_) { b_Photon_mvaID17_WP90_->SetAddress(&Photon_mvaID17_WP90_); }
+    if (b_Photon_mvaID17_WP90_) { b_Photon_mvaID17_WP90_->SetAddress(Photon_mvaID17_WP90_.grow(nanoBufLen(b_Photon_mvaID17_WP90_))); }
     b_Photon_mvaID_Fall17V1p1_ = tree->GetBranch("Photon_mvaID_Fall17V1p1");
-    if (b_Photon_mvaID_Fall17V1p1_) { b_Photon_mvaID_Fall17V1p1_->SetAddress(&Photon_mvaID_Fall17V1p1_); }
+    if (b_Photon_mvaID_Fall17V1p1_) { b_Photon_mvaID_Fall17V1p1_->SetAddress(Photon_mvaID_Fall17V1p1_.grow(nanoBufLen(b_Photon_mvaID_Fall17V1p1_))); }
     b_Photon_mvaID_Fall17V2_ = tree->GetBranch("Photon_mvaID_Fall17V2");
-    if (b_Photon_mvaID_Fall17V2_) { b_Photon_mvaID_Fall17V2_->SetAddress(&Photon_mvaID_Fall17V2_); }
+    if (b_Photon_mvaID_Fall17V2_) { b_Photon_mvaID_Fall17V2_->SetAddress(Photon_mvaID_Fall17V2_.grow(nanoBufLen(b_Photon_mvaID_Fall17V2_))); }
     b_Photon_mvaID_Fall17V2_WP80_ = tree->GetBranch("Photon_mvaID_Fall17V2_WP80");
-    if (b_Photon_mvaID_Fall17V2_WP80_) { b_Photon_mvaID_Fall17V2_WP80_->SetAddress(&Photon_mvaID_Fall17V2_WP80_); }
+    if (b_Photon_mvaID_Fall17V2_WP80_) { b_Photon_mvaID_Fall17V2_WP80_->SetAddress(Photon_mvaID_Fall17V2_WP80_.grow(nanoBufLen(b_Photon_mvaID_Fall17V2_WP80_))); }
     b_Photon_mvaID_Fall17V2_WP90_ = tree->GetBranch("Photon_mvaID_Fall17V2_WP90");
-    if (b_Photon_mvaID_Fall17V2_WP90_) { b_Photon_mvaID_Fall17V2_WP90_->SetAddress(&Photon_mvaID_Fall17V2_WP90_); }
+    if (b_Photon_mvaID_Fall17V2_WP90_) { b_Photon_mvaID_Fall17V2_WP90_->SetAddress(Photon_mvaID_Fall17V2_WP90_.grow(nanoBufLen(b_Photon_mvaID_Fall17V2_WP90_))); }
     b_Photon_mvaID_WP80_ = tree->GetBranch("Photon_mvaID_WP80");
-    if (b_Photon_mvaID_WP80_) { b_Photon_mvaID_WP80_->SetAddress(&Photon_mvaID_WP80_); }
+    if (b_Photon_mvaID_WP80_) { b_Photon_mvaID_WP80_->SetAddress(Photon_mvaID_WP80_.grow(nanoBufLen(b_Photon_mvaID_WP80_))); }
     b_Photon_mvaID_WP90_ = tree->GetBranch("Photon_mvaID_WP90");
-    if (b_Photon_mvaID_WP90_) { b_Photon_mvaID_WP90_->SetAddress(&Photon_mvaID_WP90_); }
+    if (b_Photon_mvaID_WP90_) { b_Photon_mvaID_WP90_->SetAddress(Photon_mvaID_WP90_.grow(nanoBufLen(b_Photon_mvaID_WP90_))); }
     b_Photon_pdgId_ = tree->GetBranch("Photon_pdgId");
-    if (b_Photon_pdgId_) { b_Photon_pdgId_->SetAddress(&Photon_pdgId_); }
+    if (b_Photon_pdgId_) { b_Photon_pdgId_->SetAddress(Photon_pdgId_.grow(nanoBufLen(b_Photon_pdgId_))); }
     b_Photon_pfChargedIsoPFPV_ = tree->GetBranch("Photon_pfChargedIsoPFPV");
-    if (b_Photon_pfChargedIsoPFPV_) { b_Photon_pfChargedIsoPFPV_->SetAddress(&Photon_pfChargedIsoPFPV_); }
+    if (b_Photon_pfChargedIsoPFPV_) { b_Photon_pfChargedIsoPFPV_->SetAddress(Photon_pfChargedIsoPFPV_.grow(nanoBufLen(b_Photon_pfChargedIsoPFPV_))); }
     b_Photon_pfChargedIsoWorstVtx_ = tree->GetBranch("Photon_pfChargedIsoWorstVtx");
-    if (b_Photon_pfChargedIsoWorstVtx_) { b_Photon_pfChargedIsoWorstVtx_->SetAddress(&Photon_pfChargedIsoWorstVtx_); }
+    if (b_Photon_pfChargedIsoWorstVtx_) { b_Photon_pfChargedIsoWorstVtx_->SetAddress(Photon_pfChargedIsoWorstVtx_.grow(nanoBufLen(b_Photon_pfChargedIsoWorstVtx_))); }
     b_Photon_pfPhoIso03_ = tree->GetBranch("Photon_pfPhoIso03");
-    if (b_Photon_pfPhoIso03_) { b_Photon_pfPhoIso03_->SetAddress(&Photon_pfPhoIso03_); }
+    if (b_Photon_pfPhoIso03_) { b_Photon_pfPhoIso03_->SetAddress(Photon_pfPhoIso03_.grow(nanoBufLen(b_Photon_pfPhoIso03_))); }
     b_Photon_pfRelIso03_all_ = tree->GetBranch("Photon_pfRelIso03_all");
-    if (b_Photon_pfRelIso03_all_) { b_Photon_pfRelIso03_all_->SetAddress(&Photon_pfRelIso03_all_); }
+    if (b_Photon_pfRelIso03_all_) { b_Photon_pfRelIso03_all_->SetAddress(Photon_pfRelIso03_all_.grow(nanoBufLen(b_Photon_pfRelIso03_all_))); }
     b_Photon_pfRelIso03_all_Fall17V2_ = tree->GetBranch("Photon_pfRelIso03_all_Fall17V2");
-    if (b_Photon_pfRelIso03_all_Fall17V2_) { b_Photon_pfRelIso03_all_Fall17V2_->SetAddress(&Photon_pfRelIso03_all_Fall17V2_); }
+    if (b_Photon_pfRelIso03_all_Fall17V2_) { b_Photon_pfRelIso03_all_Fall17V2_->SetAddress(Photon_pfRelIso03_all_Fall17V2_.grow(nanoBufLen(b_Photon_pfRelIso03_all_Fall17V2_))); }
     b_Photon_pfRelIso03_all_quadratic_ = tree->GetBranch("Photon_pfRelIso03_all_quadratic");
-    if (b_Photon_pfRelIso03_all_quadratic_) { b_Photon_pfRelIso03_all_quadratic_->SetAddress(&Photon_pfRelIso03_all_quadratic_); }
+    if (b_Photon_pfRelIso03_all_quadratic_) { b_Photon_pfRelIso03_all_quadratic_->SetAddress(Photon_pfRelIso03_all_quadratic_.grow(nanoBufLen(b_Photon_pfRelIso03_all_quadratic_))); }
     b_Photon_pfRelIso03_chg_ = tree->GetBranch("Photon_pfRelIso03_chg");
-    if (b_Photon_pfRelIso03_chg_) { b_Photon_pfRelIso03_chg_->SetAddress(&Photon_pfRelIso03_chg_); }
+    if (b_Photon_pfRelIso03_chg_) { b_Photon_pfRelIso03_chg_->SetAddress(Photon_pfRelIso03_chg_.grow(nanoBufLen(b_Photon_pfRelIso03_chg_))); }
     b_Photon_pfRelIso03_chg_Fall17V2_ = tree->GetBranch("Photon_pfRelIso03_chg_Fall17V2");
-    if (b_Photon_pfRelIso03_chg_Fall17V2_) { b_Photon_pfRelIso03_chg_Fall17V2_->SetAddress(&Photon_pfRelIso03_chg_Fall17V2_); }
+    if (b_Photon_pfRelIso03_chg_Fall17V2_) { b_Photon_pfRelIso03_chg_Fall17V2_->SetAddress(Photon_pfRelIso03_chg_Fall17V2_.grow(nanoBufLen(b_Photon_pfRelIso03_chg_Fall17V2_))); }
     b_Photon_pfRelIso03_chg_quadratic_ = tree->GetBranch("Photon_pfRelIso03_chg_quadratic");
-    if (b_Photon_pfRelIso03_chg_quadratic_) { b_Photon_pfRelIso03_chg_quadratic_->SetAddress(&Photon_pfRelIso03_chg_quadratic_); }
+    if (b_Photon_pfRelIso03_chg_quadratic_) { b_Photon_pfRelIso03_chg_quadratic_->SetAddress(Photon_pfRelIso03_chg_quadratic_.grow(nanoBufLen(b_Photon_pfRelIso03_chg_quadratic_))); }
     b_Photon_phi_ = tree->GetBranch("Photon_phi");
-    if (b_Photon_phi_) { b_Photon_phi_->SetAddress(&Photon_phi_); }
+    if (b_Photon_phi_) { b_Photon_phi_->SetAddress(Photon_phi_.grow(nanoBufLen(b_Photon_phi_))); }
     b_Photon_phiWidth_ = tree->GetBranch("Photon_phiWidth");
-    if (b_Photon_phiWidth_) { b_Photon_phiWidth_->SetAddress(&Photon_phiWidth_); }
+    if (b_Photon_phiWidth_) { b_Photon_phiWidth_->SetAddress(Photon_phiWidth_.grow(nanoBufLen(b_Photon_phiWidth_))); }
     b_Photon_pixelSeed_ = tree->GetBranch("Photon_pixelSeed");
-    if (b_Photon_pixelSeed_) { b_Photon_pixelSeed_->SetAddress(&Photon_pixelSeed_); }
+    if (b_Photon_pixelSeed_) { b_Photon_pixelSeed_->SetAddress(Photon_pixelSeed_.grow(nanoBufLen(b_Photon_pixelSeed_))); }
     b_Photon_pt_ = tree->GetBranch("Photon_pt");
-    if (b_Photon_pt_) { b_Photon_pt_->SetAddress(&Photon_pt_); }
+    if (b_Photon_pt_) { b_Photon_pt_->SetAddress(Photon_pt_.grow(nanoBufLen(b_Photon_pt_))); }
     b_Photon_r9_ = tree->GetBranch("Photon_r9");
-    if (b_Photon_r9_) { b_Photon_r9_->SetAddress(&Photon_r9_); }
+    if (b_Photon_r9_) { b_Photon_r9_->SetAddress(Photon_r9_.grow(nanoBufLen(b_Photon_r9_))); }
     b_Photon_s4_ = tree->GetBranch("Photon_s4");
-    if (b_Photon_s4_) { b_Photon_s4_->SetAddress(&Photon_s4_); }
+    if (b_Photon_s4_) { b_Photon_s4_->SetAddress(Photon_s4_.grow(nanoBufLen(b_Photon_s4_))); }
     b_Photon_seedGain_ = tree->GetBranch("Photon_seedGain");
-    if (b_Photon_seedGain_) { b_Photon_seedGain_->SetAddress(&Photon_seedGain_); }
+    if (b_Photon_seedGain_) { b_Photon_seedGain_->SetAddress(Photon_seedGain_.grow(nanoBufLen(b_Photon_seedGain_))); }
     b_Photon_seediEtaOriX_ = tree->GetBranch("Photon_seediEtaOriX");
-    if (b_Photon_seediEtaOriX_) { b_Photon_seediEtaOriX_->SetAddress(&Photon_seediEtaOriX_); }
+    if (b_Photon_seediEtaOriX_) { b_Photon_seediEtaOriX_->SetAddress(Photon_seediEtaOriX_.grow(nanoBufLen(b_Photon_seediEtaOriX_))); }
     b_Photon_seediPhiOriY_ = tree->GetBranch("Photon_seediPhiOriY");
-    if (b_Photon_seediPhiOriY_) { b_Photon_seediPhiOriY_->SetAddress(&Photon_seediPhiOriY_); }
+    if (b_Photon_seediPhiOriY_) { b_Photon_seediPhiOriY_->SetAddress(Photon_seediPhiOriY_.grow(nanoBufLen(b_Photon_seediPhiOriY_))); }
     b_Photon_sieie_ = tree->GetBranch("Photon_sieie");
-    if (b_Photon_sieie_) { b_Photon_sieie_->SetAddress(&Photon_sieie_); }
+    if (b_Photon_sieie_) { b_Photon_sieie_->SetAddress(Photon_sieie_.grow(nanoBufLen(b_Photon_sieie_))); }
     b_Photon_sieip_ = tree->GetBranch("Photon_sieip");
-    if (b_Photon_sieip_) { b_Photon_sieip_->SetAddress(&Photon_sieip_); }
+    if (b_Photon_sieip_) { b_Photon_sieip_->SetAddress(Photon_sieip_.grow(nanoBufLen(b_Photon_sieip_))); }
     b_Photon_sipip_ = tree->GetBranch("Photon_sipip");
-    if (b_Photon_sipip_) { b_Photon_sipip_->SetAddress(&Photon_sipip_); }
+    if (b_Photon_sipip_) { b_Photon_sipip_->SetAddress(Photon_sipip_.grow(nanoBufLen(b_Photon_sipip_))); }
     b_Photon_vidNestedWPBitmap_ = tree->GetBranch("Photon_vidNestedWPBitmap");
-    if (b_Photon_vidNestedWPBitmap_) { b_Photon_vidNestedWPBitmap_->SetAddress(&Photon_vidNestedWPBitmap_); }
+    if (b_Photon_vidNestedWPBitmap_) { b_Photon_vidNestedWPBitmap_->SetAddress(Photon_vidNestedWPBitmap_.grow(nanoBufLen(b_Photon_vidNestedWPBitmap_))); }
     b_Photon_vidNestedWPBitmap_Fall17V2_ = tree->GetBranch("Photon_vidNestedWPBitmap_Fall17V2");
-    if (b_Photon_vidNestedWPBitmap_Fall17V2_) { b_Photon_vidNestedWPBitmap_Fall17V2_->SetAddress(&Photon_vidNestedWPBitmap_Fall17V2_); }
+    if (b_Photon_vidNestedWPBitmap_Fall17V2_) { b_Photon_vidNestedWPBitmap_Fall17V2_->SetAddress(Photon_vidNestedWPBitmap_Fall17V2_.grow(nanoBufLen(b_Photon_vidNestedWPBitmap_Fall17V2_))); }
     b_Photon_x_calo_ = tree->GetBranch("Photon_x_calo");
-    if (b_Photon_x_calo_) { b_Photon_x_calo_->SetAddress(&Photon_x_calo_); }
+    if (b_Photon_x_calo_) { b_Photon_x_calo_->SetAddress(Photon_x_calo_.grow(nanoBufLen(b_Photon_x_calo_))); }
     b_Photon_y_calo_ = tree->GetBranch("Photon_y_calo");
-    if (b_Photon_y_calo_) { b_Photon_y_calo_->SetAddress(&Photon_y_calo_); }
+    if (b_Photon_y_calo_) { b_Photon_y_calo_->SetAddress(Photon_y_calo_.grow(nanoBufLen(b_Photon_y_calo_))); }
     b_Photon_z_calo_ = tree->GetBranch("Photon_z_calo");
-    if (b_Photon_z_calo_) { b_Photon_z_calo_->SetAddress(&Photon_z_calo_); }
+    if (b_Photon_z_calo_) { b_Photon_z_calo_->SetAddress(Photon_z_calo_.grow(nanoBufLen(b_Photon_z_calo_))); }
     b_Pileup_gpudensity_ = tree->GetBranch("Pileup_gpudensity");
     if (b_Pileup_gpudensity_) { b_Pileup_gpudensity_->SetAddress(&Pileup_gpudensity_); }
     b_Pileup_nPU_ = tree->GetBranch("Pileup_nPU");
@@ -6555,25 +6555,25 @@ void Nano::Init(TTree *tree) {
     b_Pileup_sumLOOT_ = tree->GetBranch("Pileup_sumLOOT");
     if (b_Pileup_sumLOOT_) { b_Pileup_sumLOOT_->SetAddress(&Pileup_sumLOOT_); }
     b_Proton_multiRP_arm_ = tree->GetBranch("Proton_multiRP_arm");
-    if (b_Proton_multiRP_arm_) { b_Proton_multiRP_arm_->SetAddress(&Proton_multiRP_arm_); }
+    if (b_Proton_multiRP_arm_) { b_Proton_multiRP_arm_->SetAddress(Proton_multiRP_arm_.grow(nanoBufLen(b_Proton_multiRP_arm_))); }
     b_Proton_multiRP_t_ = tree->GetBranch("Proton_multiRP_t");
-    if (b_Proton_multiRP_t_) { b_Proton_multiRP_t_->SetAddress(&Proton_multiRP_t_); }
+    if (b_Proton_multiRP_t_) { b_Proton_multiRP_t_->SetAddress(Proton_multiRP_t_.grow(nanoBufLen(b_Proton_multiRP_t_))); }
     b_Proton_multiRP_thetaX_ = tree->GetBranch("Proton_multiRP_thetaX");
-    if (b_Proton_multiRP_thetaX_) { b_Proton_multiRP_thetaX_->SetAddress(&Proton_multiRP_thetaX_); }
+    if (b_Proton_multiRP_thetaX_) { b_Proton_multiRP_thetaX_->SetAddress(Proton_multiRP_thetaX_.grow(nanoBufLen(b_Proton_multiRP_thetaX_))); }
     b_Proton_multiRP_thetaY_ = tree->GetBranch("Proton_multiRP_thetaY");
-    if (b_Proton_multiRP_thetaY_) { b_Proton_multiRP_thetaY_->SetAddress(&Proton_multiRP_thetaY_); }
+    if (b_Proton_multiRP_thetaY_) { b_Proton_multiRP_thetaY_->SetAddress(Proton_multiRP_thetaY_.grow(nanoBufLen(b_Proton_multiRP_thetaY_))); }
     b_Proton_multiRP_time_ = tree->GetBranch("Proton_multiRP_time");
-    if (b_Proton_multiRP_time_) { b_Proton_multiRP_time_->SetAddress(&Proton_multiRP_time_); }
+    if (b_Proton_multiRP_time_) { b_Proton_multiRP_time_->SetAddress(Proton_multiRP_time_.grow(nanoBufLen(b_Proton_multiRP_time_))); }
     b_Proton_multiRP_timeUnc_ = tree->GetBranch("Proton_multiRP_timeUnc");
-    if (b_Proton_multiRP_timeUnc_) { b_Proton_multiRP_timeUnc_->SetAddress(&Proton_multiRP_timeUnc_); }
+    if (b_Proton_multiRP_timeUnc_) { b_Proton_multiRP_timeUnc_->SetAddress(Proton_multiRP_timeUnc_.grow(nanoBufLen(b_Proton_multiRP_timeUnc_))); }
     b_Proton_multiRP_xi_ = tree->GetBranch("Proton_multiRP_xi");
-    if (b_Proton_multiRP_xi_) { b_Proton_multiRP_xi_->SetAddress(&Proton_multiRP_xi_); }
+    if (b_Proton_multiRP_xi_) { b_Proton_multiRP_xi_->SetAddress(Proton_multiRP_xi_.grow(nanoBufLen(b_Proton_multiRP_xi_))); }
     b_Proton_singleRP_decRPId_ = tree->GetBranch("Proton_singleRP_decRPId");
-    if (b_Proton_singleRP_decRPId_) { b_Proton_singleRP_decRPId_->SetAddress(&Proton_singleRP_decRPId_); }
+    if (b_Proton_singleRP_decRPId_) { b_Proton_singleRP_decRPId_->SetAddress(Proton_singleRP_decRPId_.grow(nanoBufLen(b_Proton_singleRP_decRPId_))); }
     b_Proton_singleRP_thetaY_ = tree->GetBranch("Proton_singleRP_thetaY");
-    if (b_Proton_singleRP_thetaY_) { b_Proton_singleRP_thetaY_->SetAddress(&Proton_singleRP_thetaY_); }
+    if (b_Proton_singleRP_thetaY_) { b_Proton_singleRP_thetaY_->SetAddress(Proton_singleRP_thetaY_.grow(nanoBufLen(b_Proton_singleRP_thetaY_))); }
     b_Proton_singleRP_xi_ = tree->GetBranch("Proton_singleRP_xi");
-    if (b_Proton_singleRP_xi_) { b_Proton_singleRP_xi_->SetAddress(&Proton_singleRP_xi_); }
+    if (b_Proton_singleRP_xi_) { b_Proton_singleRP_xi_->SetAddress(Proton_singleRP_xi_.grow(nanoBufLen(b_Proton_singleRP_xi_))); }
     b_PuppiMET_phi_ = tree->GetBranch("PuppiMET_phi");
     if (b_PuppiMET_phi_) { b_PuppiMET_phi_->SetAddress(&PuppiMET_phi_); }
     b_PuppiMET_phiJERDown_ = tree->GetBranch("PuppiMET_phiJERDown");
@@ -6629,37 +6629,37 @@ void Nano::Init(TTree *tree) {
     b_Rho_fixedGridRhoFastjetCentralNeutral_ = tree->GetBranch("Rho_fixedGridRhoFastjetCentralNeutral");
     if (b_Rho_fixedGridRhoFastjetCentralNeutral_) { b_Rho_fixedGridRhoFastjetCentralNeutral_->SetAddress(&Rho_fixedGridRhoFastjetCentralNeutral_); }
     b_SV_charge_ = tree->GetBranch("SV_charge");
-    if (b_SV_charge_) { b_SV_charge_->SetAddress(&SV_charge_); }
+    if (b_SV_charge_) { b_SV_charge_->SetAddress(SV_charge_.grow(nanoBufLen(b_SV_charge_))); }
     b_SV_chi2_ = tree->GetBranch("SV_chi2");
-    if (b_SV_chi2_) { b_SV_chi2_->SetAddress(&SV_chi2_); }
+    if (b_SV_chi2_) { b_SV_chi2_->SetAddress(SV_chi2_.grow(nanoBufLen(b_SV_chi2_))); }
     b_SV_dlen_ = tree->GetBranch("SV_dlen");
-    if (b_SV_dlen_) { b_SV_dlen_->SetAddress(&SV_dlen_); }
+    if (b_SV_dlen_) { b_SV_dlen_->SetAddress(SV_dlen_.grow(nanoBufLen(b_SV_dlen_))); }
     b_SV_dlenSig_ = tree->GetBranch("SV_dlenSig");
-    if (b_SV_dlenSig_) { b_SV_dlenSig_->SetAddress(&SV_dlenSig_); }
+    if (b_SV_dlenSig_) { b_SV_dlenSig_->SetAddress(SV_dlenSig_.grow(nanoBufLen(b_SV_dlenSig_))); }
     b_SV_dxy_ = tree->GetBranch("SV_dxy");
-    if (b_SV_dxy_) { b_SV_dxy_->SetAddress(&SV_dxy_); }
+    if (b_SV_dxy_) { b_SV_dxy_->SetAddress(SV_dxy_.grow(nanoBufLen(b_SV_dxy_))); }
     b_SV_dxySig_ = tree->GetBranch("SV_dxySig");
-    if (b_SV_dxySig_) { b_SV_dxySig_->SetAddress(&SV_dxySig_); }
+    if (b_SV_dxySig_) { b_SV_dxySig_->SetAddress(SV_dxySig_.grow(nanoBufLen(b_SV_dxySig_))); }
     b_SV_eta_ = tree->GetBranch("SV_eta");
-    if (b_SV_eta_) { b_SV_eta_->SetAddress(&SV_eta_); }
+    if (b_SV_eta_) { b_SV_eta_->SetAddress(SV_eta_.grow(nanoBufLen(b_SV_eta_))); }
     b_SV_mass_ = tree->GetBranch("SV_mass");
-    if (b_SV_mass_) { b_SV_mass_->SetAddress(&SV_mass_); }
+    if (b_SV_mass_) { b_SV_mass_->SetAddress(SV_mass_.grow(nanoBufLen(b_SV_mass_))); }
     b_SV_ndof_ = tree->GetBranch("SV_ndof");
-    if (b_SV_ndof_) { b_SV_ndof_->SetAddress(&SV_ndof_); }
+    if (b_SV_ndof_) { b_SV_ndof_->SetAddress(SV_ndof_.grow(nanoBufLen(b_SV_ndof_))); }
     b_SV_ntracks_ = tree->GetBranch("SV_ntracks");
-    if (b_SV_ntracks_) { b_SV_ntracks_->SetAddress(&SV_ntracks_); }
+    if (b_SV_ntracks_) { b_SV_ntracks_->SetAddress(SV_ntracks_.grow(nanoBufLen(b_SV_ntracks_))); }
     b_SV_pAngle_ = tree->GetBranch("SV_pAngle");
-    if (b_SV_pAngle_) { b_SV_pAngle_->SetAddress(&SV_pAngle_); }
+    if (b_SV_pAngle_) { b_SV_pAngle_->SetAddress(SV_pAngle_.grow(nanoBufLen(b_SV_pAngle_))); }
     b_SV_phi_ = tree->GetBranch("SV_phi");
-    if (b_SV_phi_) { b_SV_phi_->SetAddress(&SV_phi_); }
+    if (b_SV_phi_) { b_SV_phi_->SetAddress(SV_phi_.grow(nanoBufLen(b_SV_phi_))); }
     b_SV_pt_ = tree->GetBranch("SV_pt");
-    if (b_SV_pt_) { b_SV_pt_->SetAddress(&SV_pt_); }
+    if (b_SV_pt_) { b_SV_pt_->SetAddress(SV_pt_.grow(nanoBufLen(b_SV_pt_))); }
     b_SV_x_ = tree->GetBranch("SV_x");
-    if (b_SV_x_) { b_SV_x_->SetAddress(&SV_x_); }
+    if (b_SV_x_) { b_SV_x_->SetAddress(SV_x_.grow(nanoBufLen(b_SV_x_))); }
     b_SV_y_ = tree->GetBranch("SV_y");
-    if (b_SV_y_) { b_SV_y_->SetAddress(&SV_y_); }
+    if (b_SV_y_) { b_SV_y_->SetAddress(SV_y_.grow(nanoBufLen(b_SV_y_))); }
     b_SV_z_ = tree->GetBranch("SV_z");
-    if (b_SV_z_) { b_SV_z_->SetAddress(&SV_z_); }
+    if (b_SV_z_) { b_SV_z_->SetAddress(SV_z_.grow(nanoBufLen(b_SV_z_))); }
     b_SoftActivityJetHT_ = tree->GetBranch("SoftActivityJetHT");
     if (b_SoftActivityJetHT_) { b_SoftActivityJetHT_->SetAddress(&SoftActivityJetHT_); }
     b_SoftActivityJetHT10_ = tree->GetBranch("SoftActivityJetHT10");
@@ -6675,171 +6675,171 @@ void Nano::Init(TTree *tree) {
     b_SoftActivityJetNjets5_ = tree->GetBranch("SoftActivityJetNjets5");
     if (b_SoftActivityJetNjets5_) { b_SoftActivityJetNjets5_->SetAddress(&SoftActivityJetNjets5_); }
     b_SoftActivityJet_eta_ = tree->GetBranch("SoftActivityJet_eta");
-    if (b_SoftActivityJet_eta_) { b_SoftActivityJet_eta_->SetAddress(&SoftActivityJet_eta_); }
+    if (b_SoftActivityJet_eta_) { b_SoftActivityJet_eta_->SetAddress(SoftActivityJet_eta_.grow(nanoBufLen(b_SoftActivityJet_eta_))); }
     b_SoftActivityJet_phi_ = tree->GetBranch("SoftActivityJet_phi");
-    if (b_SoftActivityJet_phi_) { b_SoftActivityJet_phi_->SetAddress(&SoftActivityJet_phi_); }
+    if (b_SoftActivityJet_phi_) { b_SoftActivityJet_phi_->SetAddress(SoftActivityJet_phi_.grow(nanoBufLen(b_SoftActivityJet_phi_))); }
     b_SoftActivityJet_pt_ = tree->GetBranch("SoftActivityJet_pt");
-    if (b_SoftActivityJet_pt_) { b_SoftActivityJet_pt_->SetAddress(&SoftActivityJet_pt_); }
+    if (b_SoftActivityJet_pt_) { b_SoftActivityJet_pt_->SetAddress(SoftActivityJet_pt_.grow(nanoBufLen(b_SoftActivityJet_pt_))); }
     b_SubGenJetAK8_eta_ = tree->GetBranch("SubGenJetAK8_eta");
-    if (b_SubGenJetAK8_eta_) { b_SubGenJetAK8_eta_->SetAddress(&SubGenJetAK8_eta_); }
+    if (b_SubGenJetAK8_eta_) { b_SubGenJetAK8_eta_->SetAddress(SubGenJetAK8_eta_.grow(nanoBufLen(b_SubGenJetAK8_eta_))); }
     b_SubGenJetAK8_mass_ = tree->GetBranch("SubGenJetAK8_mass");
-    if (b_SubGenJetAK8_mass_) { b_SubGenJetAK8_mass_->SetAddress(&SubGenJetAK8_mass_); }
+    if (b_SubGenJetAK8_mass_) { b_SubGenJetAK8_mass_->SetAddress(SubGenJetAK8_mass_.grow(nanoBufLen(b_SubGenJetAK8_mass_))); }
     b_SubGenJetAK8_phi_ = tree->GetBranch("SubGenJetAK8_phi");
-    if (b_SubGenJetAK8_phi_) { b_SubGenJetAK8_phi_->SetAddress(&SubGenJetAK8_phi_); }
+    if (b_SubGenJetAK8_phi_) { b_SubGenJetAK8_phi_->SetAddress(SubGenJetAK8_phi_.grow(nanoBufLen(b_SubGenJetAK8_phi_))); }
     b_SubGenJetAK8_pt_ = tree->GetBranch("SubGenJetAK8_pt");
-    if (b_SubGenJetAK8_pt_) { b_SubGenJetAK8_pt_->SetAddress(&SubGenJetAK8_pt_); }
+    if (b_SubGenJetAK8_pt_) { b_SubGenJetAK8_pt_->SetAddress(SubGenJetAK8_pt_.grow(nanoBufLen(b_SubGenJetAK8_pt_))); }
     b_SubJet_btagCMVA_ = tree->GetBranch("SubJet_btagCMVA");
-    if (b_SubJet_btagCMVA_) { b_SubJet_btagCMVA_->SetAddress(&SubJet_btagCMVA_); }
+    if (b_SubJet_btagCMVA_) { b_SubJet_btagCMVA_->SetAddress(SubJet_btagCMVA_.grow(nanoBufLen(b_SubJet_btagCMVA_))); }
     b_SubJet_btagCSVV2_ = tree->GetBranch("SubJet_btagCSVV2");
-    if (b_SubJet_btagCSVV2_) { b_SubJet_btagCSVV2_->SetAddress(&SubJet_btagCSVV2_); }
+    if (b_SubJet_btagCSVV2_) { b_SubJet_btagCSVV2_->SetAddress(SubJet_btagCSVV2_.grow(nanoBufLen(b_SubJet_btagCSVV2_))); }
     b_SubJet_btagDeepB_ = tree->GetBranch("SubJet_btagDeepB");
-    if (b_SubJet_btagDeepB_) { b_SubJet_btagDeepB_->SetAddress(&SubJet_btagDeepB_); }
+    if (b_SubJet_btagDeepB_) { b_SubJet_btagDeepB_->SetAddress(SubJet_btagDeepB_.grow(nanoBufLen(b_SubJet_btagDeepB_))); }
     b_SubJet_eta_ = tree->GetBranch("SubJet_eta");
-    if (b_SubJet_eta_) { b_SubJet_eta_->SetAddress(&SubJet_eta_); }
+    if (b_SubJet_eta_) { b_SubJet_eta_->SetAddress(SubJet_eta_.grow(nanoBufLen(b_SubJet_eta_))); }
     b_SubJet_hadronFlavour_ = tree->GetBranch("SubJet_hadronFlavour");
-    if (b_SubJet_hadronFlavour_) { b_SubJet_hadronFlavour_->SetAddress(&SubJet_hadronFlavour_); }
+    if (b_SubJet_hadronFlavour_) { b_SubJet_hadronFlavour_->SetAddress(SubJet_hadronFlavour_.grow(nanoBufLen(b_SubJet_hadronFlavour_))); }
     b_SubJet_mass_ = tree->GetBranch("SubJet_mass");
-    if (b_SubJet_mass_) { b_SubJet_mass_->SetAddress(&SubJet_mass_); }
+    if (b_SubJet_mass_) { b_SubJet_mass_->SetAddress(SubJet_mass_.grow(nanoBufLen(b_SubJet_mass_))); }
     b_SubJet_n2b1_ = tree->GetBranch("SubJet_n2b1");
-    if (b_SubJet_n2b1_) { b_SubJet_n2b1_->SetAddress(&SubJet_n2b1_); }
+    if (b_SubJet_n2b1_) { b_SubJet_n2b1_->SetAddress(SubJet_n2b1_.grow(nanoBufLen(b_SubJet_n2b1_))); }
     b_SubJet_n3b1_ = tree->GetBranch("SubJet_n3b1");
-    if (b_SubJet_n3b1_) { b_SubJet_n3b1_->SetAddress(&SubJet_n3b1_); }
+    if (b_SubJet_n3b1_) { b_SubJet_n3b1_->SetAddress(SubJet_n3b1_.grow(nanoBufLen(b_SubJet_n3b1_))); }
     b_SubJet_nBHadrons_ = tree->GetBranch("SubJet_nBHadrons");
-    if (b_SubJet_nBHadrons_) { b_SubJet_nBHadrons_->SetAddress(&SubJet_nBHadrons_); }
+    if (b_SubJet_nBHadrons_) { b_SubJet_nBHadrons_->SetAddress(SubJet_nBHadrons_.grow(nanoBufLen(b_SubJet_nBHadrons_))); }
     b_SubJet_nCHadrons_ = tree->GetBranch("SubJet_nCHadrons");
-    if (b_SubJet_nCHadrons_) { b_SubJet_nCHadrons_->SetAddress(&SubJet_nCHadrons_); }
+    if (b_SubJet_nCHadrons_) { b_SubJet_nCHadrons_->SetAddress(SubJet_nCHadrons_.grow(nanoBufLen(b_SubJet_nCHadrons_))); }
     b_SubJet_phi_ = tree->GetBranch("SubJet_phi");
-    if (b_SubJet_phi_) { b_SubJet_phi_->SetAddress(&SubJet_phi_); }
+    if (b_SubJet_phi_) { b_SubJet_phi_->SetAddress(SubJet_phi_.grow(nanoBufLen(b_SubJet_phi_))); }
     b_SubJet_pt_ = tree->GetBranch("SubJet_pt");
-    if (b_SubJet_pt_) { b_SubJet_pt_->SetAddress(&SubJet_pt_); }
+    if (b_SubJet_pt_) { b_SubJet_pt_->SetAddress(SubJet_pt_.grow(nanoBufLen(b_SubJet_pt_))); }
     b_SubJet_rawFactor_ = tree->GetBranch("SubJet_rawFactor");
-    if (b_SubJet_rawFactor_) { b_SubJet_rawFactor_->SetAddress(&SubJet_rawFactor_); }
+    if (b_SubJet_rawFactor_) { b_SubJet_rawFactor_->SetAddress(SubJet_rawFactor_.grow(nanoBufLen(b_SubJet_rawFactor_))); }
     b_SubJet_tau1_ = tree->GetBranch("SubJet_tau1");
-    if (b_SubJet_tau1_) { b_SubJet_tau1_->SetAddress(&SubJet_tau1_); }
+    if (b_SubJet_tau1_) { b_SubJet_tau1_->SetAddress(SubJet_tau1_.grow(nanoBufLen(b_SubJet_tau1_))); }
     b_SubJet_tau2_ = tree->GetBranch("SubJet_tau2");
-    if (b_SubJet_tau2_) { b_SubJet_tau2_->SetAddress(&SubJet_tau2_); }
+    if (b_SubJet_tau2_) { b_SubJet_tau2_->SetAddress(SubJet_tau2_.grow(nanoBufLen(b_SubJet_tau2_))); }
     b_SubJet_tau3_ = tree->GetBranch("SubJet_tau3");
-    if (b_SubJet_tau3_) { b_SubJet_tau3_->SetAddress(&SubJet_tau3_); }
+    if (b_SubJet_tau3_) { b_SubJet_tau3_->SetAddress(SubJet_tau3_.grow(nanoBufLen(b_SubJet_tau3_))); }
     b_SubJet_tau4_ = tree->GetBranch("SubJet_tau4");
-    if (b_SubJet_tau4_) { b_SubJet_tau4_->SetAddress(&SubJet_tau4_); }
+    if (b_SubJet_tau4_) { b_SubJet_tau4_->SetAddress(SubJet_tau4_.grow(nanoBufLen(b_SubJet_tau4_))); }
     b_Tau_charge_ = tree->GetBranch("Tau_charge");
-    if (b_Tau_charge_) { b_Tau_charge_->SetAddress(&Tau_charge_); }
+    if (b_Tau_charge_) { b_Tau_charge_->SetAddress(Tau_charge_.grow(nanoBufLen(b_Tau_charge_))); }
     b_Tau_chargedIso_ = tree->GetBranch("Tau_chargedIso");
-    if (b_Tau_chargedIso_) { b_Tau_chargedIso_->SetAddress(&Tau_chargedIso_); }
+    if (b_Tau_chargedIso_) { b_Tau_chargedIso_->SetAddress(Tau_chargedIso_.grow(nanoBufLen(b_Tau_chargedIso_))); }
     b_Tau_cleanmask_ = tree->GetBranch("Tau_cleanmask");
-    if (b_Tau_cleanmask_) { b_Tau_cleanmask_->SetAddress(&Tau_cleanmask_); }
+    if (b_Tau_cleanmask_) { b_Tau_cleanmask_->SetAddress(Tau_cleanmask_.grow(nanoBufLen(b_Tau_cleanmask_))); }
     b_Tau_decayMode_ = tree->GetBranch("Tau_decayMode");
-    if (b_Tau_decayMode_) { b_Tau_decayMode_->SetAddress(&Tau_decayMode_); }
+    if (b_Tau_decayMode_) { b_Tau_decayMode_->SetAddress(Tau_decayMode_.grow(nanoBufLen(b_Tau_decayMode_))); }
     b_Tau_dxy_ = tree->GetBranch("Tau_dxy");
-    if (b_Tau_dxy_) { b_Tau_dxy_->SetAddress(&Tau_dxy_); }
+    if (b_Tau_dxy_) { b_Tau_dxy_->SetAddress(Tau_dxy_.grow(nanoBufLen(b_Tau_dxy_))); }
     b_Tau_dz_ = tree->GetBranch("Tau_dz");
-    if (b_Tau_dz_) { b_Tau_dz_->SetAddress(&Tau_dz_); }
+    if (b_Tau_dz_) { b_Tau_dz_->SetAddress(Tau_dz_.grow(nanoBufLen(b_Tau_dz_))); }
     b_Tau_eleIdx_ = tree->GetBranch("Tau_eleIdx");
-    if (b_Tau_eleIdx_) { b_Tau_eleIdx_->SetAddress(&Tau_eleIdx_); }
+    if (b_Tau_eleIdx_) { b_Tau_eleIdx_->SetAddress(Tau_eleIdx_.grow(nanoBufLen(b_Tau_eleIdx_))); }
     b_Tau_eta_ = tree->GetBranch("Tau_eta");
-    if (b_Tau_eta_) { b_Tau_eta_->SetAddress(&Tau_eta_); }
+    if (b_Tau_eta_) { b_Tau_eta_->SetAddress(Tau_eta_.grow(nanoBufLen(b_Tau_eta_))); }
     b_Tau_genPartFlav_ = tree->GetBranch("Tau_genPartFlav");
-    if (b_Tau_genPartFlav_) { b_Tau_genPartFlav_->SetAddress(&Tau_genPartFlav_); }
+    if (b_Tau_genPartFlav_) { b_Tau_genPartFlav_->SetAddress(Tau_genPartFlav_.grow(nanoBufLen(b_Tau_genPartFlav_))); }
     b_Tau_genPartIdx_ = tree->GetBranch("Tau_genPartIdx");
-    if (b_Tau_genPartIdx_) { b_Tau_genPartIdx_->SetAddress(&Tau_genPartIdx_); }
+    if (b_Tau_genPartIdx_) { b_Tau_genPartIdx_->SetAddress(Tau_genPartIdx_.grow(nanoBufLen(b_Tau_genPartIdx_))); }
     b_Tau_idAntiEle_ = tree->GetBranch("Tau_idAntiEle");
-    if (b_Tau_idAntiEle_) { b_Tau_idAntiEle_->SetAddress(&Tau_idAntiEle_); }
+    if (b_Tau_idAntiEle_) { b_Tau_idAntiEle_->SetAddress(Tau_idAntiEle_.grow(nanoBufLen(b_Tau_idAntiEle_))); }
     b_Tau_idAntiEle2018_ = tree->GetBranch("Tau_idAntiEle2018");
-    if (b_Tau_idAntiEle2018_) { b_Tau_idAntiEle2018_->SetAddress(&Tau_idAntiEle2018_); }
+    if (b_Tau_idAntiEle2018_) { b_Tau_idAntiEle2018_->SetAddress(Tau_idAntiEle2018_.grow(nanoBufLen(b_Tau_idAntiEle2018_))); }
     b_Tau_idAntiEleDeadECal_ = tree->GetBranch("Tau_idAntiEleDeadECal");
-    if (b_Tau_idAntiEleDeadECal_) { b_Tau_idAntiEleDeadECal_->SetAddress(&Tau_idAntiEleDeadECal_); }
+    if (b_Tau_idAntiEleDeadECal_) { b_Tau_idAntiEleDeadECal_->SetAddress(Tau_idAntiEleDeadECal_.grow(nanoBufLen(b_Tau_idAntiEleDeadECal_))); }
     b_Tau_idAntiMu_ = tree->GetBranch("Tau_idAntiMu");
-    if (b_Tau_idAntiMu_) { b_Tau_idAntiMu_->SetAddress(&Tau_idAntiMu_); }
+    if (b_Tau_idAntiMu_) { b_Tau_idAntiMu_->SetAddress(Tau_idAntiMu_.grow(nanoBufLen(b_Tau_idAntiMu_))); }
     b_Tau_idDecayMode_ = tree->GetBranch("Tau_idDecayMode");
-    if (b_Tau_idDecayMode_) { b_Tau_idDecayMode_->SetAddress(&Tau_idDecayMode_); }
+    if (b_Tau_idDecayMode_) { b_Tau_idDecayMode_->SetAddress(Tau_idDecayMode_.grow(nanoBufLen(b_Tau_idDecayMode_))); }
     b_Tau_idDecayModeNewDMs_ = tree->GetBranch("Tau_idDecayModeNewDMs");
-    if (b_Tau_idDecayModeNewDMs_) { b_Tau_idDecayModeNewDMs_->SetAddress(&Tau_idDecayModeNewDMs_); }
+    if (b_Tau_idDecayModeNewDMs_) { b_Tau_idDecayModeNewDMs_->SetAddress(Tau_idDecayModeNewDMs_.grow(nanoBufLen(b_Tau_idDecayModeNewDMs_))); }
     b_Tau_idDecayModeOldDMs_ = tree->GetBranch("Tau_idDecayModeOldDMs");
-    if (b_Tau_idDecayModeOldDMs_) { b_Tau_idDecayModeOldDMs_->SetAddress(&Tau_idDecayModeOldDMs_); }
+    if (b_Tau_idDecayModeOldDMs_) { b_Tau_idDecayModeOldDMs_->SetAddress(Tau_idDecayModeOldDMs_.grow(nanoBufLen(b_Tau_idDecayModeOldDMs_))); }
     b_Tau_idDeepTau2017v2p1VSe_ = tree->GetBranch("Tau_idDeepTau2017v2p1VSe");
-    if (b_Tau_idDeepTau2017v2p1VSe_) { b_Tau_idDeepTau2017v2p1VSe_->SetAddress(&Tau_idDeepTau2017v2p1VSe_); }
+    if (b_Tau_idDeepTau2017v2p1VSe_) { b_Tau_idDeepTau2017v2p1VSe_->SetAddress(Tau_idDeepTau2017v2p1VSe_.grow(nanoBufLen(b_Tau_idDeepTau2017v2p1VSe_))); }
     b_Tau_idDeepTau2017v2p1VSjet_ = tree->GetBranch("Tau_idDeepTau2017v2p1VSjet");
-    if (b_Tau_idDeepTau2017v2p1VSjet_) { b_Tau_idDeepTau2017v2p1VSjet_->SetAddress(&Tau_idDeepTau2017v2p1VSjet_); }
+    if (b_Tau_idDeepTau2017v2p1VSjet_) { b_Tau_idDeepTau2017v2p1VSjet_->SetAddress(Tau_idDeepTau2017v2p1VSjet_.grow(nanoBufLen(b_Tau_idDeepTau2017v2p1VSjet_))); }
     b_Tau_idDeepTau2017v2p1VSmu_ = tree->GetBranch("Tau_idDeepTau2017v2p1VSmu");
-    if (b_Tau_idDeepTau2017v2p1VSmu_) { b_Tau_idDeepTau2017v2p1VSmu_->SetAddress(&Tau_idDeepTau2017v2p1VSmu_); }
+    if (b_Tau_idDeepTau2017v2p1VSmu_) { b_Tau_idDeepTau2017v2p1VSmu_->SetAddress(Tau_idDeepTau2017v2p1VSmu_.grow(nanoBufLen(b_Tau_idDeepTau2017v2p1VSmu_))); }
     b_Tau_idDeepTau2018v2p5VSe_ = tree->GetBranch("Tau_idDeepTau2018v2p5VSe");
-    if (b_Tau_idDeepTau2018v2p5VSe_) { b_Tau_idDeepTau2018v2p5VSe_->SetAddress(&Tau_idDeepTau2018v2p5VSe_); }
+    if (b_Tau_idDeepTau2018v2p5VSe_) { b_Tau_idDeepTau2018v2p5VSe_->SetAddress(Tau_idDeepTau2018v2p5VSe_.grow(nanoBufLen(b_Tau_idDeepTau2018v2p5VSe_))); }
     b_Tau_idDeepTau2018v2p5VSjet_ = tree->GetBranch("Tau_idDeepTau2018v2p5VSjet");
-    if (b_Tau_idDeepTau2018v2p5VSjet_) { b_Tau_idDeepTau2018v2p5VSjet_->SetAddress(&Tau_idDeepTau2018v2p5VSjet_); }
+    if (b_Tau_idDeepTau2018v2p5VSjet_) { b_Tau_idDeepTau2018v2p5VSjet_->SetAddress(Tau_idDeepTau2018v2p5VSjet_.grow(nanoBufLen(b_Tau_idDeepTau2018v2p5VSjet_))); }
     b_Tau_idDeepTau2018v2p5VSmu_ = tree->GetBranch("Tau_idDeepTau2018v2p5VSmu");
-    if (b_Tau_idDeepTau2018v2p5VSmu_) { b_Tau_idDeepTau2018v2p5VSmu_->SetAddress(&Tau_idDeepTau2018v2p5VSmu_); }
+    if (b_Tau_idDeepTau2018v2p5VSmu_) { b_Tau_idDeepTau2018v2p5VSmu_->SetAddress(Tau_idDeepTau2018v2p5VSmu_.grow(nanoBufLen(b_Tau_idDeepTau2018v2p5VSmu_))); }
     b_Tau_idMVAnewDM2017v2_ = tree->GetBranch("Tau_idMVAnewDM2017v2");
-    if (b_Tau_idMVAnewDM2017v2_) { b_Tau_idMVAnewDM2017v2_->SetAddress(&Tau_idMVAnewDM2017v2_); }
+    if (b_Tau_idMVAnewDM2017v2_) { b_Tau_idMVAnewDM2017v2_->SetAddress(Tau_idMVAnewDM2017v2_.grow(nanoBufLen(b_Tau_idMVAnewDM2017v2_))); }
     b_Tau_idMVAoldDM_ = tree->GetBranch("Tau_idMVAoldDM");
-    if (b_Tau_idMVAoldDM_) { b_Tau_idMVAoldDM_->SetAddress(&Tau_idMVAoldDM_); }
+    if (b_Tau_idMVAoldDM_) { b_Tau_idMVAoldDM_->SetAddress(Tau_idMVAoldDM_.grow(nanoBufLen(b_Tau_idMVAoldDM_))); }
     b_Tau_idMVAoldDM2017v1_ = tree->GetBranch("Tau_idMVAoldDM2017v1");
-    if (b_Tau_idMVAoldDM2017v1_) { b_Tau_idMVAoldDM2017v1_->SetAddress(&Tau_idMVAoldDM2017v1_); }
+    if (b_Tau_idMVAoldDM2017v1_) { b_Tau_idMVAoldDM2017v1_->SetAddress(Tau_idMVAoldDM2017v1_.grow(nanoBufLen(b_Tau_idMVAoldDM2017v1_))); }
     b_Tau_idMVAoldDM2017v2_ = tree->GetBranch("Tau_idMVAoldDM2017v2");
-    if (b_Tau_idMVAoldDM2017v2_) { b_Tau_idMVAoldDM2017v2_->SetAddress(&Tau_idMVAoldDM2017v2_); }
+    if (b_Tau_idMVAoldDM2017v2_) { b_Tau_idMVAoldDM2017v2_->SetAddress(Tau_idMVAoldDM2017v2_.grow(nanoBufLen(b_Tau_idMVAoldDM2017v2_))); }
     b_Tau_idMVAoldDMdR032017v2_ = tree->GetBranch("Tau_idMVAoldDMdR032017v2");
-    if (b_Tau_idMVAoldDMdR032017v2_) { b_Tau_idMVAoldDMdR032017v2_->SetAddress(&Tau_idMVAoldDMdR032017v2_); }
+    if (b_Tau_idMVAoldDMdR032017v2_) { b_Tau_idMVAoldDMdR032017v2_->SetAddress(Tau_idMVAoldDMdR032017v2_.grow(nanoBufLen(b_Tau_idMVAoldDMdR032017v2_))); }
     b_Tau_jetIdx_ = tree->GetBranch("Tau_jetIdx");
-    if (b_Tau_jetIdx_) { b_Tau_jetIdx_->SetAddress(&Tau_jetIdx_); }
+    if (b_Tau_jetIdx_) { b_Tau_jetIdx_->SetAddress(Tau_jetIdx_.grow(nanoBufLen(b_Tau_jetIdx_))); }
     b_Tau_leadTkDeltaEta_ = tree->GetBranch("Tau_leadTkDeltaEta");
-    if (b_Tau_leadTkDeltaEta_) { b_Tau_leadTkDeltaEta_->SetAddress(&Tau_leadTkDeltaEta_); }
+    if (b_Tau_leadTkDeltaEta_) { b_Tau_leadTkDeltaEta_->SetAddress(Tau_leadTkDeltaEta_.grow(nanoBufLen(b_Tau_leadTkDeltaEta_))); }
     b_Tau_leadTkDeltaPhi_ = tree->GetBranch("Tau_leadTkDeltaPhi");
-    if (b_Tau_leadTkDeltaPhi_) { b_Tau_leadTkDeltaPhi_->SetAddress(&Tau_leadTkDeltaPhi_); }
+    if (b_Tau_leadTkDeltaPhi_) { b_Tau_leadTkDeltaPhi_->SetAddress(Tau_leadTkDeltaPhi_.grow(nanoBufLen(b_Tau_leadTkDeltaPhi_))); }
     b_Tau_leadTkPtOverTauPt_ = tree->GetBranch("Tau_leadTkPtOverTauPt");
-    if (b_Tau_leadTkPtOverTauPt_) { b_Tau_leadTkPtOverTauPt_->SetAddress(&Tau_leadTkPtOverTauPt_); }
+    if (b_Tau_leadTkPtOverTauPt_) { b_Tau_leadTkPtOverTauPt_->SetAddress(Tau_leadTkPtOverTauPt_.grow(nanoBufLen(b_Tau_leadTkPtOverTauPt_))); }
     b_Tau_mass_ = tree->GetBranch("Tau_mass");
-    if (b_Tau_mass_) { b_Tau_mass_->SetAddress(&Tau_mass_); }
+    if (b_Tau_mass_) { b_Tau_mass_->SetAddress(Tau_mass_.grow(nanoBufLen(b_Tau_mass_))); }
     b_Tau_muIdx_ = tree->GetBranch("Tau_muIdx");
-    if (b_Tau_muIdx_) { b_Tau_muIdx_->SetAddress(&Tau_muIdx_); }
+    if (b_Tau_muIdx_) { b_Tau_muIdx_->SetAddress(Tau_muIdx_.grow(nanoBufLen(b_Tau_muIdx_))); }
     b_Tau_nSVs_ = tree->GetBranch("Tau_nSVs");
-    if (b_Tau_nSVs_) { b_Tau_nSVs_->SetAddress(&Tau_nSVs_); }
+    if (b_Tau_nSVs_) { b_Tau_nSVs_->SetAddress(Tau_nSVs_.grow(nanoBufLen(b_Tau_nSVs_))); }
     b_Tau_neutralIso_ = tree->GetBranch("Tau_neutralIso");
-    if (b_Tau_neutralIso_) { b_Tau_neutralIso_->SetAddress(&Tau_neutralIso_); }
+    if (b_Tau_neutralIso_) { b_Tau_neutralIso_->SetAddress(Tau_neutralIso_.grow(nanoBufLen(b_Tau_neutralIso_))); }
     b_Tau_phi_ = tree->GetBranch("Tau_phi");
-    if (b_Tau_phi_) { b_Tau_phi_->SetAddress(&Tau_phi_); }
+    if (b_Tau_phi_) { b_Tau_phi_->SetAddress(Tau_phi_.grow(nanoBufLen(b_Tau_phi_))); }
     b_Tau_photonsOutsideSignalCone_ = tree->GetBranch("Tau_photonsOutsideSignalCone");
-    if (b_Tau_photonsOutsideSignalCone_) { b_Tau_photonsOutsideSignalCone_->SetAddress(&Tau_photonsOutsideSignalCone_); }
+    if (b_Tau_photonsOutsideSignalCone_) { b_Tau_photonsOutsideSignalCone_->SetAddress(Tau_photonsOutsideSignalCone_.grow(nanoBufLen(b_Tau_photonsOutsideSignalCone_))); }
     b_Tau_pt_ = tree->GetBranch("Tau_pt");
-    if (b_Tau_pt_) { b_Tau_pt_->SetAddress(&Tau_pt_); }
+    if (b_Tau_pt_) { b_Tau_pt_->SetAddress(Tau_pt_.grow(nanoBufLen(b_Tau_pt_))); }
     b_Tau_puCorr_ = tree->GetBranch("Tau_puCorr");
-    if (b_Tau_puCorr_) { b_Tau_puCorr_->SetAddress(&Tau_puCorr_); }
+    if (b_Tau_puCorr_) { b_Tau_puCorr_->SetAddress(Tau_puCorr_.grow(nanoBufLen(b_Tau_puCorr_))); }
     b_Tau_rawAntiEle_ = tree->GetBranch("Tau_rawAntiEle");
-    if (b_Tau_rawAntiEle_) { b_Tau_rawAntiEle_->SetAddress(&Tau_rawAntiEle_); }
+    if (b_Tau_rawAntiEle_) { b_Tau_rawAntiEle_->SetAddress(Tau_rawAntiEle_.grow(nanoBufLen(b_Tau_rawAntiEle_))); }
     b_Tau_rawAntiEle2018_ = tree->GetBranch("Tau_rawAntiEle2018");
-    if (b_Tau_rawAntiEle2018_) { b_Tau_rawAntiEle2018_->SetAddress(&Tau_rawAntiEle2018_); }
+    if (b_Tau_rawAntiEle2018_) { b_Tau_rawAntiEle2018_->SetAddress(Tau_rawAntiEle2018_.grow(nanoBufLen(b_Tau_rawAntiEle2018_))); }
     b_Tau_rawAntiEleCat_ = tree->GetBranch("Tau_rawAntiEleCat");
-    if (b_Tau_rawAntiEleCat_) { b_Tau_rawAntiEleCat_->SetAddress(&Tau_rawAntiEleCat_); }
+    if (b_Tau_rawAntiEleCat_) { b_Tau_rawAntiEleCat_->SetAddress(Tau_rawAntiEleCat_.grow(nanoBufLen(b_Tau_rawAntiEleCat_))); }
     b_Tau_rawAntiEleCat2018_ = tree->GetBranch("Tau_rawAntiEleCat2018");
-    if (b_Tau_rawAntiEleCat2018_) { b_Tau_rawAntiEleCat2018_->SetAddress(&Tau_rawAntiEleCat2018_); }
+    if (b_Tau_rawAntiEleCat2018_) { b_Tau_rawAntiEleCat2018_->SetAddress(Tau_rawAntiEleCat2018_.grow(nanoBufLen(b_Tau_rawAntiEleCat2018_))); }
     b_Tau_rawDeepTau2017v2p1VSe_ = tree->GetBranch("Tau_rawDeepTau2017v2p1VSe");
-    if (b_Tau_rawDeepTau2017v2p1VSe_) { b_Tau_rawDeepTau2017v2p1VSe_->SetAddress(&Tau_rawDeepTau2017v2p1VSe_); }
+    if (b_Tau_rawDeepTau2017v2p1VSe_) { b_Tau_rawDeepTau2017v2p1VSe_->SetAddress(Tau_rawDeepTau2017v2p1VSe_.grow(nanoBufLen(b_Tau_rawDeepTau2017v2p1VSe_))); }
     b_Tau_rawDeepTau2017v2p1VSjet_ = tree->GetBranch("Tau_rawDeepTau2017v2p1VSjet");
-    if (b_Tau_rawDeepTau2017v2p1VSjet_) { b_Tau_rawDeepTau2017v2p1VSjet_->SetAddress(&Tau_rawDeepTau2017v2p1VSjet_); }
+    if (b_Tau_rawDeepTau2017v2p1VSjet_) { b_Tau_rawDeepTau2017v2p1VSjet_->SetAddress(Tau_rawDeepTau2017v2p1VSjet_.grow(nanoBufLen(b_Tau_rawDeepTau2017v2p1VSjet_))); }
     b_Tau_rawDeepTau2017v2p1VSmu_ = tree->GetBranch("Tau_rawDeepTau2017v2p1VSmu");
-    if (b_Tau_rawDeepTau2017v2p1VSmu_) { b_Tau_rawDeepTau2017v2p1VSmu_->SetAddress(&Tau_rawDeepTau2017v2p1VSmu_); }
+    if (b_Tau_rawDeepTau2017v2p1VSmu_) { b_Tau_rawDeepTau2017v2p1VSmu_->SetAddress(Tau_rawDeepTau2017v2p1VSmu_.grow(nanoBufLen(b_Tau_rawDeepTau2017v2p1VSmu_))); }
     b_Tau_rawDeepTau2018v2p5VSe_ = tree->GetBranch("Tau_rawDeepTau2018v2p5VSe");
-    if (b_Tau_rawDeepTau2018v2p5VSe_) { b_Tau_rawDeepTau2018v2p5VSe_->SetAddress(&Tau_rawDeepTau2018v2p5VSe_); }
+    if (b_Tau_rawDeepTau2018v2p5VSe_) { b_Tau_rawDeepTau2018v2p5VSe_->SetAddress(Tau_rawDeepTau2018v2p5VSe_.grow(nanoBufLen(b_Tau_rawDeepTau2018v2p5VSe_))); }
     b_Tau_rawDeepTau2018v2p5VSjet_ = tree->GetBranch("Tau_rawDeepTau2018v2p5VSjet");
-    if (b_Tau_rawDeepTau2018v2p5VSjet_) { b_Tau_rawDeepTau2018v2p5VSjet_->SetAddress(&Tau_rawDeepTau2018v2p5VSjet_); }
+    if (b_Tau_rawDeepTau2018v2p5VSjet_) { b_Tau_rawDeepTau2018v2p5VSjet_->SetAddress(Tau_rawDeepTau2018v2p5VSjet_.grow(nanoBufLen(b_Tau_rawDeepTau2018v2p5VSjet_))); }
     b_Tau_rawDeepTau2018v2p5VSmu_ = tree->GetBranch("Tau_rawDeepTau2018v2p5VSmu");
-    if (b_Tau_rawDeepTau2018v2p5VSmu_) { b_Tau_rawDeepTau2018v2p5VSmu_->SetAddress(&Tau_rawDeepTau2018v2p5VSmu_); }
+    if (b_Tau_rawDeepTau2018v2p5VSmu_) { b_Tau_rawDeepTau2018v2p5VSmu_->SetAddress(Tau_rawDeepTau2018v2p5VSmu_.grow(nanoBufLen(b_Tau_rawDeepTau2018v2p5VSmu_))); }
     b_Tau_rawIso_ = tree->GetBranch("Tau_rawIso");
-    if (b_Tau_rawIso_) { b_Tau_rawIso_->SetAddress(&Tau_rawIso_); }
+    if (b_Tau_rawIso_) { b_Tau_rawIso_->SetAddress(Tau_rawIso_.grow(nanoBufLen(b_Tau_rawIso_))); }
     b_Tau_rawIsodR03_ = tree->GetBranch("Tau_rawIsodR03");
-    if (b_Tau_rawIsodR03_) { b_Tau_rawIsodR03_->SetAddress(&Tau_rawIsodR03_); }
+    if (b_Tau_rawIsodR03_) { b_Tau_rawIsodR03_->SetAddress(Tau_rawIsodR03_.grow(nanoBufLen(b_Tau_rawIsodR03_))); }
     b_Tau_rawMVAnewDM2017v2_ = tree->GetBranch("Tau_rawMVAnewDM2017v2");
-    if (b_Tau_rawMVAnewDM2017v2_) { b_Tau_rawMVAnewDM2017v2_->SetAddress(&Tau_rawMVAnewDM2017v2_); }
+    if (b_Tau_rawMVAnewDM2017v2_) { b_Tau_rawMVAnewDM2017v2_->SetAddress(Tau_rawMVAnewDM2017v2_.grow(nanoBufLen(b_Tau_rawMVAnewDM2017v2_))); }
     b_Tau_rawMVAoldDM_ = tree->GetBranch("Tau_rawMVAoldDM");
-    if (b_Tau_rawMVAoldDM_) { b_Tau_rawMVAoldDM_->SetAddress(&Tau_rawMVAoldDM_); }
+    if (b_Tau_rawMVAoldDM_) { b_Tau_rawMVAoldDM_->SetAddress(Tau_rawMVAoldDM_.grow(nanoBufLen(b_Tau_rawMVAoldDM_))); }
     b_Tau_rawMVAoldDM2017v1_ = tree->GetBranch("Tau_rawMVAoldDM2017v1");
-    if (b_Tau_rawMVAoldDM2017v1_) { b_Tau_rawMVAoldDM2017v1_->SetAddress(&Tau_rawMVAoldDM2017v1_); }
+    if (b_Tau_rawMVAoldDM2017v1_) { b_Tau_rawMVAoldDM2017v1_->SetAddress(Tau_rawMVAoldDM2017v1_.grow(nanoBufLen(b_Tau_rawMVAoldDM2017v1_))); }
     b_Tau_rawMVAoldDM2017v2_ = tree->GetBranch("Tau_rawMVAoldDM2017v2");
-    if (b_Tau_rawMVAoldDM2017v2_) { b_Tau_rawMVAoldDM2017v2_->SetAddress(&Tau_rawMVAoldDM2017v2_); }
+    if (b_Tau_rawMVAoldDM2017v2_) { b_Tau_rawMVAoldDM2017v2_->SetAddress(Tau_rawMVAoldDM2017v2_.grow(nanoBufLen(b_Tau_rawMVAoldDM2017v2_))); }
     b_Tau_rawMVAoldDMdR032017v2_ = tree->GetBranch("Tau_rawMVAoldDMdR032017v2");
-    if (b_Tau_rawMVAoldDMdR032017v2_) { b_Tau_rawMVAoldDMdR032017v2_->SetAddress(&Tau_rawMVAoldDMdR032017v2_); }
+    if (b_Tau_rawMVAoldDMdR032017v2_) { b_Tau_rawMVAoldDMdR032017v2_->SetAddress(Tau_rawMVAoldDMdR032017v2_.grow(nanoBufLen(b_Tau_rawMVAoldDMdR032017v2_))); }
     b_Tau_svIdx1_ = tree->GetBranch("Tau_svIdx1");
-    if (b_Tau_svIdx1_) { b_Tau_svIdx1_->SetAddress(&Tau_svIdx1_); }
+    if (b_Tau_svIdx1_) { b_Tau_svIdx1_->SetAddress(Tau_svIdx1_.grow(nanoBufLen(b_Tau_svIdx1_))); }
     b_Tau_svIdx2_ = tree->GetBranch("Tau_svIdx2");
-    if (b_Tau_svIdx2_) { b_Tau_svIdx2_->SetAddress(&Tau_svIdx2_); }
+    if (b_Tau_svIdx2_) { b_Tau_svIdx2_->SetAddress(Tau_svIdx2_.grow(nanoBufLen(b_Tau_svIdx2_))); }
     b_TkMET_phi_ = tree->GetBranch("TkMET_phi");
     if (b_TkMET_phi_) { b_TkMET_phi_->SetAddress(&TkMET_phi_); }
     b_TkMET_pt_ = tree->GetBranch("TkMET_pt");
@@ -6847,83 +6847,83 @@ void Nano::Init(TTree *tree) {
     b_TkMET_sumEt_ = tree->GetBranch("TkMET_sumEt");
     if (b_TkMET_sumEt_) { b_TkMET_sumEt_->SetAddress(&TkMET_sumEt_); }
     b_TrigObj_eta_ = tree->GetBranch("TrigObj_eta");
-    if (b_TrigObj_eta_) { b_TrigObj_eta_->SetAddress(&TrigObj_eta_); }
+    if (b_TrigObj_eta_) { b_TrigObj_eta_->SetAddress(TrigObj_eta_.grow(nanoBufLen(b_TrigObj_eta_))); }
     b_TrigObj_filterBits_ = tree->GetBranch("TrigObj_filterBits");
-    if (b_TrigObj_filterBits_) { b_TrigObj_filterBits_->SetAddress(&TrigObj_filterBits_); }
+    if (b_TrigObj_filterBits_) { b_TrigObj_filterBits_->SetAddress(TrigObj_filterBits_.grow(nanoBufLen(b_TrigObj_filterBits_))); }
     b_TrigObj_id_ = tree->GetBranch("TrigObj_id");
-    if (b_TrigObj_id_) { b_TrigObj_id_->SetAddress(&TrigObj_id_); }
+    if (b_TrigObj_id_) { b_TrigObj_id_->SetAddress(TrigObj_id_.grow(nanoBufLen(b_TrigObj_id_))); }
     b_TrigObj_l1charge_ = tree->GetBranch("TrigObj_l1charge");
-    if (b_TrigObj_l1charge_) { b_TrigObj_l1charge_->SetAddress(&TrigObj_l1charge_); }
+    if (b_TrigObj_l1charge_) { b_TrigObj_l1charge_->SetAddress(TrigObj_l1charge_.grow(nanoBufLen(b_TrigObj_l1charge_))); }
     b_TrigObj_l1iso_ = tree->GetBranch("TrigObj_l1iso");
-    if (b_TrigObj_l1iso_) { b_TrigObj_l1iso_->SetAddress(&TrigObj_l1iso_); }
+    if (b_TrigObj_l1iso_) { b_TrigObj_l1iso_->SetAddress(TrigObj_l1iso_.grow(nanoBufLen(b_TrigObj_l1iso_))); }
     b_TrigObj_l1pt_ = tree->GetBranch("TrigObj_l1pt");
-    if (b_TrigObj_l1pt_) { b_TrigObj_l1pt_->SetAddress(&TrigObj_l1pt_); }
+    if (b_TrigObj_l1pt_) { b_TrigObj_l1pt_->SetAddress(TrigObj_l1pt_.grow(nanoBufLen(b_TrigObj_l1pt_))); }
     b_TrigObj_l1pt_2_ = tree->GetBranch("TrigObj_l1pt_2");
-    if (b_TrigObj_l1pt_2_) { b_TrigObj_l1pt_2_->SetAddress(&TrigObj_l1pt_2_); }
+    if (b_TrigObj_l1pt_2_) { b_TrigObj_l1pt_2_->SetAddress(TrigObj_l1pt_2_.grow(nanoBufLen(b_TrigObj_l1pt_2_))); }
     b_TrigObj_l2pt_ = tree->GetBranch("TrigObj_l2pt");
-    if (b_TrigObj_l2pt_) { b_TrigObj_l2pt_->SetAddress(&TrigObj_l2pt_); }
+    if (b_TrigObj_l2pt_) { b_TrigObj_l2pt_->SetAddress(TrigObj_l2pt_.grow(nanoBufLen(b_TrigObj_l2pt_))); }
     b_TrigObj_phi_ = tree->GetBranch("TrigObj_phi");
-    if (b_TrigObj_phi_) { b_TrigObj_phi_->SetAddress(&TrigObj_phi_); }
+    if (b_TrigObj_phi_) { b_TrigObj_phi_->SetAddress(TrigObj_phi_.grow(nanoBufLen(b_TrigObj_phi_))); }
     b_TrigObj_pt_ = tree->GetBranch("TrigObj_pt");
-    if (b_TrigObj_pt_) { b_TrigObj_pt_->SetAddress(&TrigObj_pt_); }
+    if (b_TrigObj_pt_) { b_TrigObj_pt_->SetAddress(TrigObj_pt_.grow(nanoBufLen(b_TrigObj_pt_))); }
     b_WCnames_ = tree->GetBranch("WCnames");
-    if (b_WCnames_) { b_WCnames_->SetAddress(&WCnames_); }
+    if (b_WCnames_) { b_WCnames_->SetAddress(WCnames_.grow(nanoBufLen(b_WCnames_))); }
     b_boostedTau_charge_ = tree->GetBranch("boostedTau_charge");
-    if (b_boostedTau_charge_) { b_boostedTau_charge_->SetAddress(&boostedTau_charge_); }
+    if (b_boostedTau_charge_) { b_boostedTau_charge_->SetAddress(boostedTau_charge_.grow(nanoBufLen(b_boostedTau_charge_))); }
     b_boostedTau_chargedIso_ = tree->GetBranch("boostedTau_chargedIso");
-    if (b_boostedTau_chargedIso_) { b_boostedTau_chargedIso_->SetAddress(&boostedTau_chargedIso_); }
+    if (b_boostedTau_chargedIso_) { b_boostedTau_chargedIso_->SetAddress(boostedTau_chargedIso_.grow(nanoBufLen(b_boostedTau_chargedIso_))); }
     b_boostedTau_decayMode_ = tree->GetBranch("boostedTau_decayMode");
-    if (b_boostedTau_decayMode_) { b_boostedTau_decayMode_->SetAddress(&boostedTau_decayMode_); }
+    if (b_boostedTau_decayMode_) { b_boostedTau_decayMode_->SetAddress(boostedTau_decayMode_.grow(nanoBufLen(b_boostedTau_decayMode_))); }
     b_boostedTau_eta_ = tree->GetBranch("boostedTau_eta");
-    if (b_boostedTau_eta_) { b_boostedTau_eta_->SetAddress(&boostedTau_eta_); }
+    if (b_boostedTau_eta_) { b_boostedTau_eta_->SetAddress(boostedTau_eta_.grow(nanoBufLen(b_boostedTau_eta_))); }
     b_boostedTau_genPartFlav_ = tree->GetBranch("boostedTau_genPartFlav");
-    if (b_boostedTau_genPartFlav_) { b_boostedTau_genPartFlav_->SetAddress(&boostedTau_genPartFlav_); }
+    if (b_boostedTau_genPartFlav_) { b_boostedTau_genPartFlav_->SetAddress(boostedTau_genPartFlav_.grow(nanoBufLen(b_boostedTau_genPartFlav_))); }
     b_boostedTau_genPartIdx_ = tree->GetBranch("boostedTau_genPartIdx");
-    if (b_boostedTau_genPartIdx_) { b_boostedTau_genPartIdx_->SetAddress(&boostedTau_genPartIdx_); }
+    if (b_boostedTau_genPartIdx_) { b_boostedTau_genPartIdx_->SetAddress(boostedTau_genPartIdx_.grow(nanoBufLen(b_boostedTau_genPartIdx_))); }
     b_boostedTau_idAntiEle2018_ = tree->GetBranch("boostedTau_idAntiEle2018");
-    if (b_boostedTau_idAntiEle2018_) { b_boostedTau_idAntiEle2018_->SetAddress(&boostedTau_idAntiEle2018_); }
+    if (b_boostedTau_idAntiEle2018_) { b_boostedTau_idAntiEle2018_->SetAddress(boostedTau_idAntiEle2018_.grow(nanoBufLen(b_boostedTau_idAntiEle2018_))); }
     b_boostedTau_idAntiMu_ = tree->GetBranch("boostedTau_idAntiMu");
-    if (b_boostedTau_idAntiMu_) { b_boostedTau_idAntiMu_->SetAddress(&boostedTau_idAntiMu_); }
+    if (b_boostedTau_idAntiMu_) { b_boostedTau_idAntiMu_->SetAddress(boostedTau_idAntiMu_.grow(nanoBufLen(b_boostedTau_idAntiMu_))); }
     b_boostedTau_idMVAnewDM2017v2_ = tree->GetBranch("boostedTau_idMVAnewDM2017v2");
-    if (b_boostedTau_idMVAnewDM2017v2_) { b_boostedTau_idMVAnewDM2017v2_->SetAddress(&boostedTau_idMVAnewDM2017v2_); }
+    if (b_boostedTau_idMVAnewDM2017v2_) { b_boostedTau_idMVAnewDM2017v2_->SetAddress(boostedTau_idMVAnewDM2017v2_.grow(nanoBufLen(b_boostedTau_idMVAnewDM2017v2_))); }
     b_boostedTau_idMVAoldDM2017v2_ = tree->GetBranch("boostedTau_idMVAoldDM2017v2");
-    if (b_boostedTau_idMVAoldDM2017v2_) { b_boostedTau_idMVAoldDM2017v2_->SetAddress(&boostedTau_idMVAoldDM2017v2_); }
+    if (b_boostedTau_idMVAoldDM2017v2_) { b_boostedTau_idMVAoldDM2017v2_->SetAddress(boostedTau_idMVAoldDM2017v2_.grow(nanoBufLen(b_boostedTau_idMVAoldDM2017v2_))); }
     b_boostedTau_idMVAoldDMdR032017v2_ = tree->GetBranch("boostedTau_idMVAoldDMdR032017v2");
-    if (b_boostedTau_idMVAoldDMdR032017v2_) { b_boostedTau_idMVAoldDMdR032017v2_->SetAddress(&boostedTau_idMVAoldDMdR032017v2_); }
+    if (b_boostedTau_idMVAoldDMdR032017v2_) { b_boostedTau_idMVAoldDMdR032017v2_->SetAddress(boostedTau_idMVAoldDMdR032017v2_.grow(nanoBufLen(b_boostedTau_idMVAoldDMdR032017v2_))); }
     b_boostedTau_jetIdx_ = tree->GetBranch("boostedTau_jetIdx");
-    if (b_boostedTau_jetIdx_) { b_boostedTau_jetIdx_->SetAddress(&boostedTau_jetIdx_); }
+    if (b_boostedTau_jetIdx_) { b_boostedTau_jetIdx_->SetAddress(boostedTau_jetIdx_.grow(nanoBufLen(b_boostedTau_jetIdx_))); }
     b_boostedTau_leadTkDeltaEta_ = tree->GetBranch("boostedTau_leadTkDeltaEta");
-    if (b_boostedTau_leadTkDeltaEta_) { b_boostedTau_leadTkDeltaEta_->SetAddress(&boostedTau_leadTkDeltaEta_); }
+    if (b_boostedTau_leadTkDeltaEta_) { b_boostedTau_leadTkDeltaEta_->SetAddress(boostedTau_leadTkDeltaEta_.grow(nanoBufLen(b_boostedTau_leadTkDeltaEta_))); }
     b_boostedTau_leadTkDeltaPhi_ = tree->GetBranch("boostedTau_leadTkDeltaPhi");
-    if (b_boostedTau_leadTkDeltaPhi_) { b_boostedTau_leadTkDeltaPhi_->SetAddress(&boostedTau_leadTkDeltaPhi_); }
+    if (b_boostedTau_leadTkDeltaPhi_) { b_boostedTau_leadTkDeltaPhi_->SetAddress(boostedTau_leadTkDeltaPhi_.grow(nanoBufLen(b_boostedTau_leadTkDeltaPhi_))); }
     b_boostedTau_leadTkPtOverTauPt_ = tree->GetBranch("boostedTau_leadTkPtOverTauPt");
-    if (b_boostedTau_leadTkPtOverTauPt_) { b_boostedTau_leadTkPtOverTauPt_->SetAddress(&boostedTau_leadTkPtOverTauPt_); }
+    if (b_boostedTau_leadTkPtOverTauPt_) { b_boostedTau_leadTkPtOverTauPt_->SetAddress(boostedTau_leadTkPtOverTauPt_.grow(nanoBufLen(b_boostedTau_leadTkPtOverTauPt_))); }
     b_boostedTau_mass_ = tree->GetBranch("boostedTau_mass");
-    if (b_boostedTau_mass_) { b_boostedTau_mass_->SetAddress(&boostedTau_mass_); }
+    if (b_boostedTau_mass_) { b_boostedTau_mass_->SetAddress(boostedTau_mass_.grow(nanoBufLen(b_boostedTau_mass_))); }
     b_boostedTau_neutralIso_ = tree->GetBranch("boostedTau_neutralIso");
-    if (b_boostedTau_neutralIso_) { b_boostedTau_neutralIso_->SetAddress(&boostedTau_neutralIso_); }
+    if (b_boostedTau_neutralIso_) { b_boostedTau_neutralIso_->SetAddress(boostedTau_neutralIso_.grow(nanoBufLen(b_boostedTau_neutralIso_))); }
     b_boostedTau_phi_ = tree->GetBranch("boostedTau_phi");
-    if (b_boostedTau_phi_) { b_boostedTau_phi_->SetAddress(&boostedTau_phi_); }
+    if (b_boostedTau_phi_) { b_boostedTau_phi_->SetAddress(boostedTau_phi_.grow(nanoBufLen(b_boostedTau_phi_))); }
     b_boostedTau_photonsOutsideSignalCone_ = tree->GetBranch("boostedTau_photonsOutsideSignalCone");
-    if (b_boostedTau_photonsOutsideSignalCone_) { b_boostedTau_photonsOutsideSignalCone_->SetAddress(&boostedTau_photonsOutsideSignalCone_); }
+    if (b_boostedTau_photonsOutsideSignalCone_) { b_boostedTau_photonsOutsideSignalCone_->SetAddress(boostedTau_photonsOutsideSignalCone_.grow(nanoBufLen(b_boostedTau_photonsOutsideSignalCone_))); }
     b_boostedTau_pt_ = tree->GetBranch("boostedTau_pt");
-    if (b_boostedTau_pt_) { b_boostedTau_pt_->SetAddress(&boostedTau_pt_); }
+    if (b_boostedTau_pt_) { b_boostedTau_pt_->SetAddress(boostedTau_pt_.grow(nanoBufLen(b_boostedTau_pt_))); }
     b_boostedTau_puCorr_ = tree->GetBranch("boostedTau_puCorr");
-    if (b_boostedTau_puCorr_) { b_boostedTau_puCorr_->SetAddress(&boostedTau_puCorr_); }
+    if (b_boostedTau_puCorr_) { b_boostedTau_puCorr_->SetAddress(boostedTau_puCorr_.grow(nanoBufLen(b_boostedTau_puCorr_))); }
     b_boostedTau_rawAntiEle2018_ = tree->GetBranch("boostedTau_rawAntiEle2018");
-    if (b_boostedTau_rawAntiEle2018_) { b_boostedTau_rawAntiEle2018_->SetAddress(&boostedTau_rawAntiEle2018_); }
+    if (b_boostedTau_rawAntiEle2018_) { b_boostedTau_rawAntiEle2018_->SetAddress(boostedTau_rawAntiEle2018_.grow(nanoBufLen(b_boostedTau_rawAntiEle2018_))); }
     b_boostedTau_rawAntiEleCat2018_ = tree->GetBranch("boostedTau_rawAntiEleCat2018");
-    if (b_boostedTau_rawAntiEleCat2018_) { b_boostedTau_rawAntiEleCat2018_->SetAddress(&boostedTau_rawAntiEleCat2018_); }
+    if (b_boostedTau_rawAntiEleCat2018_) { b_boostedTau_rawAntiEleCat2018_->SetAddress(boostedTau_rawAntiEleCat2018_.grow(nanoBufLen(b_boostedTau_rawAntiEleCat2018_))); }
     b_boostedTau_rawIso_ = tree->GetBranch("boostedTau_rawIso");
-    if (b_boostedTau_rawIso_) { b_boostedTau_rawIso_->SetAddress(&boostedTau_rawIso_); }
+    if (b_boostedTau_rawIso_) { b_boostedTau_rawIso_->SetAddress(boostedTau_rawIso_.grow(nanoBufLen(b_boostedTau_rawIso_))); }
     b_boostedTau_rawIsodR03_ = tree->GetBranch("boostedTau_rawIsodR03");
-    if (b_boostedTau_rawIsodR03_) { b_boostedTau_rawIsodR03_->SetAddress(&boostedTau_rawIsodR03_); }
+    if (b_boostedTau_rawIsodR03_) { b_boostedTau_rawIsodR03_->SetAddress(boostedTau_rawIsodR03_.grow(nanoBufLen(b_boostedTau_rawIsodR03_))); }
     b_boostedTau_rawMVAnewDM2017v2_ = tree->GetBranch("boostedTau_rawMVAnewDM2017v2");
-    if (b_boostedTau_rawMVAnewDM2017v2_) { b_boostedTau_rawMVAnewDM2017v2_->SetAddress(&boostedTau_rawMVAnewDM2017v2_); }
+    if (b_boostedTau_rawMVAnewDM2017v2_) { b_boostedTau_rawMVAnewDM2017v2_->SetAddress(boostedTau_rawMVAnewDM2017v2_.grow(nanoBufLen(b_boostedTau_rawMVAnewDM2017v2_))); }
     b_boostedTau_rawMVAoldDM2017v2_ = tree->GetBranch("boostedTau_rawMVAoldDM2017v2");
-    if (b_boostedTau_rawMVAoldDM2017v2_) { b_boostedTau_rawMVAoldDM2017v2_->SetAddress(&boostedTau_rawMVAoldDM2017v2_); }
+    if (b_boostedTau_rawMVAoldDM2017v2_) { b_boostedTau_rawMVAoldDM2017v2_->SetAddress(boostedTau_rawMVAoldDM2017v2_.grow(nanoBufLen(b_boostedTau_rawMVAoldDM2017v2_))); }
     b_boostedTau_rawMVAoldDMdR032017v2_ = tree->GetBranch("boostedTau_rawMVAoldDMdR032017v2");
-    if (b_boostedTau_rawMVAoldDMdR032017v2_) { b_boostedTau_rawMVAoldDMdR032017v2_->SetAddress(&boostedTau_rawMVAoldDMdR032017v2_); }
+    if (b_boostedTau_rawMVAoldDMdR032017v2_) { b_boostedTau_rawMVAoldDMdR032017v2_->SetAddress(boostedTau_rawMVAoldDMdR032017v2_.grow(nanoBufLen(b_boostedTau_rawMVAoldDMdR032017v2_))); }
     b_btagWeight_CSVV2_ = tree->GetBranch("btagWeight_CSVV2");
     if (b_btagWeight_CSVV2_) { b_btagWeight_CSVV2_->SetAddress(&btagWeight_CSVV2_); }
     b_btagWeight_DeepCSVB_ = tree->GetBranch("btagWeight_DeepCSVB");
@@ -7024,6 +7024,41 @@ void Nano::Init(TTree *tree) {
     if (b_puWeightUp_) { b_puWeightUp_->SetAddress(&puWeightUp_); }
     b_run_ = tree->GetBranch("run");
     if (b_run_) { b_run_->SetAddress(&run_); }
+    // Per-file counter maxima for CheckBufferSizes() (the buffers above were grown to these).
+    filemax_nCorrT1METJet_ = nanoLeafMax(tree, "nCorrT1METJet");
+    filemax_nEFTfitCoefficients_ = nanoLeafMax(tree, "nEFTfitCoefficients");
+    filemax_nElectron_ = nanoLeafMax(tree, "nElectron");
+    filemax_nFatJet_ = nanoLeafMax(tree, "nFatJet");
+    filemax_nFsrPhoton_ = nanoLeafMax(tree, "nFsrPhoton");
+    filemax_nGenDressedLepton_ = nanoLeafMax(tree, "nGenDressedLepton");
+    filemax_nGenIsolatedPhoton_ = nanoLeafMax(tree, "nGenIsolatedPhoton");
+    filemax_nGenJet_ = nanoLeafMax(tree, "nGenJet");
+    filemax_nGenJetAK8_ = nanoLeafMax(tree, "nGenJetAK8");
+    filemax_nGenPart_ = nanoLeafMax(tree, "nGenPart");
+    filemax_nGenProton_ = nanoLeafMax(tree, "nGenProton");
+    filemax_nGenVisTau_ = nanoLeafMax(tree, "nGenVisTau");
+    filemax_nIsoTrack_ = nanoLeafMax(tree, "nIsoTrack");
+    filemax_nJet_ = nanoLeafMax(tree, "nJet");
+    filemax_nLHEPart_ = nanoLeafMax(tree, "nLHEPart");
+    filemax_nLHEPdfWeight_ = nanoLeafMax(tree, "nLHEPdfWeight");
+    filemax_nLHEReweightingWeight_ = nanoLeafMax(tree, "nLHEReweightingWeight");
+    filemax_nLHEScaleWeight_ = nanoLeafMax(tree, "nLHEScaleWeight");
+    filemax_nLowPtElectron_ = nanoLeafMax(tree, "nLowPtElectron");
+    filemax_nMuon_ = nanoLeafMax(tree, "nMuon");
+    filemax_nOtherPV_ = nanoLeafMax(tree, "nOtherPV");
+    filemax_nPPSLocalTrack_ = nanoLeafMax(tree, "nPPSLocalTrack");
+    filemax_nPSWeight_ = nanoLeafMax(tree, "nPSWeight");
+    filemax_nPhoton_ = nanoLeafMax(tree, "nPhoton");
+    filemax_nProton_multiRP_ = nanoLeafMax(tree, "nProton_multiRP");
+    filemax_nProton_singleRP_ = nanoLeafMax(tree, "nProton_singleRP");
+    filemax_nSV_ = nanoLeafMax(tree, "nSV");
+    filemax_nSoftActivityJet_ = nanoLeafMax(tree, "nSoftActivityJet");
+    filemax_nSubGenJetAK8_ = nanoLeafMax(tree, "nSubGenJetAK8");
+    filemax_nSubJet_ = nanoLeafMax(tree, "nSubJet");
+    filemax_nTau_ = nanoLeafMax(tree, "nTau");
+    filemax_nTrigObj_ = nanoLeafMax(tree, "nTrigObj");
+    filemax_nWCnames_ = nanoLeafMax(tree, "nWCnames");
+    filemax_nboostedTau_ = nanoLeafMax(tree, "nboostedTau");
     ParseYear(tree);
 }
 void Nano::SetYear(int year) {
@@ -14277,7 +14312,7 @@ const vector<float> &Nano::CorrT1METJet_area() {
     if (!loaded_CorrT1METJet_area_) {
         if (!b_CorrT1METJet_area_) throw std::runtime_error("CorrT1METJet_area branch doesn't exist");
         int bytes = b_CorrT1METJet_area_->GetEntry(index);
-        v_CorrT1METJet_area_ = vector<float>(CorrT1METJet_area_,CorrT1METJet_area_+bytes/sizeof(CorrT1METJet_area_[0]));
+        v_CorrT1METJet_area_ = vector<float>(CorrT1METJet_area_.data(),CorrT1METJet_area_.data()+bytes/sizeof(CorrT1METJet_area_[0]));
         loaded_CorrT1METJet_area_ = true;
     }
     return v_CorrT1METJet_area_;
@@ -14288,7 +14323,7 @@ const vector<float> &Nano::CorrT1METJet_eta() {
     if (!loaded_CorrT1METJet_eta_) {
         if (!b_CorrT1METJet_eta_) throw std::runtime_error("CorrT1METJet_eta branch doesn't exist");
         int bytes = b_CorrT1METJet_eta_->GetEntry(index);
-        v_CorrT1METJet_eta_ = vector<float>(CorrT1METJet_eta_,CorrT1METJet_eta_+bytes/sizeof(CorrT1METJet_eta_[0]));
+        v_CorrT1METJet_eta_ = vector<float>(CorrT1METJet_eta_.data(),CorrT1METJet_eta_.data()+bytes/sizeof(CorrT1METJet_eta_[0]));
         loaded_CorrT1METJet_eta_ = true;
     }
     return v_CorrT1METJet_eta_;
@@ -14299,7 +14334,7 @@ const vector<float> &Nano::CorrT1METJet_muonSubtrFactor() {
     if (!loaded_CorrT1METJet_muonSubtrFactor_) {
         if (!b_CorrT1METJet_muonSubtrFactor_) throw std::runtime_error("CorrT1METJet_muonSubtrFactor branch doesn't exist");
         int bytes = b_CorrT1METJet_muonSubtrFactor_->GetEntry(index);
-        v_CorrT1METJet_muonSubtrFactor_ = vector<float>(CorrT1METJet_muonSubtrFactor_,CorrT1METJet_muonSubtrFactor_+bytes/sizeof(CorrT1METJet_muonSubtrFactor_[0]));
+        v_CorrT1METJet_muonSubtrFactor_ = vector<float>(CorrT1METJet_muonSubtrFactor_.data(),CorrT1METJet_muonSubtrFactor_.data()+bytes/sizeof(CorrT1METJet_muonSubtrFactor_[0]));
         loaded_CorrT1METJet_muonSubtrFactor_ = true;
     }
     return v_CorrT1METJet_muonSubtrFactor_;
@@ -14310,7 +14345,7 @@ const vector<float> &Nano::CorrT1METJet_phi() {
     if (!loaded_CorrT1METJet_phi_) {
         if (!b_CorrT1METJet_phi_) throw std::runtime_error("CorrT1METJet_phi branch doesn't exist");
         int bytes = b_CorrT1METJet_phi_->GetEntry(index);
-        v_CorrT1METJet_phi_ = vector<float>(CorrT1METJet_phi_,CorrT1METJet_phi_+bytes/sizeof(CorrT1METJet_phi_[0]));
+        v_CorrT1METJet_phi_ = vector<float>(CorrT1METJet_phi_.data(),CorrT1METJet_phi_.data()+bytes/sizeof(CorrT1METJet_phi_[0]));
         loaded_CorrT1METJet_phi_ = true;
     }
     return v_CorrT1METJet_phi_;
@@ -14321,7 +14356,7 @@ const vector<float> &Nano::CorrT1METJet_rawPt() {
     if (!loaded_CorrT1METJet_rawPt_) {
         if (!b_CorrT1METJet_rawPt_) throw std::runtime_error("CorrT1METJet_rawPt branch doesn't exist");
         int bytes = b_CorrT1METJet_rawPt_->GetEntry(index);
-        v_CorrT1METJet_rawPt_ = vector<float>(CorrT1METJet_rawPt_,CorrT1METJet_rawPt_+bytes/sizeof(CorrT1METJet_rawPt_[0]));
+        v_CorrT1METJet_rawPt_ = vector<float>(CorrT1METJet_rawPt_.data(),CorrT1METJet_rawPt_.data()+bytes/sizeof(CorrT1METJet_rawPt_[0]));
         loaded_CorrT1METJet_rawPt_ = true;
     }
     return v_CorrT1METJet_rawPt_;
@@ -14372,7 +14407,7 @@ const vector<float> &Nano::EFTfitCoefficients() {
     if (!loaded_EFTfitCoefficients_) {
         if (!b_EFTfitCoefficients_) throw std::runtime_error("EFTfitCoefficients branch doesn't exist");
         int bytes = b_EFTfitCoefficients_->GetEntry(index);
-        v_EFTfitCoefficients_ = vector<float>(EFTfitCoefficients_,EFTfitCoefficients_+bytes/sizeof(EFTfitCoefficients_[0]));
+        v_EFTfitCoefficients_ = vector<float>(EFTfitCoefficients_.data(),EFTfitCoefficients_.data()+bytes/sizeof(EFTfitCoefficients_[0]));
         loaded_EFTfitCoefficients_ = true;
     }
     return v_EFTfitCoefficients_;
@@ -14383,7 +14418,7 @@ const vector<float> &Nano::Electron_CutBased_LooseID_SF() {
     if (!loaded_Electron_CutBased_LooseID_SF_) {
         if (!b_Electron_CutBased_LooseID_SF_) throw std::runtime_error("Electron_CutBased_LooseID_SF branch doesn't exist");
         int bytes = b_Electron_CutBased_LooseID_SF_->GetEntry(index);
-        v_Electron_CutBased_LooseID_SF_ = vector<float>(Electron_CutBased_LooseID_SF_,Electron_CutBased_LooseID_SF_+bytes/sizeof(Electron_CutBased_LooseID_SF_[0]));
+        v_Electron_CutBased_LooseID_SF_ = vector<float>(Electron_CutBased_LooseID_SF_.data(),Electron_CutBased_LooseID_SF_.data()+bytes/sizeof(Electron_CutBased_LooseID_SF_[0]));
         loaded_Electron_CutBased_LooseID_SF_ = true;
     }
     return v_Electron_CutBased_LooseID_SF_;
@@ -14394,7 +14429,7 @@ const vector<float> &Nano::Electron_CutBased_LooseID_SFerr() {
     if (!loaded_Electron_CutBased_LooseID_SFerr_) {
         if (!b_Electron_CutBased_LooseID_SFerr_) throw std::runtime_error("Electron_CutBased_LooseID_SFerr branch doesn't exist");
         int bytes = b_Electron_CutBased_LooseID_SFerr_->GetEntry(index);
-        v_Electron_CutBased_LooseID_SFerr_ = vector<float>(Electron_CutBased_LooseID_SFerr_,Electron_CutBased_LooseID_SFerr_+bytes/sizeof(Electron_CutBased_LooseID_SFerr_[0]));
+        v_Electron_CutBased_LooseID_SFerr_ = vector<float>(Electron_CutBased_LooseID_SFerr_.data(),Electron_CutBased_LooseID_SFerr_.data()+bytes/sizeof(Electron_CutBased_LooseID_SFerr_[0]));
         loaded_Electron_CutBased_LooseID_SFerr_ = true;
     }
     return v_Electron_CutBased_LooseID_SFerr_;
@@ -14405,7 +14440,7 @@ const vector<float> &Nano::Electron_CutBased_MediumID_SF() {
     if (!loaded_Electron_CutBased_MediumID_SF_) {
         if (!b_Electron_CutBased_MediumID_SF_) throw std::runtime_error("Electron_CutBased_MediumID_SF branch doesn't exist");
         int bytes = b_Electron_CutBased_MediumID_SF_->GetEntry(index);
-        v_Electron_CutBased_MediumID_SF_ = vector<float>(Electron_CutBased_MediumID_SF_,Electron_CutBased_MediumID_SF_+bytes/sizeof(Electron_CutBased_MediumID_SF_[0]));
+        v_Electron_CutBased_MediumID_SF_ = vector<float>(Electron_CutBased_MediumID_SF_.data(),Electron_CutBased_MediumID_SF_.data()+bytes/sizeof(Electron_CutBased_MediumID_SF_[0]));
         loaded_Electron_CutBased_MediumID_SF_ = true;
     }
     return v_Electron_CutBased_MediumID_SF_;
@@ -14416,7 +14451,7 @@ const vector<float> &Nano::Electron_CutBased_MediumID_SFerr() {
     if (!loaded_Electron_CutBased_MediumID_SFerr_) {
         if (!b_Electron_CutBased_MediumID_SFerr_) throw std::runtime_error("Electron_CutBased_MediumID_SFerr branch doesn't exist");
         int bytes = b_Electron_CutBased_MediumID_SFerr_->GetEntry(index);
-        v_Electron_CutBased_MediumID_SFerr_ = vector<float>(Electron_CutBased_MediumID_SFerr_,Electron_CutBased_MediumID_SFerr_+bytes/sizeof(Electron_CutBased_MediumID_SFerr_[0]));
+        v_Electron_CutBased_MediumID_SFerr_ = vector<float>(Electron_CutBased_MediumID_SFerr_.data(),Electron_CutBased_MediumID_SFerr_.data()+bytes/sizeof(Electron_CutBased_MediumID_SFerr_[0]));
         loaded_Electron_CutBased_MediumID_SFerr_ = true;
     }
     return v_Electron_CutBased_MediumID_SFerr_;
@@ -14427,7 +14462,7 @@ const vector<float> &Nano::Electron_CutBased_TightID_SF() {
     if (!loaded_Electron_CutBased_TightID_SF_) {
         if (!b_Electron_CutBased_TightID_SF_) throw std::runtime_error("Electron_CutBased_TightID_SF branch doesn't exist");
         int bytes = b_Electron_CutBased_TightID_SF_->GetEntry(index);
-        v_Electron_CutBased_TightID_SF_ = vector<float>(Electron_CutBased_TightID_SF_,Electron_CutBased_TightID_SF_+bytes/sizeof(Electron_CutBased_TightID_SF_[0]));
+        v_Electron_CutBased_TightID_SF_ = vector<float>(Electron_CutBased_TightID_SF_.data(),Electron_CutBased_TightID_SF_.data()+bytes/sizeof(Electron_CutBased_TightID_SF_[0]));
         loaded_Electron_CutBased_TightID_SF_ = true;
     }
     return v_Electron_CutBased_TightID_SF_;
@@ -14438,7 +14473,7 @@ const vector<float> &Nano::Electron_CutBased_TightID_SFerr() {
     if (!loaded_Electron_CutBased_TightID_SFerr_) {
         if (!b_Electron_CutBased_TightID_SFerr_) throw std::runtime_error("Electron_CutBased_TightID_SFerr branch doesn't exist");
         int bytes = b_Electron_CutBased_TightID_SFerr_->GetEntry(index);
-        v_Electron_CutBased_TightID_SFerr_ = vector<float>(Electron_CutBased_TightID_SFerr_,Electron_CutBased_TightID_SFerr_+bytes/sizeof(Electron_CutBased_TightID_SFerr_[0]));
+        v_Electron_CutBased_TightID_SFerr_ = vector<float>(Electron_CutBased_TightID_SFerr_.data(),Electron_CutBased_TightID_SFerr_.data()+bytes/sizeof(Electron_CutBased_TightID_SFerr_[0]));
         loaded_Electron_CutBased_TightID_SFerr_ = true;
     }
     return v_Electron_CutBased_TightID_SFerr_;
@@ -14449,7 +14484,7 @@ const vector<float> &Nano::Electron_CutBased_VetoID_SF() {
     if (!loaded_Electron_CutBased_VetoID_SF_) {
         if (!b_Electron_CutBased_VetoID_SF_) throw std::runtime_error("Electron_CutBased_VetoID_SF branch doesn't exist");
         int bytes = b_Electron_CutBased_VetoID_SF_->GetEntry(index);
-        v_Electron_CutBased_VetoID_SF_ = vector<float>(Electron_CutBased_VetoID_SF_,Electron_CutBased_VetoID_SF_+bytes/sizeof(Electron_CutBased_VetoID_SF_[0]));
+        v_Electron_CutBased_VetoID_SF_ = vector<float>(Electron_CutBased_VetoID_SF_.data(),Electron_CutBased_VetoID_SF_.data()+bytes/sizeof(Electron_CutBased_VetoID_SF_[0]));
         loaded_Electron_CutBased_VetoID_SF_ = true;
     }
     return v_Electron_CutBased_VetoID_SF_;
@@ -14460,7 +14495,7 @@ const vector<float> &Nano::Electron_CutBased_VetoID_SFerr() {
     if (!loaded_Electron_CutBased_VetoID_SFerr_) {
         if (!b_Electron_CutBased_VetoID_SFerr_) throw std::runtime_error("Electron_CutBased_VetoID_SFerr branch doesn't exist");
         int bytes = b_Electron_CutBased_VetoID_SFerr_->GetEntry(index);
-        v_Electron_CutBased_VetoID_SFerr_ = vector<float>(Electron_CutBased_VetoID_SFerr_,Electron_CutBased_VetoID_SFerr_+bytes/sizeof(Electron_CutBased_VetoID_SFerr_[0]));
+        v_Electron_CutBased_VetoID_SFerr_ = vector<float>(Electron_CutBased_VetoID_SFerr_.data(),Electron_CutBased_VetoID_SFerr_.data()+bytes/sizeof(Electron_CutBased_VetoID_SFerr_[0]));
         loaded_Electron_CutBased_VetoID_SFerr_ = true;
     }
     return v_Electron_CutBased_VetoID_SFerr_;
@@ -14471,7 +14506,7 @@ const vector<float> &Nano::Electron_MVAFall17V2Iso_WP80_SF() {
     if (!loaded_Electron_MVAFall17V2Iso_WP80_SF_) {
         if (!b_Electron_MVAFall17V2Iso_WP80_SF_) throw std::runtime_error("Electron_MVAFall17V2Iso_WP80_SF branch doesn't exist");
         int bytes = b_Electron_MVAFall17V2Iso_WP80_SF_->GetEntry(index);
-        v_Electron_MVAFall17V2Iso_WP80_SF_ = vector<float>(Electron_MVAFall17V2Iso_WP80_SF_,Electron_MVAFall17V2Iso_WP80_SF_+bytes/sizeof(Electron_MVAFall17V2Iso_WP80_SF_[0]));
+        v_Electron_MVAFall17V2Iso_WP80_SF_ = vector<float>(Electron_MVAFall17V2Iso_WP80_SF_.data(),Electron_MVAFall17V2Iso_WP80_SF_.data()+bytes/sizeof(Electron_MVAFall17V2Iso_WP80_SF_[0]));
         loaded_Electron_MVAFall17V2Iso_WP80_SF_ = true;
     }
     return v_Electron_MVAFall17V2Iso_WP80_SF_;
@@ -14482,7 +14517,7 @@ const vector<float> &Nano::Electron_MVAFall17V2Iso_WP80_SFerr() {
     if (!loaded_Electron_MVAFall17V2Iso_WP80_SFerr_) {
         if (!b_Electron_MVAFall17V2Iso_WP80_SFerr_) throw std::runtime_error("Electron_MVAFall17V2Iso_WP80_SFerr branch doesn't exist");
         int bytes = b_Electron_MVAFall17V2Iso_WP80_SFerr_->GetEntry(index);
-        v_Electron_MVAFall17V2Iso_WP80_SFerr_ = vector<float>(Electron_MVAFall17V2Iso_WP80_SFerr_,Electron_MVAFall17V2Iso_WP80_SFerr_+bytes/sizeof(Electron_MVAFall17V2Iso_WP80_SFerr_[0]));
+        v_Electron_MVAFall17V2Iso_WP80_SFerr_ = vector<float>(Electron_MVAFall17V2Iso_WP80_SFerr_.data(),Electron_MVAFall17V2Iso_WP80_SFerr_.data()+bytes/sizeof(Electron_MVAFall17V2Iso_WP80_SFerr_[0]));
         loaded_Electron_MVAFall17V2Iso_WP80_SFerr_ = true;
     }
     return v_Electron_MVAFall17V2Iso_WP80_SFerr_;
@@ -14493,7 +14528,7 @@ const vector<float> &Nano::Electron_MVAFall17V2Iso_WP90_SF() {
     if (!loaded_Electron_MVAFall17V2Iso_WP90_SF_) {
         if (!b_Electron_MVAFall17V2Iso_WP90_SF_) throw std::runtime_error("Electron_MVAFall17V2Iso_WP90_SF branch doesn't exist");
         int bytes = b_Electron_MVAFall17V2Iso_WP90_SF_->GetEntry(index);
-        v_Electron_MVAFall17V2Iso_WP90_SF_ = vector<float>(Electron_MVAFall17V2Iso_WP90_SF_,Electron_MVAFall17V2Iso_WP90_SF_+bytes/sizeof(Electron_MVAFall17V2Iso_WP90_SF_[0]));
+        v_Electron_MVAFall17V2Iso_WP90_SF_ = vector<float>(Electron_MVAFall17V2Iso_WP90_SF_.data(),Electron_MVAFall17V2Iso_WP90_SF_.data()+bytes/sizeof(Electron_MVAFall17V2Iso_WP90_SF_[0]));
         loaded_Electron_MVAFall17V2Iso_WP90_SF_ = true;
     }
     return v_Electron_MVAFall17V2Iso_WP90_SF_;
@@ -14504,7 +14539,7 @@ const vector<float> &Nano::Electron_MVAFall17V2Iso_WP90_SFerr() {
     if (!loaded_Electron_MVAFall17V2Iso_WP90_SFerr_) {
         if (!b_Electron_MVAFall17V2Iso_WP90_SFerr_) throw std::runtime_error("Electron_MVAFall17V2Iso_WP90_SFerr branch doesn't exist");
         int bytes = b_Electron_MVAFall17V2Iso_WP90_SFerr_->GetEntry(index);
-        v_Electron_MVAFall17V2Iso_WP90_SFerr_ = vector<float>(Electron_MVAFall17V2Iso_WP90_SFerr_,Electron_MVAFall17V2Iso_WP90_SFerr_+bytes/sizeof(Electron_MVAFall17V2Iso_WP90_SFerr_[0]));
+        v_Electron_MVAFall17V2Iso_WP90_SFerr_ = vector<float>(Electron_MVAFall17V2Iso_WP90_SFerr_.data(),Electron_MVAFall17V2Iso_WP90_SFerr_.data()+bytes/sizeof(Electron_MVAFall17V2Iso_WP90_SFerr_[0]));
         loaded_Electron_MVAFall17V2Iso_WP90_SFerr_ = true;
     }
     return v_Electron_MVAFall17V2Iso_WP90_SFerr_;
@@ -14515,7 +14550,7 @@ const vector<float> &Nano::Electron_MVAFall17V2noIso_WP80_SF() {
     if (!loaded_Electron_MVAFall17V2noIso_WP80_SF_) {
         if (!b_Electron_MVAFall17V2noIso_WP80_SF_) throw std::runtime_error("Electron_MVAFall17V2noIso_WP80_SF branch doesn't exist");
         int bytes = b_Electron_MVAFall17V2noIso_WP80_SF_->GetEntry(index);
-        v_Electron_MVAFall17V2noIso_WP80_SF_ = vector<float>(Electron_MVAFall17V2noIso_WP80_SF_,Electron_MVAFall17V2noIso_WP80_SF_+bytes/sizeof(Electron_MVAFall17V2noIso_WP80_SF_[0]));
+        v_Electron_MVAFall17V2noIso_WP80_SF_ = vector<float>(Electron_MVAFall17V2noIso_WP80_SF_.data(),Electron_MVAFall17V2noIso_WP80_SF_.data()+bytes/sizeof(Electron_MVAFall17V2noIso_WP80_SF_[0]));
         loaded_Electron_MVAFall17V2noIso_WP80_SF_ = true;
     }
     return v_Electron_MVAFall17V2noIso_WP80_SF_;
@@ -14526,7 +14561,7 @@ const vector<float> &Nano::Electron_MVAFall17V2noIso_WP80_SFerr() {
     if (!loaded_Electron_MVAFall17V2noIso_WP80_SFerr_) {
         if (!b_Electron_MVAFall17V2noIso_WP80_SFerr_) throw std::runtime_error("Electron_MVAFall17V2noIso_WP80_SFerr branch doesn't exist");
         int bytes = b_Electron_MVAFall17V2noIso_WP80_SFerr_->GetEntry(index);
-        v_Electron_MVAFall17V2noIso_WP80_SFerr_ = vector<float>(Electron_MVAFall17V2noIso_WP80_SFerr_,Electron_MVAFall17V2noIso_WP80_SFerr_+bytes/sizeof(Electron_MVAFall17V2noIso_WP80_SFerr_[0]));
+        v_Electron_MVAFall17V2noIso_WP80_SFerr_ = vector<float>(Electron_MVAFall17V2noIso_WP80_SFerr_.data(),Electron_MVAFall17V2noIso_WP80_SFerr_.data()+bytes/sizeof(Electron_MVAFall17V2noIso_WP80_SFerr_[0]));
         loaded_Electron_MVAFall17V2noIso_WP80_SFerr_ = true;
     }
     return v_Electron_MVAFall17V2noIso_WP80_SFerr_;
@@ -14537,7 +14572,7 @@ const vector<float> &Nano::Electron_MVAFall17V2noIso_WP90_SF() {
     if (!loaded_Electron_MVAFall17V2noIso_WP90_SF_) {
         if (!b_Electron_MVAFall17V2noIso_WP90_SF_) throw std::runtime_error("Electron_MVAFall17V2noIso_WP90_SF branch doesn't exist");
         int bytes = b_Electron_MVAFall17V2noIso_WP90_SF_->GetEntry(index);
-        v_Electron_MVAFall17V2noIso_WP90_SF_ = vector<float>(Electron_MVAFall17V2noIso_WP90_SF_,Electron_MVAFall17V2noIso_WP90_SF_+bytes/sizeof(Electron_MVAFall17V2noIso_WP90_SF_[0]));
+        v_Electron_MVAFall17V2noIso_WP90_SF_ = vector<float>(Electron_MVAFall17V2noIso_WP90_SF_.data(),Electron_MVAFall17V2noIso_WP90_SF_.data()+bytes/sizeof(Electron_MVAFall17V2noIso_WP90_SF_[0]));
         loaded_Electron_MVAFall17V2noIso_WP90_SF_ = true;
     }
     return v_Electron_MVAFall17V2noIso_WP90_SF_;
@@ -14548,7 +14583,7 @@ const vector<float> &Nano::Electron_MVAFall17V2noIso_WP90_SFerr() {
     if (!loaded_Electron_MVAFall17V2noIso_WP90_SFerr_) {
         if (!b_Electron_MVAFall17V2noIso_WP90_SFerr_) throw std::runtime_error("Electron_MVAFall17V2noIso_WP90_SFerr branch doesn't exist");
         int bytes = b_Electron_MVAFall17V2noIso_WP90_SFerr_->GetEntry(index);
-        v_Electron_MVAFall17V2noIso_WP90_SFerr_ = vector<float>(Electron_MVAFall17V2noIso_WP90_SFerr_,Electron_MVAFall17V2noIso_WP90_SFerr_+bytes/sizeof(Electron_MVAFall17V2noIso_WP90_SFerr_[0]));
+        v_Electron_MVAFall17V2noIso_WP90_SFerr_ = vector<float>(Electron_MVAFall17V2noIso_WP90_SFerr_.data(),Electron_MVAFall17V2noIso_WP90_SFerr_.data()+bytes/sizeof(Electron_MVAFall17V2noIso_WP90_SFerr_[0]));
         loaded_Electron_MVAFall17V2noIso_WP90_SFerr_ = true;
     }
     return v_Electron_MVAFall17V2noIso_WP90_SFerr_;
@@ -14559,7 +14594,7 @@ const vector<float> &Nano::Electron_RECO_SF() {
     if (!loaded_Electron_RECO_SF_) {
         if (!b_Electron_RECO_SF_) throw std::runtime_error("Electron_RECO_SF branch doesn't exist");
         int bytes = b_Electron_RECO_SF_->GetEntry(index);
-        v_Electron_RECO_SF_ = vector<float>(Electron_RECO_SF_,Electron_RECO_SF_+bytes/sizeof(Electron_RECO_SF_[0]));
+        v_Electron_RECO_SF_ = vector<float>(Electron_RECO_SF_.data(),Electron_RECO_SF_.data()+bytes/sizeof(Electron_RECO_SF_[0]));
         loaded_Electron_RECO_SF_ = true;
     }
     return v_Electron_RECO_SF_;
@@ -14570,7 +14605,7 @@ const vector<float> &Nano::Electron_RECO_SFerr() {
     if (!loaded_Electron_RECO_SFerr_) {
         if (!b_Electron_RECO_SFerr_) throw std::runtime_error("Electron_RECO_SFerr branch doesn't exist");
         int bytes = b_Electron_RECO_SFerr_->GetEntry(index);
-        v_Electron_RECO_SFerr_ = vector<float>(Electron_RECO_SFerr_,Electron_RECO_SFerr_+bytes/sizeof(Electron_RECO_SFerr_[0]));
+        v_Electron_RECO_SFerr_ = vector<float>(Electron_RECO_SFerr_.data(),Electron_RECO_SFerr_.data()+bytes/sizeof(Electron_RECO_SFerr_[0]));
         loaded_Electron_RECO_SFerr_ = true;
     }
     return v_Electron_RECO_SFerr_;
@@ -14581,7 +14616,7 @@ const vector<int> &Nano::Electron_charge() {
     if (!loaded_Electron_charge_) {
         if (!b_Electron_charge_) throw std::runtime_error("Electron_charge branch doesn't exist");
         int bytes = b_Electron_charge_->GetEntry(index);
-        v_Electron_charge_ = vector<int>(Electron_charge_,Electron_charge_+bytes/sizeof(Electron_charge_[0]));
+        v_Electron_charge_ = vector<int>(Electron_charge_.data(),Electron_charge_.data()+bytes/sizeof(Electron_charge_[0]));
         loaded_Electron_charge_ = true;
     }
     return v_Electron_charge_;
@@ -14592,7 +14627,7 @@ const vector<UChar_t> &Nano::Electron_cleanmask() {
     if (!loaded_Electron_cleanmask_) {
         if (!b_Electron_cleanmask_) throw std::runtime_error("Electron_cleanmask branch doesn't exist");
         int bytes = b_Electron_cleanmask_->GetEntry(index);
-        v_Electron_cleanmask_ = vector<UChar_t>(Electron_cleanmask_,Electron_cleanmask_+bytes/sizeof(Electron_cleanmask_[0]));
+        v_Electron_cleanmask_ = vector<UChar_t>(Electron_cleanmask_.data(),Electron_cleanmask_.data()+bytes/sizeof(Electron_cleanmask_[0]));
         loaded_Electron_cleanmask_ = true;
     }
     return v_Electron_cleanmask_;
@@ -14603,7 +14638,7 @@ const vector<bool> &Nano::Electron_convVeto() {
     if (!loaded_Electron_convVeto_) {
         if (!b_Electron_convVeto_) throw std::runtime_error("Electron_convVeto branch doesn't exist");
         int bytes = b_Electron_convVeto_->GetEntry(index);
-        v_Electron_convVeto_ = vector<bool>(Electron_convVeto_,Electron_convVeto_+bytes/sizeof(Electron_convVeto_[0]));
+        v_Electron_convVeto_ = vector<bool>(Electron_convVeto_.data(),Electron_convVeto_.data()+bytes/sizeof(Electron_convVeto_[0]));
         loaded_Electron_convVeto_ = true;
     }
     return v_Electron_convVeto_;
@@ -14614,7 +14649,7 @@ const vector<int> &Nano::Electron_cutBased() {
     if (!loaded_Electron_cutBased_) {
         if (!b_Electron_cutBased_) throw std::runtime_error("Electron_cutBased branch doesn't exist");
         int bytes = b_Electron_cutBased_->GetEntry(index);
-        v_Electron_cutBased_ = vector<int>(Electron_cutBased_,Electron_cutBased_+bytes/sizeof(Electron_cutBased_[0]));
+        v_Electron_cutBased_ = vector<int>(Electron_cutBased_.data(),Electron_cutBased_.data()+bytes/sizeof(Electron_cutBased_[0]));
         loaded_Electron_cutBased_ = true;
     }
     return v_Electron_cutBased_;
@@ -14625,7 +14660,7 @@ const vector<int> &Nano::Electron_cutBased17() {
     if (!loaded_Electron_cutBased17_) {
         if (!b_Electron_cutBased17_) throw std::runtime_error("Electron_cutBased17 branch doesn't exist");
         int bytes = b_Electron_cutBased17_->GetEntry(index);
-        v_Electron_cutBased17_ = vector<int>(Electron_cutBased17_,Electron_cutBased17_+bytes/sizeof(Electron_cutBased17_[0]));
+        v_Electron_cutBased17_ = vector<int>(Electron_cutBased17_.data(),Electron_cutBased17_.data()+bytes/sizeof(Electron_cutBased17_[0]));
         loaded_Electron_cutBased17_ = true;
     }
     return v_Electron_cutBased17_;
@@ -14636,7 +14671,7 @@ const vector<int> &Nano::Electron_cutBased_Fall17V2() {
     if (!loaded_Electron_cutBased_Fall17V2_) {
         if (!b_Electron_cutBased_Fall17V2_) throw std::runtime_error("Electron_cutBased_Fall17V2 branch doesn't exist");
         int bytes = b_Electron_cutBased_Fall17V2_->GetEntry(index);
-        v_Electron_cutBased_Fall17V2_ = vector<int>(Electron_cutBased_Fall17V2_,Electron_cutBased_Fall17V2_+bytes/sizeof(Electron_cutBased_Fall17V2_[0]));
+        v_Electron_cutBased_Fall17V2_ = vector<int>(Electron_cutBased_Fall17V2_.data(),Electron_cutBased_Fall17V2_.data()+bytes/sizeof(Electron_cutBased_Fall17V2_[0]));
         loaded_Electron_cutBased_Fall17V2_ = true;
     }
     return v_Electron_cutBased_Fall17V2_;
@@ -14647,7 +14682,7 @@ const vector<int> &Nano::Electron_cutBased_Fall17_V1() {
     if (!loaded_Electron_cutBased_Fall17_V1_) {
         if (!b_Electron_cutBased_Fall17_V1_) throw std::runtime_error("Electron_cutBased_Fall17_V1 branch doesn't exist");
         int bytes = b_Electron_cutBased_Fall17_V1_->GetEntry(index);
-        v_Electron_cutBased_Fall17_V1_ = vector<int>(Electron_cutBased_Fall17_V1_,Electron_cutBased_Fall17_V1_+bytes/sizeof(Electron_cutBased_Fall17_V1_[0]));
+        v_Electron_cutBased_Fall17_V1_ = vector<int>(Electron_cutBased_Fall17_V1_.data(),Electron_cutBased_Fall17_V1_.data()+bytes/sizeof(Electron_cutBased_Fall17_V1_[0]));
         loaded_Electron_cutBased_Fall17_V1_ = true;
     }
     return v_Electron_cutBased_Fall17_V1_;
@@ -14658,7 +14693,7 @@ const vector<bool> &Nano::Electron_cutBased_HEEP() {
     if (!loaded_Electron_cutBased_HEEP_) {
         if (!b_Electron_cutBased_HEEP_) throw std::runtime_error("Electron_cutBased_HEEP branch doesn't exist");
         int bytes = b_Electron_cutBased_HEEP_->GetEntry(index);
-        v_Electron_cutBased_HEEP_ = vector<bool>(Electron_cutBased_HEEP_,Electron_cutBased_HEEP_+bytes/sizeof(Electron_cutBased_HEEP_[0]));
+        v_Electron_cutBased_HEEP_ = vector<bool>(Electron_cutBased_HEEP_.data(),Electron_cutBased_HEEP_.data()+bytes/sizeof(Electron_cutBased_HEEP_[0]));
         loaded_Electron_cutBased_HEEP_ = true;
     }
     return v_Electron_cutBased_HEEP_;
@@ -14669,7 +14704,7 @@ const vector<int> &Nano::Electron_cutBased_HLTPreSel() {
     if (!loaded_Electron_cutBased_HLTPreSel_) {
         if (!b_Electron_cutBased_HLTPreSel_) throw std::runtime_error("Electron_cutBased_HLTPreSel branch doesn't exist");
         int bytes = b_Electron_cutBased_HLTPreSel_->GetEntry(index);
-        v_Electron_cutBased_HLTPreSel_ = vector<int>(Electron_cutBased_HLTPreSel_,Electron_cutBased_HLTPreSel_+bytes/sizeof(Electron_cutBased_HLTPreSel_[0]));
+        v_Electron_cutBased_HLTPreSel_ = vector<int>(Electron_cutBased_HLTPreSel_.data(),Electron_cutBased_HLTPreSel_.data()+bytes/sizeof(Electron_cutBased_HLTPreSel_[0]));
         loaded_Electron_cutBased_HLTPreSel_ = true;
     }
     return v_Electron_cutBased_HLTPreSel_;
@@ -14680,7 +14715,7 @@ const vector<float> &Nano::Electron_dEscaleDown() {
     if (!loaded_Electron_dEscaleDown_) {
         if (!b_Electron_dEscaleDown_) throw std::runtime_error("Electron_dEscaleDown branch doesn't exist");
         int bytes = b_Electron_dEscaleDown_->GetEntry(index);
-        v_Electron_dEscaleDown_ = vector<float>(Electron_dEscaleDown_,Electron_dEscaleDown_+bytes/sizeof(Electron_dEscaleDown_[0]));
+        v_Electron_dEscaleDown_ = vector<float>(Electron_dEscaleDown_.data(),Electron_dEscaleDown_.data()+bytes/sizeof(Electron_dEscaleDown_[0]));
         loaded_Electron_dEscaleDown_ = true;
     }
     return v_Electron_dEscaleDown_;
@@ -14691,7 +14726,7 @@ const vector<float> &Nano::Electron_dEscaleUp() {
     if (!loaded_Electron_dEscaleUp_) {
         if (!b_Electron_dEscaleUp_) throw std::runtime_error("Electron_dEscaleUp branch doesn't exist");
         int bytes = b_Electron_dEscaleUp_->GetEntry(index);
-        v_Electron_dEscaleUp_ = vector<float>(Electron_dEscaleUp_,Electron_dEscaleUp_+bytes/sizeof(Electron_dEscaleUp_[0]));
+        v_Electron_dEscaleUp_ = vector<float>(Electron_dEscaleUp_.data(),Electron_dEscaleUp_.data()+bytes/sizeof(Electron_dEscaleUp_[0]));
         loaded_Electron_dEscaleUp_ = true;
     }
     return v_Electron_dEscaleUp_;
@@ -14702,7 +14737,7 @@ const vector<float> &Nano::Electron_dEsigmaDown() {
     if (!loaded_Electron_dEsigmaDown_) {
         if (!b_Electron_dEsigmaDown_) throw std::runtime_error("Electron_dEsigmaDown branch doesn't exist");
         int bytes = b_Electron_dEsigmaDown_->GetEntry(index);
-        v_Electron_dEsigmaDown_ = vector<float>(Electron_dEsigmaDown_,Electron_dEsigmaDown_+bytes/sizeof(Electron_dEsigmaDown_[0]));
+        v_Electron_dEsigmaDown_ = vector<float>(Electron_dEsigmaDown_.data(),Electron_dEsigmaDown_.data()+bytes/sizeof(Electron_dEsigmaDown_[0]));
         loaded_Electron_dEsigmaDown_ = true;
     }
     return v_Electron_dEsigmaDown_;
@@ -14713,7 +14748,7 @@ const vector<float> &Nano::Electron_dEsigmaUp() {
     if (!loaded_Electron_dEsigmaUp_) {
         if (!b_Electron_dEsigmaUp_) throw std::runtime_error("Electron_dEsigmaUp branch doesn't exist");
         int bytes = b_Electron_dEsigmaUp_->GetEntry(index);
-        v_Electron_dEsigmaUp_ = vector<float>(Electron_dEsigmaUp_,Electron_dEsigmaUp_+bytes/sizeof(Electron_dEsigmaUp_[0]));
+        v_Electron_dEsigmaUp_ = vector<float>(Electron_dEsigmaUp_.data(),Electron_dEsigmaUp_.data()+bytes/sizeof(Electron_dEsigmaUp_[0]));
         loaded_Electron_dEsigmaUp_ = true;
     }
     return v_Electron_dEsigmaUp_;
@@ -14724,7 +14759,7 @@ const vector<float> &Nano::Electron_deltaEtaSC() {
     if (!loaded_Electron_deltaEtaSC_) {
         if (!b_Electron_deltaEtaSC_) throw std::runtime_error("Electron_deltaEtaSC branch doesn't exist");
         int bytes = b_Electron_deltaEtaSC_->GetEntry(index);
-        v_Electron_deltaEtaSC_ = vector<float>(Electron_deltaEtaSC_,Electron_deltaEtaSC_+bytes/sizeof(Electron_deltaEtaSC_[0]));
+        v_Electron_deltaEtaSC_ = vector<float>(Electron_deltaEtaSC_.data(),Electron_deltaEtaSC_.data()+bytes/sizeof(Electron_deltaEtaSC_[0]));
         loaded_Electron_deltaEtaSC_ = true;
     }
     return v_Electron_deltaEtaSC_;
@@ -14735,7 +14770,7 @@ const vector<float> &Nano::Electron_dr03EcalRecHitSumEt() {
     if (!loaded_Electron_dr03EcalRecHitSumEt_) {
         if (!b_Electron_dr03EcalRecHitSumEt_) throw std::runtime_error("Electron_dr03EcalRecHitSumEt branch doesn't exist");
         int bytes = b_Electron_dr03EcalRecHitSumEt_->GetEntry(index);
-        v_Electron_dr03EcalRecHitSumEt_ = vector<float>(Electron_dr03EcalRecHitSumEt_,Electron_dr03EcalRecHitSumEt_+bytes/sizeof(Electron_dr03EcalRecHitSumEt_[0]));
+        v_Electron_dr03EcalRecHitSumEt_ = vector<float>(Electron_dr03EcalRecHitSumEt_.data(),Electron_dr03EcalRecHitSumEt_.data()+bytes/sizeof(Electron_dr03EcalRecHitSumEt_[0]));
         loaded_Electron_dr03EcalRecHitSumEt_ = true;
     }
     return v_Electron_dr03EcalRecHitSumEt_;
@@ -14746,7 +14781,7 @@ const vector<float> &Nano::Electron_dr03HcalDepth1TowerSumEt() {
     if (!loaded_Electron_dr03HcalDepth1TowerSumEt_) {
         if (!b_Electron_dr03HcalDepth1TowerSumEt_) throw std::runtime_error("Electron_dr03HcalDepth1TowerSumEt branch doesn't exist");
         int bytes = b_Electron_dr03HcalDepth1TowerSumEt_->GetEntry(index);
-        v_Electron_dr03HcalDepth1TowerSumEt_ = vector<float>(Electron_dr03HcalDepth1TowerSumEt_,Electron_dr03HcalDepth1TowerSumEt_+bytes/sizeof(Electron_dr03HcalDepth1TowerSumEt_[0]));
+        v_Electron_dr03HcalDepth1TowerSumEt_ = vector<float>(Electron_dr03HcalDepth1TowerSumEt_.data(),Electron_dr03HcalDepth1TowerSumEt_.data()+bytes/sizeof(Electron_dr03HcalDepth1TowerSumEt_[0]));
         loaded_Electron_dr03HcalDepth1TowerSumEt_ = true;
     }
     return v_Electron_dr03HcalDepth1TowerSumEt_;
@@ -14757,7 +14792,7 @@ const vector<float> &Nano::Electron_dr03TkSumPt() {
     if (!loaded_Electron_dr03TkSumPt_) {
         if (!b_Electron_dr03TkSumPt_) throw std::runtime_error("Electron_dr03TkSumPt branch doesn't exist");
         int bytes = b_Electron_dr03TkSumPt_->GetEntry(index);
-        v_Electron_dr03TkSumPt_ = vector<float>(Electron_dr03TkSumPt_,Electron_dr03TkSumPt_+bytes/sizeof(Electron_dr03TkSumPt_[0]));
+        v_Electron_dr03TkSumPt_ = vector<float>(Electron_dr03TkSumPt_.data(),Electron_dr03TkSumPt_.data()+bytes/sizeof(Electron_dr03TkSumPt_[0]));
         loaded_Electron_dr03TkSumPt_ = true;
     }
     return v_Electron_dr03TkSumPt_;
@@ -14768,7 +14803,7 @@ const vector<float> &Nano::Electron_dr03TkSumPtHEEP() {
     if (!loaded_Electron_dr03TkSumPtHEEP_) {
         if (!b_Electron_dr03TkSumPtHEEP_) throw std::runtime_error("Electron_dr03TkSumPtHEEP branch doesn't exist");
         int bytes = b_Electron_dr03TkSumPtHEEP_->GetEntry(index);
-        v_Electron_dr03TkSumPtHEEP_ = vector<float>(Electron_dr03TkSumPtHEEP_,Electron_dr03TkSumPtHEEP_+bytes/sizeof(Electron_dr03TkSumPtHEEP_[0]));
+        v_Electron_dr03TkSumPtHEEP_ = vector<float>(Electron_dr03TkSumPtHEEP_.data(),Electron_dr03TkSumPtHEEP_.data()+bytes/sizeof(Electron_dr03TkSumPtHEEP_[0]));
         loaded_Electron_dr03TkSumPtHEEP_ = true;
     }
     return v_Electron_dr03TkSumPtHEEP_;
@@ -14779,7 +14814,7 @@ const vector<float> &Nano::Electron_dxy() {
     if (!loaded_Electron_dxy_) {
         if (!b_Electron_dxy_) throw std::runtime_error("Electron_dxy branch doesn't exist");
         int bytes = b_Electron_dxy_->GetEntry(index);
-        v_Electron_dxy_ = vector<float>(Electron_dxy_,Electron_dxy_+bytes/sizeof(Electron_dxy_[0]));
+        v_Electron_dxy_ = vector<float>(Electron_dxy_.data(),Electron_dxy_.data()+bytes/sizeof(Electron_dxy_[0]));
         loaded_Electron_dxy_ = true;
     }
     return v_Electron_dxy_;
@@ -14790,7 +14825,7 @@ const vector<float> &Nano::Electron_dxyErr() {
     if (!loaded_Electron_dxyErr_) {
         if (!b_Electron_dxyErr_) throw std::runtime_error("Electron_dxyErr branch doesn't exist");
         int bytes = b_Electron_dxyErr_->GetEntry(index);
-        v_Electron_dxyErr_ = vector<float>(Electron_dxyErr_,Electron_dxyErr_+bytes/sizeof(Electron_dxyErr_[0]));
+        v_Electron_dxyErr_ = vector<float>(Electron_dxyErr_.data(),Electron_dxyErr_.data()+bytes/sizeof(Electron_dxyErr_[0]));
         loaded_Electron_dxyErr_ = true;
     }
     return v_Electron_dxyErr_;
@@ -14801,7 +14836,7 @@ const vector<float> &Nano::Electron_dz() {
     if (!loaded_Electron_dz_) {
         if (!b_Electron_dz_) throw std::runtime_error("Electron_dz branch doesn't exist");
         int bytes = b_Electron_dz_->GetEntry(index);
-        v_Electron_dz_ = vector<float>(Electron_dz_,Electron_dz_+bytes/sizeof(Electron_dz_[0]));
+        v_Electron_dz_ = vector<float>(Electron_dz_.data(),Electron_dz_.data()+bytes/sizeof(Electron_dz_[0]));
         loaded_Electron_dz_ = true;
     }
     return v_Electron_dz_;
@@ -14812,7 +14847,7 @@ const vector<float> &Nano::Electron_dzErr() {
     if (!loaded_Electron_dzErr_) {
         if (!b_Electron_dzErr_) throw std::runtime_error("Electron_dzErr branch doesn't exist");
         int bytes = b_Electron_dzErr_->GetEntry(index);
-        v_Electron_dzErr_ = vector<float>(Electron_dzErr_,Electron_dzErr_+bytes/sizeof(Electron_dzErr_[0]));
+        v_Electron_dzErr_ = vector<float>(Electron_dzErr_.data(),Electron_dzErr_.data()+bytes/sizeof(Electron_dzErr_[0]));
         loaded_Electron_dzErr_ = true;
     }
     return v_Electron_dzErr_;
@@ -14823,7 +14858,7 @@ const vector<float> &Nano::Electron_eCorr() {
     if (!loaded_Electron_eCorr_) {
         if (!b_Electron_eCorr_) throw std::runtime_error("Electron_eCorr branch doesn't exist");
         int bytes = b_Electron_eCorr_->GetEntry(index);
-        v_Electron_eCorr_ = vector<float>(Electron_eCorr_,Electron_eCorr_+bytes/sizeof(Electron_eCorr_[0]));
+        v_Electron_eCorr_ = vector<float>(Electron_eCorr_.data(),Electron_eCorr_.data()+bytes/sizeof(Electron_eCorr_[0]));
         loaded_Electron_eCorr_ = true;
     }
     return v_Electron_eCorr_;
@@ -14834,7 +14869,7 @@ const vector<float> &Nano::Electron_eInvMinusPInv() {
     if (!loaded_Electron_eInvMinusPInv_) {
         if (!b_Electron_eInvMinusPInv_) throw std::runtime_error("Electron_eInvMinusPInv branch doesn't exist");
         int bytes = b_Electron_eInvMinusPInv_->GetEntry(index);
-        v_Electron_eInvMinusPInv_ = vector<float>(Electron_eInvMinusPInv_,Electron_eInvMinusPInv_+bytes/sizeof(Electron_eInvMinusPInv_[0]));
+        v_Electron_eInvMinusPInv_ = vector<float>(Electron_eInvMinusPInv_.data(),Electron_eInvMinusPInv_.data()+bytes/sizeof(Electron_eInvMinusPInv_[0]));
         loaded_Electron_eInvMinusPInv_ = true;
     }
     return v_Electron_eInvMinusPInv_;
@@ -14845,7 +14880,7 @@ const vector<float> &Nano::Electron_energyErr() {
     if (!loaded_Electron_energyErr_) {
         if (!b_Electron_energyErr_) throw std::runtime_error("Electron_energyErr branch doesn't exist");
         int bytes = b_Electron_energyErr_->GetEntry(index);
-        v_Electron_energyErr_ = vector<float>(Electron_energyErr_,Electron_energyErr_+bytes/sizeof(Electron_energyErr_[0]));
+        v_Electron_energyErr_ = vector<float>(Electron_energyErr_.data(),Electron_energyErr_.data()+bytes/sizeof(Electron_energyErr_[0]));
         loaded_Electron_energyErr_ = true;
     }
     return v_Electron_energyErr_;
@@ -14856,7 +14891,7 @@ const vector<float> &Nano::Electron_eta() {
     if (!loaded_Electron_eta_) {
         if (!b_Electron_eta_) throw std::runtime_error("Electron_eta branch doesn't exist");
         int bytes = b_Electron_eta_->GetEntry(index);
-        v_Electron_eta_ = vector<float>(Electron_eta_,Electron_eta_+bytes/sizeof(Electron_eta_[0]));
+        v_Electron_eta_ = vector<float>(Electron_eta_.data(),Electron_eta_.data()+bytes/sizeof(Electron_eta_[0]));
         loaded_Electron_eta_ = true;
     }
     return v_Electron_eta_;
@@ -14867,7 +14902,7 @@ const vector<int> &Nano::Electron_fsrPhotonIdx() {
     if (!loaded_Electron_fsrPhotonIdx_) {
         if (!b_Electron_fsrPhotonIdx_) throw std::runtime_error("Electron_fsrPhotonIdx branch doesn't exist");
         int bytes = b_Electron_fsrPhotonIdx_->GetEntry(index);
-        v_Electron_fsrPhotonIdx_ = vector<int>(Electron_fsrPhotonIdx_,Electron_fsrPhotonIdx_+bytes/sizeof(Electron_fsrPhotonIdx_[0]));
+        v_Electron_fsrPhotonIdx_ = vector<int>(Electron_fsrPhotonIdx_.data(),Electron_fsrPhotonIdx_.data()+bytes/sizeof(Electron_fsrPhotonIdx_[0]));
         loaded_Electron_fsrPhotonIdx_ = true;
     }
     return v_Electron_fsrPhotonIdx_;
@@ -14878,7 +14913,7 @@ const vector<UChar_t> &Nano::Electron_genPartFlav() {
     if (!loaded_Electron_genPartFlav_) {
         if (!b_Electron_genPartFlav_) throw std::runtime_error("Electron_genPartFlav branch doesn't exist");
         int bytes = b_Electron_genPartFlav_->GetEntry(index);
-        v_Electron_genPartFlav_ = vector<UChar_t>(Electron_genPartFlav_,Electron_genPartFlav_+bytes/sizeof(Electron_genPartFlav_[0]));
+        v_Electron_genPartFlav_ = vector<UChar_t>(Electron_genPartFlav_.data(),Electron_genPartFlav_.data()+bytes/sizeof(Electron_genPartFlav_[0]));
         loaded_Electron_genPartFlav_ = true;
     }
     return v_Electron_genPartFlav_;
@@ -14889,7 +14924,7 @@ const vector<int> &Nano::Electron_genPartIdx() {
     if (!loaded_Electron_genPartIdx_) {
         if (!b_Electron_genPartIdx_) throw std::runtime_error("Electron_genPartIdx branch doesn't exist");
         int bytes = b_Electron_genPartIdx_->GetEntry(index);
-        v_Electron_genPartIdx_ = vector<int>(Electron_genPartIdx_,Electron_genPartIdx_+bytes/sizeof(Electron_genPartIdx_[0]));
+        v_Electron_genPartIdx_ = vector<int>(Electron_genPartIdx_.data(),Electron_genPartIdx_.data()+bytes/sizeof(Electron_genPartIdx_[0]));
         loaded_Electron_genPartIdx_ = true;
     }
     return v_Electron_genPartIdx_;
@@ -14900,7 +14935,7 @@ const vector<float> &Nano::Electron_hoe() {
     if (!loaded_Electron_hoe_) {
         if (!b_Electron_hoe_) throw std::runtime_error("Electron_hoe branch doesn't exist");
         int bytes = b_Electron_hoe_->GetEntry(index);
-        v_Electron_hoe_ = vector<float>(Electron_hoe_,Electron_hoe_+bytes/sizeof(Electron_hoe_[0]));
+        v_Electron_hoe_ = vector<float>(Electron_hoe_.data(),Electron_hoe_.data()+bytes/sizeof(Electron_hoe_[0]));
         loaded_Electron_hoe_ = true;
     }
     return v_Electron_hoe_;
@@ -14911,7 +14946,7 @@ const vector<float> &Nano::Electron_ip3d() {
     if (!loaded_Electron_ip3d_) {
         if (!b_Electron_ip3d_) throw std::runtime_error("Electron_ip3d branch doesn't exist");
         int bytes = b_Electron_ip3d_->GetEntry(index);
-        v_Electron_ip3d_ = vector<float>(Electron_ip3d_,Electron_ip3d_+bytes/sizeof(Electron_ip3d_[0]));
+        v_Electron_ip3d_ = vector<float>(Electron_ip3d_.data(),Electron_ip3d_.data()+bytes/sizeof(Electron_ip3d_[0]));
         loaded_Electron_ip3d_ = true;
     }
     return v_Electron_ip3d_;
@@ -14922,7 +14957,7 @@ const vector<bool> &Nano::Electron_isPFcand() {
     if (!loaded_Electron_isPFcand_) {
         if (!b_Electron_isPFcand_) throw std::runtime_error("Electron_isPFcand branch doesn't exist");
         int bytes = b_Electron_isPFcand_->GetEntry(index);
-        v_Electron_isPFcand_ = vector<bool>(Electron_isPFcand_,Electron_isPFcand_+bytes/sizeof(Electron_isPFcand_[0]));
+        v_Electron_isPFcand_ = vector<bool>(Electron_isPFcand_.data(),Electron_isPFcand_.data()+bytes/sizeof(Electron_isPFcand_[0]));
         loaded_Electron_isPFcand_ = true;
     }
     return v_Electron_isPFcand_;
@@ -14933,7 +14968,7 @@ const vector<int> &Nano::Electron_jetIdx() {
     if (!loaded_Electron_jetIdx_) {
         if (!b_Electron_jetIdx_) throw std::runtime_error("Electron_jetIdx branch doesn't exist");
         int bytes = b_Electron_jetIdx_->GetEntry(index);
-        v_Electron_jetIdx_ = vector<int>(Electron_jetIdx_,Electron_jetIdx_+bytes/sizeof(Electron_jetIdx_[0]));
+        v_Electron_jetIdx_ = vector<int>(Electron_jetIdx_.data(),Electron_jetIdx_.data()+bytes/sizeof(Electron_jetIdx_[0]));
         loaded_Electron_jetIdx_ = true;
     }
     return v_Electron_jetIdx_;
@@ -14944,7 +14979,7 @@ const vector<UChar_t> &Nano::Electron_jetNDauCharged() {
     if (!loaded_Electron_jetNDauCharged_) {
         if (!b_Electron_jetNDauCharged_) throw std::runtime_error("Electron_jetNDauCharged branch doesn't exist");
         int bytes = b_Electron_jetNDauCharged_->GetEntry(index);
-        v_Electron_jetNDauCharged_ = vector<UChar_t>(Electron_jetNDauCharged_,Electron_jetNDauCharged_+bytes/sizeof(Electron_jetNDauCharged_[0]));
+        v_Electron_jetNDauCharged_ = vector<UChar_t>(Electron_jetNDauCharged_.data(),Electron_jetNDauCharged_.data()+bytes/sizeof(Electron_jetNDauCharged_[0]));
         loaded_Electron_jetNDauCharged_ = true;
     }
     return v_Electron_jetNDauCharged_;
@@ -14955,7 +14990,7 @@ const vector<float> &Nano::Electron_jetPtRelv2() {
     if (!loaded_Electron_jetPtRelv2_) {
         if (!b_Electron_jetPtRelv2_) throw std::runtime_error("Electron_jetPtRelv2 branch doesn't exist");
         int bytes = b_Electron_jetPtRelv2_->GetEntry(index);
-        v_Electron_jetPtRelv2_ = vector<float>(Electron_jetPtRelv2_,Electron_jetPtRelv2_+bytes/sizeof(Electron_jetPtRelv2_[0]));
+        v_Electron_jetPtRelv2_ = vector<float>(Electron_jetPtRelv2_.data(),Electron_jetPtRelv2_.data()+bytes/sizeof(Electron_jetPtRelv2_[0]));
         loaded_Electron_jetPtRelv2_ = true;
     }
     return v_Electron_jetPtRelv2_;
@@ -14966,7 +15001,7 @@ const vector<float> &Nano::Electron_jetRelIso() {
     if (!loaded_Electron_jetRelIso_) {
         if (!b_Electron_jetRelIso_) throw std::runtime_error("Electron_jetRelIso branch doesn't exist");
         int bytes = b_Electron_jetRelIso_->GetEntry(index);
-        v_Electron_jetRelIso_ = vector<float>(Electron_jetRelIso_,Electron_jetRelIso_+bytes/sizeof(Electron_jetRelIso_[0]));
+        v_Electron_jetRelIso_ = vector<float>(Electron_jetRelIso_.data(),Electron_jetRelIso_.data()+bytes/sizeof(Electron_jetRelIso_[0]));
         loaded_Electron_jetRelIso_ = true;
     }
     return v_Electron_jetRelIso_;
@@ -14977,7 +15012,7 @@ const vector<float> &Nano::Electron_jetRelIso_Fall17V2() {
     if (!loaded_Electron_jetRelIso_Fall17V2_) {
         if (!b_Electron_jetRelIso_Fall17V2_) throw std::runtime_error("Electron_jetRelIso_Fall17V2 branch doesn't exist");
         int bytes = b_Electron_jetRelIso_Fall17V2_->GetEntry(index);
-        v_Electron_jetRelIso_Fall17V2_ = vector<float>(Electron_jetRelIso_Fall17V2_,Electron_jetRelIso_Fall17V2_+bytes/sizeof(Electron_jetRelIso_Fall17V2_[0]));
+        v_Electron_jetRelIso_Fall17V2_ = vector<float>(Electron_jetRelIso_Fall17V2_.data(),Electron_jetRelIso_Fall17V2_.data()+bytes/sizeof(Electron_jetRelIso_Fall17V2_[0]));
         loaded_Electron_jetRelIso_Fall17V2_ = true;
     }
     return v_Electron_jetRelIso_Fall17V2_;
@@ -14988,7 +15023,7 @@ const vector<UChar_t> &Nano::Electron_lostHits() {
     if (!loaded_Electron_lostHits_) {
         if (!b_Electron_lostHits_) throw std::runtime_error("Electron_lostHits branch doesn't exist");
         int bytes = b_Electron_lostHits_->GetEntry(index);
-        v_Electron_lostHits_ = vector<UChar_t>(Electron_lostHits_,Electron_lostHits_+bytes/sizeof(Electron_lostHits_[0]));
+        v_Electron_lostHits_ = vector<UChar_t>(Electron_lostHits_.data(),Electron_lostHits_.data()+bytes/sizeof(Electron_lostHits_[0]));
         loaded_Electron_lostHits_ = true;
     }
     return v_Electron_lostHits_;
@@ -14999,7 +15034,7 @@ const vector<float> &Nano::Electron_mass() {
     if (!loaded_Electron_mass_) {
         if (!b_Electron_mass_) throw std::runtime_error("Electron_mass branch doesn't exist");
         int bytes = b_Electron_mass_->GetEntry(index);
-        v_Electron_mass_ = vector<float>(Electron_mass_,Electron_mass_+bytes/sizeof(Electron_mass_[0]));
+        v_Electron_mass_ = vector<float>(Electron_mass_.data(),Electron_mass_.data()+bytes/sizeof(Electron_mass_[0]));
         loaded_Electron_mass_ = true;
     }
     return v_Electron_mass_;
@@ -15010,7 +15045,7 @@ const vector<float> &Nano::Electron_miniPFRelIso_all() {
     if (!loaded_Electron_miniPFRelIso_all_) {
         if (!b_Electron_miniPFRelIso_all_) throw std::runtime_error("Electron_miniPFRelIso_all branch doesn't exist");
         int bytes = b_Electron_miniPFRelIso_all_->GetEntry(index);
-        v_Electron_miniPFRelIso_all_ = vector<float>(Electron_miniPFRelIso_all_,Electron_miniPFRelIso_all_+bytes/sizeof(Electron_miniPFRelIso_all_[0]));
+        v_Electron_miniPFRelIso_all_ = vector<float>(Electron_miniPFRelIso_all_.data(),Electron_miniPFRelIso_all_.data()+bytes/sizeof(Electron_miniPFRelIso_all_[0]));
         loaded_Electron_miniPFRelIso_all_ = true;
     }
     return v_Electron_miniPFRelIso_all_;
@@ -15021,7 +15056,7 @@ const vector<float> &Nano::Electron_miniPFRelIso_all_Fall17V2() {
     if (!loaded_Electron_miniPFRelIso_all_Fall17V2_) {
         if (!b_Electron_miniPFRelIso_all_Fall17V2_) throw std::runtime_error("Electron_miniPFRelIso_all_Fall17V2 branch doesn't exist");
         int bytes = b_Electron_miniPFRelIso_all_Fall17V2_->GetEntry(index);
-        v_Electron_miniPFRelIso_all_Fall17V2_ = vector<float>(Electron_miniPFRelIso_all_Fall17V2_,Electron_miniPFRelIso_all_Fall17V2_+bytes/sizeof(Electron_miniPFRelIso_all_Fall17V2_[0]));
+        v_Electron_miniPFRelIso_all_Fall17V2_ = vector<float>(Electron_miniPFRelIso_all_Fall17V2_.data(),Electron_miniPFRelIso_all_Fall17V2_.data()+bytes/sizeof(Electron_miniPFRelIso_all_Fall17V2_[0]));
         loaded_Electron_miniPFRelIso_all_Fall17V2_ = true;
     }
     return v_Electron_miniPFRelIso_all_Fall17V2_;
@@ -15032,7 +15067,7 @@ const vector<float> &Nano::Electron_miniPFRelIso_chg() {
     if (!loaded_Electron_miniPFRelIso_chg_) {
         if (!b_Electron_miniPFRelIso_chg_) throw std::runtime_error("Electron_miniPFRelIso_chg branch doesn't exist");
         int bytes = b_Electron_miniPFRelIso_chg_->GetEntry(index);
-        v_Electron_miniPFRelIso_chg_ = vector<float>(Electron_miniPFRelIso_chg_,Electron_miniPFRelIso_chg_+bytes/sizeof(Electron_miniPFRelIso_chg_[0]));
+        v_Electron_miniPFRelIso_chg_ = vector<float>(Electron_miniPFRelIso_chg_.data(),Electron_miniPFRelIso_chg_.data()+bytes/sizeof(Electron_miniPFRelIso_chg_[0]));
         loaded_Electron_miniPFRelIso_chg_ = true;
     }
     return v_Electron_miniPFRelIso_chg_;
@@ -15043,7 +15078,7 @@ const vector<float> &Nano::Electron_miniPFRelIso_chg_Fall17V2() {
     if (!loaded_Electron_miniPFRelIso_chg_Fall17V2_) {
         if (!b_Electron_miniPFRelIso_chg_Fall17V2_) throw std::runtime_error("Electron_miniPFRelIso_chg_Fall17V2 branch doesn't exist");
         int bytes = b_Electron_miniPFRelIso_chg_Fall17V2_->GetEntry(index);
-        v_Electron_miniPFRelIso_chg_Fall17V2_ = vector<float>(Electron_miniPFRelIso_chg_Fall17V2_,Electron_miniPFRelIso_chg_Fall17V2_+bytes/sizeof(Electron_miniPFRelIso_chg_Fall17V2_[0]));
+        v_Electron_miniPFRelIso_chg_Fall17V2_ = vector<float>(Electron_miniPFRelIso_chg_Fall17V2_.data(),Electron_miniPFRelIso_chg_Fall17V2_.data()+bytes/sizeof(Electron_miniPFRelIso_chg_Fall17V2_[0]));
         loaded_Electron_miniPFRelIso_chg_Fall17V2_ = true;
     }
     return v_Electron_miniPFRelIso_chg_Fall17V2_;
@@ -15054,7 +15089,7 @@ const vector<float> &Nano::Electron_mvaFall17Iso() {
     if (!loaded_Electron_mvaFall17Iso_) {
         if (!b_Electron_mvaFall17Iso_) throw std::runtime_error("Electron_mvaFall17Iso branch doesn't exist");
         int bytes = b_Electron_mvaFall17Iso_->GetEntry(index);
-        v_Electron_mvaFall17Iso_ = vector<float>(Electron_mvaFall17Iso_,Electron_mvaFall17Iso_+bytes/sizeof(Electron_mvaFall17Iso_[0]));
+        v_Electron_mvaFall17Iso_ = vector<float>(Electron_mvaFall17Iso_.data(),Electron_mvaFall17Iso_.data()+bytes/sizeof(Electron_mvaFall17Iso_[0]));
         loaded_Electron_mvaFall17Iso_ = true;
     }
     return v_Electron_mvaFall17Iso_;
@@ -15065,7 +15100,7 @@ const vector<bool> &Nano::Electron_mvaFall17Iso_WP80() {
     if (!loaded_Electron_mvaFall17Iso_WP80_) {
         if (!b_Electron_mvaFall17Iso_WP80_) throw std::runtime_error("Electron_mvaFall17Iso_WP80 branch doesn't exist");
         int bytes = b_Electron_mvaFall17Iso_WP80_->GetEntry(index);
-        v_Electron_mvaFall17Iso_WP80_ = vector<bool>(Electron_mvaFall17Iso_WP80_,Electron_mvaFall17Iso_WP80_+bytes/sizeof(Electron_mvaFall17Iso_WP80_[0]));
+        v_Electron_mvaFall17Iso_WP80_ = vector<bool>(Electron_mvaFall17Iso_WP80_.data(),Electron_mvaFall17Iso_WP80_.data()+bytes/sizeof(Electron_mvaFall17Iso_WP80_[0]));
         loaded_Electron_mvaFall17Iso_WP80_ = true;
     }
     return v_Electron_mvaFall17Iso_WP80_;
@@ -15076,7 +15111,7 @@ const vector<bool> &Nano::Electron_mvaFall17Iso_WP90() {
     if (!loaded_Electron_mvaFall17Iso_WP90_) {
         if (!b_Electron_mvaFall17Iso_WP90_) throw std::runtime_error("Electron_mvaFall17Iso_WP90 branch doesn't exist");
         int bytes = b_Electron_mvaFall17Iso_WP90_->GetEntry(index);
-        v_Electron_mvaFall17Iso_WP90_ = vector<bool>(Electron_mvaFall17Iso_WP90_,Electron_mvaFall17Iso_WP90_+bytes/sizeof(Electron_mvaFall17Iso_WP90_[0]));
+        v_Electron_mvaFall17Iso_WP90_ = vector<bool>(Electron_mvaFall17Iso_WP90_.data(),Electron_mvaFall17Iso_WP90_.data()+bytes/sizeof(Electron_mvaFall17Iso_WP90_[0]));
         loaded_Electron_mvaFall17Iso_WP90_ = true;
     }
     return v_Electron_mvaFall17Iso_WP90_;
@@ -15087,7 +15122,7 @@ const vector<bool> &Nano::Electron_mvaFall17Iso_WPL() {
     if (!loaded_Electron_mvaFall17Iso_WPL_) {
         if (!b_Electron_mvaFall17Iso_WPL_) throw std::runtime_error("Electron_mvaFall17Iso_WPL branch doesn't exist");
         int bytes = b_Electron_mvaFall17Iso_WPL_->GetEntry(index);
-        v_Electron_mvaFall17Iso_WPL_ = vector<bool>(Electron_mvaFall17Iso_WPL_,Electron_mvaFall17Iso_WPL_+bytes/sizeof(Electron_mvaFall17Iso_WPL_[0]));
+        v_Electron_mvaFall17Iso_WPL_ = vector<bool>(Electron_mvaFall17Iso_WPL_.data(),Electron_mvaFall17Iso_WPL_.data()+bytes/sizeof(Electron_mvaFall17Iso_WPL_[0]));
         loaded_Electron_mvaFall17Iso_WPL_ = true;
     }
     return v_Electron_mvaFall17Iso_WPL_;
@@ -15098,7 +15133,7 @@ const vector<float> &Nano::Electron_mvaFall17V1Iso() {
     if (!loaded_Electron_mvaFall17V1Iso_) {
         if (!b_Electron_mvaFall17V1Iso_) throw std::runtime_error("Electron_mvaFall17V1Iso branch doesn't exist");
         int bytes = b_Electron_mvaFall17V1Iso_->GetEntry(index);
-        v_Electron_mvaFall17V1Iso_ = vector<float>(Electron_mvaFall17V1Iso_,Electron_mvaFall17V1Iso_+bytes/sizeof(Electron_mvaFall17V1Iso_[0]));
+        v_Electron_mvaFall17V1Iso_ = vector<float>(Electron_mvaFall17V1Iso_.data(),Electron_mvaFall17V1Iso_.data()+bytes/sizeof(Electron_mvaFall17V1Iso_[0]));
         loaded_Electron_mvaFall17V1Iso_ = true;
     }
     return v_Electron_mvaFall17V1Iso_;
@@ -15109,7 +15144,7 @@ const vector<bool> &Nano::Electron_mvaFall17V1Iso_WP80() {
     if (!loaded_Electron_mvaFall17V1Iso_WP80_) {
         if (!b_Electron_mvaFall17V1Iso_WP80_) throw std::runtime_error("Electron_mvaFall17V1Iso_WP80 branch doesn't exist");
         int bytes = b_Electron_mvaFall17V1Iso_WP80_->GetEntry(index);
-        v_Electron_mvaFall17V1Iso_WP80_ = vector<bool>(Electron_mvaFall17V1Iso_WP80_,Electron_mvaFall17V1Iso_WP80_+bytes/sizeof(Electron_mvaFall17V1Iso_WP80_[0]));
+        v_Electron_mvaFall17V1Iso_WP80_ = vector<bool>(Electron_mvaFall17V1Iso_WP80_.data(),Electron_mvaFall17V1Iso_WP80_.data()+bytes/sizeof(Electron_mvaFall17V1Iso_WP80_[0]));
         loaded_Electron_mvaFall17V1Iso_WP80_ = true;
     }
     return v_Electron_mvaFall17V1Iso_WP80_;
@@ -15120,7 +15155,7 @@ const vector<bool> &Nano::Electron_mvaFall17V1Iso_WP90() {
     if (!loaded_Electron_mvaFall17V1Iso_WP90_) {
         if (!b_Electron_mvaFall17V1Iso_WP90_) throw std::runtime_error("Electron_mvaFall17V1Iso_WP90 branch doesn't exist");
         int bytes = b_Electron_mvaFall17V1Iso_WP90_->GetEntry(index);
-        v_Electron_mvaFall17V1Iso_WP90_ = vector<bool>(Electron_mvaFall17V1Iso_WP90_,Electron_mvaFall17V1Iso_WP90_+bytes/sizeof(Electron_mvaFall17V1Iso_WP90_[0]));
+        v_Electron_mvaFall17V1Iso_WP90_ = vector<bool>(Electron_mvaFall17V1Iso_WP90_.data(),Electron_mvaFall17V1Iso_WP90_.data()+bytes/sizeof(Electron_mvaFall17V1Iso_WP90_[0]));
         loaded_Electron_mvaFall17V1Iso_WP90_ = true;
     }
     return v_Electron_mvaFall17V1Iso_WP90_;
@@ -15131,7 +15166,7 @@ const vector<bool> &Nano::Electron_mvaFall17V1Iso_WPL() {
     if (!loaded_Electron_mvaFall17V1Iso_WPL_) {
         if (!b_Electron_mvaFall17V1Iso_WPL_) throw std::runtime_error("Electron_mvaFall17V1Iso_WPL branch doesn't exist");
         int bytes = b_Electron_mvaFall17V1Iso_WPL_->GetEntry(index);
-        v_Electron_mvaFall17V1Iso_WPL_ = vector<bool>(Electron_mvaFall17V1Iso_WPL_,Electron_mvaFall17V1Iso_WPL_+bytes/sizeof(Electron_mvaFall17V1Iso_WPL_[0]));
+        v_Electron_mvaFall17V1Iso_WPL_ = vector<bool>(Electron_mvaFall17V1Iso_WPL_.data(),Electron_mvaFall17V1Iso_WPL_.data()+bytes/sizeof(Electron_mvaFall17V1Iso_WPL_[0]));
         loaded_Electron_mvaFall17V1Iso_WPL_ = true;
     }
     return v_Electron_mvaFall17V1Iso_WPL_;
@@ -15142,7 +15177,7 @@ const vector<float> &Nano::Electron_mvaFall17V1noIso() {
     if (!loaded_Electron_mvaFall17V1noIso_) {
         if (!b_Electron_mvaFall17V1noIso_) throw std::runtime_error("Electron_mvaFall17V1noIso branch doesn't exist");
         int bytes = b_Electron_mvaFall17V1noIso_->GetEntry(index);
-        v_Electron_mvaFall17V1noIso_ = vector<float>(Electron_mvaFall17V1noIso_,Electron_mvaFall17V1noIso_+bytes/sizeof(Electron_mvaFall17V1noIso_[0]));
+        v_Electron_mvaFall17V1noIso_ = vector<float>(Electron_mvaFall17V1noIso_.data(),Electron_mvaFall17V1noIso_.data()+bytes/sizeof(Electron_mvaFall17V1noIso_[0]));
         loaded_Electron_mvaFall17V1noIso_ = true;
     }
     return v_Electron_mvaFall17V1noIso_;
@@ -15153,7 +15188,7 @@ const vector<bool> &Nano::Electron_mvaFall17V1noIso_WP80() {
     if (!loaded_Electron_mvaFall17V1noIso_WP80_) {
         if (!b_Electron_mvaFall17V1noIso_WP80_) throw std::runtime_error("Electron_mvaFall17V1noIso_WP80 branch doesn't exist");
         int bytes = b_Electron_mvaFall17V1noIso_WP80_->GetEntry(index);
-        v_Electron_mvaFall17V1noIso_WP80_ = vector<bool>(Electron_mvaFall17V1noIso_WP80_,Electron_mvaFall17V1noIso_WP80_+bytes/sizeof(Electron_mvaFall17V1noIso_WP80_[0]));
+        v_Electron_mvaFall17V1noIso_WP80_ = vector<bool>(Electron_mvaFall17V1noIso_WP80_.data(),Electron_mvaFall17V1noIso_WP80_.data()+bytes/sizeof(Electron_mvaFall17V1noIso_WP80_[0]));
         loaded_Electron_mvaFall17V1noIso_WP80_ = true;
     }
     return v_Electron_mvaFall17V1noIso_WP80_;
@@ -15164,7 +15199,7 @@ const vector<bool> &Nano::Electron_mvaFall17V1noIso_WP90() {
     if (!loaded_Electron_mvaFall17V1noIso_WP90_) {
         if (!b_Electron_mvaFall17V1noIso_WP90_) throw std::runtime_error("Electron_mvaFall17V1noIso_WP90 branch doesn't exist");
         int bytes = b_Electron_mvaFall17V1noIso_WP90_->GetEntry(index);
-        v_Electron_mvaFall17V1noIso_WP90_ = vector<bool>(Electron_mvaFall17V1noIso_WP90_,Electron_mvaFall17V1noIso_WP90_+bytes/sizeof(Electron_mvaFall17V1noIso_WP90_[0]));
+        v_Electron_mvaFall17V1noIso_WP90_ = vector<bool>(Electron_mvaFall17V1noIso_WP90_.data(),Electron_mvaFall17V1noIso_WP90_.data()+bytes/sizeof(Electron_mvaFall17V1noIso_WP90_[0]));
         loaded_Electron_mvaFall17V1noIso_WP90_ = true;
     }
     return v_Electron_mvaFall17V1noIso_WP90_;
@@ -15175,7 +15210,7 @@ const vector<bool> &Nano::Electron_mvaFall17V1noIso_WPL() {
     if (!loaded_Electron_mvaFall17V1noIso_WPL_) {
         if (!b_Electron_mvaFall17V1noIso_WPL_) throw std::runtime_error("Electron_mvaFall17V1noIso_WPL branch doesn't exist");
         int bytes = b_Electron_mvaFall17V1noIso_WPL_->GetEntry(index);
-        v_Electron_mvaFall17V1noIso_WPL_ = vector<bool>(Electron_mvaFall17V1noIso_WPL_,Electron_mvaFall17V1noIso_WPL_+bytes/sizeof(Electron_mvaFall17V1noIso_WPL_[0]));
+        v_Electron_mvaFall17V1noIso_WPL_ = vector<bool>(Electron_mvaFall17V1noIso_WPL_.data(),Electron_mvaFall17V1noIso_WPL_.data()+bytes/sizeof(Electron_mvaFall17V1noIso_WPL_[0]));
         loaded_Electron_mvaFall17V1noIso_WPL_ = true;
     }
     return v_Electron_mvaFall17V1noIso_WPL_;
@@ -15186,7 +15221,7 @@ const vector<float> &Nano::Electron_mvaFall17V2Iso() {
     if (!loaded_Electron_mvaFall17V2Iso_) {
         if (!b_Electron_mvaFall17V2Iso_) throw std::runtime_error("Electron_mvaFall17V2Iso branch doesn't exist");
         int bytes = b_Electron_mvaFall17V2Iso_->GetEntry(index);
-        v_Electron_mvaFall17V2Iso_ = vector<float>(Electron_mvaFall17V2Iso_,Electron_mvaFall17V2Iso_+bytes/sizeof(Electron_mvaFall17V2Iso_[0]));
+        v_Electron_mvaFall17V2Iso_ = vector<float>(Electron_mvaFall17V2Iso_.data(),Electron_mvaFall17V2Iso_.data()+bytes/sizeof(Electron_mvaFall17V2Iso_[0]));
         loaded_Electron_mvaFall17V2Iso_ = true;
     }
     return v_Electron_mvaFall17V2Iso_;
@@ -15197,7 +15232,7 @@ const vector<bool> &Nano::Electron_mvaFall17V2Iso_WP80() {
     if (!loaded_Electron_mvaFall17V2Iso_WP80_) {
         if (!b_Electron_mvaFall17V2Iso_WP80_) throw std::runtime_error("Electron_mvaFall17V2Iso_WP80 branch doesn't exist");
         int bytes = b_Electron_mvaFall17V2Iso_WP80_->GetEntry(index);
-        v_Electron_mvaFall17V2Iso_WP80_ = vector<bool>(Electron_mvaFall17V2Iso_WP80_,Electron_mvaFall17V2Iso_WP80_+bytes/sizeof(Electron_mvaFall17V2Iso_WP80_[0]));
+        v_Electron_mvaFall17V2Iso_WP80_ = vector<bool>(Electron_mvaFall17V2Iso_WP80_.data(),Electron_mvaFall17V2Iso_WP80_.data()+bytes/sizeof(Electron_mvaFall17V2Iso_WP80_[0]));
         loaded_Electron_mvaFall17V2Iso_WP80_ = true;
     }
     return v_Electron_mvaFall17V2Iso_WP80_;
@@ -15208,7 +15243,7 @@ const vector<bool> &Nano::Electron_mvaFall17V2Iso_WP90() {
     if (!loaded_Electron_mvaFall17V2Iso_WP90_) {
         if (!b_Electron_mvaFall17V2Iso_WP90_) throw std::runtime_error("Electron_mvaFall17V2Iso_WP90 branch doesn't exist");
         int bytes = b_Electron_mvaFall17V2Iso_WP90_->GetEntry(index);
-        v_Electron_mvaFall17V2Iso_WP90_ = vector<bool>(Electron_mvaFall17V2Iso_WP90_,Electron_mvaFall17V2Iso_WP90_+bytes/sizeof(Electron_mvaFall17V2Iso_WP90_[0]));
+        v_Electron_mvaFall17V2Iso_WP90_ = vector<bool>(Electron_mvaFall17V2Iso_WP90_.data(),Electron_mvaFall17V2Iso_WP90_.data()+bytes/sizeof(Electron_mvaFall17V2Iso_WP90_[0]));
         loaded_Electron_mvaFall17V2Iso_WP90_ = true;
     }
     return v_Electron_mvaFall17V2Iso_WP90_;
@@ -15219,7 +15254,7 @@ const vector<bool> &Nano::Electron_mvaFall17V2Iso_WPL() {
     if (!loaded_Electron_mvaFall17V2Iso_WPL_) {
         if (!b_Electron_mvaFall17V2Iso_WPL_) throw std::runtime_error("Electron_mvaFall17V2Iso_WPL branch doesn't exist");
         int bytes = b_Electron_mvaFall17V2Iso_WPL_->GetEntry(index);
-        v_Electron_mvaFall17V2Iso_WPL_ = vector<bool>(Electron_mvaFall17V2Iso_WPL_,Electron_mvaFall17V2Iso_WPL_+bytes/sizeof(Electron_mvaFall17V2Iso_WPL_[0]));
+        v_Electron_mvaFall17V2Iso_WPL_ = vector<bool>(Electron_mvaFall17V2Iso_WPL_.data(),Electron_mvaFall17V2Iso_WPL_.data()+bytes/sizeof(Electron_mvaFall17V2Iso_WPL_[0]));
         loaded_Electron_mvaFall17V2Iso_WPL_ = true;
     }
     return v_Electron_mvaFall17V2Iso_WPL_;
@@ -15230,7 +15265,7 @@ const vector<float> &Nano::Electron_mvaFall17V2noIso() {
     if (!loaded_Electron_mvaFall17V2noIso_) {
         if (!b_Electron_mvaFall17V2noIso_) throw std::runtime_error("Electron_mvaFall17V2noIso branch doesn't exist");
         int bytes = b_Electron_mvaFall17V2noIso_->GetEntry(index);
-        v_Electron_mvaFall17V2noIso_ = vector<float>(Electron_mvaFall17V2noIso_,Electron_mvaFall17V2noIso_+bytes/sizeof(Electron_mvaFall17V2noIso_[0]));
+        v_Electron_mvaFall17V2noIso_ = vector<float>(Electron_mvaFall17V2noIso_.data(),Electron_mvaFall17V2noIso_.data()+bytes/sizeof(Electron_mvaFall17V2noIso_[0]));
         loaded_Electron_mvaFall17V2noIso_ = true;
     }
     return v_Electron_mvaFall17V2noIso_;
@@ -15241,7 +15276,7 @@ const vector<bool> &Nano::Electron_mvaFall17V2noIso_WP80() {
     if (!loaded_Electron_mvaFall17V2noIso_WP80_) {
         if (!b_Electron_mvaFall17V2noIso_WP80_) throw std::runtime_error("Electron_mvaFall17V2noIso_WP80 branch doesn't exist");
         int bytes = b_Electron_mvaFall17V2noIso_WP80_->GetEntry(index);
-        v_Electron_mvaFall17V2noIso_WP80_ = vector<bool>(Electron_mvaFall17V2noIso_WP80_,Electron_mvaFall17V2noIso_WP80_+bytes/sizeof(Electron_mvaFall17V2noIso_WP80_[0]));
+        v_Electron_mvaFall17V2noIso_WP80_ = vector<bool>(Electron_mvaFall17V2noIso_WP80_.data(),Electron_mvaFall17V2noIso_WP80_.data()+bytes/sizeof(Electron_mvaFall17V2noIso_WP80_[0]));
         loaded_Electron_mvaFall17V2noIso_WP80_ = true;
     }
     return v_Electron_mvaFall17V2noIso_WP80_;
@@ -15252,7 +15287,7 @@ const vector<bool> &Nano::Electron_mvaFall17V2noIso_WP90() {
     if (!loaded_Electron_mvaFall17V2noIso_WP90_) {
         if (!b_Electron_mvaFall17V2noIso_WP90_) throw std::runtime_error("Electron_mvaFall17V2noIso_WP90 branch doesn't exist");
         int bytes = b_Electron_mvaFall17V2noIso_WP90_->GetEntry(index);
-        v_Electron_mvaFall17V2noIso_WP90_ = vector<bool>(Electron_mvaFall17V2noIso_WP90_,Electron_mvaFall17V2noIso_WP90_+bytes/sizeof(Electron_mvaFall17V2noIso_WP90_[0]));
+        v_Electron_mvaFall17V2noIso_WP90_ = vector<bool>(Electron_mvaFall17V2noIso_WP90_.data(),Electron_mvaFall17V2noIso_WP90_.data()+bytes/sizeof(Electron_mvaFall17V2noIso_WP90_[0]));
         loaded_Electron_mvaFall17V2noIso_WP90_ = true;
     }
     return v_Electron_mvaFall17V2noIso_WP90_;
@@ -15263,7 +15298,7 @@ const vector<bool> &Nano::Electron_mvaFall17V2noIso_WPL() {
     if (!loaded_Electron_mvaFall17V2noIso_WPL_) {
         if (!b_Electron_mvaFall17V2noIso_WPL_) throw std::runtime_error("Electron_mvaFall17V2noIso_WPL branch doesn't exist");
         int bytes = b_Electron_mvaFall17V2noIso_WPL_->GetEntry(index);
-        v_Electron_mvaFall17V2noIso_WPL_ = vector<bool>(Electron_mvaFall17V2noIso_WPL_,Electron_mvaFall17V2noIso_WPL_+bytes/sizeof(Electron_mvaFall17V2noIso_WPL_[0]));
+        v_Electron_mvaFall17V2noIso_WPL_ = vector<bool>(Electron_mvaFall17V2noIso_WPL_.data(),Electron_mvaFall17V2noIso_WPL_.data()+bytes/sizeof(Electron_mvaFall17V2noIso_WPL_[0]));
         loaded_Electron_mvaFall17V2noIso_WPL_ = true;
     }
     return v_Electron_mvaFall17V2noIso_WPL_;
@@ -15274,7 +15309,7 @@ const vector<float> &Nano::Electron_mvaFall17noIso() {
     if (!loaded_Electron_mvaFall17noIso_) {
         if (!b_Electron_mvaFall17noIso_) throw std::runtime_error("Electron_mvaFall17noIso branch doesn't exist");
         int bytes = b_Electron_mvaFall17noIso_->GetEntry(index);
-        v_Electron_mvaFall17noIso_ = vector<float>(Electron_mvaFall17noIso_,Electron_mvaFall17noIso_+bytes/sizeof(Electron_mvaFall17noIso_[0]));
+        v_Electron_mvaFall17noIso_ = vector<float>(Electron_mvaFall17noIso_.data(),Electron_mvaFall17noIso_.data()+bytes/sizeof(Electron_mvaFall17noIso_[0]));
         loaded_Electron_mvaFall17noIso_ = true;
     }
     return v_Electron_mvaFall17noIso_;
@@ -15285,7 +15320,7 @@ const vector<bool> &Nano::Electron_mvaFall17noIso_WP80() {
     if (!loaded_Electron_mvaFall17noIso_WP80_) {
         if (!b_Electron_mvaFall17noIso_WP80_) throw std::runtime_error("Electron_mvaFall17noIso_WP80 branch doesn't exist");
         int bytes = b_Electron_mvaFall17noIso_WP80_->GetEntry(index);
-        v_Electron_mvaFall17noIso_WP80_ = vector<bool>(Electron_mvaFall17noIso_WP80_,Electron_mvaFall17noIso_WP80_+bytes/sizeof(Electron_mvaFall17noIso_WP80_[0]));
+        v_Electron_mvaFall17noIso_WP80_ = vector<bool>(Electron_mvaFall17noIso_WP80_.data(),Electron_mvaFall17noIso_WP80_.data()+bytes/sizeof(Electron_mvaFall17noIso_WP80_[0]));
         loaded_Electron_mvaFall17noIso_WP80_ = true;
     }
     return v_Electron_mvaFall17noIso_WP80_;
@@ -15296,7 +15331,7 @@ const vector<bool> &Nano::Electron_mvaFall17noIso_WP90() {
     if (!loaded_Electron_mvaFall17noIso_WP90_) {
         if (!b_Electron_mvaFall17noIso_WP90_) throw std::runtime_error("Electron_mvaFall17noIso_WP90 branch doesn't exist");
         int bytes = b_Electron_mvaFall17noIso_WP90_->GetEntry(index);
-        v_Electron_mvaFall17noIso_WP90_ = vector<bool>(Electron_mvaFall17noIso_WP90_,Electron_mvaFall17noIso_WP90_+bytes/sizeof(Electron_mvaFall17noIso_WP90_[0]));
+        v_Electron_mvaFall17noIso_WP90_ = vector<bool>(Electron_mvaFall17noIso_WP90_.data(),Electron_mvaFall17noIso_WP90_.data()+bytes/sizeof(Electron_mvaFall17noIso_WP90_[0]));
         loaded_Electron_mvaFall17noIso_WP90_ = true;
     }
     return v_Electron_mvaFall17noIso_WP90_;
@@ -15307,7 +15342,7 @@ const vector<bool> &Nano::Electron_mvaFall17noIso_WPL() {
     if (!loaded_Electron_mvaFall17noIso_WPL_) {
         if (!b_Electron_mvaFall17noIso_WPL_) throw std::runtime_error("Electron_mvaFall17noIso_WPL branch doesn't exist");
         int bytes = b_Electron_mvaFall17noIso_WPL_->GetEntry(index);
-        v_Electron_mvaFall17noIso_WPL_ = vector<bool>(Electron_mvaFall17noIso_WPL_,Electron_mvaFall17noIso_WPL_+bytes/sizeof(Electron_mvaFall17noIso_WPL_[0]));
+        v_Electron_mvaFall17noIso_WPL_ = vector<bool>(Electron_mvaFall17noIso_WPL_.data(),Electron_mvaFall17noIso_WPL_.data()+bytes/sizeof(Electron_mvaFall17noIso_WPL_[0]));
         loaded_Electron_mvaFall17noIso_WPL_ = true;
     }
     return v_Electron_mvaFall17noIso_WPL_;
@@ -15318,7 +15353,7 @@ const vector<float> &Nano::Electron_mvaHZZIso() {
     if (!loaded_Electron_mvaHZZIso_) {
         if (!b_Electron_mvaHZZIso_) throw std::runtime_error("Electron_mvaHZZIso branch doesn't exist");
         int bytes = b_Electron_mvaHZZIso_->GetEntry(index);
-        v_Electron_mvaHZZIso_ = vector<float>(Electron_mvaHZZIso_,Electron_mvaHZZIso_+bytes/sizeof(Electron_mvaHZZIso_[0]));
+        v_Electron_mvaHZZIso_ = vector<float>(Electron_mvaHZZIso_.data(),Electron_mvaHZZIso_.data()+bytes/sizeof(Electron_mvaHZZIso_[0]));
         loaded_Electron_mvaHZZIso_ = true;
     }
     return v_Electron_mvaHZZIso_;
@@ -15329,7 +15364,7 @@ const vector<float> &Nano::Electron_mvaIso() {
     if (!loaded_Electron_mvaIso_) {
         if (!b_Electron_mvaIso_) throw std::runtime_error("Electron_mvaIso branch doesn't exist");
         int bytes = b_Electron_mvaIso_->GetEntry(index);
-        v_Electron_mvaIso_ = vector<float>(Electron_mvaIso_,Electron_mvaIso_+bytes/sizeof(Electron_mvaIso_[0]));
+        v_Electron_mvaIso_ = vector<float>(Electron_mvaIso_.data(),Electron_mvaIso_.data()+bytes/sizeof(Electron_mvaIso_[0]));
         loaded_Electron_mvaIso_ = true;
     }
     return v_Electron_mvaIso_;
@@ -15340,7 +15375,7 @@ const vector<float> &Nano::Electron_mvaIso_Fall17V2() {
     if (!loaded_Electron_mvaIso_Fall17V2_) {
         if (!b_Electron_mvaIso_Fall17V2_) throw std::runtime_error("Electron_mvaIso_Fall17V2 branch doesn't exist");
         int bytes = b_Electron_mvaIso_Fall17V2_->GetEntry(index);
-        v_Electron_mvaIso_Fall17V2_ = vector<float>(Electron_mvaIso_Fall17V2_,Electron_mvaIso_Fall17V2_+bytes/sizeof(Electron_mvaIso_Fall17V2_[0]));
+        v_Electron_mvaIso_Fall17V2_ = vector<float>(Electron_mvaIso_Fall17V2_.data(),Electron_mvaIso_Fall17V2_.data()+bytes/sizeof(Electron_mvaIso_Fall17V2_[0]));
         loaded_Electron_mvaIso_Fall17V2_ = true;
     }
     return v_Electron_mvaIso_Fall17V2_;
@@ -15351,7 +15386,7 @@ const vector<bool> &Nano::Electron_mvaIso_Fall17V2_WP80() {
     if (!loaded_Electron_mvaIso_Fall17V2_WP80_) {
         if (!b_Electron_mvaIso_Fall17V2_WP80_) throw std::runtime_error("Electron_mvaIso_Fall17V2_WP80 branch doesn't exist");
         int bytes = b_Electron_mvaIso_Fall17V2_WP80_->GetEntry(index);
-        v_Electron_mvaIso_Fall17V2_WP80_ = vector<bool>(Electron_mvaIso_Fall17V2_WP80_,Electron_mvaIso_Fall17V2_WP80_+bytes/sizeof(Electron_mvaIso_Fall17V2_WP80_[0]));
+        v_Electron_mvaIso_Fall17V2_WP80_ = vector<bool>(Electron_mvaIso_Fall17V2_WP80_.data(),Electron_mvaIso_Fall17V2_WP80_.data()+bytes/sizeof(Electron_mvaIso_Fall17V2_WP80_[0]));
         loaded_Electron_mvaIso_Fall17V2_WP80_ = true;
     }
     return v_Electron_mvaIso_Fall17V2_WP80_;
@@ -15362,7 +15397,7 @@ const vector<bool> &Nano::Electron_mvaIso_Fall17V2_WP90() {
     if (!loaded_Electron_mvaIso_Fall17V2_WP90_) {
         if (!b_Electron_mvaIso_Fall17V2_WP90_) throw std::runtime_error("Electron_mvaIso_Fall17V2_WP90 branch doesn't exist");
         int bytes = b_Electron_mvaIso_Fall17V2_WP90_->GetEntry(index);
-        v_Electron_mvaIso_Fall17V2_WP90_ = vector<bool>(Electron_mvaIso_Fall17V2_WP90_,Electron_mvaIso_Fall17V2_WP90_+bytes/sizeof(Electron_mvaIso_Fall17V2_WP90_[0]));
+        v_Electron_mvaIso_Fall17V2_WP90_ = vector<bool>(Electron_mvaIso_Fall17V2_WP90_.data(),Electron_mvaIso_Fall17V2_WP90_.data()+bytes/sizeof(Electron_mvaIso_Fall17V2_WP90_[0]));
         loaded_Electron_mvaIso_Fall17V2_WP90_ = true;
     }
     return v_Electron_mvaIso_Fall17V2_WP90_;
@@ -15373,7 +15408,7 @@ const vector<bool> &Nano::Electron_mvaIso_Fall17V2_WPL() {
     if (!loaded_Electron_mvaIso_Fall17V2_WPL_) {
         if (!b_Electron_mvaIso_Fall17V2_WPL_) throw std::runtime_error("Electron_mvaIso_Fall17V2_WPL branch doesn't exist");
         int bytes = b_Electron_mvaIso_Fall17V2_WPL_->GetEntry(index);
-        v_Electron_mvaIso_Fall17V2_WPL_ = vector<bool>(Electron_mvaIso_Fall17V2_WPL_,Electron_mvaIso_Fall17V2_WPL_+bytes/sizeof(Electron_mvaIso_Fall17V2_WPL_[0]));
+        v_Electron_mvaIso_Fall17V2_WPL_ = vector<bool>(Electron_mvaIso_Fall17V2_WPL_.data(),Electron_mvaIso_Fall17V2_WPL_.data()+bytes/sizeof(Electron_mvaIso_Fall17V2_WPL_[0]));
         loaded_Electron_mvaIso_Fall17V2_WPL_ = true;
     }
     return v_Electron_mvaIso_Fall17V2_WPL_;
@@ -15384,7 +15419,7 @@ const vector<bool> &Nano::Electron_mvaIso_WP80() {
     if (!loaded_Electron_mvaIso_WP80_) {
         if (!b_Electron_mvaIso_WP80_) throw std::runtime_error("Electron_mvaIso_WP80 branch doesn't exist");
         int bytes = b_Electron_mvaIso_WP80_->GetEntry(index);
-        v_Electron_mvaIso_WP80_ = vector<bool>(Electron_mvaIso_WP80_,Electron_mvaIso_WP80_+bytes/sizeof(Electron_mvaIso_WP80_[0]));
+        v_Electron_mvaIso_WP80_ = vector<bool>(Electron_mvaIso_WP80_.data(),Electron_mvaIso_WP80_.data()+bytes/sizeof(Electron_mvaIso_WP80_[0]));
         loaded_Electron_mvaIso_WP80_ = true;
     }
     return v_Electron_mvaIso_WP80_;
@@ -15395,7 +15430,7 @@ const vector<bool> &Nano::Electron_mvaIso_WP90() {
     if (!loaded_Electron_mvaIso_WP90_) {
         if (!b_Electron_mvaIso_WP90_) throw std::runtime_error("Electron_mvaIso_WP90 branch doesn't exist");
         int bytes = b_Electron_mvaIso_WP90_->GetEntry(index);
-        v_Electron_mvaIso_WP90_ = vector<bool>(Electron_mvaIso_WP90_,Electron_mvaIso_WP90_+bytes/sizeof(Electron_mvaIso_WP90_[0]));
+        v_Electron_mvaIso_WP90_ = vector<bool>(Electron_mvaIso_WP90_.data(),Electron_mvaIso_WP90_.data()+bytes/sizeof(Electron_mvaIso_WP90_[0]));
         loaded_Electron_mvaIso_WP90_ = true;
     }
     return v_Electron_mvaIso_WP90_;
@@ -15406,7 +15441,7 @@ const vector<float> &Nano::Electron_mvaNoIso() {
     if (!loaded_Electron_mvaNoIso_) {
         if (!b_Electron_mvaNoIso_) throw std::runtime_error("Electron_mvaNoIso branch doesn't exist");
         int bytes = b_Electron_mvaNoIso_->GetEntry(index);
-        v_Electron_mvaNoIso_ = vector<float>(Electron_mvaNoIso_,Electron_mvaNoIso_+bytes/sizeof(Electron_mvaNoIso_[0]));
+        v_Electron_mvaNoIso_ = vector<float>(Electron_mvaNoIso_.data(),Electron_mvaNoIso_.data()+bytes/sizeof(Electron_mvaNoIso_[0]));
         loaded_Electron_mvaNoIso_ = true;
     }
     return v_Electron_mvaNoIso_;
@@ -15417,7 +15452,7 @@ const vector<float> &Nano::Electron_mvaNoIso_Fall17V2() {
     if (!loaded_Electron_mvaNoIso_Fall17V2_) {
         if (!b_Electron_mvaNoIso_Fall17V2_) throw std::runtime_error("Electron_mvaNoIso_Fall17V2 branch doesn't exist");
         int bytes = b_Electron_mvaNoIso_Fall17V2_->GetEntry(index);
-        v_Electron_mvaNoIso_Fall17V2_ = vector<float>(Electron_mvaNoIso_Fall17V2_,Electron_mvaNoIso_Fall17V2_+bytes/sizeof(Electron_mvaNoIso_Fall17V2_[0]));
+        v_Electron_mvaNoIso_Fall17V2_ = vector<float>(Electron_mvaNoIso_Fall17V2_.data(),Electron_mvaNoIso_Fall17V2_.data()+bytes/sizeof(Electron_mvaNoIso_Fall17V2_[0]));
         loaded_Electron_mvaNoIso_Fall17V2_ = true;
     }
     return v_Electron_mvaNoIso_Fall17V2_;
@@ -15428,7 +15463,7 @@ const vector<bool> &Nano::Electron_mvaNoIso_Fall17V2_WP80() {
     if (!loaded_Electron_mvaNoIso_Fall17V2_WP80_) {
         if (!b_Electron_mvaNoIso_Fall17V2_WP80_) throw std::runtime_error("Electron_mvaNoIso_Fall17V2_WP80 branch doesn't exist");
         int bytes = b_Electron_mvaNoIso_Fall17V2_WP80_->GetEntry(index);
-        v_Electron_mvaNoIso_Fall17V2_WP80_ = vector<bool>(Electron_mvaNoIso_Fall17V2_WP80_,Electron_mvaNoIso_Fall17V2_WP80_+bytes/sizeof(Electron_mvaNoIso_Fall17V2_WP80_[0]));
+        v_Electron_mvaNoIso_Fall17V2_WP80_ = vector<bool>(Electron_mvaNoIso_Fall17V2_WP80_.data(),Electron_mvaNoIso_Fall17V2_WP80_.data()+bytes/sizeof(Electron_mvaNoIso_Fall17V2_WP80_[0]));
         loaded_Electron_mvaNoIso_Fall17V2_WP80_ = true;
     }
     return v_Electron_mvaNoIso_Fall17V2_WP80_;
@@ -15439,7 +15474,7 @@ const vector<bool> &Nano::Electron_mvaNoIso_Fall17V2_WP90() {
     if (!loaded_Electron_mvaNoIso_Fall17V2_WP90_) {
         if (!b_Electron_mvaNoIso_Fall17V2_WP90_) throw std::runtime_error("Electron_mvaNoIso_Fall17V2_WP90 branch doesn't exist");
         int bytes = b_Electron_mvaNoIso_Fall17V2_WP90_->GetEntry(index);
-        v_Electron_mvaNoIso_Fall17V2_WP90_ = vector<bool>(Electron_mvaNoIso_Fall17V2_WP90_,Electron_mvaNoIso_Fall17V2_WP90_+bytes/sizeof(Electron_mvaNoIso_Fall17V2_WP90_[0]));
+        v_Electron_mvaNoIso_Fall17V2_WP90_ = vector<bool>(Electron_mvaNoIso_Fall17V2_WP90_.data(),Electron_mvaNoIso_Fall17V2_WP90_.data()+bytes/sizeof(Electron_mvaNoIso_Fall17V2_WP90_[0]));
         loaded_Electron_mvaNoIso_Fall17V2_WP90_ = true;
     }
     return v_Electron_mvaNoIso_Fall17V2_WP90_;
@@ -15450,7 +15485,7 @@ const vector<bool> &Nano::Electron_mvaNoIso_Fall17V2_WPL() {
     if (!loaded_Electron_mvaNoIso_Fall17V2_WPL_) {
         if (!b_Electron_mvaNoIso_Fall17V2_WPL_) throw std::runtime_error("Electron_mvaNoIso_Fall17V2_WPL branch doesn't exist");
         int bytes = b_Electron_mvaNoIso_Fall17V2_WPL_->GetEntry(index);
-        v_Electron_mvaNoIso_Fall17V2_WPL_ = vector<bool>(Electron_mvaNoIso_Fall17V2_WPL_,Electron_mvaNoIso_Fall17V2_WPL_+bytes/sizeof(Electron_mvaNoIso_Fall17V2_WPL_[0]));
+        v_Electron_mvaNoIso_Fall17V2_WPL_ = vector<bool>(Electron_mvaNoIso_Fall17V2_WPL_.data(),Electron_mvaNoIso_Fall17V2_WPL_.data()+bytes/sizeof(Electron_mvaNoIso_Fall17V2_WPL_[0]));
         loaded_Electron_mvaNoIso_Fall17V2_WPL_ = true;
     }
     return v_Electron_mvaNoIso_Fall17V2_WPL_;
@@ -15461,7 +15496,7 @@ const vector<bool> &Nano::Electron_mvaNoIso_WP80() {
     if (!loaded_Electron_mvaNoIso_WP80_) {
         if (!b_Electron_mvaNoIso_WP80_) throw std::runtime_error("Electron_mvaNoIso_WP80 branch doesn't exist");
         int bytes = b_Electron_mvaNoIso_WP80_->GetEntry(index);
-        v_Electron_mvaNoIso_WP80_ = vector<bool>(Electron_mvaNoIso_WP80_,Electron_mvaNoIso_WP80_+bytes/sizeof(Electron_mvaNoIso_WP80_[0]));
+        v_Electron_mvaNoIso_WP80_ = vector<bool>(Electron_mvaNoIso_WP80_.data(),Electron_mvaNoIso_WP80_.data()+bytes/sizeof(Electron_mvaNoIso_WP80_[0]));
         loaded_Electron_mvaNoIso_WP80_ = true;
     }
     return v_Electron_mvaNoIso_WP80_;
@@ -15472,7 +15507,7 @@ const vector<bool> &Nano::Electron_mvaNoIso_WP90() {
     if (!loaded_Electron_mvaNoIso_WP90_) {
         if (!b_Electron_mvaNoIso_WP90_) throw std::runtime_error("Electron_mvaNoIso_WP90 branch doesn't exist");
         int bytes = b_Electron_mvaNoIso_WP90_->GetEntry(index);
-        v_Electron_mvaNoIso_WP90_ = vector<bool>(Electron_mvaNoIso_WP90_,Electron_mvaNoIso_WP90_+bytes/sizeof(Electron_mvaNoIso_WP90_[0]));
+        v_Electron_mvaNoIso_WP90_ = vector<bool>(Electron_mvaNoIso_WP90_.data(),Electron_mvaNoIso_WP90_.data()+bytes/sizeof(Electron_mvaNoIso_WP90_[0]));
         loaded_Electron_mvaNoIso_WP90_ = true;
     }
     return v_Electron_mvaNoIso_WP90_;
@@ -15483,7 +15518,7 @@ const vector<float> &Nano::Electron_mvaSpring16GP() {
     if (!loaded_Electron_mvaSpring16GP_) {
         if (!b_Electron_mvaSpring16GP_) throw std::runtime_error("Electron_mvaSpring16GP branch doesn't exist");
         int bytes = b_Electron_mvaSpring16GP_->GetEntry(index);
-        v_Electron_mvaSpring16GP_ = vector<float>(Electron_mvaSpring16GP_,Electron_mvaSpring16GP_+bytes/sizeof(Electron_mvaSpring16GP_[0]));
+        v_Electron_mvaSpring16GP_ = vector<float>(Electron_mvaSpring16GP_.data(),Electron_mvaSpring16GP_.data()+bytes/sizeof(Electron_mvaSpring16GP_[0]));
         loaded_Electron_mvaSpring16GP_ = true;
     }
     return v_Electron_mvaSpring16GP_;
@@ -15494,7 +15529,7 @@ const vector<bool> &Nano::Electron_mvaSpring16GP_WP80() {
     if (!loaded_Electron_mvaSpring16GP_WP80_) {
         if (!b_Electron_mvaSpring16GP_WP80_) throw std::runtime_error("Electron_mvaSpring16GP_WP80 branch doesn't exist");
         int bytes = b_Electron_mvaSpring16GP_WP80_->GetEntry(index);
-        v_Electron_mvaSpring16GP_WP80_ = vector<bool>(Electron_mvaSpring16GP_WP80_,Electron_mvaSpring16GP_WP80_+bytes/sizeof(Electron_mvaSpring16GP_WP80_[0]));
+        v_Electron_mvaSpring16GP_WP80_ = vector<bool>(Electron_mvaSpring16GP_WP80_.data(),Electron_mvaSpring16GP_WP80_.data()+bytes/sizeof(Electron_mvaSpring16GP_WP80_[0]));
         loaded_Electron_mvaSpring16GP_WP80_ = true;
     }
     return v_Electron_mvaSpring16GP_WP80_;
@@ -15505,7 +15540,7 @@ const vector<bool> &Nano::Electron_mvaSpring16GP_WP90() {
     if (!loaded_Electron_mvaSpring16GP_WP90_) {
         if (!b_Electron_mvaSpring16GP_WP90_) throw std::runtime_error("Electron_mvaSpring16GP_WP90 branch doesn't exist");
         int bytes = b_Electron_mvaSpring16GP_WP90_->GetEntry(index);
-        v_Electron_mvaSpring16GP_WP90_ = vector<bool>(Electron_mvaSpring16GP_WP90_,Electron_mvaSpring16GP_WP90_+bytes/sizeof(Electron_mvaSpring16GP_WP90_[0]));
+        v_Electron_mvaSpring16GP_WP90_ = vector<bool>(Electron_mvaSpring16GP_WP90_.data(),Electron_mvaSpring16GP_WP90_.data()+bytes/sizeof(Electron_mvaSpring16GP_WP90_[0]));
         loaded_Electron_mvaSpring16GP_WP90_ = true;
     }
     return v_Electron_mvaSpring16GP_WP90_;
@@ -15516,7 +15551,7 @@ const vector<float> &Nano::Electron_mvaSpring16HZZ() {
     if (!loaded_Electron_mvaSpring16HZZ_) {
         if (!b_Electron_mvaSpring16HZZ_) throw std::runtime_error("Electron_mvaSpring16HZZ branch doesn't exist");
         int bytes = b_Electron_mvaSpring16HZZ_->GetEntry(index);
-        v_Electron_mvaSpring16HZZ_ = vector<float>(Electron_mvaSpring16HZZ_,Electron_mvaSpring16HZZ_+bytes/sizeof(Electron_mvaSpring16HZZ_[0]));
+        v_Electron_mvaSpring16HZZ_ = vector<float>(Electron_mvaSpring16HZZ_.data(),Electron_mvaSpring16HZZ_.data()+bytes/sizeof(Electron_mvaSpring16HZZ_[0]));
         loaded_Electron_mvaSpring16HZZ_ = true;
     }
     return v_Electron_mvaSpring16HZZ_;
@@ -15527,7 +15562,7 @@ const vector<bool> &Nano::Electron_mvaSpring16HZZ_WPL() {
     if (!loaded_Electron_mvaSpring16HZZ_WPL_) {
         if (!b_Electron_mvaSpring16HZZ_WPL_) throw std::runtime_error("Electron_mvaSpring16HZZ_WPL branch doesn't exist");
         int bytes = b_Electron_mvaSpring16HZZ_WPL_->GetEntry(index);
-        v_Electron_mvaSpring16HZZ_WPL_ = vector<bool>(Electron_mvaSpring16HZZ_WPL_,Electron_mvaSpring16HZZ_WPL_+bytes/sizeof(Electron_mvaSpring16HZZ_WPL_[0]));
+        v_Electron_mvaSpring16HZZ_WPL_ = vector<bool>(Electron_mvaSpring16HZZ_WPL_.data(),Electron_mvaSpring16HZZ_WPL_.data()+bytes/sizeof(Electron_mvaSpring16HZZ_WPL_[0]));
         loaded_Electron_mvaSpring16HZZ_WPL_ = true;
     }
     return v_Electron_mvaSpring16HZZ_WPL_;
@@ -15538,7 +15573,7 @@ const vector<float> &Nano::Electron_mvaTTH() {
     if (!loaded_Electron_mvaTTH_) {
         if (!b_Electron_mvaTTH_) throw std::runtime_error("Electron_mvaTTH branch doesn't exist");
         int bytes = b_Electron_mvaTTH_->GetEntry(index);
-        v_Electron_mvaTTH_ = vector<float>(Electron_mvaTTH_,Electron_mvaTTH_+bytes/sizeof(Electron_mvaTTH_[0]));
+        v_Electron_mvaTTH_ = vector<float>(Electron_mvaTTH_.data(),Electron_mvaTTH_.data()+bytes/sizeof(Electron_mvaTTH_[0]));
         loaded_Electron_mvaTTH_ = true;
     }
     return v_Electron_mvaTTH_;
@@ -15550,7 +15585,7 @@ const vector<float> &Nano::Electron_mvaTTHUL() {
     if (!loaded_Electron_mvaTTHUL_) {
         if (!b_Electron_mvaTTHUL_) throw std::runtime_error("Electron_mvaTTHUL branch doesn't exist");
         int bytes = b_Electron_mvaTTHUL_->GetEntry(index);
-        v_Electron_mvaTTHUL_ = vector<float>(Electron_mvaTTHUL_,Electron_mvaTTHUL_+bytes/sizeof(Electron_mvaTTHUL_[0]));
+        v_Electron_mvaTTHUL_ = vector<float>(Electron_mvaTTHUL_.data(),Electron_mvaTTHUL_.data()+bytes/sizeof(Electron_mvaTTHUL_[0]));
         loaded_Electron_mvaTTHUL_ = true;
     }
     return v_Electron_mvaTTHUL_;
@@ -15578,7 +15613,7 @@ const vector<int> &Nano::Electron_pdgId() {
     if (!loaded_Electron_pdgId_) {
         if (!b_Electron_pdgId_) throw std::runtime_error("Electron_pdgId branch doesn't exist");
         int bytes = b_Electron_pdgId_->GetEntry(index);
-        v_Electron_pdgId_ = vector<int>(Electron_pdgId_,Electron_pdgId_+bytes/sizeof(Electron_pdgId_[0]));
+        v_Electron_pdgId_ = vector<int>(Electron_pdgId_.data(),Electron_pdgId_.data()+bytes/sizeof(Electron_pdgId_[0]));
         loaded_Electron_pdgId_ = true;
     }
     return v_Electron_pdgId_;
@@ -15589,7 +15624,7 @@ const vector<float> &Nano::Electron_pfRelIso03_all() {
     if (!loaded_Electron_pfRelIso03_all_) {
         if (!b_Electron_pfRelIso03_all_) throw std::runtime_error("Electron_pfRelIso03_all branch doesn't exist");
         int bytes = b_Electron_pfRelIso03_all_->GetEntry(index);
-        v_Electron_pfRelIso03_all_ = vector<float>(Electron_pfRelIso03_all_,Electron_pfRelIso03_all_+bytes/sizeof(Electron_pfRelIso03_all_[0]));
+        v_Electron_pfRelIso03_all_ = vector<float>(Electron_pfRelIso03_all_.data(),Electron_pfRelIso03_all_.data()+bytes/sizeof(Electron_pfRelIso03_all_[0]));
         loaded_Electron_pfRelIso03_all_ = true;
     }
     return v_Electron_pfRelIso03_all_;
@@ -15600,7 +15635,7 @@ const vector<float> &Nano::Electron_pfRelIso03_all_Fall17V2() {
     if (!loaded_Electron_pfRelIso03_all_Fall17V2_) {
         if (!b_Electron_pfRelIso03_all_Fall17V2_) throw std::runtime_error("Electron_pfRelIso03_all_Fall17V2 branch doesn't exist");
         int bytes = b_Electron_pfRelIso03_all_Fall17V2_->GetEntry(index);
-        v_Electron_pfRelIso03_all_Fall17V2_ = vector<float>(Electron_pfRelIso03_all_Fall17V2_,Electron_pfRelIso03_all_Fall17V2_+bytes/sizeof(Electron_pfRelIso03_all_Fall17V2_[0]));
+        v_Electron_pfRelIso03_all_Fall17V2_ = vector<float>(Electron_pfRelIso03_all_Fall17V2_.data(),Electron_pfRelIso03_all_Fall17V2_.data()+bytes/sizeof(Electron_pfRelIso03_all_Fall17V2_[0]));
         loaded_Electron_pfRelIso03_all_Fall17V2_ = true;
     }
     return v_Electron_pfRelIso03_all_Fall17V2_;
@@ -15611,7 +15646,7 @@ const vector<float> &Nano::Electron_pfRelIso03_chg() {
     if (!loaded_Electron_pfRelIso03_chg_) {
         if (!b_Electron_pfRelIso03_chg_) throw std::runtime_error("Electron_pfRelIso03_chg branch doesn't exist");
         int bytes = b_Electron_pfRelIso03_chg_->GetEntry(index);
-        v_Electron_pfRelIso03_chg_ = vector<float>(Electron_pfRelIso03_chg_,Electron_pfRelIso03_chg_+bytes/sizeof(Electron_pfRelIso03_chg_[0]));
+        v_Electron_pfRelIso03_chg_ = vector<float>(Electron_pfRelIso03_chg_.data(),Electron_pfRelIso03_chg_.data()+bytes/sizeof(Electron_pfRelIso03_chg_[0]));
         loaded_Electron_pfRelIso03_chg_ = true;
     }
     return v_Electron_pfRelIso03_chg_;
@@ -15622,7 +15657,7 @@ const vector<float> &Nano::Electron_pfRelIso03_chg_Fall17V2() {
     if (!loaded_Electron_pfRelIso03_chg_Fall17V2_) {
         if (!b_Electron_pfRelIso03_chg_Fall17V2_) throw std::runtime_error("Electron_pfRelIso03_chg_Fall17V2 branch doesn't exist");
         int bytes = b_Electron_pfRelIso03_chg_Fall17V2_->GetEntry(index);
-        v_Electron_pfRelIso03_chg_Fall17V2_ = vector<float>(Electron_pfRelIso03_chg_Fall17V2_,Electron_pfRelIso03_chg_Fall17V2_+bytes/sizeof(Electron_pfRelIso03_chg_Fall17V2_[0]));
+        v_Electron_pfRelIso03_chg_Fall17V2_ = vector<float>(Electron_pfRelIso03_chg_Fall17V2_.data(),Electron_pfRelIso03_chg_Fall17V2_.data()+bytes/sizeof(Electron_pfRelIso03_chg_Fall17V2_[0]));
         loaded_Electron_pfRelIso03_chg_Fall17V2_ = true;
     }
     return v_Electron_pfRelIso03_chg_Fall17V2_;
@@ -15633,7 +15668,7 @@ const vector<float> &Nano::Electron_phi() {
     if (!loaded_Electron_phi_) {
         if (!b_Electron_phi_) throw std::runtime_error("Electron_phi branch doesn't exist");
         int bytes = b_Electron_phi_->GetEntry(index);
-        v_Electron_phi_ = vector<float>(Electron_phi_,Electron_phi_+bytes/sizeof(Electron_phi_[0]));
+        v_Electron_phi_ = vector<float>(Electron_phi_.data(),Electron_phi_.data()+bytes/sizeof(Electron_phi_[0]));
         loaded_Electron_phi_ = true;
     }
     return v_Electron_phi_;
@@ -15644,7 +15679,7 @@ const vector<int> &Nano::Electron_photonIdx() {
     if (!loaded_Electron_photonIdx_) {
         if (!b_Electron_photonIdx_) throw std::runtime_error("Electron_photonIdx branch doesn't exist");
         int bytes = b_Electron_photonIdx_->GetEntry(index);
-        v_Electron_photonIdx_ = vector<int>(Electron_photonIdx_,Electron_photonIdx_+bytes/sizeof(Electron_photonIdx_[0]));
+        v_Electron_photonIdx_ = vector<int>(Electron_photonIdx_.data(),Electron_photonIdx_.data()+bytes/sizeof(Electron_photonIdx_[0]));
         loaded_Electron_photonIdx_ = true;
     }
     return v_Electron_photonIdx_;
@@ -15655,7 +15690,7 @@ const vector<float> &Nano::Electron_pt() {
     if (!loaded_Electron_pt_) {
         if (!b_Electron_pt_) throw std::runtime_error("Electron_pt branch doesn't exist");
         int bytes = b_Electron_pt_->GetEntry(index);
-        v_Electron_pt_ = vector<float>(Electron_pt_,Electron_pt_+bytes/sizeof(Electron_pt_[0]));
+        v_Electron_pt_ = vector<float>(Electron_pt_.data(),Electron_pt_.data()+bytes/sizeof(Electron_pt_[0]));
         loaded_Electron_pt_ = true;
     }
     return v_Electron_pt_;
@@ -15666,7 +15701,7 @@ const vector<float> &Nano::Electron_r9() {
     if (!loaded_Electron_r9_) {
         if (!b_Electron_r9_) throw std::runtime_error("Electron_r9 branch doesn't exist");
         int bytes = b_Electron_r9_->GetEntry(index);
-        v_Electron_r9_ = vector<float>(Electron_r9_,Electron_r9_+bytes/sizeof(Electron_r9_[0]));
+        v_Electron_r9_ = vector<float>(Electron_r9_.data(),Electron_r9_.data()+bytes/sizeof(Electron_r9_[0]));
         loaded_Electron_r9_ = true;
     }
     return v_Electron_r9_;
@@ -15677,7 +15712,7 @@ const vector<float> &Nano::Electron_scEtOverPt() {
     if (!loaded_Electron_scEtOverPt_) {
         if (!b_Electron_scEtOverPt_) throw std::runtime_error("Electron_scEtOverPt branch doesn't exist");
         int bytes = b_Electron_scEtOverPt_->GetEntry(index);
-        v_Electron_scEtOverPt_ = vector<float>(Electron_scEtOverPt_,Electron_scEtOverPt_+bytes/sizeof(Electron_scEtOverPt_[0]));
+        v_Electron_scEtOverPt_ = vector<float>(Electron_scEtOverPt_.data(),Electron_scEtOverPt_.data()+bytes/sizeof(Electron_scEtOverPt_[0]));
         loaded_Electron_scEtOverPt_ = true;
     }
     return v_Electron_scEtOverPt_;
@@ -15688,7 +15723,7 @@ const vector<UChar_t> &Nano::Electron_seedGain() {
     if (!loaded_Electron_seedGain_) {
         if (!b_Electron_seedGain_) throw std::runtime_error("Electron_seedGain branch doesn't exist");
         int bytes = b_Electron_seedGain_->GetEntry(index);
-        v_Electron_seedGain_ = vector<UChar_t>(Electron_seedGain_,Electron_seedGain_+bytes/sizeof(Electron_seedGain_[0]));
+        v_Electron_seedGain_ = vector<UChar_t>(Electron_seedGain_.data(),Electron_seedGain_.data()+bytes/sizeof(Electron_seedGain_[0]));
         loaded_Electron_seedGain_ = true;
     }
     return v_Electron_seedGain_;
@@ -15699,7 +15734,7 @@ const vector<Char_t> &Nano::Electron_seediEtaOriX() {
     if (!loaded_Electron_seediEtaOriX_) {
         if (!b_Electron_seediEtaOriX_) throw std::runtime_error("Electron_seediEtaOriX branch doesn't exist");
         int bytes = b_Electron_seediEtaOriX_->GetEntry(index);
-        v_Electron_seediEtaOriX_ = vector<Char_t>(Electron_seediEtaOriX_,Electron_seediEtaOriX_+bytes/sizeof(Electron_seediEtaOriX_[0]));
+        v_Electron_seediEtaOriX_ = vector<Char_t>(Electron_seediEtaOriX_.data(),Electron_seediEtaOriX_.data()+bytes/sizeof(Electron_seediEtaOriX_[0]));
         loaded_Electron_seediEtaOriX_ = true;
     }
     return v_Electron_seediEtaOriX_;
@@ -15710,7 +15745,7 @@ const vector<int> &Nano::Electron_seediPhiOriY() {
     if (!loaded_Electron_seediPhiOriY_) {
         if (!b_Electron_seediPhiOriY_) throw std::runtime_error("Electron_seediPhiOriY branch doesn't exist");
         int bytes = b_Electron_seediPhiOriY_->GetEntry(index);
-        v_Electron_seediPhiOriY_ = vector<int>(Electron_seediPhiOriY_,Electron_seediPhiOriY_+bytes/sizeof(Electron_seediPhiOriY_[0]));
+        v_Electron_seediPhiOriY_ = vector<int>(Electron_seediPhiOriY_.data(),Electron_seediPhiOriY_.data()+bytes/sizeof(Electron_seediPhiOriY_[0]));
         loaded_Electron_seediPhiOriY_ = true;
     }
     return v_Electron_seediPhiOriY_;
@@ -15721,7 +15756,7 @@ const vector<float> &Nano::Electron_sieie() {
     if (!loaded_Electron_sieie_) {
         if (!b_Electron_sieie_) throw std::runtime_error("Electron_sieie branch doesn't exist");
         int bytes = b_Electron_sieie_->GetEntry(index);
-        v_Electron_sieie_ = vector<float>(Electron_sieie_,Electron_sieie_+bytes/sizeof(Electron_sieie_[0]));
+        v_Electron_sieie_ = vector<float>(Electron_sieie_.data(),Electron_sieie_.data()+bytes/sizeof(Electron_sieie_[0]));
         loaded_Electron_sieie_ = true;
     }
     return v_Electron_sieie_;
@@ -15732,7 +15767,7 @@ const vector<float> &Nano::Electron_sip3d() {
     if (!loaded_Electron_sip3d_) {
         if (!b_Electron_sip3d_) throw std::runtime_error("Electron_sip3d branch doesn't exist");
         int bytes = b_Electron_sip3d_->GetEntry(index);
-        v_Electron_sip3d_ = vector<float>(Electron_sip3d_,Electron_sip3d_+bytes/sizeof(Electron_sip3d_[0]));
+        v_Electron_sip3d_ = vector<float>(Electron_sip3d_.data(),Electron_sip3d_.data()+bytes/sizeof(Electron_sip3d_[0]));
         loaded_Electron_sip3d_ = true;
     }
     return v_Electron_sip3d_;
@@ -15743,7 +15778,7 @@ const vector<int> &Nano::Electron_svIdx() {
     if (!loaded_Electron_svIdx_) {
         if (!b_Electron_svIdx_) throw std::runtime_error("Electron_svIdx branch doesn't exist");
         int bytes = b_Electron_svIdx_->GetEntry(index);
-        v_Electron_svIdx_ = vector<int>(Electron_svIdx_,Electron_svIdx_+bytes/sizeof(Electron_svIdx_[0]));
+        v_Electron_svIdx_ = vector<int>(Electron_svIdx_.data(),Electron_svIdx_.data()+bytes/sizeof(Electron_svIdx_[0]));
         loaded_Electron_svIdx_ = true;
     }
     return v_Electron_svIdx_;
@@ -15754,7 +15789,7 @@ const vector<int> &Nano::Electron_tightCharge() {
     if (!loaded_Electron_tightCharge_) {
         if (!b_Electron_tightCharge_) throw std::runtime_error("Electron_tightCharge branch doesn't exist");
         int bytes = b_Electron_tightCharge_->GetEntry(index);
-        v_Electron_tightCharge_ = vector<int>(Electron_tightCharge_,Electron_tightCharge_+bytes/sizeof(Electron_tightCharge_[0]));
+        v_Electron_tightCharge_ = vector<int>(Electron_tightCharge_.data(),Electron_tightCharge_.data()+bytes/sizeof(Electron_tightCharge_[0]));
         loaded_Electron_tightCharge_ = true;
     }
     return v_Electron_tightCharge_;
@@ -15765,7 +15800,7 @@ const vector<int> &Nano::Electron_vidNestedWPBitmap() {
     if (!loaded_Electron_vidNestedWPBitmap_) {
         if (!b_Electron_vidNestedWPBitmap_) throw std::runtime_error("Electron_vidNestedWPBitmap branch doesn't exist");
         int bytes = b_Electron_vidNestedWPBitmap_->GetEntry(index);
-        v_Electron_vidNestedWPBitmap_ = vector<int>(Electron_vidNestedWPBitmap_,Electron_vidNestedWPBitmap_+bytes/sizeof(Electron_vidNestedWPBitmap_[0]));
+        v_Electron_vidNestedWPBitmap_ = vector<int>(Electron_vidNestedWPBitmap_.data(),Electron_vidNestedWPBitmap_.data()+bytes/sizeof(Electron_vidNestedWPBitmap_[0]));
         loaded_Electron_vidNestedWPBitmap_ = true;
     }
     return v_Electron_vidNestedWPBitmap_;
@@ -15776,7 +15811,7 @@ const vector<int> &Nano::Electron_vidNestedWPBitmapHEEP() {
     if (!loaded_Electron_vidNestedWPBitmapHEEP_) {
         if (!b_Electron_vidNestedWPBitmapHEEP_) throw std::runtime_error("Electron_vidNestedWPBitmapHEEP branch doesn't exist");
         int bytes = b_Electron_vidNestedWPBitmapHEEP_->GetEntry(index);
-        v_Electron_vidNestedWPBitmapHEEP_ = vector<int>(Electron_vidNestedWPBitmapHEEP_,Electron_vidNestedWPBitmapHEEP_+bytes/sizeof(Electron_vidNestedWPBitmapHEEP_[0]));
+        v_Electron_vidNestedWPBitmapHEEP_ = vector<int>(Electron_vidNestedWPBitmapHEEP_.data(),Electron_vidNestedWPBitmapHEEP_.data()+bytes/sizeof(Electron_vidNestedWPBitmapHEEP_[0]));
         loaded_Electron_vidNestedWPBitmapHEEP_ = true;
     }
     return v_Electron_vidNestedWPBitmapHEEP_;
@@ -15787,7 +15822,7 @@ const vector<int> &Nano::Electron_vidNestedWPBitmap_Fall17V2() {
     if (!loaded_Electron_vidNestedWPBitmap_Fall17V2_) {
         if (!b_Electron_vidNestedWPBitmap_Fall17V2_) throw std::runtime_error("Electron_vidNestedWPBitmap_Fall17V2 branch doesn't exist");
         int bytes = b_Electron_vidNestedWPBitmap_Fall17V2_->GetEntry(index);
-        v_Electron_vidNestedWPBitmap_Fall17V2_ = vector<int>(Electron_vidNestedWPBitmap_Fall17V2_,Electron_vidNestedWPBitmap_Fall17V2_+bytes/sizeof(Electron_vidNestedWPBitmap_Fall17V2_[0]));
+        v_Electron_vidNestedWPBitmap_Fall17V2_ = vector<int>(Electron_vidNestedWPBitmap_Fall17V2_.data(),Electron_vidNestedWPBitmap_Fall17V2_.data()+bytes/sizeof(Electron_vidNestedWPBitmap_Fall17V2_[0]));
         loaded_Electron_vidNestedWPBitmap_Fall17V2_ = true;
     }
     return v_Electron_vidNestedWPBitmap_Fall17V2_;
@@ -15798,7 +15833,7 @@ const vector<float> &Nano::FatJet_area() {
     if (!loaded_FatJet_area_) {
         if (!b_FatJet_area_) throw std::runtime_error("FatJet_area branch doesn't exist");
         int bytes = b_FatJet_area_->GetEntry(index);
-        v_FatJet_area_ = vector<float>(FatJet_area_,FatJet_area_+bytes/sizeof(FatJet_area_[0]));
+        v_FatJet_area_ = vector<float>(FatJet_area_.data(),FatJet_area_.data()+bytes/sizeof(FatJet_area_[0]));
         loaded_FatJet_area_ = true;
     }
     return v_FatJet_area_;
@@ -15809,7 +15844,7 @@ const vector<float> &Nano::FatJet_btagCMVA() {
     if (!loaded_FatJet_btagCMVA_) {
         if (!b_FatJet_btagCMVA_) throw std::runtime_error("FatJet_btagCMVA branch doesn't exist");
         int bytes = b_FatJet_btagCMVA_->GetEntry(index);
-        v_FatJet_btagCMVA_ = vector<float>(FatJet_btagCMVA_,FatJet_btagCMVA_+bytes/sizeof(FatJet_btagCMVA_[0]));
+        v_FatJet_btagCMVA_ = vector<float>(FatJet_btagCMVA_.data(),FatJet_btagCMVA_.data()+bytes/sizeof(FatJet_btagCMVA_[0]));
         loaded_FatJet_btagCMVA_ = true;
     }
     return v_FatJet_btagCMVA_;
@@ -15820,7 +15855,7 @@ const vector<float> &Nano::FatJet_btagCSVV2() {
     if (!loaded_FatJet_btagCSVV2_) {
         if (!b_FatJet_btagCSVV2_) throw std::runtime_error("FatJet_btagCSVV2 branch doesn't exist");
         int bytes = b_FatJet_btagCSVV2_->GetEntry(index);
-        v_FatJet_btagCSVV2_ = vector<float>(FatJet_btagCSVV2_,FatJet_btagCSVV2_+bytes/sizeof(FatJet_btagCSVV2_[0]));
+        v_FatJet_btagCSVV2_ = vector<float>(FatJet_btagCSVV2_.data(),FatJet_btagCSVV2_.data()+bytes/sizeof(FatJet_btagCSVV2_[0]));
         loaded_FatJet_btagCSVV2_ = true;
     }
     return v_FatJet_btagCSVV2_;
@@ -15831,7 +15866,7 @@ const vector<float> &Nano::FatJet_btagDDBvL() {
     if (!loaded_FatJet_btagDDBvL_) {
         if (!b_FatJet_btagDDBvL_) throw std::runtime_error("FatJet_btagDDBvL branch doesn't exist");
         int bytes = b_FatJet_btagDDBvL_->GetEntry(index);
-        v_FatJet_btagDDBvL_ = vector<float>(FatJet_btagDDBvL_,FatJet_btagDDBvL_+bytes/sizeof(FatJet_btagDDBvL_[0]));
+        v_FatJet_btagDDBvL_ = vector<float>(FatJet_btagDDBvL_.data(),FatJet_btagDDBvL_.data()+bytes/sizeof(FatJet_btagDDBvL_[0]));
         loaded_FatJet_btagDDBvL_ = true;
     }
     return v_FatJet_btagDDBvL_;
@@ -15842,7 +15877,7 @@ const vector<float> &Nano::FatJet_btagDDBvLV2() {
     if (!loaded_FatJet_btagDDBvLV2_) {
         if (!b_FatJet_btagDDBvLV2_) throw std::runtime_error("FatJet_btagDDBvLV2 branch doesn't exist");
         int bytes = b_FatJet_btagDDBvLV2_->GetEntry(index);
-        v_FatJet_btagDDBvLV2_ = vector<float>(FatJet_btagDDBvLV2_,FatJet_btagDDBvLV2_+bytes/sizeof(FatJet_btagDDBvLV2_[0]));
+        v_FatJet_btagDDBvLV2_ = vector<float>(FatJet_btagDDBvLV2_.data(),FatJet_btagDDBvLV2_.data()+bytes/sizeof(FatJet_btagDDBvLV2_[0]));
         loaded_FatJet_btagDDBvLV2_ = true;
     }
     return v_FatJet_btagDDBvLV2_;
@@ -15853,7 +15888,7 @@ const vector<float> &Nano::FatJet_btagDDBvL_noMD() {
     if (!loaded_FatJet_btagDDBvL_noMD_) {
         if (!b_FatJet_btagDDBvL_noMD_) throw std::runtime_error("FatJet_btagDDBvL_noMD branch doesn't exist");
         int bytes = b_FatJet_btagDDBvL_noMD_->GetEntry(index);
-        v_FatJet_btagDDBvL_noMD_ = vector<float>(FatJet_btagDDBvL_noMD_,FatJet_btagDDBvL_noMD_+bytes/sizeof(FatJet_btagDDBvL_noMD_[0]));
+        v_FatJet_btagDDBvL_noMD_ = vector<float>(FatJet_btagDDBvL_noMD_.data(),FatJet_btagDDBvL_noMD_.data()+bytes/sizeof(FatJet_btagDDBvL_noMD_[0]));
         loaded_FatJet_btagDDBvL_noMD_ = true;
     }
     return v_FatJet_btagDDBvL_noMD_;
@@ -15864,7 +15899,7 @@ const vector<float> &Nano::FatJet_btagDDCvB() {
     if (!loaded_FatJet_btagDDCvB_) {
         if (!b_FatJet_btagDDCvB_) throw std::runtime_error("FatJet_btagDDCvB branch doesn't exist");
         int bytes = b_FatJet_btagDDCvB_->GetEntry(index);
-        v_FatJet_btagDDCvB_ = vector<float>(FatJet_btagDDCvB_,FatJet_btagDDCvB_+bytes/sizeof(FatJet_btagDDCvB_[0]));
+        v_FatJet_btagDDCvB_ = vector<float>(FatJet_btagDDCvB_.data(),FatJet_btagDDCvB_.data()+bytes/sizeof(FatJet_btagDDCvB_[0]));
         loaded_FatJet_btagDDCvB_ = true;
     }
     return v_FatJet_btagDDCvB_;
@@ -15875,7 +15910,7 @@ const vector<float> &Nano::FatJet_btagDDCvBV2() {
     if (!loaded_FatJet_btagDDCvBV2_) {
         if (!b_FatJet_btagDDCvBV2_) throw std::runtime_error("FatJet_btagDDCvBV2 branch doesn't exist");
         int bytes = b_FatJet_btagDDCvBV2_->GetEntry(index);
-        v_FatJet_btagDDCvBV2_ = vector<float>(FatJet_btagDDCvBV2_,FatJet_btagDDCvBV2_+bytes/sizeof(FatJet_btagDDCvBV2_[0]));
+        v_FatJet_btagDDCvBV2_ = vector<float>(FatJet_btagDDCvBV2_.data(),FatJet_btagDDCvBV2_.data()+bytes/sizeof(FatJet_btagDDCvBV2_[0]));
         loaded_FatJet_btagDDCvBV2_ = true;
     }
     return v_FatJet_btagDDCvBV2_;
@@ -15886,7 +15921,7 @@ const vector<float> &Nano::FatJet_btagDDCvB_noMD() {
     if (!loaded_FatJet_btagDDCvB_noMD_) {
         if (!b_FatJet_btagDDCvB_noMD_) throw std::runtime_error("FatJet_btagDDCvB_noMD branch doesn't exist");
         int bytes = b_FatJet_btagDDCvB_noMD_->GetEntry(index);
-        v_FatJet_btagDDCvB_noMD_ = vector<float>(FatJet_btagDDCvB_noMD_,FatJet_btagDDCvB_noMD_+bytes/sizeof(FatJet_btagDDCvB_noMD_[0]));
+        v_FatJet_btagDDCvB_noMD_ = vector<float>(FatJet_btagDDCvB_noMD_.data(),FatJet_btagDDCvB_noMD_.data()+bytes/sizeof(FatJet_btagDDCvB_noMD_[0]));
         loaded_FatJet_btagDDCvB_noMD_ = true;
     }
     return v_FatJet_btagDDCvB_noMD_;
@@ -15897,7 +15932,7 @@ const vector<float> &Nano::FatJet_btagDDCvL() {
     if (!loaded_FatJet_btagDDCvL_) {
         if (!b_FatJet_btagDDCvL_) throw std::runtime_error("FatJet_btagDDCvL branch doesn't exist");
         int bytes = b_FatJet_btagDDCvL_->GetEntry(index);
-        v_FatJet_btagDDCvL_ = vector<float>(FatJet_btagDDCvL_,FatJet_btagDDCvL_+bytes/sizeof(FatJet_btagDDCvL_[0]));
+        v_FatJet_btagDDCvL_ = vector<float>(FatJet_btagDDCvL_.data(),FatJet_btagDDCvL_.data()+bytes/sizeof(FatJet_btagDDCvL_[0]));
         loaded_FatJet_btagDDCvL_ = true;
     }
     return v_FatJet_btagDDCvL_;
@@ -15908,7 +15943,7 @@ const vector<float> &Nano::FatJet_btagDDCvLV2() {
     if (!loaded_FatJet_btagDDCvLV2_) {
         if (!b_FatJet_btagDDCvLV2_) throw std::runtime_error("FatJet_btagDDCvLV2 branch doesn't exist");
         int bytes = b_FatJet_btagDDCvLV2_->GetEntry(index);
-        v_FatJet_btagDDCvLV2_ = vector<float>(FatJet_btagDDCvLV2_,FatJet_btagDDCvLV2_+bytes/sizeof(FatJet_btagDDCvLV2_[0]));
+        v_FatJet_btagDDCvLV2_ = vector<float>(FatJet_btagDDCvLV2_.data(),FatJet_btagDDCvLV2_.data()+bytes/sizeof(FatJet_btagDDCvLV2_[0]));
         loaded_FatJet_btagDDCvLV2_ = true;
     }
     return v_FatJet_btagDDCvLV2_;
@@ -15919,7 +15954,7 @@ const vector<float> &Nano::FatJet_btagDDCvL_noMD() {
     if (!loaded_FatJet_btagDDCvL_noMD_) {
         if (!b_FatJet_btagDDCvL_noMD_) throw std::runtime_error("FatJet_btagDDCvL_noMD branch doesn't exist");
         int bytes = b_FatJet_btagDDCvL_noMD_->GetEntry(index);
-        v_FatJet_btagDDCvL_noMD_ = vector<float>(FatJet_btagDDCvL_noMD_,FatJet_btagDDCvL_noMD_+bytes/sizeof(FatJet_btagDDCvL_noMD_[0]));
+        v_FatJet_btagDDCvL_noMD_ = vector<float>(FatJet_btagDDCvL_noMD_.data(),FatJet_btagDDCvL_noMD_.data()+bytes/sizeof(FatJet_btagDDCvL_noMD_[0]));
         loaded_FatJet_btagDDCvL_noMD_ = true;
     }
     return v_FatJet_btagDDCvL_noMD_;
@@ -15930,7 +15965,7 @@ const vector<float> &Nano::FatJet_btagDeepB() {
     if (!loaded_FatJet_btagDeepB_) {
         if (!b_FatJet_btagDeepB_) throw std::runtime_error("FatJet_btagDeepB branch doesn't exist");
         int bytes = b_FatJet_btagDeepB_->GetEntry(index);
-        v_FatJet_btagDeepB_ = vector<float>(FatJet_btagDeepB_,FatJet_btagDeepB_+bytes/sizeof(FatJet_btagDeepB_[0]));
+        v_FatJet_btagDeepB_ = vector<float>(FatJet_btagDeepB_.data(),FatJet_btagDeepB_.data()+bytes/sizeof(FatJet_btagDeepB_[0]));
         loaded_FatJet_btagDeepB_ = true;
     }
     return v_FatJet_btagDeepB_;
@@ -15941,7 +15976,7 @@ const vector<float> &Nano::FatJet_btagHbb() {
     if (!loaded_FatJet_btagHbb_) {
         if (!b_FatJet_btagHbb_) throw std::runtime_error("FatJet_btagHbb branch doesn't exist");
         int bytes = b_FatJet_btagHbb_->GetEntry(index);
-        v_FatJet_btagHbb_ = vector<float>(FatJet_btagHbb_,FatJet_btagHbb_+bytes/sizeof(FatJet_btagHbb_[0]));
+        v_FatJet_btagHbb_ = vector<float>(FatJet_btagHbb_.data(),FatJet_btagHbb_.data()+bytes/sizeof(FatJet_btagHbb_[0]));
         loaded_FatJet_btagHbb_ = true;
     }
     return v_FatJet_btagHbb_;
@@ -15952,7 +15987,7 @@ const vector<float> &Nano::FatJet_corr_JEC() {
     if (!loaded_FatJet_corr_JEC_) {
         if (!b_FatJet_corr_JEC_) throw std::runtime_error("FatJet_corr_JEC branch doesn't exist");
         int bytes = b_FatJet_corr_JEC_->GetEntry(index);
-        v_FatJet_corr_JEC_ = vector<float>(FatJet_corr_JEC_,FatJet_corr_JEC_+bytes/sizeof(FatJet_corr_JEC_[0]));
+        v_FatJet_corr_JEC_ = vector<float>(FatJet_corr_JEC_.data(),FatJet_corr_JEC_.data()+bytes/sizeof(FatJet_corr_JEC_[0]));
         loaded_FatJet_corr_JEC_ = true;
     }
     return v_FatJet_corr_JEC_;
@@ -15963,7 +15998,7 @@ const vector<float> &Nano::FatJet_corr_JER() {
     if (!loaded_FatJet_corr_JER_) {
         if (!b_FatJet_corr_JER_) throw std::runtime_error("FatJet_corr_JER branch doesn't exist");
         int bytes = b_FatJet_corr_JER_->GetEntry(index);
-        v_FatJet_corr_JER_ = vector<float>(FatJet_corr_JER_,FatJet_corr_JER_+bytes/sizeof(FatJet_corr_JER_[0]));
+        v_FatJet_corr_JER_ = vector<float>(FatJet_corr_JER_.data(),FatJet_corr_JER_.data()+bytes/sizeof(FatJet_corr_JER_[0]));
         loaded_FatJet_corr_JER_ = true;
     }
     return v_FatJet_corr_JER_;
@@ -15974,7 +16009,7 @@ const vector<float> &Nano::FatJet_corr_JMR() {
     if (!loaded_FatJet_corr_JMR_) {
         if (!b_FatJet_corr_JMR_) throw std::runtime_error("FatJet_corr_JMR branch doesn't exist");
         int bytes = b_FatJet_corr_JMR_->GetEntry(index);
-        v_FatJet_corr_JMR_ = vector<float>(FatJet_corr_JMR_,FatJet_corr_JMR_+bytes/sizeof(FatJet_corr_JMR_[0]));
+        v_FatJet_corr_JMR_ = vector<float>(FatJet_corr_JMR_.data(),FatJet_corr_JMR_.data()+bytes/sizeof(FatJet_corr_JMR_[0]));
         loaded_FatJet_corr_JMR_ = true;
     }
     return v_FatJet_corr_JMR_;
@@ -15985,7 +16020,7 @@ const vector<float> &Nano::FatJet_corr_JMS() {
     if (!loaded_FatJet_corr_JMS_) {
         if (!b_FatJet_corr_JMS_) throw std::runtime_error("FatJet_corr_JMS branch doesn't exist");
         int bytes = b_FatJet_corr_JMS_->GetEntry(index);
-        v_FatJet_corr_JMS_ = vector<float>(FatJet_corr_JMS_,FatJet_corr_JMS_+bytes/sizeof(FatJet_corr_JMS_[0]));
+        v_FatJet_corr_JMS_ = vector<float>(FatJet_corr_JMS_.data(),FatJet_corr_JMS_.data()+bytes/sizeof(FatJet_corr_JMS_[0]));
         loaded_FatJet_corr_JMS_ = true;
     }
     return v_FatJet_corr_JMS_;
@@ -15996,7 +16031,7 @@ const vector<float> &Nano::FatJet_deepTagMD_H4qvsQCD() {
     if (!loaded_FatJet_deepTagMD_H4qvsQCD_) {
         if (!b_FatJet_deepTagMD_H4qvsQCD_) throw std::runtime_error("FatJet_deepTagMD_H4qvsQCD branch doesn't exist");
         int bytes = b_FatJet_deepTagMD_H4qvsQCD_->GetEntry(index);
-        v_FatJet_deepTagMD_H4qvsQCD_ = vector<float>(FatJet_deepTagMD_H4qvsQCD_,FatJet_deepTagMD_H4qvsQCD_+bytes/sizeof(FatJet_deepTagMD_H4qvsQCD_[0]));
+        v_FatJet_deepTagMD_H4qvsQCD_ = vector<float>(FatJet_deepTagMD_H4qvsQCD_.data(),FatJet_deepTagMD_H4qvsQCD_.data()+bytes/sizeof(FatJet_deepTagMD_H4qvsQCD_[0]));
         loaded_FatJet_deepTagMD_H4qvsQCD_ = true;
     }
     return v_FatJet_deepTagMD_H4qvsQCD_;
@@ -16007,7 +16042,7 @@ const vector<float> &Nano::FatJet_deepTagMD_HbbvsQCD() {
     if (!loaded_FatJet_deepTagMD_HbbvsQCD_) {
         if (!b_FatJet_deepTagMD_HbbvsQCD_) throw std::runtime_error("FatJet_deepTagMD_HbbvsQCD branch doesn't exist");
         int bytes = b_FatJet_deepTagMD_HbbvsQCD_->GetEntry(index);
-        v_FatJet_deepTagMD_HbbvsQCD_ = vector<float>(FatJet_deepTagMD_HbbvsQCD_,FatJet_deepTagMD_HbbvsQCD_+bytes/sizeof(FatJet_deepTagMD_HbbvsQCD_[0]));
+        v_FatJet_deepTagMD_HbbvsQCD_ = vector<float>(FatJet_deepTagMD_HbbvsQCD_.data(),FatJet_deepTagMD_HbbvsQCD_.data()+bytes/sizeof(FatJet_deepTagMD_HbbvsQCD_[0]));
         loaded_FatJet_deepTagMD_HbbvsQCD_ = true;
     }
     return v_FatJet_deepTagMD_HbbvsQCD_;
@@ -16018,7 +16053,7 @@ const vector<float> &Nano::FatJet_deepTagMD_TvsQCD() {
     if (!loaded_FatJet_deepTagMD_TvsQCD_) {
         if (!b_FatJet_deepTagMD_TvsQCD_) throw std::runtime_error("FatJet_deepTagMD_TvsQCD branch doesn't exist");
         int bytes = b_FatJet_deepTagMD_TvsQCD_->GetEntry(index);
-        v_FatJet_deepTagMD_TvsQCD_ = vector<float>(FatJet_deepTagMD_TvsQCD_,FatJet_deepTagMD_TvsQCD_+bytes/sizeof(FatJet_deepTagMD_TvsQCD_[0]));
+        v_FatJet_deepTagMD_TvsQCD_ = vector<float>(FatJet_deepTagMD_TvsQCD_.data(),FatJet_deepTagMD_TvsQCD_.data()+bytes/sizeof(FatJet_deepTagMD_TvsQCD_[0]));
         loaded_FatJet_deepTagMD_TvsQCD_ = true;
     }
     return v_FatJet_deepTagMD_TvsQCD_;
@@ -16029,7 +16064,7 @@ const vector<float> &Nano::FatJet_deepTagMD_WvsQCD() {
     if (!loaded_FatJet_deepTagMD_WvsQCD_) {
         if (!b_FatJet_deepTagMD_WvsQCD_) throw std::runtime_error("FatJet_deepTagMD_WvsQCD branch doesn't exist");
         int bytes = b_FatJet_deepTagMD_WvsQCD_->GetEntry(index);
-        v_FatJet_deepTagMD_WvsQCD_ = vector<float>(FatJet_deepTagMD_WvsQCD_,FatJet_deepTagMD_WvsQCD_+bytes/sizeof(FatJet_deepTagMD_WvsQCD_[0]));
+        v_FatJet_deepTagMD_WvsQCD_ = vector<float>(FatJet_deepTagMD_WvsQCD_.data(),FatJet_deepTagMD_WvsQCD_.data()+bytes/sizeof(FatJet_deepTagMD_WvsQCD_[0]));
         loaded_FatJet_deepTagMD_WvsQCD_ = true;
     }
     return v_FatJet_deepTagMD_WvsQCD_;
@@ -16040,7 +16075,7 @@ const vector<float> &Nano::FatJet_deepTagMD_ZHbbvsQCD() {
     if (!loaded_FatJet_deepTagMD_ZHbbvsQCD_) {
         if (!b_FatJet_deepTagMD_ZHbbvsQCD_) throw std::runtime_error("FatJet_deepTagMD_ZHbbvsQCD branch doesn't exist");
         int bytes = b_FatJet_deepTagMD_ZHbbvsQCD_->GetEntry(index);
-        v_FatJet_deepTagMD_ZHbbvsQCD_ = vector<float>(FatJet_deepTagMD_ZHbbvsQCD_,FatJet_deepTagMD_ZHbbvsQCD_+bytes/sizeof(FatJet_deepTagMD_ZHbbvsQCD_[0]));
+        v_FatJet_deepTagMD_ZHbbvsQCD_ = vector<float>(FatJet_deepTagMD_ZHbbvsQCD_.data(),FatJet_deepTagMD_ZHbbvsQCD_.data()+bytes/sizeof(FatJet_deepTagMD_ZHbbvsQCD_[0]));
         loaded_FatJet_deepTagMD_ZHbbvsQCD_ = true;
     }
     return v_FatJet_deepTagMD_ZHbbvsQCD_;
@@ -16051,7 +16086,7 @@ const vector<float> &Nano::FatJet_deepTagMD_ZHccvsQCD() {
     if (!loaded_FatJet_deepTagMD_ZHccvsQCD_) {
         if (!b_FatJet_deepTagMD_ZHccvsQCD_) throw std::runtime_error("FatJet_deepTagMD_ZHccvsQCD branch doesn't exist");
         int bytes = b_FatJet_deepTagMD_ZHccvsQCD_->GetEntry(index);
-        v_FatJet_deepTagMD_ZHccvsQCD_ = vector<float>(FatJet_deepTagMD_ZHccvsQCD_,FatJet_deepTagMD_ZHccvsQCD_+bytes/sizeof(FatJet_deepTagMD_ZHccvsQCD_[0]));
+        v_FatJet_deepTagMD_ZHccvsQCD_ = vector<float>(FatJet_deepTagMD_ZHccvsQCD_.data(),FatJet_deepTagMD_ZHccvsQCD_.data()+bytes/sizeof(FatJet_deepTagMD_ZHccvsQCD_[0]));
         loaded_FatJet_deepTagMD_ZHccvsQCD_ = true;
     }
     return v_FatJet_deepTagMD_ZHccvsQCD_;
@@ -16062,7 +16097,7 @@ const vector<float> &Nano::FatJet_deepTagMD_ZbbvsQCD() {
     if (!loaded_FatJet_deepTagMD_ZbbvsQCD_) {
         if (!b_FatJet_deepTagMD_ZbbvsQCD_) throw std::runtime_error("FatJet_deepTagMD_ZbbvsQCD branch doesn't exist");
         int bytes = b_FatJet_deepTagMD_ZbbvsQCD_->GetEntry(index);
-        v_FatJet_deepTagMD_ZbbvsQCD_ = vector<float>(FatJet_deepTagMD_ZbbvsQCD_,FatJet_deepTagMD_ZbbvsQCD_+bytes/sizeof(FatJet_deepTagMD_ZbbvsQCD_[0]));
+        v_FatJet_deepTagMD_ZbbvsQCD_ = vector<float>(FatJet_deepTagMD_ZbbvsQCD_.data(),FatJet_deepTagMD_ZbbvsQCD_.data()+bytes/sizeof(FatJet_deepTagMD_ZbbvsQCD_[0]));
         loaded_FatJet_deepTagMD_ZbbvsQCD_ = true;
     }
     return v_FatJet_deepTagMD_ZbbvsQCD_;
@@ -16073,7 +16108,7 @@ const vector<float> &Nano::FatJet_deepTagMD_ZvsQCD() {
     if (!loaded_FatJet_deepTagMD_ZvsQCD_) {
         if (!b_FatJet_deepTagMD_ZvsQCD_) throw std::runtime_error("FatJet_deepTagMD_ZvsQCD branch doesn't exist");
         int bytes = b_FatJet_deepTagMD_ZvsQCD_->GetEntry(index);
-        v_FatJet_deepTagMD_ZvsQCD_ = vector<float>(FatJet_deepTagMD_ZvsQCD_,FatJet_deepTagMD_ZvsQCD_+bytes/sizeof(FatJet_deepTagMD_ZvsQCD_[0]));
+        v_FatJet_deepTagMD_ZvsQCD_ = vector<float>(FatJet_deepTagMD_ZvsQCD_.data(),FatJet_deepTagMD_ZvsQCD_.data()+bytes/sizeof(FatJet_deepTagMD_ZvsQCD_[0]));
         loaded_FatJet_deepTagMD_ZvsQCD_ = true;
     }
     return v_FatJet_deepTagMD_ZvsQCD_;
@@ -16084,7 +16119,7 @@ const vector<float> &Nano::FatJet_deepTagMD_bbvsLight() {
     if (!loaded_FatJet_deepTagMD_bbvsLight_) {
         if (!b_FatJet_deepTagMD_bbvsLight_) throw std::runtime_error("FatJet_deepTagMD_bbvsLight branch doesn't exist");
         int bytes = b_FatJet_deepTagMD_bbvsLight_->GetEntry(index);
-        v_FatJet_deepTagMD_bbvsLight_ = vector<float>(FatJet_deepTagMD_bbvsLight_,FatJet_deepTagMD_bbvsLight_+bytes/sizeof(FatJet_deepTagMD_bbvsLight_[0]));
+        v_FatJet_deepTagMD_bbvsLight_ = vector<float>(FatJet_deepTagMD_bbvsLight_.data(),FatJet_deepTagMD_bbvsLight_.data()+bytes/sizeof(FatJet_deepTagMD_bbvsLight_[0]));
         loaded_FatJet_deepTagMD_bbvsLight_ = true;
     }
     return v_FatJet_deepTagMD_bbvsLight_;
@@ -16095,7 +16130,7 @@ const vector<float> &Nano::FatJet_deepTagMD_ccvsLight() {
     if (!loaded_FatJet_deepTagMD_ccvsLight_) {
         if (!b_FatJet_deepTagMD_ccvsLight_) throw std::runtime_error("FatJet_deepTagMD_ccvsLight branch doesn't exist");
         int bytes = b_FatJet_deepTagMD_ccvsLight_->GetEntry(index);
-        v_FatJet_deepTagMD_ccvsLight_ = vector<float>(FatJet_deepTagMD_ccvsLight_,FatJet_deepTagMD_ccvsLight_+bytes/sizeof(FatJet_deepTagMD_ccvsLight_[0]));
+        v_FatJet_deepTagMD_ccvsLight_ = vector<float>(FatJet_deepTagMD_ccvsLight_.data(),FatJet_deepTagMD_ccvsLight_.data()+bytes/sizeof(FatJet_deepTagMD_ccvsLight_[0]));
         loaded_FatJet_deepTagMD_ccvsLight_ = true;
     }
     return v_FatJet_deepTagMD_ccvsLight_;
@@ -16106,7 +16141,7 @@ const vector<float> &Nano::FatJet_deepTag_H() {
     if (!loaded_FatJet_deepTag_H_) {
         if (!b_FatJet_deepTag_H_) throw std::runtime_error("FatJet_deepTag_H branch doesn't exist");
         int bytes = b_FatJet_deepTag_H_->GetEntry(index);
-        v_FatJet_deepTag_H_ = vector<float>(FatJet_deepTag_H_,FatJet_deepTag_H_+bytes/sizeof(FatJet_deepTag_H_[0]));
+        v_FatJet_deepTag_H_ = vector<float>(FatJet_deepTag_H_.data(),FatJet_deepTag_H_.data()+bytes/sizeof(FatJet_deepTag_H_[0]));
         loaded_FatJet_deepTag_H_ = true;
     }
     return v_FatJet_deepTag_H_;
@@ -16117,7 +16152,7 @@ const vector<float> &Nano::FatJet_deepTag_QCD() {
     if (!loaded_FatJet_deepTag_QCD_) {
         if (!b_FatJet_deepTag_QCD_) throw std::runtime_error("FatJet_deepTag_QCD branch doesn't exist");
         int bytes = b_FatJet_deepTag_QCD_->GetEntry(index);
-        v_FatJet_deepTag_QCD_ = vector<float>(FatJet_deepTag_QCD_,FatJet_deepTag_QCD_+bytes/sizeof(FatJet_deepTag_QCD_[0]));
+        v_FatJet_deepTag_QCD_ = vector<float>(FatJet_deepTag_QCD_.data(),FatJet_deepTag_QCD_.data()+bytes/sizeof(FatJet_deepTag_QCD_[0]));
         loaded_FatJet_deepTag_QCD_ = true;
     }
     return v_FatJet_deepTag_QCD_;
@@ -16128,7 +16163,7 @@ const vector<float> &Nano::FatJet_deepTag_QCDothers() {
     if (!loaded_FatJet_deepTag_QCDothers_) {
         if (!b_FatJet_deepTag_QCDothers_) throw std::runtime_error("FatJet_deepTag_QCDothers branch doesn't exist");
         int bytes = b_FatJet_deepTag_QCDothers_->GetEntry(index);
-        v_FatJet_deepTag_QCDothers_ = vector<float>(FatJet_deepTag_QCDothers_,FatJet_deepTag_QCDothers_+bytes/sizeof(FatJet_deepTag_QCDothers_[0]));
+        v_FatJet_deepTag_QCDothers_ = vector<float>(FatJet_deepTag_QCDothers_.data(),FatJet_deepTag_QCDothers_.data()+bytes/sizeof(FatJet_deepTag_QCDothers_[0]));
         loaded_FatJet_deepTag_QCDothers_ = true;
     }
     return v_FatJet_deepTag_QCDothers_;
@@ -16139,7 +16174,7 @@ const vector<float> &Nano::FatJet_deepTag_TvsQCD() {
     if (!loaded_FatJet_deepTag_TvsQCD_) {
         if (!b_FatJet_deepTag_TvsQCD_) throw std::runtime_error("FatJet_deepTag_TvsQCD branch doesn't exist");
         int bytes = b_FatJet_deepTag_TvsQCD_->GetEntry(index);
-        v_FatJet_deepTag_TvsQCD_ = vector<float>(FatJet_deepTag_TvsQCD_,FatJet_deepTag_TvsQCD_+bytes/sizeof(FatJet_deepTag_TvsQCD_[0]));
+        v_FatJet_deepTag_TvsQCD_ = vector<float>(FatJet_deepTag_TvsQCD_.data(),FatJet_deepTag_TvsQCD_.data()+bytes/sizeof(FatJet_deepTag_TvsQCD_[0]));
         loaded_FatJet_deepTag_TvsQCD_ = true;
     }
     return v_FatJet_deepTag_TvsQCD_;
@@ -16150,7 +16185,7 @@ const vector<float> &Nano::FatJet_deepTag_WvsQCD() {
     if (!loaded_FatJet_deepTag_WvsQCD_) {
         if (!b_FatJet_deepTag_WvsQCD_) throw std::runtime_error("FatJet_deepTag_WvsQCD branch doesn't exist");
         int bytes = b_FatJet_deepTag_WvsQCD_->GetEntry(index);
-        v_FatJet_deepTag_WvsQCD_ = vector<float>(FatJet_deepTag_WvsQCD_,FatJet_deepTag_WvsQCD_+bytes/sizeof(FatJet_deepTag_WvsQCD_[0]));
+        v_FatJet_deepTag_WvsQCD_ = vector<float>(FatJet_deepTag_WvsQCD_.data(),FatJet_deepTag_WvsQCD_.data()+bytes/sizeof(FatJet_deepTag_WvsQCD_[0]));
         loaded_FatJet_deepTag_WvsQCD_ = true;
     }
     return v_FatJet_deepTag_WvsQCD_;
@@ -16161,7 +16196,7 @@ const vector<float> &Nano::FatJet_deepTag_ZvsQCD() {
     if (!loaded_FatJet_deepTag_ZvsQCD_) {
         if (!b_FatJet_deepTag_ZvsQCD_) throw std::runtime_error("FatJet_deepTag_ZvsQCD branch doesn't exist");
         int bytes = b_FatJet_deepTag_ZvsQCD_->GetEntry(index);
-        v_FatJet_deepTag_ZvsQCD_ = vector<float>(FatJet_deepTag_ZvsQCD_,FatJet_deepTag_ZvsQCD_+bytes/sizeof(FatJet_deepTag_ZvsQCD_[0]));
+        v_FatJet_deepTag_ZvsQCD_ = vector<float>(FatJet_deepTag_ZvsQCD_.data(),FatJet_deepTag_ZvsQCD_.data()+bytes/sizeof(FatJet_deepTag_ZvsQCD_[0]));
         loaded_FatJet_deepTag_ZvsQCD_ = true;
     }
     return v_FatJet_deepTag_ZvsQCD_;
@@ -16172,7 +16207,7 @@ const vector<int> &Nano::FatJet_electronIdx3SJ() {
     if (!loaded_FatJet_electronIdx3SJ_) {
         if (!b_FatJet_electronIdx3SJ_) throw std::runtime_error("FatJet_electronIdx3SJ branch doesn't exist");
         int bytes = b_FatJet_electronIdx3SJ_->GetEntry(index);
-        v_FatJet_electronIdx3SJ_ = vector<int>(FatJet_electronIdx3SJ_,FatJet_electronIdx3SJ_+bytes/sizeof(FatJet_electronIdx3SJ_[0]));
+        v_FatJet_electronIdx3SJ_ = vector<int>(FatJet_electronIdx3SJ_.data(),FatJet_electronIdx3SJ_.data()+bytes/sizeof(FatJet_electronIdx3SJ_[0]));
         loaded_FatJet_electronIdx3SJ_ = true;
     }
     return v_FatJet_electronIdx3SJ_;
@@ -16183,7 +16218,7 @@ const vector<float> &Nano::FatJet_eta() {
     if (!loaded_FatJet_eta_) {
         if (!b_FatJet_eta_) throw std::runtime_error("FatJet_eta branch doesn't exist");
         int bytes = b_FatJet_eta_->GetEntry(index);
-        v_FatJet_eta_ = vector<float>(FatJet_eta_,FatJet_eta_+bytes/sizeof(FatJet_eta_[0]));
+        v_FatJet_eta_ = vector<float>(FatJet_eta_.data(),FatJet_eta_.data()+bytes/sizeof(FatJet_eta_[0]));
         loaded_FatJet_eta_ = true;
     }
     return v_FatJet_eta_;
@@ -16194,7 +16229,7 @@ const vector<int> &Nano::FatJet_genJetAK8Idx() {
     if (!loaded_FatJet_genJetAK8Idx_) {
         if (!b_FatJet_genJetAK8Idx_) throw std::runtime_error("FatJet_genJetAK8Idx branch doesn't exist");
         int bytes = b_FatJet_genJetAK8Idx_->GetEntry(index);
-        v_FatJet_genJetAK8Idx_ = vector<int>(FatJet_genJetAK8Idx_,FatJet_genJetAK8Idx_+bytes/sizeof(FatJet_genJetAK8Idx_[0]));
+        v_FatJet_genJetAK8Idx_ = vector<int>(FatJet_genJetAK8Idx_.data(),FatJet_genJetAK8Idx_.data()+bytes/sizeof(FatJet_genJetAK8Idx_[0]));
         loaded_FatJet_genJetAK8Idx_ = true;
     }
     return v_FatJet_genJetAK8Idx_;
@@ -16205,7 +16240,7 @@ const vector<int> &Nano::FatJet_hadronFlavour() {
     if (!loaded_FatJet_hadronFlavour_) {
         if (!b_FatJet_hadronFlavour_) throw std::runtime_error("FatJet_hadronFlavour branch doesn't exist");
         int bytes = b_FatJet_hadronFlavour_->GetEntry(index);
-        v_FatJet_hadronFlavour_ = vector<int>(FatJet_hadronFlavour_,FatJet_hadronFlavour_+bytes/sizeof(FatJet_hadronFlavour_[0]));
+        v_FatJet_hadronFlavour_ = vector<int>(FatJet_hadronFlavour_.data(),FatJet_hadronFlavour_.data()+bytes/sizeof(FatJet_hadronFlavour_[0]));
         loaded_FatJet_hadronFlavour_ = true;
     }
     return v_FatJet_hadronFlavour_;
@@ -16216,7 +16251,7 @@ const vector<int> &Nano::FatJet_jetId() {
     if (!loaded_FatJet_jetId_) {
         if (!b_FatJet_jetId_) throw std::runtime_error("FatJet_jetId branch doesn't exist");
         int bytes = b_FatJet_jetId_->GetEntry(index);
-        v_FatJet_jetId_ = vector<int>(FatJet_jetId_,FatJet_jetId_+bytes/sizeof(FatJet_jetId_[0]));
+        v_FatJet_jetId_ = vector<int>(FatJet_jetId_.data(),FatJet_jetId_.data()+bytes/sizeof(FatJet_jetId_[0]));
         loaded_FatJet_jetId_ = true;
     }
     return v_FatJet_jetId_;
@@ -16227,7 +16262,7 @@ const vector<float> &Nano::FatJet_lsf3() {
     if (!loaded_FatJet_lsf3_) {
         if (!b_FatJet_lsf3_) throw std::runtime_error("FatJet_lsf3 branch doesn't exist");
         int bytes = b_FatJet_lsf3_->GetEntry(index);
-        v_FatJet_lsf3_ = vector<float>(FatJet_lsf3_,FatJet_lsf3_+bytes/sizeof(FatJet_lsf3_[0]));
+        v_FatJet_lsf3_ = vector<float>(FatJet_lsf3_.data(),FatJet_lsf3_.data()+bytes/sizeof(FatJet_lsf3_[0]));
         loaded_FatJet_lsf3_ = true;
     }
     return v_FatJet_lsf3_;
@@ -16238,7 +16273,7 @@ const vector<float> &Nano::FatJet_mass() {
     if (!loaded_FatJet_mass_) {
         if (!b_FatJet_mass_) throw std::runtime_error("FatJet_mass branch doesn't exist");
         int bytes = b_FatJet_mass_->GetEntry(index);
-        v_FatJet_mass_ = vector<float>(FatJet_mass_,FatJet_mass_+bytes/sizeof(FatJet_mass_[0]));
+        v_FatJet_mass_ = vector<float>(FatJet_mass_.data(),FatJet_mass_.data()+bytes/sizeof(FatJet_mass_[0]));
         loaded_FatJet_mass_ = true;
     }
     return v_FatJet_mass_;
@@ -16249,7 +16284,7 @@ const vector<float> &Nano::FatJet_mass_jerDown() {
     if (!loaded_FatJet_mass_jerDown_) {
         if (!b_FatJet_mass_jerDown_) throw std::runtime_error("FatJet_mass_jerDown branch doesn't exist");
         int bytes = b_FatJet_mass_jerDown_->GetEntry(index);
-        v_FatJet_mass_jerDown_ = vector<float>(FatJet_mass_jerDown_,FatJet_mass_jerDown_+bytes/sizeof(FatJet_mass_jerDown_[0]));
+        v_FatJet_mass_jerDown_ = vector<float>(FatJet_mass_jerDown_.data(),FatJet_mass_jerDown_.data()+bytes/sizeof(FatJet_mass_jerDown_[0]));
         loaded_FatJet_mass_jerDown_ = true;
     }
     return v_FatJet_mass_jerDown_;
@@ -16260,7 +16295,7 @@ const vector<float> &Nano::FatJet_mass_jerUp() {
     if (!loaded_FatJet_mass_jerUp_) {
         if (!b_FatJet_mass_jerUp_) throw std::runtime_error("FatJet_mass_jerUp branch doesn't exist");
         int bytes = b_FatJet_mass_jerUp_->GetEntry(index);
-        v_FatJet_mass_jerUp_ = vector<float>(FatJet_mass_jerUp_,FatJet_mass_jerUp_+bytes/sizeof(FatJet_mass_jerUp_[0]));
+        v_FatJet_mass_jerUp_ = vector<float>(FatJet_mass_jerUp_.data(),FatJet_mass_jerUp_.data()+bytes/sizeof(FatJet_mass_jerUp_[0]));
         loaded_FatJet_mass_jerUp_ = true;
     }
     return v_FatJet_mass_jerUp_;
@@ -16271,7 +16306,7 @@ const vector<float> &Nano::FatJet_mass_jesTotalDown() {
     if (!loaded_FatJet_mass_jesTotalDown_) {
         if (!b_FatJet_mass_jesTotalDown_) throw std::runtime_error("FatJet_mass_jesTotalDown branch doesn't exist");
         int bytes = b_FatJet_mass_jesTotalDown_->GetEntry(index);
-        v_FatJet_mass_jesTotalDown_ = vector<float>(FatJet_mass_jesTotalDown_,FatJet_mass_jesTotalDown_+bytes/sizeof(FatJet_mass_jesTotalDown_[0]));
+        v_FatJet_mass_jesTotalDown_ = vector<float>(FatJet_mass_jesTotalDown_.data(),FatJet_mass_jesTotalDown_.data()+bytes/sizeof(FatJet_mass_jesTotalDown_[0]));
         loaded_FatJet_mass_jesTotalDown_ = true;
     }
     return v_FatJet_mass_jesTotalDown_;
@@ -16282,7 +16317,7 @@ const vector<float> &Nano::FatJet_mass_jesTotalUp() {
     if (!loaded_FatJet_mass_jesTotalUp_) {
         if (!b_FatJet_mass_jesTotalUp_) throw std::runtime_error("FatJet_mass_jesTotalUp branch doesn't exist");
         int bytes = b_FatJet_mass_jesTotalUp_->GetEntry(index);
-        v_FatJet_mass_jesTotalUp_ = vector<float>(FatJet_mass_jesTotalUp_,FatJet_mass_jesTotalUp_+bytes/sizeof(FatJet_mass_jesTotalUp_[0]));
+        v_FatJet_mass_jesTotalUp_ = vector<float>(FatJet_mass_jesTotalUp_.data(),FatJet_mass_jesTotalUp_.data()+bytes/sizeof(FatJet_mass_jesTotalUp_[0]));
         loaded_FatJet_mass_jesTotalUp_ = true;
     }
     return v_FatJet_mass_jesTotalUp_;
@@ -16293,7 +16328,7 @@ const vector<float> &Nano::FatJet_mass_jmrDown() {
     if (!loaded_FatJet_mass_jmrDown_) {
         if (!b_FatJet_mass_jmrDown_) throw std::runtime_error("FatJet_mass_jmrDown branch doesn't exist");
         int bytes = b_FatJet_mass_jmrDown_->GetEntry(index);
-        v_FatJet_mass_jmrDown_ = vector<float>(FatJet_mass_jmrDown_,FatJet_mass_jmrDown_+bytes/sizeof(FatJet_mass_jmrDown_[0]));
+        v_FatJet_mass_jmrDown_ = vector<float>(FatJet_mass_jmrDown_.data(),FatJet_mass_jmrDown_.data()+bytes/sizeof(FatJet_mass_jmrDown_[0]));
         loaded_FatJet_mass_jmrDown_ = true;
     }
     return v_FatJet_mass_jmrDown_;
@@ -16304,7 +16339,7 @@ const vector<float> &Nano::FatJet_mass_jmrUp() {
     if (!loaded_FatJet_mass_jmrUp_) {
         if (!b_FatJet_mass_jmrUp_) throw std::runtime_error("FatJet_mass_jmrUp branch doesn't exist");
         int bytes = b_FatJet_mass_jmrUp_->GetEntry(index);
-        v_FatJet_mass_jmrUp_ = vector<float>(FatJet_mass_jmrUp_,FatJet_mass_jmrUp_+bytes/sizeof(FatJet_mass_jmrUp_[0]));
+        v_FatJet_mass_jmrUp_ = vector<float>(FatJet_mass_jmrUp_.data(),FatJet_mass_jmrUp_.data()+bytes/sizeof(FatJet_mass_jmrUp_[0]));
         loaded_FatJet_mass_jmrUp_ = true;
     }
     return v_FatJet_mass_jmrUp_;
@@ -16315,7 +16350,7 @@ const vector<float> &Nano::FatJet_mass_jmsDown() {
     if (!loaded_FatJet_mass_jmsDown_) {
         if (!b_FatJet_mass_jmsDown_) throw std::runtime_error("FatJet_mass_jmsDown branch doesn't exist");
         int bytes = b_FatJet_mass_jmsDown_->GetEntry(index);
-        v_FatJet_mass_jmsDown_ = vector<float>(FatJet_mass_jmsDown_,FatJet_mass_jmsDown_+bytes/sizeof(FatJet_mass_jmsDown_[0]));
+        v_FatJet_mass_jmsDown_ = vector<float>(FatJet_mass_jmsDown_.data(),FatJet_mass_jmsDown_.data()+bytes/sizeof(FatJet_mass_jmsDown_[0]));
         loaded_FatJet_mass_jmsDown_ = true;
     }
     return v_FatJet_mass_jmsDown_;
@@ -16326,7 +16361,7 @@ const vector<float> &Nano::FatJet_mass_jmsUp() {
     if (!loaded_FatJet_mass_jmsUp_) {
         if (!b_FatJet_mass_jmsUp_) throw std::runtime_error("FatJet_mass_jmsUp branch doesn't exist");
         int bytes = b_FatJet_mass_jmsUp_->GetEntry(index);
-        v_FatJet_mass_jmsUp_ = vector<float>(FatJet_mass_jmsUp_,FatJet_mass_jmsUp_+bytes/sizeof(FatJet_mass_jmsUp_[0]));
+        v_FatJet_mass_jmsUp_ = vector<float>(FatJet_mass_jmsUp_.data(),FatJet_mass_jmsUp_.data()+bytes/sizeof(FatJet_mass_jmsUp_[0]));
         loaded_FatJet_mass_jmsUp_ = true;
     }
     return v_FatJet_mass_jmsUp_;
@@ -16337,7 +16372,7 @@ const vector<float> &Nano::FatJet_mass_nom() {
     if (!loaded_FatJet_mass_nom_) {
         if (!b_FatJet_mass_nom_) throw std::runtime_error("FatJet_mass_nom branch doesn't exist");
         int bytes = b_FatJet_mass_nom_->GetEntry(index);
-        v_FatJet_mass_nom_ = vector<float>(FatJet_mass_nom_,FatJet_mass_nom_+bytes/sizeof(FatJet_mass_nom_[0]));
+        v_FatJet_mass_nom_ = vector<float>(FatJet_mass_nom_.data(),FatJet_mass_nom_.data()+bytes/sizeof(FatJet_mass_nom_[0]));
         loaded_FatJet_mass_nom_ = true;
     }
     return v_FatJet_mass_nom_;
@@ -16348,7 +16383,7 @@ const vector<float> &Nano::FatJet_mass_raw() {
     if (!loaded_FatJet_mass_raw_) {
         if (!b_FatJet_mass_raw_) throw std::runtime_error("FatJet_mass_raw branch doesn't exist");
         int bytes = b_FatJet_mass_raw_->GetEntry(index);
-        v_FatJet_mass_raw_ = vector<float>(FatJet_mass_raw_,FatJet_mass_raw_+bytes/sizeof(FatJet_mass_raw_[0]));
+        v_FatJet_mass_raw_ = vector<float>(FatJet_mass_raw_.data(),FatJet_mass_raw_.data()+bytes/sizeof(FatJet_mass_raw_[0]));
         loaded_FatJet_mass_raw_ = true;
     }
     return v_FatJet_mass_raw_;
@@ -16359,7 +16394,7 @@ const vector<float> &Nano::FatJet_msoftdrop() {
     if (!loaded_FatJet_msoftdrop_) {
         if (!b_FatJet_msoftdrop_) throw std::runtime_error("FatJet_msoftdrop branch doesn't exist");
         int bytes = b_FatJet_msoftdrop_->GetEntry(index);
-        v_FatJet_msoftdrop_ = vector<float>(FatJet_msoftdrop_,FatJet_msoftdrop_+bytes/sizeof(FatJet_msoftdrop_[0]));
+        v_FatJet_msoftdrop_ = vector<float>(FatJet_msoftdrop_.data(),FatJet_msoftdrop_.data()+bytes/sizeof(FatJet_msoftdrop_[0]));
         loaded_FatJet_msoftdrop_ = true;
     }
     return v_FatJet_msoftdrop_;
@@ -16370,7 +16405,7 @@ const vector<float> &Nano::FatJet_msoftdrop_corr_JMR() {
     if (!loaded_FatJet_msoftdrop_corr_JMR_) {
         if (!b_FatJet_msoftdrop_corr_JMR_) throw std::runtime_error("FatJet_msoftdrop_corr_JMR branch doesn't exist");
         int bytes = b_FatJet_msoftdrop_corr_JMR_->GetEntry(index);
-        v_FatJet_msoftdrop_corr_JMR_ = vector<float>(FatJet_msoftdrop_corr_JMR_,FatJet_msoftdrop_corr_JMR_+bytes/sizeof(FatJet_msoftdrop_corr_JMR_[0]));
+        v_FatJet_msoftdrop_corr_JMR_ = vector<float>(FatJet_msoftdrop_corr_JMR_.data(),FatJet_msoftdrop_corr_JMR_.data()+bytes/sizeof(FatJet_msoftdrop_corr_JMR_[0]));
         loaded_FatJet_msoftdrop_corr_JMR_ = true;
     }
     return v_FatJet_msoftdrop_corr_JMR_;
@@ -16381,7 +16416,7 @@ const vector<float> &Nano::FatJet_msoftdrop_corr_JMS() {
     if (!loaded_FatJet_msoftdrop_corr_JMS_) {
         if (!b_FatJet_msoftdrop_corr_JMS_) throw std::runtime_error("FatJet_msoftdrop_corr_JMS branch doesn't exist");
         int bytes = b_FatJet_msoftdrop_corr_JMS_->GetEntry(index);
-        v_FatJet_msoftdrop_corr_JMS_ = vector<float>(FatJet_msoftdrop_corr_JMS_,FatJet_msoftdrop_corr_JMS_+bytes/sizeof(FatJet_msoftdrop_corr_JMS_[0]));
+        v_FatJet_msoftdrop_corr_JMS_ = vector<float>(FatJet_msoftdrop_corr_JMS_.data(),FatJet_msoftdrop_corr_JMS_.data()+bytes/sizeof(FatJet_msoftdrop_corr_JMS_[0]));
         loaded_FatJet_msoftdrop_corr_JMS_ = true;
     }
     return v_FatJet_msoftdrop_corr_JMS_;
@@ -16392,7 +16427,7 @@ const vector<float> &Nano::FatJet_msoftdrop_corr_PUPPI() {
     if (!loaded_FatJet_msoftdrop_corr_PUPPI_) {
         if (!b_FatJet_msoftdrop_corr_PUPPI_) throw std::runtime_error("FatJet_msoftdrop_corr_PUPPI branch doesn't exist");
         int bytes = b_FatJet_msoftdrop_corr_PUPPI_->GetEntry(index);
-        v_FatJet_msoftdrop_corr_PUPPI_ = vector<float>(FatJet_msoftdrop_corr_PUPPI_,FatJet_msoftdrop_corr_PUPPI_+bytes/sizeof(FatJet_msoftdrop_corr_PUPPI_[0]));
+        v_FatJet_msoftdrop_corr_PUPPI_ = vector<float>(FatJet_msoftdrop_corr_PUPPI_.data(),FatJet_msoftdrop_corr_PUPPI_.data()+bytes/sizeof(FatJet_msoftdrop_corr_PUPPI_[0]));
         loaded_FatJet_msoftdrop_corr_PUPPI_ = true;
     }
     return v_FatJet_msoftdrop_corr_PUPPI_;
@@ -16403,7 +16438,7 @@ const vector<float> &Nano::FatJet_msoftdrop_jerDown() {
     if (!loaded_FatJet_msoftdrop_jerDown_) {
         if (!b_FatJet_msoftdrop_jerDown_) throw std::runtime_error("FatJet_msoftdrop_jerDown branch doesn't exist");
         int bytes = b_FatJet_msoftdrop_jerDown_->GetEntry(index);
-        v_FatJet_msoftdrop_jerDown_ = vector<float>(FatJet_msoftdrop_jerDown_,FatJet_msoftdrop_jerDown_+bytes/sizeof(FatJet_msoftdrop_jerDown_[0]));
+        v_FatJet_msoftdrop_jerDown_ = vector<float>(FatJet_msoftdrop_jerDown_.data(),FatJet_msoftdrop_jerDown_.data()+bytes/sizeof(FatJet_msoftdrop_jerDown_[0]));
         loaded_FatJet_msoftdrop_jerDown_ = true;
     }
     return v_FatJet_msoftdrop_jerDown_;
@@ -16414,7 +16449,7 @@ const vector<float> &Nano::FatJet_msoftdrop_jerUp() {
     if (!loaded_FatJet_msoftdrop_jerUp_) {
         if (!b_FatJet_msoftdrop_jerUp_) throw std::runtime_error("FatJet_msoftdrop_jerUp branch doesn't exist");
         int bytes = b_FatJet_msoftdrop_jerUp_->GetEntry(index);
-        v_FatJet_msoftdrop_jerUp_ = vector<float>(FatJet_msoftdrop_jerUp_,FatJet_msoftdrop_jerUp_+bytes/sizeof(FatJet_msoftdrop_jerUp_[0]));
+        v_FatJet_msoftdrop_jerUp_ = vector<float>(FatJet_msoftdrop_jerUp_.data(),FatJet_msoftdrop_jerUp_.data()+bytes/sizeof(FatJet_msoftdrop_jerUp_[0]));
         loaded_FatJet_msoftdrop_jerUp_ = true;
     }
     return v_FatJet_msoftdrop_jerUp_;
@@ -16425,7 +16460,7 @@ const vector<float> &Nano::FatJet_msoftdrop_jesTotalDown() {
     if (!loaded_FatJet_msoftdrop_jesTotalDown_) {
         if (!b_FatJet_msoftdrop_jesTotalDown_) throw std::runtime_error("FatJet_msoftdrop_jesTotalDown branch doesn't exist");
         int bytes = b_FatJet_msoftdrop_jesTotalDown_->GetEntry(index);
-        v_FatJet_msoftdrop_jesTotalDown_ = vector<float>(FatJet_msoftdrop_jesTotalDown_,FatJet_msoftdrop_jesTotalDown_+bytes/sizeof(FatJet_msoftdrop_jesTotalDown_[0]));
+        v_FatJet_msoftdrop_jesTotalDown_ = vector<float>(FatJet_msoftdrop_jesTotalDown_.data(),FatJet_msoftdrop_jesTotalDown_.data()+bytes/sizeof(FatJet_msoftdrop_jesTotalDown_[0]));
         loaded_FatJet_msoftdrop_jesTotalDown_ = true;
     }
     return v_FatJet_msoftdrop_jesTotalDown_;
@@ -16436,7 +16471,7 @@ const vector<float> &Nano::FatJet_msoftdrop_jesTotalUp() {
     if (!loaded_FatJet_msoftdrop_jesTotalUp_) {
         if (!b_FatJet_msoftdrop_jesTotalUp_) throw std::runtime_error("FatJet_msoftdrop_jesTotalUp branch doesn't exist");
         int bytes = b_FatJet_msoftdrop_jesTotalUp_->GetEntry(index);
-        v_FatJet_msoftdrop_jesTotalUp_ = vector<float>(FatJet_msoftdrop_jesTotalUp_,FatJet_msoftdrop_jesTotalUp_+bytes/sizeof(FatJet_msoftdrop_jesTotalUp_[0]));
+        v_FatJet_msoftdrop_jesTotalUp_ = vector<float>(FatJet_msoftdrop_jesTotalUp_.data(),FatJet_msoftdrop_jesTotalUp_.data()+bytes/sizeof(FatJet_msoftdrop_jesTotalUp_[0]));
         loaded_FatJet_msoftdrop_jesTotalUp_ = true;
     }
     return v_FatJet_msoftdrop_jesTotalUp_;
@@ -16447,7 +16482,7 @@ const vector<float> &Nano::FatJet_msoftdrop_jmrDown() {
     if (!loaded_FatJet_msoftdrop_jmrDown_) {
         if (!b_FatJet_msoftdrop_jmrDown_) throw std::runtime_error("FatJet_msoftdrop_jmrDown branch doesn't exist");
         int bytes = b_FatJet_msoftdrop_jmrDown_->GetEntry(index);
-        v_FatJet_msoftdrop_jmrDown_ = vector<float>(FatJet_msoftdrop_jmrDown_,FatJet_msoftdrop_jmrDown_+bytes/sizeof(FatJet_msoftdrop_jmrDown_[0]));
+        v_FatJet_msoftdrop_jmrDown_ = vector<float>(FatJet_msoftdrop_jmrDown_.data(),FatJet_msoftdrop_jmrDown_.data()+bytes/sizeof(FatJet_msoftdrop_jmrDown_[0]));
         loaded_FatJet_msoftdrop_jmrDown_ = true;
     }
     return v_FatJet_msoftdrop_jmrDown_;
@@ -16458,7 +16493,7 @@ const vector<float> &Nano::FatJet_msoftdrop_jmrUp() {
     if (!loaded_FatJet_msoftdrop_jmrUp_) {
         if (!b_FatJet_msoftdrop_jmrUp_) throw std::runtime_error("FatJet_msoftdrop_jmrUp branch doesn't exist");
         int bytes = b_FatJet_msoftdrop_jmrUp_->GetEntry(index);
-        v_FatJet_msoftdrop_jmrUp_ = vector<float>(FatJet_msoftdrop_jmrUp_,FatJet_msoftdrop_jmrUp_+bytes/sizeof(FatJet_msoftdrop_jmrUp_[0]));
+        v_FatJet_msoftdrop_jmrUp_ = vector<float>(FatJet_msoftdrop_jmrUp_.data(),FatJet_msoftdrop_jmrUp_.data()+bytes/sizeof(FatJet_msoftdrop_jmrUp_[0]));
         loaded_FatJet_msoftdrop_jmrUp_ = true;
     }
     return v_FatJet_msoftdrop_jmrUp_;
@@ -16469,7 +16504,7 @@ const vector<float> &Nano::FatJet_msoftdrop_jmsDown() {
     if (!loaded_FatJet_msoftdrop_jmsDown_) {
         if (!b_FatJet_msoftdrop_jmsDown_) throw std::runtime_error("FatJet_msoftdrop_jmsDown branch doesn't exist");
         int bytes = b_FatJet_msoftdrop_jmsDown_->GetEntry(index);
-        v_FatJet_msoftdrop_jmsDown_ = vector<float>(FatJet_msoftdrop_jmsDown_,FatJet_msoftdrop_jmsDown_+bytes/sizeof(FatJet_msoftdrop_jmsDown_[0]));
+        v_FatJet_msoftdrop_jmsDown_ = vector<float>(FatJet_msoftdrop_jmsDown_.data(),FatJet_msoftdrop_jmsDown_.data()+bytes/sizeof(FatJet_msoftdrop_jmsDown_[0]));
         loaded_FatJet_msoftdrop_jmsDown_ = true;
     }
     return v_FatJet_msoftdrop_jmsDown_;
@@ -16480,7 +16515,7 @@ const vector<float> &Nano::FatJet_msoftdrop_jmsUp() {
     if (!loaded_FatJet_msoftdrop_jmsUp_) {
         if (!b_FatJet_msoftdrop_jmsUp_) throw std::runtime_error("FatJet_msoftdrop_jmsUp branch doesn't exist");
         int bytes = b_FatJet_msoftdrop_jmsUp_->GetEntry(index);
-        v_FatJet_msoftdrop_jmsUp_ = vector<float>(FatJet_msoftdrop_jmsUp_,FatJet_msoftdrop_jmsUp_+bytes/sizeof(FatJet_msoftdrop_jmsUp_[0]));
+        v_FatJet_msoftdrop_jmsUp_ = vector<float>(FatJet_msoftdrop_jmsUp_.data(),FatJet_msoftdrop_jmsUp_.data()+bytes/sizeof(FatJet_msoftdrop_jmsUp_[0]));
         loaded_FatJet_msoftdrop_jmsUp_ = true;
     }
     return v_FatJet_msoftdrop_jmsUp_;
@@ -16491,7 +16526,7 @@ const vector<float> &Nano::FatJet_msoftdrop_nom() {
     if (!loaded_FatJet_msoftdrop_nom_) {
         if (!b_FatJet_msoftdrop_nom_) throw std::runtime_error("FatJet_msoftdrop_nom branch doesn't exist");
         int bytes = b_FatJet_msoftdrop_nom_->GetEntry(index);
-        v_FatJet_msoftdrop_nom_ = vector<float>(FatJet_msoftdrop_nom_,FatJet_msoftdrop_nom_+bytes/sizeof(FatJet_msoftdrop_nom_[0]));
+        v_FatJet_msoftdrop_nom_ = vector<float>(FatJet_msoftdrop_nom_.data(),FatJet_msoftdrop_nom_.data()+bytes/sizeof(FatJet_msoftdrop_nom_[0]));
         loaded_FatJet_msoftdrop_nom_ = true;
     }
     return v_FatJet_msoftdrop_nom_;
@@ -16502,7 +16537,7 @@ const vector<float> &Nano::FatJet_msoftdrop_raw() {
     if (!loaded_FatJet_msoftdrop_raw_) {
         if (!b_FatJet_msoftdrop_raw_) throw std::runtime_error("FatJet_msoftdrop_raw branch doesn't exist");
         int bytes = b_FatJet_msoftdrop_raw_->GetEntry(index);
-        v_FatJet_msoftdrop_raw_ = vector<float>(FatJet_msoftdrop_raw_,FatJet_msoftdrop_raw_+bytes/sizeof(FatJet_msoftdrop_raw_[0]));
+        v_FatJet_msoftdrop_raw_ = vector<float>(FatJet_msoftdrop_raw_.data(),FatJet_msoftdrop_raw_.data()+bytes/sizeof(FatJet_msoftdrop_raw_[0]));
         loaded_FatJet_msoftdrop_raw_ = true;
     }
     return v_FatJet_msoftdrop_raw_;
@@ -16513,7 +16548,7 @@ const vector<float> &Nano::FatJet_msoftdrop_tau21DDT_jerDown() {
     if (!loaded_FatJet_msoftdrop_tau21DDT_jerDown_) {
         if (!b_FatJet_msoftdrop_tau21DDT_jerDown_) throw std::runtime_error("FatJet_msoftdrop_tau21DDT_jerDown branch doesn't exist");
         int bytes = b_FatJet_msoftdrop_tau21DDT_jerDown_->GetEntry(index);
-        v_FatJet_msoftdrop_tau21DDT_jerDown_ = vector<float>(FatJet_msoftdrop_tau21DDT_jerDown_,FatJet_msoftdrop_tau21DDT_jerDown_+bytes/sizeof(FatJet_msoftdrop_tau21DDT_jerDown_[0]));
+        v_FatJet_msoftdrop_tau21DDT_jerDown_ = vector<float>(FatJet_msoftdrop_tau21DDT_jerDown_.data(),FatJet_msoftdrop_tau21DDT_jerDown_.data()+bytes/sizeof(FatJet_msoftdrop_tau21DDT_jerDown_[0]));
         loaded_FatJet_msoftdrop_tau21DDT_jerDown_ = true;
     }
     return v_FatJet_msoftdrop_tau21DDT_jerDown_;
@@ -16524,7 +16559,7 @@ const vector<float> &Nano::FatJet_msoftdrop_tau21DDT_jerUp() {
     if (!loaded_FatJet_msoftdrop_tau21DDT_jerUp_) {
         if (!b_FatJet_msoftdrop_tau21DDT_jerUp_) throw std::runtime_error("FatJet_msoftdrop_tau21DDT_jerUp branch doesn't exist");
         int bytes = b_FatJet_msoftdrop_tau21DDT_jerUp_->GetEntry(index);
-        v_FatJet_msoftdrop_tau21DDT_jerUp_ = vector<float>(FatJet_msoftdrop_tau21DDT_jerUp_,FatJet_msoftdrop_tau21DDT_jerUp_+bytes/sizeof(FatJet_msoftdrop_tau21DDT_jerUp_[0]));
+        v_FatJet_msoftdrop_tau21DDT_jerUp_ = vector<float>(FatJet_msoftdrop_tau21DDT_jerUp_.data(),FatJet_msoftdrop_tau21DDT_jerUp_.data()+bytes/sizeof(FatJet_msoftdrop_tau21DDT_jerUp_[0]));
         loaded_FatJet_msoftdrop_tau21DDT_jerUp_ = true;
     }
     return v_FatJet_msoftdrop_tau21DDT_jerUp_;
@@ -16535,7 +16570,7 @@ const vector<float> &Nano::FatJet_msoftdrop_tau21DDT_jmrDown() {
     if (!loaded_FatJet_msoftdrop_tau21DDT_jmrDown_) {
         if (!b_FatJet_msoftdrop_tau21DDT_jmrDown_) throw std::runtime_error("FatJet_msoftdrop_tau21DDT_jmrDown branch doesn't exist");
         int bytes = b_FatJet_msoftdrop_tau21DDT_jmrDown_->GetEntry(index);
-        v_FatJet_msoftdrop_tau21DDT_jmrDown_ = vector<float>(FatJet_msoftdrop_tau21DDT_jmrDown_,FatJet_msoftdrop_tau21DDT_jmrDown_+bytes/sizeof(FatJet_msoftdrop_tau21DDT_jmrDown_[0]));
+        v_FatJet_msoftdrop_tau21DDT_jmrDown_ = vector<float>(FatJet_msoftdrop_tau21DDT_jmrDown_.data(),FatJet_msoftdrop_tau21DDT_jmrDown_.data()+bytes/sizeof(FatJet_msoftdrop_tau21DDT_jmrDown_[0]));
         loaded_FatJet_msoftdrop_tau21DDT_jmrDown_ = true;
     }
     return v_FatJet_msoftdrop_tau21DDT_jmrDown_;
@@ -16546,7 +16581,7 @@ const vector<float> &Nano::FatJet_msoftdrop_tau21DDT_jmrUp() {
     if (!loaded_FatJet_msoftdrop_tau21DDT_jmrUp_) {
         if (!b_FatJet_msoftdrop_tau21DDT_jmrUp_) throw std::runtime_error("FatJet_msoftdrop_tau21DDT_jmrUp branch doesn't exist");
         int bytes = b_FatJet_msoftdrop_tau21DDT_jmrUp_->GetEntry(index);
-        v_FatJet_msoftdrop_tau21DDT_jmrUp_ = vector<float>(FatJet_msoftdrop_tau21DDT_jmrUp_,FatJet_msoftdrop_tau21DDT_jmrUp_+bytes/sizeof(FatJet_msoftdrop_tau21DDT_jmrUp_[0]));
+        v_FatJet_msoftdrop_tau21DDT_jmrUp_ = vector<float>(FatJet_msoftdrop_tau21DDT_jmrUp_.data(),FatJet_msoftdrop_tau21DDT_jmrUp_.data()+bytes/sizeof(FatJet_msoftdrop_tau21DDT_jmrUp_[0]));
         loaded_FatJet_msoftdrop_tau21DDT_jmrUp_ = true;
     }
     return v_FatJet_msoftdrop_tau21DDT_jmrUp_;
@@ -16557,7 +16592,7 @@ const vector<float> &Nano::FatJet_msoftdrop_tau21DDT_jmsDown() {
     if (!loaded_FatJet_msoftdrop_tau21DDT_jmsDown_) {
         if (!b_FatJet_msoftdrop_tau21DDT_jmsDown_) throw std::runtime_error("FatJet_msoftdrop_tau21DDT_jmsDown branch doesn't exist");
         int bytes = b_FatJet_msoftdrop_tau21DDT_jmsDown_->GetEntry(index);
-        v_FatJet_msoftdrop_tau21DDT_jmsDown_ = vector<float>(FatJet_msoftdrop_tau21DDT_jmsDown_,FatJet_msoftdrop_tau21DDT_jmsDown_+bytes/sizeof(FatJet_msoftdrop_tau21DDT_jmsDown_[0]));
+        v_FatJet_msoftdrop_tau21DDT_jmsDown_ = vector<float>(FatJet_msoftdrop_tau21DDT_jmsDown_.data(),FatJet_msoftdrop_tau21DDT_jmsDown_.data()+bytes/sizeof(FatJet_msoftdrop_tau21DDT_jmsDown_[0]));
         loaded_FatJet_msoftdrop_tau21DDT_jmsDown_ = true;
     }
     return v_FatJet_msoftdrop_tau21DDT_jmsDown_;
@@ -16568,7 +16603,7 @@ const vector<float> &Nano::FatJet_msoftdrop_tau21DDT_jmsUp() {
     if (!loaded_FatJet_msoftdrop_tau21DDT_jmsUp_) {
         if (!b_FatJet_msoftdrop_tau21DDT_jmsUp_) throw std::runtime_error("FatJet_msoftdrop_tau21DDT_jmsUp branch doesn't exist");
         int bytes = b_FatJet_msoftdrop_tau21DDT_jmsUp_->GetEntry(index);
-        v_FatJet_msoftdrop_tau21DDT_jmsUp_ = vector<float>(FatJet_msoftdrop_tau21DDT_jmsUp_,FatJet_msoftdrop_tau21DDT_jmsUp_+bytes/sizeof(FatJet_msoftdrop_tau21DDT_jmsUp_[0]));
+        v_FatJet_msoftdrop_tau21DDT_jmsUp_ = vector<float>(FatJet_msoftdrop_tau21DDT_jmsUp_.data(),FatJet_msoftdrop_tau21DDT_jmsUp_.data()+bytes/sizeof(FatJet_msoftdrop_tau21DDT_jmsUp_[0]));
         loaded_FatJet_msoftdrop_tau21DDT_jmsUp_ = true;
     }
     return v_FatJet_msoftdrop_tau21DDT_jmsUp_;
@@ -16579,7 +16614,7 @@ const vector<float> &Nano::FatJet_msoftdrop_tau21DDT_nom() {
     if (!loaded_FatJet_msoftdrop_tau21DDT_nom_) {
         if (!b_FatJet_msoftdrop_tau21DDT_nom_) throw std::runtime_error("FatJet_msoftdrop_tau21DDT_nom branch doesn't exist");
         int bytes = b_FatJet_msoftdrop_tau21DDT_nom_->GetEntry(index);
-        v_FatJet_msoftdrop_tau21DDT_nom_ = vector<float>(FatJet_msoftdrop_tau21DDT_nom_,FatJet_msoftdrop_tau21DDT_nom_+bytes/sizeof(FatJet_msoftdrop_tau21DDT_nom_[0]));
+        v_FatJet_msoftdrop_tau21DDT_nom_ = vector<float>(FatJet_msoftdrop_tau21DDT_nom_.data(),FatJet_msoftdrop_tau21DDT_nom_.data()+bytes/sizeof(FatJet_msoftdrop_tau21DDT_nom_[0]));
         loaded_FatJet_msoftdrop_tau21DDT_nom_ = true;
     }
     return v_FatJet_msoftdrop_tau21DDT_nom_;
@@ -16590,7 +16625,7 @@ const vector<int> &Nano::FatJet_muonIdx3SJ() {
     if (!loaded_FatJet_muonIdx3SJ_) {
         if (!b_FatJet_muonIdx3SJ_) throw std::runtime_error("FatJet_muonIdx3SJ branch doesn't exist");
         int bytes = b_FatJet_muonIdx3SJ_->GetEntry(index);
-        v_FatJet_muonIdx3SJ_ = vector<int>(FatJet_muonIdx3SJ_,FatJet_muonIdx3SJ_+bytes/sizeof(FatJet_muonIdx3SJ_[0]));
+        v_FatJet_muonIdx3SJ_ = vector<int>(FatJet_muonIdx3SJ_.data(),FatJet_muonIdx3SJ_.data()+bytes/sizeof(FatJet_muonIdx3SJ_[0]));
         loaded_FatJet_muonIdx3SJ_ = true;
     }
     return v_FatJet_muonIdx3SJ_;
@@ -16601,7 +16636,7 @@ const vector<float> &Nano::FatJet_n2b1() {
     if (!loaded_FatJet_n2b1_) {
         if (!b_FatJet_n2b1_) throw std::runtime_error("FatJet_n2b1 branch doesn't exist");
         int bytes = b_FatJet_n2b1_->GetEntry(index);
-        v_FatJet_n2b1_ = vector<float>(FatJet_n2b1_,FatJet_n2b1_+bytes/sizeof(FatJet_n2b1_[0]));
+        v_FatJet_n2b1_ = vector<float>(FatJet_n2b1_.data(),FatJet_n2b1_.data()+bytes/sizeof(FatJet_n2b1_[0]));
         loaded_FatJet_n2b1_ = true;
     }
     return v_FatJet_n2b1_;
@@ -16612,7 +16647,7 @@ const vector<float> &Nano::FatJet_n3b1() {
     if (!loaded_FatJet_n3b1_) {
         if (!b_FatJet_n3b1_) throw std::runtime_error("FatJet_n3b1 branch doesn't exist");
         int bytes = b_FatJet_n3b1_->GetEntry(index);
-        v_FatJet_n3b1_ = vector<float>(FatJet_n3b1_,FatJet_n3b1_+bytes/sizeof(FatJet_n3b1_[0]));
+        v_FatJet_n3b1_ = vector<float>(FatJet_n3b1_.data(),FatJet_n3b1_.data()+bytes/sizeof(FatJet_n3b1_[0]));
         loaded_FatJet_n3b1_ = true;
     }
     return v_FatJet_n3b1_;
@@ -16623,7 +16658,7 @@ const vector<UChar_t> &Nano::FatJet_nBHadrons() {
     if (!loaded_FatJet_nBHadrons_) {
         if (!b_FatJet_nBHadrons_) throw std::runtime_error("FatJet_nBHadrons branch doesn't exist");
         int bytes = b_FatJet_nBHadrons_->GetEntry(index);
-        v_FatJet_nBHadrons_ = vector<UChar_t>(FatJet_nBHadrons_,FatJet_nBHadrons_+bytes/sizeof(FatJet_nBHadrons_[0]));
+        v_FatJet_nBHadrons_ = vector<UChar_t>(FatJet_nBHadrons_.data(),FatJet_nBHadrons_.data()+bytes/sizeof(FatJet_nBHadrons_[0]));
         loaded_FatJet_nBHadrons_ = true;
     }
     return v_FatJet_nBHadrons_;
@@ -16634,7 +16669,7 @@ const vector<UChar_t> &Nano::FatJet_nCHadrons() {
     if (!loaded_FatJet_nCHadrons_) {
         if (!b_FatJet_nCHadrons_) throw std::runtime_error("FatJet_nCHadrons branch doesn't exist");
         int bytes = b_FatJet_nCHadrons_->GetEntry(index);
-        v_FatJet_nCHadrons_ = vector<UChar_t>(FatJet_nCHadrons_,FatJet_nCHadrons_+bytes/sizeof(FatJet_nCHadrons_[0]));
+        v_FatJet_nCHadrons_ = vector<UChar_t>(FatJet_nCHadrons_.data(),FatJet_nCHadrons_.data()+bytes/sizeof(FatJet_nCHadrons_[0]));
         loaded_FatJet_nCHadrons_ = true;
     }
     return v_FatJet_nCHadrons_;
@@ -16645,7 +16680,7 @@ const vector<UChar_t> &Nano::FatJet_nConstituents() {
     if (!loaded_FatJet_nConstituents_) {
         if (!b_FatJet_nConstituents_) throw std::runtime_error("FatJet_nConstituents branch doesn't exist");
         int bytes = b_FatJet_nConstituents_->GetEntry(index);
-        v_FatJet_nConstituents_ = vector<UChar_t>(FatJet_nConstituents_,FatJet_nConstituents_+bytes/sizeof(FatJet_nConstituents_[0]));
+        v_FatJet_nConstituents_ = vector<UChar_t>(FatJet_nConstituents_.data(),FatJet_nConstituents_.data()+bytes/sizeof(FatJet_nConstituents_[0]));
         loaded_FatJet_nConstituents_ = true;
     }
     return v_FatJet_nConstituents_;
@@ -16672,7 +16707,7 @@ const vector<float> &Nano::FatJet_particleNetMD_QCD() {
     if (!loaded_FatJet_particleNetMD_QCD_) {
         if (!b_FatJet_particleNetMD_QCD_) throw std::runtime_error("FatJet_particleNetMD_QCD branch doesn't exist");
         int bytes = b_FatJet_particleNetMD_QCD_->GetEntry(index);
-        v_FatJet_particleNetMD_QCD_ = vector<float>(FatJet_particleNetMD_QCD_,FatJet_particleNetMD_QCD_+bytes/sizeof(FatJet_particleNetMD_QCD_[0]));
+        v_FatJet_particleNetMD_QCD_ = vector<float>(FatJet_particleNetMD_QCD_.data(),FatJet_particleNetMD_QCD_.data()+bytes/sizeof(FatJet_particleNetMD_QCD_[0]));
         loaded_FatJet_particleNetMD_QCD_ = true;
     }
     return v_FatJet_particleNetMD_QCD_;
@@ -16683,7 +16718,7 @@ const vector<float> &Nano::FatJet_particleNetMD_Xbb() {
     if (!loaded_FatJet_particleNetMD_Xbb_) {
         if (!b_FatJet_particleNetMD_Xbb_) throw std::runtime_error("FatJet_particleNetMD_Xbb branch doesn't exist");
         int bytes = b_FatJet_particleNetMD_Xbb_->GetEntry(index);
-        v_FatJet_particleNetMD_Xbb_ = vector<float>(FatJet_particleNetMD_Xbb_,FatJet_particleNetMD_Xbb_+bytes/sizeof(FatJet_particleNetMD_Xbb_[0]));
+        v_FatJet_particleNetMD_Xbb_ = vector<float>(FatJet_particleNetMD_Xbb_.data(),FatJet_particleNetMD_Xbb_.data()+bytes/sizeof(FatJet_particleNetMD_Xbb_[0]));
         loaded_FatJet_particleNetMD_Xbb_ = true;
     }
     return v_FatJet_particleNetMD_Xbb_;
@@ -16694,7 +16729,7 @@ const vector<float> &Nano::FatJet_particleNetMD_Xcc() {
     if (!loaded_FatJet_particleNetMD_Xcc_) {
         if (!b_FatJet_particleNetMD_Xcc_) throw std::runtime_error("FatJet_particleNetMD_Xcc branch doesn't exist");
         int bytes = b_FatJet_particleNetMD_Xcc_->GetEntry(index);
-        v_FatJet_particleNetMD_Xcc_ = vector<float>(FatJet_particleNetMD_Xcc_,FatJet_particleNetMD_Xcc_+bytes/sizeof(FatJet_particleNetMD_Xcc_[0]));
+        v_FatJet_particleNetMD_Xcc_ = vector<float>(FatJet_particleNetMD_Xcc_.data(),FatJet_particleNetMD_Xcc_.data()+bytes/sizeof(FatJet_particleNetMD_Xcc_[0]));
         loaded_FatJet_particleNetMD_Xcc_ = true;
     }
     return v_FatJet_particleNetMD_Xcc_;
@@ -16705,7 +16740,7 @@ const vector<float> &Nano::FatJet_particleNetMD_Xqq() {
     if (!loaded_FatJet_particleNetMD_Xqq_) {
         if (!b_FatJet_particleNetMD_Xqq_) throw std::runtime_error("FatJet_particleNetMD_Xqq branch doesn't exist");
         int bytes = b_FatJet_particleNetMD_Xqq_->GetEntry(index);
-        v_FatJet_particleNetMD_Xqq_ = vector<float>(FatJet_particleNetMD_Xqq_,FatJet_particleNetMD_Xqq_+bytes/sizeof(FatJet_particleNetMD_Xqq_[0]));
+        v_FatJet_particleNetMD_Xqq_ = vector<float>(FatJet_particleNetMD_Xqq_.data(),FatJet_particleNetMD_Xqq_.data()+bytes/sizeof(FatJet_particleNetMD_Xqq_[0]));
         loaded_FatJet_particleNetMD_Xqq_ = true;
     }
     return v_FatJet_particleNetMD_Xqq_;
@@ -16716,7 +16751,7 @@ const vector<float> &Nano::FatJet_particleNet_H4qvsQCD() {
     if (!loaded_FatJet_particleNet_H4qvsQCD_) {
         if (!b_FatJet_particleNet_H4qvsQCD_) throw std::runtime_error("FatJet_particleNet_H4qvsQCD branch doesn't exist");
         int bytes = b_FatJet_particleNet_H4qvsQCD_->GetEntry(index);
-        v_FatJet_particleNet_H4qvsQCD_ = vector<float>(FatJet_particleNet_H4qvsQCD_,FatJet_particleNet_H4qvsQCD_+bytes/sizeof(FatJet_particleNet_H4qvsQCD_[0]));
+        v_FatJet_particleNet_H4qvsQCD_ = vector<float>(FatJet_particleNet_H4qvsQCD_.data(),FatJet_particleNet_H4qvsQCD_.data()+bytes/sizeof(FatJet_particleNet_H4qvsQCD_[0]));
         loaded_FatJet_particleNet_H4qvsQCD_ = true;
     }
     return v_FatJet_particleNet_H4qvsQCD_;
@@ -16727,7 +16762,7 @@ const vector<float> &Nano::FatJet_particleNet_HbbvsQCD() {
     if (!loaded_FatJet_particleNet_HbbvsQCD_) {
         if (!b_FatJet_particleNet_HbbvsQCD_) throw std::runtime_error("FatJet_particleNet_HbbvsQCD branch doesn't exist");
         int bytes = b_FatJet_particleNet_HbbvsQCD_->GetEntry(index);
-        v_FatJet_particleNet_HbbvsQCD_ = vector<float>(FatJet_particleNet_HbbvsQCD_,FatJet_particleNet_HbbvsQCD_+bytes/sizeof(FatJet_particleNet_HbbvsQCD_[0]));
+        v_FatJet_particleNet_HbbvsQCD_ = vector<float>(FatJet_particleNet_HbbvsQCD_.data(),FatJet_particleNet_HbbvsQCD_.data()+bytes/sizeof(FatJet_particleNet_HbbvsQCD_[0]));
         loaded_FatJet_particleNet_HbbvsQCD_ = true;
     }
     return v_FatJet_particleNet_HbbvsQCD_;
@@ -16738,7 +16773,7 @@ const vector<float> &Nano::FatJet_particleNet_HccvsQCD() {
     if (!loaded_FatJet_particleNet_HccvsQCD_) {
         if (!b_FatJet_particleNet_HccvsQCD_) throw std::runtime_error("FatJet_particleNet_HccvsQCD branch doesn't exist");
         int bytes = b_FatJet_particleNet_HccvsQCD_->GetEntry(index);
-        v_FatJet_particleNet_HccvsQCD_ = vector<float>(FatJet_particleNet_HccvsQCD_,FatJet_particleNet_HccvsQCD_+bytes/sizeof(FatJet_particleNet_HccvsQCD_[0]));
+        v_FatJet_particleNet_HccvsQCD_ = vector<float>(FatJet_particleNet_HccvsQCD_.data(),FatJet_particleNet_HccvsQCD_.data()+bytes/sizeof(FatJet_particleNet_HccvsQCD_[0]));
         loaded_FatJet_particleNet_HccvsQCD_ = true;
     }
     return v_FatJet_particleNet_HccvsQCD_;
@@ -16749,7 +16784,7 @@ const vector<float> &Nano::FatJet_particleNet_QCD() {
     if (!loaded_FatJet_particleNet_QCD_) {
         if (!b_FatJet_particleNet_QCD_) throw std::runtime_error("FatJet_particleNet_QCD branch doesn't exist");
         int bytes = b_FatJet_particleNet_QCD_->GetEntry(index);
-        v_FatJet_particleNet_QCD_ = vector<float>(FatJet_particleNet_QCD_,FatJet_particleNet_QCD_+bytes/sizeof(FatJet_particleNet_QCD_[0]));
+        v_FatJet_particleNet_QCD_ = vector<float>(FatJet_particleNet_QCD_.data(),FatJet_particleNet_QCD_.data()+bytes/sizeof(FatJet_particleNet_QCD_[0]));
         loaded_FatJet_particleNet_QCD_ = true;
     }
     return v_FatJet_particleNet_QCD_;
@@ -16760,7 +16795,7 @@ const vector<float> &Nano::FatJet_particleNet_TvsQCD() {
     if (!loaded_FatJet_particleNet_TvsQCD_) {
         if (!b_FatJet_particleNet_TvsQCD_) throw std::runtime_error("FatJet_particleNet_TvsQCD branch doesn't exist");
         int bytes = b_FatJet_particleNet_TvsQCD_->GetEntry(index);
-        v_FatJet_particleNet_TvsQCD_ = vector<float>(FatJet_particleNet_TvsQCD_,FatJet_particleNet_TvsQCD_+bytes/sizeof(FatJet_particleNet_TvsQCD_[0]));
+        v_FatJet_particleNet_TvsQCD_ = vector<float>(FatJet_particleNet_TvsQCD_.data(),FatJet_particleNet_TvsQCD_.data()+bytes/sizeof(FatJet_particleNet_TvsQCD_[0]));
         loaded_FatJet_particleNet_TvsQCD_ = true;
     }
     return v_FatJet_particleNet_TvsQCD_;
@@ -16771,7 +16806,7 @@ const vector<float> &Nano::FatJet_particleNet_WvsQCD() {
     if (!loaded_FatJet_particleNet_WvsQCD_) {
         if (!b_FatJet_particleNet_WvsQCD_) throw std::runtime_error("FatJet_particleNet_WvsQCD branch doesn't exist");
         int bytes = b_FatJet_particleNet_WvsQCD_->GetEntry(index);
-        v_FatJet_particleNet_WvsQCD_ = vector<float>(FatJet_particleNet_WvsQCD_,FatJet_particleNet_WvsQCD_+bytes/sizeof(FatJet_particleNet_WvsQCD_[0]));
+        v_FatJet_particleNet_WvsQCD_ = vector<float>(FatJet_particleNet_WvsQCD_.data(),FatJet_particleNet_WvsQCD_.data()+bytes/sizeof(FatJet_particleNet_WvsQCD_[0]));
         loaded_FatJet_particleNet_WvsQCD_ = true;
     }
     return v_FatJet_particleNet_WvsQCD_;
@@ -16782,7 +16817,7 @@ const vector<float> &Nano::FatJet_particleNet_ZvsQCD() {
     if (!loaded_FatJet_particleNet_ZvsQCD_) {
         if (!b_FatJet_particleNet_ZvsQCD_) throw std::runtime_error("FatJet_particleNet_ZvsQCD branch doesn't exist");
         int bytes = b_FatJet_particleNet_ZvsQCD_->GetEntry(index);
-        v_FatJet_particleNet_ZvsQCD_ = vector<float>(FatJet_particleNet_ZvsQCD_,FatJet_particleNet_ZvsQCD_+bytes/sizeof(FatJet_particleNet_ZvsQCD_[0]));
+        v_FatJet_particleNet_ZvsQCD_ = vector<float>(FatJet_particleNet_ZvsQCD_.data(),FatJet_particleNet_ZvsQCD_.data()+bytes/sizeof(FatJet_particleNet_ZvsQCD_[0]));
         loaded_FatJet_particleNet_ZvsQCD_ = true;
     }
     return v_FatJet_particleNet_ZvsQCD_;
@@ -16793,7 +16828,7 @@ const vector<float> &Nano::FatJet_particleNet_mass() {
     if (!loaded_FatJet_particleNet_mass_) {
         if (!b_FatJet_particleNet_mass_) throw std::runtime_error("FatJet_particleNet_mass branch doesn't exist");
         int bytes = b_FatJet_particleNet_mass_->GetEntry(index);
-        v_FatJet_particleNet_mass_ = vector<float>(FatJet_particleNet_mass_,FatJet_particleNet_mass_+bytes/sizeof(FatJet_particleNet_mass_[0]));
+        v_FatJet_particleNet_mass_ = vector<float>(FatJet_particleNet_mass_.data(),FatJet_particleNet_mass_.data()+bytes/sizeof(FatJet_particleNet_mass_[0]));
         loaded_FatJet_particleNet_mass_ = true;
     }
     return v_FatJet_particleNet_mass_;
@@ -16804,7 +16839,7 @@ const vector<float> &Nano::FatJet_phi() {
     if (!loaded_FatJet_phi_) {
         if (!b_FatJet_phi_) throw std::runtime_error("FatJet_phi branch doesn't exist");
         int bytes = b_FatJet_phi_->GetEntry(index);
-        v_FatJet_phi_ = vector<float>(FatJet_phi_,FatJet_phi_+bytes/sizeof(FatJet_phi_[0]));
+        v_FatJet_phi_ = vector<float>(FatJet_phi_.data(),FatJet_phi_.data()+bytes/sizeof(FatJet_phi_[0]));
         loaded_FatJet_phi_ = true;
     }
     return v_FatJet_phi_;
@@ -16815,7 +16850,7 @@ const vector<float> &Nano::FatJet_pt() {
     if (!loaded_FatJet_pt_) {
         if (!b_FatJet_pt_) throw std::runtime_error("FatJet_pt branch doesn't exist");
         int bytes = b_FatJet_pt_->GetEntry(index);
-        v_FatJet_pt_ = vector<float>(FatJet_pt_,FatJet_pt_+bytes/sizeof(FatJet_pt_[0]));
+        v_FatJet_pt_ = vector<float>(FatJet_pt_.data(),FatJet_pt_.data()+bytes/sizeof(FatJet_pt_[0]));
         loaded_FatJet_pt_ = true;
     }
     return v_FatJet_pt_;
@@ -16826,7 +16861,7 @@ const vector<float> &Nano::FatJet_pt_jerDown() {
     if (!loaded_FatJet_pt_jerDown_) {
         if (!b_FatJet_pt_jerDown_) throw std::runtime_error("FatJet_pt_jerDown branch doesn't exist");
         int bytes = b_FatJet_pt_jerDown_->GetEntry(index);
-        v_FatJet_pt_jerDown_ = vector<float>(FatJet_pt_jerDown_,FatJet_pt_jerDown_+bytes/sizeof(FatJet_pt_jerDown_[0]));
+        v_FatJet_pt_jerDown_ = vector<float>(FatJet_pt_jerDown_.data(),FatJet_pt_jerDown_.data()+bytes/sizeof(FatJet_pt_jerDown_[0]));
         loaded_FatJet_pt_jerDown_ = true;
     }
     return v_FatJet_pt_jerDown_;
@@ -16837,7 +16872,7 @@ const vector<float> &Nano::FatJet_pt_jerUp() {
     if (!loaded_FatJet_pt_jerUp_) {
         if (!b_FatJet_pt_jerUp_) throw std::runtime_error("FatJet_pt_jerUp branch doesn't exist");
         int bytes = b_FatJet_pt_jerUp_->GetEntry(index);
-        v_FatJet_pt_jerUp_ = vector<float>(FatJet_pt_jerUp_,FatJet_pt_jerUp_+bytes/sizeof(FatJet_pt_jerUp_[0]));
+        v_FatJet_pt_jerUp_ = vector<float>(FatJet_pt_jerUp_.data(),FatJet_pt_jerUp_.data()+bytes/sizeof(FatJet_pt_jerUp_[0]));
         loaded_FatJet_pt_jerUp_ = true;
     }
     return v_FatJet_pt_jerUp_;
@@ -16848,7 +16883,7 @@ const vector<float> &Nano::FatJet_pt_jesTotalDown() {
     if (!loaded_FatJet_pt_jesTotalDown_) {
         if (!b_FatJet_pt_jesTotalDown_) throw std::runtime_error("FatJet_pt_jesTotalDown branch doesn't exist");
         int bytes = b_FatJet_pt_jesTotalDown_->GetEntry(index);
-        v_FatJet_pt_jesTotalDown_ = vector<float>(FatJet_pt_jesTotalDown_,FatJet_pt_jesTotalDown_+bytes/sizeof(FatJet_pt_jesTotalDown_[0]));
+        v_FatJet_pt_jesTotalDown_ = vector<float>(FatJet_pt_jesTotalDown_.data(),FatJet_pt_jesTotalDown_.data()+bytes/sizeof(FatJet_pt_jesTotalDown_[0]));
         loaded_FatJet_pt_jesTotalDown_ = true;
     }
     return v_FatJet_pt_jesTotalDown_;
@@ -16859,7 +16894,7 @@ const vector<float> &Nano::FatJet_pt_jesTotalUp() {
     if (!loaded_FatJet_pt_jesTotalUp_) {
         if (!b_FatJet_pt_jesTotalUp_) throw std::runtime_error("FatJet_pt_jesTotalUp branch doesn't exist");
         int bytes = b_FatJet_pt_jesTotalUp_->GetEntry(index);
-        v_FatJet_pt_jesTotalUp_ = vector<float>(FatJet_pt_jesTotalUp_,FatJet_pt_jesTotalUp_+bytes/sizeof(FatJet_pt_jesTotalUp_[0]));
+        v_FatJet_pt_jesTotalUp_ = vector<float>(FatJet_pt_jesTotalUp_.data(),FatJet_pt_jesTotalUp_.data()+bytes/sizeof(FatJet_pt_jesTotalUp_[0]));
         loaded_FatJet_pt_jesTotalUp_ = true;
     }
     return v_FatJet_pt_jesTotalUp_;
@@ -16870,7 +16905,7 @@ const vector<float> &Nano::FatJet_pt_nom() {
     if (!loaded_FatJet_pt_nom_) {
         if (!b_FatJet_pt_nom_) throw std::runtime_error("FatJet_pt_nom branch doesn't exist");
         int bytes = b_FatJet_pt_nom_->GetEntry(index);
-        v_FatJet_pt_nom_ = vector<float>(FatJet_pt_nom_,FatJet_pt_nom_+bytes/sizeof(FatJet_pt_nom_[0]));
+        v_FatJet_pt_nom_ = vector<float>(FatJet_pt_nom_.data(),FatJet_pt_nom_.data()+bytes/sizeof(FatJet_pt_nom_[0]));
         loaded_FatJet_pt_nom_ = true;
     }
     return v_FatJet_pt_nom_;
@@ -16881,7 +16916,7 @@ const vector<float> &Nano::FatJet_pt_raw() {
     if (!loaded_FatJet_pt_raw_) {
         if (!b_FatJet_pt_raw_) throw std::runtime_error("FatJet_pt_raw branch doesn't exist");
         int bytes = b_FatJet_pt_raw_->GetEntry(index);
-        v_FatJet_pt_raw_ = vector<float>(FatJet_pt_raw_,FatJet_pt_raw_+bytes/sizeof(FatJet_pt_raw_[0]));
+        v_FatJet_pt_raw_ = vector<float>(FatJet_pt_raw_.data(),FatJet_pt_raw_.data()+bytes/sizeof(FatJet_pt_raw_[0]));
         loaded_FatJet_pt_raw_ = true;
     }
     return v_FatJet_pt_raw_;
@@ -16892,7 +16927,7 @@ const vector<float> &Nano::FatJet_rawFactor() {
     if (!loaded_FatJet_rawFactor_) {
         if (!b_FatJet_rawFactor_) throw std::runtime_error("FatJet_rawFactor branch doesn't exist");
         int bytes = b_FatJet_rawFactor_->GetEntry(index);
-        v_FatJet_rawFactor_ = vector<float>(FatJet_rawFactor_,FatJet_rawFactor_+bytes/sizeof(FatJet_rawFactor_[0]));
+        v_FatJet_rawFactor_ = vector<float>(FatJet_rawFactor_.data(),FatJet_rawFactor_.data()+bytes/sizeof(FatJet_rawFactor_[0]));
         loaded_FatJet_rawFactor_ = true;
     }
     return v_FatJet_rawFactor_;
@@ -16903,7 +16938,7 @@ const vector<int> &Nano::FatJet_subJetIdx1() {
     if (!loaded_FatJet_subJetIdx1_) {
         if (!b_FatJet_subJetIdx1_) throw std::runtime_error("FatJet_subJetIdx1 branch doesn't exist");
         int bytes = b_FatJet_subJetIdx1_->GetEntry(index);
-        v_FatJet_subJetIdx1_ = vector<int>(FatJet_subJetIdx1_,FatJet_subJetIdx1_+bytes/sizeof(FatJet_subJetIdx1_[0]));
+        v_FatJet_subJetIdx1_ = vector<int>(FatJet_subJetIdx1_.data(),FatJet_subJetIdx1_.data()+bytes/sizeof(FatJet_subJetIdx1_[0]));
         loaded_FatJet_subJetIdx1_ = true;
     }
     return v_FatJet_subJetIdx1_;
@@ -16914,7 +16949,7 @@ const vector<int> &Nano::FatJet_subJetIdx2() {
     if (!loaded_FatJet_subJetIdx2_) {
         if (!b_FatJet_subJetIdx2_) throw std::runtime_error("FatJet_subJetIdx2 branch doesn't exist");
         int bytes = b_FatJet_subJetIdx2_->GetEntry(index);
-        v_FatJet_subJetIdx2_ = vector<int>(FatJet_subJetIdx2_,FatJet_subJetIdx2_+bytes/sizeof(FatJet_subJetIdx2_[0]));
+        v_FatJet_subJetIdx2_ = vector<int>(FatJet_subJetIdx2_.data(),FatJet_subJetIdx2_.data()+bytes/sizeof(FatJet_subJetIdx2_[0]));
         loaded_FatJet_subJetIdx2_ = true;
     }
     return v_FatJet_subJetIdx2_;
@@ -16925,7 +16960,7 @@ const vector<float> &Nano::FatJet_tau1() {
     if (!loaded_FatJet_tau1_) {
         if (!b_FatJet_tau1_) throw std::runtime_error("FatJet_tau1 branch doesn't exist");
         int bytes = b_FatJet_tau1_->GetEntry(index);
-        v_FatJet_tau1_ = vector<float>(FatJet_tau1_,FatJet_tau1_+bytes/sizeof(FatJet_tau1_[0]));
+        v_FatJet_tau1_ = vector<float>(FatJet_tau1_.data(),FatJet_tau1_.data()+bytes/sizeof(FatJet_tau1_[0]));
         loaded_FatJet_tau1_ = true;
     }
     return v_FatJet_tau1_;
@@ -16936,7 +16971,7 @@ const vector<float> &Nano::FatJet_tau2() {
     if (!loaded_FatJet_tau2_) {
         if (!b_FatJet_tau2_) throw std::runtime_error("FatJet_tau2 branch doesn't exist");
         int bytes = b_FatJet_tau2_->GetEntry(index);
-        v_FatJet_tau2_ = vector<float>(FatJet_tau2_,FatJet_tau2_+bytes/sizeof(FatJet_tau2_[0]));
+        v_FatJet_tau2_ = vector<float>(FatJet_tau2_.data(),FatJet_tau2_.data()+bytes/sizeof(FatJet_tau2_[0]));
         loaded_FatJet_tau2_ = true;
     }
     return v_FatJet_tau2_;
@@ -16947,7 +16982,7 @@ const vector<float> &Nano::FatJet_tau3() {
     if (!loaded_FatJet_tau3_) {
         if (!b_FatJet_tau3_) throw std::runtime_error("FatJet_tau3 branch doesn't exist");
         int bytes = b_FatJet_tau3_->GetEntry(index);
-        v_FatJet_tau3_ = vector<float>(FatJet_tau3_,FatJet_tau3_+bytes/sizeof(FatJet_tau3_[0]));
+        v_FatJet_tau3_ = vector<float>(FatJet_tau3_.data(),FatJet_tau3_.data()+bytes/sizeof(FatJet_tau3_[0]));
         loaded_FatJet_tau3_ = true;
     }
     return v_FatJet_tau3_;
@@ -16958,7 +16993,7 @@ const vector<float> &Nano::FatJet_tau4() {
     if (!loaded_FatJet_tau4_) {
         if (!b_FatJet_tau4_) throw std::runtime_error("FatJet_tau4 branch doesn't exist");
         int bytes = b_FatJet_tau4_->GetEntry(index);
-        v_FatJet_tau4_ = vector<float>(FatJet_tau4_,FatJet_tau4_+bytes/sizeof(FatJet_tau4_[0]));
+        v_FatJet_tau4_ = vector<float>(FatJet_tau4_.data(),FatJet_tau4_.data()+bytes/sizeof(FatJet_tau4_[0]));
         loaded_FatJet_tau4_ = true;
     }
     return v_FatJet_tau4_;
@@ -17509,7 +17544,7 @@ const vector<float> &Nano::FsrPhoton_dROverEt2() {
     if (!loaded_FsrPhoton_dROverEt2_) {
         if (!b_FsrPhoton_dROverEt2_) throw std::runtime_error("FsrPhoton_dROverEt2 branch doesn't exist");
         int bytes = b_FsrPhoton_dROverEt2_->GetEntry(index);
-        v_FsrPhoton_dROverEt2_ = vector<float>(FsrPhoton_dROverEt2_,FsrPhoton_dROverEt2_+bytes/sizeof(FsrPhoton_dROverEt2_[0]));
+        v_FsrPhoton_dROverEt2_ = vector<float>(FsrPhoton_dROverEt2_.data(),FsrPhoton_dROverEt2_.data()+bytes/sizeof(FsrPhoton_dROverEt2_[0]));
         loaded_FsrPhoton_dROverEt2_ = true;
     }
     return v_FsrPhoton_dROverEt2_;
@@ -17520,7 +17555,7 @@ const vector<int> &Nano::FsrPhoton_electronIdx() {
     if (!loaded_FsrPhoton_electronIdx_) {
         if (!b_FsrPhoton_electronIdx_) throw std::runtime_error("FsrPhoton_electronIdx branch doesn't exist");
         int bytes = b_FsrPhoton_electronIdx_->GetEntry(index);
-        v_FsrPhoton_electronIdx_ = vector<int>(FsrPhoton_electronIdx_,FsrPhoton_electronIdx_+bytes/sizeof(FsrPhoton_electronIdx_[0]));
+        v_FsrPhoton_electronIdx_ = vector<int>(FsrPhoton_electronIdx_.data(),FsrPhoton_electronIdx_.data()+bytes/sizeof(FsrPhoton_electronIdx_[0]));
         loaded_FsrPhoton_electronIdx_ = true;
     }
     return v_FsrPhoton_electronIdx_;
@@ -17531,7 +17566,7 @@ const vector<float> &Nano::FsrPhoton_eta() {
     if (!loaded_FsrPhoton_eta_) {
         if (!b_FsrPhoton_eta_) throw std::runtime_error("FsrPhoton_eta branch doesn't exist");
         int bytes = b_FsrPhoton_eta_->GetEntry(index);
-        v_FsrPhoton_eta_ = vector<float>(FsrPhoton_eta_,FsrPhoton_eta_+bytes/sizeof(FsrPhoton_eta_[0]));
+        v_FsrPhoton_eta_ = vector<float>(FsrPhoton_eta_.data(),FsrPhoton_eta_.data()+bytes/sizeof(FsrPhoton_eta_[0]));
         loaded_FsrPhoton_eta_ = true;
     }
     return v_FsrPhoton_eta_;
@@ -17542,7 +17577,7 @@ const vector<int> &Nano::FsrPhoton_muonIdx() {
     if (!loaded_FsrPhoton_muonIdx_) {
         if (!b_FsrPhoton_muonIdx_) throw std::runtime_error("FsrPhoton_muonIdx branch doesn't exist");
         int bytes = b_FsrPhoton_muonIdx_->GetEntry(index);
-        v_FsrPhoton_muonIdx_ = vector<int>(FsrPhoton_muonIdx_,FsrPhoton_muonIdx_+bytes/sizeof(FsrPhoton_muonIdx_[0]));
+        v_FsrPhoton_muonIdx_ = vector<int>(FsrPhoton_muonIdx_.data(),FsrPhoton_muonIdx_.data()+bytes/sizeof(FsrPhoton_muonIdx_[0]));
         loaded_FsrPhoton_muonIdx_ = true;
     }
     return v_FsrPhoton_muonIdx_;
@@ -17553,7 +17588,7 @@ const vector<float> &Nano::FsrPhoton_phi() {
     if (!loaded_FsrPhoton_phi_) {
         if (!b_FsrPhoton_phi_) throw std::runtime_error("FsrPhoton_phi branch doesn't exist");
         int bytes = b_FsrPhoton_phi_->GetEntry(index);
-        v_FsrPhoton_phi_ = vector<float>(FsrPhoton_phi_,FsrPhoton_phi_+bytes/sizeof(FsrPhoton_phi_[0]));
+        v_FsrPhoton_phi_ = vector<float>(FsrPhoton_phi_.data(),FsrPhoton_phi_.data()+bytes/sizeof(FsrPhoton_phi_[0]));
         loaded_FsrPhoton_phi_ = true;
     }
     return v_FsrPhoton_phi_;
@@ -17564,7 +17599,7 @@ const vector<float> &Nano::FsrPhoton_pt() {
     if (!loaded_FsrPhoton_pt_) {
         if (!b_FsrPhoton_pt_) throw std::runtime_error("FsrPhoton_pt branch doesn't exist");
         int bytes = b_FsrPhoton_pt_->GetEntry(index);
-        v_FsrPhoton_pt_ = vector<float>(FsrPhoton_pt_,FsrPhoton_pt_+bytes/sizeof(FsrPhoton_pt_[0]));
+        v_FsrPhoton_pt_ = vector<float>(FsrPhoton_pt_.data(),FsrPhoton_pt_.data()+bytes/sizeof(FsrPhoton_pt_[0]));
         loaded_FsrPhoton_pt_ = true;
     }
     return v_FsrPhoton_pt_;
@@ -17575,7 +17610,7 @@ const vector<float> &Nano::FsrPhoton_relIso03() {
     if (!loaded_FsrPhoton_relIso03_) {
         if (!b_FsrPhoton_relIso03_) throw std::runtime_error("FsrPhoton_relIso03 branch doesn't exist");
         int bytes = b_FsrPhoton_relIso03_->GetEntry(index);
-        v_FsrPhoton_relIso03_ = vector<float>(FsrPhoton_relIso03_,FsrPhoton_relIso03_+bytes/sizeof(FsrPhoton_relIso03_[0]));
+        v_FsrPhoton_relIso03_ = vector<float>(FsrPhoton_relIso03_.data(),FsrPhoton_relIso03_.data()+bytes/sizeof(FsrPhoton_relIso03_[0]));
         loaded_FsrPhoton_relIso03_ = true;
     }
     return v_FsrPhoton_relIso03_;
@@ -17586,7 +17621,7 @@ const vector<float> &Nano::GenDressedLepton_eta() {
     if (!loaded_GenDressedLepton_eta_) {
         if (!b_GenDressedLepton_eta_) throw std::runtime_error("GenDressedLepton_eta branch doesn't exist");
         int bytes = b_GenDressedLepton_eta_->GetEntry(index);
-        v_GenDressedLepton_eta_ = vector<float>(GenDressedLepton_eta_,GenDressedLepton_eta_+bytes/sizeof(GenDressedLepton_eta_[0]));
+        v_GenDressedLepton_eta_ = vector<float>(GenDressedLepton_eta_.data(),GenDressedLepton_eta_.data()+bytes/sizeof(GenDressedLepton_eta_[0]));
         loaded_GenDressedLepton_eta_ = true;
     }
     return v_GenDressedLepton_eta_;
@@ -17597,7 +17632,7 @@ const vector<bool> &Nano::GenDressedLepton_hasTauAnc() {
     if (!loaded_GenDressedLepton_hasTauAnc_) {
         if (!b_GenDressedLepton_hasTauAnc_) throw std::runtime_error("GenDressedLepton_hasTauAnc branch doesn't exist");
         int bytes = b_GenDressedLepton_hasTauAnc_->GetEntry(index);
-        v_GenDressedLepton_hasTauAnc_ = vector<bool>(GenDressedLepton_hasTauAnc_,GenDressedLepton_hasTauAnc_+bytes/sizeof(GenDressedLepton_hasTauAnc_[0]));
+        v_GenDressedLepton_hasTauAnc_ = vector<bool>(GenDressedLepton_hasTauAnc_.data(),GenDressedLepton_hasTauAnc_.data()+bytes/sizeof(GenDressedLepton_hasTauAnc_[0]));
         loaded_GenDressedLepton_hasTauAnc_ = true;
     }
     return v_GenDressedLepton_hasTauAnc_;
@@ -17608,7 +17643,7 @@ const vector<float> &Nano::GenDressedLepton_mass() {
     if (!loaded_GenDressedLepton_mass_) {
         if (!b_GenDressedLepton_mass_) throw std::runtime_error("GenDressedLepton_mass branch doesn't exist");
         int bytes = b_GenDressedLepton_mass_->GetEntry(index);
-        v_GenDressedLepton_mass_ = vector<float>(GenDressedLepton_mass_,GenDressedLepton_mass_+bytes/sizeof(GenDressedLepton_mass_[0]));
+        v_GenDressedLepton_mass_ = vector<float>(GenDressedLepton_mass_.data(),GenDressedLepton_mass_.data()+bytes/sizeof(GenDressedLepton_mass_[0]));
         loaded_GenDressedLepton_mass_ = true;
     }
     return v_GenDressedLepton_mass_;
@@ -17635,7 +17670,7 @@ const vector<int> &Nano::GenDressedLepton_pdgId() {
     if (!loaded_GenDressedLepton_pdgId_) {
         if (!b_GenDressedLepton_pdgId_) throw std::runtime_error("GenDressedLepton_pdgId branch doesn't exist");
         int bytes = b_GenDressedLepton_pdgId_->GetEntry(index);
-        v_GenDressedLepton_pdgId_ = vector<int>(GenDressedLepton_pdgId_,GenDressedLepton_pdgId_+bytes/sizeof(GenDressedLepton_pdgId_[0]));
+        v_GenDressedLepton_pdgId_ = vector<int>(GenDressedLepton_pdgId_.data(),GenDressedLepton_pdgId_.data()+bytes/sizeof(GenDressedLepton_pdgId_[0]));
         loaded_GenDressedLepton_pdgId_ = true;
     }
     return v_GenDressedLepton_pdgId_;
@@ -17646,7 +17681,7 @@ const vector<float> &Nano::GenDressedLepton_phi() {
     if (!loaded_GenDressedLepton_phi_) {
         if (!b_GenDressedLepton_phi_) throw std::runtime_error("GenDressedLepton_phi branch doesn't exist");
         int bytes = b_GenDressedLepton_phi_->GetEntry(index);
-        v_GenDressedLepton_phi_ = vector<float>(GenDressedLepton_phi_,GenDressedLepton_phi_+bytes/sizeof(GenDressedLepton_phi_[0]));
+        v_GenDressedLepton_phi_ = vector<float>(GenDressedLepton_phi_.data(),GenDressedLepton_phi_.data()+bytes/sizeof(GenDressedLepton_phi_[0]));
         loaded_GenDressedLepton_phi_ = true;
     }
     return v_GenDressedLepton_phi_;
@@ -17657,7 +17692,7 @@ const vector<float> &Nano::GenDressedLepton_pt() {
     if (!loaded_GenDressedLepton_pt_) {
         if (!b_GenDressedLepton_pt_) throw std::runtime_error("GenDressedLepton_pt branch doesn't exist");
         int bytes = b_GenDressedLepton_pt_->GetEntry(index);
-        v_GenDressedLepton_pt_ = vector<float>(GenDressedLepton_pt_,GenDressedLepton_pt_+bytes/sizeof(GenDressedLepton_pt_[0]));
+        v_GenDressedLepton_pt_ = vector<float>(GenDressedLepton_pt_.data(),GenDressedLepton_pt_.data()+bytes/sizeof(GenDressedLepton_pt_[0]));
         loaded_GenDressedLepton_pt_ = true;
     }
     return v_GenDressedLepton_pt_;
@@ -17668,7 +17703,7 @@ const vector<float> &Nano::GenIsolatedPhoton_eta() {
     if (!loaded_GenIsolatedPhoton_eta_) {
         if (!b_GenIsolatedPhoton_eta_) throw std::runtime_error("GenIsolatedPhoton_eta branch doesn't exist");
         int bytes = b_GenIsolatedPhoton_eta_->GetEntry(index);
-        v_GenIsolatedPhoton_eta_ = vector<float>(GenIsolatedPhoton_eta_,GenIsolatedPhoton_eta_+bytes/sizeof(GenIsolatedPhoton_eta_[0]));
+        v_GenIsolatedPhoton_eta_ = vector<float>(GenIsolatedPhoton_eta_.data(),GenIsolatedPhoton_eta_.data()+bytes/sizeof(GenIsolatedPhoton_eta_[0]));
         loaded_GenIsolatedPhoton_eta_ = true;
     }
     return v_GenIsolatedPhoton_eta_;
@@ -17679,7 +17714,7 @@ const vector<float> &Nano::GenIsolatedPhoton_mass() {
     if (!loaded_GenIsolatedPhoton_mass_) {
         if (!b_GenIsolatedPhoton_mass_) throw std::runtime_error("GenIsolatedPhoton_mass branch doesn't exist");
         int bytes = b_GenIsolatedPhoton_mass_->GetEntry(index);
-        v_GenIsolatedPhoton_mass_ = vector<float>(GenIsolatedPhoton_mass_,GenIsolatedPhoton_mass_+bytes/sizeof(GenIsolatedPhoton_mass_[0]));
+        v_GenIsolatedPhoton_mass_ = vector<float>(GenIsolatedPhoton_mass_.data(),GenIsolatedPhoton_mass_.data()+bytes/sizeof(GenIsolatedPhoton_mass_[0]));
         loaded_GenIsolatedPhoton_mass_ = true;
     }
     return v_GenIsolatedPhoton_mass_;
@@ -17706,7 +17741,7 @@ const vector<float> &Nano::GenIsolatedPhoton_phi() {
     if (!loaded_GenIsolatedPhoton_phi_) {
         if (!b_GenIsolatedPhoton_phi_) throw std::runtime_error("GenIsolatedPhoton_phi branch doesn't exist");
         int bytes = b_GenIsolatedPhoton_phi_->GetEntry(index);
-        v_GenIsolatedPhoton_phi_ = vector<float>(GenIsolatedPhoton_phi_,GenIsolatedPhoton_phi_+bytes/sizeof(GenIsolatedPhoton_phi_[0]));
+        v_GenIsolatedPhoton_phi_ = vector<float>(GenIsolatedPhoton_phi_.data(),GenIsolatedPhoton_phi_.data()+bytes/sizeof(GenIsolatedPhoton_phi_[0]));
         loaded_GenIsolatedPhoton_phi_ = true;
     }
     return v_GenIsolatedPhoton_phi_;
@@ -17717,7 +17752,7 @@ const vector<float> &Nano::GenIsolatedPhoton_pt() {
     if (!loaded_GenIsolatedPhoton_pt_) {
         if (!b_GenIsolatedPhoton_pt_) throw std::runtime_error("GenIsolatedPhoton_pt branch doesn't exist");
         int bytes = b_GenIsolatedPhoton_pt_->GetEntry(index);
-        v_GenIsolatedPhoton_pt_ = vector<float>(GenIsolatedPhoton_pt_,GenIsolatedPhoton_pt_+bytes/sizeof(GenIsolatedPhoton_pt_[0]));
+        v_GenIsolatedPhoton_pt_ = vector<float>(GenIsolatedPhoton_pt_.data(),GenIsolatedPhoton_pt_.data()+bytes/sizeof(GenIsolatedPhoton_pt_[0]));
         loaded_GenIsolatedPhoton_pt_ = true;
     }
     return v_GenIsolatedPhoton_pt_;
@@ -17728,7 +17763,7 @@ const vector<float> &Nano::GenJetAK8_eta() {
     if (!loaded_GenJetAK8_eta_) {
         if (!b_GenJetAK8_eta_) throw std::runtime_error("GenJetAK8_eta branch doesn't exist");
         int bytes = b_GenJetAK8_eta_->GetEntry(index);
-        v_GenJetAK8_eta_ = vector<float>(GenJetAK8_eta_,GenJetAK8_eta_+bytes/sizeof(GenJetAK8_eta_[0]));
+        v_GenJetAK8_eta_ = vector<float>(GenJetAK8_eta_.data(),GenJetAK8_eta_.data()+bytes/sizeof(GenJetAK8_eta_[0]));
         loaded_GenJetAK8_eta_ = true;
     }
     return v_GenJetAK8_eta_;
@@ -17739,7 +17774,7 @@ const vector<UChar_t> &Nano::GenJetAK8_hadronFlavour() {
     if (!loaded_GenJetAK8_hadronFlavour_) {
         if (!b_GenJetAK8_hadronFlavour_) throw std::runtime_error("GenJetAK8_hadronFlavour branch doesn't exist");
         int bytes = b_GenJetAK8_hadronFlavour_->GetEntry(index);
-        v_GenJetAK8_hadronFlavour_ = vector<UChar_t>(GenJetAK8_hadronFlavour_,GenJetAK8_hadronFlavour_+bytes/sizeof(GenJetAK8_hadronFlavour_[0]));
+        v_GenJetAK8_hadronFlavour_ = vector<UChar_t>(GenJetAK8_hadronFlavour_.data(),GenJetAK8_hadronFlavour_.data()+bytes/sizeof(GenJetAK8_hadronFlavour_[0]));
         loaded_GenJetAK8_hadronFlavour_ = true;
     }
     return v_GenJetAK8_hadronFlavour_;
@@ -17750,7 +17785,7 @@ const vector<float> &Nano::GenJetAK8_mass() {
     if (!loaded_GenJetAK8_mass_) {
         if (!b_GenJetAK8_mass_) throw std::runtime_error("GenJetAK8_mass branch doesn't exist");
         int bytes = b_GenJetAK8_mass_->GetEntry(index);
-        v_GenJetAK8_mass_ = vector<float>(GenJetAK8_mass_,GenJetAK8_mass_+bytes/sizeof(GenJetAK8_mass_[0]));
+        v_GenJetAK8_mass_ = vector<float>(GenJetAK8_mass_.data(),GenJetAK8_mass_.data()+bytes/sizeof(GenJetAK8_mass_[0]));
         loaded_GenJetAK8_mass_ = true;
     }
     return v_GenJetAK8_mass_;
@@ -17777,7 +17812,7 @@ const vector<int> &Nano::GenJetAK8_partonFlavour() {
     if (!loaded_GenJetAK8_partonFlavour_) {
         if (!b_GenJetAK8_partonFlavour_) throw std::runtime_error("GenJetAK8_partonFlavour branch doesn't exist");
         int bytes = b_GenJetAK8_partonFlavour_->GetEntry(index);
-        v_GenJetAK8_partonFlavour_ = vector<int>(GenJetAK8_partonFlavour_,GenJetAK8_partonFlavour_+bytes/sizeof(GenJetAK8_partonFlavour_[0]));
+        v_GenJetAK8_partonFlavour_ = vector<int>(GenJetAK8_partonFlavour_.data(),GenJetAK8_partonFlavour_.data()+bytes/sizeof(GenJetAK8_partonFlavour_[0]));
         loaded_GenJetAK8_partonFlavour_ = true;
     }
     return v_GenJetAK8_partonFlavour_;
@@ -17788,7 +17823,7 @@ const vector<float> &Nano::GenJetAK8_phi() {
     if (!loaded_GenJetAK8_phi_) {
         if (!b_GenJetAK8_phi_) throw std::runtime_error("GenJetAK8_phi branch doesn't exist");
         int bytes = b_GenJetAK8_phi_->GetEntry(index);
-        v_GenJetAK8_phi_ = vector<float>(GenJetAK8_phi_,GenJetAK8_phi_+bytes/sizeof(GenJetAK8_phi_[0]));
+        v_GenJetAK8_phi_ = vector<float>(GenJetAK8_phi_.data(),GenJetAK8_phi_.data()+bytes/sizeof(GenJetAK8_phi_[0]));
         loaded_GenJetAK8_phi_ = true;
     }
     return v_GenJetAK8_phi_;
@@ -17799,7 +17834,7 @@ const vector<float> &Nano::GenJetAK8_pt() {
     if (!loaded_GenJetAK8_pt_) {
         if (!b_GenJetAK8_pt_) throw std::runtime_error("GenJetAK8_pt branch doesn't exist");
         int bytes = b_GenJetAK8_pt_->GetEntry(index);
-        v_GenJetAK8_pt_ = vector<float>(GenJetAK8_pt_,GenJetAK8_pt_+bytes/sizeof(GenJetAK8_pt_[0]));
+        v_GenJetAK8_pt_ = vector<float>(GenJetAK8_pt_.data(),GenJetAK8_pt_.data()+bytes/sizeof(GenJetAK8_pt_[0]));
         loaded_GenJetAK8_pt_ = true;
     }
     return v_GenJetAK8_pt_;
@@ -17810,7 +17845,7 @@ const vector<float> &Nano::GenJet_eta() {
     if (!loaded_GenJet_eta_) {
         if (!b_GenJet_eta_) throw std::runtime_error("GenJet_eta branch doesn't exist");
         int bytes = b_GenJet_eta_->GetEntry(index);
-        v_GenJet_eta_ = vector<float>(GenJet_eta_,GenJet_eta_+bytes/sizeof(GenJet_eta_[0]));
+        v_GenJet_eta_ = vector<float>(GenJet_eta_.data(),GenJet_eta_.data()+bytes/sizeof(GenJet_eta_[0]));
         loaded_GenJet_eta_ = true;
     }
     return v_GenJet_eta_;
@@ -17821,7 +17856,7 @@ const vector<UChar_t> &Nano::GenJet_hadronFlavour() {
     if (!loaded_GenJet_hadronFlavour_) {
         if (!b_GenJet_hadronFlavour_) throw std::runtime_error("GenJet_hadronFlavour branch doesn't exist");
         int bytes = b_GenJet_hadronFlavour_->GetEntry(index);
-        v_GenJet_hadronFlavour_ = vector<UChar_t>(GenJet_hadronFlavour_,GenJet_hadronFlavour_+bytes/sizeof(GenJet_hadronFlavour_[0]));
+        v_GenJet_hadronFlavour_ = vector<UChar_t>(GenJet_hadronFlavour_.data(),GenJet_hadronFlavour_.data()+bytes/sizeof(GenJet_hadronFlavour_[0]));
         loaded_GenJet_hadronFlavour_ = true;
     }
     return v_GenJet_hadronFlavour_;
@@ -17832,7 +17867,7 @@ const vector<float> &Nano::GenJet_mass() {
     if (!loaded_GenJet_mass_) {
         if (!b_GenJet_mass_) throw std::runtime_error("GenJet_mass branch doesn't exist");
         int bytes = b_GenJet_mass_->GetEntry(index);
-        v_GenJet_mass_ = vector<float>(GenJet_mass_,GenJet_mass_+bytes/sizeof(GenJet_mass_[0]));
+        v_GenJet_mass_ = vector<float>(GenJet_mass_.data(),GenJet_mass_.data()+bytes/sizeof(GenJet_mass_[0]));
         loaded_GenJet_mass_ = true;
     }
     return v_GenJet_mass_;
@@ -17859,7 +17894,7 @@ const vector<int> &Nano::GenJet_partonFlavour() {
     if (!loaded_GenJet_partonFlavour_) {
         if (!b_GenJet_partonFlavour_) throw std::runtime_error("GenJet_partonFlavour branch doesn't exist");
         int bytes = b_GenJet_partonFlavour_->GetEntry(index);
-        v_GenJet_partonFlavour_ = vector<int>(GenJet_partonFlavour_,GenJet_partonFlavour_+bytes/sizeof(GenJet_partonFlavour_[0]));
+        v_GenJet_partonFlavour_ = vector<int>(GenJet_partonFlavour_.data(),GenJet_partonFlavour_.data()+bytes/sizeof(GenJet_partonFlavour_[0]));
         loaded_GenJet_partonFlavour_ = true;
     }
     return v_GenJet_partonFlavour_;
@@ -17870,7 +17905,7 @@ const vector<float> &Nano::GenJet_phi() {
     if (!loaded_GenJet_phi_) {
         if (!b_GenJet_phi_) throw std::runtime_error("GenJet_phi branch doesn't exist");
         int bytes = b_GenJet_phi_->GetEntry(index);
-        v_GenJet_phi_ = vector<float>(GenJet_phi_,GenJet_phi_+bytes/sizeof(GenJet_phi_[0]));
+        v_GenJet_phi_ = vector<float>(GenJet_phi_.data(),GenJet_phi_.data()+bytes/sizeof(GenJet_phi_[0]));
         loaded_GenJet_phi_ = true;
     }
     return v_GenJet_phi_;
@@ -17881,7 +17916,7 @@ const vector<float> &Nano::GenJet_pt() {
     if (!loaded_GenJet_pt_) {
         if (!b_GenJet_pt_) throw std::runtime_error("GenJet_pt branch doesn't exist");
         int bytes = b_GenJet_pt_->GetEntry(index);
-        v_GenJet_pt_ = vector<float>(GenJet_pt_,GenJet_pt_+bytes/sizeof(GenJet_pt_[0]));
+        v_GenJet_pt_ = vector<float>(GenJet_pt_.data(),GenJet_pt_.data()+bytes/sizeof(GenJet_pt_[0]));
         loaded_GenJet_pt_ = true;
     }
     return v_GenJet_pt_;
@@ -17912,7 +17947,7 @@ const vector<float> &Nano::GenPart_eta() {
     if (!loaded_GenPart_eta_) {
         if (!b_GenPart_eta_) throw std::runtime_error("GenPart_eta branch doesn't exist");
         int bytes = b_GenPart_eta_->GetEntry(index);
-        v_GenPart_eta_ = vector<float>(GenPart_eta_,GenPart_eta_+bytes/sizeof(GenPart_eta_[0]));
+        v_GenPart_eta_ = vector<float>(GenPart_eta_.data(),GenPart_eta_.data()+bytes/sizeof(GenPart_eta_[0]));
         loaded_GenPart_eta_ = true;
     }
     return v_GenPart_eta_;
@@ -17923,7 +17958,7 @@ const vector<int> &Nano::GenPart_genPartIdxMother() {
     if (!loaded_GenPart_genPartIdxMother_) {
         if (!b_GenPart_genPartIdxMother_) throw std::runtime_error("GenPart_genPartIdxMother branch doesn't exist");
         int bytes = b_GenPart_genPartIdxMother_->GetEntry(index);
-        v_GenPart_genPartIdxMother_ = vector<int>(GenPart_genPartIdxMother_,GenPart_genPartIdxMother_+bytes/sizeof(GenPart_genPartIdxMother_[0]));
+        v_GenPart_genPartIdxMother_ = vector<int>(GenPart_genPartIdxMother_.data(),GenPart_genPartIdxMother_.data()+bytes/sizeof(GenPart_genPartIdxMother_[0]));
         loaded_GenPart_genPartIdxMother_ = true;
     }
     return v_GenPart_genPartIdxMother_;
@@ -17934,7 +17969,7 @@ const vector<float> &Nano::GenPart_mass() {
     if (!loaded_GenPart_mass_) {
         if (!b_GenPart_mass_) throw std::runtime_error("GenPart_mass branch doesn't exist");
         int bytes = b_GenPart_mass_->GetEntry(index);
-        v_GenPart_mass_ = vector<float>(GenPart_mass_,GenPart_mass_+bytes/sizeof(GenPart_mass_[0]));
+        v_GenPart_mass_ = vector<float>(GenPart_mass_.data(),GenPart_mass_.data()+bytes/sizeof(GenPart_mass_[0]));
         loaded_GenPart_mass_ = true;
     }
     return v_GenPart_mass_;
@@ -17961,7 +17996,7 @@ const vector<int> &Nano::GenPart_pdgId() {
     if (!loaded_GenPart_pdgId_) {
         if (!b_GenPart_pdgId_) throw std::runtime_error("GenPart_pdgId branch doesn't exist");
         int bytes = b_GenPart_pdgId_->GetEntry(index);
-        v_GenPart_pdgId_ = vector<int>(GenPart_pdgId_,GenPart_pdgId_+bytes/sizeof(GenPart_pdgId_[0]));
+        v_GenPart_pdgId_ = vector<int>(GenPart_pdgId_.data(),GenPart_pdgId_.data()+bytes/sizeof(GenPart_pdgId_[0]));
         loaded_GenPart_pdgId_ = true;
     }
     return v_GenPart_pdgId_;
@@ -17972,7 +18007,7 @@ const vector<float> &Nano::GenPart_phi() {
     if (!loaded_GenPart_phi_) {
         if (!b_GenPart_phi_) throw std::runtime_error("GenPart_phi branch doesn't exist");
         int bytes = b_GenPart_phi_->GetEntry(index);
-        v_GenPart_phi_ = vector<float>(GenPart_phi_,GenPart_phi_+bytes/sizeof(GenPart_phi_[0]));
+        v_GenPart_phi_ = vector<float>(GenPart_phi_.data(),GenPart_phi_.data()+bytes/sizeof(GenPart_phi_[0]));
         loaded_GenPart_phi_ = true;
     }
     return v_GenPart_phi_;
@@ -17983,7 +18018,7 @@ const vector<float> &Nano::GenPart_pt() {
     if (!loaded_GenPart_pt_) {
         if (!b_GenPart_pt_) throw std::runtime_error("GenPart_pt branch doesn't exist");
         int bytes = b_GenPart_pt_->GetEntry(index);
-        v_GenPart_pt_ = vector<float>(GenPart_pt_,GenPart_pt_+bytes/sizeof(GenPart_pt_[0]));
+        v_GenPart_pt_ = vector<float>(GenPart_pt_.data(),GenPart_pt_.data()+bytes/sizeof(GenPart_pt_[0]));
         loaded_GenPart_pt_ = true;
     }
     return v_GenPart_pt_;
@@ -17994,7 +18029,7 @@ const vector<int> &Nano::GenPart_status() {
     if (!loaded_GenPart_status_) {
         if (!b_GenPart_status_) throw std::runtime_error("GenPart_status branch doesn't exist");
         int bytes = b_GenPart_status_->GetEntry(index);
-        v_GenPart_status_ = vector<int>(GenPart_status_,GenPart_status_+bytes/sizeof(GenPart_status_[0]));
+        v_GenPart_status_ = vector<int>(GenPart_status_.data(),GenPart_status_.data()+bytes/sizeof(GenPart_status_[0]));
         loaded_GenPart_status_ = true;
     }
     return v_GenPart_status_;
@@ -18005,7 +18040,7 @@ const vector<int> &Nano::GenPart_statusFlags() {
     if (!loaded_GenPart_statusFlags_) {
         if (!b_GenPart_statusFlags_) throw std::runtime_error("GenPart_statusFlags branch doesn't exist");
         int bytes = b_GenPart_statusFlags_->GetEntry(index);
-        v_GenPart_statusFlags_ = vector<int>(GenPart_statusFlags_,GenPart_statusFlags_+bytes/sizeof(GenPart_statusFlags_[0]));
+        v_GenPart_statusFlags_ = vector<int>(GenPart_statusFlags_.data(),GenPart_statusFlags_.data()+bytes/sizeof(GenPart_statusFlags_[0]));
         loaded_GenPart_statusFlags_ = true;
     }
     return v_GenPart_statusFlags_;
@@ -18016,7 +18051,7 @@ const vector<bool> &Nano::GenProton_isPU() {
     if (!loaded_GenProton_isPU_) {
         if (!b_GenProton_isPU_) throw std::runtime_error("GenProton_isPU branch doesn't exist");
         int bytes = b_GenProton_isPU_->GetEntry(index);
-        v_GenProton_isPU_ = vector<bool>(GenProton_isPU_,GenProton_isPU_+bytes/sizeof(GenProton_isPU_[0]));
+        v_GenProton_isPU_ = vector<bool>(GenProton_isPU_.data(),GenProton_isPU_.data()+bytes/sizeof(GenProton_isPU_[0]));
         loaded_GenProton_isPU_ = true;
     }
     return v_GenProton_isPU_;
@@ -18027,7 +18062,7 @@ const vector<float> &Nano::GenProton_px() {
     if (!loaded_GenProton_px_) {
         if (!b_GenProton_px_) throw std::runtime_error("GenProton_px branch doesn't exist");
         int bytes = b_GenProton_px_->GetEntry(index);
-        v_GenProton_px_ = vector<float>(GenProton_px_,GenProton_px_+bytes/sizeof(GenProton_px_[0]));
+        v_GenProton_px_ = vector<float>(GenProton_px_.data(),GenProton_px_.data()+bytes/sizeof(GenProton_px_[0]));
         loaded_GenProton_px_ = true;
     }
     return v_GenProton_px_;
@@ -18038,7 +18073,7 @@ const vector<float> &Nano::GenProton_py() {
     if (!loaded_GenProton_py_) {
         if (!b_GenProton_py_) throw std::runtime_error("GenProton_py branch doesn't exist");
         int bytes = b_GenProton_py_->GetEntry(index);
-        v_GenProton_py_ = vector<float>(GenProton_py_,GenProton_py_+bytes/sizeof(GenProton_py_[0]));
+        v_GenProton_py_ = vector<float>(GenProton_py_.data(),GenProton_py_.data()+bytes/sizeof(GenProton_py_[0]));
         loaded_GenProton_py_ = true;
     }
     return v_GenProton_py_;
@@ -18049,7 +18084,7 @@ const vector<float> &Nano::GenProton_pz() {
     if (!loaded_GenProton_pz_) {
         if (!b_GenProton_pz_) throw std::runtime_error("GenProton_pz branch doesn't exist");
         int bytes = b_GenProton_pz_->GetEntry(index);
-        v_GenProton_pz_ = vector<float>(GenProton_pz_,GenProton_pz_+bytes/sizeof(GenProton_pz_[0]));
+        v_GenProton_pz_ = vector<float>(GenProton_pz_.data(),GenProton_pz_.data()+bytes/sizeof(GenProton_pz_[0]));
         loaded_GenProton_pz_ = true;
     }
     return v_GenProton_pz_;
@@ -18060,7 +18095,7 @@ const vector<float> &Nano::GenProton_vz() {
     if (!loaded_GenProton_vz_) {
         if (!b_GenProton_vz_) throw std::runtime_error("GenProton_vz branch doesn't exist");
         int bytes = b_GenProton_vz_->GetEntry(index);
-        v_GenProton_vz_ = vector<float>(GenProton_vz_,GenProton_vz_+bytes/sizeof(GenProton_vz_[0]));
+        v_GenProton_vz_ = vector<float>(GenProton_vz_.data(),GenProton_vz_.data()+bytes/sizeof(GenProton_vz_[0]));
         loaded_GenProton_vz_ = true;
     }
     return v_GenProton_vz_;
@@ -18071,7 +18106,7 @@ const vector<int> &Nano::GenVisTau_charge() {
     if (!loaded_GenVisTau_charge_) {
         if (!b_GenVisTau_charge_) throw std::runtime_error("GenVisTau_charge branch doesn't exist");
         int bytes = b_GenVisTau_charge_->GetEntry(index);
-        v_GenVisTau_charge_ = vector<int>(GenVisTau_charge_,GenVisTau_charge_+bytes/sizeof(GenVisTau_charge_[0]));
+        v_GenVisTau_charge_ = vector<int>(GenVisTau_charge_.data(),GenVisTau_charge_.data()+bytes/sizeof(GenVisTau_charge_[0]));
         loaded_GenVisTau_charge_ = true;
     }
     return v_GenVisTau_charge_;
@@ -18082,7 +18117,7 @@ const vector<float> &Nano::GenVisTau_eta() {
     if (!loaded_GenVisTau_eta_) {
         if (!b_GenVisTau_eta_) throw std::runtime_error("GenVisTau_eta branch doesn't exist");
         int bytes = b_GenVisTau_eta_->GetEntry(index);
-        v_GenVisTau_eta_ = vector<float>(GenVisTau_eta_,GenVisTau_eta_+bytes/sizeof(GenVisTau_eta_[0]));
+        v_GenVisTau_eta_ = vector<float>(GenVisTau_eta_.data(),GenVisTau_eta_.data()+bytes/sizeof(GenVisTau_eta_[0]));
         loaded_GenVisTau_eta_ = true;
     }
     return v_GenVisTau_eta_;
@@ -18093,7 +18128,7 @@ const vector<int> &Nano::GenVisTau_genPartIdxMother() {
     if (!loaded_GenVisTau_genPartIdxMother_) {
         if (!b_GenVisTau_genPartIdxMother_) throw std::runtime_error("GenVisTau_genPartIdxMother branch doesn't exist");
         int bytes = b_GenVisTau_genPartIdxMother_->GetEntry(index);
-        v_GenVisTau_genPartIdxMother_ = vector<int>(GenVisTau_genPartIdxMother_,GenVisTau_genPartIdxMother_+bytes/sizeof(GenVisTau_genPartIdxMother_[0]));
+        v_GenVisTau_genPartIdxMother_ = vector<int>(GenVisTau_genPartIdxMother_.data(),GenVisTau_genPartIdxMother_.data()+bytes/sizeof(GenVisTau_genPartIdxMother_[0]));
         loaded_GenVisTau_genPartIdxMother_ = true;
     }
     return v_GenVisTau_genPartIdxMother_;
@@ -18104,7 +18139,7 @@ const vector<float> &Nano::GenVisTau_mass() {
     if (!loaded_GenVisTau_mass_) {
         if (!b_GenVisTau_mass_) throw std::runtime_error("GenVisTau_mass branch doesn't exist");
         int bytes = b_GenVisTau_mass_->GetEntry(index);
-        v_GenVisTau_mass_ = vector<float>(GenVisTau_mass_,GenVisTau_mass_+bytes/sizeof(GenVisTau_mass_[0]));
+        v_GenVisTau_mass_ = vector<float>(GenVisTau_mass_.data(),GenVisTau_mass_.data()+bytes/sizeof(GenVisTau_mass_[0]));
         loaded_GenVisTau_mass_ = true;
     }
     return v_GenVisTau_mass_;
@@ -18131,7 +18166,7 @@ const vector<float> &Nano::GenVisTau_phi() {
     if (!loaded_GenVisTau_phi_) {
         if (!b_GenVisTau_phi_) throw std::runtime_error("GenVisTau_phi branch doesn't exist");
         int bytes = b_GenVisTau_phi_->GetEntry(index);
-        v_GenVisTau_phi_ = vector<float>(GenVisTau_phi_,GenVisTau_phi_+bytes/sizeof(GenVisTau_phi_[0]));
+        v_GenVisTau_phi_ = vector<float>(GenVisTau_phi_.data(),GenVisTau_phi_.data()+bytes/sizeof(GenVisTau_phi_[0]));
         loaded_GenVisTau_phi_ = true;
     }
     return v_GenVisTau_phi_;
@@ -18142,7 +18177,7 @@ const vector<float> &Nano::GenVisTau_pt() {
     if (!loaded_GenVisTau_pt_) {
         if (!b_GenVisTau_pt_) throw std::runtime_error("GenVisTau_pt branch doesn't exist");
         int bytes = b_GenVisTau_pt_->GetEntry(index);
-        v_GenVisTau_pt_ = vector<float>(GenVisTau_pt_,GenVisTau_pt_+bytes/sizeof(GenVisTau_pt_[0]));
+        v_GenVisTau_pt_ = vector<float>(GenVisTau_pt_.data(),GenVisTau_pt_.data()+bytes/sizeof(GenVisTau_pt_[0]));
         loaded_GenVisTau_pt_ = true;
     }
     return v_GenVisTau_pt_;
@@ -18153,7 +18188,7 @@ const vector<int> &Nano::GenVisTau_status() {
     if (!loaded_GenVisTau_status_) {
         if (!b_GenVisTau_status_) throw std::runtime_error("GenVisTau_status branch doesn't exist");
         int bytes = b_GenVisTau_status_->GetEntry(index);
-        v_GenVisTau_status_ = vector<int>(GenVisTau_status_,GenVisTau_status_+bytes/sizeof(GenVisTau_status_[0]));
+        v_GenVisTau_status_ = vector<int>(GenVisTau_status_.data(),GenVisTau_status_.data()+bytes/sizeof(GenVisTau_status_[0]));
         loaded_GenVisTau_status_ = true;
     }
     return v_GenVisTau_status_;
@@ -33594,7 +33629,7 @@ const vector<int> &Nano::IsoTrack_charge() {
     if (!loaded_IsoTrack_charge_) {
         if (!b_IsoTrack_charge_) throw std::runtime_error("IsoTrack_charge branch doesn't exist");
         int bytes = b_IsoTrack_charge_->GetEntry(index);
-        v_IsoTrack_charge_ = vector<int>(IsoTrack_charge_,IsoTrack_charge_+bytes/sizeof(IsoTrack_charge_[0]));
+        v_IsoTrack_charge_ = vector<int>(IsoTrack_charge_.data(),IsoTrack_charge_.data()+bytes/sizeof(IsoTrack_charge_[0]));
         loaded_IsoTrack_charge_ = true;
     }
     return v_IsoTrack_charge_;
@@ -33605,7 +33640,7 @@ const vector<float> &Nano::IsoTrack_dxy() {
     if (!loaded_IsoTrack_dxy_) {
         if (!b_IsoTrack_dxy_) throw std::runtime_error("IsoTrack_dxy branch doesn't exist");
         int bytes = b_IsoTrack_dxy_->GetEntry(index);
-        v_IsoTrack_dxy_ = vector<float>(IsoTrack_dxy_,IsoTrack_dxy_+bytes/sizeof(IsoTrack_dxy_[0]));
+        v_IsoTrack_dxy_ = vector<float>(IsoTrack_dxy_.data(),IsoTrack_dxy_.data()+bytes/sizeof(IsoTrack_dxy_[0]));
         loaded_IsoTrack_dxy_ = true;
     }
     return v_IsoTrack_dxy_;
@@ -33616,7 +33651,7 @@ const vector<float> &Nano::IsoTrack_dz() {
     if (!loaded_IsoTrack_dz_) {
         if (!b_IsoTrack_dz_) throw std::runtime_error("IsoTrack_dz branch doesn't exist");
         int bytes = b_IsoTrack_dz_->GetEntry(index);
-        v_IsoTrack_dz_ = vector<float>(IsoTrack_dz_,IsoTrack_dz_+bytes/sizeof(IsoTrack_dz_[0]));
+        v_IsoTrack_dz_ = vector<float>(IsoTrack_dz_.data(),IsoTrack_dz_.data()+bytes/sizeof(IsoTrack_dz_[0]));
         loaded_IsoTrack_dz_ = true;
     }
     return v_IsoTrack_dz_;
@@ -33627,7 +33662,7 @@ const vector<float> &Nano::IsoTrack_eta() {
     if (!loaded_IsoTrack_eta_) {
         if (!b_IsoTrack_eta_) throw std::runtime_error("IsoTrack_eta branch doesn't exist");
         int bytes = b_IsoTrack_eta_->GetEntry(index);
-        v_IsoTrack_eta_ = vector<float>(IsoTrack_eta_,IsoTrack_eta_+bytes/sizeof(IsoTrack_eta_[0]));
+        v_IsoTrack_eta_ = vector<float>(IsoTrack_eta_.data(),IsoTrack_eta_.data()+bytes/sizeof(IsoTrack_eta_[0]));
         loaded_IsoTrack_eta_ = true;
     }
     return v_IsoTrack_eta_;
@@ -33638,7 +33673,7 @@ const vector<int> &Nano::IsoTrack_fromPV() {
     if (!loaded_IsoTrack_fromPV_) {
         if (!b_IsoTrack_fromPV_) throw std::runtime_error("IsoTrack_fromPV branch doesn't exist");
         int bytes = b_IsoTrack_fromPV_->GetEntry(index);
-        v_IsoTrack_fromPV_ = vector<int>(IsoTrack_fromPV_,IsoTrack_fromPV_+bytes/sizeof(IsoTrack_fromPV_[0]));
+        v_IsoTrack_fromPV_ = vector<int>(IsoTrack_fromPV_.data(),IsoTrack_fromPV_.data()+bytes/sizeof(IsoTrack_fromPV_[0]));
         loaded_IsoTrack_fromPV_ = true;
     }
     return v_IsoTrack_fromPV_;
@@ -33649,7 +33684,7 @@ const vector<bool> &Nano::IsoTrack_isFromLostTrack() {
     if (!loaded_IsoTrack_isFromLostTrack_) {
         if (!b_IsoTrack_isFromLostTrack_) throw std::runtime_error("IsoTrack_isFromLostTrack branch doesn't exist");
         int bytes = b_IsoTrack_isFromLostTrack_->GetEntry(index);
-        v_IsoTrack_isFromLostTrack_ = vector<bool>(IsoTrack_isFromLostTrack_,IsoTrack_isFromLostTrack_+bytes/sizeof(IsoTrack_isFromLostTrack_[0]));
+        v_IsoTrack_isFromLostTrack_ = vector<bool>(IsoTrack_isFromLostTrack_.data(),IsoTrack_isFromLostTrack_.data()+bytes/sizeof(IsoTrack_isFromLostTrack_[0]));
         loaded_IsoTrack_isFromLostTrack_ = true;
     }
     return v_IsoTrack_isFromLostTrack_;
@@ -33660,7 +33695,7 @@ const vector<bool> &Nano::IsoTrack_isHighPurityTrack() {
     if (!loaded_IsoTrack_isHighPurityTrack_) {
         if (!b_IsoTrack_isHighPurityTrack_) throw std::runtime_error("IsoTrack_isHighPurityTrack branch doesn't exist");
         int bytes = b_IsoTrack_isHighPurityTrack_->GetEntry(index);
-        v_IsoTrack_isHighPurityTrack_ = vector<bool>(IsoTrack_isHighPurityTrack_,IsoTrack_isHighPurityTrack_+bytes/sizeof(IsoTrack_isHighPurityTrack_[0]));
+        v_IsoTrack_isHighPurityTrack_ = vector<bool>(IsoTrack_isHighPurityTrack_.data(),IsoTrack_isHighPurityTrack_.data()+bytes/sizeof(IsoTrack_isHighPurityTrack_[0]));
         loaded_IsoTrack_isHighPurityTrack_ = true;
     }
     return v_IsoTrack_isHighPurityTrack_;
@@ -33671,7 +33706,7 @@ const vector<bool> &Nano::IsoTrack_isPFcand() {
     if (!loaded_IsoTrack_isPFcand_) {
         if (!b_IsoTrack_isPFcand_) throw std::runtime_error("IsoTrack_isPFcand branch doesn't exist");
         int bytes = b_IsoTrack_isPFcand_->GetEntry(index);
-        v_IsoTrack_isPFcand_ = vector<bool>(IsoTrack_isPFcand_,IsoTrack_isPFcand_+bytes/sizeof(IsoTrack_isPFcand_[0]));
+        v_IsoTrack_isPFcand_ = vector<bool>(IsoTrack_isPFcand_.data(),IsoTrack_isPFcand_.data()+bytes/sizeof(IsoTrack_isPFcand_[0]));
         loaded_IsoTrack_isPFcand_ = true;
     }
     return v_IsoTrack_isPFcand_;
@@ -33682,7 +33717,7 @@ const vector<float> &Nano::IsoTrack_miniPFRelIso_all() {
     if (!loaded_IsoTrack_miniPFRelIso_all_) {
         if (!b_IsoTrack_miniPFRelIso_all_) throw std::runtime_error("IsoTrack_miniPFRelIso_all branch doesn't exist");
         int bytes = b_IsoTrack_miniPFRelIso_all_->GetEntry(index);
-        v_IsoTrack_miniPFRelIso_all_ = vector<float>(IsoTrack_miniPFRelIso_all_,IsoTrack_miniPFRelIso_all_+bytes/sizeof(IsoTrack_miniPFRelIso_all_[0]));
+        v_IsoTrack_miniPFRelIso_all_ = vector<float>(IsoTrack_miniPFRelIso_all_.data(),IsoTrack_miniPFRelIso_all_.data()+bytes/sizeof(IsoTrack_miniPFRelIso_all_[0]));
         loaded_IsoTrack_miniPFRelIso_all_ = true;
     }
     return v_IsoTrack_miniPFRelIso_all_;
@@ -33693,7 +33728,7 @@ const vector<float> &Nano::IsoTrack_miniPFRelIso_chg() {
     if (!loaded_IsoTrack_miniPFRelIso_chg_) {
         if (!b_IsoTrack_miniPFRelIso_chg_) throw std::runtime_error("IsoTrack_miniPFRelIso_chg branch doesn't exist");
         int bytes = b_IsoTrack_miniPFRelIso_chg_->GetEntry(index);
-        v_IsoTrack_miniPFRelIso_chg_ = vector<float>(IsoTrack_miniPFRelIso_chg_,IsoTrack_miniPFRelIso_chg_+bytes/sizeof(IsoTrack_miniPFRelIso_chg_[0]));
+        v_IsoTrack_miniPFRelIso_chg_ = vector<float>(IsoTrack_miniPFRelIso_chg_.data(),IsoTrack_miniPFRelIso_chg_.data()+bytes/sizeof(IsoTrack_miniPFRelIso_chg_[0]));
         loaded_IsoTrack_miniPFRelIso_chg_ = true;
     }
     return v_IsoTrack_miniPFRelIso_chg_;
@@ -33704,7 +33739,7 @@ const vector<int> &Nano::IsoTrack_pdgId() {
     if (!loaded_IsoTrack_pdgId_) {
         if (!b_IsoTrack_pdgId_) throw std::runtime_error("IsoTrack_pdgId branch doesn't exist");
         int bytes = b_IsoTrack_pdgId_->GetEntry(index);
-        v_IsoTrack_pdgId_ = vector<int>(IsoTrack_pdgId_,IsoTrack_pdgId_+bytes/sizeof(IsoTrack_pdgId_[0]));
+        v_IsoTrack_pdgId_ = vector<int>(IsoTrack_pdgId_.data(),IsoTrack_pdgId_.data()+bytes/sizeof(IsoTrack_pdgId_[0]));
         loaded_IsoTrack_pdgId_ = true;
     }
     return v_IsoTrack_pdgId_;
@@ -33715,7 +33750,7 @@ const vector<float> &Nano::IsoTrack_pfRelIso03_all() {
     if (!loaded_IsoTrack_pfRelIso03_all_) {
         if (!b_IsoTrack_pfRelIso03_all_) throw std::runtime_error("IsoTrack_pfRelIso03_all branch doesn't exist");
         int bytes = b_IsoTrack_pfRelIso03_all_->GetEntry(index);
-        v_IsoTrack_pfRelIso03_all_ = vector<float>(IsoTrack_pfRelIso03_all_,IsoTrack_pfRelIso03_all_+bytes/sizeof(IsoTrack_pfRelIso03_all_[0]));
+        v_IsoTrack_pfRelIso03_all_ = vector<float>(IsoTrack_pfRelIso03_all_.data(),IsoTrack_pfRelIso03_all_.data()+bytes/sizeof(IsoTrack_pfRelIso03_all_[0]));
         loaded_IsoTrack_pfRelIso03_all_ = true;
     }
     return v_IsoTrack_pfRelIso03_all_;
@@ -33726,7 +33761,7 @@ const vector<float> &Nano::IsoTrack_pfRelIso03_chg() {
     if (!loaded_IsoTrack_pfRelIso03_chg_) {
         if (!b_IsoTrack_pfRelIso03_chg_) throw std::runtime_error("IsoTrack_pfRelIso03_chg branch doesn't exist");
         int bytes = b_IsoTrack_pfRelIso03_chg_->GetEntry(index);
-        v_IsoTrack_pfRelIso03_chg_ = vector<float>(IsoTrack_pfRelIso03_chg_,IsoTrack_pfRelIso03_chg_+bytes/sizeof(IsoTrack_pfRelIso03_chg_[0]));
+        v_IsoTrack_pfRelIso03_chg_ = vector<float>(IsoTrack_pfRelIso03_chg_.data(),IsoTrack_pfRelIso03_chg_.data()+bytes/sizeof(IsoTrack_pfRelIso03_chg_[0]));
         loaded_IsoTrack_pfRelIso03_chg_ = true;
     }
     return v_IsoTrack_pfRelIso03_chg_;
@@ -33737,7 +33772,7 @@ const vector<float> &Nano::IsoTrack_phi() {
     if (!loaded_IsoTrack_phi_) {
         if (!b_IsoTrack_phi_) throw std::runtime_error("IsoTrack_phi branch doesn't exist");
         int bytes = b_IsoTrack_phi_->GetEntry(index);
-        v_IsoTrack_phi_ = vector<float>(IsoTrack_phi_,IsoTrack_phi_+bytes/sizeof(IsoTrack_phi_[0]));
+        v_IsoTrack_phi_ = vector<float>(IsoTrack_phi_.data(),IsoTrack_phi_.data()+bytes/sizeof(IsoTrack_phi_[0]));
         loaded_IsoTrack_phi_ = true;
     }
     return v_IsoTrack_phi_;
@@ -33748,7 +33783,7 @@ const vector<float> &Nano::IsoTrack_pt() {
     if (!loaded_IsoTrack_pt_) {
         if (!b_IsoTrack_pt_) throw std::runtime_error("IsoTrack_pt branch doesn't exist");
         int bytes = b_IsoTrack_pt_->GetEntry(index);
-        v_IsoTrack_pt_ = vector<float>(IsoTrack_pt_,IsoTrack_pt_+bytes/sizeof(IsoTrack_pt_[0]));
+        v_IsoTrack_pt_ = vector<float>(IsoTrack_pt_.data(),IsoTrack_pt_.data()+bytes/sizeof(IsoTrack_pt_[0]));
         loaded_IsoTrack_pt_ = true;
     }
     return v_IsoTrack_pt_;
@@ -33759,7 +33794,7 @@ const vector<float> &Nano::Jet_area() {
     if (!loaded_Jet_area_) {
         if (!b_Jet_area_) throw std::runtime_error("Jet_area branch doesn't exist");
         int bytes = b_Jet_area_->GetEntry(index);
-        v_Jet_area_ = vector<float>(Jet_area_,Jet_area_+bytes/sizeof(Jet_area_[0]));
+        v_Jet_area_ = vector<float>(Jet_area_.data(),Jet_area_.data()+bytes/sizeof(Jet_area_[0]));
         loaded_Jet_area_ = true;
     }
     return v_Jet_area_;
@@ -33770,7 +33805,7 @@ const vector<float> &Nano::Jet_bReg() {
     if (!loaded_Jet_bReg_) {
         if (!b_Jet_bReg_) throw std::runtime_error("Jet_bReg branch doesn't exist");
         int bytes = b_Jet_bReg_->GetEntry(index);
-        v_Jet_bReg_ = vector<float>(Jet_bReg_,Jet_bReg_+bytes/sizeof(Jet_bReg_[0]));
+        v_Jet_bReg_ = vector<float>(Jet_bReg_.data(),Jet_bReg_.data()+bytes/sizeof(Jet_bReg_[0]));
         loaded_Jet_bReg_ = true;
     }
     return v_Jet_bReg_;
@@ -33781,7 +33816,7 @@ const vector<float> &Nano::Jet_bRegCorr() {
     if (!loaded_Jet_bRegCorr_) {
         if (!b_Jet_bRegCorr_) throw std::runtime_error("Jet_bRegCorr branch doesn't exist");
         int bytes = b_Jet_bRegCorr_->GetEntry(index);
-        v_Jet_bRegCorr_ = vector<float>(Jet_bRegCorr_,Jet_bRegCorr_+bytes/sizeof(Jet_bRegCorr_[0]));
+        v_Jet_bRegCorr_ = vector<float>(Jet_bRegCorr_.data(),Jet_bRegCorr_.data()+bytes/sizeof(Jet_bRegCorr_[0]));
         loaded_Jet_bRegCorr_ = true;
     }
     return v_Jet_bRegCorr_;
@@ -33792,7 +33827,7 @@ const vector<float> &Nano::Jet_bRegRes() {
     if (!loaded_Jet_bRegRes_) {
         if (!b_Jet_bRegRes_) throw std::runtime_error("Jet_bRegRes branch doesn't exist");
         int bytes = b_Jet_bRegRes_->GetEntry(index);
-        v_Jet_bRegRes_ = vector<float>(Jet_bRegRes_,Jet_bRegRes_+bytes/sizeof(Jet_bRegRes_[0]));
+        v_Jet_bRegRes_ = vector<float>(Jet_bRegRes_.data(),Jet_bRegRes_.data()+bytes/sizeof(Jet_bRegRes_[0]));
         loaded_Jet_bRegRes_ = true;
     }
     return v_Jet_bRegRes_;
@@ -33803,7 +33838,7 @@ const vector<float> &Nano::Jet_btagCMVA() {
     if (!loaded_Jet_btagCMVA_) {
         if (!b_Jet_btagCMVA_) throw std::runtime_error("Jet_btagCMVA branch doesn't exist");
         int bytes = b_Jet_btagCMVA_->GetEntry(index);
-        v_Jet_btagCMVA_ = vector<float>(Jet_btagCMVA_,Jet_btagCMVA_+bytes/sizeof(Jet_btagCMVA_[0]));
+        v_Jet_btagCMVA_ = vector<float>(Jet_btagCMVA_.data(),Jet_btagCMVA_.data()+bytes/sizeof(Jet_btagCMVA_[0]));
         loaded_Jet_btagCMVA_ = true;
     }
     return v_Jet_btagCMVA_;
@@ -33814,7 +33849,7 @@ const vector<float> &Nano::Jet_btagCSVV2() {
     if (!loaded_Jet_btagCSVV2_) {
         if (!b_Jet_btagCSVV2_) throw std::runtime_error("Jet_btagCSVV2 branch doesn't exist");
         int bytes = b_Jet_btagCSVV2_->GetEntry(index);
-        v_Jet_btagCSVV2_ = vector<float>(Jet_btagCSVV2_,Jet_btagCSVV2_+bytes/sizeof(Jet_btagCSVV2_[0]));
+        v_Jet_btagCSVV2_ = vector<float>(Jet_btagCSVV2_.data(),Jet_btagCSVV2_.data()+bytes/sizeof(Jet_btagCSVV2_[0]));
         loaded_Jet_btagCSVV2_ = true;
     }
     return v_Jet_btagCSVV2_;
@@ -33825,7 +33860,7 @@ const vector<float> &Nano::Jet_btagDeepB() {
     if (!loaded_Jet_btagDeepB_) {
         if (!b_Jet_btagDeepB_) throw std::runtime_error("Jet_btagDeepB branch doesn't exist");
         int bytes = b_Jet_btagDeepB_->GetEntry(index);
-        v_Jet_btagDeepB_ = vector<float>(Jet_btagDeepB_,Jet_btagDeepB_+bytes/sizeof(Jet_btagDeepB_[0]));
+        v_Jet_btagDeepB_ = vector<float>(Jet_btagDeepB_.data(),Jet_btagDeepB_.data()+bytes/sizeof(Jet_btagDeepB_[0]));
         loaded_Jet_btagDeepB_ = true;
     }
     return v_Jet_btagDeepB_;
@@ -33836,7 +33871,7 @@ const vector<float> &Nano::Jet_btagDeepC() {
     if (!loaded_Jet_btagDeepC_) {
         if (!b_Jet_btagDeepC_) throw std::runtime_error("Jet_btagDeepC branch doesn't exist");
         int bytes = b_Jet_btagDeepC_->GetEntry(index);
-        v_Jet_btagDeepC_ = vector<float>(Jet_btagDeepC_,Jet_btagDeepC_+bytes/sizeof(Jet_btagDeepC_[0]));
+        v_Jet_btagDeepC_ = vector<float>(Jet_btagDeepC_.data(),Jet_btagDeepC_.data()+bytes/sizeof(Jet_btagDeepC_[0]));
         loaded_Jet_btagDeepC_ = true;
     }
     return v_Jet_btagDeepC_;
@@ -33847,7 +33882,7 @@ const vector<float> &Nano::Jet_btagDeepCvB() {
     if (!loaded_Jet_btagDeepCvB_) {
         if (!b_Jet_btagDeepCvB_) throw std::runtime_error("Jet_btagDeepCvB branch doesn't exist");
         int bytes = b_Jet_btagDeepCvB_->GetEntry(index);
-        v_Jet_btagDeepCvB_ = vector<float>(Jet_btagDeepCvB_,Jet_btagDeepCvB_+bytes/sizeof(Jet_btagDeepCvB_[0]));
+        v_Jet_btagDeepCvB_ = vector<float>(Jet_btagDeepCvB_.data(),Jet_btagDeepCvB_.data()+bytes/sizeof(Jet_btagDeepCvB_[0]));
         loaded_Jet_btagDeepCvB_ = true;
     }
     return v_Jet_btagDeepCvB_;
@@ -33858,7 +33893,7 @@ const vector<float> &Nano::Jet_btagDeepCvL() {
     if (!loaded_Jet_btagDeepCvL_) {
         if (!b_Jet_btagDeepCvL_) throw std::runtime_error("Jet_btagDeepCvL branch doesn't exist");
         int bytes = b_Jet_btagDeepCvL_->GetEntry(index);
-        v_Jet_btagDeepCvL_ = vector<float>(Jet_btagDeepCvL_,Jet_btagDeepCvL_+bytes/sizeof(Jet_btagDeepCvL_[0]));
+        v_Jet_btagDeepCvL_ = vector<float>(Jet_btagDeepCvL_.data(),Jet_btagDeepCvL_.data()+bytes/sizeof(Jet_btagDeepCvL_[0]));
         loaded_Jet_btagDeepCvL_ = true;
     }
     return v_Jet_btagDeepCvL_;
@@ -33869,7 +33904,7 @@ const vector<float> &Nano::Jet_btagDeepFlavB() {
     if (!loaded_Jet_btagDeepFlavB_) {
         if (!b_Jet_btagDeepFlavB_) throw std::runtime_error("Jet_btagDeepFlavB branch doesn't exist");
         int bytes = b_Jet_btagDeepFlavB_->GetEntry(index);
-        v_Jet_btagDeepFlavB_ = vector<float>(Jet_btagDeepFlavB_,Jet_btagDeepFlavB_+bytes/sizeof(Jet_btagDeepFlavB_[0]));
+        v_Jet_btagDeepFlavB_ = vector<float>(Jet_btagDeepFlavB_.data(),Jet_btagDeepFlavB_.data()+bytes/sizeof(Jet_btagDeepFlavB_[0]));
         loaded_Jet_btagDeepFlavB_ = true;
     }
     return v_Jet_btagDeepFlavB_;
@@ -33880,7 +33915,7 @@ const vector<float> &Nano::Jet_btagDeepFlavC() {
     if (!loaded_Jet_btagDeepFlavC_) {
         if (!b_Jet_btagDeepFlavC_) throw std::runtime_error("Jet_btagDeepFlavC branch doesn't exist");
         int bytes = b_Jet_btagDeepFlavC_->GetEntry(index);
-        v_Jet_btagDeepFlavC_ = vector<float>(Jet_btagDeepFlavC_,Jet_btagDeepFlavC_+bytes/sizeof(Jet_btagDeepFlavC_[0]));
+        v_Jet_btagDeepFlavC_ = vector<float>(Jet_btagDeepFlavC_.data(),Jet_btagDeepFlavC_.data()+bytes/sizeof(Jet_btagDeepFlavC_[0]));
         loaded_Jet_btagDeepFlavC_ = true;
     }
     return v_Jet_btagDeepFlavC_;
@@ -33891,7 +33926,7 @@ const vector<float> &Nano::Jet_btagDeepFlavCvB() {
     if (!loaded_Jet_btagDeepFlavCvB_) {
         if (!b_Jet_btagDeepFlavCvB_) throw std::runtime_error("Jet_btagDeepFlavCvB branch doesn't exist");
         int bytes = b_Jet_btagDeepFlavCvB_->GetEntry(index);
-        v_Jet_btagDeepFlavCvB_ = vector<float>(Jet_btagDeepFlavCvB_,Jet_btagDeepFlavCvB_+bytes/sizeof(Jet_btagDeepFlavCvB_[0]));
+        v_Jet_btagDeepFlavCvB_ = vector<float>(Jet_btagDeepFlavCvB_.data(),Jet_btagDeepFlavCvB_.data()+bytes/sizeof(Jet_btagDeepFlavCvB_[0]));
         loaded_Jet_btagDeepFlavCvB_ = true;
     }
     return v_Jet_btagDeepFlavCvB_;
@@ -33902,7 +33937,7 @@ const vector<float> &Nano::Jet_btagDeepFlavCvL() {
     if (!loaded_Jet_btagDeepFlavCvL_) {
         if (!b_Jet_btagDeepFlavCvL_) throw std::runtime_error("Jet_btagDeepFlavCvL branch doesn't exist");
         int bytes = b_Jet_btagDeepFlavCvL_->GetEntry(index);
-        v_Jet_btagDeepFlavCvL_ = vector<float>(Jet_btagDeepFlavCvL_,Jet_btagDeepFlavCvL_+bytes/sizeof(Jet_btagDeepFlavCvL_[0]));
+        v_Jet_btagDeepFlavCvL_ = vector<float>(Jet_btagDeepFlavCvL_.data(),Jet_btagDeepFlavCvL_.data()+bytes/sizeof(Jet_btagDeepFlavCvL_[0]));
         loaded_Jet_btagDeepFlavCvL_ = true;
     }
     return v_Jet_btagDeepFlavCvL_;
@@ -33913,7 +33948,7 @@ const vector<float> &Nano::Jet_btagDeepFlavQG() {
     if (!loaded_Jet_btagDeepFlavQG_) {
         if (!b_Jet_btagDeepFlavQG_) throw std::runtime_error("Jet_btagDeepFlavQG branch doesn't exist");
         int bytes = b_Jet_btagDeepFlavQG_->GetEntry(index);
-        v_Jet_btagDeepFlavQG_ = vector<float>(Jet_btagDeepFlavQG_,Jet_btagDeepFlavQG_+bytes/sizeof(Jet_btagDeepFlavQG_[0]));
+        v_Jet_btagDeepFlavQG_ = vector<float>(Jet_btagDeepFlavQG_.data(),Jet_btagDeepFlavQG_.data()+bytes/sizeof(Jet_btagDeepFlavQG_[0]));
         loaded_Jet_btagDeepFlavQG_ = true;
     }
     return v_Jet_btagDeepFlavQG_;
@@ -33924,7 +33959,7 @@ const vector<float> &Nano::Jet_cRegCorr() {
     if (!loaded_Jet_cRegCorr_) {
         if (!b_Jet_cRegCorr_) throw std::runtime_error("Jet_cRegCorr branch doesn't exist");
         int bytes = b_Jet_cRegCorr_->GetEntry(index);
-        v_Jet_cRegCorr_ = vector<float>(Jet_cRegCorr_,Jet_cRegCorr_+bytes/sizeof(Jet_cRegCorr_[0]));
+        v_Jet_cRegCorr_ = vector<float>(Jet_cRegCorr_.data(),Jet_cRegCorr_.data()+bytes/sizeof(Jet_cRegCorr_[0]));
         loaded_Jet_cRegCorr_ = true;
     }
     return v_Jet_cRegCorr_;
@@ -33935,7 +33970,7 @@ const vector<float> &Nano::Jet_cRegRes() {
     if (!loaded_Jet_cRegRes_) {
         if (!b_Jet_cRegRes_) throw std::runtime_error("Jet_cRegRes branch doesn't exist");
         int bytes = b_Jet_cRegRes_->GetEntry(index);
-        v_Jet_cRegRes_ = vector<float>(Jet_cRegRes_,Jet_cRegRes_+bytes/sizeof(Jet_cRegRes_[0]));
+        v_Jet_cRegRes_ = vector<float>(Jet_cRegRes_.data(),Jet_cRegRes_.data()+bytes/sizeof(Jet_cRegRes_[0]));
         loaded_Jet_cRegRes_ = true;
     }
     return v_Jet_cRegRes_;
@@ -33946,7 +33981,7 @@ const vector<float> &Nano::Jet_chEmEF() {
     if (!loaded_Jet_chEmEF_) {
         if (!b_Jet_chEmEF_) throw std::runtime_error("Jet_chEmEF branch doesn't exist");
         int bytes = b_Jet_chEmEF_->GetEntry(index);
-        v_Jet_chEmEF_ = vector<float>(Jet_chEmEF_,Jet_chEmEF_+bytes/sizeof(Jet_chEmEF_[0]));
+        v_Jet_chEmEF_ = vector<float>(Jet_chEmEF_.data(),Jet_chEmEF_.data()+bytes/sizeof(Jet_chEmEF_[0]));
         loaded_Jet_chEmEF_ = true;
     }
     return v_Jet_chEmEF_;
@@ -33957,7 +33992,7 @@ const vector<float> &Nano::Jet_chFPV0EF() {
     if (!loaded_Jet_chFPV0EF_) {
         if (!b_Jet_chFPV0EF_) throw std::runtime_error("Jet_chFPV0EF branch doesn't exist");
         int bytes = b_Jet_chFPV0EF_->GetEntry(index);
-        v_Jet_chFPV0EF_ = vector<float>(Jet_chFPV0EF_,Jet_chFPV0EF_+bytes/sizeof(Jet_chFPV0EF_[0]));
+        v_Jet_chFPV0EF_ = vector<float>(Jet_chFPV0EF_.data(),Jet_chFPV0EF_.data()+bytes/sizeof(Jet_chFPV0EF_[0]));
         loaded_Jet_chFPV0EF_ = true;
     }
     return v_Jet_chFPV0EF_;
@@ -33968,7 +34003,7 @@ const vector<float> &Nano::Jet_chFPV1EF() {
     if (!loaded_Jet_chFPV1EF_) {
         if (!b_Jet_chFPV1EF_) throw std::runtime_error("Jet_chFPV1EF branch doesn't exist");
         int bytes = b_Jet_chFPV1EF_->GetEntry(index);
-        v_Jet_chFPV1EF_ = vector<float>(Jet_chFPV1EF_,Jet_chFPV1EF_+bytes/sizeof(Jet_chFPV1EF_[0]));
+        v_Jet_chFPV1EF_ = vector<float>(Jet_chFPV1EF_.data(),Jet_chFPV1EF_.data()+bytes/sizeof(Jet_chFPV1EF_[0]));
         loaded_Jet_chFPV1EF_ = true;
     }
     return v_Jet_chFPV1EF_;
@@ -33979,7 +34014,7 @@ const vector<float> &Nano::Jet_chFPV2EF() {
     if (!loaded_Jet_chFPV2EF_) {
         if (!b_Jet_chFPV2EF_) throw std::runtime_error("Jet_chFPV2EF branch doesn't exist");
         int bytes = b_Jet_chFPV2EF_->GetEntry(index);
-        v_Jet_chFPV2EF_ = vector<float>(Jet_chFPV2EF_,Jet_chFPV2EF_+bytes/sizeof(Jet_chFPV2EF_[0]));
+        v_Jet_chFPV2EF_ = vector<float>(Jet_chFPV2EF_.data(),Jet_chFPV2EF_.data()+bytes/sizeof(Jet_chFPV2EF_[0]));
         loaded_Jet_chFPV2EF_ = true;
     }
     return v_Jet_chFPV2EF_;
@@ -33990,7 +34025,7 @@ const vector<float> &Nano::Jet_chFPV3EF() {
     if (!loaded_Jet_chFPV3EF_) {
         if (!b_Jet_chFPV3EF_) throw std::runtime_error("Jet_chFPV3EF branch doesn't exist");
         int bytes = b_Jet_chFPV3EF_->GetEntry(index);
-        v_Jet_chFPV3EF_ = vector<float>(Jet_chFPV3EF_,Jet_chFPV3EF_+bytes/sizeof(Jet_chFPV3EF_[0]));
+        v_Jet_chFPV3EF_ = vector<float>(Jet_chFPV3EF_.data(),Jet_chFPV3EF_.data()+bytes/sizeof(Jet_chFPV3EF_[0]));
         loaded_Jet_chFPV3EF_ = true;
     }
     return v_Jet_chFPV3EF_;
@@ -34001,7 +34036,7 @@ const vector<float> &Nano::Jet_chHEF() {
     if (!loaded_Jet_chHEF_) {
         if (!b_Jet_chHEF_) throw std::runtime_error("Jet_chHEF branch doesn't exist");
         int bytes = b_Jet_chHEF_->GetEntry(index);
-        v_Jet_chHEF_ = vector<float>(Jet_chHEF_,Jet_chHEF_+bytes/sizeof(Jet_chHEF_[0]));
+        v_Jet_chHEF_ = vector<float>(Jet_chHEF_.data(),Jet_chHEF_.data()+bytes/sizeof(Jet_chHEF_[0]));
         loaded_Jet_chHEF_ = true;
     }
     return v_Jet_chHEF_;
@@ -34012,7 +34047,7 @@ const vector<UChar_t> &Nano::Jet_cleanmask() {
     if (!loaded_Jet_cleanmask_) {
         if (!b_Jet_cleanmask_) throw std::runtime_error("Jet_cleanmask branch doesn't exist");
         int bytes = b_Jet_cleanmask_->GetEntry(index);
-        v_Jet_cleanmask_ = vector<UChar_t>(Jet_cleanmask_,Jet_cleanmask_+bytes/sizeof(Jet_cleanmask_[0]));
+        v_Jet_cleanmask_ = vector<UChar_t>(Jet_cleanmask_.data(),Jet_cleanmask_.data()+bytes/sizeof(Jet_cleanmask_[0]));
         loaded_Jet_cleanmask_ = true;
     }
     return v_Jet_cleanmask_;
@@ -34023,7 +34058,7 @@ const vector<float> &Nano::Jet_corr_JEC() {
     if (!loaded_Jet_corr_JEC_) {
         if (!b_Jet_corr_JEC_) throw std::runtime_error("Jet_corr_JEC branch doesn't exist");
         int bytes = b_Jet_corr_JEC_->GetEntry(index);
-        v_Jet_corr_JEC_ = vector<float>(Jet_corr_JEC_,Jet_corr_JEC_+bytes/sizeof(Jet_corr_JEC_[0]));
+        v_Jet_corr_JEC_ = vector<float>(Jet_corr_JEC_.data(),Jet_corr_JEC_.data()+bytes/sizeof(Jet_corr_JEC_[0]));
         loaded_Jet_corr_JEC_ = true;
     }
     return v_Jet_corr_JEC_;
@@ -34034,7 +34069,7 @@ const vector<float> &Nano::Jet_corr_JER() {
     if (!loaded_Jet_corr_JER_) {
         if (!b_Jet_corr_JER_) throw std::runtime_error("Jet_corr_JER branch doesn't exist");
         int bytes = b_Jet_corr_JER_->GetEntry(index);
-        v_Jet_corr_JER_ = vector<float>(Jet_corr_JER_,Jet_corr_JER_+bytes/sizeof(Jet_corr_JER_[0]));
+        v_Jet_corr_JER_ = vector<float>(Jet_corr_JER_.data(),Jet_corr_JER_.data()+bytes/sizeof(Jet_corr_JER_[0]));
         loaded_Jet_corr_JER_ = true;
     }
     return v_Jet_corr_JER_;
@@ -34045,7 +34080,7 @@ const vector<int> &Nano::Jet_electronIdx1() {
     if (!loaded_Jet_electronIdx1_) {
         if (!b_Jet_electronIdx1_) throw std::runtime_error("Jet_electronIdx1 branch doesn't exist");
         int bytes = b_Jet_electronIdx1_->GetEntry(index);
-        v_Jet_electronIdx1_ = vector<int>(Jet_electronIdx1_,Jet_electronIdx1_+bytes/sizeof(Jet_electronIdx1_[0]));
+        v_Jet_electronIdx1_ = vector<int>(Jet_electronIdx1_.data(),Jet_electronIdx1_.data()+bytes/sizeof(Jet_electronIdx1_[0]));
         loaded_Jet_electronIdx1_ = true;
     }
     return v_Jet_electronIdx1_;
@@ -34056,7 +34091,7 @@ const vector<int> &Nano::Jet_electronIdx2() {
     if (!loaded_Jet_electronIdx2_) {
         if (!b_Jet_electronIdx2_) throw std::runtime_error("Jet_electronIdx2 branch doesn't exist");
         int bytes = b_Jet_electronIdx2_->GetEntry(index);
-        v_Jet_electronIdx2_ = vector<int>(Jet_electronIdx2_,Jet_electronIdx2_+bytes/sizeof(Jet_electronIdx2_[0]));
+        v_Jet_electronIdx2_ = vector<int>(Jet_electronIdx2_.data(),Jet_electronIdx2_.data()+bytes/sizeof(Jet_electronIdx2_[0]));
         loaded_Jet_electronIdx2_ = true;
     }
     return v_Jet_electronIdx2_;
@@ -34067,7 +34102,7 @@ const vector<float> &Nano::Jet_eta() {
     if (!loaded_Jet_eta_) {
         if (!b_Jet_eta_) throw std::runtime_error("Jet_eta branch doesn't exist");
         int bytes = b_Jet_eta_->GetEntry(index);
-        v_Jet_eta_ = vector<float>(Jet_eta_,Jet_eta_+bytes/sizeof(Jet_eta_[0]));
+        v_Jet_eta_ = vector<float>(Jet_eta_.data(),Jet_eta_.data()+bytes/sizeof(Jet_eta_[0]));
         loaded_Jet_eta_ = true;
     }
     return v_Jet_eta_;
@@ -34078,7 +34113,7 @@ const vector<int> &Nano::Jet_genJetIdx() {
     if (!loaded_Jet_genJetIdx_) {
         if (!b_Jet_genJetIdx_) throw std::runtime_error("Jet_genJetIdx branch doesn't exist");
         int bytes = b_Jet_genJetIdx_->GetEntry(index);
-        v_Jet_genJetIdx_ = vector<int>(Jet_genJetIdx_,Jet_genJetIdx_+bytes/sizeof(Jet_genJetIdx_[0]));
+        v_Jet_genJetIdx_ = vector<int>(Jet_genJetIdx_.data(),Jet_genJetIdx_.data()+bytes/sizeof(Jet_genJetIdx_[0]));
         loaded_Jet_genJetIdx_ = true;
     }
     return v_Jet_genJetIdx_;
@@ -34089,7 +34124,7 @@ const vector<int> &Nano::Jet_hadronFlavour() {
     if (!loaded_Jet_hadronFlavour_) {
         if (!b_Jet_hadronFlavour_) throw std::runtime_error("Jet_hadronFlavour branch doesn't exist");
         int bytes = b_Jet_hadronFlavour_->GetEntry(index);
-        v_Jet_hadronFlavour_ = vector<int>(Jet_hadronFlavour_,Jet_hadronFlavour_+bytes/sizeof(Jet_hadronFlavour_[0]));
+        v_Jet_hadronFlavour_ = vector<int>(Jet_hadronFlavour_.data(),Jet_hadronFlavour_.data()+bytes/sizeof(Jet_hadronFlavour_[0]));
         loaded_Jet_hadronFlavour_ = true;
     }
     return v_Jet_hadronFlavour_;
@@ -34100,7 +34135,7 @@ const vector<int> &Nano::Jet_hfadjacentEtaStripsSize() {
     if (!loaded_Jet_hfadjacentEtaStripsSize_) {
         if (!b_Jet_hfadjacentEtaStripsSize_) throw std::runtime_error("Jet_hfadjacentEtaStripsSize branch doesn't exist");
         int bytes = b_Jet_hfadjacentEtaStripsSize_->GetEntry(index);
-        v_Jet_hfadjacentEtaStripsSize_ = vector<int>(Jet_hfadjacentEtaStripsSize_,Jet_hfadjacentEtaStripsSize_+bytes/sizeof(Jet_hfadjacentEtaStripsSize_[0]));
+        v_Jet_hfadjacentEtaStripsSize_ = vector<int>(Jet_hfadjacentEtaStripsSize_.data(),Jet_hfadjacentEtaStripsSize_.data()+bytes/sizeof(Jet_hfadjacentEtaStripsSize_[0]));
         loaded_Jet_hfadjacentEtaStripsSize_ = true;
     }
     return v_Jet_hfadjacentEtaStripsSize_;
@@ -34111,7 +34146,7 @@ const vector<int> &Nano::Jet_hfcentralEtaStripSize() {
     if (!loaded_Jet_hfcentralEtaStripSize_) {
         if (!b_Jet_hfcentralEtaStripSize_) throw std::runtime_error("Jet_hfcentralEtaStripSize branch doesn't exist");
         int bytes = b_Jet_hfcentralEtaStripSize_->GetEntry(index);
-        v_Jet_hfcentralEtaStripSize_ = vector<int>(Jet_hfcentralEtaStripSize_,Jet_hfcentralEtaStripSize_+bytes/sizeof(Jet_hfcentralEtaStripSize_[0]));
+        v_Jet_hfcentralEtaStripSize_ = vector<int>(Jet_hfcentralEtaStripSize_.data(),Jet_hfcentralEtaStripSize_.data()+bytes/sizeof(Jet_hfcentralEtaStripSize_[0]));
         loaded_Jet_hfcentralEtaStripSize_ = true;
     }
     return v_Jet_hfcentralEtaStripSize_;
@@ -34122,7 +34157,7 @@ const vector<float> &Nano::Jet_hfsigmaEtaEta() {
     if (!loaded_Jet_hfsigmaEtaEta_) {
         if (!b_Jet_hfsigmaEtaEta_) throw std::runtime_error("Jet_hfsigmaEtaEta branch doesn't exist");
         int bytes = b_Jet_hfsigmaEtaEta_->GetEntry(index);
-        v_Jet_hfsigmaEtaEta_ = vector<float>(Jet_hfsigmaEtaEta_,Jet_hfsigmaEtaEta_+bytes/sizeof(Jet_hfsigmaEtaEta_[0]));
+        v_Jet_hfsigmaEtaEta_ = vector<float>(Jet_hfsigmaEtaEta_.data(),Jet_hfsigmaEtaEta_.data()+bytes/sizeof(Jet_hfsigmaEtaEta_[0]));
         loaded_Jet_hfsigmaEtaEta_ = true;
     }
     return v_Jet_hfsigmaEtaEta_;
@@ -34133,7 +34168,7 @@ const vector<float> &Nano::Jet_hfsigmaPhiPhi() {
     if (!loaded_Jet_hfsigmaPhiPhi_) {
         if (!b_Jet_hfsigmaPhiPhi_) throw std::runtime_error("Jet_hfsigmaPhiPhi branch doesn't exist");
         int bytes = b_Jet_hfsigmaPhiPhi_->GetEntry(index);
-        v_Jet_hfsigmaPhiPhi_ = vector<float>(Jet_hfsigmaPhiPhi_,Jet_hfsigmaPhiPhi_+bytes/sizeof(Jet_hfsigmaPhiPhi_[0]));
+        v_Jet_hfsigmaPhiPhi_ = vector<float>(Jet_hfsigmaPhiPhi_.data(),Jet_hfsigmaPhiPhi_.data()+bytes/sizeof(Jet_hfsigmaPhiPhi_[0]));
         loaded_Jet_hfsigmaPhiPhi_ = true;
     }
     return v_Jet_hfsigmaPhiPhi_;
@@ -34144,7 +34179,7 @@ const vector<int> &Nano::Jet_jetId() {
     if (!loaded_Jet_jetId_) {
         if (!b_Jet_jetId_) throw std::runtime_error("Jet_jetId branch doesn't exist");
         int bytes = b_Jet_jetId_->GetEntry(index);
-        v_Jet_jetId_ = vector<int>(Jet_jetId_,Jet_jetId_+bytes/sizeof(Jet_jetId_[0]));
+        v_Jet_jetId_ = vector<int>(Jet_jetId_.data(),Jet_jetId_.data()+bytes/sizeof(Jet_jetId_[0]));
         loaded_Jet_jetId_ = true;
     }
     return v_Jet_jetId_;
@@ -34155,7 +34190,7 @@ const vector<float> &Nano::Jet_mass() {
     if (!loaded_Jet_mass_) {
         if (!b_Jet_mass_) throw std::runtime_error("Jet_mass branch doesn't exist");
         int bytes = b_Jet_mass_->GetEntry(index);
-        v_Jet_mass_ = vector<float>(Jet_mass_,Jet_mass_+bytes/sizeof(Jet_mass_[0]));
+        v_Jet_mass_ = vector<float>(Jet_mass_.data(),Jet_mass_.data()+bytes/sizeof(Jet_mass_[0]));
         loaded_Jet_mass_ = true;
     }
     return v_Jet_mass_;
@@ -34166,7 +34201,7 @@ const vector<float> &Nano::Jet_mass_jerDown() {
     if (!loaded_Jet_mass_jerDown_) {
         if (!b_Jet_mass_jerDown_) throw std::runtime_error("Jet_mass_jerDown branch doesn't exist");
         int bytes = b_Jet_mass_jerDown_->GetEntry(index);
-        v_Jet_mass_jerDown_ = vector<float>(Jet_mass_jerDown_,Jet_mass_jerDown_+bytes/sizeof(Jet_mass_jerDown_[0]));
+        v_Jet_mass_jerDown_ = vector<float>(Jet_mass_jerDown_.data(),Jet_mass_jerDown_.data()+bytes/sizeof(Jet_mass_jerDown_[0]));
         loaded_Jet_mass_jerDown_ = true;
     }
     return v_Jet_mass_jerDown_;
@@ -34177,7 +34212,7 @@ const vector<float> &Nano::Jet_mass_jerUp() {
     if (!loaded_Jet_mass_jerUp_) {
         if (!b_Jet_mass_jerUp_) throw std::runtime_error("Jet_mass_jerUp branch doesn't exist");
         int bytes = b_Jet_mass_jerUp_->GetEntry(index);
-        v_Jet_mass_jerUp_ = vector<float>(Jet_mass_jerUp_,Jet_mass_jerUp_+bytes/sizeof(Jet_mass_jerUp_[0]));
+        v_Jet_mass_jerUp_ = vector<float>(Jet_mass_jerUp_.data(),Jet_mass_jerUp_.data()+bytes/sizeof(Jet_mass_jerUp_[0]));
         loaded_Jet_mass_jerUp_ = true;
     }
     return v_Jet_mass_jerUp_;
@@ -34188,7 +34223,7 @@ const vector<float> &Nano::Jet_mass_jesHEMIssueDown() {
     if (!loaded_Jet_mass_jesHEMIssueDown_) {
         if (!b_Jet_mass_jesHEMIssueDown_) throw std::runtime_error("Jet_mass_jesHEMIssueDown branch doesn't exist");
         int bytes = b_Jet_mass_jesHEMIssueDown_->GetEntry(index);
-        v_Jet_mass_jesHEMIssueDown_ = vector<float>(Jet_mass_jesHEMIssueDown_,Jet_mass_jesHEMIssueDown_+bytes/sizeof(Jet_mass_jesHEMIssueDown_[0]));
+        v_Jet_mass_jesHEMIssueDown_ = vector<float>(Jet_mass_jesHEMIssueDown_.data(),Jet_mass_jesHEMIssueDown_.data()+bytes/sizeof(Jet_mass_jesHEMIssueDown_[0]));
         loaded_Jet_mass_jesHEMIssueDown_ = true;
     }
     return v_Jet_mass_jesHEMIssueDown_;
@@ -34199,7 +34234,7 @@ const vector<float> &Nano::Jet_mass_jesHEMIssueUp() {
     if (!loaded_Jet_mass_jesHEMIssueUp_) {
         if (!b_Jet_mass_jesHEMIssueUp_) throw std::runtime_error("Jet_mass_jesHEMIssueUp branch doesn't exist");
         int bytes = b_Jet_mass_jesHEMIssueUp_->GetEntry(index);
-        v_Jet_mass_jesHEMIssueUp_ = vector<float>(Jet_mass_jesHEMIssueUp_,Jet_mass_jesHEMIssueUp_+bytes/sizeof(Jet_mass_jesHEMIssueUp_[0]));
+        v_Jet_mass_jesHEMIssueUp_ = vector<float>(Jet_mass_jesHEMIssueUp_.data(),Jet_mass_jesHEMIssueUp_.data()+bytes/sizeof(Jet_mass_jesHEMIssueUp_[0]));
         loaded_Jet_mass_jesHEMIssueUp_ = true;
     }
     return v_Jet_mass_jesHEMIssueUp_;
@@ -34210,7 +34245,7 @@ const vector<float> &Nano::Jet_mass_jesTotalDown() {
     if (!loaded_Jet_mass_jesTotalDown_) {
         if (!b_Jet_mass_jesTotalDown_) throw std::runtime_error("Jet_mass_jesTotalDown branch doesn't exist");
         int bytes = b_Jet_mass_jesTotalDown_->GetEntry(index);
-        v_Jet_mass_jesTotalDown_ = vector<float>(Jet_mass_jesTotalDown_,Jet_mass_jesTotalDown_+bytes/sizeof(Jet_mass_jesTotalDown_[0]));
+        v_Jet_mass_jesTotalDown_ = vector<float>(Jet_mass_jesTotalDown_.data(),Jet_mass_jesTotalDown_.data()+bytes/sizeof(Jet_mass_jesTotalDown_[0]));
         loaded_Jet_mass_jesTotalDown_ = true;
     }
     return v_Jet_mass_jesTotalDown_;
@@ -34221,7 +34256,7 @@ const vector<float> &Nano::Jet_mass_jesTotalUp() {
     if (!loaded_Jet_mass_jesTotalUp_) {
         if (!b_Jet_mass_jesTotalUp_) throw std::runtime_error("Jet_mass_jesTotalUp branch doesn't exist");
         int bytes = b_Jet_mass_jesTotalUp_->GetEntry(index);
-        v_Jet_mass_jesTotalUp_ = vector<float>(Jet_mass_jesTotalUp_,Jet_mass_jesTotalUp_+bytes/sizeof(Jet_mass_jesTotalUp_[0]));
+        v_Jet_mass_jesTotalUp_ = vector<float>(Jet_mass_jesTotalUp_.data(),Jet_mass_jesTotalUp_.data()+bytes/sizeof(Jet_mass_jesTotalUp_[0]));
         loaded_Jet_mass_jesTotalUp_ = true;
     }
     return v_Jet_mass_jesTotalUp_;
@@ -34232,7 +34267,7 @@ const vector<float> &Nano::Jet_mass_nom() {
     if (!loaded_Jet_mass_nom_) {
         if (!b_Jet_mass_nom_) throw std::runtime_error("Jet_mass_nom branch doesn't exist");
         int bytes = b_Jet_mass_nom_->GetEntry(index);
-        v_Jet_mass_nom_ = vector<float>(Jet_mass_nom_,Jet_mass_nom_+bytes/sizeof(Jet_mass_nom_[0]));
+        v_Jet_mass_nom_ = vector<float>(Jet_mass_nom_.data(),Jet_mass_nom_.data()+bytes/sizeof(Jet_mass_nom_[0]));
         loaded_Jet_mass_nom_ = true;
     }
     return v_Jet_mass_nom_;
@@ -34243,7 +34278,7 @@ const vector<float> &Nano::Jet_mass_raw() {
     if (!loaded_Jet_mass_raw_) {
         if (!b_Jet_mass_raw_) throw std::runtime_error("Jet_mass_raw branch doesn't exist");
         int bytes = b_Jet_mass_raw_->GetEntry(index);
-        v_Jet_mass_raw_ = vector<float>(Jet_mass_raw_,Jet_mass_raw_+bytes/sizeof(Jet_mass_raw_[0]));
+        v_Jet_mass_raw_ = vector<float>(Jet_mass_raw_.data(),Jet_mass_raw_.data()+bytes/sizeof(Jet_mass_raw_[0]));
         loaded_Jet_mass_raw_ = true;
     }
     return v_Jet_mass_raw_;
@@ -34254,7 +34289,7 @@ const vector<float> &Nano::Jet_muEF() {
     if (!loaded_Jet_muEF_) {
         if (!b_Jet_muEF_) throw std::runtime_error("Jet_muEF branch doesn't exist");
         int bytes = b_Jet_muEF_->GetEntry(index);
-        v_Jet_muEF_ = vector<float>(Jet_muEF_,Jet_muEF_+bytes/sizeof(Jet_muEF_[0]));
+        v_Jet_muEF_ = vector<float>(Jet_muEF_.data(),Jet_muEF_.data()+bytes/sizeof(Jet_muEF_[0]));
         loaded_Jet_muEF_ = true;
     }
     return v_Jet_muEF_;
@@ -34265,7 +34300,7 @@ const vector<int> &Nano::Jet_muonIdx1() {
     if (!loaded_Jet_muonIdx1_) {
         if (!b_Jet_muonIdx1_) throw std::runtime_error("Jet_muonIdx1 branch doesn't exist");
         int bytes = b_Jet_muonIdx1_->GetEntry(index);
-        v_Jet_muonIdx1_ = vector<int>(Jet_muonIdx1_,Jet_muonIdx1_+bytes/sizeof(Jet_muonIdx1_[0]));
+        v_Jet_muonIdx1_ = vector<int>(Jet_muonIdx1_.data(),Jet_muonIdx1_.data()+bytes/sizeof(Jet_muonIdx1_[0]));
         loaded_Jet_muonIdx1_ = true;
     }
     return v_Jet_muonIdx1_;
@@ -34276,7 +34311,7 @@ const vector<int> &Nano::Jet_muonIdx2() {
     if (!loaded_Jet_muonIdx2_) {
         if (!b_Jet_muonIdx2_) throw std::runtime_error("Jet_muonIdx2 branch doesn't exist");
         int bytes = b_Jet_muonIdx2_->GetEntry(index);
-        v_Jet_muonIdx2_ = vector<int>(Jet_muonIdx2_,Jet_muonIdx2_+bytes/sizeof(Jet_muonIdx2_[0]));
+        v_Jet_muonIdx2_ = vector<int>(Jet_muonIdx2_.data(),Jet_muonIdx2_.data()+bytes/sizeof(Jet_muonIdx2_[0]));
         loaded_Jet_muonIdx2_ = true;
     }
     return v_Jet_muonIdx2_;
@@ -34287,7 +34322,7 @@ const vector<float> &Nano::Jet_muonSubtrFactor() {
     if (!loaded_Jet_muonSubtrFactor_) {
         if (!b_Jet_muonSubtrFactor_) throw std::runtime_error("Jet_muonSubtrFactor branch doesn't exist");
         int bytes = b_Jet_muonSubtrFactor_->GetEntry(index);
-        v_Jet_muonSubtrFactor_ = vector<float>(Jet_muonSubtrFactor_,Jet_muonSubtrFactor_+bytes/sizeof(Jet_muonSubtrFactor_[0]));
+        v_Jet_muonSubtrFactor_ = vector<float>(Jet_muonSubtrFactor_.data(),Jet_muonSubtrFactor_.data()+bytes/sizeof(Jet_muonSubtrFactor_[0]));
         loaded_Jet_muonSubtrFactor_ = true;
     }
     return v_Jet_muonSubtrFactor_;
@@ -34298,7 +34333,7 @@ const vector<UChar_t> &Nano::Jet_nConstituents() {
     if (!loaded_Jet_nConstituents_) {
         if (!b_Jet_nConstituents_) throw std::runtime_error("Jet_nConstituents branch doesn't exist");
         int bytes = b_Jet_nConstituents_->GetEntry(index);
-        v_Jet_nConstituents_ = vector<UChar_t>(Jet_nConstituents_,Jet_nConstituents_+bytes/sizeof(Jet_nConstituents_[0]));
+        v_Jet_nConstituents_ = vector<UChar_t>(Jet_nConstituents_.data(),Jet_nConstituents_.data()+bytes/sizeof(Jet_nConstituents_[0]));
         loaded_Jet_nConstituents_ = true;
     }
     return v_Jet_nConstituents_;
@@ -34309,7 +34344,7 @@ const vector<int> &Nano::Jet_nElectrons() {
     if (!loaded_Jet_nElectrons_) {
         if (!b_Jet_nElectrons_) throw std::runtime_error("Jet_nElectrons branch doesn't exist");
         int bytes = b_Jet_nElectrons_->GetEntry(index);
-        v_Jet_nElectrons_ = vector<int>(Jet_nElectrons_,Jet_nElectrons_+bytes/sizeof(Jet_nElectrons_[0]));
+        v_Jet_nElectrons_ = vector<int>(Jet_nElectrons_.data(),Jet_nElectrons_.data()+bytes/sizeof(Jet_nElectrons_[0]));
         loaded_Jet_nElectrons_ = true;
     }
     return v_Jet_nElectrons_;
@@ -34320,7 +34355,7 @@ const vector<int> &Nano::Jet_nMuons() {
     if (!loaded_Jet_nMuons_) {
         if (!b_Jet_nMuons_) throw std::runtime_error("Jet_nMuons branch doesn't exist");
         int bytes = b_Jet_nMuons_->GetEntry(index);
-        v_Jet_nMuons_ = vector<int>(Jet_nMuons_,Jet_nMuons_+bytes/sizeof(Jet_nMuons_[0]));
+        v_Jet_nMuons_ = vector<int>(Jet_nMuons_.data(),Jet_nMuons_.data()+bytes/sizeof(Jet_nMuons_[0]));
         loaded_Jet_nMuons_ = true;
     }
     return v_Jet_nMuons_;
@@ -34331,7 +34366,7 @@ const vector<int> &Nano::Jet_nSVs() {
     if (!loaded_Jet_nSVs_) {
         if (!b_Jet_nSVs_) throw std::runtime_error("Jet_nSVs branch doesn't exist");
         int bytes = b_Jet_nSVs_->GetEntry(index);
-        v_Jet_nSVs_ = vector<int>(Jet_nSVs_,Jet_nSVs_+bytes/sizeof(Jet_nSVs_[0]));
+        v_Jet_nSVs_ = vector<int>(Jet_nSVs_.data(),Jet_nSVs_.data()+bytes/sizeof(Jet_nSVs_[0]));
         loaded_Jet_nSVs_ = true;
     }
     return v_Jet_nSVs_;
@@ -34342,7 +34377,7 @@ const vector<float> &Nano::Jet_neEmEF() {
     if (!loaded_Jet_neEmEF_) {
         if (!b_Jet_neEmEF_) throw std::runtime_error("Jet_neEmEF branch doesn't exist");
         int bytes = b_Jet_neEmEF_->GetEntry(index);
-        v_Jet_neEmEF_ = vector<float>(Jet_neEmEF_,Jet_neEmEF_+bytes/sizeof(Jet_neEmEF_[0]));
+        v_Jet_neEmEF_ = vector<float>(Jet_neEmEF_.data(),Jet_neEmEF_.data()+bytes/sizeof(Jet_neEmEF_[0]));
         loaded_Jet_neEmEF_ = true;
     }
     return v_Jet_neEmEF_;
@@ -34353,7 +34388,7 @@ const vector<float> &Nano::Jet_neHEF() {
     if (!loaded_Jet_neHEF_) {
         if (!b_Jet_neHEF_) throw std::runtime_error("Jet_neHEF branch doesn't exist");
         int bytes = b_Jet_neHEF_->GetEntry(index);
-        v_Jet_neHEF_ = vector<float>(Jet_neHEF_,Jet_neHEF_+bytes/sizeof(Jet_neHEF_[0]));
+        v_Jet_neHEF_ = vector<float>(Jet_neHEF_.data(),Jet_neHEF_.data()+bytes/sizeof(Jet_neHEF_[0]));
         loaded_Jet_neHEF_ = true;
     }
     return v_Jet_neHEF_;
@@ -34380,7 +34415,7 @@ const vector<int> &Nano::Jet_partonFlavour() {
     if (!loaded_Jet_partonFlavour_) {
         if (!b_Jet_partonFlavour_) throw std::runtime_error("Jet_partonFlavour branch doesn't exist");
         int bytes = b_Jet_partonFlavour_->GetEntry(index);
-        v_Jet_partonFlavour_ = vector<int>(Jet_partonFlavour_,Jet_partonFlavour_+bytes/sizeof(Jet_partonFlavour_[0]));
+        v_Jet_partonFlavour_ = vector<int>(Jet_partonFlavour_.data(),Jet_partonFlavour_.data()+bytes/sizeof(Jet_partonFlavour_[0]));
         loaded_Jet_partonFlavour_ = true;
     }
     return v_Jet_partonFlavour_;
@@ -34391,7 +34426,7 @@ const vector<float> &Nano::Jet_phi() {
     if (!loaded_Jet_phi_) {
         if (!b_Jet_phi_) throw std::runtime_error("Jet_phi branch doesn't exist");
         int bytes = b_Jet_phi_->GetEntry(index);
-        v_Jet_phi_ = vector<float>(Jet_phi_,Jet_phi_+bytes/sizeof(Jet_phi_[0]));
+        v_Jet_phi_ = vector<float>(Jet_phi_.data(),Jet_phi_.data()+bytes/sizeof(Jet_phi_[0]));
         loaded_Jet_phi_ = true;
     }
     return v_Jet_phi_;
@@ -34402,7 +34437,7 @@ const vector<float> &Nano::Jet_pt() {
     if (!loaded_Jet_pt_) {
         if (!b_Jet_pt_) throw std::runtime_error("Jet_pt branch doesn't exist");
         int bytes = b_Jet_pt_->GetEntry(index);
-        v_Jet_pt_ = vector<float>(Jet_pt_,Jet_pt_+bytes/sizeof(Jet_pt_[0]));
+        v_Jet_pt_ = vector<float>(Jet_pt_.data(),Jet_pt_.data()+bytes/sizeof(Jet_pt_[0]));
         loaded_Jet_pt_ = true;
     }
     return v_Jet_pt_;
@@ -34413,7 +34448,7 @@ const vector<float> &Nano::Jet_pt_jerDown() {
     if (!loaded_Jet_pt_jerDown_) {
         if (!b_Jet_pt_jerDown_) throw std::runtime_error("Jet_pt_jerDown branch doesn't exist");
         int bytes = b_Jet_pt_jerDown_->GetEntry(index);
-        v_Jet_pt_jerDown_ = vector<float>(Jet_pt_jerDown_,Jet_pt_jerDown_+bytes/sizeof(Jet_pt_jerDown_[0]));
+        v_Jet_pt_jerDown_ = vector<float>(Jet_pt_jerDown_.data(),Jet_pt_jerDown_.data()+bytes/sizeof(Jet_pt_jerDown_[0]));
         loaded_Jet_pt_jerDown_ = true;
     }
     return v_Jet_pt_jerDown_;
@@ -34424,7 +34459,7 @@ const vector<float> &Nano::Jet_pt_jerUp() {
     if (!loaded_Jet_pt_jerUp_) {
         if (!b_Jet_pt_jerUp_) throw std::runtime_error("Jet_pt_jerUp branch doesn't exist");
         int bytes = b_Jet_pt_jerUp_->GetEntry(index);
-        v_Jet_pt_jerUp_ = vector<float>(Jet_pt_jerUp_,Jet_pt_jerUp_+bytes/sizeof(Jet_pt_jerUp_[0]));
+        v_Jet_pt_jerUp_ = vector<float>(Jet_pt_jerUp_.data(),Jet_pt_jerUp_.data()+bytes/sizeof(Jet_pt_jerUp_[0]));
         loaded_Jet_pt_jerUp_ = true;
     }
     return v_Jet_pt_jerUp_;
@@ -34435,7 +34470,7 @@ const vector<float> &Nano::Jet_pt_jesHEMIssueDown() {
     if (!loaded_Jet_pt_jesHEMIssueDown_) {
         if (!b_Jet_pt_jesHEMIssueDown_) throw std::runtime_error("Jet_pt_jesHEMIssueDown branch doesn't exist");
         int bytes = b_Jet_pt_jesHEMIssueDown_->GetEntry(index);
-        v_Jet_pt_jesHEMIssueDown_ = vector<float>(Jet_pt_jesHEMIssueDown_,Jet_pt_jesHEMIssueDown_+bytes/sizeof(Jet_pt_jesHEMIssueDown_[0]));
+        v_Jet_pt_jesHEMIssueDown_ = vector<float>(Jet_pt_jesHEMIssueDown_.data(),Jet_pt_jesHEMIssueDown_.data()+bytes/sizeof(Jet_pt_jesHEMIssueDown_[0]));
         loaded_Jet_pt_jesHEMIssueDown_ = true;
     }
     return v_Jet_pt_jesHEMIssueDown_;
@@ -34446,7 +34481,7 @@ const vector<float> &Nano::Jet_pt_jesHEMIssueUp() {
     if (!loaded_Jet_pt_jesHEMIssueUp_) {
         if (!b_Jet_pt_jesHEMIssueUp_) throw std::runtime_error("Jet_pt_jesHEMIssueUp branch doesn't exist");
         int bytes = b_Jet_pt_jesHEMIssueUp_->GetEntry(index);
-        v_Jet_pt_jesHEMIssueUp_ = vector<float>(Jet_pt_jesHEMIssueUp_,Jet_pt_jesHEMIssueUp_+bytes/sizeof(Jet_pt_jesHEMIssueUp_[0]));
+        v_Jet_pt_jesHEMIssueUp_ = vector<float>(Jet_pt_jesHEMIssueUp_.data(),Jet_pt_jesHEMIssueUp_.data()+bytes/sizeof(Jet_pt_jesHEMIssueUp_[0]));
         loaded_Jet_pt_jesHEMIssueUp_ = true;
     }
     return v_Jet_pt_jesHEMIssueUp_;
@@ -34457,7 +34492,7 @@ const vector<float> &Nano::Jet_pt_jesTotalDown() {
     if (!loaded_Jet_pt_jesTotalDown_) {
         if (!b_Jet_pt_jesTotalDown_) throw std::runtime_error("Jet_pt_jesTotalDown branch doesn't exist");
         int bytes = b_Jet_pt_jesTotalDown_->GetEntry(index);
-        v_Jet_pt_jesTotalDown_ = vector<float>(Jet_pt_jesTotalDown_,Jet_pt_jesTotalDown_+bytes/sizeof(Jet_pt_jesTotalDown_[0]));
+        v_Jet_pt_jesTotalDown_ = vector<float>(Jet_pt_jesTotalDown_.data(),Jet_pt_jesTotalDown_.data()+bytes/sizeof(Jet_pt_jesTotalDown_[0]));
         loaded_Jet_pt_jesTotalDown_ = true;
     }
     return v_Jet_pt_jesTotalDown_;
@@ -34468,7 +34503,7 @@ const vector<float> &Nano::Jet_pt_jesTotalUp() {
     if (!loaded_Jet_pt_jesTotalUp_) {
         if (!b_Jet_pt_jesTotalUp_) throw std::runtime_error("Jet_pt_jesTotalUp branch doesn't exist");
         int bytes = b_Jet_pt_jesTotalUp_->GetEntry(index);
-        v_Jet_pt_jesTotalUp_ = vector<float>(Jet_pt_jesTotalUp_,Jet_pt_jesTotalUp_+bytes/sizeof(Jet_pt_jesTotalUp_[0]));
+        v_Jet_pt_jesTotalUp_ = vector<float>(Jet_pt_jesTotalUp_.data(),Jet_pt_jesTotalUp_.data()+bytes/sizeof(Jet_pt_jesTotalUp_[0]));
         loaded_Jet_pt_jesTotalUp_ = true;
     }
     return v_Jet_pt_jesTotalUp_;
@@ -34479,7 +34514,7 @@ const vector<float> &Nano::Jet_pt_nom() {
     if (!loaded_Jet_pt_nom_) {
         if (!b_Jet_pt_nom_) throw std::runtime_error("Jet_pt_nom branch doesn't exist");
         int bytes = b_Jet_pt_nom_->GetEntry(index);
-        v_Jet_pt_nom_ = vector<float>(Jet_pt_nom_,Jet_pt_nom_+bytes/sizeof(Jet_pt_nom_[0]));
+        v_Jet_pt_nom_ = vector<float>(Jet_pt_nom_.data(),Jet_pt_nom_.data()+bytes/sizeof(Jet_pt_nom_[0]));
         loaded_Jet_pt_nom_ = true;
     }
     return v_Jet_pt_nom_;
@@ -34490,7 +34525,7 @@ const vector<float> &Nano::Jet_pt_raw() {
     if (!loaded_Jet_pt_raw_) {
         if (!b_Jet_pt_raw_) throw std::runtime_error("Jet_pt_raw branch doesn't exist");
         int bytes = b_Jet_pt_raw_->GetEntry(index);
-        v_Jet_pt_raw_ = vector<float>(Jet_pt_raw_,Jet_pt_raw_+bytes/sizeof(Jet_pt_raw_[0]));
+        v_Jet_pt_raw_ = vector<float>(Jet_pt_raw_.data(),Jet_pt_raw_.data()+bytes/sizeof(Jet_pt_raw_[0]));
         loaded_Jet_pt_raw_ = true;
     }
     return v_Jet_pt_raw_;
@@ -34501,7 +34536,7 @@ const vector<int> &Nano::Jet_puId() {
     if (!loaded_Jet_puId_) {
         if (!b_Jet_puId_) throw std::runtime_error("Jet_puId branch doesn't exist");
         int bytes = b_Jet_puId_->GetEntry(index);
-        v_Jet_puId_ = vector<int>(Jet_puId_,Jet_puId_+bytes/sizeof(Jet_puId_[0]));
+        v_Jet_puId_ = vector<int>(Jet_puId_.data(),Jet_puId_.data()+bytes/sizeof(Jet_puId_[0]));
         loaded_Jet_puId_ = true;
     }
     return v_Jet_puId_;
@@ -34512,7 +34547,7 @@ const vector<float> &Nano::Jet_puIdDisc() {
     if (!loaded_Jet_puIdDisc_) {
         if (!b_Jet_puIdDisc_) throw std::runtime_error("Jet_puIdDisc branch doesn't exist");
         int bytes = b_Jet_puIdDisc_->GetEntry(index);
-        v_Jet_puIdDisc_ = vector<float>(Jet_puIdDisc_,Jet_puIdDisc_+bytes/sizeof(Jet_puIdDisc_[0]));
+        v_Jet_puIdDisc_ = vector<float>(Jet_puIdDisc_.data(),Jet_puIdDisc_.data()+bytes/sizeof(Jet_puIdDisc_[0]));
         loaded_Jet_puIdDisc_ = true;
     }
     return v_Jet_puIdDisc_;
@@ -34523,7 +34558,7 @@ const vector<float> &Nano::Jet_qgl() {
     if (!loaded_Jet_qgl_) {
         if (!b_Jet_qgl_) throw std::runtime_error("Jet_qgl branch doesn't exist");
         int bytes = b_Jet_qgl_->GetEntry(index);
-        v_Jet_qgl_ = vector<float>(Jet_qgl_,Jet_qgl_+bytes/sizeof(Jet_qgl_[0]));
+        v_Jet_qgl_ = vector<float>(Jet_qgl_.data(),Jet_qgl_.data()+bytes/sizeof(Jet_qgl_[0]));
         loaded_Jet_qgl_ = true;
     }
     return v_Jet_qgl_;
@@ -34534,7 +34569,7 @@ const vector<float> &Nano::Jet_rawFactor() {
     if (!loaded_Jet_rawFactor_) {
         if (!b_Jet_rawFactor_) throw std::runtime_error("Jet_rawFactor branch doesn't exist");
         int bytes = b_Jet_rawFactor_->GetEntry(index);
-        v_Jet_rawFactor_ = vector<float>(Jet_rawFactor_,Jet_rawFactor_+bytes/sizeof(Jet_rawFactor_[0]));
+        v_Jet_rawFactor_ = vector<float>(Jet_rawFactor_.data(),Jet_rawFactor_.data()+bytes/sizeof(Jet_rawFactor_[0]));
         loaded_Jet_rawFactor_ = true;
     }
     return v_Jet_rawFactor_;
@@ -34545,7 +34580,7 @@ const vector<int> &Nano::Jet_svIdx1() {
     if (!loaded_Jet_svIdx1_) {
         if (!b_Jet_svIdx1_) throw std::runtime_error("Jet_svIdx1 branch doesn't exist");
         int bytes = b_Jet_svIdx1_->GetEntry(index);
-        v_Jet_svIdx1_ = vector<int>(Jet_svIdx1_,Jet_svIdx1_+bytes/sizeof(Jet_svIdx1_[0]));
+        v_Jet_svIdx1_ = vector<int>(Jet_svIdx1_.data(),Jet_svIdx1_.data()+bytes/sizeof(Jet_svIdx1_[0]));
         loaded_Jet_svIdx1_ = true;
     }
     return v_Jet_svIdx1_;
@@ -34556,7 +34591,7 @@ const vector<int> &Nano::Jet_svIdx2() {
     if (!loaded_Jet_svIdx2_) {
         if (!b_Jet_svIdx2_) throw std::runtime_error("Jet_svIdx2 branch doesn't exist");
         int bytes = b_Jet_svIdx2_->GetEntry(index);
-        v_Jet_svIdx2_ = vector<int>(Jet_svIdx2_,Jet_svIdx2_+bytes/sizeof(Jet_svIdx2_[0]));
+        v_Jet_svIdx2_ = vector<int>(Jet_svIdx2_.data(),Jet_svIdx2_.data()+bytes/sizeof(Jet_svIdx2_[0]));
         loaded_Jet_svIdx2_ = true;
     }
     return v_Jet_svIdx2_;
@@ -44487,7 +44522,7 @@ const vector<float> &Nano::LHEPart_eta() {
     if (!loaded_LHEPart_eta_) {
         if (!b_LHEPart_eta_) throw std::runtime_error("LHEPart_eta branch doesn't exist");
         int bytes = b_LHEPart_eta_->GetEntry(index);
-        v_LHEPart_eta_ = vector<float>(LHEPart_eta_,LHEPart_eta_+bytes/sizeof(LHEPart_eta_[0]));
+        v_LHEPart_eta_ = vector<float>(LHEPart_eta_.data(),LHEPart_eta_.data()+bytes/sizeof(LHEPart_eta_[0]));
         loaded_LHEPart_eta_ = true;
     }
     return v_LHEPart_eta_;
@@ -44498,7 +44533,7 @@ const vector<float> &Nano::LHEPart_incomingpz() {
     if (!loaded_LHEPart_incomingpz_) {
         if (!b_LHEPart_incomingpz_) throw std::runtime_error("LHEPart_incomingpz branch doesn't exist");
         int bytes = b_LHEPart_incomingpz_->GetEntry(index);
-        v_LHEPart_incomingpz_ = vector<float>(LHEPart_incomingpz_,LHEPart_incomingpz_+bytes/sizeof(LHEPart_incomingpz_[0]));
+        v_LHEPart_incomingpz_ = vector<float>(LHEPart_incomingpz_.data(),LHEPart_incomingpz_.data()+bytes/sizeof(LHEPart_incomingpz_[0]));
         loaded_LHEPart_incomingpz_ = true;
     }
     return v_LHEPart_incomingpz_;
@@ -44509,7 +44544,7 @@ const vector<float> &Nano::LHEPart_mass() {
     if (!loaded_LHEPart_mass_) {
         if (!b_LHEPart_mass_) throw std::runtime_error("LHEPart_mass branch doesn't exist");
         int bytes = b_LHEPart_mass_->GetEntry(index);
-        v_LHEPart_mass_ = vector<float>(LHEPart_mass_,LHEPart_mass_+bytes/sizeof(LHEPart_mass_[0]));
+        v_LHEPart_mass_ = vector<float>(LHEPart_mass_.data(),LHEPart_mass_.data()+bytes/sizeof(LHEPart_mass_[0]));
         loaded_LHEPart_mass_ = true;
     }
     return v_LHEPart_mass_;
@@ -44536,7 +44571,7 @@ const vector<int> &Nano::LHEPart_pdgId() {
     if (!loaded_LHEPart_pdgId_) {
         if (!b_LHEPart_pdgId_) throw std::runtime_error("LHEPart_pdgId branch doesn't exist");
         int bytes = b_LHEPart_pdgId_->GetEntry(index);
-        v_LHEPart_pdgId_ = vector<int>(LHEPart_pdgId_,LHEPart_pdgId_+bytes/sizeof(LHEPart_pdgId_[0]));
+        v_LHEPart_pdgId_ = vector<int>(LHEPart_pdgId_.data(),LHEPart_pdgId_.data()+bytes/sizeof(LHEPart_pdgId_[0]));
         loaded_LHEPart_pdgId_ = true;
     }
     return v_LHEPart_pdgId_;
@@ -44547,7 +44582,7 @@ const vector<float> &Nano::LHEPart_phi() {
     if (!loaded_LHEPart_phi_) {
         if (!b_LHEPart_phi_) throw std::runtime_error("LHEPart_phi branch doesn't exist");
         int bytes = b_LHEPart_phi_->GetEntry(index);
-        v_LHEPart_phi_ = vector<float>(LHEPart_phi_,LHEPart_phi_+bytes/sizeof(LHEPart_phi_[0]));
+        v_LHEPart_phi_ = vector<float>(LHEPart_phi_.data(),LHEPart_phi_.data()+bytes/sizeof(LHEPart_phi_[0]));
         loaded_LHEPart_phi_ = true;
     }
     return v_LHEPart_phi_;
@@ -44558,7 +44593,7 @@ const vector<float> &Nano::LHEPart_pt() {
     if (!loaded_LHEPart_pt_) {
         if (!b_LHEPart_pt_) throw std::runtime_error("LHEPart_pt branch doesn't exist");
         int bytes = b_LHEPart_pt_->GetEntry(index);
-        v_LHEPart_pt_ = vector<float>(LHEPart_pt_,LHEPart_pt_+bytes/sizeof(LHEPart_pt_[0]));
+        v_LHEPart_pt_ = vector<float>(LHEPart_pt_.data(),LHEPart_pt_.data()+bytes/sizeof(LHEPart_pt_[0]));
         loaded_LHEPart_pt_ = true;
     }
     return v_LHEPart_pt_;
@@ -44569,7 +44604,7 @@ const vector<int> &Nano::LHEPart_spin() {
     if (!loaded_LHEPart_spin_) {
         if (!b_LHEPart_spin_) throw std::runtime_error("LHEPart_spin branch doesn't exist");
         int bytes = b_LHEPart_spin_->GetEntry(index);
-        v_LHEPart_spin_ = vector<int>(LHEPart_spin_,LHEPart_spin_+bytes/sizeof(LHEPart_spin_[0]));
+        v_LHEPart_spin_ = vector<int>(LHEPart_spin_.data(),LHEPart_spin_.data()+bytes/sizeof(LHEPart_spin_[0]));
         loaded_LHEPart_spin_ = true;
     }
     return v_LHEPart_spin_;
@@ -44580,7 +44615,7 @@ const vector<int> &Nano::LHEPart_status() {
     if (!loaded_LHEPart_status_) {
         if (!b_LHEPart_status_) throw std::runtime_error("LHEPart_status branch doesn't exist");
         int bytes = b_LHEPart_status_->GetEntry(index);
-        v_LHEPart_status_ = vector<int>(LHEPart_status_,LHEPart_status_+bytes/sizeof(LHEPart_status_[0]));
+        v_LHEPart_status_ = vector<int>(LHEPart_status_.data(),LHEPart_status_.data()+bytes/sizeof(LHEPart_status_[0]));
         loaded_LHEPart_status_ = true;
     }
     return v_LHEPart_status_;
@@ -44591,7 +44626,7 @@ const vector<float> &Nano::LHEPdfWeight() {
     if (!loaded_LHEPdfWeight_) {
         if (!b_LHEPdfWeight_) throw std::runtime_error("LHEPdfWeight branch doesn't exist");
         int bytes = b_LHEPdfWeight_->GetEntry(index);
-        v_LHEPdfWeight_ = vector<float>(LHEPdfWeight_,LHEPdfWeight_+bytes/sizeof(LHEPdfWeight_[0]));
+        v_LHEPdfWeight_ = vector<float>(LHEPdfWeight_.data(),LHEPdfWeight_.data()+bytes/sizeof(LHEPdfWeight_[0]));
         loaded_LHEPdfWeight_ = true;
     }
     return v_LHEPdfWeight_;
@@ -44602,7 +44637,7 @@ const vector<float> &Nano::LHEReweightingWeight() {
     if (!loaded_LHEReweightingWeight_) {
         if (!b_LHEReweightingWeight_) throw std::runtime_error("LHEReweightingWeight branch doesn't exist");
         int bytes = b_LHEReweightingWeight_->GetEntry(index);
-        v_LHEReweightingWeight_ = vector<float>(LHEReweightingWeight_,LHEReweightingWeight_+bytes/sizeof(LHEReweightingWeight_[0]));
+        v_LHEReweightingWeight_ = vector<float>(LHEReweightingWeight_.data(),LHEReweightingWeight_.data()+bytes/sizeof(LHEReweightingWeight_[0]));
         loaded_LHEReweightingWeight_ = true;
     }
     return v_LHEReweightingWeight_;
@@ -44613,7 +44648,7 @@ const vector<float> &Nano::LHEScaleWeight() {
     if (!loaded_LHEScaleWeight_) {
         if (!b_LHEScaleWeight_) throw std::runtime_error("LHEScaleWeight branch doesn't exist");
         int bytes = b_LHEScaleWeight_->GetEntry(index);
-        v_LHEScaleWeight_ = vector<float>(LHEScaleWeight_,LHEScaleWeight_+bytes/sizeof(LHEScaleWeight_[0]));
+        v_LHEScaleWeight_ = vector<float>(LHEScaleWeight_.data(),LHEScaleWeight_.data()+bytes/sizeof(LHEScaleWeight_[0]));
         loaded_LHEScaleWeight_ = true;
     }
     return v_LHEScaleWeight_;
@@ -44754,7 +44789,7 @@ const vector<float> &Nano::LowPtElectron_ID() {
     if (!loaded_LowPtElectron_ID_) {
         if (!b_LowPtElectron_ID_) throw std::runtime_error("LowPtElectron_ID branch doesn't exist");
         int bytes = b_LowPtElectron_ID_->GetEntry(index);
-        v_LowPtElectron_ID_ = vector<float>(LowPtElectron_ID_,LowPtElectron_ID_+bytes/sizeof(LowPtElectron_ID_[0]));
+        v_LowPtElectron_ID_ = vector<float>(LowPtElectron_ID_.data(),LowPtElectron_ID_.data()+bytes/sizeof(LowPtElectron_ID_[0]));
         loaded_LowPtElectron_ID_ = true;
     }
     return v_LowPtElectron_ID_;
@@ -44765,7 +44800,7 @@ const vector<int> &Nano::LowPtElectron_charge() {
     if (!loaded_LowPtElectron_charge_) {
         if (!b_LowPtElectron_charge_) throw std::runtime_error("LowPtElectron_charge branch doesn't exist");
         int bytes = b_LowPtElectron_charge_->GetEntry(index);
-        v_LowPtElectron_charge_ = vector<int>(LowPtElectron_charge_,LowPtElectron_charge_+bytes/sizeof(LowPtElectron_charge_[0]));
+        v_LowPtElectron_charge_ = vector<int>(LowPtElectron_charge_.data(),LowPtElectron_charge_.data()+bytes/sizeof(LowPtElectron_charge_[0]));
         loaded_LowPtElectron_charge_ = true;
     }
     return v_LowPtElectron_charge_;
@@ -44776,7 +44811,7 @@ const vector<bool> &Nano::LowPtElectron_convVeto() {
     if (!loaded_LowPtElectron_convVeto_) {
         if (!b_LowPtElectron_convVeto_) throw std::runtime_error("LowPtElectron_convVeto branch doesn't exist");
         int bytes = b_LowPtElectron_convVeto_->GetEntry(index);
-        v_LowPtElectron_convVeto_ = vector<bool>(LowPtElectron_convVeto_,LowPtElectron_convVeto_+bytes/sizeof(LowPtElectron_convVeto_[0]));
+        v_LowPtElectron_convVeto_ = vector<bool>(LowPtElectron_convVeto_.data(),LowPtElectron_convVeto_.data()+bytes/sizeof(LowPtElectron_convVeto_[0]));
         loaded_LowPtElectron_convVeto_ = true;
     }
     return v_LowPtElectron_convVeto_;
@@ -44787,7 +44822,7 @@ const vector<float> &Nano::LowPtElectron_convVtxRadius() {
     if (!loaded_LowPtElectron_convVtxRadius_) {
         if (!b_LowPtElectron_convVtxRadius_) throw std::runtime_error("LowPtElectron_convVtxRadius branch doesn't exist");
         int bytes = b_LowPtElectron_convVtxRadius_->GetEntry(index);
-        v_LowPtElectron_convVtxRadius_ = vector<float>(LowPtElectron_convVtxRadius_,LowPtElectron_convVtxRadius_+bytes/sizeof(LowPtElectron_convVtxRadius_[0]));
+        v_LowPtElectron_convVtxRadius_ = vector<float>(LowPtElectron_convVtxRadius_.data(),LowPtElectron_convVtxRadius_.data()+bytes/sizeof(LowPtElectron_convVtxRadius_[0]));
         loaded_LowPtElectron_convVtxRadius_ = true;
     }
     return v_LowPtElectron_convVtxRadius_;
@@ -44798,7 +44833,7 @@ const vector<int> &Nano::LowPtElectron_convWP() {
     if (!loaded_LowPtElectron_convWP_) {
         if (!b_LowPtElectron_convWP_) throw std::runtime_error("LowPtElectron_convWP branch doesn't exist");
         int bytes = b_LowPtElectron_convWP_->GetEntry(index);
-        v_LowPtElectron_convWP_ = vector<int>(LowPtElectron_convWP_,LowPtElectron_convWP_+bytes/sizeof(LowPtElectron_convWP_[0]));
+        v_LowPtElectron_convWP_ = vector<int>(LowPtElectron_convWP_.data(),LowPtElectron_convWP_.data()+bytes/sizeof(LowPtElectron_convWP_[0]));
         loaded_LowPtElectron_convWP_ = true;
     }
     return v_LowPtElectron_convWP_;
@@ -44809,7 +44844,7 @@ const vector<float> &Nano::LowPtElectron_deltaEtaSC() {
     if (!loaded_LowPtElectron_deltaEtaSC_) {
         if (!b_LowPtElectron_deltaEtaSC_) throw std::runtime_error("LowPtElectron_deltaEtaSC branch doesn't exist");
         int bytes = b_LowPtElectron_deltaEtaSC_->GetEntry(index);
-        v_LowPtElectron_deltaEtaSC_ = vector<float>(LowPtElectron_deltaEtaSC_,LowPtElectron_deltaEtaSC_+bytes/sizeof(LowPtElectron_deltaEtaSC_[0]));
+        v_LowPtElectron_deltaEtaSC_ = vector<float>(LowPtElectron_deltaEtaSC_.data(),LowPtElectron_deltaEtaSC_.data()+bytes/sizeof(LowPtElectron_deltaEtaSC_[0]));
         loaded_LowPtElectron_deltaEtaSC_ = true;
     }
     return v_LowPtElectron_deltaEtaSC_;
@@ -44820,7 +44855,7 @@ const vector<float> &Nano::LowPtElectron_dxy() {
     if (!loaded_LowPtElectron_dxy_) {
         if (!b_LowPtElectron_dxy_) throw std::runtime_error("LowPtElectron_dxy branch doesn't exist");
         int bytes = b_LowPtElectron_dxy_->GetEntry(index);
-        v_LowPtElectron_dxy_ = vector<float>(LowPtElectron_dxy_,LowPtElectron_dxy_+bytes/sizeof(LowPtElectron_dxy_[0]));
+        v_LowPtElectron_dxy_ = vector<float>(LowPtElectron_dxy_.data(),LowPtElectron_dxy_.data()+bytes/sizeof(LowPtElectron_dxy_[0]));
         loaded_LowPtElectron_dxy_ = true;
     }
     return v_LowPtElectron_dxy_;
@@ -44831,7 +44866,7 @@ const vector<float> &Nano::LowPtElectron_dxyErr() {
     if (!loaded_LowPtElectron_dxyErr_) {
         if (!b_LowPtElectron_dxyErr_) throw std::runtime_error("LowPtElectron_dxyErr branch doesn't exist");
         int bytes = b_LowPtElectron_dxyErr_->GetEntry(index);
-        v_LowPtElectron_dxyErr_ = vector<float>(LowPtElectron_dxyErr_,LowPtElectron_dxyErr_+bytes/sizeof(LowPtElectron_dxyErr_[0]));
+        v_LowPtElectron_dxyErr_ = vector<float>(LowPtElectron_dxyErr_.data(),LowPtElectron_dxyErr_.data()+bytes/sizeof(LowPtElectron_dxyErr_[0]));
         loaded_LowPtElectron_dxyErr_ = true;
     }
     return v_LowPtElectron_dxyErr_;
@@ -44842,7 +44877,7 @@ const vector<float> &Nano::LowPtElectron_dz() {
     if (!loaded_LowPtElectron_dz_) {
         if (!b_LowPtElectron_dz_) throw std::runtime_error("LowPtElectron_dz branch doesn't exist");
         int bytes = b_LowPtElectron_dz_->GetEntry(index);
-        v_LowPtElectron_dz_ = vector<float>(LowPtElectron_dz_,LowPtElectron_dz_+bytes/sizeof(LowPtElectron_dz_[0]));
+        v_LowPtElectron_dz_ = vector<float>(LowPtElectron_dz_.data(),LowPtElectron_dz_.data()+bytes/sizeof(LowPtElectron_dz_[0]));
         loaded_LowPtElectron_dz_ = true;
     }
     return v_LowPtElectron_dz_;
@@ -44853,7 +44888,7 @@ const vector<float> &Nano::LowPtElectron_dzErr() {
     if (!loaded_LowPtElectron_dzErr_) {
         if (!b_LowPtElectron_dzErr_) throw std::runtime_error("LowPtElectron_dzErr branch doesn't exist");
         int bytes = b_LowPtElectron_dzErr_->GetEntry(index);
-        v_LowPtElectron_dzErr_ = vector<float>(LowPtElectron_dzErr_,LowPtElectron_dzErr_+bytes/sizeof(LowPtElectron_dzErr_[0]));
+        v_LowPtElectron_dzErr_ = vector<float>(LowPtElectron_dzErr_.data(),LowPtElectron_dzErr_.data()+bytes/sizeof(LowPtElectron_dzErr_[0]));
         loaded_LowPtElectron_dzErr_ = true;
     }
     return v_LowPtElectron_dzErr_;
@@ -44864,7 +44899,7 @@ const vector<float> &Nano::LowPtElectron_eInvMinusPInv() {
     if (!loaded_LowPtElectron_eInvMinusPInv_) {
         if (!b_LowPtElectron_eInvMinusPInv_) throw std::runtime_error("LowPtElectron_eInvMinusPInv branch doesn't exist");
         int bytes = b_LowPtElectron_eInvMinusPInv_->GetEntry(index);
-        v_LowPtElectron_eInvMinusPInv_ = vector<float>(LowPtElectron_eInvMinusPInv_,LowPtElectron_eInvMinusPInv_+bytes/sizeof(LowPtElectron_eInvMinusPInv_[0]));
+        v_LowPtElectron_eInvMinusPInv_ = vector<float>(LowPtElectron_eInvMinusPInv_.data(),LowPtElectron_eInvMinusPInv_.data()+bytes/sizeof(LowPtElectron_eInvMinusPInv_[0]));
         loaded_LowPtElectron_eInvMinusPInv_ = true;
     }
     return v_LowPtElectron_eInvMinusPInv_;
@@ -44875,7 +44910,7 @@ const vector<int> &Nano::LowPtElectron_electronIdx() {
     if (!loaded_LowPtElectron_electronIdx_) {
         if (!b_LowPtElectron_electronIdx_) throw std::runtime_error("LowPtElectron_electronIdx branch doesn't exist");
         int bytes = b_LowPtElectron_electronIdx_->GetEntry(index);
-        v_LowPtElectron_electronIdx_ = vector<int>(LowPtElectron_electronIdx_,LowPtElectron_electronIdx_+bytes/sizeof(LowPtElectron_electronIdx_[0]));
+        v_LowPtElectron_electronIdx_ = vector<int>(LowPtElectron_electronIdx_.data(),LowPtElectron_electronIdx_.data()+bytes/sizeof(LowPtElectron_electronIdx_[0]));
         loaded_LowPtElectron_electronIdx_ = true;
     }
     return v_LowPtElectron_electronIdx_;
@@ -44886,7 +44921,7 @@ const vector<float> &Nano::LowPtElectron_embeddedID() {
     if (!loaded_LowPtElectron_embeddedID_) {
         if (!b_LowPtElectron_embeddedID_) throw std::runtime_error("LowPtElectron_embeddedID branch doesn't exist");
         int bytes = b_LowPtElectron_embeddedID_->GetEntry(index);
-        v_LowPtElectron_embeddedID_ = vector<float>(LowPtElectron_embeddedID_,LowPtElectron_embeddedID_+bytes/sizeof(LowPtElectron_embeddedID_[0]));
+        v_LowPtElectron_embeddedID_ = vector<float>(LowPtElectron_embeddedID_.data(),LowPtElectron_embeddedID_.data()+bytes/sizeof(LowPtElectron_embeddedID_[0]));
         loaded_LowPtElectron_embeddedID_ = true;
     }
     return v_LowPtElectron_embeddedID_;
@@ -44897,7 +44932,7 @@ const vector<float> &Nano::LowPtElectron_energyErr() {
     if (!loaded_LowPtElectron_energyErr_) {
         if (!b_LowPtElectron_energyErr_) throw std::runtime_error("LowPtElectron_energyErr branch doesn't exist");
         int bytes = b_LowPtElectron_energyErr_->GetEntry(index);
-        v_LowPtElectron_energyErr_ = vector<float>(LowPtElectron_energyErr_,LowPtElectron_energyErr_+bytes/sizeof(LowPtElectron_energyErr_[0]));
+        v_LowPtElectron_energyErr_ = vector<float>(LowPtElectron_energyErr_.data(),LowPtElectron_energyErr_.data()+bytes/sizeof(LowPtElectron_energyErr_[0]));
         loaded_LowPtElectron_energyErr_ = true;
     }
     return v_LowPtElectron_energyErr_;
@@ -44908,7 +44943,7 @@ const vector<float> &Nano::LowPtElectron_eta() {
     if (!loaded_LowPtElectron_eta_) {
         if (!b_LowPtElectron_eta_) throw std::runtime_error("LowPtElectron_eta branch doesn't exist");
         int bytes = b_LowPtElectron_eta_->GetEntry(index);
-        v_LowPtElectron_eta_ = vector<float>(LowPtElectron_eta_,LowPtElectron_eta_+bytes/sizeof(LowPtElectron_eta_[0]));
+        v_LowPtElectron_eta_ = vector<float>(LowPtElectron_eta_.data(),LowPtElectron_eta_.data()+bytes/sizeof(LowPtElectron_eta_[0]));
         loaded_LowPtElectron_eta_ = true;
     }
     return v_LowPtElectron_eta_;
@@ -44919,7 +44954,7 @@ const vector<UChar_t> &Nano::LowPtElectron_genPartFlav() {
     if (!loaded_LowPtElectron_genPartFlav_) {
         if (!b_LowPtElectron_genPartFlav_) throw std::runtime_error("LowPtElectron_genPartFlav branch doesn't exist");
         int bytes = b_LowPtElectron_genPartFlav_->GetEntry(index);
-        v_LowPtElectron_genPartFlav_ = vector<UChar_t>(LowPtElectron_genPartFlav_,LowPtElectron_genPartFlav_+bytes/sizeof(LowPtElectron_genPartFlav_[0]));
+        v_LowPtElectron_genPartFlav_ = vector<UChar_t>(LowPtElectron_genPartFlav_.data(),LowPtElectron_genPartFlav_.data()+bytes/sizeof(LowPtElectron_genPartFlav_[0]));
         loaded_LowPtElectron_genPartFlav_ = true;
     }
     return v_LowPtElectron_genPartFlav_;
@@ -44930,7 +44965,7 @@ const vector<int> &Nano::LowPtElectron_genPartIdx() {
     if (!loaded_LowPtElectron_genPartIdx_) {
         if (!b_LowPtElectron_genPartIdx_) throw std::runtime_error("LowPtElectron_genPartIdx branch doesn't exist");
         int bytes = b_LowPtElectron_genPartIdx_->GetEntry(index);
-        v_LowPtElectron_genPartIdx_ = vector<int>(LowPtElectron_genPartIdx_,LowPtElectron_genPartIdx_+bytes/sizeof(LowPtElectron_genPartIdx_[0]));
+        v_LowPtElectron_genPartIdx_ = vector<int>(LowPtElectron_genPartIdx_.data(),LowPtElectron_genPartIdx_.data()+bytes/sizeof(LowPtElectron_genPartIdx_[0]));
         loaded_LowPtElectron_genPartIdx_ = true;
     }
     return v_LowPtElectron_genPartIdx_;
@@ -44941,7 +44976,7 @@ const vector<float> &Nano::LowPtElectron_hoe() {
     if (!loaded_LowPtElectron_hoe_) {
         if (!b_LowPtElectron_hoe_) throw std::runtime_error("LowPtElectron_hoe branch doesn't exist");
         int bytes = b_LowPtElectron_hoe_->GetEntry(index);
-        v_LowPtElectron_hoe_ = vector<float>(LowPtElectron_hoe_,LowPtElectron_hoe_+bytes/sizeof(LowPtElectron_hoe_[0]));
+        v_LowPtElectron_hoe_ = vector<float>(LowPtElectron_hoe_.data(),LowPtElectron_hoe_.data()+bytes/sizeof(LowPtElectron_hoe_[0]));
         loaded_LowPtElectron_hoe_ = true;
     }
     return v_LowPtElectron_hoe_;
@@ -44952,7 +44987,7 @@ const vector<UChar_t> &Nano::LowPtElectron_lostHits() {
     if (!loaded_LowPtElectron_lostHits_) {
         if (!b_LowPtElectron_lostHits_) throw std::runtime_error("LowPtElectron_lostHits branch doesn't exist");
         int bytes = b_LowPtElectron_lostHits_->GetEntry(index);
-        v_LowPtElectron_lostHits_ = vector<UChar_t>(LowPtElectron_lostHits_,LowPtElectron_lostHits_+bytes/sizeof(LowPtElectron_lostHits_[0]));
+        v_LowPtElectron_lostHits_ = vector<UChar_t>(LowPtElectron_lostHits_.data(),LowPtElectron_lostHits_.data()+bytes/sizeof(LowPtElectron_lostHits_[0]));
         loaded_LowPtElectron_lostHits_ = true;
     }
     return v_LowPtElectron_lostHits_;
@@ -44963,7 +44998,7 @@ const vector<float> &Nano::LowPtElectron_mass() {
     if (!loaded_LowPtElectron_mass_) {
         if (!b_LowPtElectron_mass_) throw std::runtime_error("LowPtElectron_mass branch doesn't exist");
         int bytes = b_LowPtElectron_mass_->GetEntry(index);
-        v_LowPtElectron_mass_ = vector<float>(LowPtElectron_mass_,LowPtElectron_mass_+bytes/sizeof(LowPtElectron_mass_[0]));
+        v_LowPtElectron_mass_ = vector<float>(LowPtElectron_mass_.data(),LowPtElectron_mass_.data()+bytes/sizeof(LowPtElectron_mass_[0]));
         loaded_LowPtElectron_mass_ = true;
     }
     return v_LowPtElectron_mass_;
@@ -44974,7 +45009,7 @@ const vector<float> &Nano::LowPtElectron_miniPFRelIso_all() {
     if (!loaded_LowPtElectron_miniPFRelIso_all_) {
         if (!b_LowPtElectron_miniPFRelIso_all_) throw std::runtime_error("LowPtElectron_miniPFRelIso_all branch doesn't exist");
         int bytes = b_LowPtElectron_miniPFRelIso_all_->GetEntry(index);
-        v_LowPtElectron_miniPFRelIso_all_ = vector<float>(LowPtElectron_miniPFRelIso_all_,LowPtElectron_miniPFRelIso_all_+bytes/sizeof(LowPtElectron_miniPFRelIso_all_[0]));
+        v_LowPtElectron_miniPFRelIso_all_ = vector<float>(LowPtElectron_miniPFRelIso_all_.data(),LowPtElectron_miniPFRelIso_all_.data()+bytes/sizeof(LowPtElectron_miniPFRelIso_all_[0]));
         loaded_LowPtElectron_miniPFRelIso_all_ = true;
     }
     return v_LowPtElectron_miniPFRelIso_all_;
@@ -44985,7 +45020,7 @@ const vector<float> &Nano::LowPtElectron_miniPFRelIso_chg() {
     if (!loaded_LowPtElectron_miniPFRelIso_chg_) {
         if (!b_LowPtElectron_miniPFRelIso_chg_) throw std::runtime_error("LowPtElectron_miniPFRelIso_chg branch doesn't exist");
         int bytes = b_LowPtElectron_miniPFRelIso_chg_->GetEntry(index);
-        v_LowPtElectron_miniPFRelIso_chg_ = vector<float>(LowPtElectron_miniPFRelIso_chg_,LowPtElectron_miniPFRelIso_chg_+bytes/sizeof(LowPtElectron_miniPFRelIso_chg_[0]));
+        v_LowPtElectron_miniPFRelIso_chg_ = vector<float>(LowPtElectron_miniPFRelIso_chg_.data(),LowPtElectron_miniPFRelIso_chg_.data()+bytes/sizeof(LowPtElectron_miniPFRelIso_chg_[0]));
         loaded_LowPtElectron_miniPFRelIso_chg_ = true;
     }
     return v_LowPtElectron_miniPFRelIso_chg_;
@@ -45012,7 +45047,7 @@ const vector<int> &Nano::LowPtElectron_pdgId() {
     if (!loaded_LowPtElectron_pdgId_) {
         if (!b_LowPtElectron_pdgId_) throw std::runtime_error("LowPtElectron_pdgId branch doesn't exist");
         int bytes = b_LowPtElectron_pdgId_->GetEntry(index);
-        v_LowPtElectron_pdgId_ = vector<int>(LowPtElectron_pdgId_,LowPtElectron_pdgId_+bytes/sizeof(LowPtElectron_pdgId_[0]));
+        v_LowPtElectron_pdgId_ = vector<int>(LowPtElectron_pdgId_.data(),LowPtElectron_pdgId_.data()+bytes/sizeof(LowPtElectron_pdgId_[0]));
         loaded_LowPtElectron_pdgId_ = true;
     }
     return v_LowPtElectron_pdgId_;
@@ -45023,7 +45058,7 @@ const vector<float> &Nano::LowPtElectron_phi() {
     if (!loaded_LowPtElectron_phi_) {
         if (!b_LowPtElectron_phi_) throw std::runtime_error("LowPtElectron_phi branch doesn't exist");
         int bytes = b_LowPtElectron_phi_->GetEntry(index);
-        v_LowPtElectron_phi_ = vector<float>(LowPtElectron_phi_,LowPtElectron_phi_+bytes/sizeof(LowPtElectron_phi_[0]));
+        v_LowPtElectron_phi_ = vector<float>(LowPtElectron_phi_.data(),LowPtElectron_phi_.data()+bytes/sizeof(LowPtElectron_phi_[0]));
         loaded_LowPtElectron_phi_ = true;
     }
     return v_LowPtElectron_phi_;
@@ -45034,7 +45069,7 @@ const vector<int> &Nano::LowPtElectron_photonIdx() {
     if (!loaded_LowPtElectron_photonIdx_) {
         if (!b_LowPtElectron_photonIdx_) throw std::runtime_error("LowPtElectron_photonIdx branch doesn't exist");
         int bytes = b_LowPtElectron_photonIdx_->GetEntry(index);
-        v_LowPtElectron_photonIdx_ = vector<int>(LowPtElectron_photonIdx_,LowPtElectron_photonIdx_+bytes/sizeof(LowPtElectron_photonIdx_[0]));
+        v_LowPtElectron_photonIdx_ = vector<int>(LowPtElectron_photonIdx_.data(),LowPtElectron_photonIdx_.data()+bytes/sizeof(LowPtElectron_photonIdx_[0]));
         loaded_LowPtElectron_photonIdx_ = true;
     }
     return v_LowPtElectron_photonIdx_;
@@ -45045,7 +45080,7 @@ const vector<float> &Nano::LowPtElectron_pt() {
     if (!loaded_LowPtElectron_pt_) {
         if (!b_LowPtElectron_pt_) throw std::runtime_error("LowPtElectron_pt branch doesn't exist");
         int bytes = b_LowPtElectron_pt_->GetEntry(index);
-        v_LowPtElectron_pt_ = vector<float>(LowPtElectron_pt_,LowPtElectron_pt_+bytes/sizeof(LowPtElectron_pt_[0]));
+        v_LowPtElectron_pt_ = vector<float>(LowPtElectron_pt_.data(),LowPtElectron_pt_.data()+bytes/sizeof(LowPtElectron_pt_[0]));
         loaded_LowPtElectron_pt_ = true;
     }
     return v_LowPtElectron_pt_;
@@ -45056,7 +45091,7 @@ const vector<float> &Nano::LowPtElectron_ptbiased() {
     if (!loaded_LowPtElectron_ptbiased_) {
         if (!b_LowPtElectron_ptbiased_) throw std::runtime_error("LowPtElectron_ptbiased branch doesn't exist");
         int bytes = b_LowPtElectron_ptbiased_->GetEntry(index);
-        v_LowPtElectron_ptbiased_ = vector<float>(LowPtElectron_ptbiased_,LowPtElectron_ptbiased_+bytes/sizeof(LowPtElectron_ptbiased_[0]));
+        v_LowPtElectron_ptbiased_ = vector<float>(LowPtElectron_ptbiased_.data(),LowPtElectron_ptbiased_.data()+bytes/sizeof(LowPtElectron_ptbiased_[0]));
         loaded_LowPtElectron_ptbiased_ = true;
     }
     return v_LowPtElectron_ptbiased_;
@@ -45067,7 +45102,7 @@ const vector<float> &Nano::LowPtElectron_r9() {
     if (!loaded_LowPtElectron_r9_) {
         if (!b_LowPtElectron_r9_) throw std::runtime_error("LowPtElectron_r9 branch doesn't exist");
         int bytes = b_LowPtElectron_r9_->GetEntry(index);
-        v_LowPtElectron_r9_ = vector<float>(LowPtElectron_r9_,LowPtElectron_r9_+bytes/sizeof(LowPtElectron_r9_[0]));
+        v_LowPtElectron_r9_ = vector<float>(LowPtElectron_r9_.data(),LowPtElectron_r9_.data()+bytes/sizeof(LowPtElectron_r9_[0]));
         loaded_LowPtElectron_r9_ = true;
     }
     return v_LowPtElectron_r9_;
@@ -45078,7 +45113,7 @@ const vector<float> &Nano::LowPtElectron_scEtOverPt() {
     if (!loaded_LowPtElectron_scEtOverPt_) {
         if (!b_LowPtElectron_scEtOverPt_) throw std::runtime_error("LowPtElectron_scEtOverPt branch doesn't exist");
         int bytes = b_LowPtElectron_scEtOverPt_->GetEntry(index);
-        v_LowPtElectron_scEtOverPt_ = vector<float>(LowPtElectron_scEtOverPt_,LowPtElectron_scEtOverPt_+bytes/sizeof(LowPtElectron_scEtOverPt_[0]));
+        v_LowPtElectron_scEtOverPt_ = vector<float>(LowPtElectron_scEtOverPt_.data(),LowPtElectron_scEtOverPt_.data()+bytes/sizeof(LowPtElectron_scEtOverPt_[0]));
         loaded_LowPtElectron_scEtOverPt_ = true;
     }
     return v_LowPtElectron_scEtOverPt_;
@@ -45089,7 +45124,7 @@ const vector<float> &Nano::LowPtElectron_sieie() {
     if (!loaded_LowPtElectron_sieie_) {
         if (!b_LowPtElectron_sieie_) throw std::runtime_error("LowPtElectron_sieie branch doesn't exist");
         int bytes = b_LowPtElectron_sieie_->GetEntry(index);
-        v_LowPtElectron_sieie_ = vector<float>(LowPtElectron_sieie_,LowPtElectron_sieie_+bytes/sizeof(LowPtElectron_sieie_[0]));
+        v_LowPtElectron_sieie_ = vector<float>(LowPtElectron_sieie_.data(),LowPtElectron_sieie_.data()+bytes/sizeof(LowPtElectron_sieie_[0]));
         loaded_LowPtElectron_sieie_ = true;
     }
     return v_LowPtElectron_sieie_;
@@ -45100,7 +45135,7 @@ const vector<float> &Nano::LowPtElectron_unbiased() {
     if (!loaded_LowPtElectron_unbiased_) {
         if (!b_LowPtElectron_unbiased_) throw std::runtime_error("LowPtElectron_unbiased branch doesn't exist");
         int bytes = b_LowPtElectron_unbiased_->GetEntry(index);
-        v_LowPtElectron_unbiased_ = vector<float>(LowPtElectron_unbiased_,LowPtElectron_unbiased_+bytes/sizeof(LowPtElectron_unbiased_[0]));
+        v_LowPtElectron_unbiased_ = vector<float>(LowPtElectron_unbiased_.data(),LowPtElectron_unbiased_.data()+bytes/sizeof(LowPtElectron_unbiased_[0]));
         loaded_LowPtElectron_unbiased_ = true;
     }
     return v_LowPtElectron_unbiased_;
@@ -45591,7 +45626,7 @@ const vector<float> &Nano::Muon_CutBased_HighPtID_SF() {
     if (!loaded_Muon_CutBased_HighPtID_SF_) {
         if (!b_Muon_CutBased_HighPtID_SF_) throw std::runtime_error("Muon_CutBased_HighPtID_SF branch doesn't exist");
         int bytes = b_Muon_CutBased_HighPtID_SF_->GetEntry(index);
-        v_Muon_CutBased_HighPtID_SF_ = vector<float>(Muon_CutBased_HighPtID_SF_,Muon_CutBased_HighPtID_SF_+bytes/sizeof(Muon_CutBased_HighPtID_SF_[0]));
+        v_Muon_CutBased_HighPtID_SF_ = vector<float>(Muon_CutBased_HighPtID_SF_.data(),Muon_CutBased_HighPtID_SF_.data()+bytes/sizeof(Muon_CutBased_HighPtID_SF_[0]));
         loaded_Muon_CutBased_HighPtID_SF_ = true;
     }
     return v_Muon_CutBased_HighPtID_SF_;
@@ -45602,7 +45637,7 @@ const vector<float> &Nano::Muon_CutBased_HighPtID_SFerr() {
     if (!loaded_Muon_CutBased_HighPtID_SFerr_) {
         if (!b_Muon_CutBased_HighPtID_SFerr_) throw std::runtime_error("Muon_CutBased_HighPtID_SFerr branch doesn't exist");
         int bytes = b_Muon_CutBased_HighPtID_SFerr_->GetEntry(index);
-        v_Muon_CutBased_HighPtID_SFerr_ = vector<float>(Muon_CutBased_HighPtID_SFerr_,Muon_CutBased_HighPtID_SFerr_+bytes/sizeof(Muon_CutBased_HighPtID_SFerr_[0]));
+        v_Muon_CutBased_HighPtID_SFerr_ = vector<float>(Muon_CutBased_HighPtID_SFerr_.data(),Muon_CutBased_HighPtID_SFerr_.data()+bytes/sizeof(Muon_CutBased_HighPtID_SFerr_[0]));
         loaded_Muon_CutBased_HighPtID_SFerr_ = true;
     }
     return v_Muon_CutBased_HighPtID_SFerr_;
@@ -45613,7 +45648,7 @@ const vector<float> &Nano::Muon_CutBased_LooseID_SF() {
     if (!loaded_Muon_CutBased_LooseID_SF_) {
         if (!b_Muon_CutBased_LooseID_SF_) throw std::runtime_error("Muon_CutBased_LooseID_SF branch doesn't exist");
         int bytes = b_Muon_CutBased_LooseID_SF_->GetEntry(index);
-        v_Muon_CutBased_LooseID_SF_ = vector<float>(Muon_CutBased_LooseID_SF_,Muon_CutBased_LooseID_SF_+bytes/sizeof(Muon_CutBased_LooseID_SF_[0]));
+        v_Muon_CutBased_LooseID_SF_ = vector<float>(Muon_CutBased_LooseID_SF_.data(),Muon_CutBased_LooseID_SF_.data()+bytes/sizeof(Muon_CutBased_LooseID_SF_[0]));
         loaded_Muon_CutBased_LooseID_SF_ = true;
     }
     return v_Muon_CutBased_LooseID_SF_;
@@ -45624,7 +45659,7 @@ const vector<float> &Nano::Muon_CutBased_LooseID_SFerr() {
     if (!loaded_Muon_CutBased_LooseID_SFerr_) {
         if (!b_Muon_CutBased_LooseID_SFerr_) throw std::runtime_error("Muon_CutBased_LooseID_SFerr branch doesn't exist");
         int bytes = b_Muon_CutBased_LooseID_SFerr_->GetEntry(index);
-        v_Muon_CutBased_LooseID_SFerr_ = vector<float>(Muon_CutBased_LooseID_SFerr_,Muon_CutBased_LooseID_SFerr_+bytes/sizeof(Muon_CutBased_LooseID_SFerr_[0]));
+        v_Muon_CutBased_LooseID_SFerr_ = vector<float>(Muon_CutBased_LooseID_SFerr_.data(),Muon_CutBased_LooseID_SFerr_.data()+bytes/sizeof(Muon_CutBased_LooseID_SFerr_[0]));
         loaded_Muon_CutBased_LooseID_SFerr_ = true;
     }
     return v_Muon_CutBased_LooseID_SFerr_;
@@ -45635,7 +45670,7 @@ const vector<float> &Nano::Muon_CutBased_MediumID_SF() {
     if (!loaded_Muon_CutBased_MediumID_SF_) {
         if (!b_Muon_CutBased_MediumID_SF_) throw std::runtime_error("Muon_CutBased_MediumID_SF branch doesn't exist");
         int bytes = b_Muon_CutBased_MediumID_SF_->GetEntry(index);
-        v_Muon_CutBased_MediumID_SF_ = vector<float>(Muon_CutBased_MediumID_SF_,Muon_CutBased_MediumID_SF_+bytes/sizeof(Muon_CutBased_MediumID_SF_[0]));
+        v_Muon_CutBased_MediumID_SF_ = vector<float>(Muon_CutBased_MediumID_SF_.data(),Muon_CutBased_MediumID_SF_.data()+bytes/sizeof(Muon_CutBased_MediumID_SF_[0]));
         loaded_Muon_CutBased_MediumID_SF_ = true;
     }
     return v_Muon_CutBased_MediumID_SF_;
@@ -45646,7 +45681,7 @@ const vector<float> &Nano::Muon_CutBased_MediumID_SFerr() {
     if (!loaded_Muon_CutBased_MediumID_SFerr_) {
         if (!b_Muon_CutBased_MediumID_SFerr_) throw std::runtime_error("Muon_CutBased_MediumID_SFerr branch doesn't exist");
         int bytes = b_Muon_CutBased_MediumID_SFerr_->GetEntry(index);
-        v_Muon_CutBased_MediumID_SFerr_ = vector<float>(Muon_CutBased_MediumID_SFerr_,Muon_CutBased_MediumID_SFerr_+bytes/sizeof(Muon_CutBased_MediumID_SFerr_[0]));
+        v_Muon_CutBased_MediumID_SFerr_ = vector<float>(Muon_CutBased_MediumID_SFerr_.data(),Muon_CutBased_MediumID_SFerr_.data()+bytes/sizeof(Muon_CutBased_MediumID_SFerr_[0]));
         loaded_Muon_CutBased_MediumID_SFerr_ = true;
     }
     return v_Muon_CutBased_MediumID_SFerr_;
@@ -45657,7 +45692,7 @@ const vector<float> &Nano::Muon_CutBased_MediumPromptID_SF() {
     if (!loaded_Muon_CutBased_MediumPromptID_SF_) {
         if (!b_Muon_CutBased_MediumPromptID_SF_) throw std::runtime_error("Muon_CutBased_MediumPromptID_SF branch doesn't exist");
         int bytes = b_Muon_CutBased_MediumPromptID_SF_->GetEntry(index);
-        v_Muon_CutBased_MediumPromptID_SF_ = vector<float>(Muon_CutBased_MediumPromptID_SF_,Muon_CutBased_MediumPromptID_SF_+bytes/sizeof(Muon_CutBased_MediumPromptID_SF_[0]));
+        v_Muon_CutBased_MediumPromptID_SF_ = vector<float>(Muon_CutBased_MediumPromptID_SF_.data(),Muon_CutBased_MediumPromptID_SF_.data()+bytes/sizeof(Muon_CutBased_MediumPromptID_SF_[0]));
         loaded_Muon_CutBased_MediumPromptID_SF_ = true;
     }
     return v_Muon_CutBased_MediumPromptID_SF_;
@@ -45668,7 +45703,7 @@ const vector<float> &Nano::Muon_CutBased_MediumPromptID_SFerr() {
     if (!loaded_Muon_CutBased_MediumPromptID_SFerr_) {
         if (!b_Muon_CutBased_MediumPromptID_SFerr_) throw std::runtime_error("Muon_CutBased_MediumPromptID_SFerr branch doesn't exist");
         int bytes = b_Muon_CutBased_MediumPromptID_SFerr_->GetEntry(index);
-        v_Muon_CutBased_MediumPromptID_SFerr_ = vector<float>(Muon_CutBased_MediumPromptID_SFerr_,Muon_CutBased_MediumPromptID_SFerr_+bytes/sizeof(Muon_CutBased_MediumPromptID_SFerr_[0]));
+        v_Muon_CutBased_MediumPromptID_SFerr_ = vector<float>(Muon_CutBased_MediumPromptID_SFerr_.data(),Muon_CutBased_MediumPromptID_SFerr_.data()+bytes/sizeof(Muon_CutBased_MediumPromptID_SFerr_[0]));
         loaded_Muon_CutBased_MediumPromptID_SFerr_ = true;
     }
     return v_Muon_CutBased_MediumPromptID_SFerr_;
@@ -45679,7 +45714,7 @@ const vector<float> &Nano::Muon_CutBased_SoftID_SF() {
     if (!loaded_Muon_CutBased_SoftID_SF_) {
         if (!b_Muon_CutBased_SoftID_SF_) throw std::runtime_error("Muon_CutBased_SoftID_SF branch doesn't exist");
         int bytes = b_Muon_CutBased_SoftID_SF_->GetEntry(index);
-        v_Muon_CutBased_SoftID_SF_ = vector<float>(Muon_CutBased_SoftID_SF_,Muon_CutBased_SoftID_SF_+bytes/sizeof(Muon_CutBased_SoftID_SF_[0]));
+        v_Muon_CutBased_SoftID_SF_ = vector<float>(Muon_CutBased_SoftID_SF_.data(),Muon_CutBased_SoftID_SF_.data()+bytes/sizeof(Muon_CutBased_SoftID_SF_[0]));
         loaded_Muon_CutBased_SoftID_SF_ = true;
     }
     return v_Muon_CutBased_SoftID_SF_;
@@ -45690,7 +45725,7 @@ const vector<float> &Nano::Muon_CutBased_SoftID_SFerr() {
     if (!loaded_Muon_CutBased_SoftID_SFerr_) {
         if (!b_Muon_CutBased_SoftID_SFerr_) throw std::runtime_error("Muon_CutBased_SoftID_SFerr branch doesn't exist");
         int bytes = b_Muon_CutBased_SoftID_SFerr_->GetEntry(index);
-        v_Muon_CutBased_SoftID_SFerr_ = vector<float>(Muon_CutBased_SoftID_SFerr_,Muon_CutBased_SoftID_SFerr_+bytes/sizeof(Muon_CutBased_SoftID_SFerr_[0]));
+        v_Muon_CutBased_SoftID_SFerr_ = vector<float>(Muon_CutBased_SoftID_SFerr_.data(),Muon_CutBased_SoftID_SFerr_.data()+bytes/sizeof(Muon_CutBased_SoftID_SFerr_[0]));
         loaded_Muon_CutBased_SoftID_SFerr_ = true;
     }
     return v_Muon_CutBased_SoftID_SFerr_;
@@ -45701,7 +45736,7 @@ const vector<float> &Nano::Muon_CutBased_TightID_SF() {
     if (!loaded_Muon_CutBased_TightID_SF_) {
         if (!b_Muon_CutBased_TightID_SF_) throw std::runtime_error("Muon_CutBased_TightID_SF branch doesn't exist");
         int bytes = b_Muon_CutBased_TightID_SF_->GetEntry(index);
-        v_Muon_CutBased_TightID_SF_ = vector<float>(Muon_CutBased_TightID_SF_,Muon_CutBased_TightID_SF_+bytes/sizeof(Muon_CutBased_TightID_SF_[0]));
+        v_Muon_CutBased_TightID_SF_ = vector<float>(Muon_CutBased_TightID_SF_.data(),Muon_CutBased_TightID_SF_.data()+bytes/sizeof(Muon_CutBased_TightID_SF_[0]));
         loaded_Muon_CutBased_TightID_SF_ = true;
     }
     return v_Muon_CutBased_TightID_SF_;
@@ -45712,7 +45747,7 @@ const vector<float> &Nano::Muon_CutBased_TightID_SFerr() {
     if (!loaded_Muon_CutBased_TightID_SFerr_) {
         if (!b_Muon_CutBased_TightID_SFerr_) throw std::runtime_error("Muon_CutBased_TightID_SFerr branch doesn't exist");
         int bytes = b_Muon_CutBased_TightID_SFerr_->GetEntry(index);
-        v_Muon_CutBased_TightID_SFerr_ = vector<float>(Muon_CutBased_TightID_SFerr_,Muon_CutBased_TightID_SFerr_+bytes/sizeof(Muon_CutBased_TightID_SFerr_[0]));
+        v_Muon_CutBased_TightID_SFerr_ = vector<float>(Muon_CutBased_TightID_SFerr_.data(),Muon_CutBased_TightID_SFerr_.data()+bytes/sizeof(Muon_CutBased_TightID_SFerr_[0]));
         loaded_Muon_CutBased_TightID_SFerr_ = true;
     }
     return v_Muon_CutBased_TightID_SFerr_;
@@ -45723,7 +45758,7 @@ const vector<float> &Nano::Muon_CutBased_TrkHighPtID_SF() {
     if (!loaded_Muon_CutBased_TrkHighPtID_SF_) {
         if (!b_Muon_CutBased_TrkHighPtID_SF_) throw std::runtime_error("Muon_CutBased_TrkHighPtID_SF branch doesn't exist");
         int bytes = b_Muon_CutBased_TrkHighPtID_SF_->GetEntry(index);
-        v_Muon_CutBased_TrkHighPtID_SF_ = vector<float>(Muon_CutBased_TrkHighPtID_SF_,Muon_CutBased_TrkHighPtID_SF_+bytes/sizeof(Muon_CutBased_TrkHighPtID_SF_[0]));
+        v_Muon_CutBased_TrkHighPtID_SF_ = vector<float>(Muon_CutBased_TrkHighPtID_SF_.data(),Muon_CutBased_TrkHighPtID_SF_.data()+bytes/sizeof(Muon_CutBased_TrkHighPtID_SF_[0]));
         loaded_Muon_CutBased_TrkHighPtID_SF_ = true;
     }
     return v_Muon_CutBased_TrkHighPtID_SF_;
@@ -45734,7 +45769,7 @@ const vector<float> &Nano::Muon_CutBased_TrkHighPtID_SFerr() {
     if (!loaded_Muon_CutBased_TrkHighPtID_SFerr_) {
         if (!b_Muon_CutBased_TrkHighPtID_SFerr_) throw std::runtime_error("Muon_CutBased_TrkHighPtID_SFerr branch doesn't exist");
         int bytes = b_Muon_CutBased_TrkHighPtID_SFerr_->GetEntry(index);
-        v_Muon_CutBased_TrkHighPtID_SFerr_ = vector<float>(Muon_CutBased_TrkHighPtID_SFerr_,Muon_CutBased_TrkHighPtID_SFerr_+bytes/sizeof(Muon_CutBased_TrkHighPtID_SFerr_[0]));
+        v_Muon_CutBased_TrkHighPtID_SFerr_ = vector<float>(Muon_CutBased_TrkHighPtID_SFerr_.data(),Muon_CutBased_TrkHighPtID_SFerr_.data()+bytes/sizeof(Muon_CutBased_TrkHighPtID_SFerr_[0]));
         loaded_Muon_CutBased_TrkHighPtID_SFerr_ = true;
     }
     return v_Muon_CutBased_TrkHighPtID_SFerr_;
@@ -45745,7 +45780,7 @@ const vector<float> &Nano::Muon_LooseRelIso_LooseID_SF() {
     if (!loaded_Muon_LooseRelIso_LooseID_SF_) {
         if (!b_Muon_LooseRelIso_LooseID_SF_) throw std::runtime_error("Muon_LooseRelIso_LooseID_SF branch doesn't exist");
         int bytes = b_Muon_LooseRelIso_LooseID_SF_->GetEntry(index);
-        v_Muon_LooseRelIso_LooseID_SF_ = vector<float>(Muon_LooseRelIso_LooseID_SF_,Muon_LooseRelIso_LooseID_SF_+bytes/sizeof(Muon_LooseRelIso_LooseID_SF_[0]));
+        v_Muon_LooseRelIso_LooseID_SF_ = vector<float>(Muon_LooseRelIso_LooseID_SF_.data(),Muon_LooseRelIso_LooseID_SF_.data()+bytes/sizeof(Muon_LooseRelIso_LooseID_SF_[0]));
         loaded_Muon_LooseRelIso_LooseID_SF_ = true;
     }
     return v_Muon_LooseRelIso_LooseID_SF_;
@@ -45756,7 +45791,7 @@ const vector<float> &Nano::Muon_LooseRelIso_LooseID_SFerr() {
     if (!loaded_Muon_LooseRelIso_LooseID_SFerr_) {
         if (!b_Muon_LooseRelIso_LooseID_SFerr_) throw std::runtime_error("Muon_LooseRelIso_LooseID_SFerr branch doesn't exist");
         int bytes = b_Muon_LooseRelIso_LooseID_SFerr_->GetEntry(index);
-        v_Muon_LooseRelIso_LooseID_SFerr_ = vector<float>(Muon_LooseRelIso_LooseID_SFerr_,Muon_LooseRelIso_LooseID_SFerr_+bytes/sizeof(Muon_LooseRelIso_LooseID_SFerr_[0]));
+        v_Muon_LooseRelIso_LooseID_SFerr_ = vector<float>(Muon_LooseRelIso_LooseID_SFerr_.data(),Muon_LooseRelIso_LooseID_SFerr_.data()+bytes/sizeof(Muon_LooseRelIso_LooseID_SFerr_[0]));
         loaded_Muon_LooseRelIso_LooseID_SFerr_ = true;
     }
     return v_Muon_LooseRelIso_LooseID_SFerr_;
@@ -45767,7 +45802,7 @@ const vector<float> &Nano::Muon_LooseRelIso_MediumID_SF() {
     if (!loaded_Muon_LooseRelIso_MediumID_SF_) {
         if (!b_Muon_LooseRelIso_MediumID_SF_) throw std::runtime_error("Muon_LooseRelIso_MediumID_SF branch doesn't exist");
         int bytes = b_Muon_LooseRelIso_MediumID_SF_->GetEntry(index);
-        v_Muon_LooseRelIso_MediumID_SF_ = vector<float>(Muon_LooseRelIso_MediumID_SF_,Muon_LooseRelIso_MediumID_SF_+bytes/sizeof(Muon_LooseRelIso_MediumID_SF_[0]));
+        v_Muon_LooseRelIso_MediumID_SF_ = vector<float>(Muon_LooseRelIso_MediumID_SF_.data(),Muon_LooseRelIso_MediumID_SF_.data()+bytes/sizeof(Muon_LooseRelIso_MediumID_SF_[0]));
         loaded_Muon_LooseRelIso_MediumID_SF_ = true;
     }
     return v_Muon_LooseRelIso_MediumID_SF_;
@@ -45778,7 +45813,7 @@ const vector<float> &Nano::Muon_LooseRelIso_MediumID_SFerr() {
     if (!loaded_Muon_LooseRelIso_MediumID_SFerr_) {
         if (!b_Muon_LooseRelIso_MediumID_SFerr_) throw std::runtime_error("Muon_LooseRelIso_MediumID_SFerr branch doesn't exist");
         int bytes = b_Muon_LooseRelIso_MediumID_SFerr_->GetEntry(index);
-        v_Muon_LooseRelIso_MediumID_SFerr_ = vector<float>(Muon_LooseRelIso_MediumID_SFerr_,Muon_LooseRelIso_MediumID_SFerr_+bytes/sizeof(Muon_LooseRelIso_MediumID_SFerr_[0]));
+        v_Muon_LooseRelIso_MediumID_SFerr_ = vector<float>(Muon_LooseRelIso_MediumID_SFerr_.data(),Muon_LooseRelIso_MediumID_SFerr_.data()+bytes/sizeof(Muon_LooseRelIso_MediumID_SFerr_[0]));
         loaded_Muon_LooseRelIso_MediumID_SFerr_ = true;
     }
     return v_Muon_LooseRelIso_MediumID_SFerr_;
@@ -45789,7 +45824,7 @@ const vector<float> &Nano::Muon_LooseRelIso_MediumPromptID_SF() {
     if (!loaded_Muon_LooseRelIso_MediumPromptID_SF_) {
         if (!b_Muon_LooseRelIso_MediumPromptID_SF_) throw std::runtime_error("Muon_LooseRelIso_MediumPromptID_SF branch doesn't exist");
         int bytes = b_Muon_LooseRelIso_MediumPromptID_SF_->GetEntry(index);
-        v_Muon_LooseRelIso_MediumPromptID_SF_ = vector<float>(Muon_LooseRelIso_MediumPromptID_SF_,Muon_LooseRelIso_MediumPromptID_SF_+bytes/sizeof(Muon_LooseRelIso_MediumPromptID_SF_[0]));
+        v_Muon_LooseRelIso_MediumPromptID_SF_ = vector<float>(Muon_LooseRelIso_MediumPromptID_SF_.data(),Muon_LooseRelIso_MediumPromptID_SF_.data()+bytes/sizeof(Muon_LooseRelIso_MediumPromptID_SF_[0]));
         loaded_Muon_LooseRelIso_MediumPromptID_SF_ = true;
     }
     return v_Muon_LooseRelIso_MediumPromptID_SF_;
@@ -45800,7 +45835,7 @@ const vector<float> &Nano::Muon_LooseRelIso_MediumPromptID_SFerr() {
     if (!loaded_Muon_LooseRelIso_MediumPromptID_SFerr_) {
         if (!b_Muon_LooseRelIso_MediumPromptID_SFerr_) throw std::runtime_error("Muon_LooseRelIso_MediumPromptID_SFerr branch doesn't exist");
         int bytes = b_Muon_LooseRelIso_MediumPromptID_SFerr_->GetEntry(index);
-        v_Muon_LooseRelIso_MediumPromptID_SFerr_ = vector<float>(Muon_LooseRelIso_MediumPromptID_SFerr_,Muon_LooseRelIso_MediumPromptID_SFerr_+bytes/sizeof(Muon_LooseRelIso_MediumPromptID_SFerr_[0]));
+        v_Muon_LooseRelIso_MediumPromptID_SFerr_ = vector<float>(Muon_LooseRelIso_MediumPromptID_SFerr_.data(),Muon_LooseRelIso_MediumPromptID_SFerr_.data()+bytes/sizeof(Muon_LooseRelIso_MediumPromptID_SFerr_[0]));
         loaded_Muon_LooseRelIso_MediumPromptID_SFerr_ = true;
     }
     return v_Muon_LooseRelIso_MediumPromptID_SFerr_;
@@ -45811,7 +45846,7 @@ const vector<float> &Nano::Muon_LooseRelIso_TightIDandIPCut_SF() {
     if (!loaded_Muon_LooseRelIso_TightIDandIPCut_SF_) {
         if (!b_Muon_LooseRelIso_TightIDandIPCut_SF_) throw std::runtime_error("Muon_LooseRelIso_TightIDandIPCut_SF branch doesn't exist");
         int bytes = b_Muon_LooseRelIso_TightIDandIPCut_SF_->GetEntry(index);
-        v_Muon_LooseRelIso_TightIDandIPCut_SF_ = vector<float>(Muon_LooseRelIso_TightIDandIPCut_SF_,Muon_LooseRelIso_TightIDandIPCut_SF_+bytes/sizeof(Muon_LooseRelIso_TightIDandIPCut_SF_[0]));
+        v_Muon_LooseRelIso_TightIDandIPCut_SF_ = vector<float>(Muon_LooseRelIso_TightIDandIPCut_SF_.data(),Muon_LooseRelIso_TightIDandIPCut_SF_.data()+bytes/sizeof(Muon_LooseRelIso_TightIDandIPCut_SF_[0]));
         loaded_Muon_LooseRelIso_TightIDandIPCut_SF_ = true;
     }
     return v_Muon_LooseRelIso_TightIDandIPCut_SF_;
@@ -45822,7 +45857,7 @@ const vector<float> &Nano::Muon_LooseRelIso_TightIDandIPCut_SFerr() {
     if (!loaded_Muon_LooseRelIso_TightIDandIPCut_SFerr_) {
         if (!b_Muon_LooseRelIso_TightIDandIPCut_SFerr_) throw std::runtime_error("Muon_LooseRelIso_TightIDandIPCut_SFerr branch doesn't exist");
         int bytes = b_Muon_LooseRelIso_TightIDandIPCut_SFerr_->GetEntry(index);
-        v_Muon_LooseRelIso_TightIDandIPCut_SFerr_ = vector<float>(Muon_LooseRelIso_TightIDandIPCut_SFerr_,Muon_LooseRelIso_TightIDandIPCut_SFerr_+bytes/sizeof(Muon_LooseRelIso_TightIDandIPCut_SFerr_[0]));
+        v_Muon_LooseRelIso_TightIDandIPCut_SFerr_ = vector<float>(Muon_LooseRelIso_TightIDandIPCut_SFerr_.data(),Muon_LooseRelIso_TightIDandIPCut_SFerr_.data()+bytes/sizeof(Muon_LooseRelIso_TightIDandIPCut_SFerr_[0]));
         loaded_Muon_LooseRelIso_TightIDandIPCut_SFerr_ = true;
     }
     return v_Muon_LooseRelIso_TightIDandIPCut_SFerr_;
@@ -45833,7 +45868,7 @@ const vector<float> &Nano::Muon_LooseRelTkIso_HighPtIDandIPCut_SF() {
     if (!loaded_Muon_LooseRelTkIso_HighPtIDandIPCut_SF_) {
         if (!b_Muon_LooseRelTkIso_HighPtIDandIPCut_SF_) throw std::runtime_error("Muon_LooseRelTkIso_HighPtIDandIPCut_SF branch doesn't exist");
         int bytes = b_Muon_LooseRelTkIso_HighPtIDandIPCut_SF_->GetEntry(index);
-        v_Muon_LooseRelTkIso_HighPtIDandIPCut_SF_ = vector<float>(Muon_LooseRelTkIso_HighPtIDandIPCut_SF_,Muon_LooseRelTkIso_HighPtIDandIPCut_SF_+bytes/sizeof(Muon_LooseRelTkIso_HighPtIDandIPCut_SF_[0]));
+        v_Muon_LooseRelTkIso_HighPtIDandIPCut_SF_ = vector<float>(Muon_LooseRelTkIso_HighPtIDandIPCut_SF_.data(),Muon_LooseRelTkIso_HighPtIDandIPCut_SF_.data()+bytes/sizeof(Muon_LooseRelTkIso_HighPtIDandIPCut_SF_[0]));
         loaded_Muon_LooseRelTkIso_HighPtIDandIPCut_SF_ = true;
     }
     return v_Muon_LooseRelTkIso_HighPtIDandIPCut_SF_;
@@ -45844,7 +45879,7 @@ const vector<float> &Nano::Muon_LooseRelTkIso_HighPtIDandIPCut_SFerr() {
     if (!loaded_Muon_LooseRelTkIso_HighPtIDandIPCut_SFerr_) {
         if (!b_Muon_LooseRelTkIso_HighPtIDandIPCut_SFerr_) throw std::runtime_error("Muon_LooseRelTkIso_HighPtIDandIPCut_SFerr branch doesn't exist");
         int bytes = b_Muon_LooseRelTkIso_HighPtIDandIPCut_SFerr_->GetEntry(index);
-        v_Muon_LooseRelTkIso_HighPtIDandIPCut_SFerr_ = vector<float>(Muon_LooseRelTkIso_HighPtIDandIPCut_SFerr_,Muon_LooseRelTkIso_HighPtIDandIPCut_SFerr_+bytes/sizeof(Muon_LooseRelTkIso_HighPtIDandIPCut_SFerr_[0]));
+        v_Muon_LooseRelTkIso_HighPtIDandIPCut_SFerr_ = vector<float>(Muon_LooseRelTkIso_HighPtIDandIPCut_SFerr_.data(),Muon_LooseRelTkIso_HighPtIDandIPCut_SFerr_.data()+bytes/sizeof(Muon_LooseRelTkIso_HighPtIDandIPCut_SFerr_[0]));
         loaded_Muon_LooseRelTkIso_HighPtIDandIPCut_SFerr_ = true;
     }
     return v_Muon_LooseRelTkIso_HighPtIDandIPCut_SFerr_;
@@ -45855,7 +45890,7 @@ const vector<float> &Nano::Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SF() {
     if (!loaded_Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SF_) {
         if (!b_Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SF_) throw std::runtime_error("Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SF branch doesn't exist");
         int bytes = b_Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SF_->GetEntry(index);
-        v_Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SF_ = vector<float>(Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SF_,Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SF_+bytes/sizeof(Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SF_[0]));
+        v_Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SF_ = vector<float>(Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SF_.data(),Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SF_.data()+bytes/sizeof(Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SF_[0]));
         loaded_Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SF_ = true;
     }
     return v_Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SF_;
@@ -45866,7 +45901,7 @@ const vector<float> &Nano::Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SFerr() {
     if (!loaded_Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SFerr_) {
         if (!b_Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SFerr_) throw std::runtime_error("Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SFerr branch doesn't exist");
         int bytes = b_Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SFerr_->GetEntry(index);
-        v_Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SFerr_ = vector<float>(Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SFerr_,Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SFerr_+bytes/sizeof(Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SFerr_[0]));
+        v_Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SFerr_ = vector<float>(Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SFerr_.data(),Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SFerr_.data()+bytes/sizeof(Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SFerr_[0]));
         loaded_Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SFerr_ = true;
     }
     return v_Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SFerr_;
@@ -45877,7 +45912,7 @@ const vector<float> &Nano::Muon_TightRelIso_MediumID_SF() {
     if (!loaded_Muon_TightRelIso_MediumID_SF_) {
         if (!b_Muon_TightRelIso_MediumID_SF_) throw std::runtime_error("Muon_TightRelIso_MediumID_SF branch doesn't exist");
         int bytes = b_Muon_TightRelIso_MediumID_SF_->GetEntry(index);
-        v_Muon_TightRelIso_MediumID_SF_ = vector<float>(Muon_TightRelIso_MediumID_SF_,Muon_TightRelIso_MediumID_SF_+bytes/sizeof(Muon_TightRelIso_MediumID_SF_[0]));
+        v_Muon_TightRelIso_MediumID_SF_ = vector<float>(Muon_TightRelIso_MediumID_SF_.data(),Muon_TightRelIso_MediumID_SF_.data()+bytes/sizeof(Muon_TightRelIso_MediumID_SF_[0]));
         loaded_Muon_TightRelIso_MediumID_SF_ = true;
     }
     return v_Muon_TightRelIso_MediumID_SF_;
@@ -45888,7 +45923,7 @@ const vector<float> &Nano::Muon_TightRelIso_MediumID_SFerr() {
     if (!loaded_Muon_TightRelIso_MediumID_SFerr_) {
         if (!b_Muon_TightRelIso_MediumID_SFerr_) throw std::runtime_error("Muon_TightRelIso_MediumID_SFerr branch doesn't exist");
         int bytes = b_Muon_TightRelIso_MediumID_SFerr_->GetEntry(index);
-        v_Muon_TightRelIso_MediumID_SFerr_ = vector<float>(Muon_TightRelIso_MediumID_SFerr_,Muon_TightRelIso_MediumID_SFerr_+bytes/sizeof(Muon_TightRelIso_MediumID_SFerr_[0]));
+        v_Muon_TightRelIso_MediumID_SFerr_ = vector<float>(Muon_TightRelIso_MediumID_SFerr_.data(),Muon_TightRelIso_MediumID_SFerr_.data()+bytes/sizeof(Muon_TightRelIso_MediumID_SFerr_[0]));
         loaded_Muon_TightRelIso_MediumID_SFerr_ = true;
     }
     return v_Muon_TightRelIso_MediumID_SFerr_;
@@ -45899,7 +45934,7 @@ const vector<float> &Nano::Muon_TightRelIso_MediumPromptID_SF() {
     if (!loaded_Muon_TightRelIso_MediumPromptID_SF_) {
         if (!b_Muon_TightRelIso_MediumPromptID_SF_) throw std::runtime_error("Muon_TightRelIso_MediumPromptID_SF branch doesn't exist");
         int bytes = b_Muon_TightRelIso_MediumPromptID_SF_->GetEntry(index);
-        v_Muon_TightRelIso_MediumPromptID_SF_ = vector<float>(Muon_TightRelIso_MediumPromptID_SF_,Muon_TightRelIso_MediumPromptID_SF_+bytes/sizeof(Muon_TightRelIso_MediumPromptID_SF_[0]));
+        v_Muon_TightRelIso_MediumPromptID_SF_ = vector<float>(Muon_TightRelIso_MediumPromptID_SF_.data(),Muon_TightRelIso_MediumPromptID_SF_.data()+bytes/sizeof(Muon_TightRelIso_MediumPromptID_SF_[0]));
         loaded_Muon_TightRelIso_MediumPromptID_SF_ = true;
     }
     return v_Muon_TightRelIso_MediumPromptID_SF_;
@@ -45910,7 +45945,7 @@ const vector<float> &Nano::Muon_TightRelIso_MediumPromptID_SFerr() {
     if (!loaded_Muon_TightRelIso_MediumPromptID_SFerr_) {
         if (!b_Muon_TightRelIso_MediumPromptID_SFerr_) throw std::runtime_error("Muon_TightRelIso_MediumPromptID_SFerr branch doesn't exist");
         int bytes = b_Muon_TightRelIso_MediumPromptID_SFerr_->GetEntry(index);
-        v_Muon_TightRelIso_MediumPromptID_SFerr_ = vector<float>(Muon_TightRelIso_MediumPromptID_SFerr_,Muon_TightRelIso_MediumPromptID_SFerr_+bytes/sizeof(Muon_TightRelIso_MediumPromptID_SFerr_[0]));
+        v_Muon_TightRelIso_MediumPromptID_SFerr_ = vector<float>(Muon_TightRelIso_MediumPromptID_SFerr_.data(),Muon_TightRelIso_MediumPromptID_SFerr_.data()+bytes/sizeof(Muon_TightRelIso_MediumPromptID_SFerr_[0]));
         loaded_Muon_TightRelIso_MediumPromptID_SFerr_ = true;
     }
     return v_Muon_TightRelIso_MediumPromptID_SFerr_;
@@ -45921,7 +45956,7 @@ const vector<float> &Nano::Muon_TightRelIso_TightIDandIPCut_SF() {
     if (!loaded_Muon_TightRelIso_TightIDandIPCut_SF_) {
         if (!b_Muon_TightRelIso_TightIDandIPCut_SF_) throw std::runtime_error("Muon_TightRelIso_TightIDandIPCut_SF branch doesn't exist");
         int bytes = b_Muon_TightRelIso_TightIDandIPCut_SF_->GetEntry(index);
-        v_Muon_TightRelIso_TightIDandIPCut_SF_ = vector<float>(Muon_TightRelIso_TightIDandIPCut_SF_,Muon_TightRelIso_TightIDandIPCut_SF_+bytes/sizeof(Muon_TightRelIso_TightIDandIPCut_SF_[0]));
+        v_Muon_TightRelIso_TightIDandIPCut_SF_ = vector<float>(Muon_TightRelIso_TightIDandIPCut_SF_.data(),Muon_TightRelIso_TightIDandIPCut_SF_.data()+bytes/sizeof(Muon_TightRelIso_TightIDandIPCut_SF_[0]));
         loaded_Muon_TightRelIso_TightIDandIPCut_SF_ = true;
     }
     return v_Muon_TightRelIso_TightIDandIPCut_SF_;
@@ -45932,7 +45967,7 @@ const vector<float> &Nano::Muon_TightRelIso_TightIDandIPCut_SFerr() {
     if (!loaded_Muon_TightRelIso_TightIDandIPCut_SFerr_) {
         if (!b_Muon_TightRelIso_TightIDandIPCut_SFerr_) throw std::runtime_error("Muon_TightRelIso_TightIDandIPCut_SFerr branch doesn't exist");
         int bytes = b_Muon_TightRelIso_TightIDandIPCut_SFerr_->GetEntry(index);
-        v_Muon_TightRelIso_TightIDandIPCut_SFerr_ = vector<float>(Muon_TightRelIso_TightIDandIPCut_SFerr_,Muon_TightRelIso_TightIDandIPCut_SFerr_+bytes/sizeof(Muon_TightRelIso_TightIDandIPCut_SFerr_[0]));
+        v_Muon_TightRelIso_TightIDandIPCut_SFerr_ = vector<float>(Muon_TightRelIso_TightIDandIPCut_SFerr_.data(),Muon_TightRelIso_TightIDandIPCut_SFerr_.data()+bytes/sizeof(Muon_TightRelIso_TightIDandIPCut_SFerr_[0]));
         loaded_Muon_TightRelIso_TightIDandIPCut_SFerr_ = true;
     }
     return v_Muon_TightRelIso_TightIDandIPCut_SFerr_;
@@ -45943,7 +45978,7 @@ const vector<float> &Nano::Muon_TightRelTkIso_HighPtIDandIPCut_SF() {
     if (!loaded_Muon_TightRelTkIso_HighPtIDandIPCut_SF_) {
         if (!b_Muon_TightRelTkIso_HighPtIDandIPCut_SF_) throw std::runtime_error("Muon_TightRelTkIso_HighPtIDandIPCut_SF branch doesn't exist");
         int bytes = b_Muon_TightRelTkIso_HighPtIDandIPCut_SF_->GetEntry(index);
-        v_Muon_TightRelTkIso_HighPtIDandIPCut_SF_ = vector<float>(Muon_TightRelTkIso_HighPtIDandIPCut_SF_,Muon_TightRelTkIso_HighPtIDandIPCut_SF_+bytes/sizeof(Muon_TightRelTkIso_HighPtIDandIPCut_SF_[0]));
+        v_Muon_TightRelTkIso_HighPtIDandIPCut_SF_ = vector<float>(Muon_TightRelTkIso_HighPtIDandIPCut_SF_.data(),Muon_TightRelTkIso_HighPtIDandIPCut_SF_.data()+bytes/sizeof(Muon_TightRelTkIso_HighPtIDandIPCut_SF_[0]));
         loaded_Muon_TightRelTkIso_HighPtIDandIPCut_SF_ = true;
     }
     return v_Muon_TightRelTkIso_HighPtIDandIPCut_SF_;
@@ -45954,7 +45989,7 @@ const vector<float> &Nano::Muon_TightRelTkIso_HighPtIDandIPCut_SFerr() {
     if (!loaded_Muon_TightRelTkIso_HighPtIDandIPCut_SFerr_) {
         if (!b_Muon_TightRelTkIso_HighPtIDandIPCut_SFerr_) throw std::runtime_error("Muon_TightRelTkIso_HighPtIDandIPCut_SFerr branch doesn't exist");
         int bytes = b_Muon_TightRelTkIso_HighPtIDandIPCut_SFerr_->GetEntry(index);
-        v_Muon_TightRelTkIso_HighPtIDandIPCut_SFerr_ = vector<float>(Muon_TightRelTkIso_HighPtIDandIPCut_SFerr_,Muon_TightRelTkIso_HighPtIDandIPCut_SFerr_+bytes/sizeof(Muon_TightRelTkIso_HighPtIDandIPCut_SFerr_[0]));
+        v_Muon_TightRelTkIso_HighPtIDandIPCut_SFerr_ = vector<float>(Muon_TightRelTkIso_HighPtIDandIPCut_SFerr_.data(),Muon_TightRelTkIso_HighPtIDandIPCut_SFerr_.data()+bytes/sizeof(Muon_TightRelTkIso_HighPtIDandIPCut_SFerr_[0]));
         loaded_Muon_TightRelTkIso_HighPtIDandIPCut_SFerr_ = true;
     }
     return v_Muon_TightRelTkIso_HighPtIDandIPCut_SFerr_;
@@ -45965,7 +46000,7 @@ const vector<float> &Nano::Muon_TightRelTkIso_TrkHighPtIDandIPCut_SF() {
     if (!loaded_Muon_TightRelTkIso_TrkHighPtIDandIPCut_SF_) {
         if (!b_Muon_TightRelTkIso_TrkHighPtIDandIPCut_SF_) throw std::runtime_error("Muon_TightRelTkIso_TrkHighPtIDandIPCut_SF branch doesn't exist");
         int bytes = b_Muon_TightRelTkIso_TrkHighPtIDandIPCut_SF_->GetEntry(index);
-        v_Muon_TightRelTkIso_TrkHighPtIDandIPCut_SF_ = vector<float>(Muon_TightRelTkIso_TrkHighPtIDandIPCut_SF_,Muon_TightRelTkIso_TrkHighPtIDandIPCut_SF_+bytes/sizeof(Muon_TightRelTkIso_TrkHighPtIDandIPCut_SF_[0]));
+        v_Muon_TightRelTkIso_TrkHighPtIDandIPCut_SF_ = vector<float>(Muon_TightRelTkIso_TrkHighPtIDandIPCut_SF_.data(),Muon_TightRelTkIso_TrkHighPtIDandIPCut_SF_.data()+bytes/sizeof(Muon_TightRelTkIso_TrkHighPtIDandIPCut_SF_[0]));
         loaded_Muon_TightRelTkIso_TrkHighPtIDandIPCut_SF_ = true;
     }
     return v_Muon_TightRelTkIso_TrkHighPtIDandIPCut_SF_;
@@ -45976,7 +46011,7 @@ const vector<float> &Nano::Muon_TightRelTkIso_TrkHighPtIDandIPCut_SFerr() {
     if (!loaded_Muon_TightRelTkIso_TrkHighPtIDandIPCut_SFerr_) {
         if (!b_Muon_TightRelTkIso_TrkHighPtIDandIPCut_SFerr_) throw std::runtime_error("Muon_TightRelTkIso_TrkHighPtIDandIPCut_SFerr branch doesn't exist");
         int bytes = b_Muon_TightRelTkIso_TrkHighPtIDandIPCut_SFerr_->GetEntry(index);
-        v_Muon_TightRelTkIso_TrkHighPtIDandIPCut_SFerr_ = vector<float>(Muon_TightRelTkIso_TrkHighPtIDandIPCut_SFerr_,Muon_TightRelTkIso_TrkHighPtIDandIPCut_SFerr_+bytes/sizeof(Muon_TightRelTkIso_TrkHighPtIDandIPCut_SFerr_[0]));
+        v_Muon_TightRelTkIso_TrkHighPtIDandIPCut_SFerr_ = vector<float>(Muon_TightRelTkIso_TrkHighPtIDandIPCut_SFerr_.data(),Muon_TightRelTkIso_TrkHighPtIDandIPCut_SFerr_.data()+bytes/sizeof(Muon_TightRelTkIso_TrkHighPtIDandIPCut_SFerr_[0]));
         loaded_Muon_TightRelTkIso_TrkHighPtIDandIPCut_SFerr_ = true;
     }
     return v_Muon_TightRelTkIso_TrkHighPtIDandIPCut_SFerr_;
@@ -45987,7 +46022,7 @@ const vector<int> &Nano::Muon_charge() {
     if (!loaded_Muon_charge_) {
         if (!b_Muon_charge_) throw std::runtime_error("Muon_charge branch doesn't exist");
         int bytes = b_Muon_charge_->GetEntry(index);
-        v_Muon_charge_ = vector<int>(Muon_charge_,Muon_charge_+bytes/sizeof(Muon_charge_[0]));
+        v_Muon_charge_ = vector<int>(Muon_charge_.data(),Muon_charge_.data()+bytes/sizeof(Muon_charge_[0]));
         loaded_Muon_charge_ = true;
     }
     return v_Muon_charge_;
@@ -45998,7 +46033,7 @@ const vector<UChar_t> &Nano::Muon_cleanmask() {
     if (!loaded_Muon_cleanmask_) {
         if (!b_Muon_cleanmask_) throw std::runtime_error("Muon_cleanmask branch doesn't exist");
         int bytes = b_Muon_cleanmask_->GetEntry(index);
-        v_Muon_cleanmask_ = vector<UChar_t>(Muon_cleanmask_,Muon_cleanmask_+bytes/sizeof(Muon_cleanmask_[0]));
+        v_Muon_cleanmask_ = vector<UChar_t>(Muon_cleanmask_.data(),Muon_cleanmask_.data()+bytes/sizeof(Muon_cleanmask_[0]));
         loaded_Muon_cleanmask_ = true;
     }
     return v_Muon_cleanmask_;
@@ -46009,7 +46044,7 @@ const vector<float> &Nano::Muon_correctedDown_pt() {
     if (!loaded_Muon_correctedDown_pt_) {
         if (!b_Muon_correctedDown_pt_) throw std::runtime_error("Muon_correctedDown_pt branch doesn't exist");
         int bytes = b_Muon_correctedDown_pt_->GetEntry(index);
-        v_Muon_correctedDown_pt_ = vector<float>(Muon_correctedDown_pt_,Muon_correctedDown_pt_+bytes/sizeof(Muon_correctedDown_pt_[0]));
+        v_Muon_correctedDown_pt_ = vector<float>(Muon_correctedDown_pt_.data(),Muon_correctedDown_pt_.data()+bytes/sizeof(Muon_correctedDown_pt_[0]));
         loaded_Muon_correctedDown_pt_ = true;
     }
     return v_Muon_correctedDown_pt_;
@@ -46020,7 +46055,7 @@ const vector<float> &Nano::Muon_correctedUp_pt() {
     if (!loaded_Muon_correctedUp_pt_) {
         if (!b_Muon_correctedUp_pt_) throw std::runtime_error("Muon_correctedUp_pt branch doesn't exist");
         int bytes = b_Muon_correctedUp_pt_->GetEntry(index);
-        v_Muon_correctedUp_pt_ = vector<float>(Muon_correctedUp_pt_,Muon_correctedUp_pt_+bytes/sizeof(Muon_correctedUp_pt_[0]));
+        v_Muon_correctedUp_pt_ = vector<float>(Muon_correctedUp_pt_.data(),Muon_correctedUp_pt_.data()+bytes/sizeof(Muon_correctedUp_pt_[0]));
         loaded_Muon_correctedUp_pt_ = true;
     }
     return v_Muon_correctedUp_pt_;
@@ -46031,7 +46066,7 @@ const vector<float> &Nano::Muon_corrected_pt() {
     if (!loaded_Muon_corrected_pt_) {
         if (!b_Muon_corrected_pt_) throw std::runtime_error("Muon_corrected_pt branch doesn't exist");
         int bytes = b_Muon_corrected_pt_->GetEntry(index);
-        v_Muon_corrected_pt_ = vector<float>(Muon_corrected_pt_,Muon_corrected_pt_+bytes/sizeof(Muon_corrected_pt_[0]));
+        v_Muon_corrected_pt_ = vector<float>(Muon_corrected_pt_.data(),Muon_corrected_pt_.data()+bytes/sizeof(Muon_corrected_pt_[0]));
         loaded_Muon_corrected_pt_ = true;
     }
     return v_Muon_corrected_pt_;
@@ -46042,7 +46077,7 @@ const vector<float> &Nano::Muon_dxy() {
     if (!loaded_Muon_dxy_) {
         if (!b_Muon_dxy_) throw std::runtime_error("Muon_dxy branch doesn't exist");
         int bytes = b_Muon_dxy_->GetEntry(index);
-        v_Muon_dxy_ = vector<float>(Muon_dxy_,Muon_dxy_+bytes/sizeof(Muon_dxy_[0]));
+        v_Muon_dxy_ = vector<float>(Muon_dxy_.data(),Muon_dxy_.data()+bytes/sizeof(Muon_dxy_[0]));
         loaded_Muon_dxy_ = true;
     }
     return v_Muon_dxy_;
@@ -46053,7 +46088,7 @@ const vector<float> &Nano::Muon_dxyErr() {
     if (!loaded_Muon_dxyErr_) {
         if (!b_Muon_dxyErr_) throw std::runtime_error("Muon_dxyErr branch doesn't exist");
         int bytes = b_Muon_dxyErr_->GetEntry(index);
-        v_Muon_dxyErr_ = vector<float>(Muon_dxyErr_,Muon_dxyErr_+bytes/sizeof(Muon_dxyErr_[0]));
+        v_Muon_dxyErr_ = vector<float>(Muon_dxyErr_.data(),Muon_dxyErr_.data()+bytes/sizeof(Muon_dxyErr_[0]));
         loaded_Muon_dxyErr_ = true;
     }
     return v_Muon_dxyErr_;
@@ -46064,7 +46099,7 @@ const vector<float> &Nano::Muon_dxybs() {
     if (!loaded_Muon_dxybs_) {
         if (!b_Muon_dxybs_) throw std::runtime_error("Muon_dxybs branch doesn't exist");
         int bytes = b_Muon_dxybs_->GetEntry(index);
-        v_Muon_dxybs_ = vector<float>(Muon_dxybs_,Muon_dxybs_+bytes/sizeof(Muon_dxybs_[0]));
+        v_Muon_dxybs_ = vector<float>(Muon_dxybs_.data(),Muon_dxybs_.data()+bytes/sizeof(Muon_dxybs_[0]));
         loaded_Muon_dxybs_ = true;
     }
     return v_Muon_dxybs_;
@@ -46075,7 +46110,7 @@ const vector<float> &Nano::Muon_dz() {
     if (!loaded_Muon_dz_) {
         if (!b_Muon_dz_) throw std::runtime_error("Muon_dz branch doesn't exist");
         int bytes = b_Muon_dz_->GetEntry(index);
-        v_Muon_dz_ = vector<float>(Muon_dz_,Muon_dz_+bytes/sizeof(Muon_dz_[0]));
+        v_Muon_dz_ = vector<float>(Muon_dz_.data(),Muon_dz_.data()+bytes/sizeof(Muon_dz_[0]));
         loaded_Muon_dz_ = true;
     }
     return v_Muon_dz_;
@@ -46086,7 +46121,7 @@ const vector<float> &Nano::Muon_dzErr() {
     if (!loaded_Muon_dzErr_) {
         if (!b_Muon_dzErr_) throw std::runtime_error("Muon_dzErr branch doesn't exist");
         int bytes = b_Muon_dzErr_->GetEntry(index);
-        v_Muon_dzErr_ = vector<float>(Muon_dzErr_,Muon_dzErr_+bytes/sizeof(Muon_dzErr_[0]));
+        v_Muon_dzErr_ = vector<float>(Muon_dzErr_.data(),Muon_dzErr_.data()+bytes/sizeof(Muon_dzErr_[0]));
         loaded_Muon_dzErr_ = true;
     }
     return v_Muon_dzErr_;
@@ -46097,7 +46132,7 @@ const vector<float> &Nano::Muon_eta() {
     if (!loaded_Muon_eta_) {
         if (!b_Muon_eta_) throw std::runtime_error("Muon_eta branch doesn't exist");
         int bytes = b_Muon_eta_->GetEntry(index);
-        v_Muon_eta_ = vector<float>(Muon_eta_,Muon_eta_+bytes/sizeof(Muon_eta_[0]));
+        v_Muon_eta_ = vector<float>(Muon_eta_.data(),Muon_eta_.data()+bytes/sizeof(Muon_eta_[0]));
         loaded_Muon_eta_ = true;
     }
     return v_Muon_eta_;
@@ -46108,7 +46143,7 @@ const vector<int> &Nano::Muon_fsrPhotonIdx() {
     if (!loaded_Muon_fsrPhotonIdx_) {
         if (!b_Muon_fsrPhotonIdx_) throw std::runtime_error("Muon_fsrPhotonIdx branch doesn't exist");
         int bytes = b_Muon_fsrPhotonIdx_->GetEntry(index);
-        v_Muon_fsrPhotonIdx_ = vector<int>(Muon_fsrPhotonIdx_,Muon_fsrPhotonIdx_+bytes/sizeof(Muon_fsrPhotonIdx_[0]));
+        v_Muon_fsrPhotonIdx_ = vector<int>(Muon_fsrPhotonIdx_.data(),Muon_fsrPhotonIdx_.data()+bytes/sizeof(Muon_fsrPhotonIdx_[0]));
         loaded_Muon_fsrPhotonIdx_ = true;
     }
     return v_Muon_fsrPhotonIdx_;
@@ -46119,7 +46154,7 @@ const vector<UChar_t> &Nano::Muon_genPartFlav() {
     if (!loaded_Muon_genPartFlav_) {
         if (!b_Muon_genPartFlav_) throw std::runtime_error("Muon_genPartFlav branch doesn't exist");
         int bytes = b_Muon_genPartFlav_->GetEntry(index);
-        v_Muon_genPartFlav_ = vector<UChar_t>(Muon_genPartFlav_,Muon_genPartFlav_+bytes/sizeof(Muon_genPartFlav_[0]));
+        v_Muon_genPartFlav_ = vector<UChar_t>(Muon_genPartFlav_.data(),Muon_genPartFlav_.data()+bytes/sizeof(Muon_genPartFlav_[0]));
         loaded_Muon_genPartFlav_ = true;
     }
     return v_Muon_genPartFlav_;
@@ -46130,7 +46165,7 @@ const vector<int> &Nano::Muon_genPartIdx() {
     if (!loaded_Muon_genPartIdx_) {
         if (!b_Muon_genPartIdx_) throw std::runtime_error("Muon_genPartIdx branch doesn't exist");
         int bytes = b_Muon_genPartIdx_->GetEntry(index);
-        v_Muon_genPartIdx_ = vector<int>(Muon_genPartIdx_,Muon_genPartIdx_+bytes/sizeof(Muon_genPartIdx_[0]));
+        v_Muon_genPartIdx_ = vector<int>(Muon_genPartIdx_.data(),Muon_genPartIdx_.data()+bytes/sizeof(Muon_genPartIdx_[0]));
         loaded_Muon_genPartIdx_ = true;
     }
     return v_Muon_genPartIdx_;
@@ -46141,7 +46176,7 @@ const vector<UChar_t> &Nano::Muon_highPtId() {
     if (!loaded_Muon_highPtId_) {
         if (!b_Muon_highPtId_) throw std::runtime_error("Muon_highPtId branch doesn't exist");
         int bytes = b_Muon_highPtId_->GetEntry(index);
-        v_Muon_highPtId_ = vector<UChar_t>(Muon_highPtId_,Muon_highPtId_+bytes/sizeof(Muon_highPtId_[0]));
+        v_Muon_highPtId_ = vector<UChar_t>(Muon_highPtId_.data(),Muon_highPtId_.data()+bytes/sizeof(Muon_highPtId_[0]));
         loaded_Muon_highPtId_ = true;
     }
     return v_Muon_highPtId_;
@@ -46152,7 +46187,7 @@ const vector<bool> &Nano::Muon_highPurity() {
     if (!loaded_Muon_highPurity_) {
         if (!b_Muon_highPurity_) throw std::runtime_error("Muon_highPurity branch doesn't exist");
         int bytes = b_Muon_highPurity_->GetEntry(index);
-        v_Muon_highPurity_ = vector<bool>(Muon_highPurity_,Muon_highPurity_+bytes/sizeof(Muon_highPurity_[0]));
+        v_Muon_highPurity_ = vector<bool>(Muon_highPurity_.data(),Muon_highPurity_.data()+bytes/sizeof(Muon_highPurity_[0]));
         loaded_Muon_highPurity_ = true;
     }
     return v_Muon_highPurity_;
@@ -46163,7 +46198,7 @@ const vector<bool> &Nano::Muon_inTimeMuon() {
     if (!loaded_Muon_inTimeMuon_) {
         if (!b_Muon_inTimeMuon_) throw std::runtime_error("Muon_inTimeMuon branch doesn't exist");
         int bytes = b_Muon_inTimeMuon_->GetEntry(index);
-        v_Muon_inTimeMuon_ = vector<bool>(Muon_inTimeMuon_,Muon_inTimeMuon_+bytes/sizeof(Muon_inTimeMuon_[0]));
+        v_Muon_inTimeMuon_ = vector<bool>(Muon_inTimeMuon_.data(),Muon_inTimeMuon_.data()+bytes/sizeof(Muon_inTimeMuon_[0]));
         loaded_Muon_inTimeMuon_ = true;
     }
     return v_Muon_inTimeMuon_;
@@ -46174,7 +46209,7 @@ const vector<float> &Nano::Muon_ip3d() {
     if (!loaded_Muon_ip3d_) {
         if (!b_Muon_ip3d_) throw std::runtime_error("Muon_ip3d branch doesn't exist");
         int bytes = b_Muon_ip3d_->GetEntry(index);
-        v_Muon_ip3d_ = vector<float>(Muon_ip3d_,Muon_ip3d_+bytes/sizeof(Muon_ip3d_[0]));
+        v_Muon_ip3d_ = vector<float>(Muon_ip3d_.data(),Muon_ip3d_.data()+bytes/sizeof(Muon_ip3d_[0]));
         loaded_Muon_ip3d_ = true;
     }
     return v_Muon_ip3d_;
@@ -46185,7 +46220,7 @@ const vector<bool> &Nano::Muon_isGlobal() {
     if (!loaded_Muon_isGlobal_) {
         if (!b_Muon_isGlobal_) throw std::runtime_error("Muon_isGlobal branch doesn't exist");
         int bytes = b_Muon_isGlobal_->GetEntry(index);
-        v_Muon_isGlobal_ = vector<bool>(Muon_isGlobal_,Muon_isGlobal_+bytes/sizeof(Muon_isGlobal_[0]));
+        v_Muon_isGlobal_ = vector<bool>(Muon_isGlobal_.data(),Muon_isGlobal_.data()+bytes/sizeof(Muon_isGlobal_[0]));
         loaded_Muon_isGlobal_ = true;
     }
     return v_Muon_isGlobal_;
@@ -46196,7 +46231,7 @@ const vector<bool> &Nano::Muon_isPFcand() {
     if (!loaded_Muon_isPFcand_) {
         if (!b_Muon_isPFcand_) throw std::runtime_error("Muon_isPFcand branch doesn't exist");
         int bytes = b_Muon_isPFcand_->GetEntry(index);
-        v_Muon_isPFcand_ = vector<bool>(Muon_isPFcand_,Muon_isPFcand_+bytes/sizeof(Muon_isPFcand_[0]));
+        v_Muon_isPFcand_ = vector<bool>(Muon_isPFcand_.data(),Muon_isPFcand_.data()+bytes/sizeof(Muon_isPFcand_[0]));
         loaded_Muon_isPFcand_ = true;
     }
     return v_Muon_isPFcand_;
@@ -46207,7 +46242,7 @@ const vector<bool> &Nano::Muon_isStandalone() {
     if (!loaded_Muon_isStandalone_) {
         if (!b_Muon_isStandalone_) throw std::runtime_error("Muon_isStandalone branch doesn't exist");
         int bytes = b_Muon_isStandalone_->GetEntry(index);
-        v_Muon_isStandalone_ = vector<bool>(Muon_isStandalone_,Muon_isStandalone_+bytes/sizeof(Muon_isStandalone_[0]));
+        v_Muon_isStandalone_ = vector<bool>(Muon_isStandalone_.data(),Muon_isStandalone_.data()+bytes/sizeof(Muon_isStandalone_[0]));
         loaded_Muon_isStandalone_ = true;
     }
     return v_Muon_isStandalone_;
@@ -46218,7 +46253,7 @@ const vector<bool> &Nano::Muon_isTracker() {
     if (!loaded_Muon_isTracker_) {
         if (!b_Muon_isTracker_) throw std::runtime_error("Muon_isTracker branch doesn't exist");
         int bytes = b_Muon_isTracker_->GetEntry(index);
-        v_Muon_isTracker_ = vector<bool>(Muon_isTracker_,Muon_isTracker_+bytes/sizeof(Muon_isTracker_[0]));
+        v_Muon_isTracker_ = vector<bool>(Muon_isTracker_.data(),Muon_isTracker_.data()+bytes/sizeof(Muon_isTracker_[0]));
         loaded_Muon_isTracker_ = true;
     }
     return v_Muon_isTracker_;
@@ -46229,7 +46264,7 @@ const vector<int> &Nano::Muon_jetIdx() {
     if (!loaded_Muon_jetIdx_) {
         if (!b_Muon_jetIdx_) throw std::runtime_error("Muon_jetIdx branch doesn't exist");
         int bytes = b_Muon_jetIdx_->GetEntry(index);
-        v_Muon_jetIdx_ = vector<int>(Muon_jetIdx_,Muon_jetIdx_+bytes/sizeof(Muon_jetIdx_[0]));
+        v_Muon_jetIdx_ = vector<int>(Muon_jetIdx_.data(),Muon_jetIdx_.data()+bytes/sizeof(Muon_jetIdx_[0]));
         loaded_Muon_jetIdx_ = true;
     }
     return v_Muon_jetIdx_;
@@ -46240,7 +46275,7 @@ const vector<UChar_t> &Nano::Muon_jetNDauCharged() {
     if (!loaded_Muon_jetNDauCharged_) {
         if (!b_Muon_jetNDauCharged_) throw std::runtime_error("Muon_jetNDauCharged branch doesn't exist");
         int bytes = b_Muon_jetNDauCharged_->GetEntry(index);
-        v_Muon_jetNDauCharged_ = vector<UChar_t>(Muon_jetNDauCharged_,Muon_jetNDauCharged_+bytes/sizeof(Muon_jetNDauCharged_[0]));
+        v_Muon_jetNDauCharged_ = vector<UChar_t>(Muon_jetNDauCharged_.data(),Muon_jetNDauCharged_.data()+bytes/sizeof(Muon_jetNDauCharged_[0]));
         loaded_Muon_jetNDauCharged_ = true;
     }
     return v_Muon_jetNDauCharged_;
@@ -46251,7 +46286,7 @@ const vector<float> &Nano::Muon_jetPtRelv2() {
     if (!loaded_Muon_jetPtRelv2_) {
         if (!b_Muon_jetPtRelv2_) throw std::runtime_error("Muon_jetPtRelv2 branch doesn't exist");
         int bytes = b_Muon_jetPtRelv2_->GetEntry(index);
-        v_Muon_jetPtRelv2_ = vector<float>(Muon_jetPtRelv2_,Muon_jetPtRelv2_+bytes/sizeof(Muon_jetPtRelv2_[0]));
+        v_Muon_jetPtRelv2_ = vector<float>(Muon_jetPtRelv2_.data(),Muon_jetPtRelv2_.data()+bytes/sizeof(Muon_jetPtRelv2_[0]));
         loaded_Muon_jetPtRelv2_ = true;
     }
     return v_Muon_jetPtRelv2_;
@@ -46262,7 +46297,7 @@ const vector<float> &Nano::Muon_jetRelIso() {
     if (!loaded_Muon_jetRelIso_) {
         if (!b_Muon_jetRelIso_) throw std::runtime_error("Muon_jetRelIso branch doesn't exist");
         int bytes = b_Muon_jetRelIso_->GetEntry(index);
-        v_Muon_jetRelIso_ = vector<float>(Muon_jetRelIso_,Muon_jetRelIso_+bytes/sizeof(Muon_jetRelIso_[0]));
+        v_Muon_jetRelIso_ = vector<float>(Muon_jetRelIso_.data(),Muon_jetRelIso_.data()+bytes/sizeof(Muon_jetRelIso_[0]));
         loaded_Muon_jetRelIso_ = true;
     }
     return v_Muon_jetRelIso_;
@@ -46273,7 +46308,7 @@ const vector<bool> &Nano::Muon_looseId() {
     if (!loaded_Muon_looseId_) {
         if (!b_Muon_looseId_) throw std::runtime_error("Muon_looseId branch doesn't exist");
         int bytes = b_Muon_looseId_->GetEntry(index);
-        v_Muon_looseId_ = vector<bool>(Muon_looseId_,Muon_looseId_+bytes/sizeof(Muon_looseId_[0]));
+        v_Muon_looseId_ = vector<bool>(Muon_looseId_.data(),Muon_looseId_.data()+bytes/sizeof(Muon_looseId_[0]));
         loaded_Muon_looseId_ = true;
     }
     return v_Muon_looseId_;
@@ -46284,7 +46319,7 @@ const vector<float> &Nano::Muon_mass() {
     if (!loaded_Muon_mass_) {
         if (!b_Muon_mass_) throw std::runtime_error("Muon_mass branch doesn't exist");
         int bytes = b_Muon_mass_->GetEntry(index);
-        v_Muon_mass_ = vector<float>(Muon_mass_,Muon_mass_+bytes/sizeof(Muon_mass_[0]));
+        v_Muon_mass_ = vector<float>(Muon_mass_.data(),Muon_mass_.data()+bytes/sizeof(Muon_mass_[0]));
         loaded_Muon_mass_ = true;
     }
     return v_Muon_mass_;
@@ -46295,7 +46330,7 @@ const vector<bool> &Nano::Muon_mediumId() {
     if (!loaded_Muon_mediumId_) {
         if (!b_Muon_mediumId_) throw std::runtime_error("Muon_mediumId branch doesn't exist");
         int bytes = b_Muon_mediumId_->GetEntry(index);
-        v_Muon_mediumId_ = vector<bool>(Muon_mediumId_,Muon_mediumId_+bytes/sizeof(Muon_mediumId_[0]));
+        v_Muon_mediumId_ = vector<bool>(Muon_mediumId_.data(),Muon_mediumId_.data()+bytes/sizeof(Muon_mediumId_[0]));
         loaded_Muon_mediumId_ = true;
     }
     return v_Muon_mediumId_;
@@ -46306,7 +46341,7 @@ const vector<bool> &Nano::Muon_mediumPromptId() {
     if (!loaded_Muon_mediumPromptId_) {
         if (!b_Muon_mediumPromptId_) throw std::runtime_error("Muon_mediumPromptId branch doesn't exist");
         int bytes = b_Muon_mediumPromptId_->GetEntry(index);
-        v_Muon_mediumPromptId_ = vector<bool>(Muon_mediumPromptId_,Muon_mediumPromptId_+bytes/sizeof(Muon_mediumPromptId_[0]));
+        v_Muon_mediumPromptId_ = vector<bool>(Muon_mediumPromptId_.data(),Muon_mediumPromptId_.data()+bytes/sizeof(Muon_mediumPromptId_[0]));
         loaded_Muon_mediumPromptId_ = true;
     }
     return v_Muon_mediumPromptId_;
@@ -46317,7 +46352,7 @@ const vector<UChar_t> &Nano::Muon_miniIsoId() {
     if (!loaded_Muon_miniIsoId_) {
         if (!b_Muon_miniIsoId_) throw std::runtime_error("Muon_miniIsoId branch doesn't exist");
         int bytes = b_Muon_miniIsoId_->GetEntry(index);
-        v_Muon_miniIsoId_ = vector<UChar_t>(Muon_miniIsoId_,Muon_miniIsoId_+bytes/sizeof(Muon_miniIsoId_[0]));
+        v_Muon_miniIsoId_ = vector<UChar_t>(Muon_miniIsoId_.data(),Muon_miniIsoId_.data()+bytes/sizeof(Muon_miniIsoId_[0]));
         loaded_Muon_miniIsoId_ = true;
     }
     return v_Muon_miniIsoId_;
@@ -46328,7 +46363,7 @@ const vector<float> &Nano::Muon_miniPFRelIso_all() {
     if (!loaded_Muon_miniPFRelIso_all_) {
         if (!b_Muon_miniPFRelIso_all_) throw std::runtime_error("Muon_miniPFRelIso_all branch doesn't exist");
         int bytes = b_Muon_miniPFRelIso_all_->GetEntry(index);
-        v_Muon_miniPFRelIso_all_ = vector<float>(Muon_miniPFRelIso_all_,Muon_miniPFRelIso_all_+bytes/sizeof(Muon_miniPFRelIso_all_[0]));
+        v_Muon_miniPFRelIso_all_ = vector<float>(Muon_miniPFRelIso_all_.data(),Muon_miniPFRelIso_all_.data()+bytes/sizeof(Muon_miniPFRelIso_all_[0]));
         loaded_Muon_miniPFRelIso_all_ = true;
     }
     return v_Muon_miniPFRelIso_all_;
@@ -46339,7 +46374,7 @@ const vector<float> &Nano::Muon_miniPFRelIso_chg() {
     if (!loaded_Muon_miniPFRelIso_chg_) {
         if (!b_Muon_miniPFRelIso_chg_) throw std::runtime_error("Muon_miniPFRelIso_chg branch doesn't exist");
         int bytes = b_Muon_miniPFRelIso_chg_->GetEntry(index);
-        v_Muon_miniPFRelIso_chg_ = vector<float>(Muon_miniPFRelIso_chg_,Muon_miniPFRelIso_chg_+bytes/sizeof(Muon_miniPFRelIso_chg_[0]));
+        v_Muon_miniPFRelIso_chg_ = vector<float>(Muon_miniPFRelIso_chg_.data(),Muon_miniPFRelIso_chg_.data()+bytes/sizeof(Muon_miniPFRelIso_chg_[0]));
         loaded_Muon_miniPFRelIso_chg_ = true;
     }
     return v_Muon_miniPFRelIso_chg_;
@@ -46350,7 +46385,7 @@ const vector<UChar_t> &Nano::Muon_multiIsoId() {
     if (!loaded_Muon_multiIsoId_) {
         if (!b_Muon_multiIsoId_) throw std::runtime_error("Muon_multiIsoId branch doesn't exist");
         int bytes = b_Muon_multiIsoId_->GetEntry(index);
-        v_Muon_multiIsoId_ = vector<UChar_t>(Muon_multiIsoId_,Muon_multiIsoId_+bytes/sizeof(Muon_multiIsoId_[0]));
+        v_Muon_multiIsoId_ = vector<UChar_t>(Muon_multiIsoId_.data(),Muon_multiIsoId_.data()+bytes/sizeof(Muon_multiIsoId_[0]));
         loaded_Muon_multiIsoId_ = true;
     }
     return v_Muon_multiIsoId_;
@@ -46361,7 +46396,7 @@ const vector<UChar_t> &Nano::Muon_mvaId() {
     if (!loaded_Muon_mvaId_) {
         if (!b_Muon_mvaId_) throw std::runtime_error("Muon_mvaId branch doesn't exist");
         int bytes = b_Muon_mvaId_->GetEntry(index);
-        v_Muon_mvaId_ = vector<UChar_t>(Muon_mvaId_,Muon_mvaId_+bytes/sizeof(Muon_mvaId_[0]));
+        v_Muon_mvaId_ = vector<UChar_t>(Muon_mvaId_.data(),Muon_mvaId_.data()+bytes/sizeof(Muon_mvaId_[0]));
         loaded_Muon_mvaId_ = true;
     }
     return v_Muon_mvaId_;
@@ -46372,7 +46407,7 @@ const vector<float> &Nano::Muon_mvaLowPt() {
     if (!loaded_Muon_mvaLowPt_) {
         if (!b_Muon_mvaLowPt_) throw std::runtime_error("Muon_mvaLowPt branch doesn't exist");
         int bytes = b_Muon_mvaLowPt_->GetEntry(index);
-        v_Muon_mvaLowPt_ = vector<float>(Muon_mvaLowPt_,Muon_mvaLowPt_+bytes/sizeof(Muon_mvaLowPt_[0]));
+        v_Muon_mvaLowPt_ = vector<float>(Muon_mvaLowPt_.data(),Muon_mvaLowPt_.data()+bytes/sizeof(Muon_mvaLowPt_[0]));
         loaded_Muon_mvaLowPt_ = true;
     }
     return v_Muon_mvaLowPt_;
@@ -46383,7 +46418,7 @@ const vector<UChar_t> &Nano::Muon_mvaLowPtId() {
     if (!loaded_Muon_mvaLowPtId_) {
         if (!b_Muon_mvaLowPtId_) throw std::runtime_error("Muon_mvaLowPtId branch doesn't exist");
         int bytes = b_Muon_mvaLowPtId_->GetEntry(index);
-        v_Muon_mvaLowPtId_ = vector<UChar_t>(Muon_mvaLowPtId_,Muon_mvaLowPtId_+bytes/sizeof(Muon_mvaLowPtId_[0]));
+        v_Muon_mvaLowPtId_ = vector<UChar_t>(Muon_mvaLowPtId_.data(),Muon_mvaLowPtId_.data()+bytes/sizeof(Muon_mvaLowPtId_[0]));
         loaded_Muon_mvaLowPtId_ = true;
     }
     return v_Muon_mvaLowPtId_;
@@ -46394,7 +46429,7 @@ const vector<float> &Nano::Muon_mvaMuID() {
     if (!loaded_Muon_mvaMuID_) {
         if (!b_Muon_mvaMuID_) throw std::runtime_error("Muon_mvaMuID branch doesn't exist");
         int bytes = b_Muon_mvaMuID_->GetEntry(index);
-        v_Muon_mvaMuID_ = vector<float>(Muon_mvaMuID_,Muon_mvaMuID_+bytes/sizeof(Muon_mvaMuID_[0]));
+        v_Muon_mvaMuID_ = vector<float>(Muon_mvaMuID_.data(),Muon_mvaMuID_.data()+bytes/sizeof(Muon_mvaMuID_[0]));
         loaded_Muon_mvaMuID_ = true;
     }
     return v_Muon_mvaMuID_;
@@ -46405,7 +46440,7 @@ const vector<UChar_t> &Nano::Muon_mvaMuID_WP() {
     if (!loaded_Muon_mvaMuID_WP_) {
         if (!b_Muon_mvaMuID_WP_) throw std::runtime_error("Muon_mvaMuID_WP branch doesn't exist");
         int bytes = b_Muon_mvaMuID_WP_->GetEntry(index);
-        v_Muon_mvaMuID_WP_ = vector<UChar_t>(Muon_mvaMuID_WP_,Muon_mvaMuID_WP_+bytes/sizeof(Muon_mvaMuID_WP_[0]));
+        v_Muon_mvaMuID_WP_ = vector<UChar_t>(Muon_mvaMuID_WP_.data(),Muon_mvaMuID_WP_.data()+bytes/sizeof(Muon_mvaMuID_WP_[0]));
         loaded_Muon_mvaMuID_WP_ = true;
     }
     return v_Muon_mvaMuID_WP_;
@@ -46416,7 +46451,7 @@ const vector<float> &Nano::Muon_mvaTTH() {
     if (!loaded_Muon_mvaTTH_) {
         if (!b_Muon_mvaTTH_) throw std::runtime_error("Muon_mvaTTH branch doesn't exist");
         int bytes = b_Muon_mvaTTH_->GetEntry(index);
-        v_Muon_mvaTTH_ = vector<float>(Muon_mvaTTH_,Muon_mvaTTH_+bytes/sizeof(Muon_mvaTTH_[0]));
+        v_Muon_mvaTTH_ = vector<float>(Muon_mvaTTH_.data(),Muon_mvaTTH_.data()+bytes/sizeof(Muon_mvaTTH_[0]));
         loaded_Muon_mvaTTH_ = true;
     }
     return v_Muon_mvaTTH_;
@@ -46428,7 +46463,7 @@ const vector<float> &Nano::Muon_mvaTTHUL() {
     if (!loaded_Muon_mvaTTHUL_) {
         if (!b_Muon_mvaTTHUL_) throw std::runtime_error("Muon_mvaTTHUL branch doesn't exist");
         int bytes = b_Muon_mvaTTHUL_->GetEntry(index);
-        v_Muon_mvaTTHUL_ = vector<float>(Muon_mvaTTHUL_,Muon_mvaTTHUL_+bytes/sizeof(Muon_mvaTTHUL_[0]));
+        v_Muon_mvaTTHUL_ = vector<float>(Muon_mvaTTHUL_.data(),Muon_mvaTTHUL_.data()+bytes/sizeof(Muon_mvaTTHUL_[0]));
         loaded_Muon_mvaTTHUL_ = true;
     }
     return v_Muon_mvaTTHUL_;
@@ -46440,7 +46475,7 @@ const vector<int> &Nano::Muon_nStations() {
     if (!loaded_Muon_nStations_) {
         if (!b_Muon_nStations_) throw std::runtime_error("Muon_nStations branch doesn't exist");
         int bytes = b_Muon_nStations_->GetEntry(index);
-        v_Muon_nStations_ = vector<int>(Muon_nStations_,Muon_nStations_+bytes/sizeof(Muon_nStations_[0]));
+        v_Muon_nStations_ = vector<int>(Muon_nStations_.data(),Muon_nStations_.data()+bytes/sizeof(Muon_nStations_[0]));
         loaded_Muon_nStations_ = true;
     }
     return v_Muon_nStations_;
@@ -46451,7 +46486,7 @@ const vector<int> &Nano::Muon_nTrackerLayers() {
     if (!loaded_Muon_nTrackerLayers_) {
         if (!b_Muon_nTrackerLayers_) throw std::runtime_error("Muon_nTrackerLayers branch doesn't exist");
         int bytes = b_Muon_nTrackerLayers_->GetEntry(index);
-        v_Muon_nTrackerLayers_ = vector<int>(Muon_nTrackerLayers_,Muon_nTrackerLayers_+bytes/sizeof(Muon_nTrackerLayers_[0]));
+        v_Muon_nTrackerLayers_ = vector<int>(Muon_nTrackerLayers_.data(),Muon_nTrackerLayers_.data()+bytes/sizeof(Muon_nTrackerLayers_[0]));
         loaded_Muon_nTrackerLayers_ = true;
     }
     return v_Muon_nTrackerLayers_;
@@ -46478,7 +46513,7 @@ const vector<int> &Nano::Muon_pdgId() {
     if (!loaded_Muon_pdgId_) {
         if (!b_Muon_pdgId_) throw std::runtime_error("Muon_pdgId branch doesn't exist");
         int bytes = b_Muon_pdgId_->GetEntry(index);
-        v_Muon_pdgId_ = vector<int>(Muon_pdgId_,Muon_pdgId_+bytes/sizeof(Muon_pdgId_[0]));
+        v_Muon_pdgId_ = vector<int>(Muon_pdgId_.data(),Muon_pdgId_.data()+bytes/sizeof(Muon_pdgId_[0]));
         loaded_Muon_pdgId_ = true;
     }
     return v_Muon_pdgId_;
@@ -46489,7 +46524,7 @@ const vector<UChar_t> &Nano::Muon_pfIsoId() {
     if (!loaded_Muon_pfIsoId_) {
         if (!b_Muon_pfIsoId_) throw std::runtime_error("Muon_pfIsoId branch doesn't exist");
         int bytes = b_Muon_pfIsoId_->GetEntry(index);
-        v_Muon_pfIsoId_ = vector<UChar_t>(Muon_pfIsoId_,Muon_pfIsoId_+bytes/sizeof(Muon_pfIsoId_[0]));
+        v_Muon_pfIsoId_ = vector<UChar_t>(Muon_pfIsoId_.data(),Muon_pfIsoId_.data()+bytes/sizeof(Muon_pfIsoId_[0]));
         loaded_Muon_pfIsoId_ = true;
     }
     return v_Muon_pfIsoId_;
@@ -46500,7 +46535,7 @@ const vector<float> &Nano::Muon_pfRelIso03_all() {
     if (!loaded_Muon_pfRelIso03_all_) {
         if (!b_Muon_pfRelIso03_all_) throw std::runtime_error("Muon_pfRelIso03_all branch doesn't exist");
         int bytes = b_Muon_pfRelIso03_all_->GetEntry(index);
-        v_Muon_pfRelIso03_all_ = vector<float>(Muon_pfRelIso03_all_,Muon_pfRelIso03_all_+bytes/sizeof(Muon_pfRelIso03_all_[0]));
+        v_Muon_pfRelIso03_all_ = vector<float>(Muon_pfRelIso03_all_.data(),Muon_pfRelIso03_all_.data()+bytes/sizeof(Muon_pfRelIso03_all_[0]));
         loaded_Muon_pfRelIso03_all_ = true;
     }
     return v_Muon_pfRelIso03_all_;
@@ -46511,7 +46546,7 @@ const vector<float> &Nano::Muon_pfRelIso03_chg() {
     if (!loaded_Muon_pfRelIso03_chg_) {
         if (!b_Muon_pfRelIso03_chg_) throw std::runtime_error("Muon_pfRelIso03_chg branch doesn't exist");
         int bytes = b_Muon_pfRelIso03_chg_->GetEntry(index);
-        v_Muon_pfRelIso03_chg_ = vector<float>(Muon_pfRelIso03_chg_,Muon_pfRelIso03_chg_+bytes/sizeof(Muon_pfRelIso03_chg_[0]));
+        v_Muon_pfRelIso03_chg_ = vector<float>(Muon_pfRelIso03_chg_.data(),Muon_pfRelIso03_chg_.data()+bytes/sizeof(Muon_pfRelIso03_chg_[0]));
         loaded_Muon_pfRelIso03_chg_ = true;
     }
     return v_Muon_pfRelIso03_chg_;
@@ -46522,7 +46557,7 @@ const vector<float> &Nano::Muon_pfRelIso04_all() {
     if (!loaded_Muon_pfRelIso04_all_) {
         if (!b_Muon_pfRelIso04_all_) throw std::runtime_error("Muon_pfRelIso04_all branch doesn't exist");
         int bytes = b_Muon_pfRelIso04_all_->GetEntry(index);
-        v_Muon_pfRelIso04_all_ = vector<float>(Muon_pfRelIso04_all_,Muon_pfRelIso04_all_+bytes/sizeof(Muon_pfRelIso04_all_[0]));
+        v_Muon_pfRelIso04_all_ = vector<float>(Muon_pfRelIso04_all_.data(),Muon_pfRelIso04_all_.data()+bytes/sizeof(Muon_pfRelIso04_all_[0]));
         loaded_Muon_pfRelIso04_all_ = true;
     }
     return v_Muon_pfRelIso04_all_;
@@ -46533,7 +46568,7 @@ const vector<float> &Nano::Muon_phi() {
     if (!loaded_Muon_phi_) {
         if (!b_Muon_phi_) throw std::runtime_error("Muon_phi branch doesn't exist");
         int bytes = b_Muon_phi_->GetEntry(index);
-        v_Muon_phi_ = vector<float>(Muon_phi_,Muon_phi_+bytes/sizeof(Muon_phi_[0]));
+        v_Muon_phi_ = vector<float>(Muon_phi_.data(),Muon_phi_.data()+bytes/sizeof(Muon_phi_[0]));
         loaded_Muon_phi_ = true;
     }
     return v_Muon_phi_;
@@ -46544,7 +46579,7 @@ const vector<float> &Nano::Muon_pt() {
     if (!loaded_Muon_pt_) {
         if (!b_Muon_pt_) throw std::runtime_error("Muon_pt branch doesn't exist");
         int bytes = b_Muon_pt_->GetEntry(index);
-        v_Muon_pt_ = vector<float>(Muon_pt_,Muon_pt_+bytes/sizeof(Muon_pt_[0]));
+        v_Muon_pt_ = vector<float>(Muon_pt_.data(),Muon_pt_.data()+bytes/sizeof(Muon_pt_[0]));
         loaded_Muon_pt_ = true;
     }
     return v_Muon_pt_;
@@ -46555,7 +46590,7 @@ const vector<float> &Nano::Muon_ptErr() {
     if (!loaded_Muon_ptErr_) {
         if (!b_Muon_ptErr_) throw std::runtime_error("Muon_ptErr branch doesn't exist");
         int bytes = b_Muon_ptErr_->GetEntry(index);
-        v_Muon_ptErr_ = vector<float>(Muon_ptErr_,Muon_ptErr_+bytes/sizeof(Muon_ptErr_[0]));
+        v_Muon_ptErr_ = vector<float>(Muon_ptErr_.data(),Muon_ptErr_.data()+bytes/sizeof(Muon_ptErr_[0]));
         loaded_Muon_ptErr_ = true;
     }
     return v_Muon_ptErr_;
@@ -46566,7 +46601,7 @@ const vector<UChar_t> &Nano::Muon_puppiIsoId() {
     if (!loaded_Muon_puppiIsoId_) {
         if (!b_Muon_puppiIsoId_) throw std::runtime_error("Muon_puppiIsoId branch doesn't exist");
         int bytes = b_Muon_puppiIsoId_->GetEntry(index);
-        v_Muon_puppiIsoId_ = vector<UChar_t>(Muon_puppiIsoId_,Muon_puppiIsoId_+bytes/sizeof(Muon_puppiIsoId_[0]));
+        v_Muon_puppiIsoId_ = vector<UChar_t>(Muon_puppiIsoId_.data(),Muon_puppiIsoId_.data()+bytes/sizeof(Muon_puppiIsoId_[0]));
         loaded_Muon_puppiIsoId_ = true;
     }
     return v_Muon_puppiIsoId_;
@@ -46577,7 +46612,7 @@ const vector<float> &Nano::Muon_segmentComp() {
     if (!loaded_Muon_segmentComp_) {
         if (!b_Muon_segmentComp_) throw std::runtime_error("Muon_segmentComp branch doesn't exist");
         int bytes = b_Muon_segmentComp_->GetEntry(index);
-        v_Muon_segmentComp_ = vector<float>(Muon_segmentComp_,Muon_segmentComp_+bytes/sizeof(Muon_segmentComp_[0]));
+        v_Muon_segmentComp_ = vector<float>(Muon_segmentComp_.data(),Muon_segmentComp_.data()+bytes/sizeof(Muon_segmentComp_[0]));
         loaded_Muon_segmentComp_ = true;
     }
     return v_Muon_segmentComp_;
@@ -46588,7 +46623,7 @@ const vector<float> &Nano::Muon_sip3d() {
     if (!loaded_Muon_sip3d_) {
         if (!b_Muon_sip3d_) throw std::runtime_error("Muon_sip3d branch doesn't exist");
         int bytes = b_Muon_sip3d_->GetEntry(index);
-        v_Muon_sip3d_ = vector<float>(Muon_sip3d_,Muon_sip3d_+bytes/sizeof(Muon_sip3d_[0]));
+        v_Muon_sip3d_ = vector<float>(Muon_sip3d_.data(),Muon_sip3d_.data()+bytes/sizeof(Muon_sip3d_[0]));
         loaded_Muon_sip3d_ = true;
     }
     return v_Muon_sip3d_;
@@ -46599,7 +46634,7 @@ const vector<bool> &Nano::Muon_softId() {
     if (!loaded_Muon_softId_) {
         if (!b_Muon_softId_) throw std::runtime_error("Muon_softId branch doesn't exist");
         int bytes = b_Muon_softId_->GetEntry(index);
-        v_Muon_softId_ = vector<bool>(Muon_softId_,Muon_softId_+bytes/sizeof(Muon_softId_[0]));
+        v_Muon_softId_ = vector<bool>(Muon_softId_.data(),Muon_softId_.data()+bytes/sizeof(Muon_softId_[0]));
         loaded_Muon_softId_ = true;
     }
     return v_Muon_softId_;
@@ -46610,7 +46645,7 @@ const vector<float> &Nano::Muon_softMva() {
     if (!loaded_Muon_softMva_) {
         if (!b_Muon_softMva_) throw std::runtime_error("Muon_softMva branch doesn't exist");
         int bytes = b_Muon_softMva_->GetEntry(index);
-        v_Muon_softMva_ = vector<float>(Muon_softMva_,Muon_softMva_+bytes/sizeof(Muon_softMva_[0]));
+        v_Muon_softMva_ = vector<float>(Muon_softMva_.data(),Muon_softMva_.data()+bytes/sizeof(Muon_softMva_[0]));
         loaded_Muon_softMva_ = true;
     }
     return v_Muon_softMva_;
@@ -46621,7 +46656,7 @@ const vector<bool> &Nano::Muon_softMvaId() {
     if (!loaded_Muon_softMvaId_) {
         if (!b_Muon_softMvaId_) throw std::runtime_error("Muon_softMvaId branch doesn't exist");
         int bytes = b_Muon_softMvaId_->GetEntry(index);
-        v_Muon_softMvaId_ = vector<bool>(Muon_softMvaId_,Muon_softMvaId_+bytes/sizeof(Muon_softMvaId_[0]));
+        v_Muon_softMvaId_ = vector<bool>(Muon_softMvaId_.data(),Muon_softMvaId_.data()+bytes/sizeof(Muon_softMvaId_[0]));
         loaded_Muon_softMvaId_ = true;
     }
     return v_Muon_softMvaId_;
@@ -46632,7 +46667,7 @@ const vector<int> &Nano::Muon_svIdx() {
     if (!loaded_Muon_svIdx_) {
         if (!b_Muon_svIdx_) throw std::runtime_error("Muon_svIdx branch doesn't exist");
         int bytes = b_Muon_svIdx_->GetEntry(index);
-        v_Muon_svIdx_ = vector<int>(Muon_svIdx_,Muon_svIdx_+bytes/sizeof(Muon_svIdx_[0]));
+        v_Muon_svIdx_ = vector<int>(Muon_svIdx_.data(),Muon_svIdx_.data()+bytes/sizeof(Muon_svIdx_[0]));
         loaded_Muon_svIdx_ = true;
     }
     return v_Muon_svIdx_;
@@ -46643,7 +46678,7 @@ const vector<int> &Nano::Muon_tightCharge() {
     if (!loaded_Muon_tightCharge_) {
         if (!b_Muon_tightCharge_) throw std::runtime_error("Muon_tightCharge branch doesn't exist");
         int bytes = b_Muon_tightCharge_->GetEntry(index);
-        v_Muon_tightCharge_ = vector<int>(Muon_tightCharge_,Muon_tightCharge_+bytes/sizeof(Muon_tightCharge_[0]));
+        v_Muon_tightCharge_ = vector<int>(Muon_tightCharge_.data(),Muon_tightCharge_.data()+bytes/sizeof(Muon_tightCharge_[0]));
         loaded_Muon_tightCharge_ = true;
     }
     return v_Muon_tightCharge_;
@@ -46654,7 +46689,7 @@ const vector<bool> &Nano::Muon_tightId() {
     if (!loaded_Muon_tightId_) {
         if (!b_Muon_tightId_) throw std::runtime_error("Muon_tightId branch doesn't exist");
         int bytes = b_Muon_tightId_->GetEntry(index);
-        v_Muon_tightId_ = vector<bool>(Muon_tightId_,Muon_tightId_+bytes/sizeof(Muon_tightId_[0]));
+        v_Muon_tightId_ = vector<bool>(Muon_tightId_.data(),Muon_tightId_.data()+bytes/sizeof(Muon_tightId_[0]));
         loaded_Muon_tightId_ = true;
     }
     return v_Muon_tightId_;
@@ -46665,7 +46700,7 @@ const vector<UChar_t> &Nano::Muon_tkIsoId() {
     if (!loaded_Muon_tkIsoId_) {
         if (!b_Muon_tkIsoId_) throw std::runtime_error("Muon_tkIsoId branch doesn't exist");
         int bytes = b_Muon_tkIsoId_->GetEntry(index);
-        v_Muon_tkIsoId_ = vector<UChar_t>(Muon_tkIsoId_,Muon_tkIsoId_+bytes/sizeof(Muon_tkIsoId_[0]));
+        v_Muon_tkIsoId_ = vector<UChar_t>(Muon_tkIsoId_.data(),Muon_tkIsoId_.data()+bytes/sizeof(Muon_tkIsoId_[0]));
         loaded_Muon_tkIsoId_ = true;
     }
     return v_Muon_tkIsoId_;
@@ -46676,7 +46711,7 @@ const vector<float> &Nano::Muon_tkRelIso() {
     if (!loaded_Muon_tkRelIso_) {
         if (!b_Muon_tkRelIso_) throw std::runtime_error("Muon_tkRelIso branch doesn't exist");
         int bytes = b_Muon_tkRelIso_->GetEntry(index);
-        v_Muon_tkRelIso_ = vector<float>(Muon_tkRelIso_,Muon_tkRelIso_+bytes/sizeof(Muon_tkRelIso_[0]));
+        v_Muon_tkRelIso_ = vector<float>(Muon_tkRelIso_.data(),Muon_tkRelIso_.data()+bytes/sizeof(Muon_tkRelIso_[0]));
         loaded_Muon_tkRelIso_ = true;
     }
     return v_Muon_tkRelIso_;
@@ -46687,7 +46722,7 @@ const vector<bool> &Nano::Muon_triggerIdLoose() {
     if (!loaded_Muon_triggerIdLoose_) {
         if (!b_Muon_triggerIdLoose_) throw std::runtime_error("Muon_triggerIdLoose branch doesn't exist");
         int bytes = b_Muon_triggerIdLoose_->GetEntry(index);
-        v_Muon_triggerIdLoose_ = vector<bool>(Muon_triggerIdLoose_,Muon_triggerIdLoose_+bytes/sizeof(Muon_triggerIdLoose_[0]));
+        v_Muon_triggerIdLoose_ = vector<bool>(Muon_triggerIdLoose_.data(),Muon_triggerIdLoose_.data()+bytes/sizeof(Muon_triggerIdLoose_[0]));
         loaded_Muon_triggerIdLoose_ = true;
     }
     return v_Muon_triggerIdLoose_;
@@ -46698,7 +46733,7 @@ const vector<float> &Nano::Muon_tunepRelPt() {
     if (!loaded_Muon_tunepRelPt_) {
         if (!b_Muon_tunepRelPt_) throw std::runtime_error("Muon_tunepRelPt branch doesn't exist");
         int bytes = b_Muon_tunepRelPt_->GetEntry(index);
-        v_Muon_tunepRelPt_ = vector<float>(Muon_tunepRelPt_,Muon_tunepRelPt_+bytes/sizeof(Muon_tunepRelPt_[0]));
+        v_Muon_tunepRelPt_ = vector<float>(Muon_tunepRelPt_.data(),Muon_tunepRelPt_.data()+bytes/sizeof(Muon_tunepRelPt_[0]));
         loaded_Muon_tunepRelPt_ = true;
     }
     return v_Muon_tunepRelPt_;
@@ -46709,7 +46744,7 @@ const vector<float> &Nano::OtherPV_score() {
     if (!loaded_OtherPV_score_) {
         if (!b_OtherPV_score_) throw std::runtime_error("OtherPV_score branch doesn't exist");
         int bytes = b_OtherPV_score_->GetEntry(index);
-        v_OtherPV_score_ = vector<float>(OtherPV_score_,OtherPV_score_+bytes/sizeof(OtherPV_score_[0]));
+        v_OtherPV_score_ = vector<float>(OtherPV_score_.data(),OtherPV_score_.data()+bytes/sizeof(OtherPV_score_[0]));
         loaded_OtherPV_score_ = true;
     }
     return v_OtherPV_score_;
@@ -46720,7 +46755,7 @@ const vector<float> &Nano::OtherPV_z() {
     if (!loaded_OtherPV_z_) {
         if (!b_OtherPV_z_) throw std::runtime_error("OtherPV_z branch doesn't exist");
         int bytes = b_OtherPV_z_->GetEntry(index);
-        v_OtherPV_z_ = vector<float>(OtherPV_z_,OtherPV_z_+bytes/sizeof(OtherPV_z_[0]));
+        v_OtherPV_z_ = vector<float>(OtherPV_z_.data(),OtherPV_z_.data()+bytes/sizeof(OtherPV_z_[0]));
         loaded_OtherPV_z_ = true;
     }
     return v_OtherPV_z_;
@@ -46731,7 +46766,7 @@ const vector<int> &Nano::PPSLocalTrack_decRPId() {
     if (!loaded_PPSLocalTrack_decRPId_) {
         if (!b_PPSLocalTrack_decRPId_) throw std::runtime_error("PPSLocalTrack_decRPId branch doesn't exist");
         int bytes = b_PPSLocalTrack_decRPId_->GetEntry(index);
-        v_PPSLocalTrack_decRPId_ = vector<int>(PPSLocalTrack_decRPId_,PPSLocalTrack_decRPId_+bytes/sizeof(PPSLocalTrack_decRPId_[0]));
+        v_PPSLocalTrack_decRPId_ = vector<int>(PPSLocalTrack_decRPId_.data(),PPSLocalTrack_decRPId_.data()+bytes/sizeof(PPSLocalTrack_decRPId_[0]));
         loaded_PPSLocalTrack_decRPId_ = true;
     }
     return v_PPSLocalTrack_decRPId_;
@@ -46742,7 +46777,7 @@ const vector<int> &Nano::PPSLocalTrack_multiRPProtonIdx() {
     if (!loaded_PPSLocalTrack_multiRPProtonIdx_) {
         if (!b_PPSLocalTrack_multiRPProtonIdx_) throw std::runtime_error("PPSLocalTrack_multiRPProtonIdx branch doesn't exist");
         int bytes = b_PPSLocalTrack_multiRPProtonIdx_->GetEntry(index);
-        v_PPSLocalTrack_multiRPProtonIdx_ = vector<int>(PPSLocalTrack_multiRPProtonIdx_,PPSLocalTrack_multiRPProtonIdx_+bytes/sizeof(PPSLocalTrack_multiRPProtonIdx_[0]));
+        v_PPSLocalTrack_multiRPProtonIdx_ = vector<int>(PPSLocalTrack_multiRPProtonIdx_.data(),PPSLocalTrack_multiRPProtonIdx_.data()+bytes/sizeof(PPSLocalTrack_multiRPProtonIdx_[0]));
         loaded_PPSLocalTrack_multiRPProtonIdx_ = true;
     }
     return v_PPSLocalTrack_multiRPProtonIdx_;
@@ -46753,7 +46788,7 @@ const vector<int> &Nano::PPSLocalTrack_rpType() {
     if (!loaded_PPSLocalTrack_rpType_) {
         if (!b_PPSLocalTrack_rpType_) throw std::runtime_error("PPSLocalTrack_rpType branch doesn't exist");
         int bytes = b_PPSLocalTrack_rpType_->GetEntry(index);
-        v_PPSLocalTrack_rpType_ = vector<int>(PPSLocalTrack_rpType_,PPSLocalTrack_rpType_+bytes/sizeof(PPSLocalTrack_rpType_[0]));
+        v_PPSLocalTrack_rpType_ = vector<int>(PPSLocalTrack_rpType_.data(),PPSLocalTrack_rpType_.data()+bytes/sizeof(PPSLocalTrack_rpType_[0]));
         loaded_PPSLocalTrack_rpType_ = true;
     }
     return v_PPSLocalTrack_rpType_;
@@ -46764,7 +46799,7 @@ const vector<int> &Nano::PPSLocalTrack_singleRPProtonIdx() {
     if (!loaded_PPSLocalTrack_singleRPProtonIdx_) {
         if (!b_PPSLocalTrack_singleRPProtonIdx_) throw std::runtime_error("PPSLocalTrack_singleRPProtonIdx branch doesn't exist");
         int bytes = b_PPSLocalTrack_singleRPProtonIdx_->GetEntry(index);
-        v_PPSLocalTrack_singleRPProtonIdx_ = vector<int>(PPSLocalTrack_singleRPProtonIdx_,PPSLocalTrack_singleRPProtonIdx_+bytes/sizeof(PPSLocalTrack_singleRPProtonIdx_[0]));
+        v_PPSLocalTrack_singleRPProtonIdx_ = vector<int>(PPSLocalTrack_singleRPProtonIdx_.data(),PPSLocalTrack_singleRPProtonIdx_.data()+bytes/sizeof(PPSLocalTrack_singleRPProtonIdx_[0]));
         loaded_PPSLocalTrack_singleRPProtonIdx_ = true;
     }
     return v_PPSLocalTrack_singleRPProtonIdx_;
@@ -46775,7 +46810,7 @@ const vector<float> &Nano::PPSLocalTrack_time() {
     if (!loaded_PPSLocalTrack_time_) {
         if (!b_PPSLocalTrack_time_) throw std::runtime_error("PPSLocalTrack_time branch doesn't exist");
         int bytes = b_PPSLocalTrack_time_->GetEntry(index);
-        v_PPSLocalTrack_time_ = vector<float>(PPSLocalTrack_time_,PPSLocalTrack_time_+bytes/sizeof(PPSLocalTrack_time_[0]));
+        v_PPSLocalTrack_time_ = vector<float>(PPSLocalTrack_time_.data(),PPSLocalTrack_time_.data()+bytes/sizeof(PPSLocalTrack_time_[0]));
         loaded_PPSLocalTrack_time_ = true;
     }
     return v_PPSLocalTrack_time_;
@@ -46786,7 +46821,7 @@ const vector<float> &Nano::PPSLocalTrack_timeUnc() {
     if (!loaded_PPSLocalTrack_timeUnc_) {
         if (!b_PPSLocalTrack_timeUnc_) throw std::runtime_error("PPSLocalTrack_timeUnc branch doesn't exist");
         int bytes = b_PPSLocalTrack_timeUnc_->GetEntry(index);
-        v_PPSLocalTrack_timeUnc_ = vector<float>(PPSLocalTrack_timeUnc_,PPSLocalTrack_timeUnc_+bytes/sizeof(PPSLocalTrack_timeUnc_[0]));
+        v_PPSLocalTrack_timeUnc_ = vector<float>(PPSLocalTrack_timeUnc_.data(),PPSLocalTrack_timeUnc_.data()+bytes/sizeof(PPSLocalTrack_timeUnc_[0]));
         loaded_PPSLocalTrack_timeUnc_ = true;
     }
     return v_PPSLocalTrack_timeUnc_;
@@ -46797,7 +46832,7 @@ const vector<float> &Nano::PPSLocalTrack_x() {
     if (!loaded_PPSLocalTrack_x_) {
         if (!b_PPSLocalTrack_x_) throw std::runtime_error("PPSLocalTrack_x branch doesn't exist");
         int bytes = b_PPSLocalTrack_x_->GetEntry(index);
-        v_PPSLocalTrack_x_ = vector<float>(PPSLocalTrack_x_,PPSLocalTrack_x_+bytes/sizeof(PPSLocalTrack_x_[0]));
+        v_PPSLocalTrack_x_ = vector<float>(PPSLocalTrack_x_.data(),PPSLocalTrack_x_.data()+bytes/sizeof(PPSLocalTrack_x_[0]));
         loaded_PPSLocalTrack_x_ = true;
     }
     return v_PPSLocalTrack_x_;
@@ -46808,7 +46843,7 @@ const vector<float> &Nano::PPSLocalTrack_y() {
     if (!loaded_PPSLocalTrack_y_) {
         if (!b_PPSLocalTrack_y_) throw std::runtime_error("PPSLocalTrack_y branch doesn't exist");
         int bytes = b_PPSLocalTrack_y_->GetEntry(index);
-        v_PPSLocalTrack_y_ = vector<float>(PPSLocalTrack_y_,PPSLocalTrack_y_+bytes/sizeof(PPSLocalTrack_y_[0]));
+        v_PPSLocalTrack_y_ = vector<float>(PPSLocalTrack_y_.data(),PPSLocalTrack_y_.data()+bytes/sizeof(PPSLocalTrack_y_[0]));
         loaded_PPSLocalTrack_y_ = true;
     }
     return v_PPSLocalTrack_y_;
@@ -46819,7 +46854,7 @@ const vector<float> &Nano::PSWeight() {
     if (!loaded_PSWeight_) {
         if (!b_PSWeight_) throw std::runtime_error("PSWeight branch doesn't exist");
         int bytes = b_PSWeight_->GetEntry(index);
-        v_PSWeight_ = vector<float>(PSWeight_,PSWeight_+bytes/sizeof(PSWeight_[0]));
+        v_PSWeight_ = vector<float>(PSWeight_.data(),PSWeight_.data()+bytes/sizeof(PSWeight_[0]));
         loaded_PSWeight_ = true;
     }
     return v_PSWeight_;
@@ -46910,7 +46945,7 @@ const vector<int> &Nano::Photon_charge() {
     if (!loaded_Photon_charge_) {
         if (!b_Photon_charge_) throw std::runtime_error("Photon_charge branch doesn't exist");
         int bytes = b_Photon_charge_->GetEntry(index);
-        v_Photon_charge_ = vector<int>(Photon_charge_,Photon_charge_+bytes/sizeof(Photon_charge_[0]));
+        v_Photon_charge_ = vector<int>(Photon_charge_.data(),Photon_charge_.data()+bytes/sizeof(Photon_charge_[0]));
         loaded_Photon_charge_ = true;
     }
     return v_Photon_charge_;
@@ -46921,7 +46956,7 @@ const vector<UChar_t> &Nano::Photon_cleanmask() {
     if (!loaded_Photon_cleanmask_) {
         if (!b_Photon_cleanmask_) throw std::runtime_error("Photon_cleanmask branch doesn't exist");
         int bytes = b_Photon_cleanmask_->GetEntry(index);
-        v_Photon_cleanmask_ = vector<UChar_t>(Photon_cleanmask_,Photon_cleanmask_+bytes/sizeof(Photon_cleanmask_[0]));
+        v_Photon_cleanmask_ = vector<UChar_t>(Photon_cleanmask_.data(),Photon_cleanmask_.data()+bytes/sizeof(Photon_cleanmask_[0]));
         loaded_Photon_cleanmask_ = true;
     }
     return v_Photon_cleanmask_;
@@ -46932,7 +46967,7 @@ const vector<int> &Nano::Photon_cutBased() {
     if (!loaded_Photon_cutBased_) {
         if (!b_Photon_cutBased_) throw std::runtime_error("Photon_cutBased branch doesn't exist");
         int bytes = b_Photon_cutBased_->GetEntry(index);
-        v_Photon_cutBased_ = vector<int>(Photon_cutBased_,Photon_cutBased_+bytes/sizeof(Photon_cutBased_[0]));
+        v_Photon_cutBased_ = vector<int>(Photon_cutBased_.data(),Photon_cutBased_.data()+bytes/sizeof(Photon_cutBased_[0]));
         loaded_Photon_cutBased_ = true;
     }
     return v_Photon_cutBased_;
@@ -46943,7 +46978,7 @@ const vector<int> &Nano::Photon_cutBased17Bitmap() {
     if (!loaded_Photon_cutBased17Bitmap_) {
         if (!b_Photon_cutBased17Bitmap_) throw std::runtime_error("Photon_cutBased17Bitmap branch doesn't exist");
         int bytes = b_Photon_cutBased17Bitmap_->GetEntry(index);
-        v_Photon_cutBased17Bitmap_ = vector<int>(Photon_cutBased17Bitmap_,Photon_cutBased17Bitmap_+bytes/sizeof(Photon_cutBased17Bitmap_[0]));
+        v_Photon_cutBased17Bitmap_ = vector<int>(Photon_cutBased17Bitmap_.data(),Photon_cutBased17Bitmap_.data()+bytes/sizeof(Photon_cutBased17Bitmap_[0]));
         loaded_Photon_cutBased17Bitmap_ = true;
     }
     return v_Photon_cutBased17Bitmap_;
@@ -46954,7 +46989,7 @@ const vector<int> &Nano::Photon_cutBasedBitmap() {
     if (!loaded_Photon_cutBasedBitmap_) {
         if (!b_Photon_cutBasedBitmap_) throw std::runtime_error("Photon_cutBasedBitmap branch doesn't exist");
         int bytes = b_Photon_cutBasedBitmap_->GetEntry(index);
-        v_Photon_cutBasedBitmap_ = vector<int>(Photon_cutBasedBitmap_,Photon_cutBasedBitmap_+bytes/sizeof(Photon_cutBasedBitmap_[0]));
+        v_Photon_cutBasedBitmap_ = vector<int>(Photon_cutBasedBitmap_.data(),Photon_cutBasedBitmap_.data()+bytes/sizeof(Photon_cutBasedBitmap_[0]));
         loaded_Photon_cutBasedBitmap_ = true;
     }
     return v_Photon_cutBasedBitmap_;
@@ -46965,7 +47000,7 @@ const vector<int> &Nano::Photon_cutBased_Fall17V1Bitmap() {
     if (!loaded_Photon_cutBased_Fall17V1Bitmap_) {
         if (!b_Photon_cutBased_Fall17V1Bitmap_) throw std::runtime_error("Photon_cutBased_Fall17V1Bitmap branch doesn't exist");
         int bytes = b_Photon_cutBased_Fall17V1Bitmap_->GetEntry(index);
-        v_Photon_cutBased_Fall17V1Bitmap_ = vector<int>(Photon_cutBased_Fall17V1Bitmap_,Photon_cutBased_Fall17V1Bitmap_+bytes/sizeof(Photon_cutBased_Fall17V1Bitmap_[0]));
+        v_Photon_cutBased_Fall17V1Bitmap_ = vector<int>(Photon_cutBased_Fall17V1Bitmap_.data(),Photon_cutBased_Fall17V1Bitmap_.data()+bytes/sizeof(Photon_cutBased_Fall17V1Bitmap_[0]));
         loaded_Photon_cutBased_Fall17V1Bitmap_ = true;
     }
     return v_Photon_cutBased_Fall17V1Bitmap_;
@@ -46976,7 +47011,7 @@ const vector<int> &Nano::Photon_cutBased_Fall17V2() {
     if (!loaded_Photon_cutBased_Fall17V2_) {
         if (!b_Photon_cutBased_Fall17V2_) throw std::runtime_error("Photon_cutBased_Fall17V2 branch doesn't exist");
         int bytes = b_Photon_cutBased_Fall17V2_->GetEntry(index);
-        v_Photon_cutBased_Fall17V2_ = vector<int>(Photon_cutBased_Fall17V2_,Photon_cutBased_Fall17V2_+bytes/sizeof(Photon_cutBased_Fall17V2_[0]));
+        v_Photon_cutBased_Fall17V2_ = vector<int>(Photon_cutBased_Fall17V2_.data(),Photon_cutBased_Fall17V2_.data()+bytes/sizeof(Photon_cutBased_Fall17V2_[0]));
         loaded_Photon_cutBased_Fall17V2_ = true;
     }
     return v_Photon_cutBased_Fall17V2_;
@@ -46987,7 +47022,7 @@ const vector<float> &Nano::Photon_dEscaleDown() {
     if (!loaded_Photon_dEscaleDown_) {
         if (!b_Photon_dEscaleDown_) throw std::runtime_error("Photon_dEscaleDown branch doesn't exist");
         int bytes = b_Photon_dEscaleDown_->GetEntry(index);
-        v_Photon_dEscaleDown_ = vector<float>(Photon_dEscaleDown_,Photon_dEscaleDown_+bytes/sizeof(Photon_dEscaleDown_[0]));
+        v_Photon_dEscaleDown_ = vector<float>(Photon_dEscaleDown_.data(),Photon_dEscaleDown_.data()+bytes/sizeof(Photon_dEscaleDown_[0]));
         loaded_Photon_dEscaleDown_ = true;
     }
     return v_Photon_dEscaleDown_;
@@ -46998,7 +47033,7 @@ const vector<float> &Nano::Photon_dEscaleUp() {
     if (!loaded_Photon_dEscaleUp_) {
         if (!b_Photon_dEscaleUp_) throw std::runtime_error("Photon_dEscaleUp branch doesn't exist");
         int bytes = b_Photon_dEscaleUp_->GetEntry(index);
-        v_Photon_dEscaleUp_ = vector<float>(Photon_dEscaleUp_,Photon_dEscaleUp_+bytes/sizeof(Photon_dEscaleUp_[0]));
+        v_Photon_dEscaleUp_ = vector<float>(Photon_dEscaleUp_.data(),Photon_dEscaleUp_.data()+bytes/sizeof(Photon_dEscaleUp_[0]));
         loaded_Photon_dEscaleUp_ = true;
     }
     return v_Photon_dEscaleUp_;
@@ -47009,7 +47044,7 @@ const vector<float> &Nano::Photon_dEsigmaDown() {
     if (!loaded_Photon_dEsigmaDown_) {
         if (!b_Photon_dEsigmaDown_) throw std::runtime_error("Photon_dEsigmaDown branch doesn't exist");
         int bytes = b_Photon_dEsigmaDown_->GetEntry(index);
-        v_Photon_dEsigmaDown_ = vector<float>(Photon_dEsigmaDown_,Photon_dEsigmaDown_+bytes/sizeof(Photon_dEsigmaDown_[0]));
+        v_Photon_dEsigmaDown_ = vector<float>(Photon_dEsigmaDown_.data(),Photon_dEsigmaDown_.data()+bytes/sizeof(Photon_dEsigmaDown_[0]));
         loaded_Photon_dEsigmaDown_ = true;
     }
     return v_Photon_dEsigmaDown_;
@@ -47020,7 +47055,7 @@ const vector<float> &Nano::Photon_dEsigmaUp() {
     if (!loaded_Photon_dEsigmaUp_) {
         if (!b_Photon_dEsigmaUp_) throw std::runtime_error("Photon_dEsigmaUp branch doesn't exist");
         int bytes = b_Photon_dEsigmaUp_->GetEntry(index);
-        v_Photon_dEsigmaUp_ = vector<float>(Photon_dEsigmaUp_,Photon_dEsigmaUp_+bytes/sizeof(Photon_dEsigmaUp_[0]));
+        v_Photon_dEsigmaUp_ = vector<float>(Photon_dEsigmaUp_.data(),Photon_dEsigmaUp_.data()+bytes/sizeof(Photon_dEsigmaUp_[0]));
         loaded_Photon_dEsigmaUp_ = true;
     }
     return v_Photon_dEsigmaUp_;
@@ -47031,7 +47066,7 @@ const vector<float> &Nano::Photon_eCorr() {
     if (!loaded_Photon_eCorr_) {
         if (!b_Photon_eCorr_) throw std::runtime_error("Photon_eCorr branch doesn't exist");
         int bytes = b_Photon_eCorr_->GetEntry(index);
-        v_Photon_eCorr_ = vector<float>(Photon_eCorr_,Photon_eCorr_+bytes/sizeof(Photon_eCorr_[0]));
+        v_Photon_eCorr_ = vector<float>(Photon_eCorr_.data(),Photon_eCorr_.data()+bytes/sizeof(Photon_eCorr_[0]));
         loaded_Photon_eCorr_ = true;
     }
     return v_Photon_eCorr_;
@@ -47042,7 +47077,7 @@ const vector<int> &Nano::Photon_electronIdx() {
     if (!loaded_Photon_electronIdx_) {
         if (!b_Photon_electronIdx_) throw std::runtime_error("Photon_electronIdx branch doesn't exist");
         int bytes = b_Photon_electronIdx_->GetEntry(index);
-        v_Photon_electronIdx_ = vector<int>(Photon_electronIdx_,Photon_electronIdx_+bytes/sizeof(Photon_electronIdx_[0]));
+        v_Photon_electronIdx_ = vector<int>(Photon_electronIdx_.data(),Photon_electronIdx_.data()+bytes/sizeof(Photon_electronIdx_[0]));
         loaded_Photon_electronIdx_ = true;
     }
     return v_Photon_electronIdx_;
@@ -47053,7 +47088,7 @@ const vector<bool> &Nano::Photon_electronVeto() {
     if (!loaded_Photon_electronVeto_) {
         if (!b_Photon_electronVeto_) throw std::runtime_error("Photon_electronVeto branch doesn't exist");
         int bytes = b_Photon_electronVeto_->GetEntry(index);
-        v_Photon_electronVeto_ = vector<bool>(Photon_electronVeto_,Photon_electronVeto_+bytes/sizeof(Photon_electronVeto_[0]));
+        v_Photon_electronVeto_ = vector<bool>(Photon_electronVeto_.data(),Photon_electronVeto_.data()+bytes/sizeof(Photon_electronVeto_[0]));
         loaded_Photon_electronVeto_ = true;
     }
     return v_Photon_electronVeto_;
@@ -47064,7 +47099,7 @@ const vector<float> &Nano::Photon_energyErr() {
     if (!loaded_Photon_energyErr_) {
         if (!b_Photon_energyErr_) throw std::runtime_error("Photon_energyErr branch doesn't exist");
         int bytes = b_Photon_energyErr_->GetEntry(index);
-        v_Photon_energyErr_ = vector<float>(Photon_energyErr_,Photon_energyErr_+bytes/sizeof(Photon_energyErr_[0]));
+        v_Photon_energyErr_ = vector<float>(Photon_energyErr_.data(),Photon_energyErr_.data()+bytes/sizeof(Photon_energyErr_[0]));
         loaded_Photon_energyErr_ = true;
     }
     return v_Photon_energyErr_;
@@ -47075,7 +47110,7 @@ const vector<float> &Nano::Photon_energyRaw() {
     if (!loaded_Photon_energyRaw_) {
         if (!b_Photon_energyRaw_) throw std::runtime_error("Photon_energyRaw branch doesn't exist");
         int bytes = b_Photon_energyRaw_->GetEntry(index);
-        v_Photon_energyRaw_ = vector<float>(Photon_energyRaw_,Photon_energyRaw_+bytes/sizeof(Photon_energyRaw_[0]));
+        v_Photon_energyRaw_ = vector<float>(Photon_energyRaw_.data(),Photon_energyRaw_.data()+bytes/sizeof(Photon_energyRaw_[0]));
         loaded_Photon_energyRaw_ = true;
     }
     return v_Photon_energyRaw_;
@@ -47086,7 +47121,7 @@ const vector<float> &Nano::Photon_esEffSigmaRR() {
     if (!loaded_Photon_esEffSigmaRR_) {
         if (!b_Photon_esEffSigmaRR_) throw std::runtime_error("Photon_esEffSigmaRR branch doesn't exist");
         int bytes = b_Photon_esEffSigmaRR_->GetEntry(index);
-        v_Photon_esEffSigmaRR_ = vector<float>(Photon_esEffSigmaRR_,Photon_esEffSigmaRR_+bytes/sizeof(Photon_esEffSigmaRR_[0]));
+        v_Photon_esEffSigmaRR_ = vector<float>(Photon_esEffSigmaRR_.data(),Photon_esEffSigmaRR_.data()+bytes/sizeof(Photon_esEffSigmaRR_[0]));
         loaded_Photon_esEffSigmaRR_ = true;
     }
     return v_Photon_esEffSigmaRR_;
@@ -47097,7 +47132,7 @@ const vector<float> &Nano::Photon_esEnergyOverRawE() {
     if (!loaded_Photon_esEnergyOverRawE_) {
         if (!b_Photon_esEnergyOverRawE_) throw std::runtime_error("Photon_esEnergyOverRawE branch doesn't exist");
         int bytes = b_Photon_esEnergyOverRawE_->GetEntry(index);
-        v_Photon_esEnergyOverRawE_ = vector<float>(Photon_esEnergyOverRawE_,Photon_esEnergyOverRawE_+bytes/sizeof(Photon_esEnergyOverRawE_[0]));
+        v_Photon_esEnergyOverRawE_ = vector<float>(Photon_esEnergyOverRawE_.data(),Photon_esEnergyOverRawE_.data()+bytes/sizeof(Photon_esEnergyOverRawE_[0]));
         loaded_Photon_esEnergyOverRawE_ = true;
     }
     return v_Photon_esEnergyOverRawE_;
@@ -47108,7 +47143,7 @@ const vector<float> &Nano::Photon_eta() {
     if (!loaded_Photon_eta_) {
         if (!b_Photon_eta_) throw std::runtime_error("Photon_eta branch doesn't exist");
         int bytes = b_Photon_eta_->GetEntry(index);
-        v_Photon_eta_ = vector<float>(Photon_eta_,Photon_eta_+bytes/sizeof(Photon_eta_[0]));
+        v_Photon_eta_ = vector<float>(Photon_eta_.data(),Photon_eta_.data()+bytes/sizeof(Photon_eta_[0]));
         loaded_Photon_eta_ = true;
     }
     return v_Photon_eta_;
@@ -47119,7 +47154,7 @@ const vector<float> &Nano::Photon_etaWidth() {
     if (!loaded_Photon_etaWidth_) {
         if (!b_Photon_etaWidth_) throw std::runtime_error("Photon_etaWidth branch doesn't exist");
         int bytes = b_Photon_etaWidth_->GetEntry(index);
-        v_Photon_etaWidth_ = vector<float>(Photon_etaWidth_,Photon_etaWidth_+bytes/sizeof(Photon_etaWidth_[0]));
+        v_Photon_etaWidth_ = vector<float>(Photon_etaWidth_.data(),Photon_etaWidth_.data()+bytes/sizeof(Photon_etaWidth_[0]));
         loaded_Photon_etaWidth_ = true;
     }
     return v_Photon_etaWidth_;
@@ -47130,7 +47165,7 @@ const vector<UChar_t> &Nano::Photon_genPartFlav() {
     if (!loaded_Photon_genPartFlav_) {
         if (!b_Photon_genPartFlav_) throw std::runtime_error("Photon_genPartFlav branch doesn't exist");
         int bytes = b_Photon_genPartFlav_->GetEntry(index);
-        v_Photon_genPartFlav_ = vector<UChar_t>(Photon_genPartFlav_,Photon_genPartFlav_+bytes/sizeof(Photon_genPartFlav_[0]));
+        v_Photon_genPartFlav_ = vector<UChar_t>(Photon_genPartFlav_.data(),Photon_genPartFlav_.data()+bytes/sizeof(Photon_genPartFlav_[0]));
         loaded_Photon_genPartFlav_ = true;
     }
     return v_Photon_genPartFlav_;
@@ -47141,7 +47176,7 @@ const vector<int> &Nano::Photon_genPartIdx() {
     if (!loaded_Photon_genPartIdx_) {
         if (!b_Photon_genPartIdx_) throw std::runtime_error("Photon_genPartIdx branch doesn't exist");
         int bytes = b_Photon_genPartIdx_->GetEntry(index);
-        v_Photon_genPartIdx_ = vector<int>(Photon_genPartIdx_,Photon_genPartIdx_+bytes/sizeof(Photon_genPartIdx_[0]));
+        v_Photon_genPartIdx_ = vector<int>(Photon_genPartIdx_.data(),Photon_genPartIdx_.data()+bytes/sizeof(Photon_genPartIdx_[0]));
         loaded_Photon_genPartIdx_ = true;
     }
     return v_Photon_genPartIdx_;
@@ -47152,7 +47187,7 @@ const vector<float> &Nano::Photon_haloTaggerMVAVal() {
     if (!loaded_Photon_haloTaggerMVAVal_) {
         if (!b_Photon_haloTaggerMVAVal_) throw std::runtime_error("Photon_haloTaggerMVAVal branch doesn't exist");
         int bytes = b_Photon_haloTaggerMVAVal_->GetEntry(index);
-        v_Photon_haloTaggerMVAVal_ = vector<float>(Photon_haloTaggerMVAVal_,Photon_haloTaggerMVAVal_+bytes/sizeof(Photon_haloTaggerMVAVal_[0]));
+        v_Photon_haloTaggerMVAVal_ = vector<float>(Photon_haloTaggerMVAVal_.data(),Photon_haloTaggerMVAVal_.data()+bytes/sizeof(Photon_haloTaggerMVAVal_[0]));
         loaded_Photon_haloTaggerMVAVal_ = true;
     }
     return v_Photon_haloTaggerMVAVal_;
@@ -47163,7 +47198,7 @@ const vector<float> &Nano::Photon_hoe() {
     if (!loaded_Photon_hoe_) {
         if (!b_Photon_hoe_) throw std::runtime_error("Photon_hoe branch doesn't exist");
         int bytes = b_Photon_hoe_->GetEntry(index);
-        v_Photon_hoe_ = vector<float>(Photon_hoe_,Photon_hoe_+bytes/sizeof(Photon_hoe_[0]));
+        v_Photon_hoe_ = vector<float>(Photon_hoe_.data(),Photon_hoe_.data()+bytes/sizeof(Photon_hoe_[0]));
         loaded_Photon_hoe_ = true;
     }
     return v_Photon_hoe_;
@@ -47174,7 +47209,7 @@ const vector<float> &Nano::Photon_hoe_PUcorr() {
     if (!loaded_Photon_hoe_PUcorr_) {
         if (!b_Photon_hoe_PUcorr_) throw std::runtime_error("Photon_hoe_PUcorr branch doesn't exist");
         int bytes = b_Photon_hoe_PUcorr_->GetEntry(index);
-        v_Photon_hoe_PUcorr_ = vector<float>(Photon_hoe_PUcorr_,Photon_hoe_PUcorr_+bytes/sizeof(Photon_hoe_PUcorr_[0]));
+        v_Photon_hoe_PUcorr_ = vector<float>(Photon_hoe_PUcorr_.data(),Photon_hoe_PUcorr_.data()+bytes/sizeof(Photon_hoe_PUcorr_[0]));
         loaded_Photon_hoe_PUcorr_ = true;
     }
     return v_Photon_hoe_PUcorr_;
@@ -47185,7 +47220,7 @@ const vector<bool> &Nano::Photon_isScEtaEB() {
     if (!loaded_Photon_isScEtaEB_) {
         if (!b_Photon_isScEtaEB_) throw std::runtime_error("Photon_isScEtaEB branch doesn't exist");
         int bytes = b_Photon_isScEtaEB_->GetEntry(index);
-        v_Photon_isScEtaEB_ = vector<bool>(Photon_isScEtaEB_,Photon_isScEtaEB_+bytes/sizeof(Photon_isScEtaEB_[0]));
+        v_Photon_isScEtaEB_ = vector<bool>(Photon_isScEtaEB_.data(),Photon_isScEtaEB_.data()+bytes/sizeof(Photon_isScEtaEB_[0]));
         loaded_Photon_isScEtaEB_ = true;
     }
     return v_Photon_isScEtaEB_;
@@ -47196,7 +47231,7 @@ const vector<bool> &Nano::Photon_isScEtaEE() {
     if (!loaded_Photon_isScEtaEE_) {
         if (!b_Photon_isScEtaEE_) throw std::runtime_error("Photon_isScEtaEE branch doesn't exist");
         int bytes = b_Photon_isScEtaEE_->GetEntry(index);
-        v_Photon_isScEtaEE_ = vector<bool>(Photon_isScEtaEE_,Photon_isScEtaEE_+bytes/sizeof(Photon_isScEtaEE_[0]));
+        v_Photon_isScEtaEE_ = vector<bool>(Photon_isScEtaEE_.data(),Photon_isScEtaEE_.data()+bytes/sizeof(Photon_isScEtaEE_[0]));
         loaded_Photon_isScEtaEE_ = true;
     }
     return v_Photon_isScEtaEE_;
@@ -47207,7 +47242,7 @@ const vector<int> &Nano::Photon_jetIdx() {
     if (!loaded_Photon_jetIdx_) {
         if (!b_Photon_jetIdx_) throw std::runtime_error("Photon_jetIdx branch doesn't exist");
         int bytes = b_Photon_jetIdx_->GetEntry(index);
-        v_Photon_jetIdx_ = vector<int>(Photon_jetIdx_,Photon_jetIdx_+bytes/sizeof(Photon_jetIdx_[0]));
+        v_Photon_jetIdx_ = vector<int>(Photon_jetIdx_.data(),Photon_jetIdx_.data()+bytes/sizeof(Photon_jetIdx_[0]));
         loaded_Photon_jetIdx_ = true;
     }
     return v_Photon_jetIdx_;
@@ -47218,7 +47253,7 @@ const vector<float> &Nano::Photon_mass() {
     if (!loaded_Photon_mass_) {
         if (!b_Photon_mass_) throw std::runtime_error("Photon_mass branch doesn't exist");
         int bytes = b_Photon_mass_->GetEntry(index);
-        v_Photon_mass_ = vector<float>(Photon_mass_,Photon_mass_+bytes/sizeof(Photon_mass_[0]));
+        v_Photon_mass_ = vector<float>(Photon_mass_.data(),Photon_mass_.data()+bytes/sizeof(Photon_mass_[0]));
         loaded_Photon_mass_ = true;
     }
     return v_Photon_mass_;
@@ -47229,7 +47264,7 @@ const vector<float> &Nano::Photon_mvaID() {
     if (!loaded_Photon_mvaID_) {
         if (!b_Photon_mvaID_) throw std::runtime_error("Photon_mvaID branch doesn't exist");
         int bytes = b_Photon_mvaID_->GetEntry(index);
-        v_Photon_mvaID_ = vector<float>(Photon_mvaID_,Photon_mvaID_+bytes/sizeof(Photon_mvaID_[0]));
+        v_Photon_mvaID_ = vector<float>(Photon_mvaID_.data(),Photon_mvaID_.data()+bytes/sizeof(Photon_mvaID_[0]));
         loaded_Photon_mvaID_ = true;
     }
     return v_Photon_mvaID_;
@@ -47240,7 +47275,7 @@ const vector<float> &Nano::Photon_mvaID17() {
     if (!loaded_Photon_mvaID17_) {
         if (!b_Photon_mvaID17_) throw std::runtime_error("Photon_mvaID17 branch doesn't exist");
         int bytes = b_Photon_mvaID17_->GetEntry(index);
-        v_Photon_mvaID17_ = vector<float>(Photon_mvaID17_,Photon_mvaID17_+bytes/sizeof(Photon_mvaID17_[0]));
+        v_Photon_mvaID17_ = vector<float>(Photon_mvaID17_.data(),Photon_mvaID17_.data()+bytes/sizeof(Photon_mvaID17_[0]));
         loaded_Photon_mvaID17_ = true;
     }
     return v_Photon_mvaID17_;
@@ -47251,7 +47286,7 @@ const vector<bool> &Nano::Photon_mvaID17_WP80() {
     if (!loaded_Photon_mvaID17_WP80_) {
         if (!b_Photon_mvaID17_WP80_) throw std::runtime_error("Photon_mvaID17_WP80 branch doesn't exist");
         int bytes = b_Photon_mvaID17_WP80_->GetEntry(index);
-        v_Photon_mvaID17_WP80_ = vector<bool>(Photon_mvaID17_WP80_,Photon_mvaID17_WP80_+bytes/sizeof(Photon_mvaID17_WP80_[0]));
+        v_Photon_mvaID17_WP80_ = vector<bool>(Photon_mvaID17_WP80_.data(),Photon_mvaID17_WP80_.data()+bytes/sizeof(Photon_mvaID17_WP80_[0]));
         loaded_Photon_mvaID17_WP80_ = true;
     }
     return v_Photon_mvaID17_WP80_;
@@ -47262,7 +47297,7 @@ const vector<bool> &Nano::Photon_mvaID17_WP90() {
     if (!loaded_Photon_mvaID17_WP90_) {
         if (!b_Photon_mvaID17_WP90_) throw std::runtime_error("Photon_mvaID17_WP90 branch doesn't exist");
         int bytes = b_Photon_mvaID17_WP90_->GetEntry(index);
-        v_Photon_mvaID17_WP90_ = vector<bool>(Photon_mvaID17_WP90_,Photon_mvaID17_WP90_+bytes/sizeof(Photon_mvaID17_WP90_[0]));
+        v_Photon_mvaID17_WP90_ = vector<bool>(Photon_mvaID17_WP90_.data(),Photon_mvaID17_WP90_.data()+bytes/sizeof(Photon_mvaID17_WP90_[0]));
         loaded_Photon_mvaID17_WP90_ = true;
     }
     return v_Photon_mvaID17_WP90_;
@@ -47273,7 +47308,7 @@ const vector<float> &Nano::Photon_mvaID_Fall17V1p1() {
     if (!loaded_Photon_mvaID_Fall17V1p1_) {
         if (!b_Photon_mvaID_Fall17V1p1_) throw std::runtime_error("Photon_mvaID_Fall17V1p1 branch doesn't exist");
         int bytes = b_Photon_mvaID_Fall17V1p1_->GetEntry(index);
-        v_Photon_mvaID_Fall17V1p1_ = vector<float>(Photon_mvaID_Fall17V1p1_,Photon_mvaID_Fall17V1p1_+bytes/sizeof(Photon_mvaID_Fall17V1p1_[0]));
+        v_Photon_mvaID_Fall17V1p1_ = vector<float>(Photon_mvaID_Fall17V1p1_.data(),Photon_mvaID_Fall17V1p1_.data()+bytes/sizeof(Photon_mvaID_Fall17V1p1_[0]));
         loaded_Photon_mvaID_Fall17V1p1_ = true;
     }
     return v_Photon_mvaID_Fall17V1p1_;
@@ -47284,7 +47319,7 @@ const vector<float> &Nano::Photon_mvaID_Fall17V2() {
     if (!loaded_Photon_mvaID_Fall17V2_) {
         if (!b_Photon_mvaID_Fall17V2_) throw std::runtime_error("Photon_mvaID_Fall17V2 branch doesn't exist");
         int bytes = b_Photon_mvaID_Fall17V2_->GetEntry(index);
-        v_Photon_mvaID_Fall17V2_ = vector<float>(Photon_mvaID_Fall17V2_,Photon_mvaID_Fall17V2_+bytes/sizeof(Photon_mvaID_Fall17V2_[0]));
+        v_Photon_mvaID_Fall17V2_ = vector<float>(Photon_mvaID_Fall17V2_.data(),Photon_mvaID_Fall17V2_.data()+bytes/sizeof(Photon_mvaID_Fall17V2_[0]));
         loaded_Photon_mvaID_Fall17V2_ = true;
     }
     return v_Photon_mvaID_Fall17V2_;
@@ -47295,7 +47330,7 @@ const vector<bool> &Nano::Photon_mvaID_Fall17V2_WP80() {
     if (!loaded_Photon_mvaID_Fall17V2_WP80_) {
         if (!b_Photon_mvaID_Fall17V2_WP80_) throw std::runtime_error("Photon_mvaID_Fall17V2_WP80 branch doesn't exist");
         int bytes = b_Photon_mvaID_Fall17V2_WP80_->GetEntry(index);
-        v_Photon_mvaID_Fall17V2_WP80_ = vector<bool>(Photon_mvaID_Fall17V2_WP80_,Photon_mvaID_Fall17V2_WP80_+bytes/sizeof(Photon_mvaID_Fall17V2_WP80_[0]));
+        v_Photon_mvaID_Fall17V2_WP80_ = vector<bool>(Photon_mvaID_Fall17V2_WP80_.data(),Photon_mvaID_Fall17V2_WP80_.data()+bytes/sizeof(Photon_mvaID_Fall17V2_WP80_[0]));
         loaded_Photon_mvaID_Fall17V2_WP80_ = true;
     }
     return v_Photon_mvaID_Fall17V2_WP80_;
@@ -47306,7 +47341,7 @@ const vector<bool> &Nano::Photon_mvaID_Fall17V2_WP90() {
     if (!loaded_Photon_mvaID_Fall17V2_WP90_) {
         if (!b_Photon_mvaID_Fall17V2_WP90_) throw std::runtime_error("Photon_mvaID_Fall17V2_WP90 branch doesn't exist");
         int bytes = b_Photon_mvaID_Fall17V2_WP90_->GetEntry(index);
-        v_Photon_mvaID_Fall17V2_WP90_ = vector<bool>(Photon_mvaID_Fall17V2_WP90_,Photon_mvaID_Fall17V2_WP90_+bytes/sizeof(Photon_mvaID_Fall17V2_WP90_[0]));
+        v_Photon_mvaID_Fall17V2_WP90_ = vector<bool>(Photon_mvaID_Fall17V2_WP90_.data(),Photon_mvaID_Fall17V2_WP90_.data()+bytes/sizeof(Photon_mvaID_Fall17V2_WP90_[0]));
         loaded_Photon_mvaID_Fall17V2_WP90_ = true;
     }
     return v_Photon_mvaID_Fall17V2_WP90_;
@@ -47317,7 +47352,7 @@ const vector<bool> &Nano::Photon_mvaID_WP80() {
     if (!loaded_Photon_mvaID_WP80_) {
         if (!b_Photon_mvaID_WP80_) throw std::runtime_error("Photon_mvaID_WP80 branch doesn't exist");
         int bytes = b_Photon_mvaID_WP80_->GetEntry(index);
-        v_Photon_mvaID_WP80_ = vector<bool>(Photon_mvaID_WP80_,Photon_mvaID_WP80_+bytes/sizeof(Photon_mvaID_WP80_[0]));
+        v_Photon_mvaID_WP80_ = vector<bool>(Photon_mvaID_WP80_.data(),Photon_mvaID_WP80_.data()+bytes/sizeof(Photon_mvaID_WP80_[0]));
         loaded_Photon_mvaID_WP80_ = true;
     }
     return v_Photon_mvaID_WP80_;
@@ -47328,7 +47363,7 @@ const vector<bool> &Nano::Photon_mvaID_WP90() {
     if (!loaded_Photon_mvaID_WP90_) {
         if (!b_Photon_mvaID_WP90_) throw std::runtime_error("Photon_mvaID_WP90 branch doesn't exist");
         int bytes = b_Photon_mvaID_WP90_->GetEntry(index);
-        v_Photon_mvaID_WP90_ = vector<bool>(Photon_mvaID_WP90_,Photon_mvaID_WP90_+bytes/sizeof(Photon_mvaID_WP90_[0]));
+        v_Photon_mvaID_WP90_ = vector<bool>(Photon_mvaID_WP90_.data(),Photon_mvaID_WP90_.data()+bytes/sizeof(Photon_mvaID_WP90_[0]));
         loaded_Photon_mvaID_WP90_ = true;
     }
     return v_Photon_mvaID_WP90_;
@@ -47355,7 +47390,7 @@ const vector<int> &Nano::Photon_pdgId() {
     if (!loaded_Photon_pdgId_) {
         if (!b_Photon_pdgId_) throw std::runtime_error("Photon_pdgId branch doesn't exist");
         int bytes = b_Photon_pdgId_->GetEntry(index);
-        v_Photon_pdgId_ = vector<int>(Photon_pdgId_,Photon_pdgId_+bytes/sizeof(Photon_pdgId_[0]));
+        v_Photon_pdgId_ = vector<int>(Photon_pdgId_.data(),Photon_pdgId_.data()+bytes/sizeof(Photon_pdgId_[0]));
         loaded_Photon_pdgId_ = true;
     }
     return v_Photon_pdgId_;
@@ -47366,7 +47401,7 @@ const vector<float> &Nano::Photon_pfChargedIsoPFPV() {
     if (!loaded_Photon_pfChargedIsoPFPV_) {
         if (!b_Photon_pfChargedIsoPFPV_) throw std::runtime_error("Photon_pfChargedIsoPFPV branch doesn't exist");
         int bytes = b_Photon_pfChargedIsoPFPV_->GetEntry(index);
-        v_Photon_pfChargedIsoPFPV_ = vector<float>(Photon_pfChargedIsoPFPV_,Photon_pfChargedIsoPFPV_+bytes/sizeof(Photon_pfChargedIsoPFPV_[0]));
+        v_Photon_pfChargedIsoPFPV_ = vector<float>(Photon_pfChargedIsoPFPV_.data(),Photon_pfChargedIsoPFPV_.data()+bytes/sizeof(Photon_pfChargedIsoPFPV_[0]));
         loaded_Photon_pfChargedIsoPFPV_ = true;
     }
     return v_Photon_pfChargedIsoPFPV_;
@@ -47377,7 +47412,7 @@ const vector<float> &Nano::Photon_pfChargedIsoWorstVtx() {
     if (!loaded_Photon_pfChargedIsoWorstVtx_) {
         if (!b_Photon_pfChargedIsoWorstVtx_) throw std::runtime_error("Photon_pfChargedIsoWorstVtx branch doesn't exist");
         int bytes = b_Photon_pfChargedIsoWorstVtx_->GetEntry(index);
-        v_Photon_pfChargedIsoWorstVtx_ = vector<float>(Photon_pfChargedIsoWorstVtx_,Photon_pfChargedIsoWorstVtx_+bytes/sizeof(Photon_pfChargedIsoWorstVtx_[0]));
+        v_Photon_pfChargedIsoWorstVtx_ = vector<float>(Photon_pfChargedIsoWorstVtx_.data(),Photon_pfChargedIsoWorstVtx_.data()+bytes/sizeof(Photon_pfChargedIsoWorstVtx_[0]));
         loaded_Photon_pfChargedIsoWorstVtx_ = true;
     }
     return v_Photon_pfChargedIsoWorstVtx_;
@@ -47388,7 +47423,7 @@ const vector<float> &Nano::Photon_pfPhoIso03() {
     if (!loaded_Photon_pfPhoIso03_) {
         if (!b_Photon_pfPhoIso03_) throw std::runtime_error("Photon_pfPhoIso03 branch doesn't exist");
         int bytes = b_Photon_pfPhoIso03_->GetEntry(index);
-        v_Photon_pfPhoIso03_ = vector<float>(Photon_pfPhoIso03_,Photon_pfPhoIso03_+bytes/sizeof(Photon_pfPhoIso03_[0]));
+        v_Photon_pfPhoIso03_ = vector<float>(Photon_pfPhoIso03_.data(),Photon_pfPhoIso03_.data()+bytes/sizeof(Photon_pfPhoIso03_[0]));
         loaded_Photon_pfPhoIso03_ = true;
     }
     return v_Photon_pfPhoIso03_;
@@ -47399,7 +47434,7 @@ const vector<float> &Nano::Photon_pfRelIso03_all() {
     if (!loaded_Photon_pfRelIso03_all_) {
         if (!b_Photon_pfRelIso03_all_) throw std::runtime_error("Photon_pfRelIso03_all branch doesn't exist");
         int bytes = b_Photon_pfRelIso03_all_->GetEntry(index);
-        v_Photon_pfRelIso03_all_ = vector<float>(Photon_pfRelIso03_all_,Photon_pfRelIso03_all_+bytes/sizeof(Photon_pfRelIso03_all_[0]));
+        v_Photon_pfRelIso03_all_ = vector<float>(Photon_pfRelIso03_all_.data(),Photon_pfRelIso03_all_.data()+bytes/sizeof(Photon_pfRelIso03_all_[0]));
         loaded_Photon_pfRelIso03_all_ = true;
     }
     return v_Photon_pfRelIso03_all_;
@@ -47410,7 +47445,7 @@ const vector<float> &Nano::Photon_pfRelIso03_all_Fall17V2() {
     if (!loaded_Photon_pfRelIso03_all_Fall17V2_) {
         if (!b_Photon_pfRelIso03_all_Fall17V2_) throw std::runtime_error("Photon_pfRelIso03_all_Fall17V2 branch doesn't exist");
         int bytes = b_Photon_pfRelIso03_all_Fall17V2_->GetEntry(index);
-        v_Photon_pfRelIso03_all_Fall17V2_ = vector<float>(Photon_pfRelIso03_all_Fall17V2_,Photon_pfRelIso03_all_Fall17V2_+bytes/sizeof(Photon_pfRelIso03_all_Fall17V2_[0]));
+        v_Photon_pfRelIso03_all_Fall17V2_ = vector<float>(Photon_pfRelIso03_all_Fall17V2_.data(),Photon_pfRelIso03_all_Fall17V2_.data()+bytes/sizeof(Photon_pfRelIso03_all_Fall17V2_[0]));
         loaded_Photon_pfRelIso03_all_Fall17V2_ = true;
     }
     return v_Photon_pfRelIso03_all_Fall17V2_;
@@ -47421,7 +47456,7 @@ const vector<float> &Nano::Photon_pfRelIso03_all_quadratic() {
     if (!loaded_Photon_pfRelIso03_all_quadratic_) {
         if (!b_Photon_pfRelIso03_all_quadratic_) throw std::runtime_error("Photon_pfRelIso03_all_quadratic branch doesn't exist");
         int bytes = b_Photon_pfRelIso03_all_quadratic_->GetEntry(index);
-        v_Photon_pfRelIso03_all_quadratic_ = vector<float>(Photon_pfRelIso03_all_quadratic_,Photon_pfRelIso03_all_quadratic_+bytes/sizeof(Photon_pfRelIso03_all_quadratic_[0]));
+        v_Photon_pfRelIso03_all_quadratic_ = vector<float>(Photon_pfRelIso03_all_quadratic_.data(),Photon_pfRelIso03_all_quadratic_.data()+bytes/sizeof(Photon_pfRelIso03_all_quadratic_[0]));
         loaded_Photon_pfRelIso03_all_quadratic_ = true;
     }
     return v_Photon_pfRelIso03_all_quadratic_;
@@ -47432,7 +47467,7 @@ const vector<float> &Nano::Photon_pfRelIso03_chg() {
     if (!loaded_Photon_pfRelIso03_chg_) {
         if (!b_Photon_pfRelIso03_chg_) throw std::runtime_error("Photon_pfRelIso03_chg branch doesn't exist");
         int bytes = b_Photon_pfRelIso03_chg_->GetEntry(index);
-        v_Photon_pfRelIso03_chg_ = vector<float>(Photon_pfRelIso03_chg_,Photon_pfRelIso03_chg_+bytes/sizeof(Photon_pfRelIso03_chg_[0]));
+        v_Photon_pfRelIso03_chg_ = vector<float>(Photon_pfRelIso03_chg_.data(),Photon_pfRelIso03_chg_.data()+bytes/sizeof(Photon_pfRelIso03_chg_[0]));
         loaded_Photon_pfRelIso03_chg_ = true;
     }
     return v_Photon_pfRelIso03_chg_;
@@ -47443,7 +47478,7 @@ const vector<float> &Nano::Photon_pfRelIso03_chg_Fall17V2() {
     if (!loaded_Photon_pfRelIso03_chg_Fall17V2_) {
         if (!b_Photon_pfRelIso03_chg_Fall17V2_) throw std::runtime_error("Photon_pfRelIso03_chg_Fall17V2 branch doesn't exist");
         int bytes = b_Photon_pfRelIso03_chg_Fall17V2_->GetEntry(index);
-        v_Photon_pfRelIso03_chg_Fall17V2_ = vector<float>(Photon_pfRelIso03_chg_Fall17V2_,Photon_pfRelIso03_chg_Fall17V2_+bytes/sizeof(Photon_pfRelIso03_chg_Fall17V2_[0]));
+        v_Photon_pfRelIso03_chg_Fall17V2_ = vector<float>(Photon_pfRelIso03_chg_Fall17V2_.data(),Photon_pfRelIso03_chg_Fall17V2_.data()+bytes/sizeof(Photon_pfRelIso03_chg_Fall17V2_[0]));
         loaded_Photon_pfRelIso03_chg_Fall17V2_ = true;
     }
     return v_Photon_pfRelIso03_chg_Fall17V2_;
@@ -47454,7 +47489,7 @@ const vector<float> &Nano::Photon_pfRelIso03_chg_quadratic() {
     if (!loaded_Photon_pfRelIso03_chg_quadratic_) {
         if (!b_Photon_pfRelIso03_chg_quadratic_) throw std::runtime_error("Photon_pfRelIso03_chg_quadratic branch doesn't exist");
         int bytes = b_Photon_pfRelIso03_chg_quadratic_->GetEntry(index);
-        v_Photon_pfRelIso03_chg_quadratic_ = vector<float>(Photon_pfRelIso03_chg_quadratic_,Photon_pfRelIso03_chg_quadratic_+bytes/sizeof(Photon_pfRelIso03_chg_quadratic_[0]));
+        v_Photon_pfRelIso03_chg_quadratic_ = vector<float>(Photon_pfRelIso03_chg_quadratic_.data(),Photon_pfRelIso03_chg_quadratic_.data()+bytes/sizeof(Photon_pfRelIso03_chg_quadratic_[0]));
         loaded_Photon_pfRelIso03_chg_quadratic_ = true;
     }
     return v_Photon_pfRelIso03_chg_quadratic_;
@@ -47465,7 +47500,7 @@ const vector<float> &Nano::Photon_phi() {
     if (!loaded_Photon_phi_) {
         if (!b_Photon_phi_) throw std::runtime_error("Photon_phi branch doesn't exist");
         int bytes = b_Photon_phi_->GetEntry(index);
-        v_Photon_phi_ = vector<float>(Photon_phi_,Photon_phi_+bytes/sizeof(Photon_phi_[0]));
+        v_Photon_phi_ = vector<float>(Photon_phi_.data(),Photon_phi_.data()+bytes/sizeof(Photon_phi_[0]));
         loaded_Photon_phi_ = true;
     }
     return v_Photon_phi_;
@@ -47476,7 +47511,7 @@ const vector<float> &Nano::Photon_phiWidth() {
     if (!loaded_Photon_phiWidth_) {
         if (!b_Photon_phiWidth_) throw std::runtime_error("Photon_phiWidth branch doesn't exist");
         int bytes = b_Photon_phiWidth_->GetEntry(index);
-        v_Photon_phiWidth_ = vector<float>(Photon_phiWidth_,Photon_phiWidth_+bytes/sizeof(Photon_phiWidth_[0]));
+        v_Photon_phiWidth_ = vector<float>(Photon_phiWidth_.data(),Photon_phiWidth_.data()+bytes/sizeof(Photon_phiWidth_[0]));
         loaded_Photon_phiWidth_ = true;
     }
     return v_Photon_phiWidth_;
@@ -47487,7 +47522,7 @@ const vector<bool> &Nano::Photon_pixelSeed() {
     if (!loaded_Photon_pixelSeed_) {
         if (!b_Photon_pixelSeed_) throw std::runtime_error("Photon_pixelSeed branch doesn't exist");
         int bytes = b_Photon_pixelSeed_->GetEntry(index);
-        v_Photon_pixelSeed_ = vector<bool>(Photon_pixelSeed_,Photon_pixelSeed_+bytes/sizeof(Photon_pixelSeed_[0]));
+        v_Photon_pixelSeed_ = vector<bool>(Photon_pixelSeed_.data(),Photon_pixelSeed_.data()+bytes/sizeof(Photon_pixelSeed_[0]));
         loaded_Photon_pixelSeed_ = true;
     }
     return v_Photon_pixelSeed_;
@@ -47498,7 +47533,7 @@ const vector<float> &Nano::Photon_pt() {
     if (!loaded_Photon_pt_) {
         if (!b_Photon_pt_) throw std::runtime_error("Photon_pt branch doesn't exist");
         int bytes = b_Photon_pt_->GetEntry(index);
-        v_Photon_pt_ = vector<float>(Photon_pt_,Photon_pt_+bytes/sizeof(Photon_pt_[0]));
+        v_Photon_pt_ = vector<float>(Photon_pt_.data(),Photon_pt_.data()+bytes/sizeof(Photon_pt_[0]));
         loaded_Photon_pt_ = true;
     }
     return v_Photon_pt_;
@@ -47509,7 +47544,7 @@ const vector<float> &Nano::Photon_r9() {
     if (!loaded_Photon_r9_) {
         if (!b_Photon_r9_) throw std::runtime_error("Photon_r9 branch doesn't exist");
         int bytes = b_Photon_r9_->GetEntry(index);
-        v_Photon_r9_ = vector<float>(Photon_r9_,Photon_r9_+bytes/sizeof(Photon_r9_[0]));
+        v_Photon_r9_ = vector<float>(Photon_r9_.data(),Photon_r9_.data()+bytes/sizeof(Photon_r9_[0]));
         loaded_Photon_r9_ = true;
     }
     return v_Photon_r9_;
@@ -47520,7 +47555,7 @@ const vector<float> &Nano::Photon_s4() {
     if (!loaded_Photon_s4_) {
         if (!b_Photon_s4_) throw std::runtime_error("Photon_s4 branch doesn't exist");
         int bytes = b_Photon_s4_->GetEntry(index);
-        v_Photon_s4_ = vector<float>(Photon_s4_,Photon_s4_+bytes/sizeof(Photon_s4_[0]));
+        v_Photon_s4_ = vector<float>(Photon_s4_.data(),Photon_s4_.data()+bytes/sizeof(Photon_s4_[0]));
         loaded_Photon_s4_ = true;
     }
     return v_Photon_s4_;
@@ -47531,7 +47566,7 @@ const vector<UChar_t> &Nano::Photon_seedGain() {
     if (!loaded_Photon_seedGain_) {
         if (!b_Photon_seedGain_) throw std::runtime_error("Photon_seedGain branch doesn't exist");
         int bytes = b_Photon_seedGain_->GetEntry(index);
-        v_Photon_seedGain_ = vector<UChar_t>(Photon_seedGain_,Photon_seedGain_+bytes/sizeof(Photon_seedGain_[0]));
+        v_Photon_seedGain_ = vector<UChar_t>(Photon_seedGain_.data(),Photon_seedGain_.data()+bytes/sizeof(Photon_seedGain_[0]));
         loaded_Photon_seedGain_ = true;
     }
     return v_Photon_seedGain_;
@@ -47542,7 +47577,7 @@ const vector<Char_t> &Nano::Photon_seediEtaOriX() {
     if (!loaded_Photon_seediEtaOriX_) {
         if (!b_Photon_seediEtaOriX_) throw std::runtime_error("Photon_seediEtaOriX branch doesn't exist");
         int bytes = b_Photon_seediEtaOriX_->GetEntry(index);
-        v_Photon_seediEtaOriX_ = vector<Char_t>(Photon_seediEtaOriX_,Photon_seediEtaOriX_+bytes/sizeof(Photon_seediEtaOriX_[0]));
+        v_Photon_seediEtaOriX_ = vector<Char_t>(Photon_seediEtaOriX_.data(),Photon_seediEtaOriX_.data()+bytes/sizeof(Photon_seediEtaOriX_[0]));
         loaded_Photon_seediEtaOriX_ = true;
     }
     return v_Photon_seediEtaOriX_;
@@ -47553,7 +47588,7 @@ const vector<int> &Nano::Photon_seediPhiOriY() {
     if (!loaded_Photon_seediPhiOriY_) {
         if (!b_Photon_seediPhiOriY_) throw std::runtime_error("Photon_seediPhiOriY branch doesn't exist");
         int bytes = b_Photon_seediPhiOriY_->GetEntry(index);
-        v_Photon_seediPhiOriY_ = vector<int>(Photon_seediPhiOriY_,Photon_seediPhiOriY_+bytes/sizeof(Photon_seediPhiOriY_[0]));
+        v_Photon_seediPhiOriY_ = vector<int>(Photon_seediPhiOriY_.data(),Photon_seediPhiOriY_.data()+bytes/sizeof(Photon_seediPhiOriY_[0]));
         loaded_Photon_seediPhiOriY_ = true;
     }
     return v_Photon_seediPhiOriY_;
@@ -47564,7 +47599,7 @@ const vector<float> &Nano::Photon_sieie() {
     if (!loaded_Photon_sieie_) {
         if (!b_Photon_sieie_) throw std::runtime_error("Photon_sieie branch doesn't exist");
         int bytes = b_Photon_sieie_->GetEntry(index);
-        v_Photon_sieie_ = vector<float>(Photon_sieie_,Photon_sieie_+bytes/sizeof(Photon_sieie_[0]));
+        v_Photon_sieie_ = vector<float>(Photon_sieie_.data(),Photon_sieie_.data()+bytes/sizeof(Photon_sieie_[0]));
         loaded_Photon_sieie_ = true;
     }
     return v_Photon_sieie_;
@@ -47575,7 +47610,7 @@ const vector<float> &Nano::Photon_sieip() {
     if (!loaded_Photon_sieip_) {
         if (!b_Photon_sieip_) throw std::runtime_error("Photon_sieip branch doesn't exist");
         int bytes = b_Photon_sieip_->GetEntry(index);
-        v_Photon_sieip_ = vector<float>(Photon_sieip_,Photon_sieip_+bytes/sizeof(Photon_sieip_[0]));
+        v_Photon_sieip_ = vector<float>(Photon_sieip_.data(),Photon_sieip_.data()+bytes/sizeof(Photon_sieip_[0]));
         loaded_Photon_sieip_ = true;
     }
     return v_Photon_sieip_;
@@ -47586,7 +47621,7 @@ const vector<float> &Nano::Photon_sipip() {
     if (!loaded_Photon_sipip_) {
         if (!b_Photon_sipip_) throw std::runtime_error("Photon_sipip branch doesn't exist");
         int bytes = b_Photon_sipip_->GetEntry(index);
-        v_Photon_sipip_ = vector<float>(Photon_sipip_,Photon_sipip_+bytes/sizeof(Photon_sipip_[0]));
+        v_Photon_sipip_ = vector<float>(Photon_sipip_.data(),Photon_sipip_.data()+bytes/sizeof(Photon_sipip_[0]));
         loaded_Photon_sipip_ = true;
     }
     return v_Photon_sipip_;
@@ -47597,7 +47632,7 @@ const vector<int> &Nano::Photon_vidNestedWPBitmap() {
     if (!loaded_Photon_vidNestedWPBitmap_) {
         if (!b_Photon_vidNestedWPBitmap_) throw std::runtime_error("Photon_vidNestedWPBitmap branch doesn't exist");
         int bytes = b_Photon_vidNestedWPBitmap_->GetEntry(index);
-        v_Photon_vidNestedWPBitmap_ = vector<int>(Photon_vidNestedWPBitmap_,Photon_vidNestedWPBitmap_+bytes/sizeof(Photon_vidNestedWPBitmap_[0]));
+        v_Photon_vidNestedWPBitmap_ = vector<int>(Photon_vidNestedWPBitmap_.data(),Photon_vidNestedWPBitmap_.data()+bytes/sizeof(Photon_vidNestedWPBitmap_[0]));
         loaded_Photon_vidNestedWPBitmap_ = true;
     }
     return v_Photon_vidNestedWPBitmap_;
@@ -47608,7 +47643,7 @@ const vector<int> &Nano::Photon_vidNestedWPBitmap_Fall17V2() {
     if (!loaded_Photon_vidNestedWPBitmap_Fall17V2_) {
         if (!b_Photon_vidNestedWPBitmap_Fall17V2_) throw std::runtime_error("Photon_vidNestedWPBitmap_Fall17V2 branch doesn't exist");
         int bytes = b_Photon_vidNestedWPBitmap_Fall17V2_->GetEntry(index);
-        v_Photon_vidNestedWPBitmap_Fall17V2_ = vector<int>(Photon_vidNestedWPBitmap_Fall17V2_,Photon_vidNestedWPBitmap_Fall17V2_+bytes/sizeof(Photon_vidNestedWPBitmap_Fall17V2_[0]));
+        v_Photon_vidNestedWPBitmap_Fall17V2_ = vector<int>(Photon_vidNestedWPBitmap_Fall17V2_.data(),Photon_vidNestedWPBitmap_Fall17V2_.data()+bytes/sizeof(Photon_vidNestedWPBitmap_Fall17V2_[0]));
         loaded_Photon_vidNestedWPBitmap_Fall17V2_ = true;
     }
     return v_Photon_vidNestedWPBitmap_Fall17V2_;
@@ -47619,7 +47654,7 @@ const vector<float> &Nano::Photon_x_calo() {
     if (!loaded_Photon_x_calo_) {
         if (!b_Photon_x_calo_) throw std::runtime_error("Photon_x_calo branch doesn't exist");
         int bytes = b_Photon_x_calo_->GetEntry(index);
-        v_Photon_x_calo_ = vector<float>(Photon_x_calo_,Photon_x_calo_+bytes/sizeof(Photon_x_calo_[0]));
+        v_Photon_x_calo_ = vector<float>(Photon_x_calo_.data(),Photon_x_calo_.data()+bytes/sizeof(Photon_x_calo_[0]));
         loaded_Photon_x_calo_ = true;
     }
     return v_Photon_x_calo_;
@@ -47630,7 +47665,7 @@ const vector<float> &Nano::Photon_y_calo() {
     if (!loaded_Photon_y_calo_) {
         if (!b_Photon_y_calo_) throw std::runtime_error("Photon_y_calo branch doesn't exist");
         int bytes = b_Photon_y_calo_->GetEntry(index);
-        v_Photon_y_calo_ = vector<float>(Photon_y_calo_,Photon_y_calo_+bytes/sizeof(Photon_y_calo_[0]));
+        v_Photon_y_calo_ = vector<float>(Photon_y_calo_.data(),Photon_y_calo_.data()+bytes/sizeof(Photon_y_calo_[0]));
         loaded_Photon_y_calo_ = true;
     }
     return v_Photon_y_calo_;
@@ -47641,7 +47676,7 @@ const vector<float> &Nano::Photon_z_calo() {
     if (!loaded_Photon_z_calo_) {
         if (!b_Photon_z_calo_) throw std::runtime_error("Photon_z_calo branch doesn't exist");
         int bytes = b_Photon_z_calo_->GetEntry(index);
-        v_Photon_z_calo_ = vector<float>(Photon_z_calo_,Photon_z_calo_+bytes/sizeof(Photon_z_calo_[0]));
+        v_Photon_z_calo_ = vector<float>(Photon_z_calo_.data(),Photon_z_calo_.data()+bytes/sizeof(Photon_z_calo_[0]));
         loaded_Photon_z_calo_ = true;
     }
     return v_Photon_z_calo_;
@@ -47712,7 +47747,7 @@ const vector<int> &Nano::Proton_multiRP_arm() {
     if (!loaded_Proton_multiRP_arm_) {
         if (!b_Proton_multiRP_arm_) throw std::runtime_error("Proton_multiRP_arm branch doesn't exist");
         int bytes = b_Proton_multiRP_arm_->GetEntry(index);
-        v_Proton_multiRP_arm_ = vector<int>(Proton_multiRP_arm_,Proton_multiRP_arm_+bytes/sizeof(Proton_multiRP_arm_[0]));
+        v_Proton_multiRP_arm_ = vector<int>(Proton_multiRP_arm_.data(),Proton_multiRP_arm_.data()+bytes/sizeof(Proton_multiRP_arm_[0]));
         loaded_Proton_multiRP_arm_ = true;
     }
     return v_Proton_multiRP_arm_;
@@ -47723,7 +47758,7 @@ const vector<float> &Nano::Proton_multiRP_t() {
     if (!loaded_Proton_multiRP_t_) {
         if (!b_Proton_multiRP_t_) throw std::runtime_error("Proton_multiRP_t branch doesn't exist");
         int bytes = b_Proton_multiRP_t_->GetEntry(index);
-        v_Proton_multiRP_t_ = vector<float>(Proton_multiRP_t_,Proton_multiRP_t_+bytes/sizeof(Proton_multiRP_t_[0]));
+        v_Proton_multiRP_t_ = vector<float>(Proton_multiRP_t_.data(),Proton_multiRP_t_.data()+bytes/sizeof(Proton_multiRP_t_[0]));
         loaded_Proton_multiRP_t_ = true;
     }
     return v_Proton_multiRP_t_;
@@ -47734,7 +47769,7 @@ const vector<float> &Nano::Proton_multiRP_thetaX() {
     if (!loaded_Proton_multiRP_thetaX_) {
         if (!b_Proton_multiRP_thetaX_) throw std::runtime_error("Proton_multiRP_thetaX branch doesn't exist");
         int bytes = b_Proton_multiRP_thetaX_->GetEntry(index);
-        v_Proton_multiRP_thetaX_ = vector<float>(Proton_multiRP_thetaX_,Proton_multiRP_thetaX_+bytes/sizeof(Proton_multiRP_thetaX_[0]));
+        v_Proton_multiRP_thetaX_ = vector<float>(Proton_multiRP_thetaX_.data(),Proton_multiRP_thetaX_.data()+bytes/sizeof(Proton_multiRP_thetaX_[0]));
         loaded_Proton_multiRP_thetaX_ = true;
     }
     return v_Proton_multiRP_thetaX_;
@@ -47745,7 +47780,7 @@ const vector<float> &Nano::Proton_multiRP_thetaY() {
     if (!loaded_Proton_multiRP_thetaY_) {
         if (!b_Proton_multiRP_thetaY_) throw std::runtime_error("Proton_multiRP_thetaY branch doesn't exist");
         int bytes = b_Proton_multiRP_thetaY_->GetEntry(index);
-        v_Proton_multiRP_thetaY_ = vector<float>(Proton_multiRP_thetaY_,Proton_multiRP_thetaY_+bytes/sizeof(Proton_multiRP_thetaY_[0]));
+        v_Proton_multiRP_thetaY_ = vector<float>(Proton_multiRP_thetaY_.data(),Proton_multiRP_thetaY_.data()+bytes/sizeof(Proton_multiRP_thetaY_[0]));
         loaded_Proton_multiRP_thetaY_ = true;
     }
     return v_Proton_multiRP_thetaY_;
@@ -47756,7 +47791,7 @@ const vector<float> &Nano::Proton_multiRP_time() {
     if (!loaded_Proton_multiRP_time_) {
         if (!b_Proton_multiRP_time_) throw std::runtime_error("Proton_multiRP_time branch doesn't exist");
         int bytes = b_Proton_multiRP_time_->GetEntry(index);
-        v_Proton_multiRP_time_ = vector<float>(Proton_multiRP_time_,Proton_multiRP_time_+bytes/sizeof(Proton_multiRP_time_[0]));
+        v_Proton_multiRP_time_ = vector<float>(Proton_multiRP_time_.data(),Proton_multiRP_time_.data()+bytes/sizeof(Proton_multiRP_time_[0]));
         loaded_Proton_multiRP_time_ = true;
     }
     return v_Proton_multiRP_time_;
@@ -47767,7 +47802,7 @@ const vector<float> &Nano::Proton_multiRP_timeUnc() {
     if (!loaded_Proton_multiRP_timeUnc_) {
         if (!b_Proton_multiRP_timeUnc_) throw std::runtime_error("Proton_multiRP_timeUnc branch doesn't exist");
         int bytes = b_Proton_multiRP_timeUnc_->GetEntry(index);
-        v_Proton_multiRP_timeUnc_ = vector<float>(Proton_multiRP_timeUnc_,Proton_multiRP_timeUnc_+bytes/sizeof(Proton_multiRP_timeUnc_[0]));
+        v_Proton_multiRP_timeUnc_ = vector<float>(Proton_multiRP_timeUnc_.data(),Proton_multiRP_timeUnc_.data()+bytes/sizeof(Proton_multiRP_timeUnc_[0]));
         loaded_Proton_multiRP_timeUnc_ = true;
     }
     return v_Proton_multiRP_timeUnc_;
@@ -47778,7 +47813,7 @@ const vector<float> &Nano::Proton_multiRP_xi() {
     if (!loaded_Proton_multiRP_xi_) {
         if (!b_Proton_multiRP_xi_) throw std::runtime_error("Proton_multiRP_xi branch doesn't exist");
         int bytes = b_Proton_multiRP_xi_->GetEntry(index);
-        v_Proton_multiRP_xi_ = vector<float>(Proton_multiRP_xi_,Proton_multiRP_xi_+bytes/sizeof(Proton_multiRP_xi_[0]));
+        v_Proton_multiRP_xi_ = vector<float>(Proton_multiRP_xi_.data(),Proton_multiRP_xi_.data()+bytes/sizeof(Proton_multiRP_xi_[0]));
         loaded_Proton_multiRP_xi_ = true;
     }
     return v_Proton_multiRP_xi_;
@@ -47789,7 +47824,7 @@ const vector<int> &Nano::Proton_singleRP_decRPId() {
     if (!loaded_Proton_singleRP_decRPId_) {
         if (!b_Proton_singleRP_decRPId_) throw std::runtime_error("Proton_singleRP_decRPId branch doesn't exist");
         int bytes = b_Proton_singleRP_decRPId_->GetEntry(index);
-        v_Proton_singleRP_decRPId_ = vector<int>(Proton_singleRP_decRPId_,Proton_singleRP_decRPId_+bytes/sizeof(Proton_singleRP_decRPId_[0]));
+        v_Proton_singleRP_decRPId_ = vector<int>(Proton_singleRP_decRPId_.data(),Proton_singleRP_decRPId_.data()+bytes/sizeof(Proton_singleRP_decRPId_[0]));
         loaded_Proton_singleRP_decRPId_ = true;
     }
     return v_Proton_singleRP_decRPId_;
@@ -47800,7 +47835,7 @@ const vector<float> &Nano::Proton_singleRP_thetaY() {
     if (!loaded_Proton_singleRP_thetaY_) {
         if (!b_Proton_singleRP_thetaY_) throw std::runtime_error("Proton_singleRP_thetaY branch doesn't exist");
         int bytes = b_Proton_singleRP_thetaY_->GetEntry(index);
-        v_Proton_singleRP_thetaY_ = vector<float>(Proton_singleRP_thetaY_,Proton_singleRP_thetaY_+bytes/sizeof(Proton_singleRP_thetaY_[0]));
+        v_Proton_singleRP_thetaY_ = vector<float>(Proton_singleRP_thetaY_.data(),Proton_singleRP_thetaY_.data()+bytes/sizeof(Proton_singleRP_thetaY_[0]));
         loaded_Proton_singleRP_thetaY_ = true;
     }
     return v_Proton_singleRP_thetaY_;
@@ -47811,7 +47846,7 @@ const vector<float> &Nano::Proton_singleRP_xi() {
     if (!loaded_Proton_singleRP_xi_) {
         if (!b_Proton_singleRP_xi_) throw std::runtime_error("Proton_singleRP_xi branch doesn't exist");
         int bytes = b_Proton_singleRP_xi_->GetEntry(index);
-        v_Proton_singleRP_xi_ = vector<float>(Proton_singleRP_xi_,Proton_singleRP_xi_+bytes/sizeof(Proton_singleRP_xi_[0]));
+        v_Proton_singleRP_xi_ = vector<float>(Proton_singleRP_xi_.data(),Proton_singleRP_xi_.data()+bytes/sizeof(Proton_singleRP_xi_[0]));
         loaded_Proton_singleRP_xi_ = true;
     }
     return v_Proton_singleRP_xi_;
@@ -48092,7 +48127,7 @@ const vector<int> &Nano::SV_charge() {
     if (!loaded_SV_charge_) {
         if (!b_SV_charge_) throw std::runtime_error("SV_charge branch doesn't exist");
         int bytes = b_SV_charge_->GetEntry(index);
-        v_SV_charge_ = vector<int>(SV_charge_,SV_charge_+bytes/sizeof(SV_charge_[0]));
+        v_SV_charge_ = vector<int>(SV_charge_.data(),SV_charge_.data()+bytes/sizeof(SV_charge_[0]));
         loaded_SV_charge_ = true;
     }
     return v_SV_charge_;
@@ -48103,7 +48138,7 @@ const vector<float> &Nano::SV_chi2() {
     if (!loaded_SV_chi2_) {
         if (!b_SV_chi2_) throw std::runtime_error("SV_chi2 branch doesn't exist");
         int bytes = b_SV_chi2_->GetEntry(index);
-        v_SV_chi2_ = vector<float>(SV_chi2_,SV_chi2_+bytes/sizeof(SV_chi2_[0]));
+        v_SV_chi2_ = vector<float>(SV_chi2_.data(),SV_chi2_.data()+bytes/sizeof(SV_chi2_[0]));
         loaded_SV_chi2_ = true;
     }
     return v_SV_chi2_;
@@ -48114,7 +48149,7 @@ const vector<float> &Nano::SV_dlen() {
     if (!loaded_SV_dlen_) {
         if (!b_SV_dlen_) throw std::runtime_error("SV_dlen branch doesn't exist");
         int bytes = b_SV_dlen_->GetEntry(index);
-        v_SV_dlen_ = vector<float>(SV_dlen_,SV_dlen_+bytes/sizeof(SV_dlen_[0]));
+        v_SV_dlen_ = vector<float>(SV_dlen_.data(),SV_dlen_.data()+bytes/sizeof(SV_dlen_[0]));
         loaded_SV_dlen_ = true;
     }
     return v_SV_dlen_;
@@ -48125,7 +48160,7 @@ const vector<float> &Nano::SV_dlenSig() {
     if (!loaded_SV_dlenSig_) {
         if (!b_SV_dlenSig_) throw std::runtime_error("SV_dlenSig branch doesn't exist");
         int bytes = b_SV_dlenSig_->GetEntry(index);
-        v_SV_dlenSig_ = vector<float>(SV_dlenSig_,SV_dlenSig_+bytes/sizeof(SV_dlenSig_[0]));
+        v_SV_dlenSig_ = vector<float>(SV_dlenSig_.data(),SV_dlenSig_.data()+bytes/sizeof(SV_dlenSig_[0]));
         loaded_SV_dlenSig_ = true;
     }
     return v_SV_dlenSig_;
@@ -48136,7 +48171,7 @@ const vector<float> &Nano::SV_dxy() {
     if (!loaded_SV_dxy_) {
         if (!b_SV_dxy_) throw std::runtime_error("SV_dxy branch doesn't exist");
         int bytes = b_SV_dxy_->GetEntry(index);
-        v_SV_dxy_ = vector<float>(SV_dxy_,SV_dxy_+bytes/sizeof(SV_dxy_[0]));
+        v_SV_dxy_ = vector<float>(SV_dxy_.data(),SV_dxy_.data()+bytes/sizeof(SV_dxy_[0]));
         loaded_SV_dxy_ = true;
     }
     return v_SV_dxy_;
@@ -48147,7 +48182,7 @@ const vector<float> &Nano::SV_dxySig() {
     if (!loaded_SV_dxySig_) {
         if (!b_SV_dxySig_) throw std::runtime_error("SV_dxySig branch doesn't exist");
         int bytes = b_SV_dxySig_->GetEntry(index);
-        v_SV_dxySig_ = vector<float>(SV_dxySig_,SV_dxySig_+bytes/sizeof(SV_dxySig_[0]));
+        v_SV_dxySig_ = vector<float>(SV_dxySig_.data(),SV_dxySig_.data()+bytes/sizeof(SV_dxySig_[0]));
         loaded_SV_dxySig_ = true;
     }
     return v_SV_dxySig_;
@@ -48158,7 +48193,7 @@ const vector<float> &Nano::SV_eta() {
     if (!loaded_SV_eta_) {
         if (!b_SV_eta_) throw std::runtime_error("SV_eta branch doesn't exist");
         int bytes = b_SV_eta_->GetEntry(index);
-        v_SV_eta_ = vector<float>(SV_eta_,SV_eta_+bytes/sizeof(SV_eta_[0]));
+        v_SV_eta_ = vector<float>(SV_eta_.data(),SV_eta_.data()+bytes/sizeof(SV_eta_[0]));
         loaded_SV_eta_ = true;
     }
     return v_SV_eta_;
@@ -48169,7 +48204,7 @@ const vector<float> &Nano::SV_mass() {
     if (!loaded_SV_mass_) {
         if (!b_SV_mass_) throw std::runtime_error("SV_mass branch doesn't exist");
         int bytes = b_SV_mass_->GetEntry(index);
-        v_SV_mass_ = vector<float>(SV_mass_,SV_mass_+bytes/sizeof(SV_mass_[0]));
+        v_SV_mass_ = vector<float>(SV_mass_.data(),SV_mass_.data()+bytes/sizeof(SV_mass_[0]));
         loaded_SV_mass_ = true;
     }
     return v_SV_mass_;
@@ -48180,7 +48215,7 @@ const vector<float> &Nano::SV_ndof() {
     if (!loaded_SV_ndof_) {
         if (!b_SV_ndof_) throw std::runtime_error("SV_ndof branch doesn't exist");
         int bytes = b_SV_ndof_->GetEntry(index);
-        v_SV_ndof_ = vector<float>(SV_ndof_,SV_ndof_+bytes/sizeof(SV_ndof_[0]));
+        v_SV_ndof_ = vector<float>(SV_ndof_.data(),SV_ndof_.data()+bytes/sizeof(SV_ndof_[0]));
         loaded_SV_ndof_ = true;
     }
     return v_SV_ndof_;
@@ -48191,7 +48226,7 @@ const vector<UChar_t> &Nano::SV_ntracks() {
     if (!loaded_SV_ntracks_) {
         if (!b_SV_ntracks_) throw std::runtime_error("SV_ntracks branch doesn't exist");
         int bytes = b_SV_ntracks_->GetEntry(index);
-        v_SV_ntracks_ = vector<UChar_t>(SV_ntracks_,SV_ntracks_+bytes/sizeof(SV_ntracks_[0]));
+        v_SV_ntracks_ = vector<UChar_t>(SV_ntracks_.data(),SV_ntracks_.data()+bytes/sizeof(SV_ntracks_[0]));
         loaded_SV_ntracks_ = true;
     }
     return v_SV_ntracks_;
@@ -48218,7 +48253,7 @@ const vector<float> &Nano::SV_pAngle() {
     if (!loaded_SV_pAngle_) {
         if (!b_SV_pAngle_) throw std::runtime_error("SV_pAngle branch doesn't exist");
         int bytes = b_SV_pAngle_->GetEntry(index);
-        v_SV_pAngle_ = vector<float>(SV_pAngle_,SV_pAngle_+bytes/sizeof(SV_pAngle_[0]));
+        v_SV_pAngle_ = vector<float>(SV_pAngle_.data(),SV_pAngle_.data()+bytes/sizeof(SV_pAngle_[0]));
         loaded_SV_pAngle_ = true;
     }
     return v_SV_pAngle_;
@@ -48229,7 +48264,7 @@ const vector<float> &Nano::SV_phi() {
     if (!loaded_SV_phi_) {
         if (!b_SV_phi_) throw std::runtime_error("SV_phi branch doesn't exist");
         int bytes = b_SV_phi_->GetEntry(index);
-        v_SV_phi_ = vector<float>(SV_phi_,SV_phi_+bytes/sizeof(SV_phi_[0]));
+        v_SV_phi_ = vector<float>(SV_phi_.data(),SV_phi_.data()+bytes/sizeof(SV_phi_[0]));
         loaded_SV_phi_ = true;
     }
     return v_SV_phi_;
@@ -48240,7 +48275,7 @@ const vector<float> &Nano::SV_pt() {
     if (!loaded_SV_pt_) {
         if (!b_SV_pt_) throw std::runtime_error("SV_pt branch doesn't exist");
         int bytes = b_SV_pt_->GetEntry(index);
-        v_SV_pt_ = vector<float>(SV_pt_,SV_pt_+bytes/sizeof(SV_pt_[0]));
+        v_SV_pt_ = vector<float>(SV_pt_.data(),SV_pt_.data()+bytes/sizeof(SV_pt_[0]));
         loaded_SV_pt_ = true;
     }
     return v_SV_pt_;
@@ -48251,7 +48286,7 @@ const vector<float> &Nano::SV_x() {
     if (!loaded_SV_x_) {
         if (!b_SV_x_) throw std::runtime_error("SV_x branch doesn't exist");
         int bytes = b_SV_x_->GetEntry(index);
-        v_SV_x_ = vector<float>(SV_x_,SV_x_+bytes/sizeof(SV_x_[0]));
+        v_SV_x_ = vector<float>(SV_x_.data(),SV_x_.data()+bytes/sizeof(SV_x_[0]));
         loaded_SV_x_ = true;
     }
     return v_SV_x_;
@@ -48262,7 +48297,7 @@ const vector<float> &Nano::SV_y() {
     if (!loaded_SV_y_) {
         if (!b_SV_y_) throw std::runtime_error("SV_y branch doesn't exist");
         int bytes = b_SV_y_->GetEntry(index);
-        v_SV_y_ = vector<float>(SV_y_,SV_y_+bytes/sizeof(SV_y_[0]));
+        v_SV_y_ = vector<float>(SV_y_.data(),SV_y_.data()+bytes/sizeof(SV_y_[0]));
         loaded_SV_y_ = true;
     }
     return v_SV_y_;
@@ -48273,7 +48308,7 @@ const vector<float> &Nano::SV_z() {
     if (!loaded_SV_z_) {
         if (!b_SV_z_) throw std::runtime_error("SV_z branch doesn't exist");
         int bytes = b_SV_z_->GetEntry(index);
-        v_SV_z_ = vector<float>(SV_z_,SV_z_+bytes/sizeof(SV_z_[0]));
+        v_SV_z_ = vector<float>(SV_z_.data(),SV_z_.data()+bytes/sizeof(SV_z_[0]));
         loaded_SV_z_ = true;
     }
     return v_SV_z_;
@@ -48354,7 +48389,7 @@ const vector<float> &Nano::SoftActivityJet_eta() {
     if (!loaded_SoftActivityJet_eta_) {
         if (!b_SoftActivityJet_eta_) throw std::runtime_error("SoftActivityJet_eta branch doesn't exist");
         int bytes = b_SoftActivityJet_eta_->GetEntry(index);
-        v_SoftActivityJet_eta_ = vector<float>(SoftActivityJet_eta_,SoftActivityJet_eta_+bytes/sizeof(SoftActivityJet_eta_[0]));
+        v_SoftActivityJet_eta_ = vector<float>(SoftActivityJet_eta_.data(),SoftActivityJet_eta_.data()+bytes/sizeof(SoftActivityJet_eta_[0]));
         loaded_SoftActivityJet_eta_ = true;
     }
     return v_SoftActivityJet_eta_;
@@ -48365,7 +48400,7 @@ const vector<float> &Nano::SoftActivityJet_phi() {
     if (!loaded_SoftActivityJet_phi_) {
         if (!b_SoftActivityJet_phi_) throw std::runtime_error("SoftActivityJet_phi branch doesn't exist");
         int bytes = b_SoftActivityJet_phi_->GetEntry(index);
-        v_SoftActivityJet_phi_ = vector<float>(SoftActivityJet_phi_,SoftActivityJet_phi_+bytes/sizeof(SoftActivityJet_phi_[0]));
+        v_SoftActivityJet_phi_ = vector<float>(SoftActivityJet_phi_.data(),SoftActivityJet_phi_.data()+bytes/sizeof(SoftActivityJet_phi_[0]));
         loaded_SoftActivityJet_phi_ = true;
     }
     return v_SoftActivityJet_phi_;
@@ -48376,7 +48411,7 @@ const vector<float> &Nano::SoftActivityJet_pt() {
     if (!loaded_SoftActivityJet_pt_) {
         if (!b_SoftActivityJet_pt_) throw std::runtime_error("SoftActivityJet_pt branch doesn't exist");
         int bytes = b_SoftActivityJet_pt_->GetEntry(index);
-        v_SoftActivityJet_pt_ = vector<float>(SoftActivityJet_pt_,SoftActivityJet_pt_+bytes/sizeof(SoftActivityJet_pt_[0]));
+        v_SoftActivityJet_pt_ = vector<float>(SoftActivityJet_pt_.data(),SoftActivityJet_pt_.data()+bytes/sizeof(SoftActivityJet_pt_[0]));
         loaded_SoftActivityJet_pt_ = true;
     }
     return v_SoftActivityJet_pt_;
@@ -48387,7 +48422,7 @@ const vector<float> &Nano::SubGenJetAK8_eta() {
     if (!loaded_SubGenJetAK8_eta_) {
         if (!b_SubGenJetAK8_eta_) throw std::runtime_error("SubGenJetAK8_eta branch doesn't exist");
         int bytes = b_SubGenJetAK8_eta_->GetEntry(index);
-        v_SubGenJetAK8_eta_ = vector<float>(SubGenJetAK8_eta_,SubGenJetAK8_eta_+bytes/sizeof(SubGenJetAK8_eta_[0]));
+        v_SubGenJetAK8_eta_ = vector<float>(SubGenJetAK8_eta_.data(),SubGenJetAK8_eta_.data()+bytes/sizeof(SubGenJetAK8_eta_[0]));
         loaded_SubGenJetAK8_eta_ = true;
     }
     return v_SubGenJetAK8_eta_;
@@ -48398,7 +48433,7 @@ const vector<float> &Nano::SubGenJetAK8_mass() {
     if (!loaded_SubGenJetAK8_mass_) {
         if (!b_SubGenJetAK8_mass_) throw std::runtime_error("SubGenJetAK8_mass branch doesn't exist");
         int bytes = b_SubGenJetAK8_mass_->GetEntry(index);
-        v_SubGenJetAK8_mass_ = vector<float>(SubGenJetAK8_mass_,SubGenJetAK8_mass_+bytes/sizeof(SubGenJetAK8_mass_[0]));
+        v_SubGenJetAK8_mass_ = vector<float>(SubGenJetAK8_mass_.data(),SubGenJetAK8_mass_.data()+bytes/sizeof(SubGenJetAK8_mass_[0]));
         loaded_SubGenJetAK8_mass_ = true;
     }
     return v_SubGenJetAK8_mass_;
@@ -48425,7 +48460,7 @@ const vector<float> &Nano::SubGenJetAK8_phi() {
     if (!loaded_SubGenJetAK8_phi_) {
         if (!b_SubGenJetAK8_phi_) throw std::runtime_error("SubGenJetAK8_phi branch doesn't exist");
         int bytes = b_SubGenJetAK8_phi_->GetEntry(index);
-        v_SubGenJetAK8_phi_ = vector<float>(SubGenJetAK8_phi_,SubGenJetAK8_phi_+bytes/sizeof(SubGenJetAK8_phi_[0]));
+        v_SubGenJetAK8_phi_ = vector<float>(SubGenJetAK8_phi_.data(),SubGenJetAK8_phi_.data()+bytes/sizeof(SubGenJetAK8_phi_[0]));
         loaded_SubGenJetAK8_phi_ = true;
     }
     return v_SubGenJetAK8_phi_;
@@ -48436,7 +48471,7 @@ const vector<float> &Nano::SubGenJetAK8_pt() {
     if (!loaded_SubGenJetAK8_pt_) {
         if (!b_SubGenJetAK8_pt_) throw std::runtime_error("SubGenJetAK8_pt branch doesn't exist");
         int bytes = b_SubGenJetAK8_pt_->GetEntry(index);
-        v_SubGenJetAK8_pt_ = vector<float>(SubGenJetAK8_pt_,SubGenJetAK8_pt_+bytes/sizeof(SubGenJetAK8_pt_[0]));
+        v_SubGenJetAK8_pt_ = vector<float>(SubGenJetAK8_pt_.data(),SubGenJetAK8_pt_.data()+bytes/sizeof(SubGenJetAK8_pt_[0]));
         loaded_SubGenJetAK8_pt_ = true;
     }
     return v_SubGenJetAK8_pt_;
@@ -48447,7 +48482,7 @@ const vector<float> &Nano::SubJet_btagCMVA() {
     if (!loaded_SubJet_btagCMVA_) {
         if (!b_SubJet_btagCMVA_) throw std::runtime_error("SubJet_btagCMVA branch doesn't exist");
         int bytes = b_SubJet_btagCMVA_->GetEntry(index);
-        v_SubJet_btagCMVA_ = vector<float>(SubJet_btagCMVA_,SubJet_btagCMVA_+bytes/sizeof(SubJet_btagCMVA_[0]));
+        v_SubJet_btagCMVA_ = vector<float>(SubJet_btagCMVA_.data(),SubJet_btagCMVA_.data()+bytes/sizeof(SubJet_btagCMVA_[0]));
         loaded_SubJet_btagCMVA_ = true;
     }
     return v_SubJet_btagCMVA_;
@@ -48458,7 +48493,7 @@ const vector<float> &Nano::SubJet_btagCSVV2() {
     if (!loaded_SubJet_btagCSVV2_) {
         if (!b_SubJet_btagCSVV2_) throw std::runtime_error("SubJet_btagCSVV2 branch doesn't exist");
         int bytes = b_SubJet_btagCSVV2_->GetEntry(index);
-        v_SubJet_btagCSVV2_ = vector<float>(SubJet_btagCSVV2_,SubJet_btagCSVV2_+bytes/sizeof(SubJet_btagCSVV2_[0]));
+        v_SubJet_btagCSVV2_ = vector<float>(SubJet_btagCSVV2_.data(),SubJet_btagCSVV2_.data()+bytes/sizeof(SubJet_btagCSVV2_[0]));
         loaded_SubJet_btagCSVV2_ = true;
     }
     return v_SubJet_btagCSVV2_;
@@ -48469,7 +48504,7 @@ const vector<float> &Nano::SubJet_btagDeepB() {
     if (!loaded_SubJet_btagDeepB_) {
         if (!b_SubJet_btagDeepB_) throw std::runtime_error("SubJet_btagDeepB branch doesn't exist");
         int bytes = b_SubJet_btagDeepB_->GetEntry(index);
-        v_SubJet_btagDeepB_ = vector<float>(SubJet_btagDeepB_,SubJet_btagDeepB_+bytes/sizeof(SubJet_btagDeepB_[0]));
+        v_SubJet_btagDeepB_ = vector<float>(SubJet_btagDeepB_.data(),SubJet_btagDeepB_.data()+bytes/sizeof(SubJet_btagDeepB_[0]));
         loaded_SubJet_btagDeepB_ = true;
     }
     return v_SubJet_btagDeepB_;
@@ -48480,7 +48515,7 @@ const vector<float> &Nano::SubJet_eta() {
     if (!loaded_SubJet_eta_) {
         if (!b_SubJet_eta_) throw std::runtime_error("SubJet_eta branch doesn't exist");
         int bytes = b_SubJet_eta_->GetEntry(index);
-        v_SubJet_eta_ = vector<float>(SubJet_eta_,SubJet_eta_+bytes/sizeof(SubJet_eta_[0]));
+        v_SubJet_eta_ = vector<float>(SubJet_eta_.data(),SubJet_eta_.data()+bytes/sizeof(SubJet_eta_[0]));
         loaded_SubJet_eta_ = true;
     }
     return v_SubJet_eta_;
@@ -48491,7 +48526,7 @@ const vector<int> &Nano::SubJet_hadronFlavour() {
     if (!loaded_SubJet_hadronFlavour_) {
         if (!b_SubJet_hadronFlavour_) throw std::runtime_error("SubJet_hadronFlavour branch doesn't exist");
         int bytes = b_SubJet_hadronFlavour_->GetEntry(index);
-        v_SubJet_hadronFlavour_ = vector<int>(SubJet_hadronFlavour_,SubJet_hadronFlavour_+bytes/sizeof(SubJet_hadronFlavour_[0]));
+        v_SubJet_hadronFlavour_ = vector<int>(SubJet_hadronFlavour_.data(),SubJet_hadronFlavour_.data()+bytes/sizeof(SubJet_hadronFlavour_[0]));
         loaded_SubJet_hadronFlavour_ = true;
     }
     return v_SubJet_hadronFlavour_;
@@ -48502,7 +48537,7 @@ const vector<float> &Nano::SubJet_mass() {
     if (!loaded_SubJet_mass_) {
         if (!b_SubJet_mass_) throw std::runtime_error("SubJet_mass branch doesn't exist");
         int bytes = b_SubJet_mass_->GetEntry(index);
-        v_SubJet_mass_ = vector<float>(SubJet_mass_,SubJet_mass_+bytes/sizeof(SubJet_mass_[0]));
+        v_SubJet_mass_ = vector<float>(SubJet_mass_.data(),SubJet_mass_.data()+bytes/sizeof(SubJet_mass_[0]));
         loaded_SubJet_mass_ = true;
     }
     return v_SubJet_mass_;
@@ -48513,7 +48548,7 @@ const vector<float> &Nano::SubJet_n2b1() {
     if (!loaded_SubJet_n2b1_) {
         if (!b_SubJet_n2b1_) throw std::runtime_error("SubJet_n2b1 branch doesn't exist");
         int bytes = b_SubJet_n2b1_->GetEntry(index);
-        v_SubJet_n2b1_ = vector<float>(SubJet_n2b1_,SubJet_n2b1_+bytes/sizeof(SubJet_n2b1_[0]));
+        v_SubJet_n2b1_ = vector<float>(SubJet_n2b1_.data(),SubJet_n2b1_.data()+bytes/sizeof(SubJet_n2b1_[0]));
         loaded_SubJet_n2b1_ = true;
     }
     return v_SubJet_n2b1_;
@@ -48524,7 +48559,7 @@ const vector<float> &Nano::SubJet_n3b1() {
     if (!loaded_SubJet_n3b1_) {
         if (!b_SubJet_n3b1_) throw std::runtime_error("SubJet_n3b1 branch doesn't exist");
         int bytes = b_SubJet_n3b1_->GetEntry(index);
-        v_SubJet_n3b1_ = vector<float>(SubJet_n3b1_,SubJet_n3b1_+bytes/sizeof(SubJet_n3b1_[0]));
+        v_SubJet_n3b1_ = vector<float>(SubJet_n3b1_.data(),SubJet_n3b1_.data()+bytes/sizeof(SubJet_n3b1_[0]));
         loaded_SubJet_n3b1_ = true;
     }
     return v_SubJet_n3b1_;
@@ -48535,7 +48570,7 @@ const vector<UChar_t> &Nano::SubJet_nBHadrons() {
     if (!loaded_SubJet_nBHadrons_) {
         if (!b_SubJet_nBHadrons_) throw std::runtime_error("SubJet_nBHadrons branch doesn't exist");
         int bytes = b_SubJet_nBHadrons_->GetEntry(index);
-        v_SubJet_nBHadrons_ = vector<UChar_t>(SubJet_nBHadrons_,SubJet_nBHadrons_+bytes/sizeof(SubJet_nBHadrons_[0]));
+        v_SubJet_nBHadrons_ = vector<UChar_t>(SubJet_nBHadrons_.data(),SubJet_nBHadrons_.data()+bytes/sizeof(SubJet_nBHadrons_[0]));
         loaded_SubJet_nBHadrons_ = true;
     }
     return v_SubJet_nBHadrons_;
@@ -48546,7 +48581,7 @@ const vector<UChar_t> &Nano::SubJet_nCHadrons() {
     if (!loaded_SubJet_nCHadrons_) {
         if (!b_SubJet_nCHadrons_) throw std::runtime_error("SubJet_nCHadrons branch doesn't exist");
         int bytes = b_SubJet_nCHadrons_->GetEntry(index);
-        v_SubJet_nCHadrons_ = vector<UChar_t>(SubJet_nCHadrons_,SubJet_nCHadrons_+bytes/sizeof(SubJet_nCHadrons_[0]));
+        v_SubJet_nCHadrons_ = vector<UChar_t>(SubJet_nCHadrons_.data(),SubJet_nCHadrons_.data()+bytes/sizeof(SubJet_nCHadrons_[0]));
         loaded_SubJet_nCHadrons_ = true;
     }
     return v_SubJet_nCHadrons_;
@@ -48573,7 +48608,7 @@ const vector<float> &Nano::SubJet_phi() {
     if (!loaded_SubJet_phi_) {
         if (!b_SubJet_phi_) throw std::runtime_error("SubJet_phi branch doesn't exist");
         int bytes = b_SubJet_phi_->GetEntry(index);
-        v_SubJet_phi_ = vector<float>(SubJet_phi_,SubJet_phi_+bytes/sizeof(SubJet_phi_[0]));
+        v_SubJet_phi_ = vector<float>(SubJet_phi_.data(),SubJet_phi_.data()+bytes/sizeof(SubJet_phi_[0]));
         loaded_SubJet_phi_ = true;
     }
     return v_SubJet_phi_;
@@ -48584,7 +48619,7 @@ const vector<float> &Nano::SubJet_pt() {
     if (!loaded_SubJet_pt_) {
         if (!b_SubJet_pt_) throw std::runtime_error("SubJet_pt branch doesn't exist");
         int bytes = b_SubJet_pt_->GetEntry(index);
-        v_SubJet_pt_ = vector<float>(SubJet_pt_,SubJet_pt_+bytes/sizeof(SubJet_pt_[0]));
+        v_SubJet_pt_ = vector<float>(SubJet_pt_.data(),SubJet_pt_.data()+bytes/sizeof(SubJet_pt_[0]));
         loaded_SubJet_pt_ = true;
     }
     return v_SubJet_pt_;
@@ -48595,7 +48630,7 @@ const vector<float> &Nano::SubJet_rawFactor() {
     if (!loaded_SubJet_rawFactor_) {
         if (!b_SubJet_rawFactor_) throw std::runtime_error("SubJet_rawFactor branch doesn't exist");
         int bytes = b_SubJet_rawFactor_->GetEntry(index);
-        v_SubJet_rawFactor_ = vector<float>(SubJet_rawFactor_,SubJet_rawFactor_+bytes/sizeof(SubJet_rawFactor_[0]));
+        v_SubJet_rawFactor_ = vector<float>(SubJet_rawFactor_.data(),SubJet_rawFactor_.data()+bytes/sizeof(SubJet_rawFactor_[0]));
         loaded_SubJet_rawFactor_ = true;
     }
     return v_SubJet_rawFactor_;
@@ -48606,7 +48641,7 @@ const vector<float> &Nano::SubJet_tau1() {
     if (!loaded_SubJet_tau1_) {
         if (!b_SubJet_tau1_) throw std::runtime_error("SubJet_tau1 branch doesn't exist");
         int bytes = b_SubJet_tau1_->GetEntry(index);
-        v_SubJet_tau1_ = vector<float>(SubJet_tau1_,SubJet_tau1_+bytes/sizeof(SubJet_tau1_[0]));
+        v_SubJet_tau1_ = vector<float>(SubJet_tau1_.data(),SubJet_tau1_.data()+bytes/sizeof(SubJet_tau1_[0]));
         loaded_SubJet_tau1_ = true;
     }
     return v_SubJet_tau1_;
@@ -48617,7 +48652,7 @@ const vector<float> &Nano::SubJet_tau2() {
     if (!loaded_SubJet_tau2_) {
         if (!b_SubJet_tau2_) throw std::runtime_error("SubJet_tau2 branch doesn't exist");
         int bytes = b_SubJet_tau2_->GetEntry(index);
-        v_SubJet_tau2_ = vector<float>(SubJet_tau2_,SubJet_tau2_+bytes/sizeof(SubJet_tau2_[0]));
+        v_SubJet_tau2_ = vector<float>(SubJet_tau2_.data(),SubJet_tau2_.data()+bytes/sizeof(SubJet_tau2_[0]));
         loaded_SubJet_tau2_ = true;
     }
     return v_SubJet_tau2_;
@@ -48628,7 +48663,7 @@ const vector<float> &Nano::SubJet_tau3() {
     if (!loaded_SubJet_tau3_) {
         if (!b_SubJet_tau3_) throw std::runtime_error("SubJet_tau3 branch doesn't exist");
         int bytes = b_SubJet_tau3_->GetEntry(index);
-        v_SubJet_tau3_ = vector<float>(SubJet_tau3_,SubJet_tau3_+bytes/sizeof(SubJet_tau3_[0]));
+        v_SubJet_tau3_ = vector<float>(SubJet_tau3_.data(),SubJet_tau3_.data()+bytes/sizeof(SubJet_tau3_[0]));
         loaded_SubJet_tau3_ = true;
     }
     return v_SubJet_tau3_;
@@ -48639,7 +48674,7 @@ const vector<float> &Nano::SubJet_tau4() {
     if (!loaded_SubJet_tau4_) {
         if (!b_SubJet_tau4_) throw std::runtime_error("SubJet_tau4 branch doesn't exist");
         int bytes = b_SubJet_tau4_->GetEntry(index);
-        v_SubJet_tau4_ = vector<float>(SubJet_tau4_,SubJet_tau4_+bytes/sizeof(SubJet_tau4_[0]));
+        v_SubJet_tau4_ = vector<float>(SubJet_tau4_.data(),SubJet_tau4_.data()+bytes/sizeof(SubJet_tau4_[0]));
         loaded_SubJet_tau4_ = true;
     }
     return v_SubJet_tau4_;
@@ -48650,7 +48685,7 @@ const vector<int> &Nano::Tau_charge() {
     if (!loaded_Tau_charge_) {
         if (!b_Tau_charge_) throw std::runtime_error("Tau_charge branch doesn't exist");
         int bytes = b_Tau_charge_->GetEntry(index);
-        v_Tau_charge_ = vector<int>(Tau_charge_,Tau_charge_+bytes/sizeof(Tau_charge_[0]));
+        v_Tau_charge_ = vector<int>(Tau_charge_.data(),Tau_charge_.data()+bytes/sizeof(Tau_charge_[0]));
         loaded_Tau_charge_ = true;
     }
     return v_Tau_charge_;
@@ -48661,7 +48696,7 @@ const vector<float> &Nano::Tau_chargedIso() {
     if (!loaded_Tau_chargedIso_) {
         if (!b_Tau_chargedIso_) throw std::runtime_error("Tau_chargedIso branch doesn't exist");
         int bytes = b_Tau_chargedIso_->GetEntry(index);
-        v_Tau_chargedIso_ = vector<float>(Tau_chargedIso_,Tau_chargedIso_+bytes/sizeof(Tau_chargedIso_[0]));
+        v_Tau_chargedIso_ = vector<float>(Tau_chargedIso_.data(),Tau_chargedIso_.data()+bytes/sizeof(Tau_chargedIso_[0]));
         loaded_Tau_chargedIso_ = true;
     }
     return v_Tau_chargedIso_;
@@ -48672,7 +48707,7 @@ const vector<UChar_t> &Nano::Tau_cleanmask() {
     if (!loaded_Tau_cleanmask_) {
         if (!b_Tau_cleanmask_) throw std::runtime_error("Tau_cleanmask branch doesn't exist");
         int bytes = b_Tau_cleanmask_->GetEntry(index);
-        v_Tau_cleanmask_ = vector<UChar_t>(Tau_cleanmask_,Tau_cleanmask_+bytes/sizeof(Tau_cleanmask_[0]));
+        v_Tau_cleanmask_ = vector<UChar_t>(Tau_cleanmask_.data(),Tau_cleanmask_.data()+bytes/sizeof(Tau_cleanmask_[0]));
         loaded_Tau_cleanmask_ = true;
     }
     return v_Tau_cleanmask_;
@@ -48683,7 +48718,7 @@ const vector<int> &Nano::Tau_decayMode() {
     if (!loaded_Tau_decayMode_) {
         if (!b_Tau_decayMode_) throw std::runtime_error("Tau_decayMode branch doesn't exist");
         int bytes = b_Tau_decayMode_->GetEntry(index);
-        v_Tau_decayMode_ = vector<int>(Tau_decayMode_,Tau_decayMode_+bytes/sizeof(Tau_decayMode_[0]));
+        v_Tau_decayMode_ = vector<int>(Tau_decayMode_.data(),Tau_decayMode_.data()+bytes/sizeof(Tau_decayMode_[0]));
         loaded_Tau_decayMode_ = true;
     }
     return v_Tau_decayMode_;
@@ -48694,7 +48729,7 @@ const vector<float> &Nano::Tau_dxy() {
     if (!loaded_Tau_dxy_) {
         if (!b_Tau_dxy_) throw std::runtime_error("Tau_dxy branch doesn't exist");
         int bytes = b_Tau_dxy_->GetEntry(index);
-        v_Tau_dxy_ = vector<float>(Tau_dxy_,Tau_dxy_+bytes/sizeof(Tau_dxy_[0]));
+        v_Tau_dxy_ = vector<float>(Tau_dxy_.data(),Tau_dxy_.data()+bytes/sizeof(Tau_dxy_[0]));
         loaded_Tau_dxy_ = true;
     }
     return v_Tau_dxy_;
@@ -48705,7 +48740,7 @@ const vector<float> &Nano::Tau_dz() {
     if (!loaded_Tau_dz_) {
         if (!b_Tau_dz_) throw std::runtime_error("Tau_dz branch doesn't exist");
         int bytes = b_Tau_dz_->GetEntry(index);
-        v_Tau_dz_ = vector<float>(Tau_dz_,Tau_dz_+bytes/sizeof(Tau_dz_[0]));
+        v_Tau_dz_ = vector<float>(Tau_dz_.data(),Tau_dz_.data()+bytes/sizeof(Tau_dz_[0]));
         loaded_Tau_dz_ = true;
     }
     return v_Tau_dz_;
@@ -48716,7 +48751,7 @@ const vector<int> &Nano::Tau_eleIdx() {
     if (!loaded_Tau_eleIdx_) {
         if (!b_Tau_eleIdx_) throw std::runtime_error("Tau_eleIdx branch doesn't exist");
         int bytes = b_Tau_eleIdx_->GetEntry(index);
-        v_Tau_eleIdx_ = vector<int>(Tau_eleIdx_,Tau_eleIdx_+bytes/sizeof(Tau_eleIdx_[0]));
+        v_Tau_eleIdx_ = vector<int>(Tau_eleIdx_.data(),Tau_eleIdx_.data()+bytes/sizeof(Tau_eleIdx_[0]));
         loaded_Tau_eleIdx_ = true;
     }
     return v_Tau_eleIdx_;
@@ -48727,7 +48762,7 @@ const vector<float> &Nano::Tau_eta() {
     if (!loaded_Tau_eta_) {
         if (!b_Tau_eta_) throw std::runtime_error("Tau_eta branch doesn't exist");
         int bytes = b_Tau_eta_->GetEntry(index);
-        v_Tau_eta_ = vector<float>(Tau_eta_,Tau_eta_+bytes/sizeof(Tau_eta_[0]));
+        v_Tau_eta_ = vector<float>(Tau_eta_.data(),Tau_eta_.data()+bytes/sizeof(Tau_eta_[0]));
         loaded_Tau_eta_ = true;
     }
     return v_Tau_eta_;
@@ -48738,7 +48773,7 @@ const vector<UChar_t> &Nano::Tau_genPartFlav() {
     if (!loaded_Tau_genPartFlav_) {
         if (!b_Tau_genPartFlav_) throw std::runtime_error("Tau_genPartFlav branch doesn't exist");
         int bytes = b_Tau_genPartFlav_->GetEntry(index);
-        v_Tau_genPartFlav_ = vector<UChar_t>(Tau_genPartFlav_,Tau_genPartFlav_+bytes/sizeof(Tau_genPartFlav_[0]));
+        v_Tau_genPartFlav_ = vector<UChar_t>(Tau_genPartFlav_.data(),Tau_genPartFlav_.data()+bytes/sizeof(Tau_genPartFlav_[0]));
         loaded_Tau_genPartFlav_ = true;
     }
     return v_Tau_genPartFlav_;
@@ -48749,7 +48784,7 @@ const vector<int> &Nano::Tau_genPartIdx() {
     if (!loaded_Tau_genPartIdx_) {
         if (!b_Tau_genPartIdx_) throw std::runtime_error("Tau_genPartIdx branch doesn't exist");
         int bytes = b_Tau_genPartIdx_->GetEntry(index);
-        v_Tau_genPartIdx_ = vector<int>(Tau_genPartIdx_,Tau_genPartIdx_+bytes/sizeof(Tau_genPartIdx_[0]));
+        v_Tau_genPartIdx_ = vector<int>(Tau_genPartIdx_.data(),Tau_genPartIdx_.data()+bytes/sizeof(Tau_genPartIdx_[0]));
         loaded_Tau_genPartIdx_ = true;
     }
     return v_Tau_genPartIdx_;
@@ -48760,7 +48795,7 @@ const vector<UChar_t> &Nano::Tau_idAntiEle() {
     if (!loaded_Tau_idAntiEle_) {
         if (!b_Tau_idAntiEle_) throw std::runtime_error("Tau_idAntiEle branch doesn't exist");
         int bytes = b_Tau_idAntiEle_->GetEntry(index);
-        v_Tau_idAntiEle_ = vector<UChar_t>(Tau_idAntiEle_,Tau_idAntiEle_+bytes/sizeof(Tau_idAntiEle_[0]));
+        v_Tau_idAntiEle_ = vector<UChar_t>(Tau_idAntiEle_.data(),Tau_idAntiEle_.data()+bytes/sizeof(Tau_idAntiEle_[0]));
         loaded_Tau_idAntiEle_ = true;
     }
     return v_Tau_idAntiEle_;
@@ -48771,7 +48806,7 @@ const vector<UChar_t> &Nano::Tau_idAntiEle2018() {
     if (!loaded_Tau_idAntiEle2018_) {
         if (!b_Tau_idAntiEle2018_) throw std::runtime_error("Tau_idAntiEle2018 branch doesn't exist");
         int bytes = b_Tau_idAntiEle2018_->GetEntry(index);
-        v_Tau_idAntiEle2018_ = vector<UChar_t>(Tau_idAntiEle2018_,Tau_idAntiEle2018_+bytes/sizeof(Tau_idAntiEle2018_[0]));
+        v_Tau_idAntiEle2018_ = vector<UChar_t>(Tau_idAntiEle2018_.data(),Tau_idAntiEle2018_.data()+bytes/sizeof(Tau_idAntiEle2018_[0]));
         loaded_Tau_idAntiEle2018_ = true;
     }
     return v_Tau_idAntiEle2018_;
@@ -48782,7 +48817,7 @@ const vector<bool> &Nano::Tau_idAntiEleDeadECal() {
     if (!loaded_Tau_idAntiEleDeadECal_) {
         if (!b_Tau_idAntiEleDeadECal_) throw std::runtime_error("Tau_idAntiEleDeadECal branch doesn't exist");
         int bytes = b_Tau_idAntiEleDeadECal_->GetEntry(index);
-        v_Tau_idAntiEleDeadECal_ = vector<bool>(Tau_idAntiEleDeadECal_,Tau_idAntiEleDeadECal_+bytes/sizeof(Tau_idAntiEleDeadECal_[0]));
+        v_Tau_idAntiEleDeadECal_ = vector<bool>(Tau_idAntiEleDeadECal_.data(),Tau_idAntiEleDeadECal_.data()+bytes/sizeof(Tau_idAntiEleDeadECal_[0]));
         loaded_Tau_idAntiEleDeadECal_ = true;
     }
     return v_Tau_idAntiEleDeadECal_;
@@ -48793,7 +48828,7 @@ const vector<UChar_t> &Nano::Tau_idAntiMu() {
     if (!loaded_Tau_idAntiMu_) {
         if (!b_Tau_idAntiMu_) throw std::runtime_error("Tau_idAntiMu branch doesn't exist");
         int bytes = b_Tau_idAntiMu_->GetEntry(index);
-        v_Tau_idAntiMu_ = vector<UChar_t>(Tau_idAntiMu_,Tau_idAntiMu_+bytes/sizeof(Tau_idAntiMu_[0]));
+        v_Tau_idAntiMu_ = vector<UChar_t>(Tau_idAntiMu_.data(),Tau_idAntiMu_.data()+bytes/sizeof(Tau_idAntiMu_[0]));
         loaded_Tau_idAntiMu_ = true;
     }
     return v_Tau_idAntiMu_;
@@ -48804,7 +48839,7 @@ const vector<bool> &Nano::Tau_idDecayMode() {
     if (!loaded_Tau_idDecayMode_) {
         if (!b_Tau_idDecayMode_) throw std::runtime_error("Tau_idDecayMode branch doesn't exist");
         int bytes = b_Tau_idDecayMode_->GetEntry(index);
-        v_Tau_idDecayMode_ = vector<bool>(Tau_idDecayMode_,Tau_idDecayMode_+bytes/sizeof(Tau_idDecayMode_[0]));
+        v_Tau_idDecayMode_ = vector<bool>(Tau_idDecayMode_.data(),Tau_idDecayMode_.data()+bytes/sizeof(Tau_idDecayMode_[0]));
         loaded_Tau_idDecayMode_ = true;
     }
     return v_Tau_idDecayMode_;
@@ -48815,7 +48850,7 @@ const vector<bool> &Nano::Tau_idDecayModeNewDMs() {
     if (!loaded_Tau_idDecayModeNewDMs_) {
         if (!b_Tau_idDecayModeNewDMs_) throw std::runtime_error("Tau_idDecayModeNewDMs branch doesn't exist");
         int bytes = b_Tau_idDecayModeNewDMs_->GetEntry(index);
-        v_Tau_idDecayModeNewDMs_ = vector<bool>(Tau_idDecayModeNewDMs_,Tau_idDecayModeNewDMs_+bytes/sizeof(Tau_idDecayModeNewDMs_[0]));
+        v_Tau_idDecayModeNewDMs_ = vector<bool>(Tau_idDecayModeNewDMs_.data(),Tau_idDecayModeNewDMs_.data()+bytes/sizeof(Tau_idDecayModeNewDMs_[0]));
         loaded_Tau_idDecayModeNewDMs_ = true;
     }
     return v_Tau_idDecayModeNewDMs_;
@@ -48826,7 +48861,7 @@ const vector<bool> &Nano::Tau_idDecayModeOldDMs() {
     if (!loaded_Tau_idDecayModeOldDMs_) {
         if (!b_Tau_idDecayModeOldDMs_) throw std::runtime_error("Tau_idDecayModeOldDMs branch doesn't exist");
         int bytes = b_Tau_idDecayModeOldDMs_->GetEntry(index);
-        v_Tau_idDecayModeOldDMs_ = vector<bool>(Tau_idDecayModeOldDMs_,Tau_idDecayModeOldDMs_+bytes/sizeof(Tau_idDecayModeOldDMs_[0]));
+        v_Tau_idDecayModeOldDMs_ = vector<bool>(Tau_idDecayModeOldDMs_.data(),Tau_idDecayModeOldDMs_.data()+bytes/sizeof(Tau_idDecayModeOldDMs_[0]));
         loaded_Tau_idDecayModeOldDMs_ = true;
     }
     return v_Tau_idDecayModeOldDMs_;
@@ -48837,7 +48872,7 @@ const vector<UChar_t> &Nano::Tau_idDeepTau2017v2p1VSe() {
     if (!loaded_Tau_idDeepTau2017v2p1VSe_) {
         if (!b_Tau_idDeepTau2017v2p1VSe_) throw std::runtime_error("Tau_idDeepTau2017v2p1VSe branch doesn't exist");
         int bytes = b_Tau_idDeepTau2017v2p1VSe_->GetEntry(index);
-        v_Tau_idDeepTau2017v2p1VSe_ = vector<UChar_t>(Tau_idDeepTau2017v2p1VSe_,Tau_idDeepTau2017v2p1VSe_+bytes/sizeof(Tau_idDeepTau2017v2p1VSe_[0]));
+        v_Tau_idDeepTau2017v2p1VSe_ = vector<UChar_t>(Tau_idDeepTau2017v2p1VSe_.data(),Tau_idDeepTau2017v2p1VSe_.data()+bytes/sizeof(Tau_idDeepTau2017v2p1VSe_[0]));
         loaded_Tau_idDeepTau2017v2p1VSe_ = true;
     }
     return v_Tau_idDeepTau2017v2p1VSe_;
@@ -48848,7 +48883,7 @@ const vector<UChar_t> &Nano::Tau_idDeepTau2017v2p1VSjet() {
     if (!loaded_Tau_idDeepTau2017v2p1VSjet_) {
         if (!b_Tau_idDeepTau2017v2p1VSjet_) throw std::runtime_error("Tau_idDeepTau2017v2p1VSjet branch doesn't exist");
         int bytes = b_Tau_idDeepTau2017v2p1VSjet_->GetEntry(index);
-        v_Tau_idDeepTau2017v2p1VSjet_ = vector<UChar_t>(Tau_idDeepTau2017v2p1VSjet_,Tau_idDeepTau2017v2p1VSjet_+bytes/sizeof(Tau_idDeepTau2017v2p1VSjet_[0]));
+        v_Tau_idDeepTau2017v2p1VSjet_ = vector<UChar_t>(Tau_idDeepTau2017v2p1VSjet_.data(),Tau_idDeepTau2017v2p1VSjet_.data()+bytes/sizeof(Tau_idDeepTau2017v2p1VSjet_[0]));
         loaded_Tau_idDeepTau2017v2p1VSjet_ = true;
     }
     return v_Tau_idDeepTau2017v2p1VSjet_;
@@ -48859,7 +48894,7 @@ const vector<UChar_t> &Nano::Tau_idDeepTau2017v2p1VSmu() {
     if (!loaded_Tau_idDeepTau2017v2p1VSmu_) {
         if (!b_Tau_idDeepTau2017v2p1VSmu_) throw std::runtime_error("Tau_idDeepTau2017v2p1VSmu branch doesn't exist");
         int bytes = b_Tau_idDeepTau2017v2p1VSmu_->GetEntry(index);
-        v_Tau_idDeepTau2017v2p1VSmu_ = vector<UChar_t>(Tau_idDeepTau2017v2p1VSmu_,Tau_idDeepTau2017v2p1VSmu_+bytes/sizeof(Tau_idDeepTau2017v2p1VSmu_[0]));
+        v_Tau_idDeepTau2017v2p1VSmu_ = vector<UChar_t>(Tau_idDeepTau2017v2p1VSmu_.data(),Tau_idDeepTau2017v2p1VSmu_.data()+bytes/sizeof(Tau_idDeepTau2017v2p1VSmu_[0]));
         loaded_Tau_idDeepTau2017v2p1VSmu_ = true;
     }
     return v_Tau_idDeepTau2017v2p1VSmu_;
@@ -48870,7 +48905,7 @@ const vector<UChar_t> &Nano::Tau_idDeepTau2018v2p5VSe() {
     if (!loaded_Tau_idDeepTau2018v2p5VSe_) {
         if (!b_Tau_idDeepTau2018v2p5VSe_) throw std::runtime_error("Tau_idDeepTau2018v2p5VSe branch doesn't exist");
         int bytes = b_Tau_idDeepTau2018v2p5VSe_->GetEntry(index);
-        v_Tau_idDeepTau2018v2p5VSe_ = vector<UChar_t>(Tau_idDeepTau2018v2p5VSe_,Tau_idDeepTau2018v2p5VSe_+bytes/sizeof(Tau_idDeepTau2018v2p5VSe_[0]));
+        v_Tau_idDeepTau2018v2p5VSe_ = vector<UChar_t>(Tau_idDeepTau2018v2p5VSe_.data(),Tau_idDeepTau2018v2p5VSe_.data()+bytes/sizeof(Tau_idDeepTau2018v2p5VSe_[0]));
         loaded_Tau_idDeepTau2018v2p5VSe_ = true;
     }
     return v_Tau_idDeepTau2018v2p5VSe_;
@@ -48881,7 +48916,7 @@ const vector<UChar_t> &Nano::Tau_idDeepTau2018v2p5VSjet() {
     if (!loaded_Tau_idDeepTau2018v2p5VSjet_) {
         if (!b_Tau_idDeepTau2018v2p5VSjet_) throw std::runtime_error("Tau_idDeepTau2018v2p5VSjet branch doesn't exist");
         int bytes = b_Tau_idDeepTau2018v2p5VSjet_->GetEntry(index);
-        v_Tau_idDeepTau2018v2p5VSjet_ = vector<UChar_t>(Tau_idDeepTau2018v2p5VSjet_,Tau_idDeepTau2018v2p5VSjet_+bytes/sizeof(Tau_idDeepTau2018v2p5VSjet_[0]));
+        v_Tau_idDeepTau2018v2p5VSjet_ = vector<UChar_t>(Tau_idDeepTau2018v2p5VSjet_.data(),Tau_idDeepTau2018v2p5VSjet_.data()+bytes/sizeof(Tau_idDeepTau2018v2p5VSjet_[0]));
         loaded_Tau_idDeepTau2018v2p5VSjet_ = true;
     }
     return v_Tau_idDeepTau2018v2p5VSjet_;
@@ -48892,7 +48927,7 @@ const vector<UChar_t> &Nano::Tau_idDeepTau2018v2p5VSmu() {
     if (!loaded_Tau_idDeepTau2018v2p5VSmu_) {
         if (!b_Tau_idDeepTau2018v2p5VSmu_) throw std::runtime_error("Tau_idDeepTau2018v2p5VSmu branch doesn't exist");
         int bytes = b_Tau_idDeepTau2018v2p5VSmu_->GetEntry(index);
-        v_Tau_idDeepTau2018v2p5VSmu_ = vector<UChar_t>(Tau_idDeepTau2018v2p5VSmu_,Tau_idDeepTau2018v2p5VSmu_+bytes/sizeof(Tau_idDeepTau2018v2p5VSmu_[0]));
+        v_Tau_idDeepTau2018v2p5VSmu_ = vector<UChar_t>(Tau_idDeepTau2018v2p5VSmu_.data(),Tau_idDeepTau2018v2p5VSmu_.data()+bytes/sizeof(Tau_idDeepTau2018v2p5VSmu_[0]));
         loaded_Tau_idDeepTau2018v2p5VSmu_ = true;
     }
     return v_Tau_idDeepTau2018v2p5VSmu_;
@@ -48903,7 +48938,7 @@ const vector<UChar_t> &Nano::Tau_idMVAnewDM2017v2() {
     if (!loaded_Tau_idMVAnewDM2017v2_) {
         if (!b_Tau_idMVAnewDM2017v2_) throw std::runtime_error("Tau_idMVAnewDM2017v2 branch doesn't exist");
         int bytes = b_Tau_idMVAnewDM2017v2_->GetEntry(index);
-        v_Tau_idMVAnewDM2017v2_ = vector<UChar_t>(Tau_idMVAnewDM2017v2_,Tau_idMVAnewDM2017v2_+bytes/sizeof(Tau_idMVAnewDM2017v2_[0]));
+        v_Tau_idMVAnewDM2017v2_ = vector<UChar_t>(Tau_idMVAnewDM2017v2_.data(),Tau_idMVAnewDM2017v2_.data()+bytes/sizeof(Tau_idMVAnewDM2017v2_[0]));
         loaded_Tau_idMVAnewDM2017v2_ = true;
     }
     return v_Tau_idMVAnewDM2017v2_;
@@ -48914,7 +48949,7 @@ const vector<UChar_t> &Nano::Tau_idMVAoldDM() {
     if (!loaded_Tau_idMVAoldDM_) {
         if (!b_Tau_idMVAoldDM_) throw std::runtime_error("Tau_idMVAoldDM branch doesn't exist");
         int bytes = b_Tau_idMVAoldDM_->GetEntry(index);
-        v_Tau_idMVAoldDM_ = vector<UChar_t>(Tau_idMVAoldDM_,Tau_idMVAoldDM_+bytes/sizeof(Tau_idMVAoldDM_[0]));
+        v_Tau_idMVAoldDM_ = vector<UChar_t>(Tau_idMVAoldDM_.data(),Tau_idMVAoldDM_.data()+bytes/sizeof(Tau_idMVAoldDM_[0]));
         loaded_Tau_idMVAoldDM_ = true;
     }
     return v_Tau_idMVAoldDM_;
@@ -48925,7 +48960,7 @@ const vector<UChar_t> &Nano::Tau_idMVAoldDM2017v1() {
     if (!loaded_Tau_idMVAoldDM2017v1_) {
         if (!b_Tau_idMVAoldDM2017v1_) throw std::runtime_error("Tau_idMVAoldDM2017v1 branch doesn't exist");
         int bytes = b_Tau_idMVAoldDM2017v1_->GetEntry(index);
-        v_Tau_idMVAoldDM2017v1_ = vector<UChar_t>(Tau_idMVAoldDM2017v1_,Tau_idMVAoldDM2017v1_+bytes/sizeof(Tau_idMVAoldDM2017v1_[0]));
+        v_Tau_idMVAoldDM2017v1_ = vector<UChar_t>(Tau_idMVAoldDM2017v1_.data(),Tau_idMVAoldDM2017v1_.data()+bytes/sizeof(Tau_idMVAoldDM2017v1_[0]));
         loaded_Tau_idMVAoldDM2017v1_ = true;
     }
     return v_Tau_idMVAoldDM2017v1_;
@@ -48936,7 +48971,7 @@ const vector<UChar_t> &Nano::Tau_idMVAoldDM2017v2() {
     if (!loaded_Tau_idMVAoldDM2017v2_) {
         if (!b_Tau_idMVAoldDM2017v2_) throw std::runtime_error("Tau_idMVAoldDM2017v2 branch doesn't exist");
         int bytes = b_Tau_idMVAoldDM2017v2_->GetEntry(index);
-        v_Tau_idMVAoldDM2017v2_ = vector<UChar_t>(Tau_idMVAoldDM2017v2_,Tau_idMVAoldDM2017v2_+bytes/sizeof(Tau_idMVAoldDM2017v2_[0]));
+        v_Tau_idMVAoldDM2017v2_ = vector<UChar_t>(Tau_idMVAoldDM2017v2_.data(),Tau_idMVAoldDM2017v2_.data()+bytes/sizeof(Tau_idMVAoldDM2017v2_[0]));
         loaded_Tau_idMVAoldDM2017v2_ = true;
     }
     return v_Tau_idMVAoldDM2017v2_;
@@ -48947,7 +48982,7 @@ const vector<UChar_t> &Nano::Tau_idMVAoldDMdR032017v2() {
     if (!loaded_Tau_idMVAoldDMdR032017v2_) {
         if (!b_Tau_idMVAoldDMdR032017v2_) throw std::runtime_error("Tau_idMVAoldDMdR032017v2 branch doesn't exist");
         int bytes = b_Tau_idMVAoldDMdR032017v2_->GetEntry(index);
-        v_Tau_idMVAoldDMdR032017v2_ = vector<UChar_t>(Tau_idMVAoldDMdR032017v2_,Tau_idMVAoldDMdR032017v2_+bytes/sizeof(Tau_idMVAoldDMdR032017v2_[0]));
+        v_Tau_idMVAoldDMdR032017v2_ = vector<UChar_t>(Tau_idMVAoldDMdR032017v2_.data(),Tau_idMVAoldDMdR032017v2_.data()+bytes/sizeof(Tau_idMVAoldDMdR032017v2_[0]));
         loaded_Tau_idMVAoldDMdR032017v2_ = true;
     }
     return v_Tau_idMVAoldDMdR032017v2_;
@@ -48958,7 +48993,7 @@ const vector<int> &Nano::Tau_jetIdx() {
     if (!loaded_Tau_jetIdx_) {
         if (!b_Tau_jetIdx_) throw std::runtime_error("Tau_jetIdx branch doesn't exist");
         int bytes = b_Tau_jetIdx_->GetEntry(index);
-        v_Tau_jetIdx_ = vector<int>(Tau_jetIdx_,Tau_jetIdx_+bytes/sizeof(Tau_jetIdx_[0]));
+        v_Tau_jetIdx_ = vector<int>(Tau_jetIdx_.data(),Tau_jetIdx_.data()+bytes/sizeof(Tau_jetIdx_[0]));
         loaded_Tau_jetIdx_ = true;
     }
     return v_Tau_jetIdx_;
@@ -48969,7 +49004,7 @@ const vector<float> &Nano::Tau_leadTkDeltaEta() {
     if (!loaded_Tau_leadTkDeltaEta_) {
         if (!b_Tau_leadTkDeltaEta_) throw std::runtime_error("Tau_leadTkDeltaEta branch doesn't exist");
         int bytes = b_Tau_leadTkDeltaEta_->GetEntry(index);
-        v_Tau_leadTkDeltaEta_ = vector<float>(Tau_leadTkDeltaEta_,Tau_leadTkDeltaEta_+bytes/sizeof(Tau_leadTkDeltaEta_[0]));
+        v_Tau_leadTkDeltaEta_ = vector<float>(Tau_leadTkDeltaEta_.data(),Tau_leadTkDeltaEta_.data()+bytes/sizeof(Tau_leadTkDeltaEta_[0]));
         loaded_Tau_leadTkDeltaEta_ = true;
     }
     return v_Tau_leadTkDeltaEta_;
@@ -48980,7 +49015,7 @@ const vector<float> &Nano::Tau_leadTkDeltaPhi() {
     if (!loaded_Tau_leadTkDeltaPhi_) {
         if (!b_Tau_leadTkDeltaPhi_) throw std::runtime_error("Tau_leadTkDeltaPhi branch doesn't exist");
         int bytes = b_Tau_leadTkDeltaPhi_->GetEntry(index);
-        v_Tau_leadTkDeltaPhi_ = vector<float>(Tau_leadTkDeltaPhi_,Tau_leadTkDeltaPhi_+bytes/sizeof(Tau_leadTkDeltaPhi_[0]));
+        v_Tau_leadTkDeltaPhi_ = vector<float>(Tau_leadTkDeltaPhi_.data(),Tau_leadTkDeltaPhi_.data()+bytes/sizeof(Tau_leadTkDeltaPhi_[0]));
         loaded_Tau_leadTkDeltaPhi_ = true;
     }
     return v_Tau_leadTkDeltaPhi_;
@@ -48991,7 +49026,7 @@ const vector<float> &Nano::Tau_leadTkPtOverTauPt() {
     if (!loaded_Tau_leadTkPtOverTauPt_) {
         if (!b_Tau_leadTkPtOverTauPt_) throw std::runtime_error("Tau_leadTkPtOverTauPt branch doesn't exist");
         int bytes = b_Tau_leadTkPtOverTauPt_->GetEntry(index);
-        v_Tau_leadTkPtOverTauPt_ = vector<float>(Tau_leadTkPtOverTauPt_,Tau_leadTkPtOverTauPt_+bytes/sizeof(Tau_leadTkPtOverTauPt_[0]));
+        v_Tau_leadTkPtOverTauPt_ = vector<float>(Tau_leadTkPtOverTauPt_.data(),Tau_leadTkPtOverTauPt_.data()+bytes/sizeof(Tau_leadTkPtOverTauPt_[0]));
         loaded_Tau_leadTkPtOverTauPt_ = true;
     }
     return v_Tau_leadTkPtOverTauPt_;
@@ -49002,7 +49037,7 @@ const vector<float> &Nano::Tau_mass() {
     if (!loaded_Tau_mass_) {
         if (!b_Tau_mass_) throw std::runtime_error("Tau_mass branch doesn't exist");
         int bytes = b_Tau_mass_->GetEntry(index);
-        v_Tau_mass_ = vector<float>(Tau_mass_,Tau_mass_+bytes/sizeof(Tau_mass_[0]));
+        v_Tau_mass_ = vector<float>(Tau_mass_.data(),Tau_mass_.data()+bytes/sizeof(Tau_mass_[0]));
         loaded_Tau_mass_ = true;
     }
     return v_Tau_mass_;
@@ -49013,7 +49048,7 @@ const vector<int> &Nano::Tau_muIdx() {
     if (!loaded_Tau_muIdx_) {
         if (!b_Tau_muIdx_) throw std::runtime_error("Tau_muIdx branch doesn't exist");
         int bytes = b_Tau_muIdx_->GetEntry(index);
-        v_Tau_muIdx_ = vector<int>(Tau_muIdx_,Tau_muIdx_+bytes/sizeof(Tau_muIdx_[0]));
+        v_Tau_muIdx_ = vector<int>(Tau_muIdx_.data(),Tau_muIdx_.data()+bytes/sizeof(Tau_muIdx_[0]));
         loaded_Tau_muIdx_ = true;
     }
     return v_Tau_muIdx_;
@@ -49024,7 +49059,7 @@ const vector<int> &Nano::Tau_nSVs() {
     if (!loaded_Tau_nSVs_) {
         if (!b_Tau_nSVs_) throw std::runtime_error("Tau_nSVs branch doesn't exist");
         int bytes = b_Tau_nSVs_->GetEntry(index);
-        v_Tau_nSVs_ = vector<int>(Tau_nSVs_,Tau_nSVs_+bytes/sizeof(Tau_nSVs_[0]));
+        v_Tau_nSVs_ = vector<int>(Tau_nSVs_.data(),Tau_nSVs_.data()+bytes/sizeof(Tau_nSVs_[0]));
         loaded_Tau_nSVs_ = true;
     }
     return v_Tau_nSVs_;
@@ -49035,7 +49070,7 @@ const vector<float> &Nano::Tau_neutralIso() {
     if (!loaded_Tau_neutralIso_) {
         if (!b_Tau_neutralIso_) throw std::runtime_error("Tau_neutralIso branch doesn't exist");
         int bytes = b_Tau_neutralIso_->GetEntry(index);
-        v_Tau_neutralIso_ = vector<float>(Tau_neutralIso_,Tau_neutralIso_+bytes/sizeof(Tau_neutralIso_[0]));
+        v_Tau_neutralIso_ = vector<float>(Tau_neutralIso_.data(),Tau_neutralIso_.data()+bytes/sizeof(Tau_neutralIso_[0]));
         loaded_Tau_neutralIso_ = true;
     }
     return v_Tau_neutralIso_;
@@ -49062,7 +49097,7 @@ const vector<float> &Nano::Tau_phi() {
     if (!loaded_Tau_phi_) {
         if (!b_Tau_phi_) throw std::runtime_error("Tau_phi branch doesn't exist");
         int bytes = b_Tau_phi_->GetEntry(index);
-        v_Tau_phi_ = vector<float>(Tau_phi_,Tau_phi_+bytes/sizeof(Tau_phi_[0]));
+        v_Tau_phi_ = vector<float>(Tau_phi_.data(),Tau_phi_.data()+bytes/sizeof(Tau_phi_[0]));
         loaded_Tau_phi_ = true;
     }
     return v_Tau_phi_;
@@ -49073,7 +49108,7 @@ const vector<float> &Nano::Tau_photonsOutsideSignalCone() {
     if (!loaded_Tau_photonsOutsideSignalCone_) {
         if (!b_Tau_photonsOutsideSignalCone_) throw std::runtime_error("Tau_photonsOutsideSignalCone branch doesn't exist");
         int bytes = b_Tau_photonsOutsideSignalCone_->GetEntry(index);
-        v_Tau_photonsOutsideSignalCone_ = vector<float>(Tau_photonsOutsideSignalCone_,Tau_photonsOutsideSignalCone_+bytes/sizeof(Tau_photonsOutsideSignalCone_[0]));
+        v_Tau_photonsOutsideSignalCone_ = vector<float>(Tau_photonsOutsideSignalCone_.data(),Tau_photonsOutsideSignalCone_.data()+bytes/sizeof(Tau_photonsOutsideSignalCone_[0]));
         loaded_Tau_photonsOutsideSignalCone_ = true;
     }
     return v_Tau_photonsOutsideSignalCone_;
@@ -49084,7 +49119,7 @@ const vector<float> &Nano::Tau_pt() {
     if (!loaded_Tau_pt_) {
         if (!b_Tau_pt_) throw std::runtime_error("Tau_pt branch doesn't exist");
         int bytes = b_Tau_pt_->GetEntry(index);
-        v_Tau_pt_ = vector<float>(Tau_pt_,Tau_pt_+bytes/sizeof(Tau_pt_[0]));
+        v_Tau_pt_ = vector<float>(Tau_pt_.data(),Tau_pt_.data()+bytes/sizeof(Tau_pt_[0]));
         loaded_Tau_pt_ = true;
     }
     return v_Tau_pt_;
@@ -49095,7 +49130,7 @@ const vector<float> &Nano::Tau_puCorr() {
     if (!loaded_Tau_puCorr_) {
         if (!b_Tau_puCorr_) throw std::runtime_error("Tau_puCorr branch doesn't exist");
         int bytes = b_Tau_puCorr_->GetEntry(index);
-        v_Tau_puCorr_ = vector<float>(Tau_puCorr_,Tau_puCorr_+bytes/sizeof(Tau_puCorr_[0]));
+        v_Tau_puCorr_ = vector<float>(Tau_puCorr_.data(),Tau_puCorr_.data()+bytes/sizeof(Tau_puCorr_[0]));
         loaded_Tau_puCorr_ = true;
     }
     return v_Tau_puCorr_;
@@ -49106,7 +49141,7 @@ const vector<float> &Nano::Tau_rawAntiEle() {
     if (!loaded_Tau_rawAntiEle_) {
         if (!b_Tau_rawAntiEle_) throw std::runtime_error("Tau_rawAntiEle branch doesn't exist");
         int bytes = b_Tau_rawAntiEle_->GetEntry(index);
-        v_Tau_rawAntiEle_ = vector<float>(Tau_rawAntiEle_,Tau_rawAntiEle_+bytes/sizeof(Tau_rawAntiEle_[0]));
+        v_Tau_rawAntiEle_ = vector<float>(Tau_rawAntiEle_.data(),Tau_rawAntiEle_.data()+bytes/sizeof(Tau_rawAntiEle_[0]));
         loaded_Tau_rawAntiEle_ = true;
     }
     return v_Tau_rawAntiEle_;
@@ -49117,7 +49152,7 @@ const vector<float> &Nano::Tau_rawAntiEle2018() {
     if (!loaded_Tau_rawAntiEle2018_) {
         if (!b_Tau_rawAntiEle2018_) throw std::runtime_error("Tau_rawAntiEle2018 branch doesn't exist");
         int bytes = b_Tau_rawAntiEle2018_->GetEntry(index);
-        v_Tau_rawAntiEle2018_ = vector<float>(Tau_rawAntiEle2018_,Tau_rawAntiEle2018_+bytes/sizeof(Tau_rawAntiEle2018_[0]));
+        v_Tau_rawAntiEle2018_ = vector<float>(Tau_rawAntiEle2018_.data(),Tau_rawAntiEle2018_.data()+bytes/sizeof(Tau_rawAntiEle2018_[0]));
         loaded_Tau_rawAntiEle2018_ = true;
     }
     return v_Tau_rawAntiEle2018_;
@@ -49128,7 +49163,7 @@ const vector<int> &Nano::Tau_rawAntiEleCat() {
     if (!loaded_Tau_rawAntiEleCat_) {
         if (!b_Tau_rawAntiEleCat_) throw std::runtime_error("Tau_rawAntiEleCat branch doesn't exist");
         int bytes = b_Tau_rawAntiEleCat_->GetEntry(index);
-        v_Tau_rawAntiEleCat_ = vector<int>(Tau_rawAntiEleCat_,Tau_rawAntiEleCat_+bytes/sizeof(Tau_rawAntiEleCat_[0]));
+        v_Tau_rawAntiEleCat_ = vector<int>(Tau_rawAntiEleCat_.data(),Tau_rawAntiEleCat_.data()+bytes/sizeof(Tau_rawAntiEleCat_[0]));
         loaded_Tau_rawAntiEleCat_ = true;
     }
     return v_Tau_rawAntiEleCat_;
@@ -49139,7 +49174,7 @@ const vector<int> &Nano::Tau_rawAntiEleCat2018() {
     if (!loaded_Tau_rawAntiEleCat2018_) {
         if (!b_Tau_rawAntiEleCat2018_) throw std::runtime_error("Tau_rawAntiEleCat2018 branch doesn't exist");
         int bytes = b_Tau_rawAntiEleCat2018_->GetEntry(index);
-        v_Tau_rawAntiEleCat2018_ = vector<int>(Tau_rawAntiEleCat2018_,Tau_rawAntiEleCat2018_+bytes/sizeof(Tau_rawAntiEleCat2018_[0]));
+        v_Tau_rawAntiEleCat2018_ = vector<int>(Tau_rawAntiEleCat2018_.data(),Tau_rawAntiEleCat2018_.data()+bytes/sizeof(Tau_rawAntiEleCat2018_[0]));
         loaded_Tau_rawAntiEleCat2018_ = true;
     }
     return v_Tau_rawAntiEleCat2018_;
@@ -49150,7 +49185,7 @@ const vector<float> &Nano::Tau_rawDeepTau2017v2p1VSe() {
     if (!loaded_Tau_rawDeepTau2017v2p1VSe_) {
         if (!b_Tau_rawDeepTau2017v2p1VSe_) throw std::runtime_error("Tau_rawDeepTau2017v2p1VSe branch doesn't exist");
         int bytes = b_Tau_rawDeepTau2017v2p1VSe_->GetEntry(index);
-        v_Tau_rawDeepTau2017v2p1VSe_ = vector<float>(Tau_rawDeepTau2017v2p1VSe_,Tau_rawDeepTau2017v2p1VSe_+bytes/sizeof(Tau_rawDeepTau2017v2p1VSe_[0]));
+        v_Tau_rawDeepTau2017v2p1VSe_ = vector<float>(Tau_rawDeepTau2017v2p1VSe_.data(),Tau_rawDeepTau2017v2p1VSe_.data()+bytes/sizeof(Tau_rawDeepTau2017v2p1VSe_[0]));
         loaded_Tau_rawDeepTau2017v2p1VSe_ = true;
     }
     return v_Tau_rawDeepTau2017v2p1VSe_;
@@ -49161,7 +49196,7 @@ const vector<float> &Nano::Tau_rawDeepTau2017v2p1VSjet() {
     if (!loaded_Tau_rawDeepTau2017v2p1VSjet_) {
         if (!b_Tau_rawDeepTau2017v2p1VSjet_) throw std::runtime_error("Tau_rawDeepTau2017v2p1VSjet branch doesn't exist");
         int bytes = b_Tau_rawDeepTau2017v2p1VSjet_->GetEntry(index);
-        v_Tau_rawDeepTau2017v2p1VSjet_ = vector<float>(Tau_rawDeepTau2017v2p1VSjet_,Tau_rawDeepTau2017v2p1VSjet_+bytes/sizeof(Tau_rawDeepTau2017v2p1VSjet_[0]));
+        v_Tau_rawDeepTau2017v2p1VSjet_ = vector<float>(Tau_rawDeepTau2017v2p1VSjet_.data(),Tau_rawDeepTau2017v2p1VSjet_.data()+bytes/sizeof(Tau_rawDeepTau2017v2p1VSjet_[0]));
         loaded_Tau_rawDeepTau2017v2p1VSjet_ = true;
     }
     return v_Tau_rawDeepTau2017v2p1VSjet_;
@@ -49172,7 +49207,7 @@ const vector<float> &Nano::Tau_rawDeepTau2017v2p1VSmu() {
     if (!loaded_Tau_rawDeepTau2017v2p1VSmu_) {
         if (!b_Tau_rawDeepTau2017v2p1VSmu_) throw std::runtime_error("Tau_rawDeepTau2017v2p1VSmu branch doesn't exist");
         int bytes = b_Tau_rawDeepTau2017v2p1VSmu_->GetEntry(index);
-        v_Tau_rawDeepTau2017v2p1VSmu_ = vector<float>(Tau_rawDeepTau2017v2p1VSmu_,Tau_rawDeepTau2017v2p1VSmu_+bytes/sizeof(Tau_rawDeepTau2017v2p1VSmu_[0]));
+        v_Tau_rawDeepTau2017v2p1VSmu_ = vector<float>(Tau_rawDeepTau2017v2p1VSmu_.data(),Tau_rawDeepTau2017v2p1VSmu_.data()+bytes/sizeof(Tau_rawDeepTau2017v2p1VSmu_[0]));
         loaded_Tau_rawDeepTau2017v2p1VSmu_ = true;
     }
     return v_Tau_rawDeepTau2017v2p1VSmu_;
@@ -49183,7 +49218,7 @@ const vector<float> &Nano::Tau_rawDeepTau2018v2p5VSe() {
     if (!loaded_Tau_rawDeepTau2018v2p5VSe_) {
         if (!b_Tau_rawDeepTau2018v2p5VSe_) throw std::runtime_error("Tau_rawDeepTau2018v2p5VSe branch doesn't exist");
         int bytes = b_Tau_rawDeepTau2018v2p5VSe_->GetEntry(index);
-        v_Tau_rawDeepTau2018v2p5VSe_ = vector<float>(Tau_rawDeepTau2018v2p5VSe_,Tau_rawDeepTau2018v2p5VSe_+bytes/sizeof(Tau_rawDeepTau2018v2p5VSe_[0]));
+        v_Tau_rawDeepTau2018v2p5VSe_ = vector<float>(Tau_rawDeepTau2018v2p5VSe_.data(),Tau_rawDeepTau2018v2p5VSe_.data()+bytes/sizeof(Tau_rawDeepTau2018v2p5VSe_[0]));
         loaded_Tau_rawDeepTau2018v2p5VSe_ = true;
     }
     return v_Tau_rawDeepTau2018v2p5VSe_;
@@ -49194,7 +49229,7 @@ const vector<float> &Nano::Tau_rawDeepTau2018v2p5VSjet() {
     if (!loaded_Tau_rawDeepTau2018v2p5VSjet_) {
         if (!b_Tau_rawDeepTau2018v2p5VSjet_) throw std::runtime_error("Tau_rawDeepTau2018v2p5VSjet branch doesn't exist");
         int bytes = b_Tau_rawDeepTau2018v2p5VSjet_->GetEntry(index);
-        v_Tau_rawDeepTau2018v2p5VSjet_ = vector<float>(Tau_rawDeepTau2018v2p5VSjet_,Tau_rawDeepTau2018v2p5VSjet_+bytes/sizeof(Tau_rawDeepTau2018v2p5VSjet_[0]));
+        v_Tau_rawDeepTau2018v2p5VSjet_ = vector<float>(Tau_rawDeepTau2018v2p5VSjet_.data(),Tau_rawDeepTau2018v2p5VSjet_.data()+bytes/sizeof(Tau_rawDeepTau2018v2p5VSjet_[0]));
         loaded_Tau_rawDeepTau2018v2p5VSjet_ = true;
     }
     return v_Tau_rawDeepTau2018v2p5VSjet_;
@@ -49205,7 +49240,7 @@ const vector<float> &Nano::Tau_rawDeepTau2018v2p5VSmu() {
     if (!loaded_Tau_rawDeepTau2018v2p5VSmu_) {
         if (!b_Tau_rawDeepTau2018v2p5VSmu_) throw std::runtime_error("Tau_rawDeepTau2018v2p5VSmu branch doesn't exist");
         int bytes = b_Tau_rawDeepTau2018v2p5VSmu_->GetEntry(index);
-        v_Tau_rawDeepTau2018v2p5VSmu_ = vector<float>(Tau_rawDeepTau2018v2p5VSmu_,Tau_rawDeepTau2018v2p5VSmu_+bytes/sizeof(Tau_rawDeepTau2018v2p5VSmu_[0]));
+        v_Tau_rawDeepTau2018v2p5VSmu_ = vector<float>(Tau_rawDeepTau2018v2p5VSmu_.data(),Tau_rawDeepTau2018v2p5VSmu_.data()+bytes/sizeof(Tau_rawDeepTau2018v2p5VSmu_[0]));
         loaded_Tau_rawDeepTau2018v2p5VSmu_ = true;
     }
     return v_Tau_rawDeepTau2018v2p5VSmu_;
@@ -49216,7 +49251,7 @@ const vector<float> &Nano::Tau_rawIso() {
     if (!loaded_Tau_rawIso_) {
         if (!b_Tau_rawIso_) throw std::runtime_error("Tau_rawIso branch doesn't exist");
         int bytes = b_Tau_rawIso_->GetEntry(index);
-        v_Tau_rawIso_ = vector<float>(Tau_rawIso_,Tau_rawIso_+bytes/sizeof(Tau_rawIso_[0]));
+        v_Tau_rawIso_ = vector<float>(Tau_rawIso_.data(),Tau_rawIso_.data()+bytes/sizeof(Tau_rawIso_[0]));
         loaded_Tau_rawIso_ = true;
     }
     return v_Tau_rawIso_;
@@ -49227,7 +49262,7 @@ const vector<float> &Nano::Tau_rawIsodR03() {
     if (!loaded_Tau_rawIsodR03_) {
         if (!b_Tau_rawIsodR03_) throw std::runtime_error("Tau_rawIsodR03 branch doesn't exist");
         int bytes = b_Tau_rawIsodR03_->GetEntry(index);
-        v_Tau_rawIsodR03_ = vector<float>(Tau_rawIsodR03_,Tau_rawIsodR03_+bytes/sizeof(Tau_rawIsodR03_[0]));
+        v_Tau_rawIsodR03_ = vector<float>(Tau_rawIsodR03_.data(),Tau_rawIsodR03_.data()+bytes/sizeof(Tau_rawIsodR03_[0]));
         loaded_Tau_rawIsodR03_ = true;
     }
     return v_Tau_rawIsodR03_;
@@ -49238,7 +49273,7 @@ const vector<float> &Nano::Tau_rawMVAnewDM2017v2() {
     if (!loaded_Tau_rawMVAnewDM2017v2_) {
         if (!b_Tau_rawMVAnewDM2017v2_) throw std::runtime_error("Tau_rawMVAnewDM2017v2 branch doesn't exist");
         int bytes = b_Tau_rawMVAnewDM2017v2_->GetEntry(index);
-        v_Tau_rawMVAnewDM2017v2_ = vector<float>(Tau_rawMVAnewDM2017v2_,Tau_rawMVAnewDM2017v2_+bytes/sizeof(Tau_rawMVAnewDM2017v2_[0]));
+        v_Tau_rawMVAnewDM2017v2_ = vector<float>(Tau_rawMVAnewDM2017v2_.data(),Tau_rawMVAnewDM2017v2_.data()+bytes/sizeof(Tau_rawMVAnewDM2017v2_[0]));
         loaded_Tau_rawMVAnewDM2017v2_ = true;
     }
     return v_Tau_rawMVAnewDM2017v2_;
@@ -49249,7 +49284,7 @@ const vector<float> &Nano::Tau_rawMVAoldDM() {
     if (!loaded_Tau_rawMVAoldDM_) {
         if (!b_Tau_rawMVAoldDM_) throw std::runtime_error("Tau_rawMVAoldDM branch doesn't exist");
         int bytes = b_Tau_rawMVAoldDM_->GetEntry(index);
-        v_Tau_rawMVAoldDM_ = vector<float>(Tau_rawMVAoldDM_,Tau_rawMVAoldDM_+bytes/sizeof(Tau_rawMVAoldDM_[0]));
+        v_Tau_rawMVAoldDM_ = vector<float>(Tau_rawMVAoldDM_.data(),Tau_rawMVAoldDM_.data()+bytes/sizeof(Tau_rawMVAoldDM_[0]));
         loaded_Tau_rawMVAoldDM_ = true;
     }
     return v_Tau_rawMVAoldDM_;
@@ -49260,7 +49295,7 @@ const vector<float> &Nano::Tau_rawMVAoldDM2017v1() {
     if (!loaded_Tau_rawMVAoldDM2017v1_) {
         if (!b_Tau_rawMVAoldDM2017v1_) throw std::runtime_error("Tau_rawMVAoldDM2017v1 branch doesn't exist");
         int bytes = b_Tau_rawMVAoldDM2017v1_->GetEntry(index);
-        v_Tau_rawMVAoldDM2017v1_ = vector<float>(Tau_rawMVAoldDM2017v1_,Tau_rawMVAoldDM2017v1_+bytes/sizeof(Tau_rawMVAoldDM2017v1_[0]));
+        v_Tau_rawMVAoldDM2017v1_ = vector<float>(Tau_rawMVAoldDM2017v1_.data(),Tau_rawMVAoldDM2017v1_.data()+bytes/sizeof(Tau_rawMVAoldDM2017v1_[0]));
         loaded_Tau_rawMVAoldDM2017v1_ = true;
     }
     return v_Tau_rawMVAoldDM2017v1_;
@@ -49271,7 +49306,7 @@ const vector<float> &Nano::Tau_rawMVAoldDM2017v2() {
     if (!loaded_Tau_rawMVAoldDM2017v2_) {
         if (!b_Tau_rawMVAoldDM2017v2_) throw std::runtime_error("Tau_rawMVAoldDM2017v2 branch doesn't exist");
         int bytes = b_Tau_rawMVAoldDM2017v2_->GetEntry(index);
-        v_Tau_rawMVAoldDM2017v2_ = vector<float>(Tau_rawMVAoldDM2017v2_,Tau_rawMVAoldDM2017v2_+bytes/sizeof(Tau_rawMVAoldDM2017v2_[0]));
+        v_Tau_rawMVAoldDM2017v2_ = vector<float>(Tau_rawMVAoldDM2017v2_.data(),Tau_rawMVAoldDM2017v2_.data()+bytes/sizeof(Tau_rawMVAoldDM2017v2_[0]));
         loaded_Tau_rawMVAoldDM2017v2_ = true;
     }
     return v_Tau_rawMVAoldDM2017v2_;
@@ -49282,7 +49317,7 @@ const vector<float> &Nano::Tau_rawMVAoldDMdR032017v2() {
     if (!loaded_Tau_rawMVAoldDMdR032017v2_) {
         if (!b_Tau_rawMVAoldDMdR032017v2_) throw std::runtime_error("Tau_rawMVAoldDMdR032017v2 branch doesn't exist");
         int bytes = b_Tau_rawMVAoldDMdR032017v2_->GetEntry(index);
-        v_Tau_rawMVAoldDMdR032017v2_ = vector<float>(Tau_rawMVAoldDMdR032017v2_,Tau_rawMVAoldDMdR032017v2_+bytes/sizeof(Tau_rawMVAoldDMdR032017v2_[0]));
+        v_Tau_rawMVAoldDMdR032017v2_ = vector<float>(Tau_rawMVAoldDMdR032017v2_.data(),Tau_rawMVAoldDMdR032017v2_.data()+bytes/sizeof(Tau_rawMVAoldDMdR032017v2_[0]));
         loaded_Tau_rawMVAoldDMdR032017v2_ = true;
     }
     return v_Tau_rawMVAoldDMdR032017v2_;
@@ -49293,7 +49328,7 @@ const vector<int> &Nano::Tau_svIdx1() {
     if (!loaded_Tau_svIdx1_) {
         if (!b_Tau_svIdx1_) throw std::runtime_error("Tau_svIdx1 branch doesn't exist");
         int bytes = b_Tau_svIdx1_->GetEntry(index);
-        v_Tau_svIdx1_ = vector<int>(Tau_svIdx1_,Tau_svIdx1_+bytes/sizeof(Tau_svIdx1_[0]));
+        v_Tau_svIdx1_ = vector<int>(Tau_svIdx1_.data(),Tau_svIdx1_.data()+bytes/sizeof(Tau_svIdx1_[0]));
         loaded_Tau_svIdx1_ = true;
     }
     return v_Tau_svIdx1_;
@@ -49304,7 +49339,7 @@ const vector<int> &Nano::Tau_svIdx2() {
     if (!loaded_Tau_svIdx2_) {
         if (!b_Tau_svIdx2_) throw std::runtime_error("Tau_svIdx2 branch doesn't exist");
         int bytes = b_Tau_svIdx2_->GetEntry(index);
-        v_Tau_svIdx2_ = vector<int>(Tau_svIdx2_,Tau_svIdx2_+bytes/sizeof(Tau_svIdx2_[0]));
+        v_Tau_svIdx2_ = vector<int>(Tau_svIdx2_.data(),Tau_svIdx2_.data()+bytes/sizeof(Tau_svIdx2_[0]));
         loaded_Tau_svIdx2_ = true;
     }
     return v_Tau_svIdx2_;
@@ -49345,7 +49380,7 @@ const vector<float> &Nano::TrigObj_eta() {
     if (!loaded_TrigObj_eta_) {
         if (!b_TrigObj_eta_) throw std::runtime_error("TrigObj_eta branch doesn't exist");
         int bytes = b_TrigObj_eta_->GetEntry(index);
-        v_TrigObj_eta_ = vector<float>(TrigObj_eta_,TrigObj_eta_+bytes/sizeof(TrigObj_eta_[0]));
+        v_TrigObj_eta_ = vector<float>(TrigObj_eta_.data(),TrigObj_eta_.data()+bytes/sizeof(TrigObj_eta_[0]));
         loaded_TrigObj_eta_ = true;
     }
     return v_TrigObj_eta_;
@@ -49356,7 +49391,7 @@ const vector<int> &Nano::TrigObj_filterBits() {
     if (!loaded_TrigObj_filterBits_) {
         if (!b_TrigObj_filterBits_) throw std::runtime_error("TrigObj_filterBits branch doesn't exist");
         int bytes = b_TrigObj_filterBits_->GetEntry(index);
-        v_TrigObj_filterBits_ = vector<int>(TrigObj_filterBits_,TrigObj_filterBits_+bytes/sizeof(TrigObj_filterBits_[0]));
+        v_TrigObj_filterBits_ = vector<int>(TrigObj_filterBits_.data(),TrigObj_filterBits_.data()+bytes/sizeof(TrigObj_filterBits_[0]));
         loaded_TrigObj_filterBits_ = true;
     }
     return v_TrigObj_filterBits_;
@@ -49367,7 +49402,7 @@ const vector<int> &Nano::TrigObj_id() {
     if (!loaded_TrigObj_id_) {
         if (!b_TrigObj_id_) throw std::runtime_error("TrigObj_id branch doesn't exist");
         int bytes = b_TrigObj_id_->GetEntry(index);
-        v_TrigObj_id_ = vector<int>(TrigObj_id_,TrigObj_id_+bytes/sizeof(TrigObj_id_[0]));
+        v_TrigObj_id_ = vector<int>(TrigObj_id_.data(),TrigObj_id_.data()+bytes/sizeof(TrigObj_id_[0]));
         loaded_TrigObj_id_ = true;
     }
     return v_TrigObj_id_;
@@ -49378,7 +49413,7 @@ const vector<int> &Nano::TrigObj_l1charge() {
     if (!loaded_TrigObj_l1charge_) {
         if (!b_TrigObj_l1charge_) throw std::runtime_error("TrigObj_l1charge branch doesn't exist");
         int bytes = b_TrigObj_l1charge_->GetEntry(index);
-        v_TrigObj_l1charge_ = vector<int>(TrigObj_l1charge_,TrigObj_l1charge_+bytes/sizeof(TrigObj_l1charge_[0]));
+        v_TrigObj_l1charge_ = vector<int>(TrigObj_l1charge_.data(),TrigObj_l1charge_.data()+bytes/sizeof(TrigObj_l1charge_[0]));
         loaded_TrigObj_l1charge_ = true;
     }
     return v_TrigObj_l1charge_;
@@ -49389,7 +49424,7 @@ const vector<int> &Nano::TrigObj_l1iso() {
     if (!loaded_TrigObj_l1iso_) {
         if (!b_TrigObj_l1iso_) throw std::runtime_error("TrigObj_l1iso branch doesn't exist");
         int bytes = b_TrigObj_l1iso_->GetEntry(index);
-        v_TrigObj_l1iso_ = vector<int>(TrigObj_l1iso_,TrigObj_l1iso_+bytes/sizeof(TrigObj_l1iso_[0]));
+        v_TrigObj_l1iso_ = vector<int>(TrigObj_l1iso_.data(),TrigObj_l1iso_.data()+bytes/sizeof(TrigObj_l1iso_[0]));
         loaded_TrigObj_l1iso_ = true;
     }
     return v_TrigObj_l1iso_;
@@ -49400,7 +49435,7 @@ const vector<float> &Nano::TrigObj_l1pt() {
     if (!loaded_TrigObj_l1pt_) {
         if (!b_TrigObj_l1pt_) throw std::runtime_error("TrigObj_l1pt branch doesn't exist");
         int bytes = b_TrigObj_l1pt_->GetEntry(index);
-        v_TrigObj_l1pt_ = vector<float>(TrigObj_l1pt_,TrigObj_l1pt_+bytes/sizeof(TrigObj_l1pt_[0]));
+        v_TrigObj_l1pt_ = vector<float>(TrigObj_l1pt_.data(),TrigObj_l1pt_.data()+bytes/sizeof(TrigObj_l1pt_[0]));
         loaded_TrigObj_l1pt_ = true;
     }
     return v_TrigObj_l1pt_;
@@ -49411,7 +49446,7 @@ const vector<float> &Nano::TrigObj_l1pt_2() {
     if (!loaded_TrigObj_l1pt_2_) {
         if (!b_TrigObj_l1pt_2_) throw std::runtime_error("TrigObj_l1pt_2 branch doesn't exist");
         int bytes = b_TrigObj_l1pt_2_->GetEntry(index);
-        v_TrigObj_l1pt_2_ = vector<float>(TrigObj_l1pt_2_,TrigObj_l1pt_2_+bytes/sizeof(TrigObj_l1pt_2_[0]));
+        v_TrigObj_l1pt_2_ = vector<float>(TrigObj_l1pt_2_.data(),TrigObj_l1pt_2_.data()+bytes/sizeof(TrigObj_l1pt_2_[0]));
         loaded_TrigObj_l1pt_2_ = true;
     }
     return v_TrigObj_l1pt_2_;
@@ -49422,7 +49457,7 @@ const vector<float> &Nano::TrigObj_l2pt() {
     if (!loaded_TrigObj_l2pt_) {
         if (!b_TrigObj_l2pt_) throw std::runtime_error("TrigObj_l2pt branch doesn't exist");
         int bytes = b_TrigObj_l2pt_->GetEntry(index);
-        v_TrigObj_l2pt_ = vector<float>(TrigObj_l2pt_,TrigObj_l2pt_+bytes/sizeof(TrigObj_l2pt_[0]));
+        v_TrigObj_l2pt_ = vector<float>(TrigObj_l2pt_.data(),TrigObj_l2pt_.data()+bytes/sizeof(TrigObj_l2pt_[0]));
         loaded_TrigObj_l2pt_ = true;
     }
     return v_TrigObj_l2pt_;
@@ -49433,7 +49468,7 @@ const vector<float> &Nano::TrigObj_phi() {
     if (!loaded_TrigObj_phi_) {
         if (!b_TrigObj_phi_) throw std::runtime_error("TrigObj_phi branch doesn't exist");
         int bytes = b_TrigObj_phi_->GetEntry(index);
-        v_TrigObj_phi_ = vector<float>(TrigObj_phi_,TrigObj_phi_+bytes/sizeof(TrigObj_phi_[0]));
+        v_TrigObj_phi_ = vector<float>(TrigObj_phi_.data(),TrigObj_phi_.data()+bytes/sizeof(TrigObj_phi_[0]));
         loaded_TrigObj_phi_ = true;
     }
     return v_TrigObj_phi_;
@@ -49444,7 +49479,7 @@ const vector<float> &Nano::TrigObj_pt() {
     if (!loaded_TrigObj_pt_) {
         if (!b_TrigObj_pt_) throw std::runtime_error("TrigObj_pt branch doesn't exist");
         int bytes = b_TrigObj_pt_->GetEntry(index);
-        v_TrigObj_pt_ = vector<float>(TrigObj_pt_,TrigObj_pt_+bytes/sizeof(TrigObj_pt_[0]));
+        v_TrigObj_pt_ = vector<float>(TrigObj_pt_.data(),TrigObj_pt_.data()+bytes/sizeof(TrigObj_pt_[0]));
         loaded_TrigObj_pt_ = true;
     }
     return v_TrigObj_pt_;
@@ -49455,7 +49490,7 @@ const vector<int> &Nano::WCnames() {
     if (!loaded_WCnames_) {
         if (!b_WCnames_) throw std::runtime_error("WCnames branch doesn't exist");
         int bytes = b_WCnames_->GetEntry(index);
-        v_WCnames_ = vector<int>(WCnames_,WCnames_+bytes/sizeof(WCnames_[0]));
+        v_WCnames_ = vector<int>(WCnames_.data(),WCnames_.data()+bytes/sizeof(WCnames_[0]));
         loaded_WCnames_ = true;
     }
     return v_WCnames_;
@@ -49466,7 +49501,7 @@ const vector<int> &Nano::boostedTau_charge() {
     if (!loaded_boostedTau_charge_) {
         if (!b_boostedTau_charge_) throw std::runtime_error("boostedTau_charge branch doesn't exist");
         int bytes = b_boostedTau_charge_->GetEntry(index);
-        v_boostedTau_charge_ = vector<int>(boostedTau_charge_,boostedTau_charge_+bytes/sizeof(boostedTau_charge_[0]));
+        v_boostedTau_charge_ = vector<int>(boostedTau_charge_.data(),boostedTau_charge_.data()+bytes/sizeof(boostedTau_charge_[0]));
         loaded_boostedTau_charge_ = true;
     }
     return v_boostedTau_charge_;
@@ -49477,7 +49512,7 @@ const vector<float> &Nano::boostedTau_chargedIso() {
     if (!loaded_boostedTau_chargedIso_) {
         if (!b_boostedTau_chargedIso_) throw std::runtime_error("boostedTau_chargedIso branch doesn't exist");
         int bytes = b_boostedTau_chargedIso_->GetEntry(index);
-        v_boostedTau_chargedIso_ = vector<float>(boostedTau_chargedIso_,boostedTau_chargedIso_+bytes/sizeof(boostedTau_chargedIso_[0]));
+        v_boostedTau_chargedIso_ = vector<float>(boostedTau_chargedIso_.data(),boostedTau_chargedIso_.data()+bytes/sizeof(boostedTau_chargedIso_[0]));
         loaded_boostedTau_chargedIso_ = true;
     }
     return v_boostedTau_chargedIso_;
@@ -49488,7 +49523,7 @@ const vector<int> &Nano::boostedTau_decayMode() {
     if (!loaded_boostedTau_decayMode_) {
         if (!b_boostedTau_decayMode_) throw std::runtime_error("boostedTau_decayMode branch doesn't exist");
         int bytes = b_boostedTau_decayMode_->GetEntry(index);
-        v_boostedTau_decayMode_ = vector<int>(boostedTau_decayMode_,boostedTau_decayMode_+bytes/sizeof(boostedTau_decayMode_[0]));
+        v_boostedTau_decayMode_ = vector<int>(boostedTau_decayMode_.data(),boostedTau_decayMode_.data()+bytes/sizeof(boostedTau_decayMode_[0]));
         loaded_boostedTau_decayMode_ = true;
     }
     return v_boostedTau_decayMode_;
@@ -49499,7 +49534,7 @@ const vector<float> &Nano::boostedTau_eta() {
     if (!loaded_boostedTau_eta_) {
         if (!b_boostedTau_eta_) throw std::runtime_error("boostedTau_eta branch doesn't exist");
         int bytes = b_boostedTau_eta_->GetEntry(index);
-        v_boostedTau_eta_ = vector<float>(boostedTau_eta_,boostedTau_eta_+bytes/sizeof(boostedTau_eta_[0]));
+        v_boostedTau_eta_ = vector<float>(boostedTau_eta_.data(),boostedTau_eta_.data()+bytes/sizeof(boostedTau_eta_[0]));
         loaded_boostedTau_eta_ = true;
     }
     return v_boostedTau_eta_;
@@ -49510,7 +49545,7 @@ const vector<UChar_t> &Nano::boostedTau_genPartFlav() {
     if (!loaded_boostedTau_genPartFlav_) {
         if (!b_boostedTau_genPartFlav_) throw std::runtime_error("boostedTau_genPartFlav branch doesn't exist");
         int bytes = b_boostedTau_genPartFlav_->GetEntry(index);
-        v_boostedTau_genPartFlav_ = vector<UChar_t>(boostedTau_genPartFlav_,boostedTau_genPartFlav_+bytes/sizeof(boostedTau_genPartFlav_[0]));
+        v_boostedTau_genPartFlav_ = vector<UChar_t>(boostedTau_genPartFlav_.data(),boostedTau_genPartFlav_.data()+bytes/sizeof(boostedTau_genPartFlav_[0]));
         loaded_boostedTau_genPartFlav_ = true;
     }
     return v_boostedTau_genPartFlav_;
@@ -49521,7 +49556,7 @@ const vector<int> &Nano::boostedTau_genPartIdx() {
     if (!loaded_boostedTau_genPartIdx_) {
         if (!b_boostedTau_genPartIdx_) throw std::runtime_error("boostedTau_genPartIdx branch doesn't exist");
         int bytes = b_boostedTau_genPartIdx_->GetEntry(index);
-        v_boostedTau_genPartIdx_ = vector<int>(boostedTau_genPartIdx_,boostedTau_genPartIdx_+bytes/sizeof(boostedTau_genPartIdx_[0]));
+        v_boostedTau_genPartIdx_ = vector<int>(boostedTau_genPartIdx_.data(),boostedTau_genPartIdx_.data()+bytes/sizeof(boostedTau_genPartIdx_[0]));
         loaded_boostedTau_genPartIdx_ = true;
     }
     return v_boostedTau_genPartIdx_;
@@ -49532,7 +49567,7 @@ const vector<UChar_t> &Nano::boostedTau_idAntiEle2018() {
     if (!loaded_boostedTau_idAntiEle2018_) {
         if (!b_boostedTau_idAntiEle2018_) throw std::runtime_error("boostedTau_idAntiEle2018 branch doesn't exist");
         int bytes = b_boostedTau_idAntiEle2018_->GetEntry(index);
-        v_boostedTau_idAntiEle2018_ = vector<UChar_t>(boostedTau_idAntiEle2018_,boostedTau_idAntiEle2018_+bytes/sizeof(boostedTau_idAntiEle2018_[0]));
+        v_boostedTau_idAntiEle2018_ = vector<UChar_t>(boostedTau_idAntiEle2018_.data(),boostedTau_idAntiEle2018_.data()+bytes/sizeof(boostedTau_idAntiEle2018_[0]));
         loaded_boostedTau_idAntiEle2018_ = true;
     }
     return v_boostedTau_idAntiEle2018_;
@@ -49543,7 +49578,7 @@ const vector<UChar_t> &Nano::boostedTau_idAntiMu() {
     if (!loaded_boostedTau_idAntiMu_) {
         if (!b_boostedTau_idAntiMu_) throw std::runtime_error("boostedTau_idAntiMu branch doesn't exist");
         int bytes = b_boostedTau_idAntiMu_->GetEntry(index);
-        v_boostedTau_idAntiMu_ = vector<UChar_t>(boostedTau_idAntiMu_,boostedTau_idAntiMu_+bytes/sizeof(boostedTau_idAntiMu_[0]));
+        v_boostedTau_idAntiMu_ = vector<UChar_t>(boostedTau_idAntiMu_.data(),boostedTau_idAntiMu_.data()+bytes/sizeof(boostedTau_idAntiMu_[0]));
         loaded_boostedTau_idAntiMu_ = true;
     }
     return v_boostedTau_idAntiMu_;
@@ -49554,7 +49589,7 @@ const vector<UChar_t> &Nano::boostedTau_idMVAnewDM2017v2() {
     if (!loaded_boostedTau_idMVAnewDM2017v2_) {
         if (!b_boostedTau_idMVAnewDM2017v2_) throw std::runtime_error("boostedTau_idMVAnewDM2017v2 branch doesn't exist");
         int bytes = b_boostedTau_idMVAnewDM2017v2_->GetEntry(index);
-        v_boostedTau_idMVAnewDM2017v2_ = vector<UChar_t>(boostedTau_idMVAnewDM2017v2_,boostedTau_idMVAnewDM2017v2_+bytes/sizeof(boostedTau_idMVAnewDM2017v2_[0]));
+        v_boostedTau_idMVAnewDM2017v2_ = vector<UChar_t>(boostedTau_idMVAnewDM2017v2_.data(),boostedTau_idMVAnewDM2017v2_.data()+bytes/sizeof(boostedTau_idMVAnewDM2017v2_[0]));
         loaded_boostedTau_idMVAnewDM2017v2_ = true;
     }
     return v_boostedTau_idMVAnewDM2017v2_;
@@ -49565,7 +49600,7 @@ const vector<UChar_t> &Nano::boostedTau_idMVAoldDM2017v2() {
     if (!loaded_boostedTau_idMVAoldDM2017v2_) {
         if (!b_boostedTau_idMVAoldDM2017v2_) throw std::runtime_error("boostedTau_idMVAoldDM2017v2 branch doesn't exist");
         int bytes = b_boostedTau_idMVAoldDM2017v2_->GetEntry(index);
-        v_boostedTau_idMVAoldDM2017v2_ = vector<UChar_t>(boostedTau_idMVAoldDM2017v2_,boostedTau_idMVAoldDM2017v2_+bytes/sizeof(boostedTau_idMVAoldDM2017v2_[0]));
+        v_boostedTau_idMVAoldDM2017v2_ = vector<UChar_t>(boostedTau_idMVAoldDM2017v2_.data(),boostedTau_idMVAoldDM2017v2_.data()+bytes/sizeof(boostedTau_idMVAoldDM2017v2_[0]));
         loaded_boostedTau_idMVAoldDM2017v2_ = true;
     }
     return v_boostedTau_idMVAoldDM2017v2_;
@@ -49576,7 +49611,7 @@ const vector<UChar_t> &Nano::boostedTau_idMVAoldDMdR032017v2() {
     if (!loaded_boostedTau_idMVAoldDMdR032017v2_) {
         if (!b_boostedTau_idMVAoldDMdR032017v2_) throw std::runtime_error("boostedTau_idMVAoldDMdR032017v2 branch doesn't exist");
         int bytes = b_boostedTau_idMVAoldDMdR032017v2_->GetEntry(index);
-        v_boostedTau_idMVAoldDMdR032017v2_ = vector<UChar_t>(boostedTau_idMVAoldDMdR032017v2_,boostedTau_idMVAoldDMdR032017v2_+bytes/sizeof(boostedTau_idMVAoldDMdR032017v2_[0]));
+        v_boostedTau_idMVAoldDMdR032017v2_ = vector<UChar_t>(boostedTau_idMVAoldDMdR032017v2_.data(),boostedTau_idMVAoldDMdR032017v2_.data()+bytes/sizeof(boostedTau_idMVAoldDMdR032017v2_[0]));
         loaded_boostedTau_idMVAoldDMdR032017v2_ = true;
     }
     return v_boostedTau_idMVAoldDMdR032017v2_;
@@ -49587,7 +49622,7 @@ const vector<int> &Nano::boostedTau_jetIdx() {
     if (!loaded_boostedTau_jetIdx_) {
         if (!b_boostedTau_jetIdx_) throw std::runtime_error("boostedTau_jetIdx branch doesn't exist");
         int bytes = b_boostedTau_jetIdx_->GetEntry(index);
-        v_boostedTau_jetIdx_ = vector<int>(boostedTau_jetIdx_,boostedTau_jetIdx_+bytes/sizeof(boostedTau_jetIdx_[0]));
+        v_boostedTau_jetIdx_ = vector<int>(boostedTau_jetIdx_.data(),boostedTau_jetIdx_.data()+bytes/sizeof(boostedTau_jetIdx_[0]));
         loaded_boostedTau_jetIdx_ = true;
     }
     return v_boostedTau_jetIdx_;
@@ -49598,7 +49633,7 @@ const vector<float> &Nano::boostedTau_leadTkDeltaEta() {
     if (!loaded_boostedTau_leadTkDeltaEta_) {
         if (!b_boostedTau_leadTkDeltaEta_) throw std::runtime_error("boostedTau_leadTkDeltaEta branch doesn't exist");
         int bytes = b_boostedTau_leadTkDeltaEta_->GetEntry(index);
-        v_boostedTau_leadTkDeltaEta_ = vector<float>(boostedTau_leadTkDeltaEta_,boostedTau_leadTkDeltaEta_+bytes/sizeof(boostedTau_leadTkDeltaEta_[0]));
+        v_boostedTau_leadTkDeltaEta_ = vector<float>(boostedTau_leadTkDeltaEta_.data(),boostedTau_leadTkDeltaEta_.data()+bytes/sizeof(boostedTau_leadTkDeltaEta_[0]));
         loaded_boostedTau_leadTkDeltaEta_ = true;
     }
     return v_boostedTau_leadTkDeltaEta_;
@@ -49609,7 +49644,7 @@ const vector<float> &Nano::boostedTau_leadTkDeltaPhi() {
     if (!loaded_boostedTau_leadTkDeltaPhi_) {
         if (!b_boostedTau_leadTkDeltaPhi_) throw std::runtime_error("boostedTau_leadTkDeltaPhi branch doesn't exist");
         int bytes = b_boostedTau_leadTkDeltaPhi_->GetEntry(index);
-        v_boostedTau_leadTkDeltaPhi_ = vector<float>(boostedTau_leadTkDeltaPhi_,boostedTau_leadTkDeltaPhi_+bytes/sizeof(boostedTau_leadTkDeltaPhi_[0]));
+        v_boostedTau_leadTkDeltaPhi_ = vector<float>(boostedTau_leadTkDeltaPhi_.data(),boostedTau_leadTkDeltaPhi_.data()+bytes/sizeof(boostedTau_leadTkDeltaPhi_[0]));
         loaded_boostedTau_leadTkDeltaPhi_ = true;
     }
     return v_boostedTau_leadTkDeltaPhi_;
@@ -49620,7 +49655,7 @@ const vector<float> &Nano::boostedTau_leadTkPtOverTauPt() {
     if (!loaded_boostedTau_leadTkPtOverTauPt_) {
         if (!b_boostedTau_leadTkPtOverTauPt_) throw std::runtime_error("boostedTau_leadTkPtOverTauPt branch doesn't exist");
         int bytes = b_boostedTau_leadTkPtOverTauPt_->GetEntry(index);
-        v_boostedTau_leadTkPtOverTauPt_ = vector<float>(boostedTau_leadTkPtOverTauPt_,boostedTau_leadTkPtOverTauPt_+bytes/sizeof(boostedTau_leadTkPtOverTauPt_[0]));
+        v_boostedTau_leadTkPtOverTauPt_ = vector<float>(boostedTau_leadTkPtOverTauPt_.data(),boostedTau_leadTkPtOverTauPt_.data()+bytes/sizeof(boostedTau_leadTkPtOverTauPt_[0]));
         loaded_boostedTau_leadTkPtOverTauPt_ = true;
     }
     return v_boostedTau_leadTkPtOverTauPt_;
@@ -49631,7 +49666,7 @@ const vector<float> &Nano::boostedTau_mass() {
     if (!loaded_boostedTau_mass_) {
         if (!b_boostedTau_mass_) throw std::runtime_error("boostedTau_mass branch doesn't exist");
         int bytes = b_boostedTau_mass_->GetEntry(index);
-        v_boostedTau_mass_ = vector<float>(boostedTau_mass_,boostedTau_mass_+bytes/sizeof(boostedTau_mass_[0]));
+        v_boostedTau_mass_ = vector<float>(boostedTau_mass_.data(),boostedTau_mass_.data()+bytes/sizeof(boostedTau_mass_[0]));
         loaded_boostedTau_mass_ = true;
     }
     return v_boostedTau_mass_;
@@ -49642,7 +49677,7 @@ const vector<float> &Nano::boostedTau_neutralIso() {
     if (!loaded_boostedTau_neutralIso_) {
         if (!b_boostedTau_neutralIso_) throw std::runtime_error("boostedTau_neutralIso branch doesn't exist");
         int bytes = b_boostedTau_neutralIso_->GetEntry(index);
-        v_boostedTau_neutralIso_ = vector<float>(boostedTau_neutralIso_,boostedTau_neutralIso_+bytes/sizeof(boostedTau_neutralIso_[0]));
+        v_boostedTau_neutralIso_ = vector<float>(boostedTau_neutralIso_.data(),boostedTau_neutralIso_.data()+bytes/sizeof(boostedTau_neutralIso_[0]));
         loaded_boostedTau_neutralIso_ = true;
     }
     return v_boostedTau_neutralIso_;
@@ -49669,7 +49704,7 @@ const vector<float> &Nano::boostedTau_phi() {
     if (!loaded_boostedTau_phi_) {
         if (!b_boostedTau_phi_) throw std::runtime_error("boostedTau_phi branch doesn't exist");
         int bytes = b_boostedTau_phi_->GetEntry(index);
-        v_boostedTau_phi_ = vector<float>(boostedTau_phi_,boostedTau_phi_+bytes/sizeof(boostedTau_phi_[0]));
+        v_boostedTau_phi_ = vector<float>(boostedTau_phi_.data(),boostedTau_phi_.data()+bytes/sizeof(boostedTau_phi_[0]));
         loaded_boostedTau_phi_ = true;
     }
     return v_boostedTau_phi_;
@@ -49680,7 +49715,7 @@ const vector<float> &Nano::boostedTau_photonsOutsideSignalCone() {
     if (!loaded_boostedTau_photonsOutsideSignalCone_) {
         if (!b_boostedTau_photonsOutsideSignalCone_) throw std::runtime_error("boostedTau_photonsOutsideSignalCone branch doesn't exist");
         int bytes = b_boostedTau_photonsOutsideSignalCone_->GetEntry(index);
-        v_boostedTau_photonsOutsideSignalCone_ = vector<float>(boostedTau_photonsOutsideSignalCone_,boostedTau_photonsOutsideSignalCone_+bytes/sizeof(boostedTau_photonsOutsideSignalCone_[0]));
+        v_boostedTau_photonsOutsideSignalCone_ = vector<float>(boostedTau_photonsOutsideSignalCone_.data(),boostedTau_photonsOutsideSignalCone_.data()+bytes/sizeof(boostedTau_photonsOutsideSignalCone_[0]));
         loaded_boostedTau_photonsOutsideSignalCone_ = true;
     }
     return v_boostedTau_photonsOutsideSignalCone_;
@@ -49691,7 +49726,7 @@ const vector<float> &Nano::boostedTau_pt() {
     if (!loaded_boostedTau_pt_) {
         if (!b_boostedTau_pt_) throw std::runtime_error("boostedTau_pt branch doesn't exist");
         int bytes = b_boostedTau_pt_->GetEntry(index);
-        v_boostedTau_pt_ = vector<float>(boostedTau_pt_,boostedTau_pt_+bytes/sizeof(boostedTau_pt_[0]));
+        v_boostedTau_pt_ = vector<float>(boostedTau_pt_.data(),boostedTau_pt_.data()+bytes/sizeof(boostedTau_pt_[0]));
         loaded_boostedTau_pt_ = true;
     }
     return v_boostedTau_pt_;
@@ -49702,7 +49737,7 @@ const vector<float> &Nano::boostedTau_puCorr() {
     if (!loaded_boostedTau_puCorr_) {
         if (!b_boostedTau_puCorr_) throw std::runtime_error("boostedTau_puCorr branch doesn't exist");
         int bytes = b_boostedTau_puCorr_->GetEntry(index);
-        v_boostedTau_puCorr_ = vector<float>(boostedTau_puCorr_,boostedTau_puCorr_+bytes/sizeof(boostedTau_puCorr_[0]));
+        v_boostedTau_puCorr_ = vector<float>(boostedTau_puCorr_.data(),boostedTau_puCorr_.data()+bytes/sizeof(boostedTau_puCorr_[0]));
         loaded_boostedTau_puCorr_ = true;
     }
     return v_boostedTau_puCorr_;
@@ -49713,7 +49748,7 @@ const vector<float> &Nano::boostedTau_rawAntiEle2018() {
     if (!loaded_boostedTau_rawAntiEle2018_) {
         if (!b_boostedTau_rawAntiEle2018_) throw std::runtime_error("boostedTau_rawAntiEle2018 branch doesn't exist");
         int bytes = b_boostedTau_rawAntiEle2018_->GetEntry(index);
-        v_boostedTau_rawAntiEle2018_ = vector<float>(boostedTau_rawAntiEle2018_,boostedTau_rawAntiEle2018_+bytes/sizeof(boostedTau_rawAntiEle2018_[0]));
+        v_boostedTau_rawAntiEle2018_ = vector<float>(boostedTau_rawAntiEle2018_.data(),boostedTau_rawAntiEle2018_.data()+bytes/sizeof(boostedTau_rawAntiEle2018_[0]));
         loaded_boostedTau_rawAntiEle2018_ = true;
     }
     return v_boostedTau_rawAntiEle2018_;
@@ -49724,7 +49759,7 @@ const vector<int> &Nano::boostedTau_rawAntiEleCat2018() {
     if (!loaded_boostedTau_rawAntiEleCat2018_) {
         if (!b_boostedTau_rawAntiEleCat2018_) throw std::runtime_error("boostedTau_rawAntiEleCat2018 branch doesn't exist");
         int bytes = b_boostedTau_rawAntiEleCat2018_->GetEntry(index);
-        v_boostedTau_rawAntiEleCat2018_ = vector<int>(boostedTau_rawAntiEleCat2018_,boostedTau_rawAntiEleCat2018_+bytes/sizeof(boostedTau_rawAntiEleCat2018_[0]));
+        v_boostedTau_rawAntiEleCat2018_ = vector<int>(boostedTau_rawAntiEleCat2018_.data(),boostedTau_rawAntiEleCat2018_.data()+bytes/sizeof(boostedTau_rawAntiEleCat2018_[0]));
         loaded_boostedTau_rawAntiEleCat2018_ = true;
     }
     return v_boostedTau_rawAntiEleCat2018_;
@@ -49735,7 +49770,7 @@ const vector<float> &Nano::boostedTau_rawIso() {
     if (!loaded_boostedTau_rawIso_) {
         if (!b_boostedTau_rawIso_) throw std::runtime_error("boostedTau_rawIso branch doesn't exist");
         int bytes = b_boostedTau_rawIso_->GetEntry(index);
-        v_boostedTau_rawIso_ = vector<float>(boostedTau_rawIso_,boostedTau_rawIso_+bytes/sizeof(boostedTau_rawIso_[0]));
+        v_boostedTau_rawIso_ = vector<float>(boostedTau_rawIso_.data(),boostedTau_rawIso_.data()+bytes/sizeof(boostedTau_rawIso_[0]));
         loaded_boostedTau_rawIso_ = true;
     }
     return v_boostedTau_rawIso_;
@@ -49746,7 +49781,7 @@ const vector<float> &Nano::boostedTau_rawIsodR03() {
     if (!loaded_boostedTau_rawIsodR03_) {
         if (!b_boostedTau_rawIsodR03_) throw std::runtime_error("boostedTau_rawIsodR03 branch doesn't exist");
         int bytes = b_boostedTau_rawIsodR03_->GetEntry(index);
-        v_boostedTau_rawIsodR03_ = vector<float>(boostedTau_rawIsodR03_,boostedTau_rawIsodR03_+bytes/sizeof(boostedTau_rawIsodR03_[0]));
+        v_boostedTau_rawIsodR03_ = vector<float>(boostedTau_rawIsodR03_.data(),boostedTau_rawIsodR03_.data()+bytes/sizeof(boostedTau_rawIsodR03_[0]));
         loaded_boostedTau_rawIsodR03_ = true;
     }
     return v_boostedTau_rawIsodR03_;
@@ -49757,7 +49792,7 @@ const vector<float> &Nano::boostedTau_rawMVAnewDM2017v2() {
     if (!loaded_boostedTau_rawMVAnewDM2017v2_) {
         if (!b_boostedTau_rawMVAnewDM2017v2_) throw std::runtime_error("boostedTau_rawMVAnewDM2017v2 branch doesn't exist");
         int bytes = b_boostedTau_rawMVAnewDM2017v2_->GetEntry(index);
-        v_boostedTau_rawMVAnewDM2017v2_ = vector<float>(boostedTau_rawMVAnewDM2017v2_,boostedTau_rawMVAnewDM2017v2_+bytes/sizeof(boostedTau_rawMVAnewDM2017v2_[0]));
+        v_boostedTau_rawMVAnewDM2017v2_ = vector<float>(boostedTau_rawMVAnewDM2017v2_.data(),boostedTau_rawMVAnewDM2017v2_.data()+bytes/sizeof(boostedTau_rawMVAnewDM2017v2_[0]));
         loaded_boostedTau_rawMVAnewDM2017v2_ = true;
     }
     return v_boostedTau_rawMVAnewDM2017v2_;
@@ -49768,7 +49803,7 @@ const vector<float> &Nano::boostedTau_rawMVAoldDM2017v2() {
     if (!loaded_boostedTau_rawMVAoldDM2017v2_) {
         if (!b_boostedTau_rawMVAoldDM2017v2_) throw std::runtime_error("boostedTau_rawMVAoldDM2017v2 branch doesn't exist");
         int bytes = b_boostedTau_rawMVAoldDM2017v2_->GetEntry(index);
-        v_boostedTau_rawMVAoldDM2017v2_ = vector<float>(boostedTau_rawMVAoldDM2017v2_,boostedTau_rawMVAoldDM2017v2_+bytes/sizeof(boostedTau_rawMVAoldDM2017v2_[0]));
+        v_boostedTau_rawMVAoldDM2017v2_ = vector<float>(boostedTau_rawMVAoldDM2017v2_.data(),boostedTau_rawMVAoldDM2017v2_.data()+bytes/sizeof(boostedTau_rawMVAoldDM2017v2_[0]));
         loaded_boostedTau_rawMVAoldDM2017v2_ = true;
     }
     return v_boostedTau_rawMVAoldDM2017v2_;
@@ -49779,7 +49814,7 @@ const vector<float> &Nano::boostedTau_rawMVAoldDMdR032017v2() {
     if (!loaded_boostedTau_rawMVAoldDMdR032017v2_) {
         if (!b_boostedTau_rawMVAoldDMdR032017v2_) throw std::runtime_error("boostedTau_rawMVAoldDMdR032017v2 branch doesn't exist");
         int bytes = b_boostedTau_rawMVAoldDMdR032017v2_->GetEntry(index);
-        v_boostedTau_rawMVAoldDMdR032017v2_ = vector<float>(boostedTau_rawMVAoldDMdR032017v2_,boostedTau_rawMVAoldDMdR032017v2_+bytes/sizeof(boostedTau_rawMVAoldDMdR032017v2_[0]));
+        v_boostedTau_rawMVAoldDMdR032017v2_ = vector<float>(boostedTau_rawMVAoldDMdR032017v2_.data(),boostedTau_rawMVAoldDMdR032017v2_.data()+bytes/sizeof(boostedTau_rawMVAoldDMdR032017v2_[0]));
         loaded_boostedTau_rawMVAoldDMdR032017v2_ = true;
     }
     return v_boostedTau_rawMVAoldDMdR032017v2_;

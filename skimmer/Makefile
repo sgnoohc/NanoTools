@@ -42,6 +42,11 @@ $(EXE): $(OBJECTS)
 # Skimmer objects depend on skimmer + NanoCORE headers
 $(SKIMMER_OBJECTS): $(SKIMMER_HEADERS) $(NANOCORE_HEADERS)
 
+# NanoCORE objects depend on NanoCORE headers too. Nano.h defines the Nano class layout,
+# so a Nano.o compiled against an older Nano.h silently corrupts memory; this used to
+# need a manual 'make cleanall' after every Nano.h change.
+$(filter ../NanoCORE/%.o,$(OBJECTS)): $(NANOCORE_HEADERS)
+
 %.o: %.cc
 	$(CC) $(CFLAGS) $(EXTRACFLAGS) -c $< -o $@
 

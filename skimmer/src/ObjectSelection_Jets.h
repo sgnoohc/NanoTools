@@ -28,13 +28,12 @@ typedef std::vector<double> Doubles;
 typedef std::vector<int> Integers;
 typedef std::vector<unsigned int> Indices;
 
-// Max array sizes: taken from NanoCORE Nano.h rather than copied, because
-// Nano::CheckBufferSizes() (called in main.cc before runPerEvent) only guards
-// Nano's own limits. A private copy drifted once -- 40 here vs NFATJET_MAX=128
-// -- and a 44-fat-jet 2025 event overflowed FatJet_neMultiplicity_ into
-// jetIdBranches_, segfaulting the next initTree() on Muon1_Run2025B.
-#define JETID_NJET_MAX NJET_MAX
-#define JETID_NFATJET_MAX NFATJET_MAX
+// Buffer sizes: these are NanoBuf (NanoCORE/Nano.h), grown in initTree() for every
+// input file to that file's recorded maximum count -- the same scheme Nano uses for
+// its own arrays -- so no event can overflow them. They used to be fixed arrays; a
+// private copy of the limit drifted once (40 here vs Nano's 128) and a 44-fat-jet
+// 2025 event overflowed FatJet_neMultiplicity_ into jetIdBranches_, segfaulting the
+// next initTree() on Muon1_Run2025B.
 
 // The extra NanoAODv15 jet-ID inputs (Jet_chMultiplicity, Jet_neMultiplicity and
 // the seven FatJet_* fractions/multiplicities) are not in NanoCORE, so the
@@ -75,8 +74,8 @@ class JetSelection : public ObjectSelection
     // AK4 jets: multiplicity variables (UChar_t in NanoAODv15)
     TBranch *b_Jet_chMultiplicity_ = nullptr;
     TBranch *b_Jet_neMultiplicity_ = nullptr;
-    UChar_t Jet_chMultiplicity_[JETID_NJET_MAX];
-    UChar_t Jet_neMultiplicity_[JETID_NJET_MAX];
+    NanoBuf<UChar_t> Jet_chMultiplicity_;
+    NanoBuf<UChar_t> Jet_neMultiplicity_;
 
     // AK8 fat jets: energy fraction and multiplicity variables
     TBranch *b_FatJet_chHEF_ = nullptr;
@@ -86,13 +85,13 @@ class JetSelection : public ObjectSelection
     TBranch *b_FatJet_muEF_ = nullptr;
     TBranch *b_FatJet_chMultiplicity_ = nullptr;
     TBranch *b_FatJet_neMultiplicity_ = nullptr;
-    float FatJet_chHEF_[JETID_NFATJET_MAX];
-    float FatJet_neHEF_[JETID_NFATJET_MAX];
-    float FatJet_chEmEF_[JETID_NFATJET_MAX];
-    float FatJet_neEmEF_[JETID_NFATJET_MAX];
-    float FatJet_muEF_[JETID_NFATJET_MAX];
-    Short_t FatJet_chMultiplicity_[JETID_NFATJET_MAX];
-    Short_t FatJet_neMultiplicity_[JETID_NFATJET_MAX];
+    NanoBuf<float> FatJet_chHEF_;
+    NanoBuf<float> FatJet_neHEF_;
+    NanoBuf<float> FatJet_chEmEF_;
+    NanoBuf<float> FatJet_neEmEF_;
+    NanoBuf<float> FatJet_muEF_;
+    NanoBuf<Short_t> FatJet_chMultiplicity_;
+    NanoBuf<Short_t> FatJet_neMultiplicity_;
 
     // Input branches we read ourselves for jet-ID recomputation
     std::vector<TBranch *> jetIdBranches_;
@@ -149,10 +148,11 @@ class JetSelection : public ObjectSelection
         // so Arbusto's copy and our read can never diverge (see note above).
         jetIdBranches_.clear();
         TTree *out = arbusto.ttree;
-        auto bind = [&](const char *name, void *buf) -> TBranch *
+        // Grow each buffer to this file's recorded maximum before binding (see NanoBuf).
+        auto bind = [&](const char *name, auto &buf) -> TBranch *
         {
             TBranch *b = nullptr;
-            bindJetIdBranch(tree, out, name, buf, &b);
+            bindJetIdBranch(tree, out, name, buf.grow(nanoBufLen(tree->GetBranch(name))), &b);
             if (b) jetIdBranches_.push_back(b);
             return b;
         };
