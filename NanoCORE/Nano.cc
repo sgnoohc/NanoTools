@@ -25,15 +25,15 @@ void Nano::Init(TTree *tree) {
     b_ChsMET_sumEt_ = tree->GetBranch("ChsMET_sumEt");
     if (b_ChsMET_sumEt_) { b_ChsMET_sumEt_->SetAddress(&ChsMET_sumEt_); }
     b_CorrT1METJet_area_ = tree->GetBranch("CorrT1METJet_area");
-    if (b_CorrT1METJet_area_) { b_CorrT1METJet_area_->SetAddress(CorrT1METJet_area_.grow(nanoBufLen(b_CorrT1METJet_area_))); }
+    if (b_CorrT1METJet_area_) { b_CorrT1METJet_area_->SetAddress(CorrT1METJet_area_.growFor(b_CorrT1METJet_area_)); }
     b_CorrT1METJet_eta_ = tree->GetBranch("CorrT1METJet_eta");
-    if (b_CorrT1METJet_eta_) { b_CorrT1METJet_eta_->SetAddress(CorrT1METJet_eta_.grow(nanoBufLen(b_CorrT1METJet_eta_))); }
+    if (b_CorrT1METJet_eta_) { b_CorrT1METJet_eta_->SetAddress(CorrT1METJet_eta_.growFor(b_CorrT1METJet_eta_)); }
     b_CorrT1METJet_muonSubtrFactor_ = tree->GetBranch("CorrT1METJet_muonSubtrFactor");
-    if (b_CorrT1METJet_muonSubtrFactor_) { b_CorrT1METJet_muonSubtrFactor_->SetAddress(CorrT1METJet_muonSubtrFactor_.grow(nanoBufLen(b_CorrT1METJet_muonSubtrFactor_))); }
+    if (b_CorrT1METJet_muonSubtrFactor_) { b_CorrT1METJet_muonSubtrFactor_->SetAddress(CorrT1METJet_muonSubtrFactor_.growFor(b_CorrT1METJet_muonSubtrFactor_)); }
     b_CorrT1METJet_phi_ = tree->GetBranch("CorrT1METJet_phi");
-    if (b_CorrT1METJet_phi_) { b_CorrT1METJet_phi_->SetAddress(CorrT1METJet_phi_.grow(nanoBufLen(b_CorrT1METJet_phi_))); }
+    if (b_CorrT1METJet_phi_) { b_CorrT1METJet_phi_->SetAddress(CorrT1METJet_phi_.growFor(b_CorrT1METJet_phi_)); }
     b_CorrT1METJet_rawPt_ = tree->GetBranch("CorrT1METJet_rawPt");
-    if (b_CorrT1METJet_rawPt_) { b_CorrT1METJet_rawPt_->SetAddress(CorrT1METJet_rawPt_.grow(nanoBufLen(b_CorrT1METJet_rawPt_))); }
+    if (b_CorrT1METJet_rawPt_) { b_CorrT1METJet_rawPt_->SetAddress(CorrT1METJet_rawPt_.growFor(b_CorrT1METJet_rawPt_)); }
     b_DeepMETResolutionTune_phi_ = tree->GetBranch("DeepMETResolutionTune_phi");
     if (b_DeepMETResolutionTune_phi_) { b_DeepMETResolutionTune_phi_->SetAddress(&DeepMETResolutionTune_phi_); }
     b_DeepMETResolutionTune_pt_ = tree->GetBranch("DeepMETResolutionTune_pt");
@@ -43,473 +43,473 @@ void Nano::Init(TTree *tree) {
     b_DeepMETResponseTune_pt_ = tree->GetBranch("DeepMETResponseTune_pt");
     if (b_DeepMETResponseTune_pt_) { b_DeepMETResponseTune_pt_->SetAddress(&DeepMETResponseTune_pt_); }
     b_EFTfitCoefficients_ = tree->GetBranch("EFTfitCoefficients");
-    if (b_EFTfitCoefficients_) { b_EFTfitCoefficients_->SetAddress(EFTfitCoefficients_.grow(nanoBufLen(b_EFTfitCoefficients_))); }
+    if (b_EFTfitCoefficients_) { b_EFTfitCoefficients_->SetAddress(EFTfitCoefficients_.growFor(b_EFTfitCoefficients_)); }
     b_Electron_CutBased_LooseID_SF_ = tree->GetBranch("Electron_CutBased_LooseID_SF");
-    if (b_Electron_CutBased_LooseID_SF_) { b_Electron_CutBased_LooseID_SF_->SetAddress(Electron_CutBased_LooseID_SF_.grow(nanoBufLen(b_Electron_CutBased_LooseID_SF_))); }
+    if (b_Electron_CutBased_LooseID_SF_) { b_Electron_CutBased_LooseID_SF_->SetAddress(Electron_CutBased_LooseID_SF_.growFor(b_Electron_CutBased_LooseID_SF_)); }
     b_Electron_CutBased_LooseID_SFerr_ = tree->GetBranch("Electron_CutBased_LooseID_SFerr");
-    if (b_Electron_CutBased_LooseID_SFerr_) { b_Electron_CutBased_LooseID_SFerr_->SetAddress(Electron_CutBased_LooseID_SFerr_.grow(nanoBufLen(b_Electron_CutBased_LooseID_SFerr_))); }
+    if (b_Electron_CutBased_LooseID_SFerr_) { b_Electron_CutBased_LooseID_SFerr_->SetAddress(Electron_CutBased_LooseID_SFerr_.growFor(b_Electron_CutBased_LooseID_SFerr_)); }
     b_Electron_CutBased_MediumID_SF_ = tree->GetBranch("Electron_CutBased_MediumID_SF");
-    if (b_Electron_CutBased_MediumID_SF_) { b_Electron_CutBased_MediumID_SF_->SetAddress(Electron_CutBased_MediumID_SF_.grow(nanoBufLen(b_Electron_CutBased_MediumID_SF_))); }
+    if (b_Electron_CutBased_MediumID_SF_) { b_Electron_CutBased_MediumID_SF_->SetAddress(Electron_CutBased_MediumID_SF_.growFor(b_Electron_CutBased_MediumID_SF_)); }
     b_Electron_CutBased_MediumID_SFerr_ = tree->GetBranch("Electron_CutBased_MediumID_SFerr");
-    if (b_Electron_CutBased_MediumID_SFerr_) { b_Electron_CutBased_MediumID_SFerr_->SetAddress(Electron_CutBased_MediumID_SFerr_.grow(nanoBufLen(b_Electron_CutBased_MediumID_SFerr_))); }
+    if (b_Electron_CutBased_MediumID_SFerr_) { b_Electron_CutBased_MediumID_SFerr_->SetAddress(Electron_CutBased_MediumID_SFerr_.growFor(b_Electron_CutBased_MediumID_SFerr_)); }
     b_Electron_CutBased_TightID_SF_ = tree->GetBranch("Electron_CutBased_TightID_SF");
-    if (b_Electron_CutBased_TightID_SF_) { b_Electron_CutBased_TightID_SF_->SetAddress(Electron_CutBased_TightID_SF_.grow(nanoBufLen(b_Electron_CutBased_TightID_SF_))); }
+    if (b_Electron_CutBased_TightID_SF_) { b_Electron_CutBased_TightID_SF_->SetAddress(Electron_CutBased_TightID_SF_.growFor(b_Electron_CutBased_TightID_SF_)); }
     b_Electron_CutBased_TightID_SFerr_ = tree->GetBranch("Electron_CutBased_TightID_SFerr");
-    if (b_Electron_CutBased_TightID_SFerr_) { b_Electron_CutBased_TightID_SFerr_->SetAddress(Electron_CutBased_TightID_SFerr_.grow(nanoBufLen(b_Electron_CutBased_TightID_SFerr_))); }
+    if (b_Electron_CutBased_TightID_SFerr_) { b_Electron_CutBased_TightID_SFerr_->SetAddress(Electron_CutBased_TightID_SFerr_.growFor(b_Electron_CutBased_TightID_SFerr_)); }
     b_Electron_CutBased_VetoID_SF_ = tree->GetBranch("Electron_CutBased_VetoID_SF");
-    if (b_Electron_CutBased_VetoID_SF_) { b_Electron_CutBased_VetoID_SF_->SetAddress(Electron_CutBased_VetoID_SF_.grow(nanoBufLen(b_Electron_CutBased_VetoID_SF_))); }
+    if (b_Electron_CutBased_VetoID_SF_) { b_Electron_CutBased_VetoID_SF_->SetAddress(Electron_CutBased_VetoID_SF_.growFor(b_Electron_CutBased_VetoID_SF_)); }
     b_Electron_CutBased_VetoID_SFerr_ = tree->GetBranch("Electron_CutBased_VetoID_SFerr");
-    if (b_Electron_CutBased_VetoID_SFerr_) { b_Electron_CutBased_VetoID_SFerr_->SetAddress(Electron_CutBased_VetoID_SFerr_.grow(nanoBufLen(b_Electron_CutBased_VetoID_SFerr_))); }
+    if (b_Electron_CutBased_VetoID_SFerr_) { b_Electron_CutBased_VetoID_SFerr_->SetAddress(Electron_CutBased_VetoID_SFerr_.growFor(b_Electron_CutBased_VetoID_SFerr_)); }
     b_Electron_MVAFall17V2Iso_WP80_SF_ = tree->GetBranch("Electron_MVAFall17V2Iso_WP80_SF");
-    if (b_Electron_MVAFall17V2Iso_WP80_SF_) { b_Electron_MVAFall17V2Iso_WP80_SF_->SetAddress(Electron_MVAFall17V2Iso_WP80_SF_.grow(nanoBufLen(b_Electron_MVAFall17V2Iso_WP80_SF_))); }
+    if (b_Electron_MVAFall17V2Iso_WP80_SF_) { b_Electron_MVAFall17V2Iso_WP80_SF_->SetAddress(Electron_MVAFall17V2Iso_WP80_SF_.growFor(b_Electron_MVAFall17V2Iso_WP80_SF_)); }
     b_Electron_MVAFall17V2Iso_WP80_SFerr_ = tree->GetBranch("Electron_MVAFall17V2Iso_WP80_SFerr");
-    if (b_Electron_MVAFall17V2Iso_WP80_SFerr_) { b_Electron_MVAFall17V2Iso_WP80_SFerr_->SetAddress(Electron_MVAFall17V2Iso_WP80_SFerr_.grow(nanoBufLen(b_Electron_MVAFall17V2Iso_WP80_SFerr_))); }
+    if (b_Electron_MVAFall17V2Iso_WP80_SFerr_) { b_Electron_MVAFall17V2Iso_WP80_SFerr_->SetAddress(Electron_MVAFall17V2Iso_WP80_SFerr_.growFor(b_Electron_MVAFall17V2Iso_WP80_SFerr_)); }
     b_Electron_MVAFall17V2Iso_WP90_SF_ = tree->GetBranch("Electron_MVAFall17V2Iso_WP90_SF");
-    if (b_Electron_MVAFall17V2Iso_WP90_SF_) { b_Electron_MVAFall17V2Iso_WP90_SF_->SetAddress(Electron_MVAFall17V2Iso_WP90_SF_.grow(nanoBufLen(b_Electron_MVAFall17V2Iso_WP90_SF_))); }
+    if (b_Electron_MVAFall17V2Iso_WP90_SF_) { b_Electron_MVAFall17V2Iso_WP90_SF_->SetAddress(Electron_MVAFall17V2Iso_WP90_SF_.growFor(b_Electron_MVAFall17V2Iso_WP90_SF_)); }
     b_Electron_MVAFall17V2Iso_WP90_SFerr_ = tree->GetBranch("Electron_MVAFall17V2Iso_WP90_SFerr");
-    if (b_Electron_MVAFall17V2Iso_WP90_SFerr_) { b_Electron_MVAFall17V2Iso_WP90_SFerr_->SetAddress(Electron_MVAFall17V2Iso_WP90_SFerr_.grow(nanoBufLen(b_Electron_MVAFall17V2Iso_WP90_SFerr_))); }
+    if (b_Electron_MVAFall17V2Iso_WP90_SFerr_) { b_Electron_MVAFall17V2Iso_WP90_SFerr_->SetAddress(Electron_MVAFall17V2Iso_WP90_SFerr_.growFor(b_Electron_MVAFall17V2Iso_WP90_SFerr_)); }
     b_Electron_MVAFall17V2noIso_WP80_SF_ = tree->GetBranch("Electron_MVAFall17V2noIso_WP80_SF");
-    if (b_Electron_MVAFall17V2noIso_WP80_SF_) { b_Electron_MVAFall17V2noIso_WP80_SF_->SetAddress(Electron_MVAFall17V2noIso_WP80_SF_.grow(nanoBufLen(b_Electron_MVAFall17V2noIso_WP80_SF_))); }
+    if (b_Electron_MVAFall17V2noIso_WP80_SF_) { b_Electron_MVAFall17V2noIso_WP80_SF_->SetAddress(Electron_MVAFall17V2noIso_WP80_SF_.growFor(b_Electron_MVAFall17V2noIso_WP80_SF_)); }
     b_Electron_MVAFall17V2noIso_WP80_SFerr_ = tree->GetBranch("Electron_MVAFall17V2noIso_WP80_SFerr");
-    if (b_Electron_MVAFall17V2noIso_WP80_SFerr_) { b_Electron_MVAFall17V2noIso_WP80_SFerr_->SetAddress(Electron_MVAFall17V2noIso_WP80_SFerr_.grow(nanoBufLen(b_Electron_MVAFall17V2noIso_WP80_SFerr_))); }
+    if (b_Electron_MVAFall17V2noIso_WP80_SFerr_) { b_Electron_MVAFall17V2noIso_WP80_SFerr_->SetAddress(Electron_MVAFall17V2noIso_WP80_SFerr_.growFor(b_Electron_MVAFall17V2noIso_WP80_SFerr_)); }
     b_Electron_MVAFall17V2noIso_WP90_SF_ = tree->GetBranch("Electron_MVAFall17V2noIso_WP90_SF");
-    if (b_Electron_MVAFall17V2noIso_WP90_SF_) { b_Electron_MVAFall17V2noIso_WP90_SF_->SetAddress(Electron_MVAFall17V2noIso_WP90_SF_.grow(nanoBufLen(b_Electron_MVAFall17V2noIso_WP90_SF_))); }
+    if (b_Electron_MVAFall17V2noIso_WP90_SF_) { b_Electron_MVAFall17V2noIso_WP90_SF_->SetAddress(Electron_MVAFall17V2noIso_WP90_SF_.growFor(b_Electron_MVAFall17V2noIso_WP90_SF_)); }
     b_Electron_MVAFall17V2noIso_WP90_SFerr_ = tree->GetBranch("Electron_MVAFall17V2noIso_WP90_SFerr");
-    if (b_Electron_MVAFall17V2noIso_WP90_SFerr_) { b_Electron_MVAFall17V2noIso_WP90_SFerr_->SetAddress(Electron_MVAFall17V2noIso_WP90_SFerr_.grow(nanoBufLen(b_Electron_MVAFall17V2noIso_WP90_SFerr_))); }
+    if (b_Electron_MVAFall17V2noIso_WP90_SFerr_) { b_Electron_MVAFall17V2noIso_WP90_SFerr_->SetAddress(Electron_MVAFall17V2noIso_WP90_SFerr_.growFor(b_Electron_MVAFall17V2noIso_WP90_SFerr_)); }
     b_Electron_RECO_SF_ = tree->GetBranch("Electron_RECO_SF");
-    if (b_Electron_RECO_SF_) { b_Electron_RECO_SF_->SetAddress(Electron_RECO_SF_.grow(nanoBufLen(b_Electron_RECO_SF_))); }
+    if (b_Electron_RECO_SF_) { b_Electron_RECO_SF_->SetAddress(Electron_RECO_SF_.growFor(b_Electron_RECO_SF_)); }
     b_Electron_RECO_SFerr_ = tree->GetBranch("Electron_RECO_SFerr");
-    if (b_Electron_RECO_SFerr_) { b_Electron_RECO_SFerr_->SetAddress(Electron_RECO_SFerr_.grow(nanoBufLen(b_Electron_RECO_SFerr_))); }
+    if (b_Electron_RECO_SFerr_) { b_Electron_RECO_SFerr_->SetAddress(Electron_RECO_SFerr_.growFor(b_Electron_RECO_SFerr_)); }
     b_Electron_charge_ = tree->GetBranch("Electron_charge");
-    if (b_Electron_charge_) { b_Electron_charge_->SetAddress(Electron_charge_.grow(nanoBufLen(b_Electron_charge_))); }
+    if (b_Electron_charge_) { b_Electron_charge_->SetAddress(Electron_charge_.growFor(b_Electron_charge_)); }
     b_Electron_cleanmask_ = tree->GetBranch("Electron_cleanmask");
-    if (b_Electron_cleanmask_) { b_Electron_cleanmask_->SetAddress(Electron_cleanmask_.grow(nanoBufLen(b_Electron_cleanmask_))); }
+    if (b_Electron_cleanmask_) { b_Electron_cleanmask_->SetAddress(Electron_cleanmask_.growFor(b_Electron_cleanmask_)); }
     b_Electron_convVeto_ = tree->GetBranch("Electron_convVeto");
-    if (b_Electron_convVeto_) { b_Electron_convVeto_->SetAddress(Electron_convVeto_.grow(nanoBufLen(b_Electron_convVeto_))); }
+    if (b_Electron_convVeto_) { b_Electron_convVeto_->SetAddress(Electron_convVeto_.growFor(b_Electron_convVeto_)); }
     b_Electron_cutBased_ = tree->GetBranch("Electron_cutBased");
-    if (b_Electron_cutBased_) { b_Electron_cutBased_->SetAddress(Electron_cutBased_.grow(nanoBufLen(b_Electron_cutBased_))); }
+    if (b_Electron_cutBased_) { b_Electron_cutBased_->SetAddress(Electron_cutBased_.growFor(b_Electron_cutBased_)); }
     b_Electron_cutBased17_ = tree->GetBranch("Electron_cutBased17");
-    if (b_Electron_cutBased17_) { b_Electron_cutBased17_->SetAddress(Electron_cutBased17_.grow(nanoBufLen(b_Electron_cutBased17_))); }
+    if (b_Electron_cutBased17_) { b_Electron_cutBased17_->SetAddress(Electron_cutBased17_.growFor(b_Electron_cutBased17_)); }
     b_Electron_cutBased_Fall17V2_ = tree->GetBranch("Electron_cutBased_Fall17V2");
-    if (b_Electron_cutBased_Fall17V2_) { b_Electron_cutBased_Fall17V2_->SetAddress(Electron_cutBased_Fall17V2_.grow(nanoBufLen(b_Electron_cutBased_Fall17V2_))); }
+    if (b_Electron_cutBased_Fall17V2_) { b_Electron_cutBased_Fall17V2_->SetAddress(Electron_cutBased_Fall17V2_.growFor(b_Electron_cutBased_Fall17V2_)); }
     b_Electron_cutBased_Fall17_V1_ = tree->GetBranch("Electron_cutBased_Fall17_V1");
-    if (b_Electron_cutBased_Fall17_V1_) { b_Electron_cutBased_Fall17_V1_->SetAddress(Electron_cutBased_Fall17_V1_.grow(nanoBufLen(b_Electron_cutBased_Fall17_V1_))); }
+    if (b_Electron_cutBased_Fall17_V1_) { b_Electron_cutBased_Fall17_V1_->SetAddress(Electron_cutBased_Fall17_V1_.growFor(b_Electron_cutBased_Fall17_V1_)); }
     b_Electron_cutBased_HEEP_ = tree->GetBranch("Electron_cutBased_HEEP");
-    if (b_Electron_cutBased_HEEP_) { b_Electron_cutBased_HEEP_->SetAddress(Electron_cutBased_HEEP_.grow(nanoBufLen(b_Electron_cutBased_HEEP_))); }
+    if (b_Electron_cutBased_HEEP_) { b_Electron_cutBased_HEEP_->SetAddress(Electron_cutBased_HEEP_.growFor(b_Electron_cutBased_HEEP_)); }
     b_Electron_cutBased_HLTPreSel_ = tree->GetBranch("Electron_cutBased_HLTPreSel");
-    if (b_Electron_cutBased_HLTPreSel_) { b_Electron_cutBased_HLTPreSel_->SetAddress(Electron_cutBased_HLTPreSel_.grow(nanoBufLen(b_Electron_cutBased_HLTPreSel_))); }
+    if (b_Electron_cutBased_HLTPreSel_) { b_Electron_cutBased_HLTPreSel_->SetAddress(Electron_cutBased_HLTPreSel_.growFor(b_Electron_cutBased_HLTPreSel_)); }
     b_Electron_dEscaleDown_ = tree->GetBranch("Electron_dEscaleDown");
-    if (b_Electron_dEscaleDown_) { b_Electron_dEscaleDown_->SetAddress(Electron_dEscaleDown_.grow(nanoBufLen(b_Electron_dEscaleDown_))); }
+    if (b_Electron_dEscaleDown_) { b_Electron_dEscaleDown_->SetAddress(Electron_dEscaleDown_.growFor(b_Electron_dEscaleDown_)); }
     b_Electron_dEscaleUp_ = tree->GetBranch("Electron_dEscaleUp");
-    if (b_Electron_dEscaleUp_) { b_Electron_dEscaleUp_->SetAddress(Electron_dEscaleUp_.grow(nanoBufLen(b_Electron_dEscaleUp_))); }
+    if (b_Electron_dEscaleUp_) { b_Electron_dEscaleUp_->SetAddress(Electron_dEscaleUp_.growFor(b_Electron_dEscaleUp_)); }
     b_Electron_dEsigmaDown_ = tree->GetBranch("Electron_dEsigmaDown");
-    if (b_Electron_dEsigmaDown_) { b_Electron_dEsigmaDown_->SetAddress(Electron_dEsigmaDown_.grow(nanoBufLen(b_Electron_dEsigmaDown_))); }
+    if (b_Electron_dEsigmaDown_) { b_Electron_dEsigmaDown_->SetAddress(Electron_dEsigmaDown_.growFor(b_Electron_dEsigmaDown_)); }
     b_Electron_dEsigmaUp_ = tree->GetBranch("Electron_dEsigmaUp");
-    if (b_Electron_dEsigmaUp_) { b_Electron_dEsigmaUp_->SetAddress(Electron_dEsigmaUp_.grow(nanoBufLen(b_Electron_dEsigmaUp_))); }
+    if (b_Electron_dEsigmaUp_) { b_Electron_dEsigmaUp_->SetAddress(Electron_dEsigmaUp_.growFor(b_Electron_dEsigmaUp_)); }
     b_Electron_deltaEtaSC_ = tree->GetBranch("Electron_deltaEtaSC");
-    if (b_Electron_deltaEtaSC_) { b_Electron_deltaEtaSC_->SetAddress(Electron_deltaEtaSC_.grow(nanoBufLen(b_Electron_deltaEtaSC_))); }
+    if (b_Electron_deltaEtaSC_) { b_Electron_deltaEtaSC_->SetAddress(Electron_deltaEtaSC_.growFor(b_Electron_deltaEtaSC_)); }
     b_Electron_dr03EcalRecHitSumEt_ = tree->GetBranch("Electron_dr03EcalRecHitSumEt");
-    if (b_Electron_dr03EcalRecHitSumEt_) { b_Electron_dr03EcalRecHitSumEt_->SetAddress(Electron_dr03EcalRecHitSumEt_.grow(nanoBufLen(b_Electron_dr03EcalRecHitSumEt_))); }
+    if (b_Electron_dr03EcalRecHitSumEt_) { b_Electron_dr03EcalRecHitSumEt_->SetAddress(Electron_dr03EcalRecHitSumEt_.growFor(b_Electron_dr03EcalRecHitSumEt_)); }
     b_Electron_dr03HcalDepth1TowerSumEt_ = tree->GetBranch("Electron_dr03HcalDepth1TowerSumEt");
-    if (b_Electron_dr03HcalDepth1TowerSumEt_) { b_Electron_dr03HcalDepth1TowerSumEt_->SetAddress(Electron_dr03HcalDepth1TowerSumEt_.grow(nanoBufLen(b_Electron_dr03HcalDepth1TowerSumEt_))); }
+    if (b_Electron_dr03HcalDepth1TowerSumEt_) { b_Electron_dr03HcalDepth1TowerSumEt_->SetAddress(Electron_dr03HcalDepth1TowerSumEt_.growFor(b_Electron_dr03HcalDepth1TowerSumEt_)); }
     b_Electron_dr03TkSumPt_ = tree->GetBranch("Electron_dr03TkSumPt");
-    if (b_Electron_dr03TkSumPt_) { b_Electron_dr03TkSumPt_->SetAddress(Electron_dr03TkSumPt_.grow(nanoBufLen(b_Electron_dr03TkSumPt_))); }
+    if (b_Electron_dr03TkSumPt_) { b_Electron_dr03TkSumPt_->SetAddress(Electron_dr03TkSumPt_.growFor(b_Electron_dr03TkSumPt_)); }
     b_Electron_dr03TkSumPtHEEP_ = tree->GetBranch("Electron_dr03TkSumPtHEEP");
-    if (b_Electron_dr03TkSumPtHEEP_) { b_Electron_dr03TkSumPtHEEP_->SetAddress(Electron_dr03TkSumPtHEEP_.grow(nanoBufLen(b_Electron_dr03TkSumPtHEEP_))); }
+    if (b_Electron_dr03TkSumPtHEEP_) { b_Electron_dr03TkSumPtHEEP_->SetAddress(Electron_dr03TkSumPtHEEP_.growFor(b_Electron_dr03TkSumPtHEEP_)); }
     b_Electron_dxy_ = tree->GetBranch("Electron_dxy");
-    if (b_Electron_dxy_) { b_Electron_dxy_->SetAddress(Electron_dxy_.grow(nanoBufLen(b_Electron_dxy_))); }
+    if (b_Electron_dxy_) { b_Electron_dxy_->SetAddress(Electron_dxy_.growFor(b_Electron_dxy_)); }
     b_Electron_dxyErr_ = tree->GetBranch("Electron_dxyErr");
-    if (b_Electron_dxyErr_) { b_Electron_dxyErr_->SetAddress(Electron_dxyErr_.grow(nanoBufLen(b_Electron_dxyErr_))); }
+    if (b_Electron_dxyErr_) { b_Electron_dxyErr_->SetAddress(Electron_dxyErr_.growFor(b_Electron_dxyErr_)); }
     b_Electron_dz_ = tree->GetBranch("Electron_dz");
-    if (b_Electron_dz_) { b_Electron_dz_->SetAddress(Electron_dz_.grow(nanoBufLen(b_Electron_dz_))); }
+    if (b_Electron_dz_) { b_Electron_dz_->SetAddress(Electron_dz_.growFor(b_Electron_dz_)); }
     b_Electron_dzErr_ = tree->GetBranch("Electron_dzErr");
-    if (b_Electron_dzErr_) { b_Electron_dzErr_->SetAddress(Electron_dzErr_.grow(nanoBufLen(b_Electron_dzErr_))); }
+    if (b_Electron_dzErr_) { b_Electron_dzErr_->SetAddress(Electron_dzErr_.growFor(b_Electron_dzErr_)); }
     b_Electron_eCorr_ = tree->GetBranch("Electron_eCorr");
-    if (b_Electron_eCorr_) { b_Electron_eCorr_->SetAddress(Electron_eCorr_.grow(nanoBufLen(b_Electron_eCorr_))); }
+    if (b_Electron_eCorr_) { b_Electron_eCorr_->SetAddress(Electron_eCorr_.growFor(b_Electron_eCorr_)); }
     b_Electron_eInvMinusPInv_ = tree->GetBranch("Electron_eInvMinusPInv");
-    if (b_Electron_eInvMinusPInv_) { b_Electron_eInvMinusPInv_->SetAddress(Electron_eInvMinusPInv_.grow(nanoBufLen(b_Electron_eInvMinusPInv_))); }
+    if (b_Electron_eInvMinusPInv_) { b_Electron_eInvMinusPInv_->SetAddress(Electron_eInvMinusPInv_.growFor(b_Electron_eInvMinusPInv_)); }
     b_Electron_energyErr_ = tree->GetBranch("Electron_energyErr");
-    if (b_Electron_energyErr_) { b_Electron_energyErr_->SetAddress(Electron_energyErr_.grow(nanoBufLen(b_Electron_energyErr_))); }
+    if (b_Electron_energyErr_) { b_Electron_energyErr_->SetAddress(Electron_energyErr_.growFor(b_Electron_energyErr_)); }
     b_Electron_eta_ = tree->GetBranch("Electron_eta");
-    if (b_Electron_eta_) { b_Electron_eta_->SetAddress(Electron_eta_.grow(nanoBufLen(b_Electron_eta_))); }
+    if (b_Electron_eta_) { b_Electron_eta_->SetAddress(Electron_eta_.growFor(b_Electron_eta_)); }
     b_Electron_fsrPhotonIdx_ = tree->GetBranch("Electron_fsrPhotonIdx");
-    if (b_Electron_fsrPhotonIdx_) { b_Electron_fsrPhotonIdx_->SetAddress(Electron_fsrPhotonIdx_.grow(nanoBufLen(b_Electron_fsrPhotonIdx_))); }
+    if (b_Electron_fsrPhotonIdx_) { b_Electron_fsrPhotonIdx_->SetAddress(Electron_fsrPhotonIdx_.growFor(b_Electron_fsrPhotonIdx_)); }
     b_Electron_genPartFlav_ = tree->GetBranch("Electron_genPartFlav");
-    if (b_Electron_genPartFlav_) { b_Electron_genPartFlav_->SetAddress(Electron_genPartFlav_.grow(nanoBufLen(b_Electron_genPartFlav_))); }
+    if (b_Electron_genPartFlav_) { b_Electron_genPartFlav_->SetAddress(Electron_genPartFlav_.growFor(b_Electron_genPartFlav_)); }
     b_Electron_genPartIdx_ = tree->GetBranch("Electron_genPartIdx");
-    if (b_Electron_genPartIdx_) { b_Electron_genPartIdx_->SetAddress(Electron_genPartIdx_.grow(nanoBufLen(b_Electron_genPartIdx_))); }
+    if (b_Electron_genPartIdx_) { b_Electron_genPartIdx_->SetAddress(Electron_genPartIdx_.growFor(b_Electron_genPartIdx_)); }
     b_Electron_hoe_ = tree->GetBranch("Electron_hoe");
-    if (b_Electron_hoe_) { b_Electron_hoe_->SetAddress(Electron_hoe_.grow(nanoBufLen(b_Electron_hoe_))); }
+    if (b_Electron_hoe_) { b_Electron_hoe_->SetAddress(Electron_hoe_.growFor(b_Electron_hoe_)); }
     b_Electron_ip3d_ = tree->GetBranch("Electron_ip3d");
-    if (b_Electron_ip3d_) { b_Electron_ip3d_->SetAddress(Electron_ip3d_.grow(nanoBufLen(b_Electron_ip3d_))); }
+    if (b_Electron_ip3d_) { b_Electron_ip3d_->SetAddress(Electron_ip3d_.growFor(b_Electron_ip3d_)); }
     b_Electron_isPFcand_ = tree->GetBranch("Electron_isPFcand");
-    if (b_Electron_isPFcand_) { b_Electron_isPFcand_->SetAddress(Electron_isPFcand_.grow(nanoBufLen(b_Electron_isPFcand_))); }
+    if (b_Electron_isPFcand_) { b_Electron_isPFcand_->SetAddress(Electron_isPFcand_.growFor(b_Electron_isPFcand_)); }
     b_Electron_jetIdx_ = tree->GetBranch("Electron_jetIdx");
-    if (b_Electron_jetIdx_) { b_Electron_jetIdx_->SetAddress(Electron_jetIdx_.grow(nanoBufLen(b_Electron_jetIdx_))); }
+    if (b_Electron_jetIdx_) { b_Electron_jetIdx_->SetAddress(Electron_jetIdx_.growFor(b_Electron_jetIdx_)); }
     b_Electron_jetNDauCharged_ = tree->GetBranch("Electron_jetNDauCharged");
-    if (b_Electron_jetNDauCharged_) { b_Electron_jetNDauCharged_->SetAddress(Electron_jetNDauCharged_.grow(nanoBufLen(b_Electron_jetNDauCharged_))); }
+    if (b_Electron_jetNDauCharged_) { b_Electron_jetNDauCharged_->SetAddress(Electron_jetNDauCharged_.growFor(b_Electron_jetNDauCharged_)); }
     b_Electron_jetPtRelv2_ = tree->GetBranch("Electron_jetPtRelv2");
-    if (b_Electron_jetPtRelv2_) { b_Electron_jetPtRelv2_->SetAddress(Electron_jetPtRelv2_.grow(nanoBufLen(b_Electron_jetPtRelv2_))); }
+    if (b_Electron_jetPtRelv2_) { b_Electron_jetPtRelv2_->SetAddress(Electron_jetPtRelv2_.growFor(b_Electron_jetPtRelv2_)); }
     b_Electron_jetRelIso_ = tree->GetBranch("Electron_jetRelIso");
-    if (b_Electron_jetRelIso_) { b_Electron_jetRelIso_->SetAddress(Electron_jetRelIso_.grow(nanoBufLen(b_Electron_jetRelIso_))); }
+    if (b_Electron_jetRelIso_) { b_Electron_jetRelIso_->SetAddress(Electron_jetRelIso_.growFor(b_Electron_jetRelIso_)); }
     b_Electron_jetRelIso_Fall17V2_ = tree->GetBranch("Electron_jetRelIso_Fall17V2");
-    if (b_Electron_jetRelIso_Fall17V2_) { b_Electron_jetRelIso_Fall17V2_->SetAddress(Electron_jetRelIso_Fall17V2_.grow(nanoBufLen(b_Electron_jetRelIso_Fall17V2_))); }
+    if (b_Electron_jetRelIso_Fall17V2_) { b_Electron_jetRelIso_Fall17V2_->SetAddress(Electron_jetRelIso_Fall17V2_.growFor(b_Electron_jetRelIso_Fall17V2_)); }
     b_Electron_lostHits_ = tree->GetBranch("Electron_lostHits");
-    if (b_Electron_lostHits_) { b_Electron_lostHits_->SetAddress(Electron_lostHits_.grow(nanoBufLen(b_Electron_lostHits_))); }
+    if (b_Electron_lostHits_) { b_Electron_lostHits_->SetAddress(Electron_lostHits_.growFor(b_Electron_lostHits_)); }
     b_Electron_mass_ = tree->GetBranch("Electron_mass");
-    if (b_Electron_mass_) { b_Electron_mass_->SetAddress(Electron_mass_.grow(nanoBufLen(b_Electron_mass_))); }
+    if (b_Electron_mass_) { b_Electron_mass_->SetAddress(Electron_mass_.growFor(b_Electron_mass_)); }
     b_Electron_miniPFRelIso_all_ = tree->GetBranch("Electron_miniPFRelIso_all");
-    if (b_Electron_miniPFRelIso_all_) { b_Electron_miniPFRelIso_all_->SetAddress(Electron_miniPFRelIso_all_.grow(nanoBufLen(b_Electron_miniPFRelIso_all_))); }
+    if (b_Electron_miniPFRelIso_all_) { b_Electron_miniPFRelIso_all_->SetAddress(Electron_miniPFRelIso_all_.growFor(b_Electron_miniPFRelIso_all_)); }
     b_Electron_miniPFRelIso_all_Fall17V2_ = tree->GetBranch("Electron_miniPFRelIso_all_Fall17V2");
-    if (b_Electron_miniPFRelIso_all_Fall17V2_) { b_Electron_miniPFRelIso_all_Fall17V2_->SetAddress(Electron_miniPFRelIso_all_Fall17V2_.grow(nanoBufLen(b_Electron_miniPFRelIso_all_Fall17V2_))); }
+    if (b_Electron_miniPFRelIso_all_Fall17V2_) { b_Electron_miniPFRelIso_all_Fall17V2_->SetAddress(Electron_miniPFRelIso_all_Fall17V2_.growFor(b_Electron_miniPFRelIso_all_Fall17V2_)); }
     b_Electron_miniPFRelIso_chg_ = tree->GetBranch("Electron_miniPFRelIso_chg");
-    if (b_Electron_miniPFRelIso_chg_) { b_Electron_miniPFRelIso_chg_->SetAddress(Electron_miniPFRelIso_chg_.grow(nanoBufLen(b_Electron_miniPFRelIso_chg_))); }
+    if (b_Electron_miniPFRelIso_chg_) { b_Electron_miniPFRelIso_chg_->SetAddress(Electron_miniPFRelIso_chg_.growFor(b_Electron_miniPFRelIso_chg_)); }
     b_Electron_miniPFRelIso_chg_Fall17V2_ = tree->GetBranch("Electron_miniPFRelIso_chg_Fall17V2");
-    if (b_Electron_miniPFRelIso_chg_Fall17V2_) { b_Electron_miniPFRelIso_chg_Fall17V2_->SetAddress(Electron_miniPFRelIso_chg_Fall17V2_.grow(nanoBufLen(b_Electron_miniPFRelIso_chg_Fall17V2_))); }
+    if (b_Electron_miniPFRelIso_chg_Fall17V2_) { b_Electron_miniPFRelIso_chg_Fall17V2_->SetAddress(Electron_miniPFRelIso_chg_Fall17V2_.growFor(b_Electron_miniPFRelIso_chg_Fall17V2_)); }
     b_Electron_mvaFall17Iso_ = tree->GetBranch("Electron_mvaFall17Iso");
-    if (b_Electron_mvaFall17Iso_) { b_Electron_mvaFall17Iso_->SetAddress(Electron_mvaFall17Iso_.grow(nanoBufLen(b_Electron_mvaFall17Iso_))); }
+    if (b_Electron_mvaFall17Iso_) { b_Electron_mvaFall17Iso_->SetAddress(Electron_mvaFall17Iso_.growFor(b_Electron_mvaFall17Iso_)); }
     b_Electron_mvaFall17Iso_WP80_ = tree->GetBranch("Electron_mvaFall17Iso_WP80");
-    if (b_Electron_mvaFall17Iso_WP80_) { b_Electron_mvaFall17Iso_WP80_->SetAddress(Electron_mvaFall17Iso_WP80_.grow(nanoBufLen(b_Electron_mvaFall17Iso_WP80_))); }
+    if (b_Electron_mvaFall17Iso_WP80_) { b_Electron_mvaFall17Iso_WP80_->SetAddress(Electron_mvaFall17Iso_WP80_.growFor(b_Electron_mvaFall17Iso_WP80_)); }
     b_Electron_mvaFall17Iso_WP90_ = tree->GetBranch("Electron_mvaFall17Iso_WP90");
-    if (b_Electron_mvaFall17Iso_WP90_) { b_Electron_mvaFall17Iso_WP90_->SetAddress(Electron_mvaFall17Iso_WP90_.grow(nanoBufLen(b_Electron_mvaFall17Iso_WP90_))); }
+    if (b_Electron_mvaFall17Iso_WP90_) { b_Electron_mvaFall17Iso_WP90_->SetAddress(Electron_mvaFall17Iso_WP90_.growFor(b_Electron_mvaFall17Iso_WP90_)); }
     b_Electron_mvaFall17Iso_WPL_ = tree->GetBranch("Electron_mvaFall17Iso_WPL");
-    if (b_Electron_mvaFall17Iso_WPL_) { b_Electron_mvaFall17Iso_WPL_->SetAddress(Electron_mvaFall17Iso_WPL_.grow(nanoBufLen(b_Electron_mvaFall17Iso_WPL_))); }
+    if (b_Electron_mvaFall17Iso_WPL_) { b_Electron_mvaFall17Iso_WPL_->SetAddress(Electron_mvaFall17Iso_WPL_.growFor(b_Electron_mvaFall17Iso_WPL_)); }
     b_Electron_mvaFall17V1Iso_ = tree->GetBranch("Electron_mvaFall17V1Iso");
-    if (b_Electron_mvaFall17V1Iso_) { b_Electron_mvaFall17V1Iso_->SetAddress(Electron_mvaFall17V1Iso_.grow(nanoBufLen(b_Electron_mvaFall17V1Iso_))); }
+    if (b_Electron_mvaFall17V1Iso_) { b_Electron_mvaFall17V1Iso_->SetAddress(Electron_mvaFall17V1Iso_.growFor(b_Electron_mvaFall17V1Iso_)); }
     b_Electron_mvaFall17V1Iso_WP80_ = tree->GetBranch("Electron_mvaFall17V1Iso_WP80");
-    if (b_Electron_mvaFall17V1Iso_WP80_) { b_Electron_mvaFall17V1Iso_WP80_->SetAddress(Electron_mvaFall17V1Iso_WP80_.grow(nanoBufLen(b_Electron_mvaFall17V1Iso_WP80_))); }
+    if (b_Electron_mvaFall17V1Iso_WP80_) { b_Electron_mvaFall17V1Iso_WP80_->SetAddress(Electron_mvaFall17V1Iso_WP80_.growFor(b_Electron_mvaFall17V1Iso_WP80_)); }
     b_Electron_mvaFall17V1Iso_WP90_ = tree->GetBranch("Electron_mvaFall17V1Iso_WP90");
-    if (b_Electron_mvaFall17V1Iso_WP90_) { b_Electron_mvaFall17V1Iso_WP90_->SetAddress(Electron_mvaFall17V1Iso_WP90_.grow(nanoBufLen(b_Electron_mvaFall17V1Iso_WP90_))); }
+    if (b_Electron_mvaFall17V1Iso_WP90_) { b_Electron_mvaFall17V1Iso_WP90_->SetAddress(Electron_mvaFall17V1Iso_WP90_.growFor(b_Electron_mvaFall17V1Iso_WP90_)); }
     b_Electron_mvaFall17V1Iso_WPL_ = tree->GetBranch("Electron_mvaFall17V1Iso_WPL");
-    if (b_Electron_mvaFall17V1Iso_WPL_) { b_Electron_mvaFall17V1Iso_WPL_->SetAddress(Electron_mvaFall17V1Iso_WPL_.grow(nanoBufLen(b_Electron_mvaFall17V1Iso_WPL_))); }
+    if (b_Electron_mvaFall17V1Iso_WPL_) { b_Electron_mvaFall17V1Iso_WPL_->SetAddress(Electron_mvaFall17V1Iso_WPL_.growFor(b_Electron_mvaFall17V1Iso_WPL_)); }
     b_Electron_mvaFall17V1noIso_ = tree->GetBranch("Electron_mvaFall17V1noIso");
-    if (b_Electron_mvaFall17V1noIso_) { b_Electron_mvaFall17V1noIso_->SetAddress(Electron_mvaFall17V1noIso_.grow(nanoBufLen(b_Electron_mvaFall17V1noIso_))); }
+    if (b_Electron_mvaFall17V1noIso_) { b_Electron_mvaFall17V1noIso_->SetAddress(Electron_mvaFall17V1noIso_.growFor(b_Electron_mvaFall17V1noIso_)); }
     b_Electron_mvaFall17V1noIso_WP80_ = tree->GetBranch("Electron_mvaFall17V1noIso_WP80");
-    if (b_Electron_mvaFall17V1noIso_WP80_) { b_Electron_mvaFall17V1noIso_WP80_->SetAddress(Electron_mvaFall17V1noIso_WP80_.grow(nanoBufLen(b_Electron_mvaFall17V1noIso_WP80_))); }
+    if (b_Electron_mvaFall17V1noIso_WP80_) { b_Electron_mvaFall17V1noIso_WP80_->SetAddress(Electron_mvaFall17V1noIso_WP80_.growFor(b_Electron_mvaFall17V1noIso_WP80_)); }
     b_Electron_mvaFall17V1noIso_WP90_ = tree->GetBranch("Electron_mvaFall17V1noIso_WP90");
-    if (b_Electron_mvaFall17V1noIso_WP90_) { b_Electron_mvaFall17V1noIso_WP90_->SetAddress(Electron_mvaFall17V1noIso_WP90_.grow(nanoBufLen(b_Electron_mvaFall17V1noIso_WP90_))); }
+    if (b_Electron_mvaFall17V1noIso_WP90_) { b_Electron_mvaFall17V1noIso_WP90_->SetAddress(Electron_mvaFall17V1noIso_WP90_.growFor(b_Electron_mvaFall17V1noIso_WP90_)); }
     b_Electron_mvaFall17V1noIso_WPL_ = tree->GetBranch("Electron_mvaFall17V1noIso_WPL");
-    if (b_Electron_mvaFall17V1noIso_WPL_) { b_Electron_mvaFall17V1noIso_WPL_->SetAddress(Electron_mvaFall17V1noIso_WPL_.grow(nanoBufLen(b_Electron_mvaFall17V1noIso_WPL_))); }
+    if (b_Electron_mvaFall17V1noIso_WPL_) { b_Electron_mvaFall17V1noIso_WPL_->SetAddress(Electron_mvaFall17V1noIso_WPL_.growFor(b_Electron_mvaFall17V1noIso_WPL_)); }
     b_Electron_mvaFall17V2Iso_ = tree->GetBranch("Electron_mvaFall17V2Iso");
-    if (b_Electron_mvaFall17V2Iso_) { b_Electron_mvaFall17V2Iso_->SetAddress(Electron_mvaFall17V2Iso_.grow(nanoBufLen(b_Electron_mvaFall17V2Iso_))); }
+    if (b_Electron_mvaFall17V2Iso_) { b_Electron_mvaFall17V2Iso_->SetAddress(Electron_mvaFall17V2Iso_.growFor(b_Electron_mvaFall17V2Iso_)); }
     b_Electron_mvaFall17V2Iso_WP80_ = tree->GetBranch("Electron_mvaFall17V2Iso_WP80");
-    if (b_Electron_mvaFall17V2Iso_WP80_) { b_Electron_mvaFall17V2Iso_WP80_->SetAddress(Electron_mvaFall17V2Iso_WP80_.grow(nanoBufLen(b_Electron_mvaFall17V2Iso_WP80_))); }
+    if (b_Electron_mvaFall17V2Iso_WP80_) { b_Electron_mvaFall17V2Iso_WP80_->SetAddress(Electron_mvaFall17V2Iso_WP80_.growFor(b_Electron_mvaFall17V2Iso_WP80_)); }
     b_Electron_mvaFall17V2Iso_WP90_ = tree->GetBranch("Electron_mvaFall17V2Iso_WP90");
-    if (b_Electron_mvaFall17V2Iso_WP90_) { b_Electron_mvaFall17V2Iso_WP90_->SetAddress(Electron_mvaFall17V2Iso_WP90_.grow(nanoBufLen(b_Electron_mvaFall17V2Iso_WP90_))); }
+    if (b_Electron_mvaFall17V2Iso_WP90_) { b_Electron_mvaFall17V2Iso_WP90_->SetAddress(Electron_mvaFall17V2Iso_WP90_.growFor(b_Electron_mvaFall17V2Iso_WP90_)); }
     b_Electron_mvaFall17V2Iso_WPL_ = tree->GetBranch("Electron_mvaFall17V2Iso_WPL");
-    if (b_Electron_mvaFall17V2Iso_WPL_) { b_Electron_mvaFall17V2Iso_WPL_->SetAddress(Electron_mvaFall17V2Iso_WPL_.grow(nanoBufLen(b_Electron_mvaFall17V2Iso_WPL_))); }
+    if (b_Electron_mvaFall17V2Iso_WPL_) { b_Electron_mvaFall17V2Iso_WPL_->SetAddress(Electron_mvaFall17V2Iso_WPL_.growFor(b_Electron_mvaFall17V2Iso_WPL_)); }
     b_Electron_mvaFall17V2noIso_ = tree->GetBranch("Electron_mvaFall17V2noIso");
-    if (b_Electron_mvaFall17V2noIso_) { b_Electron_mvaFall17V2noIso_->SetAddress(Electron_mvaFall17V2noIso_.grow(nanoBufLen(b_Electron_mvaFall17V2noIso_))); }
+    if (b_Electron_mvaFall17V2noIso_) { b_Electron_mvaFall17V2noIso_->SetAddress(Electron_mvaFall17V2noIso_.growFor(b_Electron_mvaFall17V2noIso_)); }
     b_Electron_mvaFall17V2noIso_WP80_ = tree->GetBranch("Electron_mvaFall17V2noIso_WP80");
-    if (b_Electron_mvaFall17V2noIso_WP80_) { b_Electron_mvaFall17V2noIso_WP80_->SetAddress(Electron_mvaFall17V2noIso_WP80_.grow(nanoBufLen(b_Electron_mvaFall17V2noIso_WP80_))); }
+    if (b_Electron_mvaFall17V2noIso_WP80_) { b_Electron_mvaFall17V2noIso_WP80_->SetAddress(Electron_mvaFall17V2noIso_WP80_.growFor(b_Electron_mvaFall17V2noIso_WP80_)); }
     b_Electron_mvaFall17V2noIso_WP90_ = tree->GetBranch("Electron_mvaFall17V2noIso_WP90");
-    if (b_Electron_mvaFall17V2noIso_WP90_) { b_Electron_mvaFall17V2noIso_WP90_->SetAddress(Electron_mvaFall17V2noIso_WP90_.grow(nanoBufLen(b_Electron_mvaFall17V2noIso_WP90_))); }
+    if (b_Electron_mvaFall17V2noIso_WP90_) { b_Electron_mvaFall17V2noIso_WP90_->SetAddress(Electron_mvaFall17V2noIso_WP90_.growFor(b_Electron_mvaFall17V2noIso_WP90_)); }
     b_Electron_mvaFall17V2noIso_WPL_ = tree->GetBranch("Electron_mvaFall17V2noIso_WPL");
-    if (b_Electron_mvaFall17V2noIso_WPL_) { b_Electron_mvaFall17V2noIso_WPL_->SetAddress(Electron_mvaFall17V2noIso_WPL_.grow(nanoBufLen(b_Electron_mvaFall17V2noIso_WPL_))); }
+    if (b_Electron_mvaFall17V2noIso_WPL_) { b_Electron_mvaFall17V2noIso_WPL_->SetAddress(Electron_mvaFall17V2noIso_WPL_.growFor(b_Electron_mvaFall17V2noIso_WPL_)); }
     b_Electron_mvaFall17noIso_ = tree->GetBranch("Electron_mvaFall17noIso");
-    if (b_Electron_mvaFall17noIso_) { b_Electron_mvaFall17noIso_->SetAddress(Electron_mvaFall17noIso_.grow(nanoBufLen(b_Electron_mvaFall17noIso_))); }
+    if (b_Electron_mvaFall17noIso_) { b_Electron_mvaFall17noIso_->SetAddress(Electron_mvaFall17noIso_.growFor(b_Electron_mvaFall17noIso_)); }
     b_Electron_mvaFall17noIso_WP80_ = tree->GetBranch("Electron_mvaFall17noIso_WP80");
-    if (b_Electron_mvaFall17noIso_WP80_) { b_Electron_mvaFall17noIso_WP80_->SetAddress(Electron_mvaFall17noIso_WP80_.grow(nanoBufLen(b_Electron_mvaFall17noIso_WP80_))); }
+    if (b_Electron_mvaFall17noIso_WP80_) { b_Electron_mvaFall17noIso_WP80_->SetAddress(Electron_mvaFall17noIso_WP80_.growFor(b_Electron_mvaFall17noIso_WP80_)); }
     b_Electron_mvaFall17noIso_WP90_ = tree->GetBranch("Electron_mvaFall17noIso_WP90");
-    if (b_Electron_mvaFall17noIso_WP90_) { b_Electron_mvaFall17noIso_WP90_->SetAddress(Electron_mvaFall17noIso_WP90_.grow(nanoBufLen(b_Electron_mvaFall17noIso_WP90_))); }
+    if (b_Electron_mvaFall17noIso_WP90_) { b_Electron_mvaFall17noIso_WP90_->SetAddress(Electron_mvaFall17noIso_WP90_.growFor(b_Electron_mvaFall17noIso_WP90_)); }
     b_Electron_mvaFall17noIso_WPL_ = tree->GetBranch("Electron_mvaFall17noIso_WPL");
-    if (b_Electron_mvaFall17noIso_WPL_) { b_Electron_mvaFall17noIso_WPL_->SetAddress(Electron_mvaFall17noIso_WPL_.grow(nanoBufLen(b_Electron_mvaFall17noIso_WPL_))); }
+    if (b_Electron_mvaFall17noIso_WPL_) { b_Electron_mvaFall17noIso_WPL_->SetAddress(Electron_mvaFall17noIso_WPL_.growFor(b_Electron_mvaFall17noIso_WPL_)); }
     b_Electron_mvaHZZIso_ = tree->GetBranch("Electron_mvaHZZIso");
-    if (b_Electron_mvaHZZIso_) { b_Electron_mvaHZZIso_->SetAddress(Electron_mvaHZZIso_.grow(nanoBufLen(b_Electron_mvaHZZIso_))); }
+    if (b_Electron_mvaHZZIso_) { b_Electron_mvaHZZIso_->SetAddress(Electron_mvaHZZIso_.growFor(b_Electron_mvaHZZIso_)); }
     b_Electron_mvaIso_ = tree->GetBranch("Electron_mvaIso");
-    if (b_Electron_mvaIso_) { b_Electron_mvaIso_->SetAddress(Electron_mvaIso_.grow(nanoBufLen(b_Electron_mvaIso_))); }
+    if (b_Electron_mvaIso_) { b_Electron_mvaIso_->SetAddress(Electron_mvaIso_.growFor(b_Electron_mvaIso_)); }
     b_Electron_mvaIso_Fall17V2_ = tree->GetBranch("Electron_mvaIso_Fall17V2");
-    if (b_Electron_mvaIso_Fall17V2_) { b_Electron_mvaIso_Fall17V2_->SetAddress(Electron_mvaIso_Fall17V2_.grow(nanoBufLen(b_Electron_mvaIso_Fall17V2_))); }
+    if (b_Electron_mvaIso_Fall17V2_) { b_Electron_mvaIso_Fall17V2_->SetAddress(Electron_mvaIso_Fall17V2_.growFor(b_Electron_mvaIso_Fall17V2_)); }
     b_Electron_mvaIso_Fall17V2_WP80_ = tree->GetBranch("Electron_mvaIso_Fall17V2_WP80");
-    if (b_Electron_mvaIso_Fall17V2_WP80_) { b_Electron_mvaIso_Fall17V2_WP80_->SetAddress(Electron_mvaIso_Fall17V2_WP80_.grow(nanoBufLen(b_Electron_mvaIso_Fall17V2_WP80_))); }
+    if (b_Electron_mvaIso_Fall17V2_WP80_) { b_Electron_mvaIso_Fall17V2_WP80_->SetAddress(Electron_mvaIso_Fall17V2_WP80_.growFor(b_Electron_mvaIso_Fall17V2_WP80_)); }
     b_Electron_mvaIso_Fall17V2_WP90_ = tree->GetBranch("Electron_mvaIso_Fall17V2_WP90");
-    if (b_Electron_mvaIso_Fall17V2_WP90_) { b_Electron_mvaIso_Fall17V2_WP90_->SetAddress(Electron_mvaIso_Fall17V2_WP90_.grow(nanoBufLen(b_Electron_mvaIso_Fall17V2_WP90_))); }
+    if (b_Electron_mvaIso_Fall17V2_WP90_) { b_Electron_mvaIso_Fall17V2_WP90_->SetAddress(Electron_mvaIso_Fall17V2_WP90_.growFor(b_Electron_mvaIso_Fall17V2_WP90_)); }
     b_Electron_mvaIso_Fall17V2_WPL_ = tree->GetBranch("Electron_mvaIso_Fall17V2_WPL");
-    if (b_Electron_mvaIso_Fall17V2_WPL_) { b_Electron_mvaIso_Fall17V2_WPL_->SetAddress(Electron_mvaIso_Fall17V2_WPL_.grow(nanoBufLen(b_Electron_mvaIso_Fall17V2_WPL_))); }
+    if (b_Electron_mvaIso_Fall17V2_WPL_) { b_Electron_mvaIso_Fall17V2_WPL_->SetAddress(Electron_mvaIso_Fall17V2_WPL_.growFor(b_Electron_mvaIso_Fall17V2_WPL_)); }
     b_Electron_mvaIso_WP80_ = tree->GetBranch("Electron_mvaIso_WP80");
-    if (b_Electron_mvaIso_WP80_) { b_Electron_mvaIso_WP80_->SetAddress(Electron_mvaIso_WP80_.grow(nanoBufLen(b_Electron_mvaIso_WP80_))); }
+    if (b_Electron_mvaIso_WP80_) { b_Electron_mvaIso_WP80_->SetAddress(Electron_mvaIso_WP80_.growFor(b_Electron_mvaIso_WP80_)); }
     b_Electron_mvaIso_WP90_ = tree->GetBranch("Electron_mvaIso_WP90");
-    if (b_Electron_mvaIso_WP90_) { b_Electron_mvaIso_WP90_->SetAddress(Electron_mvaIso_WP90_.grow(nanoBufLen(b_Electron_mvaIso_WP90_))); }
+    if (b_Electron_mvaIso_WP90_) { b_Electron_mvaIso_WP90_->SetAddress(Electron_mvaIso_WP90_.growFor(b_Electron_mvaIso_WP90_)); }
     b_Electron_mvaNoIso_ = tree->GetBranch("Electron_mvaNoIso");
-    if (b_Electron_mvaNoIso_) { b_Electron_mvaNoIso_->SetAddress(Electron_mvaNoIso_.grow(nanoBufLen(b_Electron_mvaNoIso_))); }
+    if (b_Electron_mvaNoIso_) { b_Electron_mvaNoIso_->SetAddress(Electron_mvaNoIso_.growFor(b_Electron_mvaNoIso_)); }
     b_Electron_mvaNoIso_Fall17V2_ = tree->GetBranch("Electron_mvaNoIso_Fall17V2");
-    if (b_Electron_mvaNoIso_Fall17V2_) { b_Electron_mvaNoIso_Fall17V2_->SetAddress(Electron_mvaNoIso_Fall17V2_.grow(nanoBufLen(b_Electron_mvaNoIso_Fall17V2_))); }
+    if (b_Electron_mvaNoIso_Fall17V2_) { b_Electron_mvaNoIso_Fall17V2_->SetAddress(Electron_mvaNoIso_Fall17V2_.growFor(b_Electron_mvaNoIso_Fall17V2_)); }
     b_Electron_mvaNoIso_Fall17V2_WP80_ = tree->GetBranch("Electron_mvaNoIso_Fall17V2_WP80");
-    if (b_Electron_mvaNoIso_Fall17V2_WP80_) { b_Electron_mvaNoIso_Fall17V2_WP80_->SetAddress(Electron_mvaNoIso_Fall17V2_WP80_.grow(nanoBufLen(b_Electron_mvaNoIso_Fall17V2_WP80_))); }
+    if (b_Electron_mvaNoIso_Fall17V2_WP80_) { b_Electron_mvaNoIso_Fall17V2_WP80_->SetAddress(Electron_mvaNoIso_Fall17V2_WP80_.growFor(b_Electron_mvaNoIso_Fall17V2_WP80_)); }
     b_Electron_mvaNoIso_Fall17V2_WP90_ = tree->GetBranch("Electron_mvaNoIso_Fall17V2_WP90");
-    if (b_Electron_mvaNoIso_Fall17V2_WP90_) { b_Electron_mvaNoIso_Fall17V2_WP90_->SetAddress(Electron_mvaNoIso_Fall17V2_WP90_.grow(nanoBufLen(b_Electron_mvaNoIso_Fall17V2_WP90_))); }
+    if (b_Electron_mvaNoIso_Fall17V2_WP90_) { b_Electron_mvaNoIso_Fall17V2_WP90_->SetAddress(Electron_mvaNoIso_Fall17V2_WP90_.growFor(b_Electron_mvaNoIso_Fall17V2_WP90_)); }
     b_Electron_mvaNoIso_Fall17V2_WPL_ = tree->GetBranch("Electron_mvaNoIso_Fall17V2_WPL");
-    if (b_Electron_mvaNoIso_Fall17V2_WPL_) { b_Electron_mvaNoIso_Fall17V2_WPL_->SetAddress(Electron_mvaNoIso_Fall17V2_WPL_.grow(nanoBufLen(b_Electron_mvaNoIso_Fall17V2_WPL_))); }
+    if (b_Electron_mvaNoIso_Fall17V2_WPL_) { b_Electron_mvaNoIso_Fall17V2_WPL_->SetAddress(Electron_mvaNoIso_Fall17V2_WPL_.growFor(b_Electron_mvaNoIso_Fall17V2_WPL_)); }
     b_Electron_mvaNoIso_WP80_ = tree->GetBranch("Electron_mvaNoIso_WP80");
-    if (b_Electron_mvaNoIso_WP80_) { b_Electron_mvaNoIso_WP80_->SetAddress(Electron_mvaNoIso_WP80_.grow(nanoBufLen(b_Electron_mvaNoIso_WP80_))); }
+    if (b_Electron_mvaNoIso_WP80_) { b_Electron_mvaNoIso_WP80_->SetAddress(Electron_mvaNoIso_WP80_.growFor(b_Electron_mvaNoIso_WP80_)); }
     b_Electron_mvaNoIso_WP90_ = tree->GetBranch("Electron_mvaNoIso_WP90");
-    if (b_Electron_mvaNoIso_WP90_) { b_Electron_mvaNoIso_WP90_->SetAddress(Electron_mvaNoIso_WP90_.grow(nanoBufLen(b_Electron_mvaNoIso_WP90_))); }
+    if (b_Electron_mvaNoIso_WP90_) { b_Electron_mvaNoIso_WP90_->SetAddress(Electron_mvaNoIso_WP90_.growFor(b_Electron_mvaNoIso_WP90_)); }
     b_Electron_mvaSpring16GP_ = tree->GetBranch("Electron_mvaSpring16GP");
-    if (b_Electron_mvaSpring16GP_) { b_Electron_mvaSpring16GP_->SetAddress(Electron_mvaSpring16GP_.grow(nanoBufLen(b_Electron_mvaSpring16GP_))); }
+    if (b_Electron_mvaSpring16GP_) { b_Electron_mvaSpring16GP_->SetAddress(Electron_mvaSpring16GP_.growFor(b_Electron_mvaSpring16GP_)); }
     b_Electron_mvaSpring16GP_WP80_ = tree->GetBranch("Electron_mvaSpring16GP_WP80");
-    if (b_Electron_mvaSpring16GP_WP80_) { b_Electron_mvaSpring16GP_WP80_->SetAddress(Electron_mvaSpring16GP_WP80_.grow(nanoBufLen(b_Electron_mvaSpring16GP_WP80_))); }
+    if (b_Electron_mvaSpring16GP_WP80_) { b_Electron_mvaSpring16GP_WP80_->SetAddress(Electron_mvaSpring16GP_WP80_.growFor(b_Electron_mvaSpring16GP_WP80_)); }
     b_Electron_mvaSpring16GP_WP90_ = tree->GetBranch("Electron_mvaSpring16GP_WP90");
-    if (b_Electron_mvaSpring16GP_WP90_) { b_Electron_mvaSpring16GP_WP90_->SetAddress(Electron_mvaSpring16GP_WP90_.grow(nanoBufLen(b_Electron_mvaSpring16GP_WP90_))); }
+    if (b_Electron_mvaSpring16GP_WP90_) { b_Electron_mvaSpring16GP_WP90_->SetAddress(Electron_mvaSpring16GP_WP90_.growFor(b_Electron_mvaSpring16GP_WP90_)); }
     b_Electron_mvaSpring16HZZ_ = tree->GetBranch("Electron_mvaSpring16HZZ");
-    if (b_Electron_mvaSpring16HZZ_) { b_Electron_mvaSpring16HZZ_->SetAddress(Electron_mvaSpring16HZZ_.grow(nanoBufLen(b_Electron_mvaSpring16HZZ_))); }
+    if (b_Electron_mvaSpring16HZZ_) { b_Electron_mvaSpring16HZZ_->SetAddress(Electron_mvaSpring16HZZ_.growFor(b_Electron_mvaSpring16HZZ_)); }
     b_Electron_mvaSpring16HZZ_WPL_ = tree->GetBranch("Electron_mvaSpring16HZZ_WPL");
-    if (b_Electron_mvaSpring16HZZ_WPL_) { b_Electron_mvaSpring16HZZ_WPL_->SetAddress(Electron_mvaSpring16HZZ_WPL_.grow(nanoBufLen(b_Electron_mvaSpring16HZZ_WPL_))); }
+    if (b_Electron_mvaSpring16HZZ_WPL_) { b_Electron_mvaSpring16HZZ_WPL_->SetAddress(Electron_mvaSpring16HZZ_WPL_.growFor(b_Electron_mvaSpring16HZZ_WPL_)); }
     b_Electron_mvaTTH_ = tree->GetBranch("Electron_mvaTTH");
-    if (b_Electron_mvaTTH_) { b_Electron_mvaTTH_->SetAddress(Electron_mvaTTH_.grow(nanoBufLen(b_Electron_mvaTTH_))); }
+    if (b_Electron_mvaTTH_) { b_Electron_mvaTTH_->SetAddress(Electron_mvaTTH_.growFor(b_Electron_mvaTTH_)); }
     // NOTE: this is a custom branch; temporarily added for convenience
     b_Electron_mvaTTHUL_ = tree->GetBranch("Electron_mvaTTHUL");
-    if (b_Electron_mvaTTHUL_) { b_Electron_mvaTTHUL_->SetAddress(Electron_mvaTTHUL_.grow(nanoBufLen(b_Electron_mvaTTHUL_))); }
+    if (b_Electron_mvaTTHUL_) { b_Electron_mvaTTHUL_->SetAddress(Electron_mvaTTHUL_.growFor(b_Electron_mvaTTHUL_)); }
     //
     b_Electron_pdgId_ = tree->GetBranch("Electron_pdgId");
-    if (b_Electron_pdgId_) { b_Electron_pdgId_->SetAddress(Electron_pdgId_.grow(nanoBufLen(b_Electron_pdgId_))); }
+    if (b_Electron_pdgId_) { b_Electron_pdgId_->SetAddress(Electron_pdgId_.growFor(b_Electron_pdgId_)); }
     b_Electron_pfRelIso03_all_ = tree->GetBranch("Electron_pfRelIso03_all");
-    if (b_Electron_pfRelIso03_all_) { b_Electron_pfRelIso03_all_->SetAddress(Electron_pfRelIso03_all_.grow(nanoBufLen(b_Electron_pfRelIso03_all_))); }
+    if (b_Electron_pfRelIso03_all_) { b_Electron_pfRelIso03_all_->SetAddress(Electron_pfRelIso03_all_.growFor(b_Electron_pfRelIso03_all_)); }
     b_Electron_pfRelIso03_all_Fall17V2_ = tree->GetBranch("Electron_pfRelIso03_all_Fall17V2");
-    if (b_Electron_pfRelIso03_all_Fall17V2_) { b_Electron_pfRelIso03_all_Fall17V2_->SetAddress(Electron_pfRelIso03_all_Fall17V2_.grow(nanoBufLen(b_Electron_pfRelIso03_all_Fall17V2_))); }
+    if (b_Electron_pfRelIso03_all_Fall17V2_) { b_Electron_pfRelIso03_all_Fall17V2_->SetAddress(Electron_pfRelIso03_all_Fall17V2_.growFor(b_Electron_pfRelIso03_all_Fall17V2_)); }
     b_Electron_pfRelIso03_chg_ = tree->GetBranch("Electron_pfRelIso03_chg");
-    if (b_Electron_pfRelIso03_chg_) { b_Electron_pfRelIso03_chg_->SetAddress(Electron_pfRelIso03_chg_.grow(nanoBufLen(b_Electron_pfRelIso03_chg_))); }
+    if (b_Electron_pfRelIso03_chg_) { b_Electron_pfRelIso03_chg_->SetAddress(Electron_pfRelIso03_chg_.growFor(b_Electron_pfRelIso03_chg_)); }
     b_Electron_pfRelIso03_chg_Fall17V2_ = tree->GetBranch("Electron_pfRelIso03_chg_Fall17V2");
-    if (b_Electron_pfRelIso03_chg_Fall17V2_) { b_Electron_pfRelIso03_chg_Fall17V2_->SetAddress(Electron_pfRelIso03_chg_Fall17V2_.grow(nanoBufLen(b_Electron_pfRelIso03_chg_Fall17V2_))); }
+    if (b_Electron_pfRelIso03_chg_Fall17V2_) { b_Electron_pfRelIso03_chg_Fall17V2_->SetAddress(Electron_pfRelIso03_chg_Fall17V2_.growFor(b_Electron_pfRelIso03_chg_Fall17V2_)); }
     b_Electron_phi_ = tree->GetBranch("Electron_phi");
-    if (b_Electron_phi_) { b_Electron_phi_->SetAddress(Electron_phi_.grow(nanoBufLen(b_Electron_phi_))); }
+    if (b_Electron_phi_) { b_Electron_phi_->SetAddress(Electron_phi_.growFor(b_Electron_phi_)); }
     b_Electron_photonIdx_ = tree->GetBranch("Electron_photonIdx");
-    if (b_Electron_photonIdx_) { b_Electron_photonIdx_->SetAddress(Electron_photonIdx_.grow(nanoBufLen(b_Electron_photonIdx_))); }
+    if (b_Electron_photonIdx_) { b_Electron_photonIdx_->SetAddress(Electron_photonIdx_.growFor(b_Electron_photonIdx_)); }
     b_Electron_pt_ = tree->GetBranch("Electron_pt");
-    if (b_Electron_pt_) { b_Electron_pt_->SetAddress(Electron_pt_.grow(nanoBufLen(b_Electron_pt_))); }
+    if (b_Electron_pt_) { b_Electron_pt_->SetAddress(Electron_pt_.growFor(b_Electron_pt_)); }
     b_Electron_r9_ = tree->GetBranch("Electron_r9");
-    if (b_Electron_r9_) { b_Electron_r9_->SetAddress(Electron_r9_.grow(nanoBufLen(b_Electron_r9_))); }
+    if (b_Electron_r9_) { b_Electron_r9_->SetAddress(Electron_r9_.growFor(b_Electron_r9_)); }
     b_Electron_scEtOverPt_ = tree->GetBranch("Electron_scEtOverPt");
-    if (b_Electron_scEtOverPt_) { b_Electron_scEtOverPt_->SetAddress(Electron_scEtOverPt_.grow(nanoBufLen(b_Electron_scEtOverPt_))); }
+    if (b_Electron_scEtOverPt_) { b_Electron_scEtOverPt_->SetAddress(Electron_scEtOverPt_.growFor(b_Electron_scEtOverPt_)); }
     b_Electron_seedGain_ = tree->GetBranch("Electron_seedGain");
-    if (b_Electron_seedGain_) { b_Electron_seedGain_->SetAddress(Electron_seedGain_.grow(nanoBufLen(b_Electron_seedGain_))); }
+    if (b_Electron_seedGain_) { b_Electron_seedGain_->SetAddress(Electron_seedGain_.growFor(b_Electron_seedGain_)); }
     b_Electron_seediEtaOriX_ = tree->GetBranch("Electron_seediEtaOriX");
-    if (b_Electron_seediEtaOriX_) { b_Electron_seediEtaOriX_->SetAddress(Electron_seediEtaOriX_.grow(nanoBufLen(b_Electron_seediEtaOriX_))); }
+    if (b_Electron_seediEtaOriX_) { b_Electron_seediEtaOriX_->SetAddress(Electron_seediEtaOriX_.growFor(b_Electron_seediEtaOriX_)); }
     b_Electron_seediPhiOriY_ = tree->GetBranch("Electron_seediPhiOriY");
-    if (b_Electron_seediPhiOriY_) { b_Electron_seediPhiOriY_->SetAddress(Electron_seediPhiOriY_.grow(nanoBufLen(b_Electron_seediPhiOriY_))); }
+    if (b_Electron_seediPhiOriY_) { b_Electron_seediPhiOriY_->SetAddress(Electron_seediPhiOriY_.growFor(b_Electron_seediPhiOriY_)); }
     b_Electron_sieie_ = tree->GetBranch("Electron_sieie");
-    if (b_Electron_sieie_) { b_Electron_sieie_->SetAddress(Electron_sieie_.grow(nanoBufLen(b_Electron_sieie_))); }
+    if (b_Electron_sieie_) { b_Electron_sieie_->SetAddress(Electron_sieie_.growFor(b_Electron_sieie_)); }
     b_Electron_sip3d_ = tree->GetBranch("Electron_sip3d");
-    if (b_Electron_sip3d_) { b_Electron_sip3d_->SetAddress(Electron_sip3d_.grow(nanoBufLen(b_Electron_sip3d_))); }
+    if (b_Electron_sip3d_) { b_Electron_sip3d_->SetAddress(Electron_sip3d_.growFor(b_Electron_sip3d_)); }
     b_Electron_svIdx_ = tree->GetBranch("Electron_svIdx");
-    if (b_Electron_svIdx_) { b_Electron_svIdx_->SetAddress(Electron_svIdx_.grow(nanoBufLen(b_Electron_svIdx_))); }
+    if (b_Electron_svIdx_) { b_Electron_svIdx_->SetAddress(Electron_svIdx_.growFor(b_Electron_svIdx_)); }
     b_Electron_tightCharge_ = tree->GetBranch("Electron_tightCharge");
-    if (b_Electron_tightCharge_) { b_Electron_tightCharge_->SetAddress(Electron_tightCharge_.grow(nanoBufLen(b_Electron_tightCharge_))); }
+    if (b_Electron_tightCharge_) { b_Electron_tightCharge_->SetAddress(Electron_tightCharge_.growFor(b_Electron_tightCharge_)); }
     b_Electron_vidNestedWPBitmap_ = tree->GetBranch("Electron_vidNestedWPBitmap");
-    if (b_Electron_vidNestedWPBitmap_) { b_Electron_vidNestedWPBitmap_->SetAddress(Electron_vidNestedWPBitmap_.grow(nanoBufLen(b_Electron_vidNestedWPBitmap_))); }
+    if (b_Electron_vidNestedWPBitmap_) { b_Electron_vidNestedWPBitmap_->SetAddress(Electron_vidNestedWPBitmap_.growFor(b_Electron_vidNestedWPBitmap_)); }
     b_Electron_vidNestedWPBitmapHEEP_ = tree->GetBranch("Electron_vidNestedWPBitmapHEEP");
-    if (b_Electron_vidNestedWPBitmapHEEP_) { b_Electron_vidNestedWPBitmapHEEP_->SetAddress(Electron_vidNestedWPBitmapHEEP_.grow(nanoBufLen(b_Electron_vidNestedWPBitmapHEEP_))); }
+    if (b_Electron_vidNestedWPBitmapHEEP_) { b_Electron_vidNestedWPBitmapHEEP_->SetAddress(Electron_vidNestedWPBitmapHEEP_.growFor(b_Electron_vidNestedWPBitmapHEEP_)); }
     b_Electron_vidNestedWPBitmap_Fall17V2_ = tree->GetBranch("Electron_vidNestedWPBitmap_Fall17V2");
-    if (b_Electron_vidNestedWPBitmap_Fall17V2_) { b_Electron_vidNestedWPBitmap_Fall17V2_->SetAddress(Electron_vidNestedWPBitmap_Fall17V2_.grow(nanoBufLen(b_Electron_vidNestedWPBitmap_Fall17V2_))); }
+    if (b_Electron_vidNestedWPBitmap_Fall17V2_) { b_Electron_vidNestedWPBitmap_Fall17V2_->SetAddress(Electron_vidNestedWPBitmap_Fall17V2_.growFor(b_Electron_vidNestedWPBitmap_Fall17V2_)); }
     b_FatJet_area_ = tree->GetBranch("FatJet_area");
-    if (b_FatJet_area_) { b_FatJet_area_->SetAddress(FatJet_area_.grow(nanoBufLen(b_FatJet_area_))); }
+    if (b_FatJet_area_) { b_FatJet_area_->SetAddress(FatJet_area_.growFor(b_FatJet_area_)); }
     b_FatJet_btagCMVA_ = tree->GetBranch("FatJet_btagCMVA");
-    if (b_FatJet_btagCMVA_) { b_FatJet_btagCMVA_->SetAddress(FatJet_btagCMVA_.grow(nanoBufLen(b_FatJet_btagCMVA_))); }
+    if (b_FatJet_btagCMVA_) { b_FatJet_btagCMVA_->SetAddress(FatJet_btagCMVA_.growFor(b_FatJet_btagCMVA_)); }
     b_FatJet_btagCSVV2_ = tree->GetBranch("FatJet_btagCSVV2");
-    if (b_FatJet_btagCSVV2_) { b_FatJet_btagCSVV2_->SetAddress(FatJet_btagCSVV2_.grow(nanoBufLen(b_FatJet_btagCSVV2_))); }
+    if (b_FatJet_btagCSVV2_) { b_FatJet_btagCSVV2_->SetAddress(FatJet_btagCSVV2_.growFor(b_FatJet_btagCSVV2_)); }
     b_FatJet_btagDDBvL_ = tree->GetBranch("FatJet_btagDDBvL");
-    if (b_FatJet_btagDDBvL_) { b_FatJet_btagDDBvL_->SetAddress(FatJet_btagDDBvL_.grow(nanoBufLen(b_FatJet_btagDDBvL_))); }
+    if (b_FatJet_btagDDBvL_) { b_FatJet_btagDDBvL_->SetAddress(FatJet_btagDDBvL_.growFor(b_FatJet_btagDDBvL_)); }
     b_FatJet_btagDDBvLV2_ = tree->GetBranch("FatJet_btagDDBvLV2");
-    if (b_FatJet_btagDDBvLV2_) { b_FatJet_btagDDBvLV2_->SetAddress(FatJet_btagDDBvLV2_.grow(nanoBufLen(b_FatJet_btagDDBvLV2_))); }
+    if (b_FatJet_btagDDBvLV2_) { b_FatJet_btagDDBvLV2_->SetAddress(FatJet_btagDDBvLV2_.growFor(b_FatJet_btagDDBvLV2_)); }
     b_FatJet_btagDDBvL_noMD_ = tree->GetBranch("FatJet_btagDDBvL_noMD");
-    if (b_FatJet_btagDDBvL_noMD_) { b_FatJet_btagDDBvL_noMD_->SetAddress(FatJet_btagDDBvL_noMD_.grow(nanoBufLen(b_FatJet_btagDDBvL_noMD_))); }
+    if (b_FatJet_btagDDBvL_noMD_) { b_FatJet_btagDDBvL_noMD_->SetAddress(FatJet_btagDDBvL_noMD_.growFor(b_FatJet_btagDDBvL_noMD_)); }
     b_FatJet_btagDDCvB_ = tree->GetBranch("FatJet_btagDDCvB");
-    if (b_FatJet_btagDDCvB_) { b_FatJet_btagDDCvB_->SetAddress(FatJet_btagDDCvB_.grow(nanoBufLen(b_FatJet_btagDDCvB_))); }
+    if (b_FatJet_btagDDCvB_) { b_FatJet_btagDDCvB_->SetAddress(FatJet_btagDDCvB_.growFor(b_FatJet_btagDDCvB_)); }
     b_FatJet_btagDDCvBV2_ = tree->GetBranch("FatJet_btagDDCvBV2");
-    if (b_FatJet_btagDDCvBV2_) { b_FatJet_btagDDCvBV2_->SetAddress(FatJet_btagDDCvBV2_.grow(nanoBufLen(b_FatJet_btagDDCvBV2_))); }
+    if (b_FatJet_btagDDCvBV2_) { b_FatJet_btagDDCvBV2_->SetAddress(FatJet_btagDDCvBV2_.growFor(b_FatJet_btagDDCvBV2_)); }
     b_FatJet_btagDDCvB_noMD_ = tree->GetBranch("FatJet_btagDDCvB_noMD");
-    if (b_FatJet_btagDDCvB_noMD_) { b_FatJet_btagDDCvB_noMD_->SetAddress(FatJet_btagDDCvB_noMD_.grow(nanoBufLen(b_FatJet_btagDDCvB_noMD_))); }
+    if (b_FatJet_btagDDCvB_noMD_) { b_FatJet_btagDDCvB_noMD_->SetAddress(FatJet_btagDDCvB_noMD_.growFor(b_FatJet_btagDDCvB_noMD_)); }
     b_FatJet_btagDDCvL_ = tree->GetBranch("FatJet_btagDDCvL");
-    if (b_FatJet_btagDDCvL_) { b_FatJet_btagDDCvL_->SetAddress(FatJet_btagDDCvL_.grow(nanoBufLen(b_FatJet_btagDDCvL_))); }
+    if (b_FatJet_btagDDCvL_) { b_FatJet_btagDDCvL_->SetAddress(FatJet_btagDDCvL_.growFor(b_FatJet_btagDDCvL_)); }
     b_FatJet_btagDDCvLV2_ = tree->GetBranch("FatJet_btagDDCvLV2");
-    if (b_FatJet_btagDDCvLV2_) { b_FatJet_btagDDCvLV2_->SetAddress(FatJet_btagDDCvLV2_.grow(nanoBufLen(b_FatJet_btagDDCvLV2_))); }
+    if (b_FatJet_btagDDCvLV2_) { b_FatJet_btagDDCvLV2_->SetAddress(FatJet_btagDDCvLV2_.growFor(b_FatJet_btagDDCvLV2_)); }
     b_FatJet_btagDDCvL_noMD_ = tree->GetBranch("FatJet_btagDDCvL_noMD");
-    if (b_FatJet_btagDDCvL_noMD_) { b_FatJet_btagDDCvL_noMD_->SetAddress(FatJet_btagDDCvL_noMD_.grow(nanoBufLen(b_FatJet_btagDDCvL_noMD_))); }
+    if (b_FatJet_btagDDCvL_noMD_) { b_FatJet_btagDDCvL_noMD_->SetAddress(FatJet_btagDDCvL_noMD_.growFor(b_FatJet_btagDDCvL_noMD_)); }
     b_FatJet_btagDeepB_ = tree->GetBranch("FatJet_btagDeepB");
-    if (b_FatJet_btagDeepB_) { b_FatJet_btagDeepB_->SetAddress(FatJet_btagDeepB_.grow(nanoBufLen(b_FatJet_btagDeepB_))); }
+    if (b_FatJet_btagDeepB_) { b_FatJet_btagDeepB_->SetAddress(FatJet_btagDeepB_.growFor(b_FatJet_btagDeepB_)); }
     b_FatJet_btagHbb_ = tree->GetBranch("FatJet_btagHbb");
-    if (b_FatJet_btagHbb_) { b_FatJet_btagHbb_->SetAddress(FatJet_btagHbb_.grow(nanoBufLen(b_FatJet_btagHbb_))); }
+    if (b_FatJet_btagHbb_) { b_FatJet_btagHbb_->SetAddress(FatJet_btagHbb_.growFor(b_FatJet_btagHbb_)); }
     b_FatJet_corr_JEC_ = tree->GetBranch("FatJet_corr_JEC");
-    if (b_FatJet_corr_JEC_) { b_FatJet_corr_JEC_->SetAddress(FatJet_corr_JEC_.grow(nanoBufLen(b_FatJet_corr_JEC_))); }
+    if (b_FatJet_corr_JEC_) { b_FatJet_corr_JEC_->SetAddress(FatJet_corr_JEC_.growFor(b_FatJet_corr_JEC_)); }
     b_FatJet_corr_JER_ = tree->GetBranch("FatJet_corr_JER");
-    if (b_FatJet_corr_JER_) { b_FatJet_corr_JER_->SetAddress(FatJet_corr_JER_.grow(nanoBufLen(b_FatJet_corr_JER_))); }
+    if (b_FatJet_corr_JER_) { b_FatJet_corr_JER_->SetAddress(FatJet_corr_JER_.growFor(b_FatJet_corr_JER_)); }
     b_FatJet_corr_JMR_ = tree->GetBranch("FatJet_corr_JMR");
-    if (b_FatJet_corr_JMR_) { b_FatJet_corr_JMR_->SetAddress(FatJet_corr_JMR_.grow(nanoBufLen(b_FatJet_corr_JMR_))); }
+    if (b_FatJet_corr_JMR_) { b_FatJet_corr_JMR_->SetAddress(FatJet_corr_JMR_.growFor(b_FatJet_corr_JMR_)); }
     b_FatJet_corr_JMS_ = tree->GetBranch("FatJet_corr_JMS");
-    if (b_FatJet_corr_JMS_) { b_FatJet_corr_JMS_->SetAddress(FatJet_corr_JMS_.grow(nanoBufLen(b_FatJet_corr_JMS_))); }
+    if (b_FatJet_corr_JMS_) { b_FatJet_corr_JMS_->SetAddress(FatJet_corr_JMS_.growFor(b_FatJet_corr_JMS_)); }
     b_FatJet_deepTagMD_H4qvsQCD_ = tree->GetBranch("FatJet_deepTagMD_H4qvsQCD");
-    if (b_FatJet_deepTagMD_H4qvsQCD_) { b_FatJet_deepTagMD_H4qvsQCD_->SetAddress(FatJet_deepTagMD_H4qvsQCD_.grow(nanoBufLen(b_FatJet_deepTagMD_H4qvsQCD_))); }
+    if (b_FatJet_deepTagMD_H4qvsQCD_) { b_FatJet_deepTagMD_H4qvsQCD_->SetAddress(FatJet_deepTagMD_H4qvsQCD_.growFor(b_FatJet_deepTagMD_H4qvsQCD_)); }
     b_FatJet_deepTagMD_HbbvsQCD_ = tree->GetBranch("FatJet_deepTagMD_HbbvsQCD");
-    if (b_FatJet_deepTagMD_HbbvsQCD_) { b_FatJet_deepTagMD_HbbvsQCD_->SetAddress(FatJet_deepTagMD_HbbvsQCD_.grow(nanoBufLen(b_FatJet_deepTagMD_HbbvsQCD_))); }
+    if (b_FatJet_deepTagMD_HbbvsQCD_) { b_FatJet_deepTagMD_HbbvsQCD_->SetAddress(FatJet_deepTagMD_HbbvsQCD_.growFor(b_FatJet_deepTagMD_HbbvsQCD_)); }
     b_FatJet_deepTagMD_TvsQCD_ = tree->GetBranch("FatJet_deepTagMD_TvsQCD");
-    if (b_FatJet_deepTagMD_TvsQCD_) { b_FatJet_deepTagMD_TvsQCD_->SetAddress(FatJet_deepTagMD_TvsQCD_.grow(nanoBufLen(b_FatJet_deepTagMD_TvsQCD_))); }
+    if (b_FatJet_deepTagMD_TvsQCD_) { b_FatJet_deepTagMD_TvsQCD_->SetAddress(FatJet_deepTagMD_TvsQCD_.growFor(b_FatJet_deepTagMD_TvsQCD_)); }
     b_FatJet_deepTagMD_WvsQCD_ = tree->GetBranch("FatJet_deepTagMD_WvsQCD");
-    if (b_FatJet_deepTagMD_WvsQCD_) { b_FatJet_deepTagMD_WvsQCD_->SetAddress(FatJet_deepTagMD_WvsQCD_.grow(nanoBufLen(b_FatJet_deepTagMD_WvsQCD_))); }
+    if (b_FatJet_deepTagMD_WvsQCD_) { b_FatJet_deepTagMD_WvsQCD_->SetAddress(FatJet_deepTagMD_WvsQCD_.growFor(b_FatJet_deepTagMD_WvsQCD_)); }
     b_FatJet_deepTagMD_ZHbbvsQCD_ = tree->GetBranch("FatJet_deepTagMD_ZHbbvsQCD");
-    if (b_FatJet_deepTagMD_ZHbbvsQCD_) { b_FatJet_deepTagMD_ZHbbvsQCD_->SetAddress(FatJet_deepTagMD_ZHbbvsQCD_.grow(nanoBufLen(b_FatJet_deepTagMD_ZHbbvsQCD_))); }
+    if (b_FatJet_deepTagMD_ZHbbvsQCD_) { b_FatJet_deepTagMD_ZHbbvsQCD_->SetAddress(FatJet_deepTagMD_ZHbbvsQCD_.growFor(b_FatJet_deepTagMD_ZHbbvsQCD_)); }
     b_FatJet_deepTagMD_ZHccvsQCD_ = tree->GetBranch("FatJet_deepTagMD_ZHccvsQCD");
-    if (b_FatJet_deepTagMD_ZHccvsQCD_) { b_FatJet_deepTagMD_ZHccvsQCD_->SetAddress(FatJet_deepTagMD_ZHccvsQCD_.grow(nanoBufLen(b_FatJet_deepTagMD_ZHccvsQCD_))); }
+    if (b_FatJet_deepTagMD_ZHccvsQCD_) { b_FatJet_deepTagMD_ZHccvsQCD_->SetAddress(FatJet_deepTagMD_ZHccvsQCD_.growFor(b_FatJet_deepTagMD_ZHccvsQCD_)); }
     b_FatJet_deepTagMD_ZbbvsQCD_ = tree->GetBranch("FatJet_deepTagMD_ZbbvsQCD");
-    if (b_FatJet_deepTagMD_ZbbvsQCD_) { b_FatJet_deepTagMD_ZbbvsQCD_->SetAddress(FatJet_deepTagMD_ZbbvsQCD_.grow(nanoBufLen(b_FatJet_deepTagMD_ZbbvsQCD_))); }
+    if (b_FatJet_deepTagMD_ZbbvsQCD_) { b_FatJet_deepTagMD_ZbbvsQCD_->SetAddress(FatJet_deepTagMD_ZbbvsQCD_.growFor(b_FatJet_deepTagMD_ZbbvsQCD_)); }
     b_FatJet_deepTagMD_ZvsQCD_ = tree->GetBranch("FatJet_deepTagMD_ZvsQCD");
-    if (b_FatJet_deepTagMD_ZvsQCD_) { b_FatJet_deepTagMD_ZvsQCD_->SetAddress(FatJet_deepTagMD_ZvsQCD_.grow(nanoBufLen(b_FatJet_deepTagMD_ZvsQCD_))); }
+    if (b_FatJet_deepTagMD_ZvsQCD_) { b_FatJet_deepTagMD_ZvsQCD_->SetAddress(FatJet_deepTagMD_ZvsQCD_.growFor(b_FatJet_deepTagMD_ZvsQCD_)); }
     b_FatJet_deepTagMD_bbvsLight_ = tree->GetBranch("FatJet_deepTagMD_bbvsLight");
-    if (b_FatJet_deepTagMD_bbvsLight_) { b_FatJet_deepTagMD_bbvsLight_->SetAddress(FatJet_deepTagMD_bbvsLight_.grow(nanoBufLen(b_FatJet_deepTagMD_bbvsLight_))); }
+    if (b_FatJet_deepTagMD_bbvsLight_) { b_FatJet_deepTagMD_bbvsLight_->SetAddress(FatJet_deepTagMD_bbvsLight_.growFor(b_FatJet_deepTagMD_bbvsLight_)); }
     b_FatJet_deepTagMD_ccvsLight_ = tree->GetBranch("FatJet_deepTagMD_ccvsLight");
-    if (b_FatJet_deepTagMD_ccvsLight_) { b_FatJet_deepTagMD_ccvsLight_->SetAddress(FatJet_deepTagMD_ccvsLight_.grow(nanoBufLen(b_FatJet_deepTagMD_ccvsLight_))); }
+    if (b_FatJet_deepTagMD_ccvsLight_) { b_FatJet_deepTagMD_ccvsLight_->SetAddress(FatJet_deepTagMD_ccvsLight_.growFor(b_FatJet_deepTagMD_ccvsLight_)); }
     b_FatJet_deepTag_H_ = tree->GetBranch("FatJet_deepTag_H");
-    if (b_FatJet_deepTag_H_) { b_FatJet_deepTag_H_->SetAddress(FatJet_deepTag_H_.grow(nanoBufLen(b_FatJet_deepTag_H_))); }
+    if (b_FatJet_deepTag_H_) { b_FatJet_deepTag_H_->SetAddress(FatJet_deepTag_H_.growFor(b_FatJet_deepTag_H_)); }
     b_FatJet_deepTag_QCD_ = tree->GetBranch("FatJet_deepTag_QCD");
-    if (b_FatJet_deepTag_QCD_) { b_FatJet_deepTag_QCD_->SetAddress(FatJet_deepTag_QCD_.grow(nanoBufLen(b_FatJet_deepTag_QCD_))); }
+    if (b_FatJet_deepTag_QCD_) { b_FatJet_deepTag_QCD_->SetAddress(FatJet_deepTag_QCD_.growFor(b_FatJet_deepTag_QCD_)); }
     b_FatJet_deepTag_QCDothers_ = tree->GetBranch("FatJet_deepTag_QCDothers");
-    if (b_FatJet_deepTag_QCDothers_) { b_FatJet_deepTag_QCDothers_->SetAddress(FatJet_deepTag_QCDothers_.grow(nanoBufLen(b_FatJet_deepTag_QCDothers_))); }
+    if (b_FatJet_deepTag_QCDothers_) { b_FatJet_deepTag_QCDothers_->SetAddress(FatJet_deepTag_QCDothers_.growFor(b_FatJet_deepTag_QCDothers_)); }
     b_FatJet_deepTag_TvsQCD_ = tree->GetBranch("FatJet_deepTag_TvsQCD");
-    if (b_FatJet_deepTag_TvsQCD_) { b_FatJet_deepTag_TvsQCD_->SetAddress(FatJet_deepTag_TvsQCD_.grow(nanoBufLen(b_FatJet_deepTag_TvsQCD_))); }
+    if (b_FatJet_deepTag_TvsQCD_) { b_FatJet_deepTag_TvsQCD_->SetAddress(FatJet_deepTag_TvsQCD_.growFor(b_FatJet_deepTag_TvsQCD_)); }
     b_FatJet_deepTag_WvsQCD_ = tree->GetBranch("FatJet_deepTag_WvsQCD");
-    if (b_FatJet_deepTag_WvsQCD_) { b_FatJet_deepTag_WvsQCD_->SetAddress(FatJet_deepTag_WvsQCD_.grow(nanoBufLen(b_FatJet_deepTag_WvsQCD_))); }
+    if (b_FatJet_deepTag_WvsQCD_) { b_FatJet_deepTag_WvsQCD_->SetAddress(FatJet_deepTag_WvsQCD_.growFor(b_FatJet_deepTag_WvsQCD_)); }
     b_FatJet_deepTag_ZvsQCD_ = tree->GetBranch("FatJet_deepTag_ZvsQCD");
-    if (b_FatJet_deepTag_ZvsQCD_) { b_FatJet_deepTag_ZvsQCD_->SetAddress(FatJet_deepTag_ZvsQCD_.grow(nanoBufLen(b_FatJet_deepTag_ZvsQCD_))); }
+    if (b_FatJet_deepTag_ZvsQCD_) { b_FatJet_deepTag_ZvsQCD_->SetAddress(FatJet_deepTag_ZvsQCD_.growFor(b_FatJet_deepTag_ZvsQCD_)); }
     b_FatJet_electronIdx3SJ_ = tree->GetBranch("FatJet_electronIdx3SJ");
-    if (b_FatJet_electronIdx3SJ_) { b_FatJet_electronIdx3SJ_->SetAddress(FatJet_electronIdx3SJ_.grow(nanoBufLen(b_FatJet_electronIdx3SJ_))); }
+    if (b_FatJet_electronIdx3SJ_) { b_FatJet_electronIdx3SJ_->SetAddress(FatJet_electronIdx3SJ_.growFor(b_FatJet_electronIdx3SJ_)); }
     b_FatJet_eta_ = tree->GetBranch("FatJet_eta");
-    if (b_FatJet_eta_) { b_FatJet_eta_->SetAddress(FatJet_eta_.grow(nanoBufLen(b_FatJet_eta_))); }
+    if (b_FatJet_eta_) { b_FatJet_eta_->SetAddress(FatJet_eta_.growFor(b_FatJet_eta_)); }
     b_FatJet_genJetAK8Idx_ = tree->GetBranch("FatJet_genJetAK8Idx");
-    if (b_FatJet_genJetAK8Idx_) { b_FatJet_genJetAK8Idx_->SetAddress(FatJet_genJetAK8Idx_.grow(nanoBufLen(b_FatJet_genJetAK8Idx_))); }
+    if (b_FatJet_genJetAK8Idx_) { b_FatJet_genJetAK8Idx_->SetAddress(FatJet_genJetAK8Idx_.growFor(b_FatJet_genJetAK8Idx_)); }
     b_FatJet_hadronFlavour_ = tree->GetBranch("FatJet_hadronFlavour");
-    if (b_FatJet_hadronFlavour_) { b_FatJet_hadronFlavour_->SetAddress(FatJet_hadronFlavour_.grow(nanoBufLen(b_FatJet_hadronFlavour_))); }
+    if (b_FatJet_hadronFlavour_) { b_FatJet_hadronFlavour_->SetAddress(FatJet_hadronFlavour_.growFor(b_FatJet_hadronFlavour_)); }
     b_FatJet_jetId_ = tree->GetBranch("FatJet_jetId");
-    if (b_FatJet_jetId_) { b_FatJet_jetId_->SetAddress(FatJet_jetId_.grow(nanoBufLen(b_FatJet_jetId_))); }
+    if (b_FatJet_jetId_) { b_FatJet_jetId_->SetAddress(FatJet_jetId_.growFor(b_FatJet_jetId_)); }
     b_FatJet_lsf3_ = tree->GetBranch("FatJet_lsf3");
-    if (b_FatJet_lsf3_) { b_FatJet_lsf3_->SetAddress(FatJet_lsf3_.grow(nanoBufLen(b_FatJet_lsf3_))); }
+    if (b_FatJet_lsf3_) { b_FatJet_lsf3_->SetAddress(FatJet_lsf3_.growFor(b_FatJet_lsf3_)); }
     b_FatJet_mass_ = tree->GetBranch("FatJet_mass");
-    if (b_FatJet_mass_) { b_FatJet_mass_->SetAddress(FatJet_mass_.grow(nanoBufLen(b_FatJet_mass_))); }
+    if (b_FatJet_mass_) { b_FatJet_mass_->SetAddress(FatJet_mass_.growFor(b_FatJet_mass_)); }
     b_FatJet_mass_jerDown_ = tree->GetBranch("FatJet_mass_jerDown");
-    if (b_FatJet_mass_jerDown_) { b_FatJet_mass_jerDown_->SetAddress(FatJet_mass_jerDown_.grow(nanoBufLen(b_FatJet_mass_jerDown_))); }
+    if (b_FatJet_mass_jerDown_) { b_FatJet_mass_jerDown_->SetAddress(FatJet_mass_jerDown_.growFor(b_FatJet_mass_jerDown_)); }
     b_FatJet_mass_jerUp_ = tree->GetBranch("FatJet_mass_jerUp");
-    if (b_FatJet_mass_jerUp_) { b_FatJet_mass_jerUp_->SetAddress(FatJet_mass_jerUp_.grow(nanoBufLen(b_FatJet_mass_jerUp_))); }
+    if (b_FatJet_mass_jerUp_) { b_FatJet_mass_jerUp_->SetAddress(FatJet_mass_jerUp_.growFor(b_FatJet_mass_jerUp_)); }
     b_FatJet_mass_jesTotalDown_ = tree->GetBranch("FatJet_mass_jesTotalDown");
-    if (b_FatJet_mass_jesTotalDown_) { b_FatJet_mass_jesTotalDown_->SetAddress(FatJet_mass_jesTotalDown_.grow(nanoBufLen(b_FatJet_mass_jesTotalDown_))); }
+    if (b_FatJet_mass_jesTotalDown_) { b_FatJet_mass_jesTotalDown_->SetAddress(FatJet_mass_jesTotalDown_.growFor(b_FatJet_mass_jesTotalDown_)); }
     b_FatJet_mass_jesTotalUp_ = tree->GetBranch("FatJet_mass_jesTotalUp");
-    if (b_FatJet_mass_jesTotalUp_) { b_FatJet_mass_jesTotalUp_->SetAddress(FatJet_mass_jesTotalUp_.grow(nanoBufLen(b_FatJet_mass_jesTotalUp_))); }
+    if (b_FatJet_mass_jesTotalUp_) { b_FatJet_mass_jesTotalUp_->SetAddress(FatJet_mass_jesTotalUp_.growFor(b_FatJet_mass_jesTotalUp_)); }
     b_FatJet_mass_jmrDown_ = tree->GetBranch("FatJet_mass_jmrDown");
-    if (b_FatJet_mass_jmrDown_) { b_FatJet_mass_jmrDown_->SetAddress(FatJet_mass_jmrDown_.grow(nanoBufLen(b_FatJet_mass_jmrDown_))); }
+    if (b_FatJet_mass_jmrDown_) { b_FatJet_mass_jmrDown_->SetAddress(FatJet_mass_jmrDown_.growFor(b_FatJet_mass_jmrDown_)); }
     b_FatJet_mass_jmrUp_ = tree->GetBranch("FatJet_mass_jmrUp");
-    if (b_FatJet_mass_jmrUp_) { b_FatJet_mass_jmrUp_->SetAddress(FatJet_mass_jmrUp_.grow(nanoBufLen(b_FatJet_mass_jmrUp_))); }
+    if (b_FatJet_mass_jmrUp_) { b_FatJet_mass_jmrUp_->SetAddress(FatJet_mass_jmrUp_.growFor(b_FatJet_mass_jmrUp_)); }
     b_FatJet_mass_jmsDown_ = tree->GetBranch("FatJet_mass_jmsDown");
-    if (b_FatJet_mass_jmsDown_) { b_FatJet_mass_jmsDown_->SetAddress(FatJet_mass_jmsDown_.grow(nanoBufLen(b_FatJet_mass_jmsDown_))); }
+    if (b_FatJet_mass_jmsDown_) { b_FatJet_mass_jmsDown_->SetAddress(FatJet_mass_jmsDown_.growFor(b_FatJet_mass_jmsDown_)); }
     b_FatJet_mass_jmsUp_ = tree->GetBranch("FatJet_mass_jmsUp");
-    if (b_FatJet_mass_jmsUp_) { b_FatJet_mass_jmsUp_->SetAddress(FatJet_mass_jmsUp_.grow(nanoBufLen(b_FatJet_mass_jmsUp_))); }
+    if (b_FatJet_mass_jmsUp_) { b_FatJet_mass_jmsUp_->SetAddress(FatJet_mass_jmsUp_.growFor(b_FatJet_mass_jmsUp_)); }
     b_FatJet_mass_nom_ = tree->GetBranch("FatJet_mass_nom");
-    if (b_FatJet_mass_nom_) { b_FatJet_mass_nom_->SetAddress(FatJet_mass_nom_.grow(nanoBufLen(b_FatJet_mass_nom_))); }
+    if (b_FatJet_mass_nom_) { b_FatJet_mass_nom_->SetAddress(FatJet_mass_nom_.growFor(b_FatJet_mass_nom_)); }
     b_FatJet_mass_raw_ = tree->GetBranch("FatJet_mass_raw");
-    if (b_FatJet_mass_raw_) { b_FatJet_mass_raw_->SetAddress(FatJet_mass_raw_.grow(nanoBufLen(b_FatJet_mass_raw_))); }
+    if (b_FatJet_mass_raw_) { b_FatJet_mass_raw_->SetAddress(FatJet_mass_raw_.growFor(b_FatJet_mass_raw_)); }
     b_FatJet_msoftdrop_ = tree->GetBranch("FatJet_msoftdrop");
-    if (b_FatJet_msoftdrop_) { b_FatJet_msoftdrop_->SetAddress(FatJet_msoftdrop_.grow(nanoBufLen(b_FatJet_msoftdrop_))); }
+    if (b_FatJet_msoftdrop_) { b_FatJet_msoftdrop_->SetAddress(FatJet_msoftdrop_.growFor(b_FatJet_msoftdrop_)); }
     b_FatJet_msoftdrop_corr_JMR_ = tree->GetBranch("FatJet_msoftdrop_corr_JMR");
-    if (b_FatJet_msoftdrop_corr_JMR_) { b_FatJet_msoftdrop_corr_JMR_->SetAddress(FatJet_msoftdrop_corr_JMR_.grow(nanoBufLen(b_FatJet_msoftdrop_corr_JMR_))); }
+    if (b_FatJet_msoftdrop_corr_JMR_) { b_FatJet_msoftdrop_corr_JMR_->SetAddress(FatJet_msoftdrop_corr_JMR_.growFor(b_FatJet_msoftdrop_corr_JMR_)); }
     b_FatJet_msoftdrop_corr_JMS_ = tree->GetBranch("FatJet_msoftdrop_corr_JMS");
-    if (b_FatJet_msoftdrop_corr_JMS_) { b_FatJet_msoftdrop_corr_JMS_->SetAddress(FatJet_msoftdrop_corr_JMS_.grow(nanoBufLen(b_FatJet_msoftdrop_corr_JMS_))); }
+    if (b_FatJet_msoftdrop_corr_JMS_) { b_FatJet_msoftdrop_corr_JMS_->SetAddress(FatJet_msoftdrop_corr_JMS_.growFor(b_FatJet_msoftdrop_corr_JMS_)); }
     b_FatJet_msoftdrop_corr_PUPPI_ = tree->GetBranch("FatJet_msoftdrop_corr_PUPPI");
-    if (b_FatJet_msoftdrop_corr_PUPPI_) { b_FatJet_msoftdrop_corr_PUPPI_->SetAddress(FatJet_msoftdrop_corr_PUPPI_.grow(nanoBufLen(b_FatJet_msoftdrop_corr_PUPPI_))); }
+    if (b_FatJet_msoftdrop_corr_PUPPI_) { b_FatJet_msoftdrop_corr_PUPPI_->SetAddress(FatJet_msoftdrop_corr_PUPPI_.growFor(b_FatJet_msoftdrop_corr_PUPPI_)); }
     b_FatJet_msoftdrop_jerDown_ = tree->GetBranch("FatJet_msoftdrop_jerDown");
-    if (b_FatJet_msoftdrop_jerDown_) { b_FatJet_msoftdrop_jerDown_->SetAddress(FatJet_msoftdrop_jerDown_.grow(nanoBufLen(b_FatJet_msoftdrop_jerDown_))); }
+    if (b_FatJet_msoftdrop_jerDown_) { b_FatJet_msoftdrop_jerDown_->SetAddress(FatJet_msoftdrop_jerDown_.growFor(b_FatJet_msoftdrop_jerDown_)); }
     b_FatJet_msoftdrop_jerUp_ = tree->GetBranch("FatJet_msoftdrop_jerUp");
-    if (b_FatJet_msoftdrop_jerUp_) { b_FatJet_msoftdrop_jerUp_->SetAddress(FatJet_msoftdrop_jerUp_.grow(nanoBufLen(b_FatJet_msoftdrop_jerUp_))); }
+    if (b_FatJet_msoftdrop_jerUp_) { b_FatJet_msoftdrop_jerUp_->SetAddress(FatJet_msoftdrop_jerUp_.growFor(b_FatJet_msoftdrop_jerUp_)); }
     b_FatJet_msoftdrop_jesTotalDown_ = tree->GetBranch("FatJet_msoftdrop_jesTotalDown");
-    if (b_FatJet_msoftdrop_jesTotalDown_) { b_FatJet_msoftdrop_jesTotalDown_->SetAddress(FatJet_msoftdrop_jesTotalDown_.grow(nanoBufLen(b_FatJet_msoftdrop_jesTotalDown_))); }
+    if (b_FatJet_msoftdrop_jesTotalDown_) { b_FatJet_msoftdrop_jesTotalDown_->SetAddress(FatJet_msoftdrop_jesTotalDown_.growFor(b_FatJet_msoftdrop_jesTotalDown_)); }
     b_FatJet_msoftdrop_jesTotalUp_ = tree->GetBranch("FatJet_msoftdrop_jesTotalUp");
-    if (b_FatJet_msoftdrop_jesTotalUp_) { b_FatJet_msoftdrop_jesTotalUp_->SetAddress(FatJet_msoftdrop_jesTotalUp_.grow(nanoBufLen(b_FatJet_msoftdrop_jesTotalUp_))); }
+    if (b_FatJet_msoftdrop_jesTotalUp_) { b_FatJet_msoftdrop_jesTotalUp_->SetAddress(FatJet_msoftdrop_jesTotalUp_.growFor(b_FatJet_msoftdrop_jesTotalUp_)); }
     b_FatJet_msoftdrop_jmrDown_ = tree->GetBranch("FatJet_msoftdrop_jmrDown");
-    if (b_FatJet_msoftdrop_jmrDown_) { b_FatJet_msoftdrop_jmrDown_->SetAddress(FatJet_msoftdrop_jmrDown_.grow(nanoBufLen(b_FatJet_msoftdrop_jmrDown_))); }
+    if (b_FatJet_msoftdrop_jmrDown_) { b_FatJet_msoftdrop_jmrDown_->SetAddress(FatJet_msoftdrop_jmrDown_.growFor(b_FatJet_msoftdrop_jmrDown_)); }
     b_FatJet_msoftdrop_jmrUp_ = tree->GetBranch("FatJet_msoftdrop_jmrUp");
-    if (b_FatJet_msoftdrop_jmrUp_) { b_FatJet_msoftdrop_jmrUp_->SetAddress(FatJet_msoftdrop_jmrUp_.grow(nanoBufLen(b_FatJet_msoftdrop_jmrUp_))); }
+    if (b_FatJet_msoftdrop_jmrUp_) { b_FatJet_msoftdrop_jmrUp_->SetAddress(FatJet_msoftdrop_jmrUp_.growFor(b_FatJet_msoftdrop_jmrUp_)); }
     b_FatJet_msoftdrop_jmsDown_ = tree->GetBranch("FatJet_msoftdrop_jmsDown");
-    if (b_FatJet_msoftdrop_jmsDown_) { b_FatJet_msoftdrop_jmsDown_->SetAddress(FatJet_msoftdrop_jmsDown_.grow(nanoBufLen(b_FatJet_msoftdrop_jmsDown_))); }
+    if (b_FatJet_msoftdrop_jmsDown_) { b_FatJet_msoftdrop_jmsDown_->SetAddress(FatJet_msoftdrop_jmsDown_.growFor(b_FatJet_msoftdrop_jmsDown_)); }
     b_FatJet_msoftdrop_jmsUp_ = tree->GetBranch("FatJet_msoftdrop_jmsUp");
-    if (b_FatJet_msoftdrop_jmsUp_) { b_FatJet_msoftdrop_jmsUp_->SetAddress(FatJet_msoftdrop_jmsUp_.grow(nanoBufLen(b_FatJet_msoftdrop_jmsUp_))); }
+    if (b_FatJet_msoftdrop_jmsUp_) { b_FatJet_msoftdrop_jmsUp_->SetAddress(FatJet_msoftdrop_jmsUp_.growFor(b_FatJet_msoftdrop_jmsUp_)); }
     b_FatJet_msoftdrop_nom_ = tree->GetBranch("FatJet_msoftdrop_nom");
-    if (b_FatJet_msoftdrop_nom_) { b_FatJet_msoftdrop_nom_->SetAddress(FatJet_msoftdrop_nom_.grow(nanoBufLen(b_FatJet_msoftdrop_nom_))); }
+    if (b_FatJet_msoftdrop_nom_) { b_FatJet_msoftdrop_nom_->SetAddress(FatJet_msoftdrop_nom_.growFor(b_FatJet_msoftdrop_nom_)); }
     b_FatJet_msoftdrop_raw_ = tree->GetBranch("FatJet_msoftdrop_raw");
-    if (b_FatJet_msoftdrop_raw_) { b_FatJet_msoftdrop_raw_->SetAddress(FatJet_msoftdrop_raw_.grow(nanoBufLen(b_FatJet_msoftdrop_raw_))); }
+    if (b_FatJet_msoftdrop_raw_) { b_FatJet_msoftdrop_raw_->SetAddress(FatJet_msoftdrop_raw_.growFor(b_FatJet_msoftdrop_raw_)); }
     b_FatJet_msoftdrop_tau21DDT_jerDown_ = tree->GetBranch("FatJet_msoftdrop_tau21DDT_jerDown");
-    if (b_FatJet_msoftdrop_tau21DDT_jerDown_) { b_FatJet_msoftdrop_tau21DDT_jerDown_->SetAddress(FatJet_msoftdrop_tau21DDT_jerDown_.grow(nanoBufLen(b_FatJet_msoftdrop_tau21DDT_jerDown_))); }
+    if (b_FatJet_msoftdrop_tau21DDT_jerDown_) { b_FatJet_msoftdrop_tau21DDT_jerDown_->SetAddress(FatJet_msoftdrop_tau21DDT_jerDown_.growFor(b_FatJet_msoftdrop_tau21DDT_jerDown_)); }
     b_FatJet_msoftdrop_tau21DDT_jerUp_ = tree->GetBranch("FatJet_msoftdrop_tau21DDT_jerUp");
-    if (b_FatJet_msoftdrop_tau21DDT_jerUp_) { b_FatJet_msoftdrop_tau21DDT_jerUp_->SetAddress(FatJet_msoftdrop_tau21DDT_jerUp_.grow(nanoBufLen(b_FatJet_msoftdrop_tau21DDT_jerUp_))); }
+    if (b_FatJet_msoftdrop_tau21DDT_jerUp_) { b_FatJet_msoftdrop_tau21DDT_jerUp_->SetAddress(FatJet_msoftdrop_tau21DDT_jerUp_.growFor(b_FatJet_msoftdrop_tau21DDT_jerUp_)); }
     b_FatJet_msoftdrop_tau21DDT_jmrDown_ = tree->GetBranch("FatJet_msoftdrop_tau21DDT_jmrDown");
-    if (b_FatJet_msoftdrop_tau21DDT_jmrDown_) { b_FatJet_msoftdrop_tau21DDT_jmrDown_->SetAddress(FatJet_msoftdrop_tau21DDT_jmrDown_.grow(nanoBufLen(b_FatJet_msoftdrop_tau21DDT_jmrDown_))); }
+    if (b_FatJet_msoftdrop_tau21DDT_jmrDown_) { b_FatJet_msoftdrop_tau21DDT_jmrDown_->SetAddress(FatJet_msoftdrop_tau21DDT_jmrDown_.growFor(b_FatJet_msoftdrop_tau21DDT_jmrDown_)); }
     b_FatJet_msoftdrop_tau21DDT_jmrUp_ = tree->GetBranch("FatJet_msoftdrop_tau21DDT_jmrUp");
-    if (b_FatJet_msoftdrop_tau21DDT_jmrUp_) { b_FatJet_msoftdrop_tau21DDT_jmrUp_->SetAddress(FatJet_msoftdrop_tau21DDT_jmrUp_.grow(nanoBufLen(b_FatJet_msoftdrop_tau21DDT_jmrUp_))); }
+    if (b_FatJet_msoftdrop_tau21DDT_jmrUp_) { b_FatJet_msoftdrop_tau21DDT_jmrUp_->SetAddress(FatJet_msoftdrop_tau21DDT_jmrUp_.growFor(b_FatJet_msoftdrop_tau21DDT_jmrUp_)); }
     b_FatJet_msoftdrop_tau21DDT_jmsDown_ = tree->GetBranch("FatJet_msoftdrop_tau21DDT_jmsDown");
-    if (b_FatJet_msoftdrop_tau21DDT_jmsDown_) { b_FatJet_msoftdrop_tau21DDT_jmsDown_->SetAddress(FatJet_msoftdrop_tau21DDT_jmsDown_.grow(nanoBufLen(b_FatJet_msoftdrop_tau21DDT_jmsDown_))); }
+    if (b_FatJet_msoftdrop_tau21DDT_jmsDown_) { b_FatJet_msoftdrop_tau21DDT_jmsDown_->SetAddress(FatJet_msoftdrop_tau21DDT_jmsDown_.growFor(b_FatJet_msoftdrop_tau21DDT_jmsDown_)); }
     b_FatJet_msoftdrop_tau21DDT_jmsUp_ = tree->GetBranch("FatJet_msoftdrop_tau21DDT_jmsUp");
-    if (b_FatJet_msoftdrop_tau21DDT_jmsUp_) { b_FatJet_msoftdrop_tau21DDT_jmsUp_->SetAddress(FatJet_msoftdrop_tau21DDT_jmsUp_.grow(nanoBufLen(b_FatJet_msoftdrop_tau21DDT_jmsUp_))); }
+    if (b_FatJet_msoftdrop_tau21DDT_jmsUp_) { b_FatJet_msoftdrop_tau21DDT_jmsUp_->SetAddress(FatJet_msoftdrop_tau21DDT_jmsUp_.growFor(b_FatJet_msoftdrop_tau21DDT_jmsUp_)); }
     b_FatJet_msoftdrop_tau21DDT_nom_ = tree->GetBranch("FatJet_msoftdrop_tau21DDT_nom");
-    if (b_FatJet_msoftdrop_tau21DDT_nom_) { b_FatJet_msoftdrop_tau21DDT_nom_->SetAddress(FatJet_msoftdrop_tau21DDT_nom_.grow(nanoBufLen(b_FatJet_msoftdrop_tau21DDT_nom_))); }
+    if (b_FatJet_msoftdrop_tau21DDT_nom_) { b_FatJet_msoftdrop_tau21DDT_nom_->SetAddress(FatJet_msoftdrop_tau21DDT_nom_.growFor(b_FatJet_msoftdrop_tau21DDT_nom_)); }
     b_FatJet_muonIdx3SJ_ = tree->GetBranch("FatJet_muonIdx3SJ");
-    if (b_FatJet_muonIdx3SJ_) { b_FatJet_muonIdx3SJ_->SetAddress(FatJet_muonIdx3SJ_.grow(nanoBufLen(b_FatJet_muonIdx3SJ_))); }
+    if (b_FatJet_muonIdx3SJ_) { b_FatJet_muonIdx3SJ_->SetAddress(FatJet_muonIdx3SJ_.growFor(b_FatJet_muonIdx3SJ_)); }
     b_FatJet_n2b1_ = tree->GetBranch("FatJet_n2b1");
-    if (b_FatJet_n2b1_) { b_FatJet_n2b1_->SetAddress(FatJet_n2b1_.grow(nanoBufLen(b_FatJet_n2b1_))); }
+    if (b_FatJet_n2b1_) { b_FatJet_n2b1_->SetAddress(FatJet_n2b1_.growFor(b_FatJet_n2b1_)); }
     b_FatJet_n3b1_ = tree->GetBranch("FatJet_n3b1");
-    if (b_FatJet_n3b1_) { b_FatJet_n3b1_->SetAddress(FatJet_n3b1_.grow(nanoBufLen(b_FatJet_n3b1_))); }
+    if (b_FatJet_n3b1_) { b_FatJet_n3b1_->SetAddress(FatJet_n3b1_.growFor(b_FatJet_n3b1_)); }
     b_FatJet_nBHadrons_ = tree->GetBranch("FatJet_nBHadrons");
-    if (b_FatJet_nBHadrons_) { b_FatJet_nBHadrons_->SetAddress(FatJet_nBHadrons_.grow(nanoBufLen(b_FatJet_nBHadrons_))); }
+    if (b_FatJet_nBHadrons_) { b_FatJet_nBHadrons_->SetAddress(FatJet_nBHadrons_.growFor(b_FatJet_nBHadrons_)); }
     b_FatJet_nCHadrons_ = tree->GetBranch("FatJet_nCHadrons");
-    if (b_FatJet_nCHadrons_) { b_FatJet_nCHadrons_->SetAddress(FatJet_nCHadrons_.grow(nanoBufLen(b_FatJet_nCHadrons_))); }
+    if (b_FatJet_nCHadrons_) { b_FatJet_nCHadrons_->SetAddress(FatJet_nCHadrons_.growFor(b_FatJet_nCHadrons_)); }
     b_FatJet_nConstituents_ = tree->GetBranch("FatJet_nConstituents");
-    if (b_FatJet_nConstituents_) { b_FatJet_nConstituents_->SetAddress(FatJet_nConstituents_.grow(nanoBufLen(b_FatJet_nConstituents_))); }
+    if (b_FatJet_nConstituents_) { b_FatJet_nConstituents_->SetAddress(FatJet_nConstituents_.growFor(b_FatJet_nConstituents_)); }
     b_FatJet_particleNetMD_QCD_ = tree->GetBranch("FatJet_particleNetMD_QCD");
-    if (b_FatJet_particleNetMD_QCD_) { b_FatJet_particleNetMD_QCD_->SetAddress(FatJet_particleNetMD_QCD_.grow(nanoBufLen(b_FatJet_particleNetMD_QCD_))); }
+    if (b_FatJet_particleNetMD_QCD_) { b_FatJet_particleNetMD_QCD_->SetAddress(FatJet_particleNetMD_QCD_.growFor(b_FatJet_particleNetMD_QCD_)); }
     b_FatJet_particleNetMD_Xbb_ = tree->GetBranch("FatJet_particleNetMD_Xbb");
-    if (b_FatJet_particleNetMD_Xbb_) { b_FatJet_particleNetMD_Xbb_->SetAddress(FatJet_particleNetMD_Xbb_.grow(nanoBufLen(b_FatJet_particleNetMD_Xbb_))); }
+    if (b_FatJet_particleNetMD_Xbb_) { b_FatJet_particleNetMD_Xbb_->SetAddress(FatJet_particleNetMD_Xbb_.growFor(b_FatJet_particleNetMD_Xbb_)); }
     b_FatJet_particleNetMD_Xcc_ = tree->GetBranch("FatJet_particleNetMD_Xcc");
-    if (b_FatJet_particleNetMD_Xcc_) { b_FatJet_particleNetMD_Xcc_->SetAddress(FatJet_particleNetMD_Xcc_.grow(nanoBufLen(b_FatJet_particleNetMD_Xcc_))); }
+    if (b_FatJet_particleNetMD_Xcc_) { b_FatJet_particleNetMD_Xcc_->SetAddress(FatJet_particleNetMD_Xcc_.growFor(b_FatJet_particleNetMD_Xcc_)); }
     b_FatJet_particleNetMD_Xqq_ = tree->GetBranch("FatJet_particleNetMD_Xqq");
-    if (b_FatJet_particleNetMD_Xqq_) { b_FatJet_particleNetMD_Xqq_->SetAddress(FatJet_particleNetMD_Xqq_.grow(nanoBufLen(b_FatJet_particleNetMD_Xqq_))); }
+    if (b_FatJet_particleNetMD_Xqq_) { b_FatJet_particleNetMD_Xqq_->SetAddress(FatJet_particleNetMD_Xqq_.growFor(b_FatJet_particleNetMD_Xqq_)); }
     b_FatJet_particleNet_H4qvsQCD_ = tree->GetBranch("FatJet_particleNet_H4qvsQCD");
-    if (b_FatJet_particleNet_H4qvsQCD_) { b_FatJet_particleNet_H4qvsQCD_->SetAddress(FatJet_particleNet_H4qvsQCD_.grow(nanoBufLen(b_FatJet_particleNet_H4qvsQCD_))); }
+    if (b_FatJet_particleNet_H4qvsQCD_) { b_FatJet_particleNet_H4qvsQCD_->SetAddress(FatJet_particleNet_H4qvsQCD_.growFor(b_FatJet_particleNet_H4qvsQCD_)); }
     b_FatJet_particleNet_HbbvsQCD_ = tree->GetBranch("FatJet_particleNet_HbbvsQCD");
-    if (b_FatJet_particleNet_HbbvsQCD_) { b_FatJet_particleNet_HbbvsQCD_->SetAddress(FatJet_particleNet_HbbvsQCD_.grow(nanoBufLen(b_FatJet_particleNet_HbbvsQCD_))); }
+    if (b_FatJet_particleNet_HbbvsQCD_) { b_FatJet_particleNet_HbbvsQCD_->SetAddress(FatJet_particleNet_HbbvsQCD_.growFor(b_FatJet_particleNet_HbbvsQCD_)); }
     b_FatJet_particleNet_HccvsQCD_ = tree->GetBranch("FatJet_particleNet_HccvsQCD");
-    if (b_FatJet_particleNet_HccvsQCD_) { b_FatJet_particleNet_HccvsQCD_->SetAddress(FatJet_particleNet_HccvsQCD_.grow(nanoBufLen(b_FatJet_particleNet_HccvsQCD_))); }
+    if (b_FatJet_particleNet_HccvsQCD_) { b_FatJet_particleNet_HccvsQCD_->SetAddress(FatJet_particleNet_HccvsQCD_.growFor(b_FatJet_particleNet_HccvsQCD_)); }
     b_FatJet_particleNet_QCD_ = tree->GetBranch("FatJet_particleNet_QCD");
-    if (b_FatJet_particleNet_QCD_) { b_FatJet_particleNet_QCD_->SetAddress(FatJet_particleNet_QCD_.grow(nanoBufLen(b_FatJet_particleNet_QCD_))); }
+    if (b_FatJet_particleNet_QCD_) { b_FatJet_particleNet_QCD_->SetAddress(FatJet_particleNet_QCD_.growFor(b_FatJet_particleNet_QCD_)); }
     b_FatJet_particleNet_TvsQCD_ = tree->GetBranch("FatJet_particleNet_TvsQCD");
-    if (b_FatJet_particleNet_TvsQCD_) { b_FatJet_particleNet_TvsQCD_->SetAddress(FatJet_particleNet_TvsQCD_.grow(nanoBufLen(b_FatJet_particleNet_TvsQCD_))); }
+    if (b_FatJet_particleNet_TvsQCD_) { b_FatJet_particleNet_TvsQCD_->SetAddress(FatJet_particleNet_TvsQCD_.growFor(b_FatJet_particleNet_TvsQCD_)); }
     b_FatJet_particleNet_WvsQCD_ = tree->GetBranch("FatJet_particleNet_WvsQCD");
-    if (b_FatJet_particleNet_WvsQCD_) { b_FatJet_particleNet_WvsQCD_->SetAddress(FatJet_particleNet_WvsQCD_.grow(nanoBufLen(b_FatJet_particleNet_WvsQCD_))); }
+    if (b_FatJet_particleNet_WvsQCD_) { b_FatJet_particleNet_WvsQCD_->SetAddress(FatJet_particleNet_WvsQCD_.growFor(b_FatJet_particleNet_WvsQCD_)); }
     b_FatJet_particleNet_ZvsQCD_ = tree->GetBranch("FatJet_particleNet_ZvsQCD");
-    if (b_FatJet_particleNet_ZvsQCD_) { b_FatJet_particleNet_ZvsQCD_->SetAddress(FatJet_particleNet_ZvsQCD_.grow(nanoBufLen(b_FatJet_particleNet_ZvsQCD_))); }
+    if (b_FatJet_particleNet_ZvsQCD_) { b_FatJet_particleNet_ZvsQCD_->SetAddress(FatJet_particleNet_ZvsQCD_.growFor(b_FatJet_particleNet_ZvsQCD_)); }
     b_FatJet_particleNet_mass_ = tree->GetBranch("FatJet_particleNet_mass");
-    if (b_FatJet_particleNet_mass_) { b_FatJet_particleNet_mass_->SetAddress(FatJet_particleNet_mass_.grow(nanoBufLen(b_FatJet_particleNet_mass_))); }
+    if (b_FatJet_particleNet_mass_) { b_FatJet_particleNet_mass_->SetAddress(FatJet_particleNet_mass_.growFor(b_FatJet_particleNet_mass_)); }
     b_FatJet_phi_ = tree->GetBranch("FatJet_phi");
-    if (b_FatJet_phi_) { b_FatJet_phi_->SetAddress(FatJet_phi_.grow(nanoBufLen(b_FatJet_phi_))); }
+    if (b_FatJet_phi_) { b_FatJet_phi_->SetAddress(FatJet_phi_.growFor(b_FatJet_phi_)); }
     b_FatJet_pt_ = tree->GetBranch("FatJet_pt");
-    if (b_FatJet_pt_) { b_FatJet_pt_->SetAddress(FatJet_pt_.grow(nanoBufLen(b_FatJet_pt_))); }
+    if (b_FatJet_pt_) { b_FatJet_pt_->SetAddress(FatJet_pt_.growFor(b_FatJet_pt_)); }
     b_FatJet_pt_jerDown_ = tree->GetBranch("FatJet_pt_jerDown");
-    if (b_FatJet_pt_jerDown_) { b_FatJet_pt_jerDown_->SetAddress(FatJet_pt_jerDown_.grow(nanoBufLen(b_FatJet_pt_jerDown_))); }
+    if (b_FatJet_pt_jerDown_) { b_FatJet_pt_jerDown_->SetAddress(FatJet_pt_jerDown_.growFor(b_FatJet_pt_jerDown_)); }
     b_FatJet_pt_jerUp_ = tree->GetBranch("FatJet_pt_jerUp");
-    if (b_FatJet_pt_jerUp_) { b_FatJet_pt_jerUp_->SetAddress(FatJet_pt_jerUp_.grow(nanoBufLen(b_FatJet_pt_jerUp_))); }
+    if (b_FatJet_pt_jerUp_) { b_FatJet_pt_jerUp_->SetAddress(FatJet_pt_jerUp_.growFor(b_FatJet_pt_jerUp_)); }
     b_FatJet_pt_jesTotalDown_ = tree->GetBranch("FatJet_pt_jesTotalDown");
-    if (b_FatJet_pt_jesTotalDown_) { b_FatJet_pt_jesTotalDown_->SetAddress(FatJet_pt_jesTotalDown_.grow(nanoBufLen(b_FatJet_pt_jesTotalDown_))); }
+    if (b_FatJet_pt_jesTotalDown_) { b_FatJet_pt_jesTotalDown_->SetAddress(FatJet_pt_jesTotalDown_.growFor(b_FatJet_pt_jesTotalDown_)); }
     b_FatJet_pt_jesTotalUp_ = tree->GetBranch("FatJet_pt_jesTotalUp");
-    if (b_FatJet_pt_jesTotalUp_) { b_FatJet_pt_jesTotalUp_->SetAddress(FatJet_pt_jesTotalUp_.grow(nanoBufLen(b_FatJet_pt_jesTotalUp_))); }
+    if (b_FatJet_pt_jesTotalUp_) { b_FatJet_pt_jesTotalUp_->SetAddress(FatJet_pt_jesTotalUp_.growFor(b_FatJet_pt_jesTotalUp_)); }
     b_FatJet_pt_nom_ = tree->GetBranch("FatJet_pt_nom");
-    if (b_FatJet_pt_nom_) { b_FatJet_pt_nom_->SetAddress(FatJet_pt_nom_.grow(nanoBufLen(b_FatJet_pt_nom_))); }
+    if (b_FatJet_pt_nom_) { b_FatJet_pt_nom_->SetAddress(FatJet_pt_nom_.growFor(b_FatJet_pt_nom_)); }
     b_FatJet_pt_raw_ = tree->GetBranch("FatJet_pt_raw");
-    if (b_FatJet_pt_raw_) { b_FatJet_pt_raw_->SetAddress(FatJet_pt_raw_.grow(nanoBufLen(b_FatJet_pt_raw_))); }
+    if (b_FatJet_pt_raw_) { b_FatJet_pt_raw_->SetAddress(FatJet_pt_raw_.growFor(b_FatJet_pt_raw_)); }
     b_FatJet_rawFactor_ = tree->GetBranch("FatJet_rawFactor");
-    if (b_FatJet_rawFactor_) { b_FatJet_rawFactor_->SetAddress(FatJet_rawFactor_.grow(nanoBufLen(b_FatJet_rawFactor_))); }
+    if (b_FatJet_rawFactor_) { b_FatJet_rawFactor_->SetAddress(FatJet_rawFactor_.growFor(b_FatJet_rawFactor_)); }
     b_FatJet_subJetIdx1_ = tree->GetBranch("FatJet_subJetIdx1");
-    if (b_FatJet_subJetIdx1_) { b_FatJet_subJetIdx1_->SetAddress(FatJet_subJetIdx1_.grow(nanoBufLen(b_FatJet_subJetIdx1_))); }
+    if (b_FatJet_subJetIdx1_) { b_FatJet_subJetIdx1_->SetAddress(FatJet_subJetIdx1_.growFor(b_FatJet_subJetIdx1_)); }
     b_FatJet_subJetIdx2_ = tree->GetBranch("FatJet_subJetIdx2");
-    if (b_FatJet_subJetIdx2_) { b_FatJet_subJetIdx2_->SetAddress(FatJet_subJetIdx2_.grow(nanoBufLen(b_FatJet_subJetIdx2_))); }
+    if (b_FatJet_subJetIdx2_) { b_FatJet_subJetIdx2_->SetAddress(FatJet_subJetIdx2_.growFor(b_FatJet_subJetIdx2_)); }
     b_FatJet_tau1_ = tree->GetBranch("FatJet_tau1");
-    if (b_FatJet_tau1_) { b_FatJet_tau1_->SetAddress(FatJet_tau1_.grow(nanoBufLen(b_FatJet_tau1_))); }
+    if (b_FatJet_tau1_) { b_FatJet_tau1_->SetAddress(FatJet_tau1_.growFor(b_FatJet_tau1_)); }
     b_FatJet_tau2_ = tree->GetBranch("FatJet_tau2");
-    if (b_FatJet_tau2_) { b_FatJet_tau2_->SetAddress(FatJet_tau2_.grow(nanoBufLen(b_FatJet_tau2_))); }
+    if (b_FatJet_tau2_) { b_FatJet_tau2_->SetAddress(FatJet_tau2_.growFor(b_FatJet_tau2_)); }
     b_FatJet_tau3_ = tree->GetBranch("FatJet_tau3");
-    if (b_FatJet_tau3_) { b_FatJet_tau3_->SetAddress(FatJet_tau3_.grow(nanoBufLen(b_FatJet_tau3_))); }
+    if (b_FatJet_tau3_) { b_FatJet_tau3_->SetAddress(FatJet_tau3_.growFor(b_FatJet_tau3_)); }
     b_FatJet_tau4_ = tree->GetBranch("FatJet_tau4");
-    if (b_FatJet_tau4_) { b_FatJet_tau4_->SetAddress(FatJet_tau4_.grow(nanoBufLen(b_FatJet_tau4_))); }
+    if (b_FatJet_tau4_) { b_FatJet_tau4_->SetAddress(FatJet_tau4_.growFor(b_FatJet_tau4_)); }
     b_Flag_BadChargedCandidateFilter_ = tree->GetBranch("Flag_BadChargedCandidateFilter");
     if (b_Flag_BadChargedCandidateFilter_) { b_Flag_BadChargedCandidateFilter_->SetAddress(&Flag_BadChargedCandidateFilter_); }
     b_Flag_BadChargedCandidateFilter_pRECO_ = tree->GetBranch("Flag_BadChargedCandidateFilter_pRECO");
@@ -619,107 +619,107 @@ void Nano::Init(TTree *tree) {
     b_Flag_trkPOG_toomanystripclus53X_pRECO_ = tree->GetBranch("Flag_trkPOG_toomanystripclus53X_pRECO");
     if (b_Flag_trkPOG_toomanystripclus53X_pRECO_) { b_Flag_trkPOG_toomanystripclus53X_pRECO_->SetAddress(&Flag_trkPOG_toomanystripclus53X_pRECO_); }
     b_FsrPhoton_dROverEt2_ = tree->GetBranch("FsrPhoton_dROverEt2");
-    if (b_FsrPhoton_dROverEt2_) { b_FsrPhoton_dROverEt2_->SetAddress(FsrPhoton_dROverEt2_.grow(nanoBufLen(b_FsrPhoton_dROverEt2_))); }
+    if (b_FsrPhoton_dROverEt2_) { b_FsrPhoton_dROverEt2_->SetAddress(FsrPhoton_dROverEt2_.growFor(b_FsrPhoton_dROverEt2_)); }
     b_FsrPhoton_electronIdx_ = tree->GetBranch("FsrPhoton_electronIdx");
-    if (b_FsrPhoton_electronIdx_) { b_FsrPhoton_electronIdx_->SetAddress(FsrPhoton_electronIdx_.grow(nanoBufLen(b_FsrPhoton_electronIdx_))); }
+    if (b_FsrPhoton_electronIdx_) { b_FsrPhoton_electronIdx_->SetAddress(FsrPhoton_electronIdx_.growFor(b_FsrPhoton_electronIdx_)); }
     b_FsrPhoton_eta_ = tree->GetBranch("FsrPhoton_eta");
-    if (b_FsrPhoton_eta_) { b_FsrPhoton_eta_->SetAddress(FsrPhoton_eta_.grow(nanoBufLen(b_FsrPhoton_eta_))); }
+    if (b_FsrPhoton_eta_) { b_FsrPhoton_eta_->SetAddress(FsrPhoton_eta_.growFor(b_FsrPhoton_eta_)); }
     b_FsrPhoton_muonIdx_ = tree->GetBranch("FsrPhoton_muonIdx");
-    if (b_FsrPhoton_muonIdx_) { b_FsrPhoton_muonIdx_->SetAddress(FsrPhoton_muonIdx_.grow(nanoBufLen(b_FsrPhoton_muonIdx_))); }
+    if (b_FsrPhoton_muonIdx_) { b_FsrPhoton_muonIdx_->SetAddress(FsrPhoton_muonIdx_.growFor(b_FsrPhoton_muonIdx_)); }
     b_FsrPhoton_phi_ = tree->GetBranch("FsrPhoton_phi");
-    if (b_FsrPhoton_phi_) { b_FsrPhoton_phi_->SetAddress(FsrPhoton_phi_.grow(nanoBufLen(b_FsrPhoton_phi_))); }
+    if (b_FsrPhoton_phi_) { b_FsrPhoton_phi_->SetAddress(FsrPhoton_phi_.growFor(b_FsrPhoton_phi_)); }
     b_FsrPhoton_pt_ = tree->GetBranch("FsrPhoton_pt");
-    if (b_FsrPhoton_pt_) { b_FsrPhoton_pt_->SetAddress(FsrPhoton_pt_.grow(nanoBufLen(b_FsrPhoton_pt_))); }
+    if (b_FsrPhoton_pt_) { b_FsrPhoton_pt_->SetAddress(FsrPhoton_pt_.growFor(b_FsrPhoton_pt_)); }
     b_FsrPhoton_relIso03_ = tree->GetBranch("FsrPhoton_relIso03");
-    if (b_FsrPhoton_relIso03_) { b_FsrPhoton_relIso03_->SetAddress(FsrPhoton_relIso03_.grow(nanoBufLen(b_FsrPhoton_relIso03_))); }
+    if (b_FsrPhoton_relIso03_) { b_FsrPhoton_relIso03_->SetAddress(FsrPhoton_relIso03_.growFor(b_FsrPhoton_relIso03_)); }
     b_GenDressedLepton_eta_ = tree->GetBranch("GenDressedLepton_eta");
-    if (b_GenDressedLepton_eta_) { b_GenDressedLepton_eta_->SetAddress(GenDressedLepton_eta_.grow(nanoBufLen(b_GenDressedLepton_eta_))); }
+    if (b_GenDressedLepton_eta_) { b_GenDressedLepton_eta_->SetAddress(GenDressedLepton_eta_.growFor(b_GenDressedLepton_eta_)); }
     b_GenDressedLepton_hasTauAnc_ = tree->GetBranch("GenDressedLepton_hasTauAnc");
-    if (b_GenDressedLepton_hasTauAnc_) { b_GenDressedLepton_hasTauAnc_->SetAddress(GenDressedLepton_hasTauAnc_.grow(nanoBufLen(b_GenDressedLepton_hasTauAnc_))); }
+    if (b_GenDressedLepton_hasTauAnc_) { b_GenDressedLepton_hasTauAnc_->SetAddress(GenDressedLepton_hasTauAnc_.growFor(b_GenDressedLepton_hasTauAnc_)); }
     b_GenDressedLepton_mass_ = tree->GetBranch("GenDressedLepton_mass");
-    if (b_GenDressedLepton_mass_) { b_GenDressedLepton_mass_->SetAddress(GenDressedLepton_mass_.grow(nanoBufLen(b_GenDressedLepton_mass_))); }
+    if (b_GenDressedLepton_mass_) { b_GenDressedLepton_mass_->SetAddress(GenDressedLepton_mass_.growFor(b_GenDressedLepton_mass_)); }
     b_GenDressedLepton_pdgId_ = tree->GetBranch("GenDressedLepton_pdgId");
-    if (b_GenDressedLepton_pdgId_) { b_GenDressedLepton_pdgId_->SetAddress(GenDressedLepton_pdgId_.grow(nanoBufLen(b_GenDressedLepton_pdgId_))); }
+    if (b_GenDressedLepton_pdgId_) { b_GenDressedLepton_pdgId_->SetAddress(GenDressedLepton_pdgId_.growFor(b_GenDressedLepton_pdgId_)); }
     b_GenDressedLepton_phi_ = tree->GetBranch("GenDressedLepton_phi");
-    if (b_GenDressedLepton_phi_) { b_GenDressedLepton_phi_->SetAddress(GenDressedLepton_phi_.grow(nanoBufLen(b_GenDressedLepton_phi_))); }
+    if (b_GenDressedLepton_phi_) { b_GenDressedLepton_phi_->SetAddress(GenDressedLepton_phi_.growFor(b_GenDressedLepton_phi_)); }
     b_GenDressedLepton_pt_ = tree->GetBranch("GenDressedLepton_pt");
-    if (b_GenDressedLepton_pt_) { b_GenDressedLepton_pt_->SetAddress(GenDressedLepton_pt_.grow(nanoBufLen(b_GenDressedLepton_pt_))); }
+    if (b_GenDressedLepton_pt_) { b_GenDressedLepton_pt_->SetAddress(GenDressedLepton_pt_.growFor(b_GenDressedLepton_pt_)); }
     b_GenIsolatedPhoton_eta_ = tree->GetBranch("GenIsolatedPhoton_eta");
-    if (b_GenIsolatedPhoton_eta_) { b_GenIsolatedPhoton_eta_->SetAddress(GenIsolatedPhoton_eta_.grow(nanoBufLen(b_GenIsolatedPhoton_eta_))); }
+    if (b_GenIsolatedPhoton_eta_) { b_GenIsolatedPhoton_eta_->SetAddress(GenIsolatedPhoton_eta_.growFor(b_GenIsolatedPhoton_eta_)); }
     b_GenIsolatedPhoton_mass_ = tree->GetBranch("GenIsolatedPhoton_mass");
-    if (b_GenIsolatedPhoton_mass_) { b_GenIsolatedPhoton_mass_->SetAddress(GenIsolatedPhoton_mass_.grow(nanoBufLen(b_GenIsolatedPhoton_mass_))); }
+    if (b_GenIsolatedPhoton_mass_) { b_GenIsolatedPhoton_mass_->SetAddress(GenIsolatedPhoton_mass_.growFor(b_GenIsolatedPhoton_mass_)); }
     b_GenIsolatedPhoton_phi_ = tree->GetBranch("GenIsolatedPhoton_phi");
-    if (b_GenIsolatedPhoton_phi_) { b_GenIsolatedPhoton_phi_->SetAddress(GenIsolatedPhoton_phi_.grow(nanoBufLen(b_GenIsolatedPhoton_phi_))); }
+    if (b_GenIsolatedPhoton_phi_) { b_GenIsolatedPhoton_phi_->SetAddress(GenIsolatedPhoton_phi_.growFor(b_GenIsolatedPhoton_phi_)); }
     b_GenIsolatedPhoton_pt_ = tree->GetBranch("GenIsolatedPhoton_pt");
-    if (b_GenIsolatedPhoton_pt_) { b_GenIsolatedPhoton_pt_->SetAddress(GenIsolatedPhoton_pt_.grow(nanoBufLen(b_GenIsolatedPhoton_pt_))); }
+    if (b_GenIsolatedPhoton_pt_) { b_GenIsolatedPhoton_pt_->SetAddress(GenIsolatedPhoton_pt_.growFor(b_GenIsolatedPhoton_pt_)); }
     b_GenJetAK8_eta_ = tree->GetBranch("GenJetAK8_eta");
-    if (b_GenJetAK8_eta_) { b_GenJetAK8_eta_->SetAddress(GenJetAK8_eta_.grow(nanoBufLen(b_GenJetAK8_eta_))); }
+    if (b_GenJetAK8_eta_) { b_GenJetAK8_eta_->SetAddress(GenJetAK8_eta_.growFor(b_GenJetAK8_eta_)); }
     b_GenJetAK8_hadronFlavour_ = tree->GetBranch("GenJetAK8_hadronFlavour");
-    if (b_GenJetAK8_hadronFlavour_) { b_GenJetAK8_hadronFlavour_->SetAddress(GenJetAK8_hadronFlavour_.grow(nanoBufLen(b_GenJetAK8_hadronFlavour_))); }
+    if (b_GenJetAK8_hadronFlavour_) { b_GenJetAK8_hadronFlavour_->SetAddress(GenJetAK8_hadronFlavour_.growFor(b_GenJetAK8_hadronFlavour_)); }
     b_GenJetAK8_mass_ = tree->GetBranch("GenJetAK8_mass");
-    if (b_GenJetAK8_mass_) { b_GenJetAK8_mass_->SetAddress(GenJetAK8_mass_.grow(nanoBufLen(b_GenJetAK8_mass_))); }
+    if (b_GenJetAK8_mass_) { b_GenJetAK8_mass_->SetAddress(GenJetAK8_mass_.growFor(b_GenJetAK8_mass_)); }
     b_GenJetAK8_partonFlavour_ = tree->GetBranch("GenJetAK8_partonFlavour");
-    if (b_GenJetAK8_partonFlavour_) { b_GenJetAK8_partonFlavour_->SetAddress(GenJetAK8_partonFlavour_.grow(nanoBufLen(b_GenJetAK8_partonFlavour_))); }
+    if (b_GenJetAK8_partonFlavour_) { b_GenJetAK8_partonFlavour_->SetAddress(GenJetAK8_partonFlavour_.growFor(b_GenJetAK8_partonFlavour_)); }
     b_GenJetAK8_phi_ = tree->GetBranch("GenJetAK8_phi");
-    if (b_GenJetAK8_phi_) { b_GenJetAK8_phi_->SetAddress(GenJetAK8_phi_.grow(nanoBufLen(b_GenJetAK8_phi_))); }
+    if (b_GenJetAK8_phi_) { b_GenJetAK8_phi_->SetAddress(GenJetAK8_phi_.growFor(b_GenJetAK8_phi_)); }
     b_GenJetAK8_pt_ = tree->GetBranch("GenJetAK8_pt");
-    if (b_GenJetAK8_pt_) { b_GenJetAK8_pt_->SetAddress(GenJetAK8_pt_.grow(nanoBufLen(b_GenJetAK8_pt_))); }
+    if (b_GenJetAK8_pt_) { b_GenJetAK8_pt_->SetAddress(GenJetAK8_pt_.growFor(b_GenJetAK8_pt_)); }
     b_GenJet_eta_ = tree->GetBranch("GenJet_eta");
-    if (b_GenJet_eta_) { b_GenJet_eta_->SetAddress(GenJet_eta_.grow(nanoBufLen(b_GenJet_eta_))); }
+    if (b_GenJet_eta_) { b_GenJet_eta_->SetAddress(GenJet_eta_.growFor(b_GenJet_eta_)); }
     b_GenJet_hadronFlavour_ = tree->GetBranch("GenJet_hadronFlavour");
-    if (b_GenJet_hadronFlavour_) { b_GenJet_hadronFlavour_->SetAddress(GenJet_hadronFlavour_.grow(nanoBufLen(b_GenJet_hadronFlavour_))); }
+    if (b_GenJet_hadronFlavour_) { b_GenJet_hadronFlavour_->SetAddress(GenJet_hadronFlavour_.growFor(b_GenJet_hadronFlavour_)); }
     b_GenJet_mass_ = tree->GetBranch("GenJet_mass");
-    if (b_GenJet_mass_) { b_GenJet_mass_->SetAddress(GenJet_mass_.grow(nanoBufLen(b_GenJet_mass_))); }
+    if (b_GenJet_mass_) { b_GenJet_mass_->SetAddress(GenJet_mass_.growFor(b_GenJet_mass_)); }
     b_GenJet_partonFlavour_ = tree->GetBranch("GenJet_partonFlavour");
-    if (b_GenJet_partonFlavour_) { b_GenJet_partonFlavour_->SetAddress(GenJet_partonFlavour_.grow(nanoBufLen(b_GenJet_partonFlavour_))); }
+    if (b_GenJet_partonFlavour_) { b_GenJet_partonFlavour_->SetAddress(GenJet_partonFlavour_.growFor(b_GenJet_partonFlavour_)); }
     b_GenJet_phi_ = tree->GetBranch("GenJet_phi");
-    if (b_GenJet_phi_) { b_GenJet_phi_->SetAddress(GenJet_phi_.grow(nanoBufLen(b_GenJet_phi_))); }
+    if (b_GenJet_phi_) { b_GenJet_phi_->SetAddress(GenJet_phi_.growFor(b_GenJet_phi_)); }
     b_GenJet_pt_ = tree->GetBranch("GenJet_pt");
-    if (b_GenJet_pt_) { b_GenJet_pt_->SetAddress(GenJet_pt_.grow(nanoBufLen(b_GenJet_pt_))); }
+    if (b_GenJet_pt_) { b_GenJet_pt_->SetAddress(GenJet_pt_.growFor(b_GenJet_pt_)); }
     b_GenMET_phi_ = tree->GetBranch("GenMET_phi");
     if (b_GenMET_phi_) { b_GenMET_phi_->SetAddress(&GenMET_phi_); }
     b_GenMET_pt_ = tree->GetBranch("GenMET_pt");
     if (b_GenMET_pt_) { b_GenMET_pt_->SetAddress(&GenMET_pt_); }
     b_GenPart_eta_ = tree->GetBranch("GenPart_eta");
-    if (b_GenPart_eta_) { b_GenPart_eta_->SetAddress(GenPart_eta_.grow(nanoBufLen(b_GenPart_eta_))); }
+    if (b_GenPart_eta_) { b_GenPart_eta_->SetAddress(GenPart_eta_.growFor(b_GenPart_eta_)); }
     b_GenPart_genPartIdxMother_ = tree->GetBranch("GenPart_genPartIdxMother");
-    if (b_GenPart_genPartIdxMother_) { b_GenPart_genPartIdxMother_->SetAddress(GenPart_genPartIdxMother_.grow(nanoBufLen(b_GenPart_genPartIdxMother_))); }
+    if (b_GenPart_genPartIdxMother_) { b_GenPart_genPartIdxMother_->SetAddress(GenPart_genPartIdxMother_.growFor(b_GenPart_genPartIdxMother_)); }
     b_GenPart_mass_ = tree->GetBranch("GenPart_mass");
-    if (b_GenPart_mass_) { b_GenPart_mass_->SetAddress(GenPart_mass_.grow(nanoBufLen(b_GenPart_mass_))); }
+    if (b_GenPart_mass_) { b_GenPart_mass_->SetAddress(GenPart_mass_.growFor(b_GenPart_mass_)); }
     b_GenPart_pdgId_ = tree->GetBranch("GenPart_pdgId");
-    if (b_GenPart_pdgId_) { b_GenPart_pdgId_->SetAddress(GenPart_pdgId_.grow(nanoBufLen(b_GenPart_pdgId_))); }
+    if (b_GenPart_pdgId_) { b_GenPart_pdgId_->SetAddress(GenPart_pdgId_.growFor(b_GenPart_pdgId_)); }
     b_GenPart_phi_ = tree->GetBranch("GenPart_phi");
-    if (b_GenPart_phi_) { b_GenPart_phi_->SetAddress(GenPart_phi_.grow(nanoBufLen(b_GenPart_phi_))); }
+    if (b_GenPart_phi_) { b_GenPart_phi_->SetAddress(GenPart_phi_.growFor(b_GenPart_phi_)); }
     b_GenPart_pt_ = tree->GetBranch("GenPart_pt");
-    if (b_GenPart_pt_) { b_GenPart_pt_->SetAddress(GenPart_pt_.grow(nanoBufLen(b_GenPart_pt_))); }
+    if (b_GenPart_pt_) { b_GenPart_pt_->SetAddress(GenPart_pt_.growFor(b_GenPart_pt_)); }
     b_GenPart_status_ = tree->GetBranch("GenPart_status");
-    if (b_GenPart_status_) { b_GenPart_status_->SetAddress(GenPart_status_.grow(nanoBufLen(b_GenPart_status_))); }
+    if (b_GenPart_status_) { b_GenPart_status_->SetAddress(GenPart_status_.growFor(b_GenPart_status_)); }
     b_GenPart_statusFlags_ = tree->GetBranch("GenPart_statusFlags");
-    if (b_GenPart_statusFlags_) { b_GenPart_statusFlags_->SetAddress(GenPart_statusFlags_.grow(nanoBufLen(b_GenPart_statusFlags_))); }
+    if (b_GenPart_statusFlags_) { b_GenPart_statusFlags_->SetAddress(GenPart_statusFlags_.growFor(b_GenPart_statusFlags_)); }
     b_GenProton_isPU_ = tree->GetBranch("GenProton_isPU");
-    if (b_GenProton_isPU_) { b_GenProton_isPU_->SetAddress(GenProton_isPU_.grow(nanoBufLen(b_GenProton_isPU_))); }
+    if (b_GenProton_isPU_) { b_GenProton_isPU_->SetAddress(GenProton_isPU_.growFor(b_GenProton_isPU_)); }
     b_GenProton_px_ = tree->GetBranch("GenProton_px");
-    if (b_GenProton_px_) { b_GenProton_px_->SetAddress(GenProton_px_.grow(nanoBufLen(b_GenProton_px_))); }
+    if (b_GenProton_px_) { b_GenProton_px_->SetAddress(GenProton_px_.growFor(b_GenProton_px_)); }
     b_GenProton_py_ = tree->GetBranch("GenProton_py");
-    if (b_GenProton_py_) { b_GenProton_py_->SetAddress(GenProton_py_.grow(nanoBufLen(b_GenProton_py_))); }
+    if (b_GenProton_py_) { b_GenProton_py_->SetAddress(GenProton_py_.growFor(b_GenProton_py_)); }
     b_GenProton_pz_ = tree->GetBranch("GenProton_pz");
-    if (b_GenProton_pz_) { b_GenProton_pz_->SetAddress(GenProton_pz_.grow(nanoBufLen(b_GenProton_pz_))); }
+    if (b_GenProton_pz_) { b_GenProton_pz_->SetAddress(GenProton_pz_.growFor(b_GenProton_pz_)); }
     b_GenProton_vz_ = tree->GetBranch("GenProton_vz");
-    if (b_GenProton_vz_) { b_GenProton_vz_->SetAddress(GenProton_vz_.grow(nanoBufLen(b_GenProton_vz_))); }
+    if (b_GenProton_vz_) { b_GenProton_vz_->SetAddress(GenProton_vz_.growFor(b_GenProton_vz_)); }
     b_GenVisTau_charge_ = tree->GetBranch("GenVisTau_charge");
-    if (b_GenVisTau_charge_) { b_GenVisTau_charge_->SetAddress(GenVisTau_charge_.grow(nanoBufLen(b_GenVisTau_charge_))); }
+    if (b_GenVisTau_charge_) { b_GenVisTau_charge_->SetAddress(GenVisTau_charge_.growFor(b_GenVisTau_charge_)); }
     b_GenVisTau_eta_ = tree->GetBranch("GenVisTau_eta");
-    if (b_GenVisTau_eta_) { b_GenVisTau_eta_->SetAddress(GenVisTau_eta_.grow(nanoBufLen(b_GenVisTau_eta_))); }
+    if (b_GenVisTau_eta_) { b_GenVisTau_eta_->SetAddress(GenVisTau_eta_.growFor(b_GenVisTau_eta_)); }
     b_GenVisTau_genPartIdxMother_ = tree->GetBranch("GenVisTau_genPartIdxMother");
-    if (b_GenVisTau_genPartIdxMother_) { b_GenVisTau_genPartIdxMother_->SetAddress(GenVisTau_genPartIdxMother_.grow(nanoBufLen(b_GenVisTau_genPartIdxMother_))); }
+    if (b_GenVisTau_genPartIdxMother_) { b_GenVisTau_genPartIdxMother_->SetAddress(GenVisTau_genPartIdxMother_.growFor(b_GenVisTau_genPartIdxMother_)); }
     b_GenVisTau_mass_ = tree->GetBranch("GenVisTau_mass");
-    if (b_GenVisTau_mass_) { b_GenVisTau_mass_->SetAddress(GenVisTau_mass_.grow(nanoBufLen(b_GenVisTau_mass_))); }
+    if (b_GenVisTau_mass_) { b_GenVisTau_mass_->SetAddress(GenVisTau_mass_.growFor(b_GenVisTau_mass_)); }
     b_GenVisTau_phi_ = tree->GetBranch("GenVisTau_phi");
-    if (b_GenVisTau_phi_) { b_GenVisTau_phi_->SetAddress(GenVisTau_phi_.grow(nanoBufLen(b_GenVisTau_phi_))); }
+    if (b_GenVisTau_phi_) { b_GenVisTau_phi_->SetAddress(GenVisTau_phi_.growFor(b_GenVisTau_phi_)); }
     b_GenVisTau_pt_ = tree->GetBranch("GenVisTau_pt");
-    if (b_GenVisTau_pt_) { b_GenVisTau_pt_->SetAddress(GenVisTau_pt_.grow(nanoBufLen(b_GenVisTau_pt_))); }
+    if (b_GenVisTau_pt_) { b_GenVisTau_pt_->SetAddress(GenVisTau_pt_.growFor(b_GenVisTau_pt_)); }
     b_GenVisTau_status_ = tree->GetBranch("GenVisTau_status");
-    if (b_GenVisTau_status_) { b_GenVisTau_status_->SetAddress(GenVisTau_status_.grow(nanoBufLen(b_GenVisTau_status_))); }
+    if (b_GenVisTau_status_) { b_GenVisTau_status_->SetAddress(GenVisTau_status_.growFor(b_GenVisTau_status_)); }
     b_GenVtx_t0_ = tree->GetBranch("GenVtx_t0");
     if (b_GenVtx_t0_) { b_GenVtx_t0_->SetAddress(&GenVtx_t0_); }
     b_GenVtx_x_ = tree->GetBranch("GenVtx_x");
@@ -3807,179 +3807,179 @@ void Nano::Init(TTree *tree) {
     b_HTXS_stage_1_pTjet30_ = tree->GetBranch("HTXS_stage_1_pTjet30");
     if (b_HTXS_stage_1_pTjet30_) { b_HTXS_stage_1_pTjet30_->SetAddress(&HTXS_stage_1_pTjet30_); }
     b_IsoTrack_charge_ = tree->GetBranch("IsoTrack_charge");
-    if (b_IsoTrack_charge_) { b_IsoTrack_charge_->SetAddress(IsoTrack_charge_.grow(nanoBufLen(b_IsoTrack_charge_))); }
+    if (b_IsoTrack_charge_) { b_IsoTrack_charge_->SetAddress(IsoTrack_charge_.growFor(b_IsoTrack_charge_)); }
     b_IsoTrack_dxy_ = tree->GetBranch("IsoTrack_dxy");
-    if (b_IsoTrack_dxy_) { b_IsoTrack_dxy_->SetAddress(IsoTrack_dxy_.grow(nanoBufLen(b_IsoTrack_dxy_))); }
+    if (b_IsoTrack_dxy_) { b_IsoTrack_dxy_->SetAddress(IsoTrack_dxy_.growFor(b_IsoTrack_dxy_)); }
     b_IsoTrack_dz_ = tree->GetBranch("IsoTrack_dz");
-    if (b_IsoTrack_dz_) { b_IsoTrack_dz_->SetAddress(IsoTrack_dz_.grow(nanoBufLen(b_IsoTrack_dz_))); }
+    if (b_IsoTrack_dz_) { b_IsoTrack_dz_->SetAddress(IsoTrack_dz_.growFor(b_IsoTrack_dz_)); }
     b_IsoTrack_eta_ = tree->GetBranch("IsoTrack_eta");
-    if (b_IsoTrack_eta_) { b_IsoTrack_eta_->SetAddress(IsoTrack_eta_.grow(nanoBufLen(b_IsoTrack_eta_))); }
+    if (b_IsoTrack_eta_) { b_IsoTrack_eta_->SetAddress(IsoTrack_eta_.growFor(b_IsoTrack_eta_)); }
     b_IsoTrack_fromPV_ = tree->GetBranch("IsoTrack_fromPV");
-    if (b_IsoTrack_fromPV_) { b_IsoTrack_fromPV_->SetAddress(IsoTrack_fromPV_.grow(nanoBufLen(b_IsoTrack_fromPV_))); }
+    if (b_IsoTrack_fromPV_) { b_IsoTrack_fromPV_->SetAddress(IsoTrack_fromPV_.growFor(b_IsoTrack_fromPV_)); }
     b_IsoTrack_isFromLostTrack_ = tree->GetBranch("IsoTrack_isFromLostTrack");
-    if (b_IsoTrack_isFromLostTrack_) { b_IsoTrack_isFromLostTrack_->SetAddress(IsoTrack_isFromLostTrack_.grow(nanoBufLen(b_IsoTrack_isFromLostTrack_))); }
+    if (b_IsoTrack_isFromLostTrack_) { b_IsoTrack_isFromLostTrack_->SetAddress(IsoTrack_isFromLostTrack_.growFor(b_IsoTrack_isFromLostTrack_)); }
     b_IsoTrack_isHighPurityTrack_ = tree->GetBranch("IsoTrack_isHighPurityTrack");
-    if (b_IsoTrack_isHighPurityTrack_) { b_IsoTrack_isHighPurityTrack_->SetAddress(IsoTrack_isHighPurityTrack_.grow(nanoBufLen(b_IsoTrack_isHighPurityTrack_))); }
+    if (b_IsoTrack_isHighPurityTrack_) { b_IsoTrack_isHighPurityTrack_->SetAddress(IsoTrack_isHighPurityTrack_.growFor(b_IsoTrack_isHighPurityTrack_)); }
     b_IsoTrack_isPFcand_ = tree->GetBranch("IsoTrack_isPFcand");
-    if (b_IsoTrack_isPFcand_) { b_IsoTrack_isPFcand_->SetAddress(IsoTrack_isPFcand_.grow(nanoBufLen(b_IsoTrack_isPFcand_))); }
+    if (b_IsoTrack_isPFcand_) { b_IsoTrack_isPFcand_->SetAddress(IsoTrack_isPFcand_.growFor(b_IsoTrack_isPFcand_)); }
     b_IsoTrack_miniPFRelIso_all_ = tree->GetBranch("IsoTrack_miniPFRelIso_all");
-    if (b_IsoTrack_miniPFRelIso_all_) { b_IsoTrack_miniPFRelIso_all_->SetAddress(IsoTrack_miniPFRelIso_all_.grow(nanoBufLen(b_IsoTrack_miniPFRelIso_all_))); }
+    if (b_IsoTrack_miniPFRelIso_all_) { b_IsoTrack_miniPFRelIso_all_->SetAddress(IsoTrack_miniPFRelIso_all_.growFor(b_IsoTrack_miniPFRelIso_all_)); }
     b_IsoTrack_miniPFRelIso_chg_ = tree->GetBranch("IsoTrack_miniPFRelIso_chg");
-    if (b_IsoTrack_miniPFRelIso_chg_) { b_IsoTrack_miniPFRelIso_chg_->SetAddress(IsoTrack_miniPFRelIso_chg_.grow(nanoBufLen(b_IsoTrack_miniPFRelIso_chg_))); }
+    if (b_IsoTrack_miniPFRelIso_chg_) { b_IsoTrack_miniPFRelIso_chg_->SetAddress(IsoTrack_miniPFRelIso_chg_.growFor(b_IsoTrack_miniPFRelIso_chg_)); }
     b_IsoTrack_pdgId_ = tree->GetBranch("IsoTrack_pdgId");
-    if (b_IsoTrack_pdgId_) { b_IsoTrack_pdgId_->SetAddress(IsoTrack_pdgId_.grow(nanoBufLen(b_IsoTrack_pdgId_))); }
+    if (b_IsoTrack_pdgId_) { b_IsoTrack_pdgId_->SetAddress(IsoTrack_pdgId_.growFor(b_IsoTrack_pdgId_)); }
     b_IsoTrack_pfRelIso03_all_ = tree->GetBranch("IsoTrack_pfRelIso03_all");
-    if (b_IsoTrack_pfRelIso03_all_) { b_IsoTrack_pfRelIso03_all_->SetAddress(IsoTrack_pfRelIso03_all_.grow(nanoBufLen(b_IsoTrack_pfRelIso03_all_))); }
+    if (b_IsoTrack_pfRelIso03_all_) { b_IsoTrack_pfRelIso03_all_->SetAddress(IsoTrack_pfRelIso03_all_.growFor(b_IsoTrack_pfRelIso03_all_)); }
     b_IsoTrack_pfRelIso03_chg_ = tree->GetBranch("IsoTrack_pfRelIso03_chg");
-    if (b_IsoTrack_pfRelIso03_chg_) { b_IsoTrack_pfRelIso03_chg_->SetAddress(IsoTrack_pfRelIso03_chg_.grow(nanoBufLen(b_IsoTrack_pfRelIso03_chg_))); }
+    if (b_IsoTrack_pfRelIso03_chg_) { b_IsoTrack_pfRelIso03_chg_->SetAddress(IsoTrack_pfRelIso03_chg_.growFor(b_IsoTrack_pfRelIso03_chg_)); }
     b_IsoTrack_phi_ = tree->GetBranch("IsoTrack_phi");
-    if (b_IsoTrack_phi_) { b_IsoTrack_phi_->SetAddress(IsoTrack_phi_.grow(nanoBufLen(b_IsoTrack_phi_))); }
+    if (b_IsoTrack_phi_) { b_IsoTrack_phi_->SetAddress(IsoTrack_phi_.growFor(b_IsoTrack_phi_)); }
     b_IsoTrack_pt_ = tree->GetBranch("IsoTrack_pt");
-    if (b_IsoTrack_pt_) { b_IsoTrack_pt_->SetAddress(IsoTrack_pt_.grow(nanoBufLen(b_IsoTrack_pt_))); }
+    if (b_IsoTrack_pt_) { b_IsoTrack_pt_->SetAddress(IsoTrack_pt_.growFor(b_IsoTrack_pt_)); }
     b_Jet_area_ = tree->GetBranch("Jet_area");
-    if (b_Jet_area_) { b_Jet_area_->SetAddress(Jet_area_.grow(nanoBufLen(b_Jet_area_))); }
+    if (b_Jet_area_) { b_Jet_area_->SetAddress(Jet_area_.growFor(b_Jet_area_)); }
     b_Jet_bReg_ = tree->GetBranch("Jet_bReg");
-    if (b_Jet_bReg_) { b_Jet_bReg_->SetAddress(Jet_bReg_.grow(nanoBufLen(b_Jet_bReg_))); }
+    if (b_Jet_bReg_) { b_Jet_bReg_->SetAddress(Jet_bReg_.growFor(b_Jet_bReg_)); }
     b_Jet_bRegCorr_ = tree->GetBranch("Jet_bRegCorr");
-    if (b_Jet_bRegCorr_) { b_Jet_bRegCorr_->SetAddress(Jet_bRegCorr_.grow(nanoBufLen(b_Jet_bRegCorr_))); }
+    if (b_Jet_bRegCorr_) { b_Jet_bRegCorr_->SetAddress(Jet_bRegCorr_.growFor(b_Jet_bRegCorr_)); }
     b_Jet_bRegRes_ = tree->GetBranch("Jet_bRegRes");
-    if (b_Jet_bRegRes_) { b_Jet_bRegRes_->SetAddress(Jet_bRegRes_.grow(nanoBufLen(b_Jet_bRegRes_))); }
+    if (b_Jet_bRegRes_) { b_Jet_bRegRes_->SetAddress(Jet_bRegRes_.growFor(b_Jet_bRegRes_)); }
     b_Jet_btagCMVA_ = tree->GetBranch("Jet_btagCMVA");
-    if (b_Jet_btagCMVA_) { b_Jet_btagCMVA_->SetAddress(Jet_btagCMVA_.grow(nanoBufLen(b_Jet_btagCMVA_))); }
+    if (b_Jet_btagCMVA_) { b_Jet_btagCMVA_->SetAddress(Jet_btagCMVA_.growFor(b_Jet_btagCMVA_)); }
     b_Jet_btagCSVV2_ = tree->GetBranch("Jet_btagCSVV2");
-    if (b_Jet_btagCSVV2_) { b_Jet_btagCSVV2_->SetAddress(Jet_btagCSVV2_.grow(nanoBufLen(b_Jet_btagCSVV2_))); }
+    if (b_Jet_btagCSVV2_) { b_Jet_btagCSVV2_->SetAddress(Jet_btagCSVV2_.growFor(b_Jet_btagCSVV2_)); }
     b_Jet_btagDeepB_ = tree->GetBranch("Jet_btagDeepB");
-    if (b_Jet_btagDeepB_) { b_Jet_btagDeepB_->SetAddress(Jet_btagDeepB_.grow(nanoBufLen(b_Jet_btagDeepB_))); }
+    if (b_Jet_btagDeepB_) { b_Jet_btagDeepB_->SetAddress(Jet_btagDeepB_.growFor(b_Jet_btagDeepB_)); }
     b_Jet_btagDeepC_ = tree->GetBranch("Jet_btagDeepC");
-    if (b_Jet_btagDeepC_) { b_Jet_btagDeepC_->SetAddress(Jet_btagDeepC_.grow(nanoBufLen(b_Jet_btagDeepC_))); }
+    if (b_Jet_btagDeepC_) { b_Jet_btagDeepC_->SetAddress(Jet_btagDeepC_.growFor(b_Jet_btagDeepC_)); }
     b_Jet_btagDeepCvB_ = tree->GetBranch("Jet_btagDeepCvB");
-    if (b_Jet_btagDeepCvB_) { b_Jet_btagDeepCvB_->SetAddress(Jet_btagDeepCvB_.grow(nanoBufLen(b_Jet_btagDeepCvB_))); }
+    if (b_Jet_btagDeepCvB_) { b_Jet_btagDeepCvB_->SetAddress(Jet_btagDeepCvB_.growFor(b_Jet_btagDeepCvB_)); }
     b_Jet_btagDeepCvL_ = tree->GetBranch("Jet_btagDeepCvL");
-    if (b_Jet_btagDeepCvL_) { b_Jet_btagDeepCvL_->SetAddress(Jet_btagDeepCvL_.grow(nanoBufLen(b_Jet_btagDeepCvL_))); }
+    if (b_Jet_btagDeepCvL_) { b_Jet_btagDeepCvL_->SetAddress(Jet_btagDeepCvL_.growFor(b_Jet_btagDeepCvL_)); }
     b_Jet_btagDeepFlavB_ = tree->GetBranch("Jet_btagDeepFlavB");
-    if (b_Jet_btagDeepFlavB_) { b_Jet_btagDeepFlavB_->SetAddress(Jet_btagDeepFlavB_.grow(nanoBufLen(b_Jet_btagDeepFlavB_))); }
+    if (b_Jet_btagDeepFlavB_) { b_Jet_btagDeepFlavB_->SetAddress(Jet_btagDeepFlavB_.growFor(b_Jet_btagDeepFlavB_)); }
     b_Jet_btagDeepFlavC_ = tree->GetBranch("Jet_btagDeepFlavC");
-    if (b_Jet_btagDeepFlavC_) { b_Jet_btagDeepFlavC_->SetAddress(Jet_btagDeepFlavC_.grow(nanoBufLen(b_Jet_btagDeepFlavC_))); }
+    if (b_Jet_btagDeepFlavC_) { b_Jet_btagDeepFlavC_->SetAddress(Jet_btagDeepFlavC_.growFor(b_Jet_btagDeepFlavC_)); }
     b_Jet_btagDeepFlavCvB_ = tree->GetBranch("Jet_btagDeepFlavCvB");
-    if (b_Jet_btagDeepFlavCvB_) { b_Jet_btagDeepFlavCvB_->SetAddress(Jet_btagDeepFlavCvB_.grow(nanoBufLen(b_Jet_btagDeepFlavCvB_))); }
+    if (b_Jet_btagDeepFlavCvB_) { b_Jet_btagDeepFlavCvB_->SetAddress(Jet_btagDeepFlavCvB_.growFor(b_Jet_btagDeepFlavCvB_)); }
     b_Jet_btagDeepFlavCvL_ = tree->GetBranch("Jet_btagDeepFlavCvL");
-    if (b_Jet_btagDeepFlavCvL_) { b_Jet_btagDeepFlavCvL_->SetAddress(Jet_btagDeepFlavCvL_.grow(nanoBufLen(b_Jet_btagDeepFlavCvL_))); }
+    if (b_Jet_btagDeepFlavCvL_) { b_Jet_btagDeepFlavCvL_->SetAddress(Jet_btagDeepFlavCvL_.growFor(b_Jet_btagDeepFlavCvL_)); }
     b_Jet_btagDeepFlavQG_ = tree->GetBranch("Jet_btagDeepFlavQG");
-    if (b_Jet_btagDeepFlavQG_) { b_Jet_btagDeepFlavQG_->SetAddress(Jet_btagDeepFlavQG_.grow(nanoBufLen(b_Jet_btagDeepFlavQG_))); }
+    if (b_Jet_btagDeepFlavQG_) { b_Jet_btagDeepFlavQG_->SetAddress(Jet_btagDeepFlavQG_.growFor(b_Jet_btagDeepFlavQG_)); }
     b_Jet_cRegCorr_ = tree->GetBranch("Jet_cRegCorr");
-    if (b_Jet_cRegCorr_) { b_Jet_cRegCorr_->SetAddress(Jet_cRegCorr_.grow(nanoBufLen(b_Jet_cRegCorr_))); }
+    if (b_Jet_cRegCorr_) { b_Jet_cRegCorr_->SetAddress(Jet_cRegCorr_.growFor(b_Jet_cRegCorr_)); }
     b_Jet_cRegRes_ = tree->GetBranch("Jet_cRegRes");
-    if (b_Jet_cRegRes_) { b_Jet_cRegRes_->SetAddress(Jet_cRegRes_.grow(nanoBufLen(b_Jet_cRegRes_))); }
+    if (b_Jet_cRegRes_) { b_Jet_cRegRes_->SetAddress(Jet_cRegRes_.growFor(b_Jet_cRegRes_)); }
     b_Jet_chEmEF_ = tree->GetBranch("Jet_chEmEF");
-    if (b_Jet_chEmEF_) { b_Jet_chEmEF_->SetAddress(Jet_chEmEF_.grow(nanoBufLen(b_Jet_chEmEF_))); }
+    if (b_Jet_chEmEF_) { b_Jet_chEmEF_->SetAddress(Jet_chEmEF_.growFor(b_Jet_chEmEF_)); }
     b_Jet_chFPV0EF_ = tree->GetBranch("Jet_chFPV0EF");
-    if (b_Jet_chFPV0EF_) { b_Jet_chFPV0EF_->SetAddress(Jet_chFPV0EF_.grow(nanoBufLen(b_Jet_chFPV0EF_))); }
+    if (b_Jet_chFPV0EF_) { b_Jet_chFPV0EF_->SetAddress(Jet_chFPV0EF_.growFor(b_Jet_chFPV0EF_)); }
     b_Jet_chFPV1EF_ = tree->GetBranch("Jet_chFPV1EF");
-    if (b_Jet_chFPV1EF_) { b_Jet_chFPV1EF_->SetAddress(Jet_chFPV1EF_.grow(nanoBufLen(b_Jet_chFPV1EF_))); }
+    if (b_Jet_chFPV1EF_) { b_Jet_chFPV1EF_->SetAddress(Jet_chFPV1EF_.growFor(b_Jet_chFPV1EF_)); }
     b_Jet_chFPV2EF_ = tree->GetBranch("Jet_chFPV2EF");
-    if (b_Jet_chFPV2EF_) { b_Jet_chFPV2EF_->SetAddress(Jet_chFPV2EF_.grow(nanoBufLen(b_Jet_chFPV2EF_))); }
+    if (b_Jet_chFPV2EF_) { b_Jet_chFPV2EF_->SetAddress(Jet_chFPV2EF_.growFor(b_Jet_chFPV2EF_)); }
     b_Jet_chFPV3EF_ = tree->GetBranch("Jet_chFPV3EF");
-    if (b_Jet_chFPV3EF_) { b_Jet_chFPV3EF_->SetAddress(Jet_chFPV3EF_.grow(nanoBufLen(b_Jet_chFPV3EF_))); }
+    if (b_Jet_chFPV3EF_) { b_Jet_chFPV3EF_->SetAddress(Jet_chFPV3EF_.growFor(b_Jet_chFPV3EF_)); }
     b_Jet_chHEF_ = tree->GetBranch("Jet_chHEF");
-    if (b_Jet_chHEF_) { b_Jet_chHEF_->SetAddress(Jet_chHEF_.grow(nanoBufLen(b_Jet_chHEF_))); }
+    if (b_Jet_chHEF_) { b_Jet_chHEF_->SetAddress(Jet_chHEF_.growFor(b_Jet_chHEF_)); }
     b_Jet_cleanmask_ = tree->GetBranch("Jet_cleanmask");
-    if (b_Jet_cleanmask_) { b_Jet_cleanmask_->SetAddress(Jet_cleanmask_.grow(nanoBufLen(b_Jet_cleanmask_))); }
+    if (b_Jet_cleanmask_) { b_Jet_cleanmask_->SetAddress(Jet_cleanmask_.growFor(b_Jet_cleanmask_)); }
     b_Jet_corr_JEC_ = tree->GetBranch("Jet_corr_JEC");
-    if (b_Jet_corr_JEC_) { b_Jet_corr_JEC_->SetAddress(Jet_corr_JEC_.grow(nanoBufLen(b_Jet_corr_JEC_))); }
+    if (b_Jet_corr_JEC_) { b_Jet_corr_JEC_->SetAddress(Jet_corr_JEC_.growFor(b_Jet_corr_JEC_)); }
     b_Jet_corr_JER_ = tree->GetBranch("Jet_corr_JER");
-    if (b_Jet_corr_JER_) { b_Jet_corr_JER_->SetAddress(Jet_corr_JER_.grow(nanoBufLen(b_Jet_corr_JER_))); }
+    if (b_Jet_corr_JER_) { b_Jet_corr_JER_->SetAddress(Jet_corr_JER_.growFor(b_Jet_corr_JER_)); }
     b_Jet_electronIdx1_ = tree->GetBranch("Jet_electronIdx1");
-    if (b_Jet_electronIdx1_) { b_Jet_electronIdx1_->SetAddress(Jet_electronIdx1_.grow(nanoBufLen(b_Jet_electronIdx1_))); }
+    if (b_Jet_electronIdx1_) { b_Jet_electronIdx1_->SetAddress(Jet_electronIdx1_.growFor(b_Jet_electronIdx1_)); }
     b_Jet_electronIdx2_ = tree->GetBranch("Jet_electronIdx2");
-    if (b_Jet_electronIdx2_) { b_Jet_electronIdx2_->SetAddress(Jet_electronIdx2_.grow(nanoBufLen(b_Jet_electronIdx2_))); }
+    if (b_Jet_electronIdx2_) { b_Jet_electronIdx2_->SetAddress(Jet_electronIdx2_.growFor(b_Jet_electronIdx2_)); }
     b_Jet_eta_ = tree->GetBranch("Jet_eta");
-    if (b_Jet_eta_) { b_Jet_eta_->SetAddress(Jet_eta_.grow(nanoBufLen(b_Jet_eta_))); }
+    if (b_Jet_eta_) { b_Jet_eta_->SetAddress(Jet_eta_.growFor(b_Jet_eta_)); }
     b_Jet_genJetIdx_ = tree->GetBranch("Jet_genJetIdx");
-    if (b_Jet_genJetIdx_) { b_Jet_genJetIdx_->SetAddress(Jet_genJetIdx_.grow(nanoBufLen(b_Jet_genJetIdx_))); }
+    if (b_Jet_genJetIdx_) { b_Jet_genJetIdx_->SetAddress(Jet_genJetIdx_.growFor(b_Jet_genJetIdx_)); }
     b_Jet_hadronFlavour_ = tree->GetBranch("Jet_hadronFlavour");
-    if (b_Jet_hadronFlavour_) { b_Jet_hadronFlavour_->SetAddress(Jet_hadronFlavour_.grow(nanoBufLen(b_Jet_hadronFlavour_))); }
+    if (b_Jet_hadronFlavour_) { b_Jet_hadronFlavour_->SetAddress(Jet_hadronFlavour_.growFor(b_Jet_hadronFlavour_)); }
     b_Jet_hfadjacentEtaStripsSize_ = tree->GetBranch("Jet_hfadjacentEtaStripsSize");
-    if (b_Jet_hfadjacentEtaStripsSize_) { b_Jet_hfadjacentEtaStripsSize_->SetAddress(Jet_hfadjacentEtaStripsSize_.grow(nanoBufLen(b_Jet_hfadjacentEtaStripsSize_))); }
+    if (b_Jet_hfadjacentEtaStripsSize_) { b_Jet_hfadjacentEtaStripsSize_->SetAddress(Jet_hfadjacentEtaStripsSize_.growFor(b_Jet_hfadjacentEtaStripsSize_)); }
     b_Jet_hfcentralEtaStripSize_ = tree->GetBranch("Jet_hfcentralEtaStripSize");
-    if (b_Jet_hfcentralEtaStripSize_) { b_Jet_hfcentralEtaStripSize_->SetAddress(Jet_hfcentralEtaStripSize_.grow(nanoBufLen(b_Jet_hfcentralEtaStripSize_))); }
+    if (b_Jet_hfcentralEtaStripSize_) { b_Jet_hfcentralEtaStripSize_->SetAddress(Jet_hfcentralEtaStripSize_.growFor(b_Jet_hfcentralEtaStripSize_)); }
     b_Jet_hfsigmaEtaEta_ = tree->GetBranch("Jet_hfsigmaEtaEta");
-    if (b_Jet_hfsigmaEtaEta_) { b_Jet_hfsigmaEtaEta_->SetAddress(Jet_hfsigmaEtaEta_.grow(nanoBufLen(b_Jet_hfsigmaEtaEta_))); }
+    if (b_Jet_hfsigmaEtaEta_) { b_Jet_hfsigmaEtaEta_->SetAddress(Jet_hfsigmaEtaEta_.growFor(b_Jet_hfsigmaEtaEta_)); }
     b_Jet_hfsigmaPhiPhi_ = tree->GetBranch("Jet_hfsigmaPhiPhi");
-    if (b_Jet_hfsigmaPhiPhi_) { b_Jet_hfsigmaPhiPhi_->SetAddress(Jet_hfsigmaPhiPhi_.grow(nanoBufLen(b_Jet_hfsigmaPhiPhi_))); }
+    if (b_Jet_hfsigmaPhiPhi_) { b_Jet_hfsigmaPhiPhi_->SetAddress(Jet_hfsigmaPhiPhi_.growFor(b_Jet_hfsigmaPhiPhi_)); }
     b_Jet_jetId_ = tree->GetBranch("Jet_jetId");
-    if (b_Jet_jetId_) { b_Jet_jetId_->SetAddress(Jet_jetId_.grow(nanoBufLen(b_Jet_jetId_))); }
+    if (b_Jet_jetId_) { b_Jet_jetId_->SetAddress(Jet_jetId_.growFor(b_Jet_jetId_)); }
     b_Jet_mass_ = tree->GetBranch("Jet_mass");
-    if (b_Jet_mass_) { b_Jet_mass_->SetAddress(Jet_mass_.grow(nanoBufLen(b_Jet_mass_))); }
+    if (b_Jet_mass_) { b_Jet_mass_->SetAddress(Jet_mass_.growFor(b_Jet_mass_)); }
     b_Jet_mass_jerDown_ = tree->GetBranch("Jet_mass_jerDown");
-    if (b_Jet_mass_jerDown_) { b_Jet_mass_jerDown_->SetAddress(Jet_mass_jerDown_.grow(nanoBufLen(b_Jet_mass_jerDown_))); }
+    if (b_Jet_mass_jerDown_) { b_Jet_mass_jerDown_->SetAddress(Jet_mass_jerDown_.growFor(b_Jet_mass_jerDown_)); }
     b_Jet_mass_jerUp_ = tree->GetBranch("Jet_mass_jerUp");
-    if (b_Jet_mass_jerUp_) { b_Jet_mass_jerUp_->SetAddress(Jet_mass_jerUp_.grow(nanoBufLen(b_Jet_mass_jerUp_))); }
+    if (b_Jet_mass_jerUp_) { b_Jet_mass_jerUp_->SetAddress(Jet_mass_jerUp_.growFor(b_Jet_mass_jerUp_)); }
     b_Jet_mass_jesHEMIssueDown_ = tree->GetBranch("Jet_mass_jesHEMIssueDown");
-    if (b_Jet_mass_jesHEMIssueDown_) { b_Jet_mass_jesHEMIssueDown_->SetAddress(Jet_mass_jesHEMIssueDown_.grow(nanoBufLen(b_Jet_mass_jesHEMIssueDown_))); }
+    if (b_Jet_mass_jesHEMIssueDown_) { b_Jet_mass_jesHEMIssueDown_->SetAddress(Jet_mass_jesHEMIssueDown_.growFor(b_Jet_mass_jesHEMIssueDown_)); }
     b_Jet_mass_jesHEMIssueUp_ = tree->GetBranch("Jet_mass_jesHEMIssueUp");
-    if (b_Jet_mass_jesHEMIssueUp_) { b_Jet_mass_jesHEMIssueUp_->SetAddress(Jet_mass_jesHEMIssueUp_.grow(nanoBufLen(b_Jet_mass_jesHEMIssueUp_))); }
+    if (b_Jet_mass_jesHEMIssueUp_) { b_Jet_mass_jesHEMIssueUp_->SetAddress(Jet_mass_jesHEMIssueUp_.growFor(b_Jet_mass_jesHEMIssueUp_)); }
     b_Jet_mass_jesTotalDown_ = tree->GetBranch("Jet_mass_jesTotalDown");
-    if (b_Jet_mass_jesTotalDown_) { b_Jet_mass_jesTotalDown_->SetAddress(Jet_mass_jesTotalDown_.grow(nanoBufLen(b_Jet_mass_jesTotalDown_))); }
+    if (b_Jet_mass_jesTotalDown_) { b_Jet_mass_jesTotalDown_->SetAddress(Jet_mass_jesTotalDown_.growFor(b_Jet_mass_jesTotalDown_)); }
     b_Jet_mass_jesTotalUp_ = tree->GetBranch("Jet_mass_jesTotalUp");
-    if (b_Jet_mass_jesTotalUp_) { b_Jet_mass_jesTotalUp_->SetAddress(Jet_mass_jesTotalUp_.grow(nanoBufLen(b_Jet_mass_jesTotalUp_))); }
+    if (b_Jet_mass_jesTotalUp_) { b_Jet_mass_jesTotalUp_->SetAddress(Jet_mass_jesTotalUp_.growFor(b_Jet_mass_jesTotalUp_)); }
     b_Jet_mass_nom_ = tree->GetBranch("Jet_mass_nom");
-    if (b_Jet_mass_nom_) { b_Jet_mass_nom_->SetAddress(Jet_mass_nom_.grow(nanoBufLen(b_Jet_mass_nom_))); }
+    if (b_Jet_mass_nom_) { b_Jet_mass_nom_->SetAddress(Jet_mass_nom_.growFor(b_Jet_mass_nom_)); }
     b_Jet_mass_raw_ = tree->GetBranch("Jet_mass_raw");
-    if (b_Jet_mass_raw_) { b_Jet_mass_raw_->SetAddress(Jet_mass_raw_.grow(nanoBufLen(b_Jet_mass_raw_))); }
+    if (b_Jet_mass_raw_) { b_Jet_mass_raw_->SetAddress(Jet_mass_raw_.growFor(b_Jet_mass_raw_)); }
     b_Jet_muEF_ = tree->GetBranch("Jet_muEF");
-    if (b_Jet_muEF_) { b_Jet_muEF_->SetAddress(Jet_muEF_.grow(nanoBufLen(b_Jet_muEF_))); }
+    if (b_Jet_muEF_) { b_Jet_muEF_->SetAddress(Jet_muEF_.growFor(b_Jet_muEF_)); }
     b_Jet_muonIdx1_ = tree->GetBranch("Jet_muonIdx1");
-    if (b_Jet_muonIdx1_) { b_Jet_muonIdx1_->SetAddress(Jet_muonIdx1_.grow(nanoBufLen(b_Jet_muonIdx1_))); }
+    if (b_Jet_muonIdx1_) { b_Jet_muonIdx1_->SetAddress(Jet_muonIdx1_.growFor(b_Jet_muonIdx1_)); }
     b_Jet_muonIdx2_ = tree->GetBranch("Jet_muonIdx2");
-    if (b_Jet_muonIdx2_) { b_Jet_muonIdx2_->SetAddress(Jet_muonIdx2_.grow(nanoBufLen(b_Jet_muonIdx2_))); }
+    if (b_Jet_muonIdx2_) { b_Jet_muonIdx2_->SetAddress(Jet_muonIdx2_.growFor(b_Jet_muonIdx2_)); }
     b_Jet_muonSubtrFactor_ = tree->GetBranch("Jet_muonSubtrFactor");
-    if (b_Jet_muonSubtrFactor_) { b_Jet_muonSubtrFactor_->SetAddress(Jet_muonSubtrFactor_.grow(nanoBufLen(b_Jet_muonSubtrFactor_))); }
+    if (b_Jet_muonSubtrFactor_) { b_Jet_muonSubtrFactor_->SetAddress(Jet_muonSubtrFactor_.growFor(b_Jet_muonSubtrFactor_)); }
     b_Jet_nConstituents_ = tree->GetBranch("Jet_nConstituents");
-    if (b_Jet_nConstituents_) { b_Jet_nConstituents_->SetAddress(Jet_nConstituents_.grow(nanoBufLen(b_Jet_nConstituents_))); }
+    if (b_Jet_nConstituents_) { b_Jet_nConstituents_->SetAddress(Jet_nConstituents_.growFor(b_Jet_nConstituents_)); }
     b_Jet_nElectrons_ = tree->GetBranch("Jet_nElectrons");
-    if (b_Jet_nElectrons_) { b_Jet_nElectrons_->SetAddress(Jet_nElectrons_.grow(nanoBufLen(b_Jet_nElectrons_))); }
+    if (b_Jet_nElectrons_) { b_Jet_nElectrons_->SetAddress(Jet_nElectrons_.growFor(b_Jet_nElectrons_)); }
     b_Jet_nMuons_ = tree->GetBranch("Jet_nMuons");
-    if (b_Jet_nMuons_) { b_Jet_nMuons_->SetAddress(Jet_nMuons_.grow(nanoBufLen(b_Jet_nMuons_))); }
+    if (b_Jet_nMuons_) { b_Jet_nMuons_->SetAddress(Jet_nMuons_.growFor(b_Jet_nMuons_)); }
     b_Jet_nSVs_ = tree->GetBranch("Jet_nSVs");
-    if (b_Jet_nSVs_) { b_Jet_nSVs_->SetAddress(Jet_nSVs_.grow(nanoBufLen(b_Jet_nSVs_))); }
+    if (b_Jet_nSVs_) { b_Jet_nSVs_->SetAddress(Jet_nSVs_.growFor(b_Jet_nSVs_)); }
     b_Jet_neEmEF_ = tree->GetBranch("Jet_neEmEF");
-    if (b_Jet_neEmEF_) { b_Jet_neEmEF_->SetAddress(Jet_neEmEF_.grow(nanoBufLen(b_Jet_neEmEF_))); }
+    if (b_Jet_neEmEF_) { b_Jet_neEmEF_->SetAddress(Jet_neEmEF_.growFor(b_Jet_neEmEF_)); }
     b_Jet_neHEF_ = tree->GetBranch("Jet_neHEF");
-    if (b_Jet_neHEF_) { b_Jet_neHEF_->SetAddress(Jet_neHEF_.grow(nanoBufLen(b_Jet_neHEF_))); }
+    if (b_Jet_neHEF_) { b_Jet_neHEF_->SetAddress(Jet_neHEF_.growFor(b_Jet_neHEF_)); }
     b_Jet_partonFlavour_ = tree->GetBranch("Jet_partonFlavour");
-    if (b_Jet_partonFlavour_) { b_Jet_partonFlavour_->SetAddress(Jet_partonFlavour_.grow(nanoBufLen(b_Jet_partonFlavour_))); }
+    if (b_Jet_partonFlavour_) { b_Jet_partonFlavour_->SetAddress(Jet_partonFlavour_.growFor(b_Jet_partonFlavour_)); }
     b_Jet_phi_ = tree->GetBranch("Jet_phi");
-    if (b_Jet_phi_) { b_Jet_phi_->SetAddress(Jet_phi_.grow(nanoBufLen(b_Jet_phi_))); }
+    if (b_Jet_phi_) { b_Jet_phi_->SetAddress(Jet_phi_.growFor(b_Jet_phi_)); }
     b_Jet_pt_ = tree->GetBranch("Jet_pt");
-    if (b_Jet_pt_) { b_Jet_pt_->SetAddress(Jet_pt_.grow(nanoBufLen(b_Jet_pt_))); }
+    if (b_Jet_pt_) { b_Jet_pt_->SetAddress(Jet_pt_.growFor(b_Jet_pt_)); }
     b_Jet_pt_jerDown_ = tree->GetBranch("Jet_pt_jerDown");
-    if (b_Jet_pt_jerDown_) { b_Jet_pt_jerDown_->SetAddress(Jet_pt_jerDown_.grow(nanoBufLen(b_Jet_pt_jerDown_))); }
+    if (b_Jet_pt_jerDown_) { b_Jet_pt_jerDown_->SetAddress(Jet_pt_jerDown_.growFor(b_Jet_pt_jerDown_)); }
     b_Jet_pt_jerUp_ = tree->GetBranch("Jet_pt_jerUp");
-    if (b_Jet_pt_jerUp_) { b_Jet_pt_jerUp_->SetAddress(Jet_pt_jerUp_.grow(nanoBufLen(b_Jet_pt_jerUp_))); }
+    if (b_Jet_pt_jerUp_) { b_Jet_pt_jerUp_->SetAddress(Jet_pt_jerUp_.growFor(b_Jet_pt_jerUp_)); }
     b_Jet_pt_jesHEMIssueDown_ = tree->GetBranch("Jet_pt_jesHEMIssueDown");
-    if (b_Jet_pt_jesHEMIssueDown_) { b_Jet_pt_jesHEMIssueDown_->SetAddress(Jet_pt_jesHEMIssueDown_.grow(nanoBufLen(b_Jet_pt_jesHEMIssueDown_))); }
+    if (b_Jet_pt_jesHEMIssueDown_) { b_Jet_pt_jesHEMIssueDown_->SetAddress(Jet_pt_jesHEMIssueDown_.growFor(b_Jet_pt_jesHEMIssueDown_)); }
     b_Jet_pt_jesHEMIssueUp_ = tree->GetBranch("Jet_pt_jesHEMIssueUp");
-    if (b_Jet_pt_jesHEMIssueUp_) { b_Jet_pt_jesHEMIssueUp_->SetAddress(Jet_pt_jesHEMIssueUp_.grow(nanoBufLen(b_Jet_pt_jesHEMIssueUp_))); }
+    if (b_Jet_pt_jesHEMIssueUp_) { b_Jet_pt_jesHEMIssueUp_->SetAddress(Jet_pt_jesHEMIssueUp_.growFor(b_Jet_pt_jesHEMIssueUp_)); }
     b_Jet_pt_jesTotalDown_ = tree->GetBranch("Jet_pt_jesTotalDown");
-    if (b_Jet_pt_jesTotalDown_) { b_Jet_pt_jesTotalDown_->SetAddress(Jet_pt_jesTotalDown_.grow(nanoBufLen(b_Jet_pt_jesTotalDown_))); }
+    if (b_Jet_pt_jesTotalDown_) { b_Jet_pt_jesTotalDown_->SetAddress(Jet_pt_jesTotalDown_.growFor(b_Jet_pt_jesTotalDown_)); }
     b_Jet_pt_jesTotalUp_ = tree->GetBranch("Jet_pt_jesTotalUp");
-    if (b_Jet_pt_jesTotalUp_) { b_Jet_pt_jesTotalUp_->SetAddress(Jet_pt_jesTotalUp_.grow(nanoBufLen(b_Jet_pt_jesTotalUp_))); }
+    if (b_Jet_pt_jesTotalUp_) { b_Jet_pt_jesTotalUp_->SetAddress(Jet_pt_jesTotalUp_.growFor(b_Jet_pt_jesTotalUp_)); }
     b_Jet_pt_nom_ = tree->GetBranch("Jet_pt_nom");
-    if (b_Jet_pt_nom_) { b_Jet_pt_nom_->SetAddress(Jet_pt_nom_.grow(nanoBufLen(b_Jet_pt_nom_))); }
+    if (b_Jet_pt_nom_) { b_Jet_pt_nom_->SetAddress(Jet_pt_nom_.growFor(b_Jet_pt_nom_)); }
     b_Jet_pt_raw_ = tree->GetBranch("Jet_pt_raw");
-    if (b_Jet_pt_raw_) { b_Jet_pt_raw_->SetAddress(Jet_pt_raw_.grow(nanoBufLen(b_Jet_pt_raw_))); }
+    if (b_Jet_pt_raw_) { b_Jet_pt_raw_->SetAddress(Jet_pt_raw_.growFor(b_Jet_pt_raw_)); }
     b_Jet_puId_ = tree->GetBranch("Jet_puId");
-    if (b_Jet_puId_) { b_Jet_puId_->SetAddress(Jet_puId_.grow(nanoBufLen(b_Jet_puId_))); }
+    if (b_Jet_puId_) { b_Jet_puId_->SetAddress(Jet_puId_.growFor(b_Jet_puId_)); }
     b_Jet_puIdDisc_ = tree->GetBranch("Jet_puIdDisc");
-    if (b_Jet_puIdDisc_) { b_Jet_puIdDisc_->SetAddress(Jet_puIdDisc_.grow(nanoBufLen(b_Jet_puIdDisc_))); }
+    if (b_Jet_puIdDisc_) { b_Jet_puIdDisc_->SetAddress(Jet_puIdDisc_.growFor(b_Jet_puIdDisc_)); }
     b_Jet_qgl_ = tree->GetBranch("Jet_qgl");
-    if (b_Jet_qgl_) { b_Jet_qgl_->SetAddress(Jet_qgl_.grow(nanoBufLen(b_Jet_qgl_))); }
+    if (b_Jet_qgl_) { b_Jet_qgl_->SetAddress(Jet_qgl_.growFor(b_Jet_qgl_)); }
     b_Jet_rawFactor_ = tree->GetBranch("Jet_rawFactor");
-    if (b_Jet_rawFactor_) { b_Jet_rawFactor_->SetAddress(Jet_rawFactor_.grow(nanoBufLen(b_Jet_rawFactor_))); }
+    if (b_Jet_rawFactor_) { b_Jet_rawFactor_->SetAddress(Jet_rawFactor_.growFor(b_Jet_rawFactor_)); }
     b_Jet_svIdx1_ = tree->GetBranch("Jet_svIdx1");
-    if (b_Jet_svIdx1_) { b_Jet_svIdx1_->SetAddress(Jet_svIdx1_.grow(nanoBufLen(b_Jet_svIdx1_))); }
+    if (b_Jet_svIdx1_) { b_Jet_svIdx1_->SetAddress(Jet_svIdx1_.growFor(b_Jet_svIdx1_)); }
     b_Jet_svIdx2_ = tree->GetBranch("Jet_svIdx2");
-    if (b_Jet_svIdx2_) { b_Jet_svIdx2_->SetAddress(Jet_svIdx2_.grow(nanoBufLen(b_Jet_svIdx2_))); }
+    if (b_Jet_svIdx2_) { b_Jet_svIdx2_->SetAddress(Jet_svIdx2_.growFor(b_Jet_svIdx2_)); }
     b_L1PreFiringWeight_Dn_ = tree->GetBranch("L1PreFiringWeight_Dn");
     if (b_L1PreFiringWeight_Dn_) { b_L1PreFiringWeight_Dn_->SetAddress(&L1PreFiringWeight_Dn_); }
     b_L1PreFiringWeight_ECAL_Dn_ = tree->GetBranch("L1PreFiringWeight_ECAL_Dn");
@@ -5965,27 +5965,27 @@ void Nano::Init(TTree *tree) {
     b_L1simulation_step_ = tree->GetBranch("L1simulation_step");
     if (b_L1simulation_step_) { b_L1simulation_step_->SetAddress(&L1simulation_step_); }
     b_LHEPart_eta_ = tree->GetBranch("LHEPart_eta");
-    if (b_LHEPart_eta_) { b_LHEPart_eta_->SetAddress(LHEPart_eta_.grow(nanoBufLen(b_LHEPart_eta_))); }
+    if (b_LHEPart_eta_) { b_LHEPart_eta_->SetAddress(LHEPart_eta_.growFor(b_LHEPart_eta_)); }
     b_LHEPart_incomingpz_ = tree->GetBranch("LHEPart_incomingpz");
-    if (b_LHEPart_incomingpz_) { b_LHEPart_incomingpz_->SetAddress(LHEPart_incomingpz_.grow(nanoBufLen(b_LHEPart_incomingpz_))); }
+    if (b_LHEPart_incomingpz_) { b_LHEPart_incomingpz_->SetAddress(LHEPart_incomingpz_.growFor(b_LHEPart_incomingpz_)); }
     b_LHEPart_mass_ = tree->GetBranch("LHEPart_mass");
-    if (b_LHEPart_mass_) { b_LHEPart_mass_->SetAddress(LHEPart_mass_.grow(nanoBufLen(b_LHEPart_mass_))); }
+    if (b_LHEPart_mass_) { b_LHEPart_mass_->SetAddress(LHEPart_mass_.growFor(b_LHEPart_mass_)); }
     b_LHEPart_pdgId_ = tree->GetBranch("LHEPart_pdgId");
-    if (b_LHEPart_pdgId_) { b_LHEPart_pdgId_->SetAddress(LHEPart_pdgId_.grow(nanoBufLen(b_LHEPart_pdgId_))); }
+    if (b_LHEPart_pdgId_) { b_LHEPart_pdgId_->SetAddress(LHEPart_pdgId_.growFor(b_LHEPart_pdgId_)); }
     b_LHEPart_phi_ = tree->GetBranch("LHEPart_phi");
-    if (b_LHEPart_phi_) { b_LHEPart_phi_->SetAddress(LHEPart_phi_.grow(nanoBufLen(b_LHEPart_phi_))); }
+    if (b_LHEPart_phi_) { b_LHEPart_phi_->SetAddress(LHEPart_phi_.growFor(b_LHEPart_phi_)); }
     b_LHEPart_pt_ = tree->GetBranch("LHEPart_pt");
-    if (b_LHEPart_pt_) { b_LHEPart_pt_->SetAddress(LHEPart_pt_.grow(nanoBufLen(b_LHEPart_pt_))); }
+    if (b_LHEPart_pt_) { b_LHEPart_pt_->SetAddress(LHEPart_pt_.growFor(b_LHEPart_pt_)); }
     b_LHEPart_spin_ = tree->GetBranch("LHEPart_spin");
-    if (b_LHEPart_spin_) { b_LHEPart_spin_->SetAddress(LHEPart_spin_.grow(nanoBufLen(b_LHEPart_spin_))); }
+    if (b_LHEPart_spin_) { b_LHEPart_spin_->SetAddress(LHEPart_spin_.growFor(b_LHEPart_spin_)); }
     b_LHEPart_status_ = tree->GetBranch("LHEPart_status");
-    if (b_LHEPart_status_) { b_LHEPart_status_->SetAddress(LHEPart_status_.grow(nanoBufLen(b_LHEPart_status_))); }
+    if (b_LHEPart_status_) { b_LHEPart_status_->SetAddress(LHEPart_status_.growFor(b_LHEPart_status_)); }
     b_LHEPdfWeight_ = tree->GetBranch("LHEPdfWeight");
-    if (b_LHEPdfWeight_) { b_LHEPdfWeight_->SetAddress(LHEPdfWeight_.grow(nanoBufLen(b_LHEPdfWeight_))); }
+    if (b_LHEPdfWeight_) { b_LHEPdfWeight_->SetAddress(LHEPdfWeight_.growFor(b_LHEPdfWeight_)); }
     b_LHEReweightingWeight_ = tree->GetBranch("LHEReweightingWeight");
-    if (b_LHEReweightingWeight_) { b_LHEReweightingWeight_->SetAddress(LHEReweightingWeight_.grow(nanoBufLen(b_LHEReweightingWeight_))); }
+    if (b_LHEReweightingWeight_) { b_LHEReweightingWeight_->SetAddress(LHEReweightingWeight_.growFor(b_LHEReweightingWeight_)); }
     b_LHEScaleWeight_ = tree->GetBranch("LHEScaleWeight");
-    if (b_LHEScaleWeight_) { b_LHEScaleWeight_->SetAddress(LHEScaleWeight_.grow(nanoBufLen(b_LHEScaleWeight_))); }
+    if (b_LHEScaleWeight_) { b_LHEScaleWeight_->SetAddress(LHEScaleWeight_.growFor(b_LHEScaleWeight_)); }
     b_LHEWeight_dummy_ = tree->GetBranch("LHEWeight_dummy");
     if (b_LHEWeight_dummy_) { b_LHEWeight_dummy_->SetAddress(&LHEWeight_dummy_); }
     b_LHEWeight_originalXWGTUP_ = tree->GetBranch("LHEWeight_originalXWGTUP");
@@ -6013,67 +6013,67 @@ void Nano::Init(TTree *tree) {
     b_LHE_Vpt_ = tree->GetBranch("LHE_Vpt");
     if (b_LHE_Vpt_) { b_LHE_Vpt_->SetAddress(&LHE_Vpt_); }
     b_LowPtElectron_ID_ = tree->GetBranch("LowPtElectron_ID");
-    if (b_LowPtElectron_ID_) { b_LowPtElectron_ID_->SetAddress(LowPtElectron_ID_.grow(nanoBufLen(b_LowPtElectron_ID_))); }
+    if (b_LowPtElectron_ID_) { b_LowPtElectron_ID_->SetAddress(LowPtElectron_ID_.growFor(b_LowPtElectron_ID_)); }
     b_LowPtElectron_charge_ = tree->GetBranch("LowPtElectron_charge");
-    if (b_LowPtElectron_charge_) { b_LowPtElectron_charge_->SetAddress(LowPtElectron_charge_.grow(nanoBufLen(b_LowPtElectron_charge_))); }
+    if (b_LowPtElectron_charge_) { b_LowPtElectron_charge_->SetAddress(LowPtElectron_charge_.growFor(b_LowPtElectron_charge_)); }
     b_LowPtElectron_convVeto_ = tree->GetBranch("LowPtElectron_convVeto");
-    if (b_LowPtElectron_convVeto_) { b_LowPtElectron_convVeto_->SetAddress(LowPtElectron_convVeto_.grow(nanoBufLen(b_LowPtElectron_convVeto_))); }
+    if (b_LowPtElectron_convVeto_) { b_LowPtElectron_convVeto_->SetAddress(LowPtElectron_convVeto_.growFor(b_LowPtElectron_convVeto_)); }
     b_LowPtElectron_convVtxRadius_ = tree->GetBranch("LowPtElectron_convVtxRadius");
-    if (b_LowPtElectron_convVtxRadius_) { b_LowPtElectron_convVtxRadius_->SetAddress(LowPtElectron_convVtxRadius_.grow(nanoBufLen(b_LowPtElectron_convVtxRadius_))); }
+    if (b_LowPtElectron_convVtxRadius_) { b_LowPtElectron_convVtxRadius_->SetAddress(LowPtElectron_convVtxRadius_.growFor(b_LowPtElectron_convVtxRadius_)); }
     b_LowPtElectron_convWP_ = tree->GetBranch("LowPtElectron_convWP");
-    if (b_LowPtElectron_convWP_) { b_LowPtElectron_convWP_->SetAddress(LowPtElectron_convWP_.grow(nanoBufLen(b_LowPtElectron_convWP_))); }
+    if (b_LowPtElectron_convWP_) { b_LowPtElectron_convWP_->SetAddress(LowPtElectron_convWP_.growFor(b_LowPtElectron_convWP_)); }
     b_LowPtElectron_deltaEtaSC_ = tree->GetBranch("LowPtElectron_deltaEtaSC");
-    if (b_LowPtElectron_deltaEtaSC_) { b_LowPtElectron_deltaEtaSC_->SetAddress(LowPtElectron_deltaEtaSC_.grow(nanoBufLen(b_LowPtElectron_deltaEtaSC_))); }
+    if (b_LowPtElectron_deltaEtaSC_) { b_LowPtElectron_deltaEtaSC_->SetAddress(LowPtElectron_deltaEtaSC_.growFor(b_LowPtElectron_deltaEtaSC_)); }
     b_LowPtElectron_dxy_ = tree->GetBranch("LowPtElectron_dxy");
-    if (b_LowPtElectron_dxy_) { b_LowPtElectron_dxy_->SetAddress(LowPtElectron_dxy_.grow(nanoBufLen(b_LowPtElectron_dxy_))); }
+    if (b_LowPtElectron_dxy_) { b_LowPtElectron_dxy_->SetAddress(LowPtElectron_dxy_.growFor(b_LowPtElectron_dxy_)); }
     b_LowPtElectron_dxyErr_ = tree->GetBranch("LowPtElectron_dxyErr");
-    if (b_LowPtElectron_dxyErr_) { b_LowPtElectron_dxyErr_->SetAddress(LowPtElectron_dxyErr_.grow(nanoBufLen(b_LowPtElectron_dxyErr_))); }
+    if (b_LowPtElectron_dxyErr_) { b_LowPtElectron_dxyErr_->SetAddress(LowPtElectron_dxyErr_.growFor(b_LowPtElectron_dxyErr_)); }
     b_LowPtElectron_dz_ = tree->GetBranch("LowPtElectron_dz");
-    if (b_LowPtElectron_dz_) { b_LowPtElectron_dz_->SetAddress(LowPtElectron_dz_.grow(nanoBufLen(b_LowPtElectron_dz_))); }
+    if (b_LowPtElectron_dz_) { b_LowPtElectron_dz_->SetAddress(LowPtElectron_dz_.growFor(b_LowPtElectron_dz_)); }
     b_LowPtElectron_dzErr_ = tree->GetBranch("LowPtElectron_dzErr");
-    if (b_LowPtElectron_dzErr_) { b_LowPtElectron_dzErr_->SetAddress(LowPtElectron_dzErr_.grow(nanoBufLen(b_LowPtElectron_dzErr_))); }
+    if (b_LowPtElectron_dzErr_) { b_LowPtElectron_dzErr_->SetAddress(LowPtElectron_dzErr_.growFor(b_LowPtElectron_dzErr_)); }
     b_LowPtElectron_eInvMinusPInv_ = tree->GetBranch("LowPtElectron_eInvMinusPInv");
-    if (b_LowPtElectron_eInvMinusPInv_) { b_LowPtElectron_eInvMinusPInv_->SetAddress(LowPtElectron_eInvMinusPInv_.grow(nanoBufLen(b_LowPtElectron_eInvMinusPInv_))); }
+    if (b_LowPtElectron_eInvMinusPInv_) { b_LowPtElectron_eInvMinusPInv_->SetAddress(LowPtElectron_eInvMinusPInv_.growFor(b_LowPtElectron_eInvMinusPInv_)); }
     b_LowPtElectron_electronIdx_ = tree->GetBranch("LowPtElectron_electronIdx");
-    if (b_LowPtElectron_electronIdx_) { b_LowPtElectron_electronIdx_->SetAddress(LowPtElectron_electronIdx_.grow(nanoBufLen(b_LowPtElectron_electronIdx_))); }
+    if (b_LowPtElectron_electronIdx_) { b_LowPtElectron_electronIdx_->SetAddress(LowPtElectron_electronIdx_.growFor(b_LowPtElectron_electronIdx_)); }
     b_LowPtElectron_embeddedID_ = tree->GetBranch("LowPtElectron_embeddedID");
-    if (b_LowPtElectron_embeddedID_) { b_LowPtElectron_embeddedID_->SetAddress(LowPtElectron_embeddedID_.grow(nanoBufLen(b_LowPtElectron_embeddedID_))); }
+    if (b_LowPtElectron_embeddedID_) { b_LowPtElectron_embeddedID_->SetAddress(LowPtElectron_embeddedID_.growFor(b_LowPtElectron_embeddedID_)); }
     b_LowPtElectron_energyErr_ = tree->GetBranch("LowPtElectron_energyErr");
-    if (b_LowPtElectron_energyErr_) { b_LowPtElectron_energyErr_->SetAddress(LowPtElectron_energyErr_.grow(nanoBufLen(b_LowPtElectron_energyErr_))); }
+    if (b_LowPtElectron_energyErr_) { b_LowPtElectron_energyErr_->SetAddress(LowPtElectron_energyErr_.growFor(b_LowPtElectron_energyErr_)); }
     b_LowPtElectron_eta_ = tree->GetBranch("LowPtElectron_eta");
-    if (b_LowPtElectron_eta_) { b_LowPtElectron_eta_->SetAddress(LowPtElectron_eta_.grow(nanoBufLen(b_LowPtElectron_eta_))); }
+    if (b_LowPtElectron_eta_) { b_LowPtElectron_eta_->SetAddress(LowPtElectron_eta_.growFor(b_LowPtElectron_eta_)); }
     b_LowPtElectron_genPartFlav_ = tree->GetBranch("LowPtElectron_genPartFlav");
-    if (b_LowPtElectron_genPartFlav_) { b_LowPtElectron_genPartFlav_->SetAddress(LowPtElectron_genPartFlav_.grow(nanoBufLen(b_LowPtElectron_genPartFlav_))); }
+    if (b_LowPtElectron_genPartFlav_) { b_LowPtElectron_genPartFlav_->SetAddress(LowPtElectron_genPartFlav_.growFor(b_LowPtElectron_genPartFlav_)); }
     b_LowPtElectron_genPartIdx_ = tree->GetBranch("LowPtElectron_genPartIdx");
-    if (b_LowPtElectron_genPartIdx_) { b_LowPtElectron_genPartIdx_->SetAddress(LowPtElectron_genPartIdx_.grow(nanoBufLen(b_LowPtElectron_genPartIdx_))); }
+    if (b_LowPtElectron_genPartIdx_) { b_LowPtElectron_genPartIdx_->SetAddress(LowPtElectron_genPartIdx_.growFor(b_LowPtElectron_genPartIdx_)); }
     b_LowPtElectron_hoe_ = tree->GetBranch("LowPtElectron_hoe");
-    if (b_LowPtElectron_hoe_) { b_LowPtElectron_hoe_->SetAddress(LowPtElectron_hoe_.grow(nanoBufLen(b_LowPtElectron_hoe_))); }
+    if (b_LowPtElectron_hoe_) { b_LowPtElectron_hoe_->SetAddress(LowPtElectron_hoe_.growFor(b_LowPtElectron_hoe_)); }
     b_LowPtElectron_lostHits_ = tree->GetBranch("LowPtElectron_lostHits");
-    if (b_LowPtElectron_lostHits_) { b_LowPtElectron_lostHits_->SetAddress(LowPtElectron_lostHits_.grow(nanoBufLen(b_LowPtElectron_lostHits_))); }
+    if (b_LowPtElectron_lostHits_) { b_LowPtElectron_lostHits_->SetAddress(LowPtElectron_lostHits_.growFor(b_LowPtElectron_lostHits_)); }
     b_LowPtElectron_mass_ = tree->GetBranch("LowPtElectron_mass");
-    if (b_LowPtElectron_mass_) { b_LowPtElectron_mass_->SetAddress(LowPtElectron_mass_.grow(nanoBufLen(b_LowPtElectron_mass_))); }
+    if (b_LowPtElectron_mass_) { b_LowPtElectron_mass_->SetAddress(LowPtElectron_mass_.growFor(b_LowPtElectron_mass_)); }
     b_LowPtElectron_miniPFRelIso_all_ = tree->GetBranch("LowPtElectron_miniPFRelIso_all");
-    if (b_LowPtElectron_miniPFRelIso_all_) { b_LowPtElectron_miniPFRelIso_all_->SetAddress(LowPtElectron_miniPFRelIso_all_.grow(nanoBufLen(b_LowPtElectron_miniPFRelIso_all_))); }
+    if (b_LowPtElectron_miniPFRelIso_all_) { b_LowPtElectron_miniPFRelIso_all_->SetAddress(LowPtElectron_miniPFRelIso_all_.growFor(b_LowPtElectron_miniPFRelIso_all_)); }
     b_LowPtElectron_miniPFRelIso_chg_ = tree->GetBranch("LowPtElectron_miniPFRelIso_chg");
-    if (b_LowPtElectron_miniPFRelIso_chg_) { b_LowPtElectron_miniPFRelIso_chg_->SetAddress(LowPtElectron_miniPFRelIso_chg_.grow(nanoBufLen(b_LowPtElectron_miniPFRelIso_chg_))); }
+    if (b_LowPtElectron_miniPFRelIso_chg_) { b_LowPtElectron_miniPFRelIso_chg_->SetAddress(LowPtElectron_miniPFRelIso_chg_.growFor(b_LowPtElectron_miniPFRelIso_chg_)); }
     b_LowPtElectron_pdgId_ = tree->GetBranch("LowPtElectron_pdgId");
-    if (b_LowPtElectron_pdgId_) { b_LowPtElectron_pdgId_->SetAddress(LowPtElectron_pdgId_.grow(nanoBufLen(b_LowPtElectron_pdgId_))); }
+    if (b_LowPtElectron_pdgId_) { b_LowPtElectron_pdgId_->SetAddress(LowPtElectron_pdgId_.growFor(b_LowPtElectron_pdgId_)); }
     b_LowPtElectron_phi_ = tree->GetBranch("LowPtElectron_phi");
-    if (b_LowPtElectron_phi_) { b_LowPtElectron_phi_->SetAddress(LowPtElectron_phi_.grow(nanoBufLen(b_LowPtElectron_phi_))); }
+    if (b_LowPtElectron_phi_) { b_LowPtElectron_phi_->SetAddress(LowPtElectron_phi_.growFor(b_LowPtElectron_phi_)); }
     b_LowPtElectron_photonIdx_ = tree->GetBranch("LowPtElectron_photonIdx");
-    if (b_LowPtElectron_photonIdx_) { b_LowPtElectron_photonIdx_->SetAddress(LowPtElectron_photonIdx_.grow(nanoBufLen(b_LowPtElectron_photonIdx_))); }
+    if (b_LowPtElectron_photonIdx_) { b_LowPtElectron_photonIdx_->SetAddress(LowPtElectron_photonIdx_.growFor(b_LowPtElectron_photonIdx_)); }
     b_LowPtElectron_pt_ = tree->GetBranch("LowPtElectron_pt");
-    if (b_LowPtElectron_pt_) { b_LowPtElectron_pt_->SetAddress(LowPtElectron_pt_.grow(nanoBufLen(b_LowPtElectron_pt_))); }
+    if (b_LowPtElectron_pt_) { b_LowPtElectron_pt_->SetAddress(LowPtElectron_pt_.growFor(b_LowPtElectron_pt_)); }
     b_LowPtElectron_ptbiased_ = tree->GetBranch("LowPtElectron_ptbiased");
-    if (b_LowPtElectron_ptbiased_) { b_LowPtElectron_ptbiased_->SetAddress(LowPtElectron_ptbiased_.grow(nanoBufLen(b_LowPtElectron_ptbiased_))); }
+    if (b_LowPtElectron_ptbiased_) { b_LowPtElectron_ptbiased_->SetAddress(LowPtElectron_ptbiased_.growFor(b_LowPtElectron_ptbiased_)); }
     b_LowPtElectron_r9_ = tree->GetBranch("LowPtElectron_r9");
-    if (b_LowPtElectron_r9_) { b_LowPtElectron_r9_->SetAddress(LowPtElectron_r9_.grow(nanoBufLen(b_LowPtElectron_r9_))); }
+    if (b_LowPtElectron_r9_) { b_LowPtElectron_r9_->SetAddress(LowPtElectron_r9_.growFor(b_LowPtElectron_r9_)); }
     b_LowPtElectron_scEtOverPt_ = tree->GetBranch("LowPtElectron_scEtOverPt");
-    if (b_LowPtElectron_scEtOverPt_) { b_LowPtElectron_scEtOverPt_->SetAddress(LowPtElectron_scEtOverPt_.grow(nanoBufLen(b_LowPtElectron_scEtOverPt_))); }
+    if (b_LowPtElectron_scEtOverPt_) { b_LowPtElectron_scEtOverPt_->SetAddress(LowPtElectron_scEtOverPt_.growFor(b_LowPtElectron_scEtOverPt_)); }
     b_LowPtElectron_sieie_ = tree->GetBranch("LowPtElectron_sieie");
-    if (b_LowPtElectron_sieie_) { b_LowPtElectron_sieie_->SetAddress(LowPtElectron_sieie_.grow(nanoBufLen(b_LowPtElectron_sieie_))); }
+    if (b_LowPtElectron_sieie_) { b_LowPtElectron_sieie_->SetAddress(LowPtElectron_sieie_.growFor(b_LowPtElectron_sieie_)); }
     b_LowPtElectron_unbiased_ = tree->GetBranch("LowPtElectron_unbiased");
-    if (b_LowPtElectron_unbiased_) { b_LowPtElectron_unbiased_->SetAddress(LowPtElectron_unbiased_.grow(nanoBufLen(b_LowPtElectron_unbiased_))); }
+    if (b_LowPtElectron_unbiased_) { b_LowPtElectron_unbiased_->SetAddress(LowPtElectron_unbiased_.growFor(b_LowPtElectron_unbiased_)); }
     b_MET_MetUnclustEnUpDeltaX_ = tree->GetBranch("MET_MetUnclustEnUpDeltaX");
     if (b_MET_MetUnclustEnUpDeltaX_) { b_MET_MetUnclustEnUpDeltaX_->SetAddress(&MET_MetUnclustEnUpDeltaX_); }
     b_MET_MetUnclustEnUpDeltaY_ = tree->GetBranch("MET_MetUnclustEnUpDeltaY");
@@ -6171,229 +6171,229 @@ void Nano::Init(TTree *tree) {
     b_MET_sumPtUnclustered_ = tree->GetBranch("MET_sumPtUnclustered");
     if (b_MET_sumPtUnclustered_) { b_MET_sumPtUnclustered_->SetAddress(&MET_sumPtUnclustered_); }
     b_Muon_CutBased_HighPtID_SF_ = tree->GetBranch("Muon_CutBased_HighPtID_SF");
-    if (b_Muon_CutBased_HighPtID_SF_) { b_Muon_CutBased_HighPtID_SF_->SetAddress(Muon_CutBased_HighPtID_SF_.grow(nanoBufLen(b_Muon_CutBased_HighPtID_SF_))); }
+    if (b_Muon_CutBased_HighPtID_SF_) { b_Muon_CutBased_HighPtID_SF_->SetAddress(Muon_CutBased_HighPtID_SF_.growFor(b_Muon_CutBased_HighPtID_SF_)); }
     b_Muon_CutBased_HighPtID_SFerr_ = tree->GetBranch("Muon_CutBased_HighPtID_SFerr");
-    if (b_Muon_CutBased_HighPtID_SFerr_) { b_Muon_CutBased_HighPtID_SFerr_->SetAddress(Muon_CutBased_HighPtID_SFerr_.grow(nanoBufLen(b_Muon_CutBased_HighPtID_SFerr_))); }
+    if (b_Muon_CutBased_HighPtID_SFerr_) { b_Muon_CutBased_HighPtID_SFerr_->SetAddress(Muon_CutBased_HighPtID_SFerr_.growFor(b_Muon_CutBased_HighPtID_SFerr_)); }
     b_Muon_CutBased_LooseID_SF_ = tree->GetBranch("Muon_CutBased_LooseID_SF");
-    if (b_Muon_CutBased_LooseID_SF_) { b_Muon_CutBased_LooseID_SF_->SetAddress(Muon_CutBased_LooseID_SF_.grow(nanoBufLen(b_Muon_CutBased_LooseID_SF_))); }
+    if (b_Muon_CutBased_LooseID_SF_) { b_Muon_CutBased_LooseID_SF_->SetAddress(Muon_CutBased_LooseID_SF_.growFor(b_Muon_CutBased_LooseID_SF_)); }
     b_Muon_CutBased_LooseID_SFerr_ = tree->GetBranch("Muon_CutBased_LooseID_SFerr");
-    if (b_Muon_CutBased_LooseID_SFerr_) { b_Muon_CutBased_LooseID_SFerr_->SetAddress(Muon_CutBased_LooseID_SFerr_.grow(nanoBufLen(b_Muon_CutBased_LooseID_SFerr_))); }
+    if (b_Muon_CutBased_LooseID_SFerr_) { b_Muon_CutBased_LooseID_SFerr_->SetAddress(Muon_CutBased_LooseID_SFerr_.growFor(b_Muon_CutBased_LooseID_SFerr_)); }
     b_Muon_CutBased_MediumID_SF_ = tree->GetBranch("Muon_CutBased_MediumID_SF");
-    if (b_Muon_CutBased_MediumID_SF_) { b_Muon_CutBased_MediumID_SF_->SetAddress(Muon_CutBased_MediumID_SF_.grow(nanoBufLen(b_Muon_CutBased_MediumID_SF_))); }
+    if (b_Muon_CutBased_MediumID_SF_) { b_Muon_CutBased_MediumID_SF_->SetAddress(Muon_CutBased_MediumID_SF_.growFor(b_Muon_CutBased_MediumID_SF_)); }
     b_Muon_CutBased_MediumID_SFerr_ = tree->GetBranch("Muon_CutBased_MediumID_SFerr");
-    if (b_Muon_CutBased_MediumID_SFerr_) { b_Muon_CutBased_MediumID_SFerr_->SetAddress(Muon_CutBased_MediumID_SFerr_.grow(nanoBufLen(b_Muon_CutBased_MediumID_SFerr_))); }
+    if (b_Muon_CutBased_MediumID_SFerr_) { b_Muon_CutBased_MediumID_SFerr_->SetAddress(Muon_CutBased_MediumID_SFerr_.growFor(b_Muon_CutBased_MediumID_SFerr_)); }
     b_Muon_CutBased_MediumPromptID_SF_ = tree->GetBranch("Muon_CutBased_MediumPromptID_SF");
-    if (b_Muon_CutBased_MediumPromptID_SF_) { b_Muon_CutBased_MediumPromptID_SF_->SetAddress(Muon_CutBased_MediumPromptID_SF_.grow(nanoBufLen(b_Muon_CutBased_MediumPromptID_SF_))); }
+    if (b_Muon_CutBased_MediumPromptID_SF_) { b_Muon_CutBased_MediumPromptID_SF_->SetAddress(Muon_CutBased_MediumPromptID_SF_.growFor(b_Muon_CutBased_MediumPromptID_SF_)); }
     b_Muon_CutBased_MediumPromptID_SFerr_ = tree->GetBranch("Muon_CutBased_MediumPromptID_SFerr");
-    if (b_Muon_CutBased_MediumPromptID_SFerr_) { b_Muon_CutBased_MediumPromptID_SFerr_->SetAddress(Muon_CutBased_MediumPromptID_SFerr_.grow(nanoBufLen(b_Muon_CutBased_MediumPromptID_SFerr_))); }
+    if (b_Muon_CutBased_MediumPromptID_SFerr_) { b_Muon_CutBased_MediumPromptID_SFerr_->SetAddress(Muon_CutBased_MediumPromptID_SFerr_.growFor(b_Muon_CutBased_MediumPromptID_SFerr_)); }
     b_Muon_CutBased_SoftID_SF_ = tree->GetBranch("Muon_CutBased_SoftID_SF");
-    if (b_Muon_CutBased_SoftID_SF_) { b_Muon_CutBased_SoftID_SF_->SetAddress(Muon_CutBased_SoftID_SF_.grow(nanoBufLen(b_Muon_CutBased_SoftID_SF_))); }
+    if (b_Muon_CutBased_SoftID_SF_) { b_Muon_CutBased_SoftID_SF_->SetAddress(Muon_CutBased_SoftID_SF_.growFor(b_Muon_CutBased_SoftID_SF_)); }
     b_Muon_CutBased_SoftID_SFerr_ = tree->GetBranch("Muon_CutBased_SoftID_SFerr");
-    if (b_Muon_CutBased_SoftID_SFerr_) { b_Muon_CutBased_SoftID_SFerr_->SetAddress(Muon_CutBased_SoftID_SFerr_.grow(nanoBufLen(b_Muon_CutBased_SoftID_SFerr_))); }
+    if (b_Muon_CutBased_SoftID_SFerr_) { b_Muon_CutBased_SoftID_SFerr_->SetAddress(Muon_CutBased_SoftID_SFerr_.growFor(b_Muon_CutBased_SoftID_SFerr_)); }
     b_Muon_CutBased_TightID_SF_ = tree->GetBranch("Muon_CutBased_TightID_SF");
-    if (b_Muon_CutBased_TightID_SF_) { b_Muon_CutBased_TightID_SF_->SetAddress(Muon_CutBased_TightID_SF_.grow(nanoBufLen(b_Muon_CutBased_TightID_SF_))); }
+    if (b_Muon_CutBased_TightID_SF_) { b_Muon_CutBased_TightID_SF_->SetAddress(Muon_CutBased_TightID_SF_.growFor(b_Muon_CutBased_TightID_SF_)); }
     b_Muon_CutBased_TightID_SFerr_ = tree->GetBranch("Muon_CutBased_TightID_SFerr");
-    if (b_Muon_CutBased_TightID_SFerr_) { b_Muon_CutBased_TightID_SFerr_->SetAddress(Muon_CutBased_TightID_SFerr_.grow(nanoBufLen(b_Muon_CutBased_TightID_SFerr_))); }
+    if (b_Muon_CutBased_TightID_SFerr_) { b_Muon_CutBased_TightID_SFerr_->SetAddress(Muon_CutBased_TightID_SFerr_.growFor(b_Muon_CutBased_TightID_SFerr_)); }
     b_Muon_CutBased_TrkHighPtID_SF_ = tree->GetBranch("Muon_CutBased_TrkHighPtID_SF");
-    if (b_Muon_CutBased_TrkHighPtID_SF_) { b_Muon_CutBased_TrkHighPtID_SF_->SetAddress(Muon_CutBased_TrkHighPtID_SF_.grow(nanoBufLen(b_Muon_CutBased_TrkHighPtID_SF_))); }
+    if (b_Muon_CutBased_TrkHighPtID_SF_) { b_Muon_CutBased_TrkHighPtID_SF_->SetAddress(Muon_CutBased_TrkHighPtID_SF_.growFor(b_Muon_CutBased_TrkHighPtID_SF_)); }
     b_Muon_CutBased_TrkHighPtID_SFerr_ = tree->GetBranch("Muon_CutBased_TrkHighPtID_SFerr");
-    if (b_Muon_CutBased_TrkHighPtID_SFerr_) { b_Muon_CutBased_TrkHighPtID_SFerr_->SetAddress(Muon_CutBased_TrkHighPtID_SFerr_.grow(nanoBufLen(b_Muon_CutBased_TrkHighPtID_SFerr_))); }
+    if (b_Muon_CutBased_TrkHighPtID_SFerr_) { b_Muon_CutBased_TrkHighPtID_SFerr_->SetAddress(Muon_CutBased_TrkHighPtID_SFerr_.growFor(b_Muon_CutBased_TrkHighPtID_SFerr_)); }
     b_Muon_LooseRelIso_LooseID_SF_ = tree->GetBranch("Muon_LooseRelIso_LooseID_SF");
-    if (b_Muon_LooseRelIso_LooseID_SF_) { b_Muon_LooseRelIso_LooseID_SF_->SetAddress(Muon_LooseRelIso_LooseID_SF_.grow(nanoBufLen(b_Muon_LooseRelIso_LooseID_SF_))); }
+    if (b_Muon_LooseRelIso_LooseID_SF_) { b_Muon_LooseRelIso_LooseID_SF_->SetAddress(Muon_LooseRelIso_LooseID_SF_.growFor(b_Muon_LooseRelIso_LooseID_SF_)); }
     b_Muon_LooseRelIso_LooseID_SFerr_ = tree->GetBranch("Muon_LooseRelIso_LooseID_SFerr");
-    if (b_Muon_LooseRelIso_LooseID_SFerr_) { b_Muon_LooseRelIso_LooseID_SFerr_->SetAddress(Muon_LooseRelIso_LooseID_SFerr_.grow(nanoBufLen(b_Muon_LooseRelIso_LooseID_SFerr_))); }
+    if (b_Muon_LooseRelIso_LooseID_SFerr_) { b_Muon_LooseRelIso_LooseID_SFerr_->SetAddress(Muon_LooseRelIso_LooseID_SFerr_.growFor(b_Muon_LooseRelIso_LooseID_SFerr_)); }
     b_Muon_LooseRelIso_MediumID_SF_ = tree->GetBranch("Muon_LooseRelIso_MediumID_SF");
-    if (b_Muon_LooseRelIso_MediumID_SF_) { b_Muon_LooseRelIso_MediumID_SF_->SetAddress(Muon_LooseRelIso_MediumID_SF_.grow(nanoBufLen(b_Muon_LooseRelIso_MediumID_SF_))); }
+    if (b_Muon_LooseRelIso_MediumID_SF_) { b_Muon_LooseRelIso_MediumID_SF_->SetAddress(Muon_LooseRelIso_MediumID_SF_.growFor(b_Muon_LooseRelIso_MediumID_SF_)); }
     b_Muon_LooseRelIso_MediumID_SFerr_ = tree->GetBranch("Muon_LooseRelIso_MediumID_SFerr");
-    if (b_Muon_LooseRelIso_MediumID_SFerr_) { b_Muon_LooseRelIso_MediumID_SFerr_->SetAddress(Muon_LooseRelIso_MediumID_SFerr_.grow(nanoBufLen(b_Muon_LooseRelIso_MediumID_SFerr_))); }
+    if (b_Muon_LooseRelIso_MediumID_SFerr_) { b_Muon_LooseRelIso_MediumID_SFerr_->SetAddress(Muon_LooseRelIso_MediumID_SFerr_.growFor(b_Muon_LooseRelIso_MediumID_SFerr_)); }
     b_Muon_LooseRelIso_MediumPromptID_SF_ = tree->GetBranch("Muon_LooseRelIso_MediumPromptID_SF");
-    if (b_Muon_LooseRelIso_MediumPromptID_SF_) { b_Muon_LooseRelIso_MediumPromptID_SF_->SetAddress(Muon_LooseRelIso_MediumPromptID_SF_.grow(nanoBufLen(b_Muon_LooseRelIso_MediumPromptID_SF_))); }
+    if (b_Muon_LooseRelIso_MediumPromptID_SF_) { b_Muon_LooseRelIso_MediumPromptID_SF_->SetAddress(Muon_LooseRelIso_MediumPromptID_SF_.growFor(b_Muon_LooseRelIso_MediumPromptID_SF_)); }
     b_Muon_LooseRelIso_MediumPromptID_SFerr_ = tree->GetBranch("Muon_LooseRelIso_MediumPromptID_SFerr");
-    if (b_Muon_LooseRelIso_MediumPromptID_SFerr_) { b_Muon_LooseRelIso_MediumPromptID_SFerr_->SetAddress(Muon_LooseRelIso_MediumPromptID_SFerr_.grow(nanoBufLen(b_Muon_LooseRelIso_MediumPromptID_SFerr_))); }
+    if (b_Muon_LooseRelIso_MediumPromptID_SFerr_) { b_Muon_LooseRelIso_MediumPromptID_SFerr_->SetAddress(Muon_LooseRelIso_MediumPromptID_SFerr_.growFor(b_Muon_LooseRelIso_MediumPromptID_SFerr_)); }
     b_Muon_LooseRelIso_TightIDandIPCut_SF_ = tree->GetBranch("Muon_LooseRelIso_TightIDandIPCut_SF");
-    if (b_Muon_LooseRelIso_TightIDandIPCut_SF_) { b_Muon_LooseRelIso_TightIDandIPCut_SF_->SetAddress(Muon_LooseRelIso_TightIDandIPCut_SF_.grow(nanoBufLen(b_Muon_LooseRelIso_TightIDandIPCut_SF_))); }
+    if (b_Muon_LooseRelIso_TightIDandIPCut_SF_) { b_Muon_LooseRelIso_TightIDandIPCut_SF_->SetAddress(Muon_LooseRelIso_TightIDandIPCut_SF_.growFor(b_Muon_LooseRelIso_TightIDandIPCut_SF_)); }
     b_Muon_LooseRelIso_TightIDandIPCut_SFerr_ = tree->GetBranch("Muon_LooseRelIso_TightIDandIPCut_SFerr");
-    if (b_Muon_LooseRelIso_TightIDandIPCut_SFerr_) { b_Muon_LooseRelIso_TightIDandIPCut_SFerr_->SetAddress(Muon_LooseRelIso_TightIDandIPCut_SFerr_.grow(nanoBufLen(b_Muon_LooseRelIso_TightIDandIPCut_SFerr_))); }
+    if (b_Muon_LooseRelIso_TightIDandIPCut_SFerr_) { b_Muon_LooseRelIso_TightIDandIPCut_SFerr_->SetAddress(Muon_LooseRelIso_TightIDandIPCut_SFerr_.growFor(b_Muon_LooseRelIso_TightIDandIPCut_SFerr_)); }
     b_Muon_LooseRelTkIso_HighPtIDandIPCut_SF_ = tree->GetBranch("Muon_LooseRelTkIso_HighPtIDandIPCut_SF");
-    if (b_Muon_LooseRelTkIso_HighPtIDandIPCut_SF_) { b_Muon_LooseRelTkIso_HighPtIDandIPCut_SF_->SetAddress(Muon_LooseRelTkIso_HighPtIDandIPCut_SF_.grow(nanoBufLen(b_Muon_LooseRelTkIso_HighPtIDandIPCut_SF_))); }
+    if (b_Muon_LooseRelTkIso_HighPtIDandIPCut_SF_) { b_Muon_LooseRelTkIso_HighPtIDandIPCut_SF_->SetAddress(Muon_LooseRelTkIso_HighPtIDandIPCut_SF_.growFor(b_Muon_LooseRelTkIso_HighPtIDandIPCut_SF_)); }
     b_Muon_LooseRelTkIso_HighPtIDandIPCut_SFerr_ = tree->GetBranch("Muon_LooseRelTkIso_HighPtIDandIPCut_SFerr");
-    if (b_Muon_LooseRelTkIso_HighPtIDandIPCut_SFerr_) { b_Muon_LooseRelTkIso_HighPtIDandIPCut_SFerr_->SetAddress(Muon_LooseRelTkIso_HighPtIDandIPCut_SFerr_.grow(nanoBufLen(b_Muon_LooseRelTkIso_HighPtIDandIPCut_SFerr_))); }
+    if (b_Muon_LooseRelTkIso_HighPtIDandIPCut_SFerr_) { b_Muon_LooseRelTkIso_HighPtIDandIPCut_SFerr_->SetAddress(Muon_LooseRelTkIso_HighPtIDandIPCut_SFerr_.growFor(b_Muon_LooseRelTkIso_HighPtIDandIPCut_SFerr_)); }
     b_Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SF_ = tree->GetBranch("Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SF");
-    if (b_Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SF_) { b_Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SF_->SetAddress(Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SF_.grow(nanoBufLen(b_Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SF_))); }
+    if (b_Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SF_) { b_Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SF_->SetAddress(Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SF_.growFor(b_Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SF_)); }
     b_Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SFerr_ = tree->GetBranch("Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SFerr");
-    if (b_Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SFerr_) { b_Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SFerr_->SetAddress(Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SFerr_.grow(nanoBufLen(b_Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SFerr_))); }
+    if (b_Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SFerr_) { b_Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SFerr_->SetAddress(Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SFerr_.growFor(b_Muon_LooseRelTkIso_TrkHighPtIDandIPCut_SFerr_)); }
     b_Muon_TightRelIso_MediumID_SF_ = tree->GetBranch("Muon_TightRelIso_MediumID_SF");
-    if (b_Muon_TightRelIso_MediumID_SF_) { b_Muon_TightRelIso_MediumID_SF_->SetAddress(Muon_TightRelIso_MediumID_SF_.grow(nanoBufLen(b_Muon_TightRelIso_MediumID_SF_))); }
+    if (b_Muon_TightRelIso_MediumID_SF_) { b_Muon_TightRelIso_MediumID_SF_->SetAddress(Muon_TightRelIso_MediumID_SF_.growFor(b_Muon_TightRelIso_MediumID_SF_)); }
     b_Muon_TightRelIso_MediumID_SFerr_ = tree->GetBranch("Muon_TightRelIso_MediumID_SFerr");
-    if (b_Muon_TightRelIso_MediumID_SFerr_) { b_Muon_TightRelIso_MediumID_SFerr_->SetAddress(Muon_TightRelIso_MediumID_SFerr_.grow(nanoBufLen(b_Muon_TightRelIso_MediumID_SFerr_))); }
+    if (b_Muon_TightRelIso_MediumID_SFerr_) { b_Muon_TightRelIso_MediumID_SFerr_->SetAddress(Muon_TightRelIso_MediumID_SFerr_.growFor(b_Muon_TightRelIso_MediumID_SFerr_)); }
     b_Muon_TightRelIso_MediumPromptID_SF_ = tree->GetBranch("Muon_TightRelIso_MediumPromptID_SF");
-    if (b_Muon_TightRelIso_MediumPromptID_SF_) { b_Muon_TightRelIso_MediumPromptID_SF_->SetAddress(Muon_TightRelIso_MediumPromptID_SF_.grow(nanoBufLen(b_Muon_TightRelIso_MediumPromptID_SF_))); }
+    if (b_Muon_TightRelIso_MediumPromptID_SF_) { b_Muon_TightRelIso_MediumPromptID_SF_->SetAddress(Muon_TightRelIso_MediumPromptID_SF_.growFor(b_Muon_TightRelIso_MediumPromptID_SF_)); }
     b_Muon_TightRelIso_MediumPromptID_SFerr_ = tree->GetBranch("Muon_TightRelIso_MediumPromptID_SFerr");
-    if (b_Muon_TightRelIso_MediumPromptID_SFerr_) { b_Muon_TightRelIso_MediumPromptID_SFerr_->SetAddress(Muon_TightRelIso_MediumPromptID_SFerr_.grow(nanoBufLen(b_Muon_TightRelIso_MediumPromptID_SFerr_))); }
+    if (b_Muon_TightRelIso_MediumPromptID_SFerr_) { b_Muon_TightRelIso_MediumPromptID_SFerr_->SetAddress(Muon_TightRelIso_MediumPromptID_SFerr_.growFor(b_Muon_TightRelIso_MediumPromptID_SFerr_)); }
     b_Muon_TightRelIso_TightIDandIPCut_SF_ = tree->GetBranch("Muon_TightRelIso_TightIDandIPCut_SF");
-    if (b_Muon_TightRelIso_TightIDandIPCut_SF_) { b_Muon_TightRelIso_TightIDandIPCut_SF_->SetAddress(Muon_TightRelIso_TightIDandIPCut_SF_.grow(nanoBufLen(b_Muon_TightRelIso_TightIDandIPCut_SF_))); }
+    if (b_Muon_TightRelIso_TightIDandIPCut_SF_) { b_Muon_TightRelIso_TightIDandIPCut_SF_->SetAddress(Muon_TightRelIso_TightIDandIPCut_SF_.growFor(b_Muon_TightRelIso_TightIDandIPCut_SF_)); }
     b_Muon_TightRelIso_TightIDandIPCut_SFerr_ = tree->GetBranch("Muon_TightRelIso_TightIDandIPCut_SFerr");
-    if (b_Muon_TightRelIso_TightIDandIPCut_SFerr_) { b_Muon_TightRelIso_TightIDandIPCut_SFerr_->SetAddress(Muon_TightRelIso_TightIDandIPCut_SFerr_.grow(nanoBufLen(b_Muon_TightRelIso_TightIDandIPCut_SFerr_))); }
+    if (b_Muon_TightRelIso_TightIDandIPCut_SFerr_) { b_Muon_TightRelIso_TightIDandIPCut_SFerr_->SetAddress(Muon_TightRelIso_TightIDandIPCut_SFerr_.growFor(b_Muon_TightRelIso_TightIDandIPCut_SFerr_)); }
     b_Muon_TightRelTkIso_HighPtIDandIPCut_SF_ = tree->GetBranch("Muon_TightRelTkIso_HighPtIDandIPCut_SF");
-    if (b_Muon_TightRelTkIso_HighPtIDandIPCut_SF_) { b_Muon_TightRelTkIso_HighPtIDandIPCut_SF_->SetAddress(Muon_TightRelTkIso_HighPtIDandIPCut_SF_.grow(nanoBufLen(b_Muon_TightRelTkIso_HighPtIDandIPCut_SF_))); }
+    if (b_Muon_TightRelTkIso_HighPtIDandIPCut_SF_) { b_Muon_TightRelTkIso_HighPtIDandIPCut_SF_->SetAddress(Muon_TightRelTkIso_HighPtIDandIPCut_SF_.growFor(b_Muon_TightRelTkIso_HighPtIDandIPCut_SF_)); }
     b_Muon_TightRelTkIso_HighPtIDandIPCut_SFerr_ = tree->GetBranch("Muon_TightRelTkIso_HighPtIDandIPCut_SFerr");
-    if (b_Muon_TightRelTkIso_HighPtIDandIPCut_SFerr_) { b_Muon_TightRelTkIso_HighPtIDandIPCut_SFerr_->SetAddress(Muon_TightRelTkIso_HighPtIDandIPCut_SFerr_.grow(nanoBufLen(b_Muon_TightRelTkIso_HighPtIDandIPCut_SFerr_))); }
+    if (b_Muon_TightRelTkIso_HighPtIDandIPCut_SFerr_) { b_Muon_TightRelTkIso_HighPtIDandIPCut_SFerr_->SetAddress(Muon_TightRelTkIso_HighPtIDandIPCut_SFerr_.growFor(b_Muon_TightRelTkIso_HighPtIDandIPCut_SFerr_)); }
     b_Muon_TightRelTkIso_TrkHighPtIDandIPCut_SF_ = tree->GetBranch("Muon_TightRelTkIso_TrkHighPtIDandIPCut_SF");
-    if (b_Muon_TightRelTkIso_TrkHighPtIDandIPCut_SF_) { b_Muon_TightRelTkIso_TrkHighPtIDandIPCut_SF_->SetAddress(Muon_TightRelTkIso_TrkHighPtIDandIPCut_SF_.grow(nanoBufLen(b_Muon_TightRelTkIso_TrkHighPtIDandIPCut_SF_))); }
+    if (b_Muon_TightRelTkIso_TrkHighPtIDandIPCut_SF_) { b_Muon_TightRelTkIso_TrkHighPtIDandIPCut_SF_->SetAddress(Muon_TightRelTkIso_TrkHighPtIDandIPCut_SF_.growFor(b_Muon_TightRelTkIso_TrkHighPtIDandIPCut_SF_)); }
     b_Muon_TightRelTkIso_TrkHighPtIDandIPCut_SFerr_ = tree->GetBranch("Muon_TightRelTkIso_TrkHighPtIDandIPCut_SFerr");
-    if (b_Muon_TightRelTkIso_TrkHighPtIDandIPCut_SFerr_) { b_Muon_TightRelTkIso_TrkHighPtIDandIPCut_SFerr_->SetAddress(Muon_TightRelTkIso_TrkHighPtIDandIPCut_SFerr_.grow(nanoBufLen(b_Muon_TightRelTkIso_TrkHighPtIDandIPCut_SFerr_))); }
+    if (b_Muon_TightRelTkIso_TrkHighPtIDandIPCut_SFerr_) { b_Muon_TightRelTkIso_TrkHighPtIDandIPCut_SFerr_->SetAddress(Muon_TightRelTkIso_TrkHighPtIDandIPCut_SFerr_.growFor(b_Muon_TightRelTkIso_TrkHighPtIDandIPCut_SFerr_)); }
     b_Muon_charge_ = tree->GetBranch("Muon_charge");
-    if (b_Muon_charge_) { b_Muon_charge_->SetAddress(Muon_charge_.grow(nanoBufLen(b_Muon_charge_))); }
+    if (b_Muon_charge_) { b_Muon_charge_->SetAddress(Muon_charge_.growFor(b_Muon_charge_)); }
     b_Muon_cleanmask_ = tree->GetBranch("Muon_cleanmask");
-    if (b_Muon_cleanmask_) { b_Muon_cleanmask_->SetAddress(Muon_cleanmask_.grow(nanoBufLen(b_Muon_cleanmask_))); }
+    if (b_Muon_cleanmask_) { b_Muon_cleanmask_->SetAddress(Muon_cleanmask_.growFor(b_Muon_cleanmask_)); }
     b_Muon_correctedDown_pt_ = tree->GetBranch("Muon_correctedDown_pt");
-    if (b_Muon_correctedDown_pt_) { b_Muon_correctedDown_pt_->SetAddress(Muon_correctedDown_pt_.grow(nanoBufLen(b_Muon_correctedDown_pt_))); }
+    if (b_Muon_correctedDown_pt_) { b_Muon_correctedDown_pt_->SetAddress(Muon_correctedDown_pt_.growFor(b_Muon_correctedDown_pt_)); }
     b_Muon_correctedUp_pt_ = tree->GetBranch("Muon_correctedUp_pt");
-    if (b_Muon_correctedUp_pt_) { b_Muon_correctedUp_pt_->SetAddress(Muon_correctedUp_pt_.grow(nanoBufLen(b_Muon_correctedUp_pt_))); }
+    if (b_Muon_correctedUp_pt_) { b_Muon_correctedUp_pt_->SetAddress(Muon_correctedUp_pt_.growFor(b_Muon_correctedUp_pt_)); }
     b_Muon_corrected_pt_ = tree->GetBranch("Muon_corrected_pt");
-    if (b_Muon_corrected_pt_) { b_Muon_corrected_pt_->SetAddress(Muon_corrected_pt_.grow(nanoBufLen(b_Muon_corrected_pt_))); }
+    if (b_Muon_corrected_pt_) { b_Muon_corrected_pt_->SetAddress(Muon_corrected_pt_.growFor(b_Muon_corrected_pt_)); }
     b_Muon_dxy_ = tree->GetBranch("Muon_dxy");
-    if (b_Muon_dxy_) { b_Muon_dxy_->SetAddress(Muon_dxy_.grow(nanoBufLen(b_Muon_dxy_))); }
+    if (b_Muon_dxy_) { b_Muon_dxy_->SetAddress(Muon_dxy_.growFor(b_Muon_dxy_)); }
     b_Muon_dxyErr_ = tree->GetBranch("Muon_dxyErr");
-    if (b_Muon_dxyErr_) { b_Muon_dxyErr_->SetAddress(Muon_dxyErr_.grow(nanoBufLen(b_Muon_dxyErr_))); }
+    if (b_Muon_dxyErr_) { b_Muon_dxyErr_->SetAddress(Muon_dxyErr_.growFor(b_Muon_dxyErr_)); }
     b_Muon_dxybs_ = tree->GetBranch("Muon_dxybs");
-    if (b_Muon_dxybs_) { b_Muon_dxybs_->SetAddress(Muon_dxybs_.grow(nanoBufLen(b_Muon_dxybs_))); }
+    if (b_Muon_dxybs_) { b_Muon_dxybs_->SetAddress(Muon_dxybs_.growFor(b_Muon_dxybs_)); }
     b_Muon_dz_ = tree->GetBranch("Muon_dz");
-    if (b_Muon_dz_) { b_Muon_dz_->SetAddress(Muon_dz_.grow(nanoBufLen(b_Muon_dz_))); }
+    if (b_Muon_dz_) { b_Muon_dz_->SetAddress(Muon_dz_.growFor(b_Muon_dz_)); }
     b_Muon_dzErr_ = tree->GetBranch("Muon_dzErr");
-    if (b_Muon_dzErr_) { b_Muon_dzErr_->SetAddress(Muon_dzErr_.grow(nanoBufLen(b_Muon_dzErr_))); }
+    if (b_Muon_dzErr_) { b_Muon_dzErr_->SetAddress(Muon_dzErr_.growFor(b_Muon_dzErr_)); }
     b_Muon_eta_ = tree->GetBranch("Muon_eta");
-    if (b_Muon_eta_) { b_Muon_eta_->SetAddress(Muon_eta_.grow(nanoBufLen(b_Muon_eta_))); }
+    if (b_Muon_eta_) { b_Muon_eta_->SetAddress(Muon_eta_.growFor(b_Muon_eta_)); }
     b_Muon_fsrPhotonIdx_ = tree->GetBranch("Muon_fsrPhotonIdx");
-    if (b_Muon_fsrPhotonIdx_) { b_Muon_fsrPhotonIdx_->SetAddress(Muon_fsrPhotonIdx_.grow(nanoBufLen(b_Muon_fsrPhotonIdx_))); }
+    if (b_Muon_fsrPhotonIdx_) { b_Muon_fsrPhotonIdx_->SetAddress(Muon_fsrPhotonIdx_.growFor(b_Muon_fsrPhotonIdx_)); }
     b_Muon_genPartFlav_ = tree->GetBranch("Muon_genPartFlav");
-    if (b_Muon_genPartFlav_) { b_Muon_genPartFlav_->SetAddress(Muon_genPartFlav_.grow(nanoBufLen(b_Muon_genPartFlav_))); }
+    if (b_Muon_genPartFlav_) { b_Muon_genPartFlav_->SetAddress(Muon_genPartFlav_.growFor(b_Muon_genPartFlav_)); }
     b_Muon_genPartIdx_ = tree->GetBranch("Muon_genPartIdx");
-    if (b_Muon_genPartIdx_) { b_Muon_genPartIdx_->SetAddress(Muon_genPartIdx_.grow(nanoBufLen(b_Muon_genPartIdx_))); }
+    if (b_Muon_genPartIdx_) { b_Muon_genPartIdx_->SetAddress(Muon_genPartIdx_.growFor(b_Muon_genPartIdx_)); }
     b_Muon_highPtId_ = tree->GetBranch("Muon_highPtId");
-    if (b_Muon_highPtId_) { b_Muon_highPtId_->SetAddress(Muon_highPtId_.grow(nanoBufLen(b_Muon_highPtId_))); }
+    if (b_Muon_highPtId_) { b_Muon_highPtId_->SetAddress(Muon_highPtId_.growFor(b_Muon_highPtId_)); }
     b_Muon_highPurity_ = tree->GetBranch("Muon_highPurity");
-    if (b_Muon_highPurity_) { b_Muon_highPurity_->SetAddress(Muon_highPurity_.grow(nanoBufLen(b_Muon_highPurity_))); }
+    if (b_Muon_highPurity_) { b_Muon_highPurity_->SetAddress(Muon_highPurity_.growFor(b_Muon_highPurity_)); }
     b_Muon_inTimeMuon_ = tree->GetBranch("Muon_inTimeMuon");
-    if (b_Muon_inTimeMuon_) { b_Muon_inTimeMuon_->SetAddress(Muon_inTimeMuon_.grow(nanoBufLen(b_Muon_inTimeMuon_))); }
+    if (b_Muon_inTimeMuon_) { b_Muon_inTimeMuon_->SetAddress(Muon_inTimeMuon_.growFor(b_Muon_inTimeMuon_)); }
     b_Muon_ip3d_ = tree->GetBranch("Muon_ip3d");
-    if (b_Muon_ip3d_) { b_Muon_ip3d_->SetAddress(Muon_ip3d_.grow(nanoBufLen(b_Muon_ip3d_))); }
+    if (b_Muon_ip3d_) { b_Muon_ip3d_->SetAddress(Muon_ip3d_.growFor(b_Muon_ip3d_)); }
     b_Muon_isGlobal_ = tree->GetBranch("Muon_isGlobal");
-    if (b_Muon_isGlobal_) { b_Muon_isGlobal_->SetAddress(Muon_isGlobal_.grow(nanoBufLen(b_Muon_isGlobal_))); }
+    if (b_Muon_isGlobal_) { b_Muon_isGlobal_->SetAddress(Muon_isGlobal_.growFor(b_Muon_isGlobal_)); }
     b_Muon_isPFcand_ = tree->GetBranch("Muon_isPFcand");
-    if (b_Muon_isPFcand_) { b_Muon_isPFcand_->SetAddress(Muon_isPFcand_.grow(nanoBufLen(b_Muon_isPFcand_))); }
+    if (b_Muon_isPFcand_) { b_Muon_isPFcand_->SetAddress(Muon_isPFcand_.growFor(b_Muon_isPFcand_)); }
     b_Muon_isStandalone_ = tree->GetBranch("Muon_isStandalone");
-    if (b_Muon_isStandalone_) { b_Muon_isStandalone_->SetAddress(Muon_isStandalone_.grow(nanoBufLen(b_Muon_isStandalone_))); }
+    if (b_Muon_isStandalone_) { b_Muon_isStandalone_->SetAddress(Muon_isStandalone_.growFor(b_Muon_isStandalone_)); }
     b_Muon_isTracker_ = tree->GetBranch("Muon_isTracker");
-    if (b_Muon_isTracker_) { b_Muon_isTracker_->SetAddress(Muon_isTracker_.grow(nanoBufLen(b_Muon_isTracker_))); }
+    if (b_Muon_isTracker_) { b_Muon_isTracker_->SetAddress(Muon_isTracker_.growFor(b_Muon_isTracker_)); }
     b_Muon_jetIdx_ = tree->GetBranch("Muon_jetIdx");
-    if (b_Muon_jetIdx_) { b_Muon_jetIdx_->SetAddress(Muon_jetIdx_.grow(nanoBufLen(b_Muon_jetIdx_))); }
+    if (b_Muon_jetIdx_) { b_Muon_jetIdx_->SetAddress(Muon_jetIdx_.growFor(b_Muon_jetIdx_)); }
     b_Muon_jetNDauCharged_ = tree->GetBranch("Muon_jetNDauCharged");
-    if (b_Muon_jetNDauCharged_) { b_Muon_jetNDauCharged_->SetAddress(Muon_jetNDauCharged_.grow(nanoBufLen(b_Muon_jetNDauCharged_))); }
+    if (b_Muon_jetNDauCharged_) { b_Muon_jetNDauCharged_->SetAddress(Muon_jetNDauCharged_.growFor(b_Muon_jetNDauCharged_)); }
     b_Muon_jetPtRelv2_ = tree->GetBranch("Muon_jetPtRelv2");
-    if (b_Muon_jetPtRelv2_) { b_Muon_jetPtRelv2_->SetAddress(Muon_jetPtRelv2_.grow(nanoBufLen(b_Muon_jetPtRelv2_))); }
+    if (b_Muon_jetPtRelv2_) { b_Muon_jetPtRelv2_->SetAddress(Muon_jetPtRelv2_.growFor(b_Muon_jetPtRelv2_)); }
     b_Muon_jetRelIso_ = tree->GetBranch("Muon_jetRelIso");
-    if (b_Muon_jetRelIso_) { b_Muon_jetRelIso_->SetAddress(Muon_jetRelIso_.grow(nanoBufLen(b_Muon_jetRelIso_))); }
+    if (b_Muon_jetRelIso_) { b_Muon_jetRelIso_->SetAddress(Muon_jetRelIso_.growFor(b_Muon_jetRelIso_)); }
     b_Muon_looseId_ = tree->GetBranch("Muon_looseId");
-    if (b_Muon_looseId_) { b_Muon_looseId_->SetAddress(Muon_looseId_.grow(nanoBufLen(b_Muon_looseId_))); }
+    if (b_Muon_looseId_) { b_Muon_looseId_->SetAddress(Muon_looseId_.growFor(b_Muon_looseId_)); }
     b_Muon_mass_ = tree->GetBranch("Muon_mass");
-    if (b_Muon_mass_) { b_Muon_mass_->SetAddress(Muon_mass_.grow(nanoBufLen(b_Muon_mass_))); }
+    if (b_Muon_mass_) { b_Muon_mass_->SetAddress(Muon_mass_.growFor(b_Muon_mass_)); }
     b_Muon_mediumId_ = tree->GetBranch("Muon_mediumId");
-    if (b_Muon_mediumId_) { b_Muon_mediumId_->SetAddress(Muon_mediumId_.grow(nanoBufLen(b_Muon_mediumId_))); }
+    if (b_Muon_mediumId_) { b_Muon_mediumId_->SetAddress(Muon_mediumId_.growFor(b_Muon_mediumId_)); }
     b_Muon_mediumPromptId_ = tree->GetBranch("Muon_mediumPromptId");
-    if (b_Muon_mediumPromptId_) { b_Muon_mediumPromptId_->SetAddress(Muon_mediumPromptId_.grow(nanoBufLen(b_Muon_mediumPromptId_))); }
+    if (b_Muon_mediumPromptId_) { b_Muon_mediumPromptId_->SetAddress(Muon_mediumPromptId_.growFor(b_Muon_mediumPromptId_)); }
     b_Muon_miniIsoId_ = tree->GetBranch("Muon_miniIsoId");
-    if (b_Muon_miniIsoId_) { b_Muon_miniIsoId_->SetAddress(Muon_miniIsoId_.grow(nanoBufLen(b_Muon_miniIsoId_))); }
+    if (b_Muon_miniIsoId_) { b_Muon_miniIsoId_->SetAddress(Muon_miniIsoId_.growFor(b_Muon_miniIsoId_)); }
     b_Muon_miniPFRelIso_all_ = tree->GetBranch("Muon_miniPFRelIso_all");
-    if (b_Muon_miniPFRelIso_all_) { b_Muon_miniPFRelIso_all_->SetAddress(Muon_miniPFRelIso_all_.grow(nanoBufLen(b_Muon_miniPFRelIso_all_))); }
+    if (b_Muon_miniPFRelIso_all_) { b_Muon_miniPFRelIso_all_->SetAddress(Muon_miniPFRelIso_all_.growFor(b_Muon_miniPFRelIso_all_)); }
     b_Muon_miniPFRelIso_chg_ = tree->GetBranch("Muon_miniPFRelIso_chg");
-    if (b_Muon_miniPFRelIso_chg_) { b_Muon_miniPFRelIso_chg_->SetAddress(Muon_miniPFRelIso_chg_.grow(nanoBufLen(b_Muon_miniPFRelIso_chg_))); }
+    if (b_Muon_miniPFRelIso_chg_) { b_Muon_miniPFRelIso_chg_->SetAddress(Muon_miniPFRelIso_chg_.growFor(b_Muon_miniPFRelIso_chg_)); }
     b_Muon_multiIsoId_ = tree->GetBranch("Muon_multiIsoId");
-    if (b_Muon_multiIsoId_) { b_Muon_multiIsoId_->SetAddress(Muon_multiIsoId_.grow(nanoBufLen(b_Muon_multiIsoId_))); }
+    if (b_Muon_multiIsoId_) { b_Muon_multiIsoId_->SetAddress(Muon_multiIsoId_.growFor(b_Muon_multiIsoId_)); }
     b_Muon_mvaId_ = tree->GetBranch("Muon_mvaId");
-    if (b_Muon_mvaId_) { b_Muon_mvaId_->SetAddress(Muon_mvaId_.grow(nanoBufLen(b_Muon_mvaId_))); }
+    if (b_Muon_mvaId_) { b_Muon_mvaId_->SetAddress(Muon_mvaId_.growFor(b_Muon_mvaId_)); }
     b_Muon_mvaLowPt_ = tree->GetBranch("Muon_mvaLowPt");
-    if (b_Muon_mvaLowPt_) { b_Muon_mvaLowPt_->SetAddress(Muon_mvaLowPt_.grow(nanoBufLen(b_Muon_mvaLowPt_))); }
+    if (b_Muon_mvaLowPt_) { b_Muon_mvaLowPt_->SetAddress(Muon_mvaLowPt_.growFor(b_Muon_mvaLowPt_)); }
     b_Muon_mvaLowPtId_ = tree->GetBranch("Muon_mvaLowPtId");
-    if (b_Muon_mvaLowPtId_) { b_Muon_mvaLowPtId_->SetAddress(Muon_mvaLowPtId_.grow(nanoBufLen(b_Muon_mvaLowPtId_))); }
+    if (b_Muon_mvaLowPtId_) { b_Muon_mvaLowPtId_->SetAddress(Muon_mvaLowPtId_.growFor(b_Muon_mvaLowPtId_)); }
     b_Muon_mvaMuID_ = tree->GetBranch("Muon_mvaMuID");
-    if (b_Muon_mvaMuID_) { b_Muon_mvaMuID_->SetAddress(Muon_mvaMuID_.grow(nanoBufLen(b_Muon_mvaMuID_))); }
+    if (b_Muon_mvaMuID_) { b_Muon_mvaMuID_->SetAddress(Muon_mvaMuID_.growFor(b_Muon_mvaMuID_)); }
     b_Muon_mvaMuID_WP_ = tree->GetBranch("Muon_mvaMuID_WP");
-    if (b_Muon_mvaMuID_WP_) { b_Muon_mvaMuID_WP_->SetAddress(Muon_mvaMuID_WP_.grow(nanoBufLen(b_Muon_mvaMuID_WP_))); }
+    if (b_Muon_mvaMuID_WP_) { b_Muon_mvaMuID_WP_->SetAddress(Muon_mvaMuID_WP_.growFor(b_Muon_mvaMuID_WP_)); }
     b_Muon_mvaTTH_ = tree->GetBranch("Muon_mvaTTH");
-    if (b_Muon_mvaTTH_) { b_Muon_mvaTTH_->SetAddress(Muon_mvaTTH_.grow(nanoBufLen(b_Muon_mvaTTH_))); }
+    if (b_Muon_mvaTTH_) { b_Muon_mvaTTH_->SetAddress(Muon_mvaTTH_.growFor(b_Muon_mvaTTH_)); }
     // NOTE: this is a custom branch; temporarily added for convenience
     b_Muon_mvaTTHUL_ = tree->GetBranch("Muon_mvaTTHUL");
-    if (b_Muon_mvaTTHUL_) { b_Muon_mvaTTHUL_->SetAddress(Muon_mvaTTHUL_.grow(nanoBufLen(b_Muon_mvaTTHUL_))); }
+    if (b_Muon_mvaTTHUL_) { b_Muon_mvaTTHUL_->SetAddress(Muon_mvaTTHUL_.growFor(b_Muon_mvaTTHUL_)); }
     //
     b_Muon_nStations_ = tree->GetBranch("Muon_nStations");
-    if (b_Muon_nStations_) { b_Muon_nStations_->SetAddress(Muon_nStations_.grow(nanoBufLen(b_Muon_nStations_))); }
+    if (b_Muon_nStations_) { b_Muon_nStations_->SetAddress(Muon_nStations_.growFor(b_Muon_nStations_)); }
     b_Muon_nTrackerLayers_ = tree->GetBranch("Muon_nTrackerLayers");
-    if (b_Muon_nTrackerLayers_) { b_Muon_nTrackerLayers_->SetAddress(Muon_nTrackerLayers_.grow(nanoBufLen(b_Muon_nTrackerLayers_))); }
+    if (b_Muon_nTrackerLayers_) { b_Muon_nTrackerLayers_->SetAddress(Muon_nTrackerLayers_.growFor(b_Muon_nTrackerLayers_)); }
     b_Muon_pdgId_ = tree->GetBranch("Muon_pdgId");
-    if (b_Muon_pdgId_) { b_Muon_pdgId_->SetAddress(Muon_pdgId_.grow(nanoBufLen(b_Muon_pdgId_))); }
+    if (b_Muon_pdgId_) { b_Muon_pdgId_->SetAddress(Muon_pdgId_.growFor(b_Muon_pdgId_)); }
     b_Muon_pfIsoId_ = tree->GetBranch("Muon_pfIsoId");
-    if (b_Muon_pfIsoId_) { b_Muon_pfIsoId_->SetAddress(Muon_pfIsoId_.grow(nanoBufLen(b_Muon_pfIsoId_))); }
+    if (b_Muon_pfIsoId_) { b_Muon_pfIsoId_->SetAddress(Muon_pfIsoId_.growFor(b_Muon_pfIsoId_)); }
     b_Muon_pfRelIso03_all_ = tree->GetBranch("Muon_pfRelIso03_all");
-    if (b_Muon_pfRelIso03_all_) { b_Muon_pfRelIso03_all_->SetAddress(Muon_pfRelIso03_all_.grow(nanoBufLen(b_Muon_pfRelIso03_all_))); }
+    if (b_Muon_pfRelIso03_all_) { b_Muon_pfRelIso03_all_->SetAddress(Muon_pfRelIso03_all_.growFor(b_Muon_pfRelIso03_all_)); }
     b_Muon_pfRelIso03_chg_ = tree->GetBranch("Muon_pfRelIso03_chg");
-    if (b_Muon_pfRelIso03_chg_) { b_Muon_pfRelIso03_chg_->SetAddress(Muon_pfRelIso03_chg_.grow(nanoBufLen(b_Muon_pfRelIso03_chg_))); }
+    if (b_Muon_pfRelIso03_chg_) { b_Muon_pfRelIso03_chg_->SetAddress(Muon_pfRelIso03_chg_.growFor(b_Muon_pfRelIso03_chg_)); }
     b_Muon_pfRelIso04_all_ = tree->GetBranch("Muon_pfRelIso04_all");
-    if (b_Muon_pfRelIso04_all_) { b_Muon_pfRelIso04_all_->SetAddress(Muon_pfRelIso04_all_.grow(nanoBufLen(b_Muon_pfRelIso04_all_))); }
+    if (b_Muon_pfRelIso04_all_) { b_Muon_pfRelIso04_all_->SetAddress(Muon_pfRelIso04_all_.growFor(b_Muon_pfRelIso04_all_)); }
     b_Muon_phi_ = tree->GetBranch("Muon_phi");
-    if (b_Muon_phi_) { b_Muon_phi_->SetAddress(Muon_phi_.grow(nanoBufLen(b_Muon_phi_))); }
+    if (b_Muon_phi_) { b_Muon_phi_->SetAddress(Muon_phi_.growFor(b_Muon_phi_)); }
     b_Muon_pt_ = tree->GetBranch("Muon_pt");
-    if (b_Muon_pt_) { b_Muon_pt_->SetAddress(Muon_pt_.grow(nanoBufLen(b_Muon_pt_))); }
+    if (b_Muon_pt_) { b_Muon_pt_->SetAddress(Muon_pt_.growFor(b_Muon_pt_)); }
     b_Muon_ptErr_ = tree->GetBranch("Muon_ptErr");
-    if (b_Muon_ptErr_) { b_Muon_ptErr_->SetAddress(Muon_ptErr_.grow(nanoBufLen(b_Muon_ptErr_))); }
+    if (b_Muon_ptErr_) { b_Muon_ptErr_->SetAddress(Muon_ptErr_.growFor(b_Muon_ptErr_)); }
     b_Muon_puppiIsoId_ = tree->GetBranch("Muon_puppiIsoId");
-    if (b_Muon_puppiIsoId_) { b_Muon_puppiIsoId_->SetAddress(Muon_puppiIsoId_.grow(nanoBufLen(b_Muon_puppiIsoId_))); }
+    if (b_Muon_puppiIsoId_) { b_Muon_puppiIsoId_->SetAddress(Muon_puppiIsoId_.growFor(b_Muon_puppiIsoId_)); }
     b_Muon_segmentComp_ = tree->GetBranch("Muon_segmentComp");
-    if (b_Muon_segmentComp_) { b_Muon_segmentComp_->SetAddress(Muon_segmentComp_.grow(nanoBufLen(b_Muon_segmentComp_))); }
+    if (b_Muon_segmentComp_) { b_Muon_segmentComp_->SetAddress(Muon_segmentComp_.growFor(b_Muon_segmentComp_)); }
     b_Muon_sip3d_ = tree->GetBranch("Muon_sip3d");
-    if (b_Muon_sip3d_) { b_Muon_sip3d_->SetAddress(Muon_sip3d_.grow(nanoBufLen(b_Muon_sip3d_))); }
+    if (b_Muon_sip3d_) { b_Muon_sip3d_->SetAddress(Muon_sip3d_.growFor(b_Muon_sip3d_)); }
     b_Muon_softId_ = tree->GetBranch("Muon_softId");
-    if (b_Muon_softId_) { b_Muon_softId_->SetAddress(Muon_softId_.grow(nanoBufLen(b_Muon_softId_))); }
+    if (b_Muon_softId_) { b_Muon_softId_->SetAddress(Muon_softId_.growFor(b_Muon_softId_)); }
     b_Muon_softMva_ = tree->GetBranch("Muon_softMva");
-    if (b_Muon_softMva_) { b_Muon_softMva_->SetAddress(Muon_softMva_.grow(nanoBufLen(b_Muon_softMva_))); }
+    if (b_Muon_softMva_) { b_Muon_softMva_->SetAddress(Muon_softMva_.growFor(b_Muon_softMva_)); }
     b_Muon_softMvaId_ = tree->GetBranch("Muon_softMvaId");
-    if (b_Muon_softMvaId_) { b_Muon_softMvaId_->SetAddress(Muon_softMvaId_.grow(nanoBufLen(b_Muon_softMvaId_))); }
+    if (b_Muon_softMvaId_) { b_Muon_softMvaId_->SetAddress(Muon_softMvaId_.growFor(b_Muon_softMvaId_)); }
     b_Muon_svIdx_ = tree->GetBranch("Muon_svIdx");
-    if (b_Muon_svIdx_) { b_Muon_svIdx_->SetAddress(Muon_svIdx_.grow(nanoBufLen(b_Muon_svIdx_))); }
+    if (b_Muon_svIdx_) { b_Muon_svIdx_->SetAddress(Muon_svIdx_.growFor(b_Muon_svIdx_)); }
     b_Muon_tightCharge_ = tree->GetBranch("Muon_tightCharge");
-    if (b_Muon_tightCharge_) { b_Muon_tightCharge_->SetAddress(Muon_tightCharge_.grow(nanoBufLen(b_Muon_tightCharge_))); }
+    if (b_Muon_tightCharge_) { b_Muon_tightCharge_->SetAddress(Muon_tightCharge_.growFor(b_Muon_tightCharge_)); }
     b_Muon_tightId_ = tree->GetBranch("Muon_tightId");
-    if (b_Muon_tightId_) { b_Muon_tightId_->SetAddress(Muon_tightId_.grow(nanoBufLen(b_Muon_tightId_))); }
+    if (b_Muon_tightId_) { b_Muon_tightId_->SetAddress(Muon_tightId_.growFor(b_Muon_tightId_)); }
     b_Muon_tkIsoId_ = tree->GetBranch("Muon_tkIsoId");
-    if (b_Muon_tkIsoId_) { b_Muon_tkIsoId_->SetAddress(Muon_tkIsoId_.grow(nanoBufLen(b_Muon_tkIsoId_))); }
+    if (b_Muon_tkIsoId_) { b_Muon_tkIsoId_->SetAddress(Muon_tkIsoId_.growFor(b_Muon_tkIsoId_)); }
     b_Muon_tkRelIso_ = tree->GetBranch("Muon_tkRelIso");
-    if (b_Muon_tkRelIso_) { b_Muon_tkRelIso_->SetAddress(Muon_tkRelIso_.grow(nanoBufLen(b_Muon_tkRelIso_))); }
+    if (b_Muon_tkRelIso_) { b_Muon_tkRelIso_->SetAddress(Muon_tkRelIso_.growFor(b_Muon_tkRelIso_)); }
     b_Muon_triggerIdLoose_ = tree->GetBranch("Muon_triggerIdLoose");
-    if (b_Muon_triggerIdLoose_) { b_Muon_triggerIdLoose_->SetAddress(Muon_triggerIdLoose_.grow(nanoBufLen(b_Muon_triggerIdLoose_))); }
+    if (b_Muon_triggerIdLoose_) { b_Muon_triggerIdLoose_->SetAddress(Muon_triggerIdLoose_.growFor(b_Muon_triggerIdLoose_)); }
     b_Muon_tunepRelPt_ = tree->GetBranch("Muon_tunepRelPt");
-    if (b_Muon_tunepRelPt_) { b_Muon_tunepRelPt_->SetAddress(Muon_tunepRelPt_.grow(nanoBufLen(b_Muon_tunepRelPt_))); }
+    if (b_Muon_tunepRelPt_) { b_Muon_tunepRelPt_->SetAddress(Muon_tunepRelPt_.growFor(b_Muon_tunepRelPt_)); }
     b_OtherPV_score_ = tree->GetBranch("OtherPV_score");
-    if (b_OtherPV_score_) { b_OtherPV_score_->SetAddress(OtherPV_score_.grow(nanoBufLen(b_OtherPV_score_))); }
+    if (b_OtherPV_score_) { b_OtherPV_score_->SetAddress(OtherPV_score_.growFor(b_OtherPV_score_)); }
     b_OtherPV_z_ = tree->GetBranch("OtherPV_z");
-    if (b_OtherPV_z_) { b_OtherPV_z_->SetAddress(OtherPV_z_.grow(nanoBufLen(b_OtherPV_z_))); }
+    if (b_OtherPV_z_) { b_OtherPV_z_->SetAddress(OtherPV_z_.growFor(b_OtherPV_z_)); }
     b_PPSLocalTrack_decRPId_ = tree->GetBranch("PPSLocalTrack_decRPId");
-    if (b_PPSLocalTrack_decRPId_) { b_PPSLocalTrack_decRPId_->SetAddress(PPSLocalTrack_decRPId_.grow(nanoBufLen(b_PPSLocalTrack_decRPId_))); }
+    if (b_PPSLocalTrack_decRPId_) { b_PPSLocalTrack_decRPId_->SetAddress(PPSLocalTrack_decRPId_.growFor(b_PPSLocalTrack_decRPId_)); }
     b_PPSLocalTrack_multiRPProtonIdx_ = tree->GetBranch("PPSLocalTrack_multiRPProtonIdx");
-    if (b_PPSLocalTrack_multiRPProtonIdx_) { b_PPSLocalTrack_multiRPProtonIdx_->SetAddress(PPSLocalTrack_multiRPProtonIdx_.grow(nanoBufLen(b_PPSLocalTrack_multiRPProtonIdx_))); }
+    if (b_PPSLocalTrack_multiRPProtonIdx_) { b_PPSLocalTrack_multiRPProtonIdx_->SetAddress(PPSLocalTrack_multiRPProtonIdx_.growFor(b_PPSLocalTrack_multiRPProtonIdx_)); }
     b_PPSLocalTrack_rpType_ = tree->GetBranch("PPSLocalTrack_rpType");
-    if (b_PPSLocalTrack_rpType_) { b_PPSLocalTrack_rpType_->SetAddress(PPSLocalTrack_rpType_.grow(nanoBufLen(b_PPSLocalTrack_rpType_))); }
+    if (b_PPSLocalTrack_rpType_) { b_PPSLocalTrack_rpType_->SetAddress(PPSLocalTrack_rpType_.growFor(b_PPSLocalTrack_rpType_)); }
     b_PPSLocalTrack_singleRPProtonIdx_ = tree->GetBranch("PPSLocalTrack_singleRPProtonIdx");
-    if (b_PPSLocalTrack_singleRPProtonIdx_) { b_PPSLocalTrack_singleRPProtonIdx_->SetAddress(PPSLocalTrack_singleRPProtonIdx_.grow(nanoBufLen(b_PPSLocalTrack_singleRPProtonIdx_))); }
+    if (b_PPSLocalTrack_singleRPProtonIdx_) { b_PPSLocalTrack_singleRPProtonIdx_->SetAddress(PPSLocalTrack_singleRPProtonIdx_.growFor(b_PPSLocalTrack_singleRPProtonIdx_)); }
     b_PPSLocalTrack_time_ = tree->GetBranch("PPSLocalTrack_time");
-    if (b_PPSLocalTrack_time_) { b_PPSLocalTrack_time_->SetAddress(PPSLocalTrack_time_.grow(nanoBufLen(b_PPSLocalTrack_time_))); }
+    if (b_PPSLocalTrack_time_) { b_PPSLocalTrack_time_->SetAddress(PPSLocalTrack_time_.growFor(b_PPSLocalTrack_time_)); }
     b_PPSLocalTrack_timeUnc_ = tree->GetBranch("PPSLocalTrack_timeUnc");
-    if (b_PPSLocalTrack_timeUnc_) { b_PPSLocalTrack_timeUnc_->SetAddress(PPSLocalTrack_timeUnc_.grow(nanoBufLen(b_PPSLocalTrack_timeUnc_))); }
+    if (b_PPSLocalTrack_timeUnc_) { b_PPSLocalTrack_timeUnc_->SetAddress(PPSLocalTrack_timeUnc_.growFor(b_PPSLocalTrack_timeUnc_)); }
     b_PPSLocalTrack_x_ = tree->GetBranch("PPSLocalTrack_x");
-    if (b_PPSLocalTrack_x_) { b_PPSLocalTrack_x_->SetAddress(PPSLocalTrack_x_.grow(nanoBufLen(b_PPSLocalTrack_x_))); }
+    if (b_PPSLocalTrack_x_) { b_PPSLocalTrack_x_->SetAddress(PPSLocalTrack_x_.growFor(b_PPSLocalTrack_x_)); }
     b_PPSLocalTrack_y_ = tree->GetBranch("PPSLocalTrack_y");
-    if (b_PPSLocalTrack_y_) { b_PPSLocalTrack_y_->SetAddress(PPSLocalTrack_y_.grow(nanoBufLen(b_PPSLocalTrack_y_))); }
+    if (b_PPSLocalTrack_y_) { b_PPSLocalTrack_y_->SetAddress(PPSLocalTrack_y_.growFor(b_PPSLocalTrack_y_)); }
     b_PSWeight_ = tree->GetBranch("PSWeight");
-    if (b_PSWeight_) { b_PSWeight_->SetAddress(PSWeight_.grow(nanoBufLen(b_PSWeight_))); }
+    if (b_PSWeight_) { b_PSWeight_->SetAddress(PSWeight_.growFor(b_PSWeight_)); }
     b_PV_chi2_ = tree->GetBranch("PV_chi2");
     if (b_PV_chi2_) { b_PV_chi2_->SetAddress(&PV_chi2_); }
     b_PV_ndof_ = tree->GetBranch("PV_ndof");
@@ -6411,137 +6411,137 @@ void Nano::Init(TTree *tree) {
     b_PV_z_ = tree->GetBranch("PV_z");
     if (b_PV_z_) { b_PV_z_->SetAddress(&PV_z_); }
     b_Photon_charge_ = tree->GetBranch("Photon_charge");
-    if (b_Photon_charge_) { b_Photon_charge_->SetAddress(Photon_charge_.grow(nanoBufLen(b_Photon_charge_))); }
+    if (b_Photon_charge_) { b_Photon_charge_->SetAddress(Photon_charge_.growFor(b_Photon_charge_)); }
     b_Photon_cleanmask_ = tree->GetBranch("Photon_cleanmask");
-    if (b_Photon_cleanmask_) { b_Photon_cleanmask_->SetAddress(Photon_cleanmask_.grow(nanoBufLen(b_Photon_cleanmask_))); }
+    if (b_Photon_cleanmask_) { b_Photon_cleanmask_->SetAddress(Photon_cleanmask_.growFor(b_Photon_cleanmask_)); }
     b_Photon_cutBased_ = tree->GetBranch("Photon_cutBased");
-    if (b_Photon_cutBased_) { b_Photon_cutBased_->SetAddress(Photon_cutBased_.grow(nanoBufLen(b_Photon_cutBased_))); }
+    if (b_Photon_cutBased_) { b_Photon_cutBased_->SetAddress(Photon_cutBased_.growFor(b_Photon_cutBased_)); }
     b_Photon_cutBased17Bitmap_ = tree->GetBranch("Photon_cutBased17Bitmap");
-    if (b_Photon_cutBased17Bitmap_) { b_Photon_cutBased17Bitmap_->SetAddress(Photon_cutBased17Bitmap_.grow(nanoBufLen(b_Photon_cutBased17Bitmap_))); }
+    if (b_Photon_cutBased17Bitmap_) { b_Photon_cutBased17Bitmap_->SetAddress(Photon_cutBased17Bitmap_.growFor(b_Photon_cutBased17Bitmap_)); }
     b_Photon_cutBasedBitmap_ = tree->GetBranch("Photon_cutBasedBitmap");
-    if (b_Photon_cutBasedBitmap_) { b_Photon_cutBasedBitmap_->SetAddress(Photon_cutBasedBitmap_.grow(nanoBufLen(b_Photon_cutBasedBitmap_))); }
+    if (b_Photon_cutBasedBitmap_) { b_Photon_cutBasedBitmap_->SetAddress(Photon_cutBasedBitmap_.growFor(b_Photon_cutBasedBitmap_)); }
     b_Photon_cutBased_Fall17V1Bitmap_ = tree->GetBranch("Photon_cutBased_Fall17V1Bitmap");
-    if (b_Photon_cutBased_Fall17V1Bitmap_) { b_Photon_cutBased_Fall17V1Bitmap_->SetAddress(Photon_cutBased_Fall17V1Bitmap_.grow(nanoBufLen(b_Photon_cutBased_Fall17V1Bitmap_))); }
+    if (b_Photon_cutBased_Fall17V1Bitmap_) { b_Photon_cutBased_Fall17V1Bitmap_->SetAddress(Photon_cutBased_Fall17V1Bitmap_.growFor(b_Photon_cutBased_Fall17V1Bitmap_)); }
     b_Photon_cutBased_Fall17V2_ = tree->GetBranch("Photon_cutBased_Fall17V2");
-    if (b_Photon_cutBased_Fall17V2_) { b_Photon_cutBased_Fall17V2_->SetAddress(Photon_cutBased_Fall17V2_.grow(nanoBufLen(b_Photon_cutBased_Fall17V2_))); }
+    if (b_Photon_cutBased_Fall17V2_) { b_Photon_cutBased_Fall17V2_->SetAddress(Photon_cutBased_Fall17V2_.growFor(b_Photon_cutBased_Fall17V2_)); }
     b_Photon_dEscaleDown_ = tree->GetBranch("Photon_dEscaleDown");
-    if (b_Photon_dEscaleDown_) { b_Photon_dEscaleDown_->SetAddress(Photon_dEscaleDown_.grow(nanoBufLen(b_Photon_dEscaleDown_))); }
+    if (b_Photon_dEscaleDown_) { b_Photon_dEscaleDown_->SetAddress(Photon_dEscaleDown_.growFor(b_Photon_dEscaleDown_)); }
     b_Photon_dEscaleUp_ = tree->GetBranch("Photon_dEscaleUp");
-    if (b_Photon_dEscaleUp_) { b_Photon_dEscaleUp_->SetAddress(Photon_dEscaleUp_.grow(nanoBufLen(b_Photon_dEscaleUp_))); }
+    if (b_Photon_dEscaleUp_) { b_Photon_dEscaleUp_->SetAddress(Photon_dEscaleUp_.growFor(b_Photon_dEscaleUp_)); }
     b_Photon_dEsigmaDown_ = tree->GetBranch("Photon_dEsigmaDown");
-    if (b_Photon_dEsigmaDown_) { b_Photon_dEsigmaDown_->SetAddress(Photon_dEsigmaDown_.grow(nanoBufLen(b_Photon_dEsigmaDown_))); }
+    if (b_Photon_dEsigmaDown_) { b_Photon_dEsigmaDown_->SetAddress(Photon_dEsigmaDown_.growFor(b_Photon_dEsigmaDown_)); }
     b_Photon_dEsigmaUp_ = tree->GetBranch("Photon_dEsigmaUp");
-    if (b_Photon_dEsigmaUp_) { b_Photon_dEsigmaUp_->SetAddress(Photon_dEsigmaUp_.grow(nanoBufLen(b_Photon_dEsigmaUp_))); }
+    if (b_Photon_dEsigmaUp_) { b_Photon_dEsigmaUp_->SetAddress(Photon_dEsigmaUp_.growFor(b_Photon_dEsigmaUp_)); }
     b_Photon_eCorr_ = tree->GetBranch("Photon_eCorr");
-    if (b_Photon_eCorr_) { b_Photon_eCorr_->SetAddress(Photon_eCorr_.grow(nanoBufLen(b_Photon_eCorr_))); }
+    if (b_Photon_eCorr_) { b_Photon_eCorr_->SetAddress(Photon_eCorr_.growFor(b_Photon_eCorr_)); }
     b_Photon_electronIdx_ = tree->GetBranch("Photon_electronIdx");
-    if (b_Photon_electronIdx_) { b_Photon_electronIdx_->SetAddress(Photon_electronIdx_.grow(nanoBufLen(b_Photon_electronIdx_))); }
+    if (b_Photon_electronIdx_) { b_Photon_electronIdx_->SetAddress(Photon_electronIdx_.growFor(b_Photon_electronIdx_)); }
     b_Photon_electronVeto_ = tree->GetBranch("Photon_electronVeto");
-    if (b_Photon_electronVeto_) { b_Photon_electronVeto_->SetAddress(Photon_electronVeto_.grow(nanoBufLen(b_Photon_electronVeto_))); }
+    if (b_Photon_electronVeto_) { b_Photon_electronVeto_->SetAddress(Photon_electronVeto_.growFor(b_Photon_electronVeto_)); }
     b_Photon_energyErr_ = tree->GetBranch("Photon_energyErr");
-    if (b_Photon_energyErr_) { b_Photon_energyErr_->SetAddress(Photon_energyErr_.grow(nanoBufLen(b_Photon_energyErr_))); }
+    if (b_Photon_energyErr_) { b_Photon_energyErr_->SetAddress(Photon_energyErr_.growFor(b_Photon_energyErr_)); }
     b_Photon_energyRaw_ = tree->GetBranch("Photon_energyRaw");
-    if (b_Photon_energyRaw_) { b_Photon_energyRaw_->SetAddress(Photon_energyRaw_.grow(nanoBufLen(b_Photon_energyRaw_))); }
+    if (b_Photon_energyRaw_) { b_Photon_energyRaw_->SetAddress(Photon_energyRaw_.growFor(b_Photon_energyRaw_)); }
     b_Photon_esEffSigmaRR_ = tree->GetBranch("Photon_esEffSigmaRR");
-    if (b_Photon_esEffSigmaRR_) { b_Photon_esEffSigmaRR_->SetAddress(Photon_esEffSigmaRR_.grow(nanoBufLen(b_Photon_esEffSigmaRR_))); }
+    if (b_Photon_esEffSigmaRR_) { b_Photon_esEffSigmaRR_->SetAddress(Photon_esEffSigmaRR_.growFor(b_Photon_esEffSigmaRR_)); }
     b_Photon_esEnergyOverRawE_ = tree->GetBranch("Photon_esEnergyOverRawE");
-    if (b_Photon_esEnergyOverRawE_) { b_Photon_esEnergyOverRawE_->SetAddress(Photon_esEnergyOverRawE_.grow(nanoBufLen(b_Photon_esEnergyOverRawE_))); }
+    if (b_Photon_esEnergyOverRawE_) { b_Photon_esEnergyOverRawE_->SetAddress(Photon_esEnergyOverRawE_.growFor(b_Photon_esEnergyOverRawE_)); }
     b_Photon_eta_ = tree->GetBranch("Photon_eta");
-    if (b_Photon_eta_) { b_Photon_eta_->SetAddress(Photon_eta_.grow(nanoBufLen(b_Photon_eta_))); }
+    if (b_Photon_eta_) { b_Photon_eta_->SetAddress(Photon_eta_.growFor(b_Photon_eta_)); }
     b_Photon_etaWidth_ = tree->GetBranch("Photon_etaWidth");
-    if (b_Photon_etaWidth_) { b_Photon_etaWidth_->SetAddress(Photon_etaWidth_.grow(nanoBufLen(b_Photon_etaWidth_))); }
+    if (b_Photon_etaWidth_) { b_Photon_etaWidth_->SetAddress(Photon_etaWidth_.growFor(b_Photon_etaWidth_)); }
     b_Photon_genPartFlav_ = tree->GetBranch("Photon_genPartFlav");
-    if (b_Photon_genPartFlav_) { b_Photon_genPartFlav_->SetAddress(Photon_genPartFlav_.grow(nanoBufLen(b_Photon_genPartFlav_))); }
+    if (b_Photon_genPartFlav_) { b_Photon_genPartFlav_->SetAddress(Photon_genPartFlav_.growFor(b_Photon_genPartFlav_)); }
     b_Photon_genPartIdx_ = tree->GetBranch("Photon_genPartIdx");
-    if (b_Photon_genPartIdx_) { b_Photon_genPartIdx_->SetAddress(Photon_genPartIdx_.grow(nanoBufLen(b_Photon_genPartIdx_))); }
+    if (b_Photon_genPartIdx_) { b_Photon_genPartIdx_->SetAddress(Photon_genPartIdx_.growFor(b_Photon_genPartIdx_)); }
     b_Photon_haloTaggerMVAVal_ = tree->GetBranch("Photon_haloTaggerMVAVal");
-    if (b_Photon_haloTaggerMVAVal_) { b_Photon_haloTaggerMVAVal_->SetAddress(Photon_haloTaggerMVAVal_.grow(nanoBufLen(b_Photon_haloTaggerMVAVal_))); }
+    if (b_Photon_haloTaggerMVAVal_) { b_Photon_haloTaggerMVAVal_->SetAddress(Photon_haloTaggerMVAVal_.growFor(b_Photon_haloTaggerMVAVal_)); }
     b_Photon_hoe_ = tree->GetBranch("Photon_hoe");
-    if (b_Photon_hoe_) { b_Photon_hoe_->SetAddress(Photon_hoe_.grow(nanoBufLen(b_Photon_hoe_))); }
+    if (b_Photon_hoe_) { b_Photon_hoe_->SetAddress(Photon_hoe_.growFor(b_Photon_hoe_)); }
     b_Photon_hoe_PUcorr_ = tree->GetBranch("Photon_hoe_PUcorr");
-    if (b_Photon_hoe_PUcorr_) { b_Photon_hoe_PUcorr_->SetAddress(Photon_hoe_PUcorr_.grow(nanoBufLen(b_Photon_hoe_PUcorr_))); }
+    if (b_Photon_hoe_PUcorr_) { b_Photon_hoe_PUcorr_->SetAddress(Photon_hoe_PUcorr_.growFor(b_Photon_hoe_PUcorr_)); }
     b_Photon_isScEtaEB_ = tree->GetBranch("Photon_isScEtaEB");
-    if (b_Photon_isScEtaEB_) { b_Photon_isScEtaEB_->SetAddress(Photon_isScEtaEB_.grow(nanoBufLen(b_Photon_isScEtaEB_))); }
+    if (b_Photon_isScEtaEB_) { b_Photon_isScEtaEB_->SetAddress(Photon_isScEtaEB_.growFor(b_Photon_isScEtaEB_)); }
     b_Photon_isScEtaEE_ = tree->GetBranch("Photon_isScEtaEE");
-    if (b_Photon_isScEtaEE_) { b_Photon_isScEtaEE_->SetAddress(Photon_isScEtaEE_.grow(nanoBufLen(b_Photon_isScEtaEE_))); }
+    if (b_Photon_isScEtaEE_) { b_Photon_isScEtaEE_->SetAddress(Photon_isScEtaEE_.growFor(b_Photon_isScEtaEE_)); }
     b_Photon_jetIdx_ = tree->GetBranch("Photon_jetIdx");
-    if (b_Photon_jetIdx_) { b_Photon_jetIdx_->SetAddress(Photon_jetIdx_.grow(nanoBufLen(b_Photon_jetIdx_))); }
+    if (b_Photon_jetIdx_) { b_Photon_jetIdx_->SetAddress(Photon_jetIdx_.growFor(b_Photon_jetIdx_)); }
     b_Photon_mass_ = tree->GetBranch("Photon_mass");
-    if (b_Photon_mass_) { b_Photon_mass_->SetAddress(Photon_mass_.grow(nanoBufLen(b_Photon_mass_))); }
+    if (b_Photon_mass_) { b_Photon_mass_->SetAddress(Photon_mass_.growFor(b_Photon_mass_)); }
     b_Photon_mvaID_ = tree->GetBranch("Photon_mvaID");
-    if (b_Photon_mvaID_) { b_Photon_mvaID_->SetAddress(Photon_mvaID_.grow(nanoBufLen(b_Photon_mvaID_))); }
+    if (b_Photon_mvaID_) { b_Photon_mvaID_->SetAddress(Photon_mvaID_.growFor(b_Photon_mvaID_)); }
     b_Photon_mvaID17_ = tree->GetBranch("Photon_mvaID17");
-    if (b_Photon_mvaID17_) { b_Photon_mvaID17_->SetAddress(Photon_mvaID17_.grow(nanoBufLen(b_Photon_mvaID17_))); }
+    if (b_Photon_mvaID17_) { b_Photon_mvaID17_->SetAddress(Photon_mvaID17_.growFor(b_Photon_mvaID17_)); }
     b_Photon_mvaID17_WP80_ = tree->GetBranch("Photon_mvaID17_WP80");
-    if (b_Photon_mvaID17_WP80_) { b_Photon_mvaID17_WP80_->SetAddress(Photon_mvaID17_WP80_.grow(nanoBufLen(b_Photon_mvaID17_WP80_))); }
+    if (b_Photon_mvaID17_WP80_) { b_Photon_mvaID17_WP80_->SetAddress(Photon_mvaID17_WP80_.growFor(b_Photon_mvaID17_WP80_)); }
     b_Photon_mvaID17_WP90_ = tree->GetBranch("Photon_mvaID17_WP90");
-    if (b_Photon_mvaID17_WP90_) { b_Photon_mvaID17_WP90_->SetAddress(Photon_mvaID17_WP90_.grow(nanoBufLen(b_Photon_mvaID17_WP90_))); }
+    if (b_Photon_mvaID17_WP90_) { b_Photon_mvaID17_WP90_->SetAddress(Photon_mvaID17_WP90_.growFor(b_Photon_mvaID17_WP90_)); }
     b_Photon_mvaID_Fall17V1p1_ = tree->GetBranch("Photon_mvaID_Fall17V1p1");
-    if (b_Photon_mvaID_Fall17V1p1_) { b_Photon_mvaID_Fall17V1p1_->SetAddress(Photon_mvaID_Fall17V1p1_.grow(nanoBufLen(b_Photon_mvaID_Fall17V1p1_))); }
+    if (b_Photon_mvaID_Fall17V1p1_) { b_Photon_mvaID_Fall17V1p1_->SetAddress(Photon_mvaID_Fall17V1p1_.growFor(b_Photon_mvaID_Fall17V1p1_)); }
     b_Photon_mvaID_Fall17V2_ = tree->GetBranch("Photon_mvaID_Fall17V2");
-    if (b_Photon_mvaID_Fall17V2_) { b_Photon_mvaID_Fall17V2_->SetAddress(Photon_mvaID_Fall17V2_.grow(nanoBufLen(b_Photon_mvaID_Fall17V2_))); }
+    if (b_Photon_mvaID_Fall17V2_) { b_Photon_mvaID_Fall17V2_->SetAddress(Photon_mvaID_Fall17V2_.growFor(b_Photon_mvaID_Fall17V2_)); }
     b_Photon_mvaID_Fall17V2_WP80_ = tree->GetBranch("Photon_mvaID_Fall17V2_WP80");
-    if (b_Photon_mvaID_Fall17V2_WP80_) { b_Photon_mvaID_Fall17V2_WP80_->SetAddress(Photon_mvaID_Fall17V2_WP80_.grow(nanoBufLen(b_Photon_mvaID_Fall17V2_WP80_))); }
+    if (b_Photon_mvaID_Fall17V2_WP80_) { b_Photon_mvaID_Fall17V2_WP80_->SetAddress(Photon_mvaID_Fall17V2_WP80_.growFor(b_Photon_mvaID_Fall17V2_WP80_)); }
     b_Photon_mvaID_Fall17V2_WP90_ = tree->GetBranch("Photon_mvaID_Fall17V2_WP90");
-    if (b_Photon_mvaID_Fall17V2_WP90_) { b_Photon_mvaID_Fall17V2_WP90_->SetAddress(Photon_mvaID_Fall17V2_WP90_.grow(nanoBufLen(b_Photon_mvaID_Fall17V2_WP90_))); }
+    if (b_Photon_mvaID_Fall17V2_WP90_) { b_Photon_mvaID_Fall17V2_WP90_->SetAddress(Photon_mvaID_Fall17V2_WP90_.growFor(b_Photon_mvaID_Fall17V2_WP90_)); }
     b_Photon_mvaID_WP80_ = tree->GetBranch("Photon_mvaID_WP80");
-    if (b_Photon_mvaID_WP80_) { b_Photon_mvaID_WP80_->SetAddress(Photon_mvaID_WP80_.grow(nanoBufLen(b_Photon_mvaID_WP80_))); }
+    if (b_Photon_mvaID_WP80_) { b_Photon_mvaID_WP80_->SetAddress(Photon_mvaID_WP80_.growFor(b_Photon_mvaID_WP80_)); }
     b_Photon_mvaID_WP90_ = tree->GetBranch("Photon_mvaID_WP90");
-    if (b_Photon_mvaID_WP90_) { b_Photon_mvaID_WP90_->SetAddress(Photon_mvaID_WP90_.grow(nanoBufLen(b_Photon_mvaID_WP90_))); }
+    if (b_Photon_mvaID_WP90_) { b_Photon_mvaID_WP90_->SetAddress(Photon_mvaID_WP90_.growFor(b_Photon_mvaID_WP90_)); }
     b_Photon_pdgId_ = tree->GetBranch("Photon_pdgId");
-    if (b_Photon_pdgId_) { b_Photon_pdgId_->SetAddress(Photon_pdgId_.grow(nanoBufLen(b_Photon_pdgId_))); }
+    if (b_Photon_pdgId_) { b_Photon_pdgId_->SetAddress(Photon_pdgId_.growFor(b_Photon_pdgId_)); }
     b_Photon_pfChargedIsoPFPV_ = tree->GetBranch("Photon_pfChargedIsoPFPV");
-    if (b_Photon_pfChargedIsoPFPV_) { b_Photon_pfChargedIsoPFPV_->SetAddress(Photon_pfChargedIsoPFPV_.grow(nanoBufLen(b_Photon_pfChargedIsoPFPV_))); }
+    if (b_Photon_pfChargedIsoPFPV_) { b_Photon_pfChargedIsoPFPV_->SetAddress(Photon_pfChargedIsoPFPV_.growFor(b_Photon_pfChargedIsoPFPV_)); }
     b_Photon_pfChargedIsoWorstVtx_ = tree->GetBranch("Photon_pfChargedIsoWorstVtx");
-    if (b_Photon_pfChargedIsoWorstVtx_) { b_Photon_pfChargedIsoWorstVtx_->SetAddress(Photon_pfChargedIsoWorstVtx_.grow(nanoBufLen(b_Photon_pfChargedIsoWorstVtx_))); }
+    if (b_Photon_pfChargedIsoWorstVtx_) { b_Photon_pfChargedIsoWorstVtx_->SetAddress(Photon_pfChargedIsoWorstVtx_.growFor(b_Photon_pfChargedIsoWorstVtx_)); }
     b_Photon_pfPhoIso03_ = tree->GetBranch("Photon_pfPhoIso03");
-    if (b_Photon_pfPhoIso03_) { b_Photon_pfPhoIso03_->SetAddress(Photon_pfPhoIso03_.grow(nanoBufLen(b_Photon_pfPhoIso03_))); }
+    if (b_Photon_pfPhoIso03_) { b_Photon_pfPhoIso03_->SetAddress(Photon_pfPhoIso03_.growFor(b_Photon_pfPhoIso03_)); }
     b_Photon_pfRelIso03_all_ = tree->GetBranch("Photon_pfRelIso03_all");
-    if (b_Photon_pfRelIso03_all_) { b_Photon_pfRelIso03_all_->SetAddress(Photon_pfRelIso03_all_.grow(nanoBufLen(b_Photon_pfRelIso03_all_))); }
+    if (b_Photon_pfRelIso03_all_) { b_Photon_pfRelIso03_all_->SetAddress(Photon_pfRelIso03_all_.growFor(b_Photon_pfRelIso03_all_)); }
     b_Photon_pfRelIso03_all_Fall17V2_ = tree->GetBranch("Photon_pfRelIso03_all_Fall17V2");
-    if (b_Photon_pfRelIso03_all_Fall17V2_) { b_Photon_pfRelIso03_all_Fall17V2_->SetAddress(Photon_pfRelIso03_all_Fall17V2_.grow(nanoBufLen(b_Photon_pfRelIso03_all_Fall17V2_))); }
+    if (b_Photon_pfRelIso03_all_Fall17V2_) { b_Photon_pfRelIso03_all_Fall17V2_->SetAddress(Photon_pfRelIso03_all_Fall17V2_.growFor(b_Photon_pfRelIso03_all_Fall17V2_)); }
     b_Photon_pfRelIso03_all_quadratic_ = tree->GetBranch("Photon_pfRelIso03_all_quadratic");
-    if (b_Photon_pfRelIso03_all_quadratic_) { b_Photon_pfRelIso03_all_quadratic_->SetAddress(Photon_pfRelIso03_all_quadratic_.grow(nanoBufLen(b_Photon_pfRelIso03_all_quadratic_))); }
+    if (b_Photon_pfRelIso03_all_quadratic_) { b_Photon_pfRelIso03_all_quadratic_->SetAddress(Photon_pfRelIso03_all_quadratic_.growFor(b_Photon_pfRelIso03_all_quadratic_)); }
     b_Photon_pfRelIso03_chg_ = tree->GetBranch("Photon_pfRelIso03_chg");
-    if (b_Photon_pfRelIso03_chg_) { b_Photon_pfRelIso03_chg_->SetAddress(Photon_pfRelIso03_chg_.grow(nanoBufLen(b_Photon_pfRelIso03_chg_))); }
+    if (b_Photon_pfRelIso03_chg_) { b_Photon_pfRelIso03_chg_->SetAddress(Photon_pfRelIso03_chg_.growFor(b_Photon_pfRelIso03_chg_)); }
     b_Photon_pfRelIso03_chg_Fall17V2_ = tree->GetBranch("Photon_pfRelIso03_chg_Fall17V2");
-    if (b_Photon_pfRelIso03_chg_Fall17V2_) { b_Photon_pfRelIso03_chg_Fall17V2_->SetAddress(Photon_pfRelIso03_chg_Fall17V2_.grow(nanoBufLen(b_Photon_pfRelIso03_chg_Fall17V2_))); }
+    if (b_Photon_pfRelIso03_chg_Fall17V2_) { b_Photon_pfRelIso03_chg_Fall17V2_->SetAddress(Photon_pfRelIso03_chg_Fall17V2_.growFor(b_Photon_pfRelIso03_chg_Fall17V2_)); }
     b_Photon_pfRelIso03_chg_quadratic_ = tree->GetBranch("Photon_pfRelIso03_chg_quadratic");
-    if (b_Photon_pfRelIso03_chg_quadratic_) { b_Photon_pfRelIso03_chg_quadratic_->SetAddress(Photon_pfRelIso03_chg_quadratic_.grow(nanoBufLen(b_Photon_pfRelIso03_chg_quadratic_))); }
+    if (b_Photon_pfRelIso03_chg_quadratic_) { b_Photon_pfRelIso03_chg_quadratic_->SetAddress(Photon_pfRelIso03_chg_quadratic_.growFor(b_Photon_pfRelIso03_chg_quadratic_)); }
     b_Photon_phi_ = tree->GetBranch("Photon_phi");
-    if (b_Photon_phi_) { b_Photon_phi_->SetAddress(Photon_phi_.grow(nanoBufLen(b_Photon_phi_))); }
+    if (b_Photon_phi_) { b_Photon_phi_->SetAddress(Photon_phi_.growFor(b_Photon_phi_)); }
     b_Photon_phiWidth_ = tree->GetBranch("Photon_phiWidth");
-    if (b_Photon_phiWidth_) { b_Photon_phiWidth_->SetAddress(Photon_phiWidth_.grow(nanoBufLen(b_Photon_phiWidth_))); }
+    if (b_Photon_phiWidth_) { b_Photon_phiWidth_->SetAddress(Photon_phiWidth_.growFor(b_Photon_phiWidth_)); }
     b_Photon_pixelSeed_ = tree->GetBranch("Photon_pixelSeed");
-    if (b_Photon_pixelSeed_) { b_Photon_pixelSeed_->SetAddress(Photon_pixelSeed_.grow(nanoBufLen(b_Photon_pixelSeed_))); }
+    if (b_Photon_pixelSeed_) { b_Photon_pixelSeed_->SetAddress(Photon_pixelSeed_.growFor(b_Photon_pixelSeed_)); }
     b_Photon_pt_ = tree->GetBranch("Photon_pt");
-    if (b_Photon_pt_) { b_Photon_pt_->SetAddress(Photon_pt_.grow(nanoBufLen(b_Photon_pt_))); }
+    if (b_Photon_pt_) { b_Photon_pt_->SetAddress(Photon_pt_.growFor(b_Photon_pt_)); }
     b_Photon_r9_ = tree->GetBranch("Photon_r9");
-    if (b_Photon_r9_) { b_Photon_r9_->SetAddress(Photon_r9_.grow(nanoBufLen(b_Photon_r9_))); }
+    if (b_Photon_r9_) { b_Photon_r9_->SetAddress(Photon_r9_.growFor(b_Photon_r9_)); }
     b_Photon_s4_ = tree->GetBranch("Photon_s4");
-    if (b_Photon_s4_) { b_Photon_s4_->SetAddress(Photon_s4_.grow(nanoBufLen(b_Photon_s4_))); }
+    if (b_Photon_s4_) { b_Photon_s4_->SetAddress(Photon_s4_.growFor(b_Photon_s4_)); }
     b_Photon_seedGain_ = tree->GetBranch("Photon_seedGain");
-    if (b_Photon_seedGain_) { b_Photon_seedGain_->SetAddress(Photon_seedGain_.grow(nanoBufLen(b_Photon_seedGain_))); }
+    if (b_Photon_seedGain_) { b_Photon_seedGain_->SetAddress(Photon_seedGain_.growFor(b_Photon_seedGain_)); }
     b_Photon_seediEtaOriX_ = tree->GetBranch("Photon_seediEtaOriX");
-    if (b_Photon_seediEtaOriX_) { b_Photon_seediEtaOriX_->SetAddress(Photon_seediEtaOriX_.grow(nanoBufLen(b_Photon_seediEtaOriX_))); }
+    if (b_Photon_seediEtaOriX_) { b_Photon_seediEtaOriX_->SetAddress(Photon_seediEtaOriX_.growFor(b_Photon_seediEtaOriX_)); }
     b_Photon_seediPhiOriY_ = tree->GetBranch("Photon_seediPhiOriY");
-    if (b_Photon_seediPhiOriY_) { b_Photon_seediPhiOriY_->SetAddress(Photon_seediPhiOriY_.grow(nanoBufLen(b_Photon_seediPhiOriY_))); }
+    if (b_Photon_seediPhiOriY_) { b_Photon_seediPhiOriY_->SetAddress(Photon_seediPhiOriY_.growFor(b_Photon_seediPhiOriY_)); }
     b_Photon_sieie_ = tree->GetBranch("Photon_sieie");
-    if (b_Photon_sieie_) { b_Photon_sieie_->SetAddress(Photon_sieie_.grow(nanoBufLen(b_Photon_sieie_))); }
+    if (b_Photon_sieie_) { b_Photon_sieie_->SetAddress(Photon_sieie_.growFor(b_Photon_sieie_)); }
     b_Photon_sieip_ = tree->GetBranch("Photon_sieip");
-    if (b_Photon_sieip_) { b_Photon_sieip_->SetAddress(Photon_sieip_.grow(nanoBufLen(b_Photon_sieip_))); }
+    if (b_Photon_sieip_) { b_Photon_sieip_->SetAddress(Photon_sieip_.growFor(b_Photon_sieip_)); }
     b_Photon_sipip_ = tree->GetBranch("Photon_sipip");
-    if (b_Photon_sipip_) { b_Photon_sipip_->SetAddress(Photon_sipip_.grow(nanoBufLen(b_Photon_sipip_))); }
+    if (b_Photon_sipip_) { b_Photon_sipip_->SetAddress(Photon_sipip_.growFor(b_Photon_sipip_)); }
     b_Photon_vidNestedWPBitmap_ = tree->GetBranch("Photon_vidNestedWPBitmap");
-    if (b_Photon_vidNestedWPBitmap_) { b_Photon_vidNestedWPBitmap_->SetAddress(Photon_vidNestedWPBitmap_.grow(nanoBufLen(b_Photon_vidNestedWPBitmap_))); }
+    if (b_Photon_vidNestedWPBitmap_) { b_Photon_vidNestedWPBitmap_->SetAddress(Photon_vidNestedWPBitmap_.growFor(b_Photon_vidNestedWPBitmap_)); }
     b_Photon_vidNestedWPBitmap_Fall17V2_ = tree->GetBranch("Photon_vidNestedWPBitmap_Fall17V2");
-    if (b_Photon_vidNestedWPBitmap_Fall17V2_) { b_Photon_vidNestedWPBitmap_Fall17V2_->SetAddress(Photon_vidNestedWPBitmap_Fall17V2_.grow(nanoBufLen(b_Photon_vidNestedWPBitmap_Fall17V2_))); }
+    if (b_Photon_vidNestedWPBitmap_Fall17V2_) { b_Photon_vidNestedWPBitmap_Fall17V2_->SetAddress(Photon_vidNestedWPBitmap_Fall17V2_.growFor(b_Photon_vidNestedWPBitmap_Fall17V2_)); }
     b_Photon_x_calo_ = tree->GetBranch("Photon_x_calo");
-    if (b_Photon_x_calo_) { b_Photon_x_calo_->SetAddress(Photon_x_calo_.grow(nanoBufLen(b_Photon_x_calo_))); }
+    if (b_Photon_x_calo_) { b_Photon_x_calo_->SetAddress(Photon_x_calo_.growFor(b_Photon_x_calo_)); }
     b_Photon_y_calo_ = tree->GetBranch("Photon_y_calo");
-    if (b_Photon_y_calo_) { b_Photon_y_calo_->SetAddress(Photon_y_calo_.grow(nanoBufLen(b_Photon_y_calo_))); }
+    if (b_Photon_y_calo_) { b_Photon_y_calo_->SetAddress(Photon_y_calo_.growFor(b_Photon_y_calo_)); }
     b_Photon_z_calo_ = tree->GetBranch("Photon_z_calo");
-    if (b_Photon_z_calo_) { b_Photon_z_calo_->SetAddress(Photon_z_calo_.grow(nanoBufLen(b_Photon_z_calo_))); }
+    if (b_Photon_z_calo_) { b_Photon_z_calo_->SetAddress(Photon_z_calo_.growFor(b_Photon_z_calo_)); }
     b_Pileup_gpudensity_ = tree->GetBranch("Pileup_gpudensity");
     if (b_Pileup_gpudensity_) { b_Pileup_gpudensity_->SetAddress(&Pileup_gpudensity_); }
     b_Pileup_nPU_ = tree->GetBranch("Pileup_nPU");
@@ -6555,25 +6555,25 @@ void Nano::Init(TTree *tree) {
     b_Pileup_sumLOOT_ = tree->GetBranch("Pileup_sumLOOT");
     if (b_Pileup_sumLOOT_) { b_Pileup_sumLOOT_->SetAddress(&Pileup_sumLOOT_); }
     b_Proton_multiRP_arm_ = tree->GetBranch("Proton_multiRP_arm");
-    if (b_Proton_multiRP_arm_) { b_Proton_multiRP_arm_->SetAddress(Proton_multiRP_arm_.grow(nanoBufLen(b_Proton_multiRP_arm_))); }
+    if (b_Proton_multiRP_arm_) { b_Proton_multiRP_arm_->SetAddress(Proton_multiRP_arm_.growFor(b_Proton_multiRP_arm_)); }
     b_Proton_multiRP_t_ = tree->GetBranch("Proton_multiRP_t");
-    if (b_Proton_multiRP_t_) { b_Proton_multiRP_t_->SetAddress(Proton_multiRP_t_.grow(nanoBufLen(b_Proton_multiRP_t_))); }
+    if (b_Proton_multiRP_t_) { b_Proton_multiRP_t_->SetAddress(Proton_multiRP_t_.growFor(b_Proton_multiRP_t_)); }
     b_Proton_multiRP_thetaX_ = tree->GetBranch("Proton_multiRP_thetaX");
-    if (b_Proton_multiRP_thetaX_) { b_Proton_multiRP_thetaX_->SetAddress(Proton_multiRP_thetaX_.grow(nanoBufLen(b_Proton_multiRP_thetaX_))); }
+    if (b_Proton_multiRP_thetaX_) { b_Proton_multiRP_thetaX_->SetAddress(Proton_multiRP_thetaX_.growFor(b_Proton_multiRP_thetaX_)); }
     b_Proton_multiRP_thetaY_ = tree->GetBranch("Proton_multiRP_thetaY");
-    if (b_Proton_multiRP_thetaY_) { b_Proton_multiRP_thetaY_->SetAddress(Proton_multiRP_thetaY_.grow(nanoBufLen(b_Proton_multiRP_thetaY_))); }
+    if (b_Proton_multiRP_thetaY_) { b_Proton_multiRP_thetaY_->SetAddress(Proton_multiRP_thetaY_.growFor(b_Proton_multiRP_thetaY_)); }
     b_Proton_multiRP_time_ = tree->GetBranch("Proton_multiRP_time");
-    if (b_Proton_multiRP_time_) { b_Proton_multiRP_time_->SetAddress(Proton_multiRP_time_.grow(nanoBufLen(b_Proton_multiRP_time_))); }
+    if (b_Proton_multiRP_time_) { b_Proton_multiRP_time_->SetAddress(Proton_multiRP_time_.growFor(b_Proton_multiRP_time_)); }
     b_Proton_multiRP_timeUnc_ = tree->GetBranch("Proton_multiRP_timeUnc");
-    if (b_Proton_multiRP_timeUnc_) { b_Proton_multiRP_timeUnc_->SetAddress(Proton_multiRP_timeUnc_.grow(nanoBufLen(b_Proton_multiRP_timeUnc_))); }
+    if (b_Proton_multiRP_timeUnc_) { b_Proton_multiRP_timeUnc_->SetAddress(Proton_multiRP_timeUnc_.growFor(b_Proton_multiRP_timeUnc_)); }
     b_Proton_multiRP_xi_ = tree->GetBranch("Proton_multiRP_xi");
-    if (b_Proton_multiRP_xi_) { b_Proton_multiRP_xi_->SetAddress(Proton_multiRP_xi_.grow(nanoBufLen(b_Proton_multiRP_xi_))); }
+    if (b_Proton_multiRP_xi_) { b_Proton_multiRP_xi_->SetAddress(Proton_multiRP_xi_.growFor(b_Proton_multiRP_xi_)); }
     b_Proton_singleRP_decRPId_ = tree->GetBranch("Proton_singleRP_decRPId");
-    if (b_Proton_singleRP_decRPId_) { b_Proton_singleRP_decRPId_->SetAddress(Proton_singleRP_decRPId_.grow(nanoBufLen(b_Proton_singleRP_decRPId_))); }
+    if (b_Proton_singleRP_decRPId_) { b_Proton_singleRP_decRPId_->SetAddress(Proton_singleRP_decRPId_.growFor(b_Proton_singleRP_decRPId_)); }
     b_Proton_singleRP_thetaY_ = tree->GetBranch("Proton_singleRP_thetaY");
-    if (b_Proton_singleRP_thetaY_) { b_Proton_singleRP_thetaY_->SetAddress(Proton_singleRP_thetaY_.grow(nanoBufLen(b_Proton_singleRP_thetaY_))); }
+    if (b_Proton_singleRP_thetaY_) { b_Proton_singleRP_thetaY_->SetAddress(Proton_singleRP_thetaY_.growFor(b_Proton_singleRP_thetaY_)); }
     b_Proton_singleRP_xi_ = tree->GetBranch("Proton_singleRP_xi");
-    if (b_Proton_singleRP_xi_) { b_Proton_singleRP_xi_->SetAddress(Proton_singleRP_xi_.grow(nanoBufLen(b_Proton_singleRP_xi_))); }
+    if (b_Proton_singleRP_xi_) { b_Proton_singleRP_xi_->SetAddress(Proton_singleRP_xi_.growFor(b_Proton_singleRP_xi_)); }
     b_PuppiMET_phi_ = tree->GetBranch("PuppiMET_phi");
     if (b_PuppiMET_phi_) { b_PuppiMET_phi_->SetAddress(&PuppiMET_phi_); }
     b_PuppiMET_phiJERDown_ = tree->GetBranch("PuppiMET_phiJERDown");
@@ -6629,37 +6629,37 @@ void Nano::Init(TTree *tree) {
     b_Rho_fixedGridRhoFastjetCentralNeutral_ = tree->GetBranch("Rho_fixedGridRhoFastjetCentralNeutral");
     if (b_Rho_fixedGridRhoFastjetCentralNeutral_) { b_Rho_fixedGridRhoFastjetCentralNeutral_->SetAddress(&Rho_fixedGridRhoFastjetCentralNeutral_); }
     b_SV_charge_ = tree->GetBranch("SV_charge");
-    if (b_SV_charge_) { b_SV_charge_->SetAddress(SV_charge_.grow(nanoBufLen(b_SV_charge_))); }
+    if (b_SV_charge_) { b_SV_charge_->SetAddress(SV_charge_.growFor(b_SV_charge_)); }
     b_SV_chi2_ = tree->GetBranch("SV_chi2");
-    if (b_SV_chi2_) { b_SV_chi2_->SetAddress(SV_chi2_.grow(nanoBufLen(b_SV_chi2_))); }
+    if (b_SV_chi2_) { b_SV_chi2_->SetAddress(SV_chi2_.growFor(b_SV_chi2_)); }
     b_SV_dlen_ = tree->GetBranch("SV_dlen");
-    if (b_SV_dlen_) { b_SV_dlen_->SetAddress(SV_dlen_.grow(nanoBufLen(b_SV_dlen_))); }
+    if (b_SV_dlen_) { b_SV_dlen_->SetAddress(SV_dlen_.growFor(b_SV_dlen_)); }
     b_SV_dlenSig_ = tree->GetBranch("SV_dlenSig");
-    if (b_SV_dlenSig_) { b_SV_dlenSig_->SetAddress(SV_dlenSig_.grow(nanoBufLen(b_SV_dlenSig_))); }
+    if (b_SV_dlenSig_) { b_SV_dlenSig_->SetAddress(SV_dlenSig_.growFor(b_SV_dlenSig_)); }
     b_SV_dxy_ = tree->GetBranch("SV_dxy");
-    if (b_SV_dxy_) { b_SV_dxy_->SetAddress(SV_dxy_.grow(nanoBufLen(b_SV_dxy_))); }
+    if (b_SV_dxy_) { b_SV_dxy_->SetAddress(SV_dxy_.growFor(b_SV_dxy_)); }
     b_SV_dxySig_ = tree->GetBranch("SV_dxySig");
-    if (b_SV_dxySig_) { b_SV_dxySig_->SetAddress(SV_dxySig_.grow(nanoBufLen(b_SV_dxySig_))); }
+    if (b_SV_dxySig_) { b_SV_dxySig_->SetAddress(SV_dxySig_.growFor(b_SV_dxySig_)); }
     b_SV_eta_ = tree->GetBranch("SV_eta");
-    if (b_SV_eta_) { b_SV_eta_->SetAddress(SV_eta_.grow(nanoBufLen(b_SV_eta_))); }
+    if (b_SV_eta_) { b_SV_eta_->SetAddress(SV_eta_.growFor(b_SV_eta_)); }
     b_SV_mass_ = tree->GetBranch("SV_mass");
-    if (b_SV_mass_) { b_SV_mass_->SetAddress(SV_mass_.grow(nanoBufLen(b_SV_mass_))); }
+    if (b_SV_mass_) { b_SV_mass_->SetAddress(SV_mass_.growFor(b_SV_mass_)); }
     b_SV_ndof_ = tree->GetBranch("SV_ndof");
-    if (b_SV_ndof_) { b_SV_ndof_->SetAddress(SV_ndof_.grow(nanoBufLen(b_SV_ndof_))); }
+    if (b_SV_ndof_) { b_SV_ndof_->SetAddress(SV_ndof_.growFor(b_SV_ndof_)); }
     b_SV_ntracks_ = tree->GetBranch("SV_ntracks");
-    if (b_SV_ntracks_) { b_SV_ntracks_->SetAddress(SV_ntracks_.grow(nanoBufLen(b_SV_ntracks_))); }
+    if (b_SV_ntracks_) { b_SV_ntracks_->SetAddress(SV_ntracks_.growFor(b_SV_ntracks_)); }
     b_SV_pAngle_ = tree->GetBranch("SV_pAngle");
-    if (b_SV_pAngle_) { b_SV_pAngle_->SetAddress(SV_pAngle_.grow(nanoBufLen(b_SV_pAngle_))); }
+    if (b_SV_pAngle_) { b_SV_pAngle_->SetAddress(SV_pAngle_.growFor(b_SV_pAngle_)); }
     b_SV_phi_ = tree->GetBranch("SV_phi");
-    if (b_SV_phi_) { b_SV_phi_->SetAddress(SV_phi_.grow(nanoBufLen(b_SV_phi_))); }
+    if (b_SV_phi_) { b_SV_phi_->SetAddress(SV_phi_.growFor(b_SV_phi_)); }
     b_SV_pt_ = tree->GetBranch("SV_pt");
-    if (b_SV_pt_) { b_SV_pt_->SetAddress(SV_pt_.grow(nanoBufLen(b_SV_pt_))); }
+    if (b_SV_pt_) { b_SV_pt_->SetAddress(SV_pt_.growFor(b_SV_pt_)); }
     b_SV_x_ = tree->GetBranch("SV_x");
-    if (b_SV_x_) { b_SV_x_->SetAddress(SV_x_.grow(nanoBufLen(b_SV_x_))); }
+    if (b_SV_x_) { b_SV_x_->SetAddress(SV_x_.growFor(b_SV_x_)); }
     b_SV_y_ = tree->GetBranch("SV_y");
-    if (b_SV_y_) { b_SV_y_->SetAddress(SV_y_.grow(nanoBufLen(b_SV_y_))); }
+    if (b_SV_y_) { b_SV_y_->SetAddress(SV_y_.growFor(b_SV_y_)); }
     b_SV_z_ = tree->GetBranch("SV_z");
-    if (b_SV_z_) { b_SV_z_->SetAddress(SV_z_.grow(nanoBufLen(b_SV_z_))); }
+    if (b_SV_z_) { b_SV_z_->SetAddress(SV_z_.growFor(b_SV_z_)); }
     b_SoftActivityJetHT_ = tree->GetBranch("SoftActivityJetHT");
     if (b_SoftActivityJetHT_) { b_SoftActivityJetHT_->SetAddress(&SoftActivityJetHT_); }
     b_SoftActivityJetHT10_ = tree->GetBranch("SoftActivityJetHT10");
@@ -6675,171 +6675,171 @@ void Nano::Init(TTree *tree) {
     b_SoftActivityJetNjets5_ = tree->GetBranch("SoftActivityJetNjets5");
     if (b_SoftActivityJetNjets5_) { b_SoftActivityJetNjets5_->SetAddress(&SoftActivityJetNjets5_); }
     b_SoftActivityJet_eta_ = tree->GetBranch("SoftActivityJet_eta");
-    if (b_SoftActivityJet_eta_) { b_SoftActivityJet_eta_->SetAddress(SoftActivityJet_eta_.grow(nanoBufLen(b_SoftActivityJet_eta_))); }
+    if (b_SoftActivityJet_eta_) { b_SoftActivityJet_eta_->SetAddress(SoftActivityJet_eta_.growFor(b_SoftActivityJet_eta_)); }
     b_SoftActivityJet_phi_ = tree->GetBranch("SoftActivityJet_phi");
-    if (b_SoftActivityJet_phi_) { b_SoftActivityJet_phi_->SetAddress(SoftActivityJet_phi_.grow(nanoBufLen(b_SoftActivityJet_phi_))); }
+    if (b_SoftActivityJet_phi_) { b_SoftActivityJet_phi_->SetAddress(SoftActivityJet_phi_.growFor(b_SoftActivityJet_phi_)); }
     b_SoftActivityJet_pt_ = tree->GetBranch("SoftActivityJet_pt");
-    if (b_SoftActivityJet_pt_) { b_SoftActivityJet_pt_->SetAddress(SoftActivityJet_pt_.grow(nanoBufLen(b_SoftActivityJet_pt_))); }
+    if (b_SoftActivityJet_pt_) { b_SoftActivityJet_pt_->SetAddress(SoftActivityJet_pt_.growFor(b_SoftActivityJet_pt_)); }
     b_SubGenJetAK8_eta_ = tree->GetBranch("SubGenJetAK8_eta");
-    if (b_SubGenJetAK8_eta_) { b_SubGenJetAK8_eta_->SetAddress(SubGenJetAK8_eta_.grow(nanoBufLen(b_SubGenJetAK8_eta_))); }
+    if (b_SubGenJetAK8_eta_) { b_SubGenJetAK8_eta_->SetAddress(SubGenJetAK8_eta_.growFor(b_SubGenJetAK8_eta_)); }
     b_SubGenJetAK8_mass_ = tree->GetBranch("SubGenJetAK8_mass");
-    if (b_SubGenJetAK8_mass_) { b_SubGenJetAK8_mass_->SetAddress(SubGenJetAK8_mass_.grow(nanoBufLen(b_SubGenJetAK8_mass_))); }
+    if (b_SubGenJetAK8_mass_) { b_SubGenJetAK8_mass_->SetAddress(SubGenJetAK8_mass_.growFor(b_SubGenJetAK8_mass_)); }
     b_SubGenJetAK8_phi_ = tree->GetBranch("SubGenJetAK8_phi");
-    if (b_SubGenJetAK8_phi_) { b_SubGenJetAK8_phi_->SetAddress(SubGenJetAK8_phi_.grow(nanoBufLen(b_SubGenJetAK8_phi_))); }
+    if (b_SubGenJetAK8_phi_) { b_SubGenJetAK8_phi_->SetAddress(SubGenJetAK8_phi_.growFor(b_SubGenJetAK8_phi_)); }
     b_SubGenJetAK8_pt_ = tree->GetBranch("SubGenJetAK8_pt");
-    if (b_SubGenJetAK8_pt_) { b_SubGenJetAK8_pt_->SetAddress(SubGenJetAK8_pt_.grow(nanoBufLen(b_SubGenJetAK8_pt_))); }
+    if (b_SubGenJetAK8_pt_) { b_SubGenJetAK8_pt_->SetAddress(SubGenJetAK8_pt_.growFor(b_SubGenJetAK8_pt_)); }
     b_SubJet_btagCMVA_ = tree->GetBranch("SubJet_btagCMVA");
-    if (b_SubJet_btagCMVA_) { b_SubJet_btagCMVA_->SetAddress(SubJet_btagCMVA_.grow(nanoBufLen(b_SubJet_btagCMVA_))); }
+    if (b_SubJet_btagCMVA_) { b_SubJet_btagCMVA_->SetAddress(SubJet_btagCMVA_.growFor(b_SubJet_btagCMVA_)); }
     b_SubJet_btagCSVV2_ = tree->GetBranch("SubJet_btagCSVV2");
-    if (b_SubJet_btagCSVV2_) { b_SubJet_btagCSVV2_->SetAddress(SubJet_btagCSVV2_.grow(nanoBufLen(b_SubJet_btagCSVV2_))); }
+    if (b_SubJet_btagCSVV2_) { b_SubJet_btagCSVV2_->SetAddress(SubJet_btagCSVV2_.growFor(b_SubJet_btagCSVV2_)); }
     b_SubJet_btagDeepB_ = tree->GetBranch("SubJet_btagDeepB");
-    if (b_SubJet_btagDeepB_) { b_SubJet_btagDeepB_->SetAddress(SubJet_btagDeepB_.grow(nanoBufLen(b_SubJet_btagDeepB_))); }
+    if (b_SubJet_btagDeepB_) { b_SubJet_btagDeepB_->SetAddress(SubJet_btagDeepB_.growFor(b_SubJet_btagDeepB_)); }
     b_SubJet_eta_ = tree->GetBranch("SubJet_eta");
-    if (b_SubJet_eta_) { b_SubJet_eta_->SetAddress(SubJet_eta_.grow(nanoBufLen(b_SubJet_eta_))); }
+    if (b_SubJet_eta_) { b_SubJet_eta_->SetAddress(SubJet_eta_.growFor(b_SubJet_eta_)); }
     b_SubJet_hadronFlavour_ = tree->GetBranch("SubJet_hadronFlavour");
-    if (b_SubJet_hadronFlavour_) { b_SubJet_hadronFlavour_->SetAddress(SubJet_hadronFlavour_.grow(nanoBufLen(b_SubJet_hadronFlavour_))); }
+    if (b_SubJet_hadronFlavour_) { b_SubJet_hadronFlavour_->SetAddress(SubJet_hadronFlavour_.growFor(b_SubJet_hadronFlavour_)); }
     b_SubJet_mass_ = tree->GetBranch("SubJet_mass");
-    if (b_SubJet_mass_) { b_SubJet_mass_->SetAddress(SubJet_mass_.grow(nanoBufLen(b_SubJet_mass_))); }
+    if (b_SubJet_mass_) { b_SubJet_mass_->SetAddress(SubJet_mass_.growFor(b_SubJet_mass_)); }
     b_SubJet_n2b1_ = tree->GetBranch("SubJet_n2b1");
-    if (b_SubJet_n2b1_) { b_SubJet_n2b1_->SetAddress(SubJet_n2b1_.grow(nanoBufLen(b_SubJet_n2b1_))); }
+    if (b_SubJet_n2b1_) { b_SubJet_n2b1_->SetAddress(SubJet_n2b1_.growFor(b_SubJet_n2b1_)); }
     b_SubJet_n3b1_ = tree->GetBranch("SubJet_n3b1");
-    if (b_SubJet_n3b1_) { b_SubJet_n3b1_->SetAddress(SubJet_n3b1_.grow(nanoBufLen(b_SubJet_n3b1_))); }
+    if (b_SubJet_n3b1_) { b_SubJet_n3b1_->SetAddress(SubJet_n3b1_.growFor(b_SubJet_n3b1_)); }
     b_SubJet_nBHadrons_ = tree->GetBranch("SubJet_nBHadrons");
-    if (b_SubJet_nBHadrons_) { b_SubJet_nBHadrons_->SetAddress(SubJet_nBHadrons_.grow(nanoBufLen(b_SubJet_nBHadrons_))); }
+    if (b_SubJet_nBHadrons_) { b_SubJet_nBHadrons_->SetAddress(SubJet_nBHadrons_.growFor(b_SubJet_nBHadrons_)); }
     b_SubJet_nCHadrons_ = tree->GetBranch("SubJet_nCHadrons");
-    if (b_SubJet_nCHadrons_) { b_SubJet_nCHadrons_->SetAddress(SubJet_nCHadrons_.grow(nanoBufLen(b_SubJet_nCHadrons_))); }
+    if (b_SubJet_nCHadrons_) { b_SubJet_nCHadrons_->SetAddress(SubJet_nCHadrons_.growFor(b_SubJet_nCHadrons_)); }
     b_SubJet_phi_ = tree->GetBranch("SubJet_phi");
-    if (b_SubJet_phi_) { b_SubJet_phi_->SetAddress(SubJet_phi_.grow(nanoBufLen(b_SubJet_phi_))); }
+    if (b_SubJet_phi_) { b_SubJet_phi_->SetAddress(SubJet_phi_.growFor(b_SubJet_phi_)); }
     b_SubJet_pt_ = tree->GetBranch("SubJet_pt");
-    if (b_SubJet_pt_) { b_SubJet_pt_->SetAddress(SubJet_pt_.grow(nanoBufLen(b_SubJet_pt_))); }
+    if (b_SubJet_pt_) { b_SubJet_pt_->SetAddress(SubJet_pt_.growFor(b_SubJet_pt_)); }
     b_SubJet_rawFactor_ = tree->GetBranch("SubJet_rawFactor");
-    if (b_SubJet_rawFactor_) { b_SubJet_rawFactor_->SetAddress(SubJet_rawFactor_.grow(nanoBufLen(b_SubJet_rawFactor_))); }
+    if (b_SubJet_rawFactor_) { b_SubJet_rawFactor_->SetAddress(SubJet_rawFactor_.growFor(b_SubJet_rawFactor_)); }
     b_SubJet_tau1_ = tree->GetBranch("SubJet_tau1");
-    if (b_SubJet_tau1_) { b_SubJet_tau1_->SetAddress(SubJet_tau1_.grow(nanoBufLen(b_SubJet_tau1_))); }
+    if (b_SubJet_tau1_) { b_SubJet_tau1_->SetAddress(SubJet_tau1_.growFor(b_SubJet_tau1_)); }
     b_SubJet_tau2_ = tree->GetBranch("SubJet_tau2");
-    if (b_SubJet_tau2_) { b_SubJet_tau2_->SetAddress(SubJet_tau2_.grow(nanoBufLen(b_SubJet_tau2_))); }
+    if (b_SubJet_tau2_) { b_SubJet_tau2_->SetAddress(SubJet_tau2_.growFor(b_SubJet_tau2_)); }
     b_SubJet_tau3_ = tree->GetBranch("SubJet_tau3");
-    if (b_SubJet_tau3_) { b_SubJet_tau3_->SetAddress(SubJet_tau3_.grow(nanoBufLen(b_SubJet_tau3_))); }
+    if (b_SubJet_tau3_) { b_SubJet_tau3_->SetAddress(SubJet_tau3_.growFor(b_SubJet_tau3_)); }
     b_SubJet_tau4_ = tree->GetBranch("SubJet_tau4");
-    if (b_SubJet_tau4_) { b_SubJet_tau4_->SetAddress(SubJet_tau4_.grow(nanoBufLen(b_SubJet_tau4_))); }
+    if (b_SubJet_tau4_) { b_SubJet_tau4_->SetAddress(SubJet_tau4_.growFor(b_SubJet_tau4_)); }
     b_Tau_charge_ = tree->GetBranch("Tau_charge");
-    if (b_Tau_charge_) { b_Tau_charge_->SetAddress(Tau_charge_.grow(nanoBufLen(b_Tau_charge_))); }
+    if (b_Tau_charge_) { b_Tau_charge_->SetAddress(Tau_charge_.growFor(b_Tau_charge_)); }
     b_Tau_chargedIso_ = tree->GetBranch("Tau_chargedIso");
-    if (b_Tau_chargedIso_) { b_Tau_chargedIso_->SetAddress(Tau_chargedIso_.grow(nanoBufLen(b_Tau_chargedIso_))); }
+    if (b_Tau_chargedIso_) { b_Tau_chargedIso_->SetAddress(Tau_chargedIso_.growFor(b_Tau_chargedIso_)); }
     b_Tau_cleanmask_ = tree->GetBranch("Tau_cleanmask");
-    if (b_Tau_cleanmask_) { b_Tau_cleanmask_->SetAddress(Tau_cleanmask_.grow(nanoBufLen(b_Tau_cleanmask_))); }
+    if (b_Tau_cleanmask_) { b_Tau_cleanmask_->SetAddress(Tau_cleanmask_.growFor(b_Tau_cleanmask_)); }
     b_Tau_decayMode_ = tree->GetBranch("Tau_decayMode");
-    if (b_Tau_decayMode_) { b_Tau_decayMode_->SetAddress(Tau_decayMode_.grow(nanoBufLen(b_Tau_decayMode_))); }
+    if (b_Tau_decayMode_) { b_Tau_decayMode_->SetAddress(Tau_decayMode_.growFor(b_Tau_decayMode_)); }
     b_Tau_dxy_ = tree->GetBranch("Tau_dxy");
-    if (b_Tau_dxy_) { b_Tau_dxy_->SetAddress(Tau_dxy_.grow(nanoBufLen(b_Tau_dxy_))); }
+    if (b_Tau_dxy_) { b_Tau_dxy_->SetAddress(Tau_dxy_.growFor(b_Tau_dxy_)); }
     b_Tau_dz_ = tree->GetBranch("Tau_dz");
-    if (b_Tau_dz_) { b_Tau_dz_->SetAddress(Tau_dz_.grow(nanoBufLen(b_Tau_dz_))); }
+    if (b_Tau_dz_) { b_Tau_dz_->SetAddress(Tau_dz_.growFor(b_Tau_dz_)); }
     b_Tau_eleIdx_ = tree->GetBranch("Tau_eleIdx");
-    if (b_Tau_eleIdx_) { b_Tau_eleIdx_->SetAddress(Tau_eleIdx_.grow(nanoBufLen(b_Tau_eleIdx_))); }
+    if (b_Tau_eleIdx_) { b_Tau_eleIdx_->SetAddress(Tau_eleIdx_.growFor(b_Tau_eleIdx_)); }
     b_Tau_eta_ = tree->GetBranch("Tau_eta");
-    if (b_Tau_eta_) { b_Tau_eta_->SetAddress(Tau_eta_.grow(nanoBufLen(b_Tau_eta_))); }
+    if (b_Tau_eta_) { b_Tau_eta_->SetAddress(Tau_eta_.growFor(b_Tau_eta_)); }
     b_Tau_genPartFlav_ = tree->GetBranch("Tau_genPartFlav");
-    if (b_Tau_genPartFlav_) { b_Tau_genPartFlav_->SetAddress(Tau_genPartFlav_.grow(nanoBufLen(b_Tau_genPartFlav_))); }
+    if (b_Tau_genPartFlav_) { b_Tau_genPartFlav_->SetAddress(Tau_genPartFlav_.growFor(b_Tau_genPartFlav_)); }
     b_Tau_genPartIdx_ = tree->GetBranch("Tau_genPartIdx");
-    if (b_Tau_genPartIdx_) { b_Tau_genPartIdx_->SetAddress(Tau_genPartIdx_.grow(nanoBufLen(b_Tau_genPartIdx_))); }
+    if (b_Tau_genPartIdx_) { b_Tau_genPartIdx_->SetAddress(Tau_genPartIdx_.growFor(b_Tau_genPartIdx_)); }
     b_Tau_idAntiEle_ = tree->GetBranch("Tau_idAntiEle");
-    if (b_Tau_idAntiEle_) { b_Tau_idAntiEle_->SetAddress(Tau_idAntiEle_.grow(nanoBufLen(b_Tau_idAntiEle_))); }
+    if (b_Tau_idAntiEle_) { b_Tau_idAntiEle_->SetAddress(Tau_idAntiEle_.growFor(b_Tau_idAntiEle_)); }
     b_Tau_idAntiEle2018_ = tree->GetBranch("Tau_idAntiEle2018");
-    if (b_Tau_idAntiEle2018_) { b_Tau_idAntiEle2018_->SetAddress(Tau_idAntiEle2018_.grow(nanoBufLen(b_Tau_idAntiEle2018_))); }
+    if (b_Tau_idAntiEle2018_) { b_Tau_idAntiEle2018_->SetAddress(Tau_idAntiEle2018_.growFor(b_Tau_idAntiEle2018_)); }
     b_Tau_idAntiEleDeadECal_ = tree->GetBranch("Tau_idAntiEleDeadECal");
-    if (b_Tau_idAntiEleDeadECal_) { b_Tau_idAntiEleDeadECal_->SetAddress(Tau_idAntiEleDeadECal_.grow(nanoBufLen(b_Tau_idAntiEleDeadECal_))); }
+    if (b_Tau_idAntiEleDeadECal_) { b_Tau_idAntiEleDeadECal_->SetAddress(Tau_idAntiEleDeadECal_.growFor(b_Tau_idAntiEleDeadECal_)); }
     b_Tau_idAntiMu_ = tree->GetBranch("Tau_idAntiMu");
-    if (b_Tau_idAntiMu_) { b_Tau_idAntiMu_->SetAddress(Tau_idAntiMu_.grow(nanoBufLen(b_Tau_idAntiMu_))); }
+    if (b_Tau_idAntiMu_) { b_Tau_idAntiMu_->SetAddress(Tau_idAntiMu_.growFor(b_Tau_idAntiMu_)); }
     b_Tau_idDecayMode_ = tree->GetBranch("Tau_idDecayMode");
-    if (b_Tau_idDecayMode_) { b_Tau_idDecayMode_->SetAddress(Tau_idDecayMode_.grow(nanoBufLen(b_Tau_idDecayMode_))); }
+    if (b_Tau_idDecayMode_) { b_Tau_idDecayMode_->SetAddress(Tau_idDecayMode_.growFor(b_Tau_idDecayMode_)); }
     b_Tau_idDecayModeNewDMs_ = tree->GetBranch("Tau_idDecayModeNewDMs");
-    if (b_Tau_idDecayModeNewDMs_) { b_Tau_idDecayModeNewDMs_->SetAddress(Tau_idDecayModeNewDMs_.grow(nanoBufLen(b_Tau_idDecayModeNewDMs_))); }
+    if (b_Tau_idDecayModeNewDMs_) { b_Tau_idDecayModeNewDMs_->SetAddress(Tau_idDecayModeNewDMs_.growFor(b_Tau_idDecayModeNewDMs_)); }
     b_Tau_idDecayModeOldDMs_ = tree->GetBranch("Tau_idDecayModeOldDMs");
-    if (b_Tau_idDecayModeOldDMs_) { b_Tau_idDecayModeOldDMs_->SetAddress(Tau_idDecayModeOldDMs_.grow(nanoBufLen(b_Tau_idDecayModeOldDMs_))); }
+    if (b_Tau_idDecayModeOldDMs_) { b_Tau_idDecayModeOldDMs_->SetAddress(Tau_idDecayModeOldDMs_.growFor(b_Tau_idDecayModeOldDMs_)); }
     b_Tau_idDeepTau2017v2p1VSe_ = tree->GetBranch("Tau_idDeepTau2017v2p1VSe");
-    if (b_Tau_idDeepTau2017v2p1VSe_) { b_Tau_idDeepTau2017v2p1VSe_->SetAddress(Tau_idDeepTau2017v2p1VSe_.grow(nanoBufLen(b_Tau_idDeepTau2017v2p1VSe_))); }
+    if (b_Tau_idDeepTau2017v2p1VSe_) { b_Tau_idDeepTau2017v2p1VSe_->SetAddress(Tau_idDeepTau2017v2p1VSe_.growFor(b_Tau_idDeepTau2017v2p1VSe_)); }
     b_Tau_idDeepTau2017v2p1VSjet_ = tree->GetBranch("Tau_idDeepTau2017v2p1VSjet");
-    if (b_Tau_idDeepTau2017v2p1VSjet_) { b_Tau_idDeepTau2017v2p1VSjet_->SetAddress(Tau_idDeepTau2017v2p1VSjet_.grow(nanoBufLen(b_Tau_idDeepTau2017v2p1VSjet_))); }
+    if (b_Tau_idDeepTau2017v2p1VSjet_) { b_Tau_idDeepTau2017v2p1VSjet_->SetAddress(Tau_idDeepTau2017v2p1VSjet_.growFor(b_Tau_idDeepTau2017v2p1VSjet_)); }
     b_Tau_idDeepTau2017v2p1VSmu_ = tree->GetBranch("Tau_idDeepTau2017v2p1VSmu");
-    if (b_Tau_idDeepTau2017v2p1VSmu_) { b_Tau_idDeepTau2017v2p1VSmu_->SetAddress(Tau_idDeepTau2017v2p1VSmu_.grow(nanoBufLen(b_Tau_idDeepTau2017v2p1VSmu_))); }
+    if (b_Tau_idDeepTau2017v2p1VSmu_) { b_Tau_idDeepTau2017v2p1VSmu_->SetAddress(Tau_idDeepTau2017v2p1VSmu_.growFor(b_Tau_idDeepTau2017v2p1VSmu_)); }
     b_Tau_idDeepTau2018v2p5VSe_ = tree->GetBranch("Tau_idDeepTau2018v2p5VSe");
-    if (b_Tau_idDeepTau2018v2p5VSe_) { b_Tau_idDeepTau2018v2p5VSe_->SetAddress(Tau_idDeepTau2018v2p5VSe_.grow(nanoBufLen(b_Tau_idDeepTau2018v2p5VSe_))); }
+    if (b_Tau_idDeepTau2018v2p5VSe_) { b_Tau_idDeepTau2018v2p5VSe_->SetAddress(Tau_idDeepTau2018v2p5VSe_.growFor(b_Tau_idDeepTau2018v2p5VSe_)); }
     b_Tau_idDeepTau2018v2p5VSjet_ = tree->GetBranch("Tau_idDeepTau2018v2p5VSjet");
-    if (b_Tau_idDeepTau2018v2p5VSjet_) { b_Tau_idDeepTau2018v2p5VSjet_->SetAddress(Tau_idDeepTau2018v2p5VSjet_.grow(nanoBufLen(b_Tau_idDeepTau2018v2p5VSjet_))); }
+    if (b_Tau_idDeepTau2018v2p5VSjet_) { b_Tau_idDeepTau2018v2p5VSjet_->SetAddress(Tau_idDeepTau2018v2p5VSjet_.growFor(b_Tau_idDeepTau2018v2p5VSjet_)); }
     b_Tau_idDeepTau2018v2p5VSmu_ = tree->GetBranch("Tau_idDeepTau2018v2p5VSmu");
-    if (b_Tau_idDeepTau2018v2p5VSmu_) { b_Tau_idDeepTau2018v2p5VSmu_->SetAddress(Tau_idDeepTau2018v2p5VSmu_.grow(nanoBufLen(b_Tau_idDeepTau2018v2p5VSmu_))); }
+    if (b_Tau_idDeepTau2018v2p5VSmu_) { b_Tau_idDeepTau2018v2p5VSmu_->SetAddress(Tau_idDeepTau2018v2p5VSmu_.growFor(b_Tau_idDeepTau2018v2p5VSmu_)); }
     b_Tau_idMVAnewDM2017v2_ = tree->GetBranch("Tau_idMVAnewDM2017v2");
-    if (b_Tau_idMVAnewDM2017v2_) { b_Tau_idMVAnewDM2017v2_->SetAddress(Tau_idMVAnewDM2017v2_.grow(nanoBufLen(b_Tau_idMVAnewDM2017v2_))); }
+    if (b_Tau_idMVAnewDM2017v2_) { b_Tau_idMVAnewDM2017v2_->SetAddress(Tau_idMVAnewDM2017v2_.growFor(b_Tau_idMVAnewDM2017v2_)); }
     b_Tau_idMVAoldDM_ = tree->GetBranch("Tau_idMVAoldDM");
-    if (b_Tau_idMVAoldDM_) { b_Tau_idMVAoldDM_->SetAddress(Tau_idMVAoldDM_.grow(nanoBufLen(b_Tau_idMVAoldDM_))); }
+    if (b_Tau_idMVAoldDM_) { b_Tau_idMVAoldDM_->SetAddress(Tau_idMVAoldDM_.growFor(b_Tau_idMVAoldDM_)); }
     b_Tau_idMVAoldDM2017v1_ = tree->GetBranch("Tau_idMVAoldDM2017v1");
-    if (b_Tau_idMVAoldDM2017v1_) { b_Tau_idMVAoldDM2017v1_->SetAddress(Tau_idMVAoldDM2017v1_.grow(nanoBufLen(b_Tau_idMVAoldDM2017v1_))); }
+    if (b_Tau_idMVAoldDM2017v1_) { b_Tau_idMVAoldDM2017v1_->SetAddress(Tau_idMVAoldDM2017v1_.growFor(b_Tau_idMVAoldDM2017v1_)); }
     b_Tau_idMVAoldDM2017v2_ = tree->GetBranch("Tau_idMVAoldDM2017v2");
-    if (b_Tau_idMVAoldDM2017v2_) { b_Tau_idMVAoldDM2017v2_->SetAddress(Tau_idMVAoldDM2017v2_.grow(nanoBufLen(b_Tau_idMVAoldDM2017v2_))); }
+    if (b_Tau_idMVAoldDM2017v2_) { b_Tau_idMVAoldDM2017v2_->SetAddress(Tau_idMVAoldDM2017v2_.growFor(b_Tau_idMVAoldDM2017v2_)); }
     b_Tau_idMVAoldDMdR032017v2_ = tree->GetBranch("Tau_idMVAoldDMdR032017v2");
-    if (b_Tau_idMVAoldDMdR032017v2_) { b_Tau_idMVAoldDMdR032017v2_->SetAddress(Tau_idMVAoldDMdR032017v2_.grow(nanoBufLen(b_Tau_idMVAoldDMdR032017v2_))); }
+    if (b_Tau_idMVAoldDMdR032017v2_) { b_Tau_idMVAoldDMdR032017v2_->SetAddress(Tau_idMVAoldDMdR032017v2_.growFor(b_Tau_idMVAoldDMdR032017v2_)); }
     b_Tau_jetIdx_ = tree->GetBranch("Tau_jetIdx");
-    if (b_Tau_jetIdx_) { b_Tau_jetIdx_->SetAddress(Tau_jetIdx_.grow(nanoBufLen(b_Tau_jetIdx_))); }
+    if (b_Tau_jetIdx_) { b_Tau_jetIdx_->SetAddress(Tau_jetIdx_.growFor(b_Tau_jetIdx_)); }
     b_Tau_leadTkDeltaEta_ = tree->GetBranch("Tau_leadTkDeltaEta");
-    if (b_Tau_leadTkDeltaEta_) { b_Tau_leadTkDeltaEta_->SetAddress(Tau_leadTkDeltaEta_.grow(nanoBufLen(b_Tau_leadTkDeltaEta_))); }
+    if (b_Tau_leadTkDeltaEta_) { b_Tau_leadTkDeltaEta_->SetAddress(Tau_leadTkDeltaEta_.growFor(b_Tau_leadTkDeltaEta_)); }
     b_Tau_leadTkDeltaPhi_ = tree->GetBranch("Tau_leadTkDeltaPhi");
-    if (b_Tau_leadTkDeltaPhi_) { b_Tau_leadTkDeltaPhi_->SetAddress(Tau_leadTkDeltaPhi_.grow(nanoBufLen(b_Tau_leadTkDeltaPhi_))); }
+    if (b_Tau_leadTkDeltaPhi_) { b_Tau_leadTkDeltaPhi_->SetAddress(Tau_leadTkDeltaPhi_.growFor(b_Tau_leadTkDeltaPhi_)); }
     b_Tau_leadTkPtOverTauPt_ = tree->GetBranch("Tau_leadTkPtOverTauPt");
-    if (b_Tau_leadTkPtOverTauPt_) { b_Tau_leadTkPtOverTauPt_->SetAddress(Tau_leadTkPtOverTauPt_.grow(nanoBufLen(b_Tau_leadTkPtOverTauPt_))); }
+    if (b_Tau_leadTkPtOverTauPt_) { b_Tau_leadTkPtOverTauPt_->SetAddress(Tau_leadTkPtOverTauPt_.growFor(b_Tau_leadTkPtOverTauPt_)); }
     b_Tau_mass_ = tree->GetBranch("Tau_mass");
-    if (b_Tau_mass_) { b_Tau_mass_->SetAddress(Tau_mass_.grow(nanoBufLen(b_Tau_mass_))); }
+    if (b_Tau_mass_) { b_Tau_mass_->SetAddress(Tau_mass_.growFor(b_Tau_mass_)); }
     b_Tau_muIdx_ = tree->GetBranch("Tau_muIdx");
-    if (b_Tau_muIdx_) { b_Tau_muIdx_->SetAddress(Tau_muIdx_.grow(nanoBufLen(b_Tau_muIdx_))); }
+    if (b_Tau_muIdx_) { b_Tau_muIdx_->SetAddress(Tau_muIdx_.growFor(b_Tau_muIdx_)); }
     b_Tau_nSVs_ = tree->GetBranch("Tau_nSVs");
-    if (b_Tau_nSVs_) { b_Tau_nSVs_->SetAddress(Tau_nSVs_.grow(nanoBufLen(b_Tau_nSVs_))); }
+    if (b_Tau_nSVs_) { b_Tau_nSVs_->SetAddress(Tau_nSVs_.growFor(b_Tau_nSVs_)); }
     b_Tau_neutralIso_ = tree->GetBranch("Tau_neutralIso");
-    if (b_Tau_neutralIso_) { b_Tau_neutralIso_->SetAddress(Tau_neutralIso_.grow(nanoBufLen(b_Tau_neutralIso_))); }
+    if (b_Tau_neutralIso_) { b_Tau_neutralIso_->SetAddress(Tau_neutralIso_.growFor(b_Tau_neutralIso_)); }
     b_Tau_phi_ = tree->GetBranch("Tau_phi");
-    if (b_Tau_phi_) { b_Tau_phi_->SetAddress(Tau_phi_.grow(nanoBufLen(b_Tau_phi_))); }
+    if (b_Tau_phi_) { b_Tau_phi_->SetAddress(Tau_phi_.growFor(b_Tau_phi_)); }
     b_Tau_photonsOutsideSignalCone_ = tree->GetBranch("Tau_photonsOutsideSignalCone");
-    if (b_Tau_photonsOutsideSignalCone_) { b_Tau_photonsOutsideSignalCone_->SetAddress(Tau_photonsOutsideSignalCone_.grow(nanoBufLen(b_Tau_photonsOutsideSignalCone_))); }
+    if (b_Tau_photonsOutsideSignalCone_) { b_Tau_photonsOutsideSignalCone_->SetAddress(Tau_photonsOutsideSignalCone_.growFor(b_Tau_photonsOutsideSignalCone_)); }
     b_Tau_pt_ = tree->GetBranch("Tau_pt");
-    if (b_Tau_pt_) { b_Tau_pt_->SetAddress(Tau_pt_.grow(nanoBufLen(b_Tau_pt_))); }
+    if (b_Tau_pt_) { b_Tau_pt_->SetAddress(Tau_pt_.growFor(b_Tau_pt_)); }
     b_Tau_puCorr_ = tree->GetBranch("Tau_puCorr");
-    if (b_Tau_puCorr_) { b_Tau_puCorr_->SetAddress(Tau_puCorr_.grow(nanoBufLen(b_Tau_puCorr_))); }
+    if (b_Tau_puCorr_) { b_Tau_puCorr_->SetAddress(Tau_puCorr_.growFor(b_Tau_puCorr_)); }
     b_Tau_rawAntiEle_ = tree->GetBranch("Tau_rawAntiEle");
-    if (b_Tau_rawAntiEle_) { b_Tau_rawAntiEle_->SetAddress(Tau_rawAntiEle_.grow(nanoBufLen(b_Tau_rawAntiEle_))); }
+    if (b_Tau_rawAntiEle_) { b_Tau_rawAntiEle_->SetAddress(Tau_rawAntiEle_.growFor(b_Tau_rawAntiEle_)); }
     b_Tau_rawAntiEle2018_ = tree->GetBranch("Tau_rawAntiEle2018");
-    if (b_Tau_rawAntiEle2018_) { b_Tau_rawAntiEle2018_->SetAddress(Tau_rawAntiEle2018_.grow(nanoBufLen(b_Tau_rawAntiEle2018_))); }
+    if (b_Tau_rawAntiEle2018_) { b_Tau_rawAntiEle2018_->SetAddress(Tau_rawAntiEle2018_.growFor(b_Tau_rawAntiEle2018_)); }
     b_Tau_rawAntiEleCat_ = tree->GetBranch("Tau_rawAntiEleCat");
-    if (b_Tau_rawAntiEleCat_) { b_Tau_rawAntiEleCat_->SetAddress(Tau_rawAntiEleCat_.grow(nanoBufLen(b_Tau_rawAntiEleCat_))); }
+    if (b_Tau_rawAntiEleCat_) { b_Tau_rawAntiEleCat_->SetAddress(Tau_rawAntiEleCat_.growFor(b_Tau_rawAntiEleCat_)); }
     b_Tau_rawAntiEleCat2018_ = tree->GetBranch("Tau_rawAntiEleCat2018");
-    if (b_Tau_rawAntiEleCat2018_) { b_Tau_rawAntiEleCat2018_->SetAddress(Tau_rawAntiEleCat2018_.grow(nanoBufLen(b_Tau_rawAntiEleCat2018_))); }
+    if (b_Tau_rawAntiEleCat2018_) { b_Tau_rawAntiEleCat2018_->SetAddress(Tau_rawAntiEleCat2018_.growFor(b_Tau_rawAntiEleCat2018_)); }
     b_Tau_rawDeepTau2017v2p1VSe_ = tree->GetBranch("Tau_rawDeepTau2017v2p1VSe");
-    if (b_Tau_rawDeepTau2017v2p1VSe_) { b_Tau_rawDeepTau2017v2p1VSe_->SetAddress(Tau_rawDeepTau2017v2p1VSe_.grow(nanoBufLen(b_Tau_rawDeepTau2017v2p1VSe_))); }
+    if (b_Tau_rawDeepTau2017v2p1VSe_) { b_Tau_rawDeepTau2017v2p1VSe_->SetAddress(Tau_rawDeepTau2017v2p1VSe_.growFor(b_Tau_rawDeepTau2017v2p1VSe_)); }
     b_Tau_rawDeepTau2017v2p1VSjet_ = tree->GetBranch("Tau_rawDeepTau2017v2p1VSjet");
-    if (b_Tau_rawDeepTau2017v2p1VSjet_) { b_Tau_rawDeepTau2017v2p1VSjet_->SetAddress(Tau_rawDeepTau2017v2p1VSjet_.grow(nanoBufLen(b_Tau_rawDeepTau2017v2p1VSjet_))); }
+    if (b_Tau_rawDeepTau2017v2p1VSjet_) { b_Tau_rawDeepTau2017v2p1VSjet_->SetAddress(Tau_rawDeepTau2017v2p1VSjet_.growFor(b_Tau_rawDeepTau2017v2p1VSjet_)); }
     b_Tau_rawDeepTau2017v2p1VSmu_ = tree->GetBranch("Tau_rawDeepTau2017v2p1VSmu");
-    if (b_Tau_rawDeepTau2017v2p1VSmu_) { b_Tau_rawDeepTau2017v2p1VSmu_->SetAddress(Tau_rawDeepTau2017v2p1VSmu_.grow(nanoBufLen(b_Tau_rawDeepTau2017v2p1VSmu_))); }
+    if (b_Tau_rawDeepTau2017v2p1VSmu_) { b_Tau_rawDeepTau2017v2p1VSmu_->SetAddress(Tau_rawDeepTau2017v2p1VSmu_.growFor(b_Tau_rawDeepTau2017v2p1VSmu_)); }
     b_Tau_rawDeepTau2018v2p5VSe_ = tree->GetBranch("Tau_rawDeepTau2018v2p5VSe");
-    if (b_Tau_rawDeepTau2018v2p5VSe_) { b_Tau_rawDeepTau2018v2p5VSe_->SetAddress(Tau_rawDeepTau2018v2p5VSe_.grow(nanoBufLen(b_Tau_rawDeepTau2018v2p5VSe_))); }
+    if (b_Tau_rawDeepTau2018v2p5VSe_) { b_Tau_rawDeepTau2018v2p5VSe_->SetAddress(Tau_rawDeepTau2018v2p5VSe_.growFor(b_Tau_rawDeepTau2018v2p5VSe_)); }
     b_Tau_rawDeepTau2018v2p5VSjet_ = tree->GetBranch("Tau_rawDeepTau2018v2p5VSjet");
-    if (b_Tau_rawDeepTau2018v2p5VSjet_) { b_Tau_rawDeepTau2018v2p5VSjet_->SetAddress(Tau_rawDeepTau2018v2p5VSjet_.grow(nanoBufLen(b_Tau_rawDeepTau2018v2p5VSjet_))); }
+    if (b_Tau_rawDeepTau2018v2p5VSjet_) { b_Tau_rawDeepTau2018v2p5VSjet_->SetAddress(Tau_rawDeepTau2018v2p5VSjet_.growFor(b_Tau_rawDeepTau2018v2p5VSjet_)); }
     b_Tau_rawDeepTau2018v2p5VSmu_ = tree->GetBranch("Tau_rawDeepTau2018v2p5VSmu");
-    if (b_Tau_rawDeepTau2018v2p5VSmu_) { b_Tau_rawDeepTau2018v2p5VSmu_->SetAddress(Tau_rawDeepTau2018v2p5VSmu_.grow(nanoBufLen(b_Tau_rawDeepTau2018v2p5VSmu_))); }
+    if (b_Tau_rawDeepTau2018v2p5VSmu_) { b_Tau_rawDeepTau2018v2p5VSmu_->SetAddress(Tau_rawDeepTau2018v2p5VSmu_.growFor(b_Tau_rawDeepTau2018v2p5VSmu_)); }
     b_Tau_rawIso_ = tree->GetBranch("Tau_rawIso");
-    if (b_Tau_rawIso_) { b_Tau_rawIso_->SetAddress(Tau_rawIso_.grow(nanoBufLen(b_Tau_rawIso_))); }
+    if (b_Tau_rawIso_) { b_Tau_rawIso_->SetAddress(Tau_rawIso_.growFor(b_Tau_rawIso_)); }
     b_Tau_rawIsodR03_ = tree->GetBranch("Tau_rawIsodR03");
-    if (b_Tau_rawIsodR03_) { b_Tau_rawIsodR03_->SetAddress(Tau_rawIsodR03_.grow(nanoBufLen(b_Tau_rawIsodR03_))); }
+    if (b_Tau_rawIsodR03_) { b_Tau_rawIsodR03_->SetAddress(Tau_rawIsodR03_.growFor(b_Tau_rawIsodR03_)); }
     b_Tau_rawMVAnewDM2017v2_ = tree->GetBranch("Tau_rawMVAnewDM2017v2");
-    if (b_Tau_rawMVAnewDM2017v2_) { b_Tau_rawMVAnewDM2017v2_->SetAddress(Tau_rawMVAnewDM2017v2_.grow(nanoBufLen(b_Tau_rawMVAnewDM2017v2_))); }
+    if (b_Tau_rawMVAnewDM2017v2_) { b_Tau_rawMVAnewDM2017v2_->SetAddress(Tau_rawMVAnewDM2017v2_.growFor(b_Tau_rawMVAnewDM2017v2_)); }
     b_Tau_rawMVAoldDM_ = tree->GetBranch("Tau_rawMVAoldDM");
-    if (b_Tau_rawMVAoldDM_) { b_Tau_rawMVAoldDM_->SetAddress(Tau_rawMVAoldDM_.grow(nanoBufLen(b_Tau_rawMVAoldDM_))); }
+    if (b_Tau_rawMVAoldDM_) { b_Tau_rawMVAoldDM_->SetAddress(Tau_rawMVAoldDM_.growFor(b_Tau_rawMVAoldDM_)); }
     b_Tau_rawMVAoldDM2017v1_ = tree->GetBranch("Tau_rawMVAoldDM2017v1");
-    if (b_Tau_rawMVAoldDM2017v1_) { b_Tau_rawMVAoldDM2017v1_->SetAddress(Tau_rawMVAoldDM2017v1_.grow(nanoBufLen(b_Tau_rawMVAoldDM2017v1_))); }
+    if (b_Tau_rawMVAoldDM2017v1_) { b_Tau_rawMVAoldDM2017v1_->SetAddress(Tau_rawMVAoldDM2017v1_.growFor(b_Tau_rawMVAoldDM2017v1_)); }
     b_Tau_rawMVAoldDM2017v2_ = tree->GetBranch("Tau_rawMVAoldDM2017v2");
-    if (b_Tau_rawMVAoldDM2017v2_) { b_Tau_rawMVAoldDM2017v2_->SetAddress(Tau_rawMVAoldDM2017v2_.grow(nanoBufLen(b_Tau_rawMVAoldDM2017v2_))); }
+    if (b_Tau_rawMVAoldDM2017v2_) { b_Tau_rawMVAoldDM2017v2_->SetAddress(Tau_rawMVAoldDM2017v2_.growFor(b_Tau_rawMVAoldDM2017v2_)); }
     b_Tau_rawMVAoldDMdR032017v2_ = tree->GetBranch("Tau_rawMVAoldDMdR032017v2");
-    if (b_Tau_rawMVAoldDMdR032017v2_) { b_Tau_rawMVAoldDMdR032017v2_->SetAddress(Tau_rawMVAoldDMdR032017v2_.grow(nanoBufLen(b_Tau_rawMVAoldDMdR032017v2_))); }
+    if (b_Tau_rawMVAoldDMdR032017v2_) { b_Tau_rawMVAoldDMdR032017v2_->SetAddress(Tau_rawMVAoldDMdR032017v2_.growFor(b_Tau_rawMVAoldDMdR032017v2_)); }
     b_Tau_svIdx1_ = tree->GetBranch("Tau_svIdx1");
-    if (b_Tau_svIdx1_) { b_Tau_svIdx1_->SetAddress(Tau_svIdx1_.grow(nanoBufLen(b_Tau_svIdx1_))); }
+    if (b_Tau_svIdx1_) { b_Tau_svIdx1_->SetAddress(Tau_svIdx1_.growFor(b_Tau_svIdx1_)); }
     b_Tau_svIdx2_ = tree->GetBranch("Tau_svIdx2");
-    if (b_Tau_svIdx2_) { b_Tau_svIdx2_->SetAddress(Tau_svIdx2_.grow(nanoBufLen(b_Tau_svIdx2_))); }
+    if (b_Tau_svIdx2_) { b_Tau_svIdx2_->SetAddress(Tau_svIdx2_.growFor(b_Tau_svIdx2_)); }
     b_TkMET_phi_ = tree->GetBranch("TkMET_phi");
     if (b_TkMET_phi_) { b_TkMET_phi_->SetAddress(&TkMET_phi_); }
     b_TkMET_pt_ = tree->GetBranch("TkMET_pt");
@@ -6847,83 +6847,83 @@ void Nano::Init(TTree *tree) {
     b_TkMET_sumEt_ = tree->GetBranch("TkMET_sumEt");
     if (b_TkMET_sumEt_) { b_TkMET_sumEt_->SetAddress(&TkMET_sumEt_); }
     b_TrigObj_eta_ = tree->GetBranch("TrigObj_eta");
-    if (b_TrigObj_eta_) { b_TrigObj_eta_->SetAddress(TrigObj_eta_.grow(nanoBufLen(b_TrigObj_eta_))); }
+    if (b_TrigObj_eta_) { b_TrigObj_eta_->SetAddress(TrigObj_eta_.growFor(b_TrigObj_eta_)); }
     b_TrigObj_filterBits_ = tree->GetBranch("TrigObj_filterBits");
-    if (b_TrigObj_filterBits_) { b_TrigObj_filterBits_->SetAddress(TrigObj_filterBits_.grow(nanoBufLen(b_TrigObj_filterBits_))); }
+    if (b_TrigObj_filterBits_) { b_TrigObj_filterBits_->SetAddress(TrigObj_filterBits_.growFor(b_TrigObj_filterBits_)); }
     b_TrigObj_id_ = tree->GetBranch("TrigObj_id");
-    if (b_TrigObj_id_) { b_TrigObj_id_->SetAddress(TrigObj_id_.grow(nanoBufLen(b_TrigObj_id_))); }
+    if (b_TrigObj_id_) { b_TrigObj_id_->SetAddress(TrigObj_id_.growFor(b_TrigObj_id_)); }
     b_TrigObj_l1charge_ = tree->GetBranch("TrigObj_l1charge");
-    if (b_TrigObj_l1charge_) { b_TrigObj_l1charge_->SetAddress(TrigObj_l1charge_.grow(nanoBufLen(b_TrigObj_l1charge_))); }
+    if (b_TrigObj_l1charge_) { b_TrigObj_l1charge_->SetAddress(TrigObj_l1charge_.growFor(b_TrigObj_l1charge_)); }
     b_TrigObj_l1iso_ = tree->GetBranch("TrigObj_l1iso");
-    if (b_TrigObj_l1iso_) { b_TrigObj_l1iso_->SetAddress(TrigObj_l1iso_.grow(nanoBufLen(b_TrigObj_l1iso_))); }
+    if (b_TrigObj_l1iso_) { b_TrigObj_l1iso_->SetAddress(TrigObj_l1iso_.growFor(b_TrigObj_l1iso_)); }
     b_TrigObj_l1pt_ = tree->GetBranch("TrigObj_l1pt");
-    if (b_TrigObj_l1pt_) { b_TrigObj_l1pt_->SetAddress(TrigObj_l1pt_.grow(nanoBufLen(b_TrigObj_l1pt_))); }
+    if (b_TrigObj_l1pt_) { b_TrigObj_l1pt_->SetAddress(TrigObj_l1pt_.growFor(b_TrigObj_l1pt_)); }
     b_TrigObj_l1pt_2_ = tree->GetBranch("TrigObj_l1pt_2");
-    if (b_TrigObj_l1pt_2_) { b_TrigObj_l1pt_2_->SetAddress(TrigObj_l1pt_2_.grow(nanoBufLen(b_TrigObj_l1pt_2_))); }
+    if (b_TrigObj_l1pt_2_) { b_TrigObj_l1pt_2_->SetAddress(TrigObj_l1pt_2_.growFor(b_TrigObj_l1pt_2_)); }
     b_TrigObj_l2pt_ = tree->GetBranch("TrigObj_l2pt");
-    if (b_TrigObj_l2pt_) { b_TrigObj_l2pt_->SetAddress(TrigObj_l2pt_.grow(nanoBufLen(b_TrigObj_l2pt_))); }
+    if (b_TrigObj_l2pt_) { b_TrigObj_l2pt_->SetAddress(TrigObj_l2pt_.growFor(b_TrigObj_l2pt_)); }
     b_TrigObj_phi_ = tree->GetBranch("TrigObj_phi");
-    if (b_TrigObj_phi_) { b_TrigObj_phi_->SetAddress(TrigObj_phi_.grow(nanoBufLen(b_TrigObj_phi_))); }
+    if (b_TrigObj_phi_) { b_TrigObj_phi_->SetAddress(TrigObj_phi_.growFor(b_TrigObj_phi_)); }
     b_TrigObj_pt_ = tree->GetBranch("TrigObj_pt");
-    if (b_TrigObj_pt_) { b_TrigObj_pt_->SetAddress(TrigObj_pt_.grow(nanoBufLen(b_TrigObj_pt_))); }
+    if (b_TrigObj_pt_) { b_TrigObj_pt_->SetAddress(TrigObj_pt_.growFor(b_TrigObj_pt_)); }
     b_WCnames_ = tree->GetBranch("WCnames");
-    if (b_WCnames_) { b_WCnames_->SetAddress(WCnames_.grow(nanoBufLen(b_WCnames_))); }
+    if (b_WCnames_) { b_WCnames_->SetAddress(WCnames_.growFor(b_WCnames_)); }
     b_boostedTau_charge_ = tree->GetBranch("boostedTau_charge");
-    if (b_boostedTau_charge_) { b_boostedTau_charge_->SetAddress(boostedTau_charge_.grow(nanoBufLen(b_boostedTau_charge_))); }
+    if (b_boostedTau_charge_) { b_boostedTau_charge_->SetAddress(boostedTau_charge_.growFor(b_boostedTau_charge_)); }
     b_boostedTau_chargedIso_ = tree->GetBranch("boostedTau_chargedIso");
-    if (b_boostedTau_chargedIso_) { b_boostedTau_chargedIso_->SetAddress(boostedTau_chargedIso_.grow(nanoBufLen(b_boostedTau_chargedIso_))); }
+    if (b_boostedTau_chargedIso_) { b_boostedTau_chargedIso_->SetAddress(boostedTau_chargedIso_.growFor(b_boostedTau_chargedIso_)); }
     b_boostedTau_decayMode_ = tree->GetBranch("boostedTau_decayMode");
-    if (b_boostedTau_decayMode_) { b_boostedTau_decayMode_->SetAddress(boostedTau_decayMode_.grow(nanoBufLen(b_boostedTau_decayMode_))); }
+    if (b_boostedTau_decayMode_) { b_boostedTau_decayMode_->SetAddress(boostedTau_decayMode_.growFor(b_boostedTau_decayMode_)); }
     b_boostedTau_eta_ = tree->GetBranch("boostedTau_eta");
-    if (b_boostedTau_eta_) { b_boostedTau_eta_->SetAddress(boostedTau_eta_.grow(nanoBufLen(b_boostedTau_eta_))); }
+    if (b_boostedTau_eta_) { b_boostedTau_eta_->SetAddress(boostedTau_eta_.growFor(b_boostedTau_eta_)); }
     b_boostedTau_genPartFlav_ = tree->GetBranch("boostedTau_genPartFlav");
-    if (b_boostedTau_genPartFlav_) { b_boostedTau_genPartFlav_->SetAddress(boostedTau_genPartFlav_.grow(nanoBufLen(b_boostedTau_genPartFlav_))); }
+    if (b_boostedTau_genPartFlav_) { b_boostedTau_genPartFlav_->SetAddress(boostedTau_genPartFlav_.growFor(b_boostedTau_genPartFlav_)); }
     b_boostedTau_genPartIdx_ = tree->GetBranch("boostedTau_genPartIdx");
-    if (b_boostedTau_genPartIdx_) { b_boostedTau_genPartIdx_->SetAddress(boostedTau_genPartIdx_.grow(nanoBufLen(b_boostedTau_genPartIdx_))); }
+    if (b_boostedTau_genPartIdx_) { b_boostedTau_genPartIdx_->SetAddress(boostedTau_genPartIdx_.growFor(b_boostedTau_genPartIdx_)); }
     b_boostedTau_idAntiEle2018_ = tree->GetBranch("boostedTau_idAntiEle2018");
-    if (b_boostedTau_idAntiEle2018_) { b_boostedTau_idAntiEle2018_->SetAddress(boostedTau_idAntiEle2018_.grow(nanoBufLen(b_boostedTau_idAntiEle2018_))); }
+    if (b_boostedTau_idAntiEle2018_) { b_boostedTau_idAntiEle2018_->SetAddress(boostedTau_idAntiEle2018_.growFor(b_boostedTau_idAntiEle2018_)); }
     b_boostedTau_idAntiMu_ = tree->GetBranch("boostedTau_idAntiMu");
-    if (b_boostedTau_idAntiMu_) { b_boostedTau_idAntiMu_->SetAddress(boostedTau_idAntiMu_.grow(nanoBufLen(b_boostedTau_idAntiMu_))); }
+    if (b_boostedTau_idAntiMu_) { b_boostedTau_idAntiMu_->SetAddress(boostedTau_idAntiMu_.growFor(b_boostedTau_idAntiMu_)); }
     b_boostedTau_idMVAnewDM2017v2_ = tree->GetBranch("boostedTau_idMVAnewDM2017v2");
-    if (b_boostedTau_idMVAnewDM2017v2_) { b_boostedTau_idMVAnewDM2017v2_->SetAddress(boostedTau_idMVAnewDM2017v2_.grow(nanoBufLen(b_boostedTau_idMVAnewDM2017v2_))); }
+    if (b_boostedTau_idMVAnewDM2017v2_) { b_boostedTau_idMVAnewDM2017v2_->SetAddress(boostedTau_idMVAnewDM2017v2_.growFor(b_boostedTau_idMVAnewDM2017v2_)); }
     b_boostedTau_idMVAoldDM2017v2_ = tree->GetBranch("boostedTau_idMVAoldDM2017v2");
-    if (b_boostedTau_idMVAoldDM2017v2_) { b_boostedTau_idMVAoldDM2017v2_->SetAddress(boostedTau_idMVAoldDM2017v2_.grow(nanoBufLen(b_boostedTau_idMVAoldDM2017v2_))); }
+    if (b_boostedTau_idMVAoldDM2017v2_) { b_boostedTau_idMVAoldDM2017v2_->SetAddress(boostedTau_idMVAoldDM2017v2_.growFor(b_boostedTau_idMVAoldDM2017v2_)); }
     b_boostedTau_idMVAoldDMdR032017v2_ = tree->GetBranch("boostedTau_idMVAoldDMdR032017v2");
-    if (b_boostedTau_idMVAoldDMdR032017v2_) { b_boostedTau_idMVAoldDMdR032017v2_->SetAddress(boostedTau_idMVAoldDMdR032017v2_.grow(nanoBufLen(b_boostedTau_idMVAoldDMdR032017v2_))); }
+    if (b_boostedTau_idMVAoldDMdR032017v2_) { b_boostedTau_idMVAoldDMdR032017v2_->SetAddress(boostedTau_idMVAoldDMdR032017v2_.growFor(b_boostedTau_idMVAoldDMdR032017v2_)); }
     b_boostedTau_jetIdx_ = tree->GetBranch("boostedTau_jetIdx");
-    if (b_boostedTau_jetIdx_) { b_boostedTau_jetIdx_->SetAddress(boostedTau_jetIdx_.grow(nanoBufLen(b_boostedTau_jetIdx_))); }
+    if (b_boostedTau_jetIdx_) { b_boostedTau_jetIdx_->SetAddress(boostedTau_jetIdx_.growFor(b_boostedTau_jetIdx_)); }
     b_boostedTau_leadTkDeltaEta_ = tree->GetBranch("boostedTau_leadTkDeltaEta");
-    if (b_boostedTau_leadTkDeltaEta_) { b_boostedTau_leadTkDeltaEta_->SetAddress(boostedTau_leadTkDeltaEta_.grow(nanoBufLen(b_boostedTau_leadTkDeltaEta_))); }
+    if (b_boostedTau_leadTkDeltaEta_) { b_boostedTau_leadTkDeltaEta_->SetAddress(boostedTau_leadTkDeltaEta_.growFor(b_boostedTau_leadTkDeltaEta_)); }
     b_boostedTau_leadTkDeltaPhi_ = tree->GetBranch("boostedTau_leadTkDeltaPhi");
-    if (b_boostedTau_leadTkDeltaPhi_) { b_boostedTau_leadTkDeltaPhi_->SetAddress(boostedTau_leadTkDeltaPhi_.grow(nanoBufLen(b_boostedTau_leadTkDeltaPhi_))); }
+    if (b_boostedTau_leadTkDeltaPhi_) { b_boostedTau_leadTkDeltaPhi_->SetAddress(boostedTau_leadTkDeltaPhi_.growFor(b_boostedTau_leadTkDeltaPhi_)); }
     b_boostedTau_leadTkPtOverTauPt_ = tree->GetBranch("boostedTau_leadTkPtOverTauPt");
-    if (b_boostedTau_leadTkPtOverTauPt_) { b_boostedTau_leadTkPtOverTauPt_->SetAddress(boostedTau_leadTkPtOverTauPt_.grow(nanoBufLen(b_boostedTau_leadTkPtOverTauPt_))); }
+    if (b_boostedTau_leadTkPtOverTauPt_) { b_boostedTau_leadTkPtOverTauPt_->SetAddress(boostedTau_leadTkPtOverTauPt_.growFor(b_boostedTau_leadTkPtOverTauPt_)); }
     b_boostedTau_mass_ = tree->GetBranch("boostedTau_mass");
-    if (b_boostedTau_mass_) { b_boostedTau_mass_->SetAddress(boostedTau_mass_.grow(nanoBufLen(b_boostedTau_mass_))); }
+    if (b_boostedTau_mass_) { b_boostedTau_mass_->SetAddress(boostedTau_mass_.growFor(b_boostedTau_mass_)); }
     b_boostedTau_neutralIso_ = tree->GetBranch("boostedTau_neutralIso");
-    if (b_boostedTau_neutralIso_) { b_boostedTau_neutralIso_->SetAddress(boostedTau_neutralIso_.grow(nanoBufLen(b_boostedTau_neutralIso_))); }
+    if (b_boostedTau_neutralIso_) { b_boostedTau_neutralIso_->SetAddress(boostedTau_neutralIso_.growFor(b_boostedTau_neutralIso_)); }
     b_boostedTau_phi_ = tree->GetBranch("boostedTau_phi");
-    if (b_boostedTau_phi_) { b_boostedTau_phi_->SetAddress(boostedTau_phi_.grow(nanoBufLen(b_boostedTau_phi_))); }
+    if (b_boostedTau_phi_) { b_boostedTau_phi_->SetAddress(boostedTau_phi_.growFor(b_boostedTau_phi_)); }
     b_boostedTau_photonsOutsideSignalCone_ = tree->GetBranch("boostedTau_photonsOutsideSignalCone");
-    if (b_boostedTau_photonsOutsideSignalCone_) { b_boostedTau_photonsOutsideSignalCone_->SetAddress(boostedTau_photonsOutsideSignalCone_.grow(nanoBufLen(b_boostedTau_photonsOutsideSignalCone_))); }
+    if (b_boostedTau_photonsOutsideSignalCone_) { b_boostedTau_photonsOutsideSignalCone_->SetAddress(boostedTau_photonsOutsideSignalCone_.growFor(b_boostedTau_photonsOutsideSignalCone_)); }
     b_boostedTau_pt_ = tree->GetBranch("boostedTau_pt");
-    if (b_boostedTau_pt_) { b_boostedTau_pt_->SetAddress(boostedTau_pt_.grow(nanoBufLen(b_boostedTau_pt_))); }
+    if (b_boostedTau_pt_) { b_boostedTau_pt_->SetAddress(boostedTau_pt_.growFor(b_boostedTau_pt_)); }
     b_boostedTau_puCorr_ = tree->GetBranch("boostedTau_puCorr");
-    if (b_boostedTau_puCorr_) { b_boostedTau_puCorr_->SetAddress(boostedTau_puCorr_.grow(nanoBufLen(b_boostedTau_puCorr_))); }
+    if (b_boostedTau_puCorr_) { b_boostedTau_puCorr_->SetAddress(boostedTau_puCorr_.growFor(b_boostedTau_puCorr_)); }
     b_boostedTau_rawAntiEle2018_ = tree->GetBranch("boostedTau_rawAntiEle2018");
-    if (b_boostedTau_rawAntiEle2018_) { b_boostedTau_rawAntiEle2018_->SetAddress(boostedTau_rawAntiEle2018_.grow(nanoBufLen(b_boostedTau_rawAntiEle2018_))); }
+    if (b_boostedTau_rawAntiEle2018_) { b_boostedTau_rawAntiEle2018_->SetAddress(boostedTau_rawAntiEle2018_.growFor(b_boostedTau_rawAntiEle2018_)); }
     b_boostedTau_rawAntiEleCat2018_ = tree->GetBranch("boostedTau_rawAntiEleCat2018");
-    if (b_boostedTau_rawAntiEleCat2018_) { b_boostedTau_rawAntiEleCat2018_->SetAddress(boostedTau_rawAntiEleCat2018_.grow(nanoBufLen(b_boostedTau_rawAntiEleCat2018_))); }
+    if (b_boostedTau_rawAntiEleCat2018_) { b_boostedTau_rawAntiEleCat2018_->SetAddress(boostedTau_rawAntiEleCat2018_.growFor(b_boostedTau_rawAntiEleCat2018_)); }
     b_boostedTau_rawIso_ = tree->GetBranch("boostedTau_rawIso");
-    if (b_boostedTau_rawIso_) { b_boostedTau_rawIso_->SetAddress(boostedTau_rawIso_.grow(nanoBufLen(b_boostedTau_rawIso_))); }
+    if (b_boostedTau_rawIso_) { b_boostedTau_rawIso_->SetAddress(boostedTau_rawIso_.growFor(b_boostedTau_rawIso_)); }
     b_boostedTau_rawIsodR03_ = tree->GetBranch("boostedTau_rawIsodR03");
-    if (b_boostedTau_rawIsodR03_) { b_boostedTau_rawIsodR03_->SetAddress(boostedTau_rawIsodR03_.grow(nanoBufLen(b_boostedTau_rawIsodR03_))); }
+    if (b_boostedTau_rawIsodR03_) { b_boostedTau_rawIsodR03_->SetAddress(boostedTau_rawIsodR03_.growFor(b_boostedTau_rawIsodR03_)); }
     b_boostedTau_rawMVAnewDM2017v2_ = tree->GetBranch("boostedTau_rawMVAnewDM2017v2");
-    if (b_boostedTau_rawMVAnewDM2017v2_) { b_boostedTau_rawMVAnewDM2017v2_->SetAddress(boostedTau_rawMVAnewDM2017v2_.grow(nanoBufLen(b_boostedTau_rawMVAnewDM2017v2_))); }
+    if (b_boostedTau_rawMVAnewDM2017v2_) { b_boostedTau_rawMVAnewDM2017v2_->SetAddress(boostedTau_rawMVAnewDM2017v2_.growFor(b_boostedTau_rawMVAnewDM2017v2_)); }
     b_boostedTau_rawMVAoldDM2017v2_ = tree->GetBranch("boostedTau_rawMVAoldDM2017v2");
-    if (b_boostedTau_rawMVAoldDM2017v2_) { b_boostedTau_rawMVAoldDM2017v2_->SetAddress(boostedTau_rawMVAoldDM2017v2_.grow(nanoBufLen(b_boostedTau_rawMVAoldDM2017v2_))); }
+    if (b_boostedTau_rawMVAoldDM2017v2_) { b_boostedTau_rawMVAoldDM2017v2_->SetAddress(boostedTau_rawMVAoldDM2017v2_.growFor(b_boostedTau_rawMVAoldDM2017v2_)); }
     b_boostedTau_rawMVAoldDMdR032017v2_ = tree->GetBranch("boostedTau_rawMVAoldDMdR032017v2");
-    if (b_boostedTau_rawMVAoldDMdR032017v2_) { b_boostedTau_rawMVAoldDMdR032017v2_->SetAddress(boostedTau_rawMVAoldDMdR032017v2_.grow(nanoBufLen(b_boostedTau_rawMVAoldDMdR032017v2_))); }
+    if (b_boostedTau_rawMVAoldDMdR032017v2_) { b_boostedTau_rawMVAoldDMdR032017v2_->SetAddress(boostedTau_rawMVAoldDMdR032017v2_.growFor(b_boostedTau_rawMVAoldDMdR032017v2_)); }
     b_btagWeight_CSVV2_ = tree->GetBranch("btagWeight_CSVV2");
     if (b_btagWeight_CSVV2_) { b_btagWeight_CSVV2_->SetAddress(&btagWeight_CSVV2_); }
     b_btagWeight_DeepCSVB_ = tree->GetBranch("btagWeight_DeepCSVB");
@@ -7060,6 +7060,2778 @@ void Nano::Init(TTree *tree) {
     filemax_nWCnames_ = nanoLeafMax(tree, "nWCnames");
     filemax_nboostedTau_ = nanoLeafMax(tree, "nboostedTau");
     ParseYear(tree);
+}
+// Throws if a branch Arbusto will READ is wider on disk than its scalar member (see NanoBuf.h).
+// Call once per file AFTER the branch statuses are set (skimmer: after arbusto.init()).
+void Nano::CheckScalarWidths() {
+    nanoCheckScalarWidth(b_BeamSpot_sigmaZ_, sizeof(BeamSpot_sigmaZ_), "BeamSpot_sigmaZ");
+    nanoCheckScalarWidth(b_BeamSpot_sigmaZError_, sizeof(BeamSpot_sigmaZError_), "BeamSpot_sigmaZError");
+    nanoCheckScalarWidth(b_BeamSpot_type_, sizeof(BeamSpot_type_), "BeamSpot_type");
+    nanoCheckScalarWidth(b_BeamSpot_z_, sizeof(BeamSpot_z_), "BeamSpot_z");
+    nanoCheckScalarWidth(b_BeamSpot_zError_, sizeof(BeamSpot_zError_), "BeamSpot_zError");
+    nanoCheckScalarWidth(b_CaloMET_phi_, sizeof(CaloMET_phi_), "CaloMET_phi");
+    nanoCheckScalarWidth(b_CaloMET_pt_, sizeof(CaloMET_pt_), "CaloMET_pt");
+    nanoCheckScalarWidth(b_CaloMET_sumEt_, sizeof(CaloMET_sumEt_), "CaloMET_sumEt");
+    nanoCheckScalarWidth(b_ChsMET_phi_, sizeof(ChsMET_phi_), "ChsMET_phi");
+    nanoCheckScalarWidth(b_ChsMET_pt_, sizeof(ChsMET_pt_), "ChsMET_pt");
+    nanoCheckScalarWidth(b_ChsMET_sumEt_, sizeof(ChsMET_sumEt_), "ChsMET_sumEt");
+    nanoCheckScalarWidth(b_DeepMETResolutionTune_phi_, sizeof(DeepMETResolutionTune_phi_), "DeepMETResolutionTune_phi");
+    nanoCheckScalarWidth(b_DeepMETResolutionTune_pt_, sizeof(DeepMETResolutionTune_pt_), "DeepMETResolutionTune_pt");
+    nanoCheckScalarWidth(b_DeepMETResponseTune_phi_, sizeof(DeepMETResponseTune_phi_), "DeepMETResponseTune_phi");
+    nanoCheckScalarWidth(b_DeepMETResponseTune_pt_, sizeof(DeepMETResponseTune_pt_), "DeepMETResponseTune_pt");
+    nanoCheckScalarWidth(b_Flag_BadChargedCandidateFilter_, sizeof(Flag_BadChargedCandidateFilter_), "Flag_BadChargedCandidateFilter");
+    nanoCheckScalarWidth(b_Flag_BadChargedCandidateFilter_pRECO_, sizeof(Flag_BadChargedCandidateFilter_pRECO_), "Flag_BadChargedCandidateFilter_pRECO");
+    nanoCheckScalarWidth(b_Flag_BadChargedCandidateSummer16Filter_, sizeof(Flag_BadChargedCandidateSummer16Filter_), "Flag_BadChargedCandidateSummer16Filter");
+    nanoCheckScalarWidth(b_Flag_BadChargedCandidateSummer16Filter_pRECO_, sizeof(Flag_BadChargedCandidateSummer16Filter_pRECO_), "Flag_BadChargedCandidateSummer16Filter_pRECO");
+    nanoCheckScalarWidth(b_Flag_BadPFMuonDzFilter_, sizeof(Flag_BadPFMuonDzFilter_), "Flag_BadPFMuonDzFilter");
+    nanoCheckScalarWidth(b_Flag_BadPFMuonFilter_, sizeof(Flag_BadPFMuonFilter_), "Flag_BadPFMuonFilter");
+    nanoCheckScalarWidth(b_Flag_BadPFMuonFilter_pRECO_, sizeof(Flag_BadPFMuonFilter_pRECO_), "Flag_BadPFMuonFilter_pRECO");
+    nanoCheckScalarWidth(b_Flag_BadPFMuonSummer16Filter_, sizeof(Flag_BadPFMuonSummer16Filter_), "Flag_BadPFMuonSummer16Filter");
+    nanoCheckScalarWidth(b_Flag_BadPFMuonSummer16Filter_pRECO_, sizeof(Flag_BadPFMuonSummer16Filter_pRECO_), "Flag_BadPFMuonSummer16Filter_pRECO");
+    nanoCheckScalarWidth(b_Flag_CSCTightHalo2015Filter_, sizeof(Flag_CSCTightHalo2015Filter_), "Flag_CSCTightHalo2015Filter");
+    nanoCheckScalarWidth(b_Flag_CSCTightHalo2015Filter_pRECO_, sizeof(Flag_CSCTightHalo2015Filter_pRECO_), "Flag_CSCTightHalo2015Filter_pRECO");
+    nanoCheckScalarWidth(b_Flag_CSCTightHaloFilter_, sizeof(Flag_CSCTightHaloFilter_), "Flag_CSCTightHaloFilter");
+    nanoCheckScalarWidth(b_Flag_CSCTightHaloFilter_pRECO_, sizeof(Flag_CSCTightHaloFilter_pRECO_), "Flag_CSCTightHaloFilter_pRECO");
+    nanoCheckScalarWidth(b_Flag_CSCTightHaloTrkMuUnvetoFilter_, sizeof(Flag_CSCTightHaloTrkMuUnvetoFilter_), "Flag_CSCTightHaloTrkMuUnvetoFilter");
+    nanoCheckScalarWidth(b_Flag_CSCTightHaloTrkMuUnvetoFilter_pRECO_, sizeof(Flag_CSCTightHaloTrkMuUnvetoFilter_pRECO_), "Flag_CSCTightHaloTrkMuUnvetoFilter_pRECO");
+    nanoCheckScalarWidth(b_Flag_EcalDeadCellBoundaryEnergyFilter_, sizeof(Flag_EcalDeadCellBoundaryEnergyFilter_), "Flag_EcalDeadCellBoundaryEnergyFilter");
+    nanoCheckScalarWidth(b_Flag_EcalDeadCellBoundaryEnergyFilter_pRECO_, sizeof(Flag_EcalDeadCellBoundaryEnergyFilter_pRECO_), "Flag_EcalDeadCellBoundaryEnergyFilter_pRECO");
+    nanoCheckScalarWidth(b_Flag_EcalDeadCellTriggerPrimitiveFilter_, sizeof(Flag_EcalDeadCellTriggerPrimitiveFilter_), "Flag_EcalDeadCellTriggerPrimitiveFilter");
+    nanoCheckScalarWidth(b_Flag_EcalDeadCellTriggerPrimitiveFilter_pRECO_, sizeof(Flag_EcalDeadCellTriggerPrimitiveFilter_pRECO_), "Flag_EcalDeadCellTriggerPrimitiveFilter_pRECO");
+    nanoCheckScalarWidth(b_Flag_HBHENoiseFilter_, sizeof(Flag_HBHENoiseFilter_), "Flag_HBHENoiseFilter");
+    nanoCheckScalarWidth(b_Flag_HBHENoiseFilter_pRECO_, sizeof(Flag_HBHENoiseFilter_pRECO_), "Flag_HBHENoiseFilter_pRECO");
+    nanoCheckScalarWidth(b_Flag_HBHENoiseIsoFilter_, sizeof(Flag_HBHENoiseIsoFilter_), "Flag_HBHENoiseIsoFilter");
+    nanoCheckScalarWidth(b_Flag_HBHENoiseIsoFilter_pRECO_, sizeof(Flag_HBHENoiseIsoFilter_pRECO_), "Flag_HBHENoiseIsoFilter_pRECO");
+    nanoCheckScalarWidth(b_Flag_HcalStripHaloFilter_, sizeof(Flag_HcalStripHaloFilter_), "Flag_HcalStripHaloFilter");
+    nanoCheckScalarWidth(b_Flag_HcalStripHaloFilter_pRECO_, sizeof(Flag_HcalStripHaloFilter_pRECO_), "Flag_HcalStripHaloFilter_pRECO");
+    nanoCheckScalarWidth(b_Flag_METFilters_, sizeof(Flag_METFilters_), "Flag_METFilters");
+    nanoCheckScalarWidth(b_Flag_METFilters_pRECO_, sizeof(Flag_METFilters_pRECO_), "Flag_METFilters_pRECO");
+    nanoCheckScalarWidth(b_Flag_chargedHadronTrackResolutionFilter_, sizeof(Flag_chargedHadronTrackResolutionFilter_), "Flag_chargedHadronTrackResolutionFilter");
+    nanoCheckScalarWidth(b_Flag_chargedHadronTrackResolutionFilter_pRECO_, sizeof(Flag_chargedHadronTrackResolutionFilter_pRECO_), "Flag_chargedHadronTrackResolutionFilter_pRECO");
+    nanoCheckScalarWidth(b_Flag_ecalBadCalibFilter_, sizeof(Flag_ecalBadCalibFilter_), "Flag_ecalBadCalibFilter");
+    nanoCheckScalarWidth(b_Flag_ecalBadCalibFilter_pRECO_, sizeof(Flag_ecalBadCalibFilter_pRECO_), "Flag_ecalBadCalibFilter_pRECO");
+    nanoCheckScalarWidth(b_Flag_ecalLaserCorrFilter_, sizeof(Flag_ecalLaserCorrFilter_), "Flag_ecalLaserCorrFilter");
+    nanoCheckScalarWidth(b_Flag_ecalLaserCorrFilter_pRECO_, sizeof(Flag_ecalLaserCorrFilter_pRECO_), "Flag_ecalLaserCorrFilter_pRECO");
+    nanoCheckScalarWidth(b_Flag_eeBadScFilter_, sizeof(Flag_eeBadScFilter_), "Flag_eeBadScFilter");
+    nanoCheckScalarWidth(b_Flag_eeBadScFilter_pRECO_, sizeof(Flag_eeBadScFilter_pRECO_), "Flag_eeBadScFilter_pRECO");
+    nanoCheckScalarWidth(b_Flag_globalSuperTightHalo2016Filter_, sizeof(Flag_globalSuperTightHalo2016Filter_), "Flag_globalSuperTightHalo2016Filter");
+    nanoCheckScalarWidth(b_Flag_globalSuperTightHalo2016Filter_pRECO_, sizeof(Flag_globalSuperTightHalo2016Filter_pRECO_), "Flag_globalSuperTightHalo2016Filter_pRECO");
+    nanoCheckScalarWidth(b_Flag_globalTightHalo2016Filter_, sizeof(Flag_globalTightHalo2016Filter_), "Flag_globalTightHalo2016Filter");
+    nanoCheckScalarWidth(b_Flag_globalTightHalo2016Filter_pRECO_, sizeof(Flag_globalTightHalo2016Filter_pRECO_), "Flag_globalTightHalo2016Filter_pRECO");
+    nanoCheckScalarWidth(b_Flag_goodVertices_, sizeof(Flag_goodVertices_), "Flag_goodVertices");
+    nanoCheckScalarWidth(b_Flag_goodVertices_pRECO_, sizeof(Flag_goodVertices_pRECO_), "Flag_goodVertices_pRECO");
+    nanoCheckScalarWidth(b_Flag_hcalLaserEventFilter_, sizeof(Flag_hcalLaserEventFilter_), "Flag_hcalLaserEventFilter");
+    nanoCheckScalarWidth(b_Flag_hcalLaserEventFilter_pRECO_, sizeof(Flag_hcalLaserEventFilter_pRECO_), "Flag_hcalLaserEventFilter_pRECO");
+    nanoCheckScalarWidth(b_Flag_hfNoisyHitsFilter_, sizeof(Flag_hfNoisyHitsFilter_), "Flag_hfNoisyHitsFilter");
+    nanoCheckScalarWidth(b_Flag_muonBadTrackFilter_, sizeof(Flag_muonBadTrackFilter_), "Flag_muonBadTrackFilter");
+    nanoCheckScalarWidth(b_Flag_muonBadTrackFilter_pRECO_, sizeof(Flag_muonBadTrackFilter_pRECO_), "Flag_muonBadTrackFilter_pRECO");
+    nanoCheckScalarWidth(b_Flag_trkPOGFilters_, sizeof(Flag_trkPOGFilters_), "Flag_trkPOGFilters");
+    nanoCheckScalarWidth(b_Flag_trkPOGFilters_pRECO_, sizeof(Flag_trkPOGFilters_pRECO_), "Flag_trkPOGFilters_pRECO");
+    nanoCheckScalarWidth(b_Flag_trkPOG_logErrorTooManyClusters_, sizeof(Flag_trkPOG_logErrorTooManyClusters_), "Flag_trkPOG_logErrorTooManyClusters");
+    nanoCheckScalarWidth(b_Flag_trkPOG_logErrorTooManyClusters_pRECO_, sizeof(Flag_trkPOG_logErrorTooManyClusters_pRECO_), "Flag_trkPOG_logErrorTooManyClusters_pRECO");
+    nanoCheckScalarWidth(b_Flag_trkPOG_manystripclus53X_, sizeof(Flag_trkPOG_manystripclus53X_), "Flag_trkPOG_manystripclus53X");
+    nanoCheckScalarWidth(b_Flag_trkPOG_manystripclus53X_pRECO_, sizeof(Flag_trkPOG_manystripclus53X_pRECO_), "Flag_trkPOG_manystripclus53X_pRECO");
+    nanoCheckScalarWidth(b_Flag_trkPOG_toomanystripclus53X_, sizeof(Flag_trkPOG_toomanystripclus53X_), "Flag_trkPOG_toomanystripclus53X");
+    nanoCheckScalarWidth(b_Flag_trkPOG_toomanystripclus53X_pRECO_, sizeof(Flag_trkPOG_toomanystripclus53X_pRECO_), "Flag_trkPOG_toomanystripclus53X_pRECO");
+    nanoCheckScalarWidth(b_GenMET_phi_, sizeof(GenMET_phi_), "GenMET_phi");
+    nanoCheckScalarWidth(b_GenMET_pt_, sizeof(GenMET_pt_), "GenMET_pt");
+    nanoCheckScalarWidth(b_GenVtx_t0_, sizeof(GenVtx_t0_), "GenVtx_t0");
+    nanoCheckScalarWidth(b_GenVtx_x_, sizeof(GenVtx_x_), "GenVtx_x");
+    nanoCheckScalarWidth(b_GenVtx_y_, sizeof(GenVtx_y_), "GenVtx_y");
+    nanoCheckScalarWidth(b_GenVtx_z_, sizeof(GenVtx_z_), "GenVtx_z");
+    nanoCheckScalarWidth(b_Generator_binvar_, sizeof(Generator_binvar_), "Generator_binvar");
+    nanoCheckScalarWidth(b_Generator_id1_, sizeof(Generator_id1_), "Generator_id1");
+    nanoCheckScalarWidth(b_Generator_id2_, sizeof(Generator_id2_), "Generator_id2");
+    nanoCheckScalarWidth(b_Generator_scalePDF_, sizeof(Generator_scalePDF_), "Generator_scalePDF");
+    nanoCheckScalarWidth(b_Generator_weight_, sizeof(Generator_weight_), "Generator_weight");
+    nanoCheckScalarWidth(b_Generator_x1_, sizeof(Generator_x1_), "Generator_x1");
+    nanoCheckScalarWidth(b_Generator_x2_, sizeof(Generator_x2_), "Generator_x2");
+    nanoCheckScalarWidth(b_Generator_xpdf1_, sizeof(Generator_xpdf1_), "Generator_xpdf1");
+    nanoCheckScalarWidth(b_Generator_xpdf2_, sizeof(Generator_xpdf2_), "Generator_xpdf2");
+    nanoCheckScalarWidth(b_HLT_AK4CaloJet100_, sizeof(HLT_AK4CaloJet100_), "HLT_AK4CaloJet100");
+    nanoCheckScalarWidth(b_HLT_AK4CaloJet120_, sizeof(HLT_AK4CaloJet120_), "HLT_AK4CaloJet120");
+    nanoCheckScalarWidth(b_HLT_AK4CaloJet30_, sizeof(HLT_AK4CaloJet30_), "HLT_AK4CaloJet30");
+    nanoCheckScalarWidth(b_HLT_AK4CaloJet40_, sizeof(HLT_AK4CaloJet40_), "HLT_AK4CaloJet40");
+    nanoCheckScalarWidth(b_HLT_AK4CaloJet50_, sizeof(HLT_AK4CaloJet50_), "HLT_AK4CaloJet50");
+    nanoCheckScalarWidth(b_HLT_AK4CaloJet80_, sizeof(HLT_AK4CaloJet80_), "HLT_AK4CaloJet80");
+    nanoCheckScalarWidth(b_HLT_AK4PFJet100_, sizeof(HLT_AK4PFJet100_), "HLT_AK4PFJet100");
+    nanoCheckScalarWidth(b_HLT_AK4PFJet120_, sizeof(HLT_AK4PFJet120_), "HLT_AK4PFJet120");
+    nanoCheckScalarWidth(b_HLT_AK4PFJet30_, sizeof(HLT_AK4PFJet30_), "HLT_AK4PFJet30");
+    nanoCheckScalarWidth(b_HLT_AK4PFJet50_, sizeof(HLT_AK4PFJet50_), "HLT_AK4PFJet50");
+    nanoCheckScalarWidth(b_HLT_AK4PFJet80_, sizeof(HLT_AK4PFJet80_), "HLT_AK4PFJet80");
+    nanoCheckScalarWidth(b_HLT_AK8DiPFJet250_200_TrimMass30_, sizeof(HLT_AK8DiPFJet250_200_TrimMass30_), "HLT_AK8DiPFJet250_200_TrimMass30");
+    nanoCheckScalarWidth(b_HLT_AK8DiPFJet250_200_TrimMass30_BTagCSV_p20_, sizeof(HLT_AK8DiPFJet250_200_TrimMass30_BTagCSV_p20_), "HLT_AK8DiPFJet250_200_TrimMass30_BTagCSV_p20");
+    nanoCheckScalarWidth(b_HLT_AK8DiPFJet250_250_MassSD30_, sizeof(HLT_AK8DiPFJet250_250_MassSD30_), "HLT_AK8DiPFJet250_250_MassSD30");
+    nanoCheckScalarWidth(b_HLT_AK8DiPFJet250_250_MassSD50_, sizeof(HLT_AK8DiPFJet250_250_MassSD50_), "HLT_AK8DiPFJet250_250_MassSD50");
+    nanoCheckScalarWidth(b_HLT_AK8DiPFJet260_260_MassSD30_, sizeof(HLT_AK8DiPFJet260_260_MassSD30_), "HLT_AK8DiPFJet260_260_MassSD30");
+    nanoCheckScalarWidth(b_HLT_AK8DiPFJet270_270_MassSD30_, sizeof(HLT_AK8DiPFJet270_270_MassSD30_), "HLT_AK8DiPFJet270_270_MassSD30");
+    nanoCheckScalarWidth(b_HLT_AK8DiPFJet280_200_TrimMass30_, sizeof(HLT_AK8DiPFJet280_200_TrimMass30_), "HLT_AK8DiPFJet280_200_TrimMass30");
+    nanoCheckScalarWidth(b_HLT_AK8DiPFJet280_200_TrimMass30_BTagCSV_p087_, sizeof(HLT_AK8DiPFJet280_200_TrimMass30_BTagCSV_p087_), "HLT_AK8DiPFJet280_200_TrimMass30_BTagCSV_p087");
+    nanoCheckScalarWidth(b_HLT_AK8DiPFJet280_200_TrimMass30_BTagCSV_p20_, sizeof(HLT_AK8DiPFJet280_200_TrimMass30_BTagCSV_p20_), "HLT_AK8DiPFJet280_200_TrimMass30_BTagCSV_p20");
+    nanoCheckScalarWidth(b_HLT_AK8DiPFJet300_200_TrimMass30_, sizeof(HLT_AK8DiPFJet300_200_TrimMass30_), "HLT_AK8DiPFJet300_200_TrimMass30");
+    nanoCheckScalarWidth(b_HLT_AK8DiPFJet300_200_TrimMass30_BTagCSV_p087_, sizeof(HLT_AK8DiPFJet300_200_TrimMass30_BTagCSV_p087_), "HLT_AK8DiPFJet300_200_TrimMass30_BTagCSV_p087");
+    nanoCheckScalarWidth(b_HLT_AK8DiPFJet300_200_TrimMass30_BTagCSV_p20_, sizeof(HLT_AK8DiPFJet300_200_TrimMass30_BTagCSV_p20_), "HLT_AK8DiPFJet300_200_TrimMass30_BTagCSV_p20");
+    nanoCheckScalarWidth(b_HLT_AK8PFHT600_TrimR0p1PT0p03Mass50_BTagCSV_p20_, sizeof(HLT_AK8PFHT600_TrimR0p1PT0p03Mass50_BTagCSV_p20_), "HLT_AK8PFHT600_TrimR0p1PT0p03Mass50_BTagCSV_p20");
+    nanoCheckScalarWidth(b_HLT_AK8PFHT650_TrimR0p1PT0p03Mass50_, sizeof(HLT_AK8PFHT650_TrimR0p1PT0p03Mass50_), "HLT_AK8PFHT650_TrimR0p1PT0p03Mass50");
+    nanoCheckScalarWidth(b_HLT_AK8PFHT700_TrimR0p1PT0p03Mass50_, sizeof(HLT_AK8PFHT700_TrimR0p1PT0p03Mass50_), "HLT_AK8PFHT700_TrimR0p1PT0p03Mass50");
+    nanoCheckScalarWidth(b_HLT_AK8PFHT750_TrimMass50_, sizeof(HLT_AK8PFHT750_TrimMass50_), "HLT_AK8PFHT750_TrimMass50");
+    nanoCheckScalarWidth(b_HLT_AK8PFHT800_TrimMass50_, sizeof(HLT_AK8PFHT800_TrimMass50_), "HLT_AK8PFHT800_TrimMass50");
+    nanoCheckScalarWidth(b_HLT_AK8PFHT850_TrimMass50_, sizeof(HLT_AK8PFHT850_TrimMass50_), "HLT_AK8PFHT850_TrimMass50");
+    nanoCheckScalarWidth(b_HLT_AK8PFHT900_TrimMass50_, sizeof(HLT_AK8PFHT900_TrimMass50_), "HLT_AK8PFHT900_TrimMass50");
+    nanoCheckScalarWidth(b_HLT_AK8PFJet140_, sizeof(HLT_AK8PFJet140_), "HLT_AK8PFJet140");
+    nanoCheckScalarWidth(b_HLT_AK8PFJet15_, sizeof(HLT_AK8PFJet15_), "HLT_AK8PFJet15");
+    nanoCheckScalarWidth(b_HLT_AK8PFJet200_, sizeof(HLT_AK8PFJet200_), "HLT_AK8PFJet200");
+    nanoCheckScalarWidth(b_HLT_AK8PFJet230_SoftDropMass40_, sizeof(HLT_AK8PFJet230_SoftDropMass40_), "HLT_AK8PFJet230_SoftDropMass40");
+    nanoCheckScalarWidth(b_HLT_AK8PFJet230_SoftDropMass40_PFAK8ParticleNetBB0p35_, sizeof(HLT_AK8PFJet230_SoftDropMass40_PFAK8ParticleNetBB0p35_), "HLT_AK8PFJet230_SoftDropMass40_PFAK8ParticleNetBB0p35");
+    nanoCheckScalarWidth(b_HLT_AK8PFJet230_SoftDropMass40_PFAK8ParticleNetTauTau0p30_, sizeof(HLT_AK8PFJet230_SoftDropMass40_PFAK8ParticleNetTauTau0p30_), "HLT_AK8PFJet230_SoftDropMass40_PFAK8ParticleNetTauTau0p30");
+    nanoCheckScalarWidth(b_HLT_AK8PFJet25_, sizeof(HLT_AK8PFJet25_), "HLT_AK8PFJet25");
+    nanoCheckScalarWidth(b_HLT_AK8PFJet250_SoftDropMass40_PFAK8ParticleNetBB0p35_, sizeof(HLT_AK8PFJet250_SoftDropMass40_PFAK8ParticleNetBB0p35_), "HLT_AK8PFJet250_SoftDropMass40_PFAK8ParticleNetBB0p35");
+    nanoCheckScalarWidth(b_HLT_AK8PFJet250_SoftDropMass40_PFAK8ParticleNetTauTau0p30_, sizeof(HLT_AK8PFJet250_SoftDropMass40_PFAK8ParticleNetTauTau0p30_), "HLT_AK8PFJet250_SoftDropMass40_PFAK8ParticleNetTauTau0p30");
+    nanoCheckScalarWidth(b_HLT_AK8PFJet260_, sizeof(HLT_AK8PFJet260_), "HLT_AK8PFJet260");
+    nanoCheckScalarWidth(b_HLT_AK8PFJet275_SoftDropMass40_PFAK8ParticleNetBB0p35_, sizeof(HLT_AK8PFJet275_SoftDropMass40_PFAK8ParticleNetBB0p35_), "HLT_AK8PFJet275_SoftDropMass40_PFAK8ParticleNetBB0p35");
+    nanoCheckScalarWidth(b_HLT_AK8PFJet275_SoftDropMass40_PFAK8ParticleNetTauTau0p30_, sizeof(HLT_AK8PFJet275_SoftDropMass40_PFAK8ParticleNetTauTau0p30_), "HLT_AK8PFJet275_SoftDropMass40_PFAK8ParticleNetTauTau0p30");
+    nanoCheckScalarWidth(b_HLT_AK8PFJet320_, sizeof(HLT_AK8PFJet320_), "HLT_AK8PFJet320");
+    nanoCheckScalarWidth(b_HLT_AK8PFJet330_PFAK8BTagCSV_p1_, sizeof(HLT_AK8PFJet330_PFAK8BTagCSV_p1_), "HLT_AK8PFJet330_PFAK8BTagCSV_p1");
+    nanoCheckScalarWidth(b_HLT_AK8PFJet330_PFAK8BTagCSV_p17_, sizeof(HLT_AK8PFJet330_PFAK8BTagCSV_p17_), "HLT_AK8PFJet330_PFAK8BTagCSV_p17");
+    nanoCheckScalarWidth(b_HLT_AK8PFJet330_TrimMass30_PFAK8BTagCSV_p1_, sizeof(HLT_AK8PFJet330_TrimMass30_PFAK8BTagCSV_p1_), "HLT_AK8PFJet330_TrimMass30_PFAK8BTagCSV_p1");
+    nanoCheckScalarWidth(b_HLT_AK8PFJet330_TrimMass30_PFAK8BTagCSV_p17_, sizeof(HLT_AK8PFJet330_TrimMass30_PFAK8BTagCSV_p17_), "HLT_AK8PFJet330_TrimMass30_PFAK8BTagCSV_p17");
+    nanoCheckScalarWidth(b_HLT_AK8PFJet330_TrimMass30_PFAK8BTagDeepCSV_p1_, sizeof(HLT_AK8PFJet330_TrimMass30_PFAK8BTagDeepCSV_p1_), "HLT_AK8PFJet330_TrimMass30_PFAK8BTagDeepCSV_p1");
+    nanoCheckScalarWidth(b_HLT_AK8PFJet330_TrimMass30_PFAK8BTagDeepCSV_p17_, sizeof(HLT_AK8PFJet330_TrimMass30_PFAK8BTagDeepCSV_p17_), "HLT_AK8PFJet330_TrimMass30_PFAK8BTagDeepCSV_p17");
+    nanoCheckScalarWidth(b_HLT_AK8PFJet330_TrimMass30_PFAK8BoostedDoubleB_np2_, sizeof(HLT_AK8PFJet330_TrimMass30_PFAK8BoostedDoubleB_np2_), "HLT_AK8PFJet330_TrimMass30_PFAK8BoostedDoubleB_np2");
+    nanoCheckScalarWidth(b_HLT_AK8PFJet330_TrimMass30_PFAK8BoostedDoubleB_np4_, sizeof(HLT_AK8PFJet330_TrimMass30_PFAK8BoostedDoubleB_np4_), "HLT_AK8PFJet330_TrimMass30_PFAK8BoostedDoubleB_np4");
+    nanoCheckScalarWidth(b_HLT_AK8PFJet330_TrimMass30_PFAK8BoostedDoubleB_p02_, sizeof(HLT_AK8PFJet330_TrimMass30_PFAK8BoostedDoubleB_p02_), "HLT_AK8PFJet330_TrimMass30_PFAK8BoostedDoubleB_p02");
+    nanoCheckScalarWidth(b_HLT_AK8PFJet360_TrimMass30_, sizeof(HLT_AK8PFJet360_TrimMass30_), "HLT_AK8PFJet360_TrimMass30");
+    nanoCheckScalarWidth(b_HLT_AK8PFJet380_TrimMass30_, sizeof(HLT_AK8PFJet380_TrimMass30_), "HLT_AK8PFJet380_TrimMass30");
+    nanoCheckScalarWidth(b_HLT_AK8PFJet40_, sizeof(HLT_AK8PFJet40_), "HLT_AK8PFJet40");
+    nanoCheckScalarWidth(b_HLT_AK8PFJet400_, sizeof(HLT_AK8PFJet400_), "HLT_AK8PFJet400");
+    nanoCheckScalarWidth(b_HLT_AK8PFJet400_MassSD30_, sizeof(HLT_AK8PFJet400_MassSD30_), "HLT_AK8PFJet400_MassSD30");
+    nanoCheckScalarWidth(b_HLT_AK8PFJet400_SoftDropMass40_, sizeof(HLT_AK8PFJet400_SoftDropMass40_), "HLT_AK8PFJet400_SoftDropMass40");
+    nanoCheckScalarWidth(b_HLT_AK8PFJet400_TrimMass30_, sizeof(HLT_AK8PFJet400_TrimMass30_), "HLT_AK8PFJet400_TrimMass30");
+    nanoCheckScalarWidth(b_HLT_AK8PFJet420_MassSD30_, sizeof(HLT_AK8PFJet420_MassSD30_), "HLT_AK8PFJet420_MassSD30");
+    nanoCheckScalarWidth(b_HLT_AK8PFJet420_TrimMass30_, sizeof(HLT_AK8PFJet420_TrimMass30_), "HLT_AK8PFJet420_TrimMass30");
+    nanoCheckScalarWidth(b_HLT_AK8PFJet425_SoftDropMass40_, sizeof(HLT_AK8PFJet425_SoftDropMass40_), "HLT_AK8PFJet425_SoftDropMass40");
+    nanoCheckScalarWidth(b_HLT_AK8PFJet450_, sizeof(HLT_AK8PFJet450_), "HLT_AK8PFJet450");
+    nanoCheckScalarWidth(b_HLT_AK8PFJet450_MassSD30_, sizeof(HLT_AK8PFJet450_MassSD30_), "HLT_AK8PFJet450_MassSD30");
+    nanoCheckScalarWidth(b_HLT_AK8PFJet450_SoftDropMass40_, sizeof(HLT_AK8PFJet450_SoftDropMass40_), "HLT_AK8PFJet450_SoftDropMass40");
+    nanoCheckScalarWidth(b_HLT_AK8PFJet500_, sizeof(HLT_AK8PFJet500_), "HLT_AK8PFJet500");
+    nanoCheckScalarWidth(b_HLT_AK8PFJet550_, sizeof(HLT_AK8PFJet550_), "HLT_AK8PFJet550");
+    nanoCheckScalarWidth(b_HLT_AK8PFJet60_, sizeof(HLT_AK8PFJet60_), "HLT_AK8PFJet60");
+    nanoCheckScalarWidth(b_HLT_AK8PFJet80_, sizeof(HLT_AK8PFJet80_), "HLT_AK8PFJet80");
+    nanoCheckScalarWidth(b_HLT_AK8PFJetFwd140_, sizeof(HLT_AK8PFJetFwd140_), "HLT_AK8PFJetFwd140");
+    nanoCheckScalarWidth(b_HLT_AK8PFJetFwd15_, sizeof(HLT_AK8PFJetFwd15_), "HLT_AK8PFJetFwd15");
+    nanoCheckScalarWidth(b_HLT_AK8PFJetFwd200_, sizeof(HLT_AK8PFJetFwd200_), "HLT_AK8PFJetFwd200");
+    nanoCheckScalarWidth(b_HLT_AK8PFJetFwd25_, sizeof(HLT_AK8PFJetFwd25_), "HLT_AK8PFJetFwd25");
+    nanoCheckScalarWidth(b_HLT_AK8PFJetFwd260_, sizeof(HLT_AK8PFJetFwd260_), "HLT_AK8PFJetFwd260");
+    nanoCheckScalarWidth(b_HLT_AK8PFJetFwd320_, sizeof(HLT_AK8PFJetFwd320_), "HLT_AK8PFJetFwd320");
+    nanoCheckScalarWidth(b_HLT_AK8PFJetFwd40_, sizeof(HLT_AK8PFJetFwd40_), "HLT_AK8PFJetFwd40");
+    nanoCheckScalarWidth(b_HLT_AK8PFJetFwd400_, sizeof(HLT_AK8PFJetFwd400_), "HLT_AK8PFJetFwd400");
+    nanoCheckScalarWidth(b_HLT_AK8PFJetFwd450_, sizeof(HLT_AK8PFJetFwd450_), "HLT_AK8PFJetFwd450");
+    nanoCheckScalarWidth(b_HLT_AK8PFJetFwd500_, sizeof(HLT_AK8PFJetFwd500_), "HLT_AK8PFJetFwd500");
+    nanoCheckScalarWidth(b_HLT_AK8PFJetFwd60_, sizeof(HLT_AK8PFJetFwd60_), "HLT_AK8PFJetFwd60");
+    nanoCheckScalarWidth(b_HLT_AK8PFJetFwd80_, sizeof(HLT_AK8PFJetFwd80_), "HLT_AK8PFJetFwd80");
+    nanoCheckScalarWidth(b_HLT_BTagMu_AK4DiJet110_Mu5_, sizeof(HLT_BTagMu_AK4DiJet110_Mu5_), "HLT_BTagMu_AK4DiJet110_Mu5");
+    nanoCheckScalarWidth(b_HLT_BTagMu_AK4DiJet110_Mu5_noalgo_, sizeof(HLT_BTagMu_AK4DiJet110_Mu5_noalgo_), "HLT_BTagMu_AK4DiJet110_Mu5_noalgo");
+    nanoCheckScalarWidth(b_HLT_BTagMu_AK4DiJet170_Mu5_, sizeof(HLT_BTagMu_AK4DiJet170_Mu5_), "HLT_BTagMu_AK4DiJet170_Mu5");
+    nanoCheckScalarWidth(b_HLT_BTagMu_AK4DiJet170_Mu5_noalgo_, sizeof(HLT_BTagMu_AK4DiJet170_Mu5_noalgo_), "HLT_BTagMu_AK4DiJet170_Mu5_noalgo");
+    nanoCheckScalarWidth(b_HLT_BTagMu_AK4DiJet20_Mu5_, sizeof(HLT_BTagMu_AK4DiJet20_Mu5_), "HLT_BTagMu_AK4DiJet20_Mu5");
+    nanoCheckScalarWidth(b_HLT_BTagMu_AK4DiJet20_Mu5_noalgo_, sizeof(HLT_BTagMu_AK4DiJet20_Mu5_noalgo_), "HLT_BTagMu_AK4DiJet20_Mu5_noalgo");
+    nanoCheckScalarWidth(b_HLT_BTagMu_AK4DiJet40_Mu5_, sizeof(HLT_BTagMu_AK4DiJet40_Mu5_), "HLT_BTagMu_AK4DiJet40_Mu5");
+    nanoCheckScalarWidth(b_HLT_BTagMu_AK4DiJet40_Mu5_noalgo_, sizeof(HLT_BTagMu_AK4DiJet40_Mu5_noalgo_), "HLT_BTagMu_AK4DiJet40_Mu5_noalgo");
+    nanoCheckScalarWidth(b_HLT_BTagMu_AK4DiJet70_Mu5_, sizeof(HLT_BTagMu_AK4DiJet70_Mu5_), "HLT_BTagMu_AK4DiJet70_Mu5");
+    nanoCheckScalarWidth(b_HLT_BTagMu_AK4DiJet70_Mu5_noalgo_, sizeof(HLT_BTagMu_AK4DiJet70_Mu5_noalgo_), "HLT_BTagMu_AK4DiJet70_Mu5_noalgo");
+    nanoCheckScalarWidth(b_HLT_BTagMu_AK4Jet300_Mu5_, sizeof(HLT_BTagMu_AK4Jet300_Mu5_), "HLT_BTagMu_AK4Jet300_Mu5");
+    nanoCheckScalarWidth(b_HLT_BTagMu_AK4Jet300_Mu5_noalgo_, sizeof(HLT_BTagMu_AK4Jet300_Mu5_noalgo_), "HLT_BTagMu_AK4Jet300_Mu5_noalgo");
+    nanoCheckScalarWidth(b_HLT_BTagMu_AK8DiJet170_Mu5_, sizeof(HLT_BTagMu_AK8DiJet170_Mu5_), "HLT_BTagMu_AK8DiJet170_Mu5");
+    nanoCheckScalarWidth(b_HLT_BTagMu_AK8DiJet170_Mu5_noalgo_, sizeof(HLT_BTagMu_AK8DiJet170_Mu5_noalgo_), "HLT_BTagMu_AK8DiJet170_Mu5_noalgo");
+    nanoCheckScalarWidth(b_HLT_BTagMu_AK8Jet170_DoubleMu5_, sizeof(HLT_BTagMu_AK8Jet170_DoubleMu5_), "HLT_BTagMu_AK8Jet170_DoubleMu5");
+    nanoCheckScalarWidth(b_HLT_BTagMu_AK8Jet170_DoubleMu5_noalgo_, sizeof(HLT_BTagMu_AK8Jet170_DoubleMu5_noalgo_), "HLT_BTagMu_AK8Jet170_DoubleMu5_noalgo");
+    nanoCheckScalarWidth(b_HLT_BTagMu_AK8Jet300_Mu5_, sizeof(HLT_BTagMu_AK8Jet300_Mu5_), "HLT_BTagMu_AK8Jet300_Mu5");
+    nanoCheckScalarWidth(b_HLT_BTagMu_AK8Jet300_Mu5_noalgo_, sizeof(HLT_BTagMu_AK8Jet300_Mu5_noalgo_), "HLT_BTagMu_AK8Jet300_Mu5_noalgo");
+    nanoCheckScalarWidth(b_HLT_BTagMu_DiJet110_Mu5_, sizeof(HLT_BTagMu_DiJet110_Mu5_), "HLT_BTagMu_DiJet110_Mu5");
+    nanoCheckScalarWidth(b_HLT_BTagMu_DiJet170_Mu5_, sizeof(HLT_BTagMu_DiJet170_Mu5_), "HLT_BTagMu_DiJet170_Mu5");
+    nanoCheckScalarWidth(b_HLT_BTagMu_DiJet20_Mu5_, sizeof(HLT_BTagMu_DiJet20_Mu5_), "HLT_BTagMu_DiJet20_Mu5");
+    nanoCheckScalarWidth(b_HLT_BTagMu_DiJet40_Mu5_, sizeof(HLT_BTagMu_DiJet40_Mu5_), "HLT_BTagMu_DiJet40_Mu5");
+    nanoCheckScalarWidth(b_HLT_BTagMu_DiJet70_Mu5_, sizeof(HLT_BTagMu_DiJet70_Mu5_), "HLT_BTagMu_DiJet70_Mu5");
+    nanoCheckScalarWidth(b_HLT_BTagMu_Jet300_Mu5_, sizeof(HLT_BTagMu_Jet300_Mu5_), "HLT_BTagMu_Jet300_Mu5");
+    nanoCheckScalarWidth(b_HLT_CDC_L2cosmic_10_er1p0_, sizeof(HLT_CDC_L2cosmic_10_er1p0_), "HLT_CDC_L2cosmic_10_er1p0");
+    nanoCheckScalarWidth(b_HLT_CDC_L2cosmic_5_er1p0_, sizeof(HLT_CDC_L2cosmic_5_er1p0_), "HLT_CDC_L2cosmic_5_er1p0");
+    nanoCheckScalarWidth(b_HLT_CDC_L2cosmic_5p5_er1p0_, sizeof(HLT_CDC_L2cosmic_5p5_er1p0_), "HLT_CDC_L2cosmic_5p5_er1p0");
+    nanoCheckScalarWidth(b_HLT_CaloJet260_, sizeof(HLT_CaloJet260_), "HLT_CaloJet260");
+    nanoCheckScalarWidth(b_HLT_CaloJet500_NoJetID_, sizeof(HLT_CaloJet500_NoJetID_), "HLT_CaloJet500_NoJetID");
+    nanoCheckScalarWidth(b_HLT_CaloJet550_NoJetID_, sizeof(HLT_CaloJet550_NoJetID_), "HLT_CaloJet550_NoJetID");
+    nanoCheckScalarWidth(b_HLT_CaloMET100_HBHECleaned_, sizeof(HLT_CaloMET100_HBHECleaned_), "HLT_CaloMET100_HBHECleaned");
+    nanoCheckScalarWidth(b_HLT_CaloMET100_NotCleaned_, sizeof(HLT_CaloMET100_NotCleaned_), "HLT_CaloMET100_NotCleaned");
+    nanoCheckScalarWidth(b_HLT_CaloMET110_NotCleaned_, sizeof(HLT_CaloMET110_NotCleaned_), "HLT_CaloMET110_NotCleaned");
+    nanoCheckScalarWidth(b_HLT_CaloMET250_HBHECleaned_, sizeof(HLT_CaloMET250_HBHECleaned_), "HLT_CaloMET250_HBHECleaned");
+    nanoCheckScalarWidth(b_HLT_CaloMET250_NotCleaned_, sizeof(HLT_CaloMET250_NotCleaned_), "HLT_CaloMET250_NotCleaned");
+    nanoCheckScalarWidth(b_HLT_CaloMET300_HBHECleaned_, sizeof(HLT_CaloMET300_HBHECleaned_), "HLT_CaloMET300_HBHECleaned");
+    nanoCheckScalarWidth(b_HLT_CaloMET350_HBHECleaned_, sizeof(HLT_CaloMET350_HBHECleaned_), "HLT_CaloMET350_HBHECleaned");
+    nanoCheckScalarWidth(b_HLT_CaloMET350_NotCleaned_, sizeof(HLT_CaloMET350_NotCleaned_), "HLT_CaloMET350_NotCleaned");
+    nanoCheckScalarWidth(b_HLT_CaloMET60_DTCluster50_, sizeof(HLT_CaloMET60_DTCluster50_), "HLT_CaloMET60_DTCluster50");
+    nanoCheckScalarWidth(b_HLT_CaloMET60_DTClusterNoMB1S50_, sizeof(HLT_CaloMET60_DTClusterNoMB1S50_), "HLT_CaloMET60_DTClusterNoMB1S50");
+    nanoCheckScalarWidth(b_HLT_CaloMET70_HBHECleaned_, sizeof(HLT_CaloMET70_HBHECleaned_), "HLT_CaloMET70_HBHECleaned");
+    nanoCheckScalarWidth(b_HLT_CaloMET80_HBHECleaned_, sizeof(HLT_CaloMET80_HBHECleaned_), "HLT_CaloMET80_HBHECleaned");
+    nanoCheckScalarWidth(b_HLT_CaloMET80_NotCleaned_, sizeof(HLT_CaloMET80_NotCleaned_), "HLT_CaloMET80_NotCleaned");
+    nanoCheckScalarWidth(b_HLT_CaloMET90_HBHECleaned_, sizeof(HLT_CaloMET90_HBHECleaned_), "HLT_CaloMET90_HBHECleaned");
+    nanoCheckScalarWidth(b_HLT_CaloMET90_NotCleaned_, sizeof(HLT_CaloMET90_NotCleaned_), "HLT_CaloMET90_NotCleaned");
+    nanoCheckScalarWidth(b_HLT_CaloMHT90_, sizeof(HLT_CaloMHT90_), "HLT_CaloMHT90");
+    nanoCheckScalarWidth(b_HLT_CaloMHTNoPU90_PFMET90_PFMHT90_IDTight_, sizeof(HLT_CaloMHTNoPU90_PFMET90_PFMHT90_IDTight_), "HLT_CaloMHTNoPU90_PFMET90_PFMHT90_IDTight");
+    nanoCheckScalarWidth(b_HLT_CaloMHTNoPU90_PFMET90_PFMHT90_IDTight_BTagCSV_p067_, sizeof(HLT_CaloMHTNoPU90_PFMET90_PFMHT90_IDTight_BTagCSV_p067_), "HLT_CaloMHTNoPU90_PFMET90_PFMHT90_IDTight_BTagCSV_p067");
+    nanoCheckScalarWidth(b_HLT_CascadeMu100_, sizeof(HLT_CascadeMu100_), "HLT_CascadeMu100");
+    nanoCheckScalarWidth(b_HLT_CscCluster_Loose_, sizeof(HLT_CscCluster_Loose_), "HLT_CscCluster_Loose");
+    nanoCheckScalarWidth(b_HLT_CscCluster_Medium_, sizeof(HLT_CscCluster_Medium_), "HLT_CscCluster_Medium");
+    nanoCheckScalarWidth(b_HLT_CscCluster_Tight_, sizeof(HLT_CscCluster_Tight_), "HLT_CscCluster_Tight");
+    nanoCheckScalarWidth(b_HLT_DiCentralPFJet170_, sizeof(HLT_DiCentralPFJet170_), "HLT_DiCentralPFJet170");
+    nanoCheckScalarWidth(b_HLT_DiCentralPFJet170_CFMax0p1_, sizeof(HLT_DiCentralPFJet170_CFMax0p1_), "HLT_DiCentralPFJet170_CFMax0p1");
+    nanoCheckScalarWidth(b_HLT_DiCentralPFJet220_CFMax0p3_, sizeof(HLT_DiCentralPFJet220_CFMax0p3_), "HLT_DiCentralPFJet220_CFMax0p3");
+    nanoCheckScalarWidth(b_HLT_DiCentralPFJet330_CFMax0p5_, sizeof(HLT_DiCentralPFJet330_CFMax0p5_), "HLT_DiCentralPFJet330_CFMax0p5");
+    nanoCheckScalarWidth(b_HLT_DiCentralPFJet430_, sizeof(HLT_DiCentralPFJet430_), "HLT_DiCentralPFJet430");
+    nanoCheckScalarWidth(b_HLT_DiCentralPFJet55_PFMET110_, sizeof(HLT_DiCentralPFJet55_PFMET110_), "HLT_DiCentralPFJet55_PFMET110");
+    nanoCheckScalarWidth(b_HLT_DiEle27_WPTightCaloOnly_L1DoubleEG_, sizeof(HLT_DiEle27_WPTightCaloOnly_L1DoubleEG_), "HLT_DiEle27_WPTightCaloOnly_L1DoubleEG");
+    nanoCheckScalarWidth(b_HLT_DiJet110_35_Mjj650_PFMET110_, sizeof(HLT_DiJet110_35_Mjj650_PFMET110_), "HLT_DiJet110_35_Mjj650_PFMET110");
+    nanoCheckScalarWidth(b_HLT_DiJet110_35_Mjj650_PFMET120_, sizeof(HLT_DiJet110_35_Mjj650_PFMET120_), "HLT_DiJet110_35_Mjj650_PFMET120");
+    nanoCheckScalarWidth(b_HLT_DiJet110_35_Mjj650_PFMET130_, sizeof(HLT_DiJet110_35_Mjj650_PFMET130_), "HLT_DiJet110_35_Mjj650_PFMET130");
+    nanoCheckScalarWidth(b_HLT_DiJetVBFMu_PassThrough_, sizeof(HLT_DiJetVBFMu_PassThrough_), "HLT_DiJetVBFMu_PassThrough");
+    nanoCheckScalarWidth(b_HLT_DiJetVBF_PassThrough_, sizeof(HLT_DiJetVBF_PassThrough_), "HLT_DiJetVBF_PassThrough");
+    nanoCheckScalarWidth(b_HLT_DiMu4_Ele9_CaloIdL_TrackIdL_DZ_Mass3p8_, sizeof(HLT_DiMu4_Ele9_CaloIdL_TrackIdL_DZ_Mass3p8_), "HLT_DiMu4_Ele9_CaloIdL_TrackIdL_DZ_Mass3p8");
+    nanoCheckScalarWidth(b_HLT_DiMu9_Ele9_CaloIdL_TrackIdL_, sizeof(HLT_DiMu9_Ele9_CaloIdL_TrackIdL_), "HLT_DiMu9_Ele9_CaloIdL_TrackIdL");
+    nanoCheckScalarWidth(b_HLT_DiMu9_Ele9_CaloIdL_TrackIdL_DZ_, sizeof(HLT_DiMu9_Ele9_CaloIdL_TrackIdL_DZ_), "HLT_DiMu9_Ele9_CaloIdL_TrackIdL_DZ");
+    nanoCheckScalarWidth(b_HLT_DiPFJet15_FBEta3_NoCaloMatched_, sizeof(HLT_DiPFJet15_FBEta3_NoCaloMatched_), "HLT_DiPFJet15_FBEta3_NoCaloMatched");
+    nanoCheckScalarWidth(b_HLT_DiPFJet15_NoCaloMatched_, sizeof(HLT_DiPFJet15_NoCaloMatched_), "HLT_DiPFJet15_NoCaloMatched");
+    nanoCheckScalarWidth(b_HLT_DiPFJet25_FBEta3_NoCaloMatched_, sizeof(HLT_DiPFJet25_FBEta3_NoCaloMatched_), "HLT_DiPFJet25_FBEta3_NoCaloMatched");
+    nanoCheckScalarWidth(b_HLT_DiPFJet25_NoCaloMatched_, sizeof(HLT_DiPFJet25_NoCaloMatched_), "HLT_DiPFJet25_NoCaloMatched");
+    nanoCheckScalarWidth(b_HLT_DiPFJet40_DEta3p5_MJJ600_PFMETNoMu140_, sizeof(HLT_DiPFJet40_DEta3p5_MJJ600_PFMETNoMu140_), "HLT_DiPFJet40_DEta3p5_MJJ600_PFMETNoMu140");
+    nanoCheckScalarWidth(b_HLT_DiPFJet40_DEta3p5_MJJ600_PFMETNoMu80_, sizeof(HLT_DiPFJet40_DEta3p5_MJJ600_PFMETNoMu80_), "HLT_DiPFJet40_DEta3p5_MJJ600_PFMETNoMu80");
+    nanoCheckScalarWidth(b_HLT_DiPFJetAve100_HFJEC_, sizeof(HLT_DiPFJetAve100_HFJEC_), "HLT_DiPFJetAve100_HFJEC");
+    nanoCheckScalarWidth(b_HLT_DiPFJetAve140_, sizeof(HLT_DiPFJetAve140_), "HLT_DiPFJetAve140");
+    nanoCheckScalarWidth(b_HLT_DiPFJetAve15_HFJEC_, sizeof(HLT_DiPFJetAve15_HFJEC_), "HLT_DiPFJetAve15_HFJEC");
+    nanoCheckScalarWidth(b_HLT_DiPFJetAve160_HFJEC_, sizeof(HLT_DiPFJetAve160_HFJEC_), "HLT_DiPFJetAve160_HFJEC");
+    nanoCheckScalarWidth(b_HLT_DiPFJetAve200_, sizeof(HLT_DiPFJetAve200_), "HLT_DiPFJetAve200");
+    nanoCheckScalarWidth(b_HLT_DiPFJetAve220_HFJEC_, sizeof(HLT_DiPFJetAve220_HFJEC_), "HLT_DiPFJetAve220_HFJEC");
+    nanoCheckScalarWidth(b_HLT_DiPFJetAve25_HFJEC_, sizeof(HLT_DiPFJetAve25_HFJEC_), "HLT_DiPFJetAve25_HFJEC");
+    nanoCheckScalarWidth(b_HLT_DiPFJetAve260_, sizeof(HLT_DiPFJetAve260_), "HLT_DiPFJetAve260");
+    nanoCheckScalarWidth(b_HLT_DiPFJetAve260_HFJEC_, sizeof(HLT_DiPFJetAve260_HFJEC_), "HLT_DiPFJetAve260_HFJEC");
+    nanoCheckScalarWidth(b_HLT_DiPFJetAve300_HFJEC_, sizeof(HLT_DiPFJetAve300_HFJEC_), "HLT_DiPFJetAve300_HFJEC");
+    nanoCheckScalarWidth(b_HLT_DiPFJetAve320_, sizeof(HLT_DiPFJetAve320_), "HLT_DiPFJetAve320");
+    nanoCheckScalarWidth(b_HLT_DiPFJetAve35_HFJEC_, sizeof(HLT_DiPFJetAve35_HFJEC_), "HLT_DiPFJetAve35_HFJEC");
+    nanoCheckScalarWidth(b_HLT_DiPFJetAve40_, sizeof(HLT_DiPFJetAve40_), "HLT_DiPFJetAve40");
+    nanoCheckScalarWidth(b_HLT_DiPFJetAve400_, sizeof(HLT_DiPFJetAve400_), "HLT_DiPFJetAve400");
+    nanoCheckScalarWidth(b_HLT_DiPFJetAve500_, sizeof(HLT_DiPFJetAve500_), "HLT_DiPFJetAve500");
+    nanoCheckScalarWidth(b_HLT_DiPFJetAve60_, sizeof(HLT_DiPFJetAve60_), "HLT_DiPFJetAve60");
+    nanoCheckScalarWidth(b_HLT_DiPFJetAve60_HFJEC_, sizeof(HLT_DiPFJetAve60_HFJEC_), "HLT_DiPFJetAve60_HFJEC");
+    nanoCheckScalarWidth(b_HLT_DiPFJetAve80_, sizeof(HLT_DiPFJetAve80_), "HLT_DiPFJetAve80");
+    nanoCheckScalarWidth(b_HLT_DiPFJetAve80_HFJEC_, sizeof(HLT_DiPFJetAve80_HFJEC_), "HLT_DiPFJetAve80_HFJEC");
+    nanoCheckScalarWidth(b_HLT_DiPhoton10Time1ns_, sizeof(HLT_DiPhoton10Time1ns_), "HLT_DiPhoton10Time1ns");
+    nanoCheckScalarWidth(b_HLT_DiPhoton10Time1p2ns_, sizeof(HLT_DiPhoton10Time1p2ns_), "HLT_DiPhoton10Time1p2ns");
+    nanoCheckScalarWidth(b_HLT_DiPhoton10Time1p4ns_, sizeof(HLT_DiPhoton10Time1p4ns_), "HLT_DiPhoton10Time1p4ns");
+    nanoCheckScalarWidth(b_HLT_DiPhoton10Time1p6ns_, sizeof(HLT_DiPhoton10Time1p6ns_), "HLT_DiPhoton10Time1p6ns");
+    nanoCheckScalarWidth(b_HLT_DiPhoton10Time1p8ns_, sizeof(HLT_DiPhoton10Time1p8ns_), "HLT_DiPhoton10Time1p8ns");
+    nanoCheckScalarWidth(b_HLT_DiPhoton10Time2ns_, sizeof(HLT_DiPhoton10Time2ns_), "HLT_DiPhoton10Time2ns");
+    nanoCheckScalarWidth(b_HLT_DiPhoton10_CaloIdL_, sizeof(HLT_DiPhoton10_CaloIdL_), "HLT_DiPhoton10_CaloIdL");
+    nanoCheckScalarWidth(b_HLT_DiPhoton10sminlt0p1_, sizeof(HLT_DiPhoton10sminlt0p1_), "HLT_DiPhoton10sminlt0p1");
+    nanoCheckScalarWidth(b_HLT_DiPhoton10sminlt0p12_, sizeof(HLT_DiPhoton10sminlt0p12_), "HLT_DiPhoton10sminlt0p12");
+    nanoCheckScalarWidth(b_HLT_DiSC30_18_EIso_AND_HE_Mass70_, sizeof(HLT_DiSC30_18_EIso_AND_HE_Mass70_), "HLT_DiSC30_18_EIso_AND_HE_Mass70");
+    nanoCheckScalarWidth(b_HLT_Dimuon0_Jpsi_, sizeof(HLT_Dimuon0_Jpsi_), "HLT_Dimuon0_Jpsi");
+    nanoCheckScalarWidth(b_HLT_Dimuon0_Jpsi3p5_Muon2_, sizeof(HLT_Dimuon0_Jpsi3p5_Muon2_), "HLT_Dimuon0_Jpsi3p5_Muon2");
+    nanoCheckScalarWidth(b_HLT_Dimuon0_Jpsi_L1_4R_0er1p5R_, sizeof(HLT_Dimuon0_Jpsi_L1_4R_0er1p5R_), "HLT_Dimuon0_Jpsi_L1_4R_0er1p5R");
+    nanoCheckScalarWidth(b_HLT_Dimuon0_Jpsi_L1_NoOS_, sizeof(HLT_Dimuon0_Jpsi_L1_NoOS_), "HLT_Dimuon0_Jpsi_L1_NoOS");
+    nanoCheckScalarWidth(b_HLT_Dimuon0_Jpsi_Muon_, sizeof(HLT_Dimuon0_Jpsi_Muon_), "HLT_Dimuon0_Jpsi_Muon");
+    nanoCheckScalarWidth(b_HLT_Dimuon0_Jpsi_NoVertexing_, sizeof(HLT_Dimuon0_Jpsi_NoVertexing_), "HLT_Dimuon0_Jpsi_NoVertexing");
+    nanoCheckScalarWidth(b_HLT_Dimuon0_Jpsi_NoVertexing_L1_4R_0er1p5R_, sizeof(HLT_Dimuon0_Jpsi_NoVertexing_L1_4R_0er1p5R_), "HLT_Dimuon0_Jpsi_NoVertexing_L1_4R_0er1p5R");
+    nanoCheckScalarWidth(b_HLT_Dimuon0_Jpsi_NoVertexing_NoOS_, sizeof(HLT_Dimuon0_Jpsi_NoVertexing_NoOS_), "HLT_Dimuon0_Jpsi_NoVertexing_NoOS");
+    nanoCheckScalarWidth(b_HLT_Dimuon0_LowMass_, sizeof(HLT_Dimuon0_LowMass_), "HLT_Dimuon0_LowMass");
+    nanoCheckScalarWidth(b_HLT_Dimuon0_LowMass_L1_0er1p5_, sizeof(HLT_Dimuon0_LowMass_L1_0er1p5_), "HLT_Dimuon0_LowMass_L1_0er1p5");
+    nanoCheckScalarWidth(b_HLT_Dimuon0_LowMass_L1_0er1p5R_, sizeof(HLT_Dimuon0_LowMass_L1_0er1p5R_), "HLT_Dimuon0_LowMass_L1_0er1p5R");
+    nanoCheckScalarWidth(b_HLT_Dimuon0_LowMass_L1_4_, sizeof(HLT_Dimuon0_LowMass_L1_4_), "HLT_Dimuon0_LowMass_L1_4");
+    nanoCheckScalarWidth(b_HLT_Dimuon0_LowMass_L1_4R_, sizeof(HLT_Dimuon0_LowMass_L1_4R_), "HLT_Dimuon0_LowMass_L1_4R");
+    nanoCheckScalarWidth(b_HLT_Dimuon0_LowMass_L1_TM530_, sizeof(HLT_Dimuon0_LowMass_L1_TM530_), "HLT_Dimuon0_LowMass_L1_TM530");
+    nanoCheckScalarWidth(b_HLT_Dimuon0_Phi_Barrel_, sizeof(HLT_Dimuon0_Phi_Barrel_), "HLT_Dimuon0_Phi_Barrel");
+    nanoCheckScalarWidth(b_HLT_Dimuon0_Upsilon_L1_4p5_, sizeof(HLT_Dimuon0_Upsilon_L1_4p5_), "HLT_Dimuon0_Upsilon_L1_4p5");
+    nanoCheckScalarWidth(b_HLT_Dimuon0_Upsilon_L1_4p5NoOS_, sizeof(HLT_Dimuon0_Upsilon_L1_4p5NoOS_), "HLT_Dimuon0_Upsilon_L1_4p5NoOS");
+    nanoCheckScalarWidth(b_HLT_Dimuon0_Upsilon_L1_4p5er2p0_, sizeof(HLT_Dimuon0_Upsilon_L1_4p5er2p0_), "HLT_Dimuon0_Upsilon_L1_4p5er2p0");
+    nanoCheckScalarWidth(b_HLT_Dimuon0_Upsilon_L1_4p5er2p0M_, sizeof(HLT_Dimuon0_Upsilon_L1_4p5er2p0M_), "HLT_Dimuon0_Upsilon_L1_4p5er2p0M");
+    nanoCheckScalarWidth(b_HLT_Dimuon0_Upsilon_L1_5_, sizeof(HLT_Dimuon0_Upsilon_L1_5_), "HLT_Dimuon0_Upsilon_L1_5");
+    nanoCheckScalarWidth(b_HLT_Dimuon0_Upsilon_L1_5M_, sizeof(HLT_Dimuon0_Upsilon_L1_5M_), "HLT_Dimuon0_Upsilon_L1_5M");
+    nanoCheckScalarWidth(b_HLT_Dimuon0_Upsilon_Muon_, sizeof(HLT_Dimuon0_Upsilon_Muon_), "HLT_Dimuon0_Upsilon_Muon");
+    nanoCheckScalarWidth(b_HLT_Dimuon0_Upsilon_Muon_L1_TM0_, sizeof(HLT_Dimuon0_Upsilon_Muon_L1_TM0_), "HLT_Dimuon0_Upsilon_Muon_L1_TM0");
+    nanoCheckScalarWidth(b_HLT_Dimuon0_Upsilon_Muon_NoL1Mass_, sizeof(HLT_Dimuon0_Upsilon_Muon_NoL1Mass_), "HLT_Dimuon0_Upsilon_Muon_NoL1Mass");
+    nanoCheckScalarWidth(b_HLT_Dimuon0_Upsilon_NoVertexing_, sizeof(HLT_Dimuon0_Upsilon_NoVertexing_), "HLT_Dimuon0_Upsilon_NoVertexing");
+    nanoCheckScalarWidth(b_HLT_Dimuon0er16_Jpsi_NoOS_NoVertexing_, sizeof(HLT_Dimuon0er16_Jpsi_NoOS_NoVertexing_), "HLT_Dimuon0er16_Jpsi_NoOS_NoVertexing");
+    nanoCheckScalarWidth(b_HLT_Dimuon0er16_Jpsi_NoVertexing_, sizeof(HLT_Dimuon0er16_Jpsi_NoVertexing_), "HLT_Dimuon0er16_Jpsi_NoVertexing");
+    nanoCheckScalarWidth(b_HLT_Dimuon10_Jpsi_Barrel_, sizeof(HLT_Dimuon10_Jpsi_Barrel_), "HLT_Dimuon10_Jpsi_Barrel");
+    nanoCheckScalarWidth(b_HLT_Dimuon10_PsiPrime_Barrel_Seagulls_, sizeof(HLT_Dimuon10_PsiPrime_Barrel_Seagulls_), "HLT_Dimuon10_PsiPrime_Barrel_Seagulls");
+    nanoCheckScalarWidth(b_HLT_Dimuon10_Upsilon_Barrel_Seagulls_, sizeof(HLT_Dimuon10_Upsilon_Barrel_Seagulls_), "HLT_Dimuon10_Upsilon_Barrel_Seagulls");
+    nanoCheckScalarWidth(b_HLT_Dimuon10_Upsilon_y1p4_, sizeof(HLT_Dimuon10_Upsilon_y1p4_), "HLT_Dimuon10_Upsilon_y1p4");
+    nanoCheckScalarWidth(b_HLT_Dimuon12_Upsilon_eta1p5_, sizeof(HLT_Dimuon12_Upsilon_eta1p5_), "HLT_Dimuon12_Upsilon_eta1p5");
+    nanoCheckScalarWidth(b_HLT_Dimuon12_Upsilon_y1p4_, sizeof(HLT_Dimuon12_Upsilon_y1p4_), "HLT_Dimuon12_Upsilon_y1p4");
+    nanoCheckScalarWidth(b_HLT_Dimuon13_PsiPrime_, sizeof(HLT_Dimuon13_PsiPrime_), "HLT_Dimuon13_PsiPrime");
+    nanoCheckScalarWidth(b_HLT_Dimuon13_Upsilon_, sizeof(HLT_Dimuon13_Upsilon_), "HLT_Dimuon13_Upsilon");
+    nanoCheckScalarWidth(b_HLT_Dimuon14_Phi_Barrel_Seagulls_, sizeof(HLT_Dimuon14_Phi_Barrel_Seagulls_), "HLT_Dimuon14_Phi_Barrel_Seagulls");
+    nanoCheckScalarWidth(b_HLT_Dimuon14_PsiPrime_, sizeof(HLT_Dimuon14_PsiPrime_), "HLT_Dimuon14_PsiPrime");
+    nanoCheckScalarWidth(b_HLT_Dimuon14_PsiPrime_noCorrL1_, sizeof(HLT_Dimuon14_PsiPrime_noCorrL1_), "HLT_Dimuon14_PsiPrime_noCorrL1");
+    nanoCheckScalarWidth(b_HLT_Dimuon16_Jpsi_, sizeof(HLT_Dimuon16_Jpsi_), "HLT_Dimuon16_Jpsi");
+    nanoCheckScalarWidth(b_HLT_Dimuon18_PsiPrime_, sizeof(HLT_Dimuon18_PsiPrime_), "HLT_Dimuon18_PsiPrime");
+    nanoCheckScalarWidth(b_HLT_Dimuon18_PsiPrime_noCorrL1_, sizeof(HLT_Dimuon18_PsiPrime_noCorrL1_), "HLT_Dimuon18_PsiPrime_noCorrL1");
+    nanoCheckScalarWidth(b_HLT_Dimuon20_Jpsi_, sizeof(HLT_Dimuon20_Jpsi_), "HLT_Dimuon20_Jpsi");
+    nanoCheckScalarWidth(b_HLT_Dimuon20_Jpsi_Barrel_Seagulls_, sizeof(HLT_Dimuon20_Jpsi_Barrel_Seagulls_), "HLT_Dimuon20_Jpsi_Barrel_Seagulls");
+    nanoCheckScalarWidth(b_HLT_Dimuon24_Phi_noCorrL1_, sizeof(HLT_Dimuon24_Phi_noCorrL1_), "HLT_Dimuon24_Phi_noCorrL1");
+    nanoCheckScalarWidth(b_HLT_Dimuon24_Upsilon_noCorrL1_, sizeof(HLT_Dimuon24_Upsilon_noCorrL1_), "HLT_Dimuon24_Upsilon_noCorrL1");
+    nanoCheckScalarWidth(b_HLT_Dimuon25_Jpsi_, sizeof(HLT_Dimuon25_Jpsi_), "HLT_Dimuon25_Jpsi");
+    nanoCheckScalarWidth(b_HLT_Dimuon25_Jpsi_noCorrL1_, sizeof(HLT_Dimuon25_Jpsi_noCorrL1_), "HLT_Dimuon25_Jpsi_noCorrL1");
+    nanoCheckScalarWidth(b_HLT_Dimuon6_Jpsi_NoVertexing_, sizeof(HLT_Dimuon6_Jpsi_NoVertexing_), "HLT_Dimuon6_Jpsi_NoVertexing");
+    nanoCheckScalarWidth(b_HLT_Dimuon8_PsiPrime_Barrel_, sizeof(HLT_Dimuon8_PsiPrime_Barrel_), "HLT_Dimuon8_PsiPrime_Barrel");
+    nanoCheckScalarWidth(b_HLT_Dimuon8_Upsilon_Barrel_, sizeof(HLT_Dimuon8_Upsilon_Barrel_), "HLT_Dimuon8_Upsilon_Barrel");
+    nanoCheckScalarWidth(b_HLT_Diphoton20_14_eta1p5_R9IdL_AND_HET_AND_IsoTCaloIdT_, sizeof(HLT_Diphoton20_14_eta1p5_R9IdL_AND_HET_AND_IsoTCaloIdT_), "HLT_Diphoton20_14_eta1p5_R9IdL_AND_HET_AND_IsoTCaloIdT");
+    nanoCheckScalarWidth(b_HLT_Diphoton20_14_eta1p5_R9IdL_AND_HE_AND_IsoTCaloIdT_, sizeof(HLT_Diphoton20_14_eta1p5_R9IdL_AND_HE_AND_IsoTCaloIdT_), "HLT_Diphoton20_14_eta1p5_R9IdL_AND_HE_AND_IsoTCaloIdT");
+    nanoCheckScalarWidth(b_HLT_Diphoton22_14_eta1p5_R9IdL_AND_HET_AND_IsoTCaloIdT_, sizeof(HLT_Diphoton22_14_eta1p5_R9IdL_AND_HET_AND_IsoTCaloIdT_), "HLT_Diphoton22_14_eta1p5_R9IdL_AND_HET_AND_IsoTCaloIdT");
+    nanoCheckScalarWidth(b_HLT_Diphoton22_14_eta1p5_R9IdL_AND_HE_AND_IsoTCaloIdT_, sizeof(HLT_Diphoton22_14_eta1p5_R9IdL_AND_HE_AND_IsoTCaloIdT_), "HLT_Diphoton22_14_eta1p5_R9IdL_AND_HE_AND_IsoTCaloIdT");
+    nanoCheckScalarWidth(b_HLT_Diphoton30EB_18EB_R9Id_OR_IsoCaloId_AND_HE_R9Id_DoublePixelVeto_Mass55_, sizeof(HLT_Diphoton30EB_18EB_R9Id_OR_IsoCaloId_AND_HE_R9Id_DoublePixelVeto_Mass55_), "HLT_Diphoton30EB_18EB_R9Id_OR_IsoCaloId_AND_HE_R9Id_DoublePixelVeto_Mass55");
+    nanoCheckScalarWidth(b_HLT_Diphoton30EB_18EB_R9Id_OR_IsoCaloId_AND_HE_R9Id_NoPixelVeto_Mass55_, sizeof(HLT_Diphoton30EB_18EB_R9Id_OR_IsoCaloId_AND_HE_R9Id_NoPixelVeto_Mass55_), "HLT_Diphoton30EB_18EB_R9Id_OR_IsoCaloId_AND_HE_R9Id_NoPixelVeto_Mass55");
+    nanoCheckScalarWidth(b_HLT_Diphoton30EB_18EB_R9Id_OR_IsoCaloId_AND_HE_R9Id_PixelVeto_Mass55_, sizeof(HLT_Diphoton30EB_18EB_R9Id_OR_IsoCaloId_AND_HE_R9Id_PixelVeto_Mass55_), "HLT_Diphoton30EB_18EB_R9Id_OR_IsoCaloId_AND_HE_R9Id_PixelVeto_Mass55");
+    nanoCheckScalarWidth(b_HLT_Diphoton30PV_18PV_R9Id_AND_IsoCaloId_AND_HE_R9Id_DoublePixelVeto_Mass55_, sizeof(HLT_Diphoton30PV_18PV_R9Id_AND_IsoCaloId_AND_HE_R9Id_DoublePixelVeto_Mass55_), "HLT_Diphoton30PV_18PV_R9Id_AND_IsoCaloId_AND_HE_R9Id_DoublePixelVeto_Mass55");
+    nanoCheckScalarWidth(b_HLT_Diphoton30PV_18PV_R9Id_AND_IsoCaloId_AND_HE_R9Id_NoPixelVeto_Mass55_, sizeof(HLT_Diphoton30PV_18PV_R9Id_AND_IsoCaloId_AND_HE_R9Id_NoPixelVeto_Mass55_), "HLT_Diphoton30PV_18PV_R9Id_AND_IsoCaloId_AND_HE_R9Id_NoPixelVeto_Mass55");
+    nanoCheckScalarWidth(b_HLT_Diphoton30PV_18PV_R9Id_AND_IsoCaloId_AND_HE_R9Id_PixelVeto_Mass55_, sizeof(HLT_Diphoton30PV_18PV_R9Id_AND_IsoCaloId_AND_HE_R9Id_PixelVeto_Mass55_), "HLT_Diphoton30PV_18PV_R9Id_AND_IsoCaloId_AND_HE_R9Id_PixelVeto_Mass55");
+    nanoCheckScalarWidth(b_HLT_Diphoton30_18_PVrealAND_R9Id_AND_IsoCaloId_AND_HE_R9Id_NoPixelVeto_Mass55_, sizeof(HLT_Diphoton30_18_PVrealAND_R9Id_AND_IsoCaloId_AND_HE_R9Id_NoPixelVeto_Mass55_), "HLT_Diphoton30_18_PVrealAND_R9Id_AND_IsoCaloId_AND_HE_R9Id_NoPixelVeto_Mass55");
+    nanoCheckScalarWidth(b_HLT_Diphoton30_18_PVrealAND_R9Id_AND_IsoCaloId_AND_HE_R9Id_PixelVeto_Mass55_, sizeof(HLT_Diphoton30_18_PVrealAND_R9Id_AND_IsoCaloId_AND_HE_R9Id_PixelVeto_Mass55_), "HLT_Diphoton30_18_PVrealAND_R9Id_AND_IsoCaloId_AND_HE_R9Id_PixelVeto_Mass55");
+    nanoCheckScalarWidth(b_HLT_Diphoton30_18_R9IdL_AND_HE_AND_IsoCaloId_, sizeof(HLT_Diphoton30_18_R9IdL_AND_HE_AND_IsoCaloId_), "HLT_Diphoton30_18_R9IdL_AND_HE_AND_IsoCaloId");
+    nanoCheckScalarWidth(b_HLT_Diphoton30_18_R9IdL_AND_HE_AND_IsoCaloId_Mass55_, sizeof(HLT_Diphoton30_18_R9IdL_AND_HE_AND_IsoCaloId_Mass55_), "HLT_Diphoton30_18_R9IdL_AND_HE_AND_IsoCaloId_Mass55");
+    nanoCheckScalarWidth(b_HLT_Diphoton30_18_R9IdL_AND_HE_AND_IsoCaloId_NoPixelVeto_, sizeof(HLT_Diphoton30_18_R9IdL_AND_HE_AND_IsoCaloId_NoPixelVeto_), "HLT_Diphoton30_18_R9IdL_AND_HE_AND_IsoCaloId_NoPixelVeto");
+    nanoCheckScalarWidth(b_HLT_Diphoton30_18_R9IdL_AND_HE_AND_IsoCaloId_NoPixelVeto_Mass55_, sizeof(HLT_Diphoton30_18_R9IdL_AND_HE_AND_IsoCaloId_NoPixelVeto_Mass55_), "HLT_Diphoton30_18_R9IdL_AND_HE_AND_IsoCaloId_NoPixelVeto_Mass55");
+    nanoCheckScalarWidth(b_HLT_Diphoton30_18_R9Id_OR_IsoCaloId_AND_HE_R9Id_DoublePixelSeedMatch_Mass70_, sizeof(HLT_Diphoton30_18_R9Id_OR_IsoCaloId_AND_HE_R9Id_DoublePixelSeedMatch_Mass70_), "HLT_Diphoton30_18_R9Id_OR_IsoCaloId_AND_HE_R9Id_DoublePixelSeedMatch_Mass70");
+    nanoCheckScalarWidth(b_HLT_Diphoton30_18_R9Id_OR_IsoCaloId_AND_HE_R9Id_Mass90_, sizeof(HLT_Diphoton30_18_R9Id_OR_IsoCaloId_AND_HE_R9Id_Mass90_), "HLT_Diphoton30_18_R9Id_OR_IsoCaloId_AND_HE_R9Id_Mass90");
+    nanoCheckScalarWidth(b_HLT_Diphoton30_18_Solid_R9Id_AND_IsoCaloId_AND_HE_R9Id_Mass55_, sizeof(HLT_Diphoton30_18_Solid_R9Id_AND_IsoCaloId_AND_HE_R9Id_Mass55_), "HLT_Diphoton30_18_Solid_R9Id_AND_IsoCaloId_AND_HE_R9Id_Mass55");
+    nanoCheckScalarWidth(b_HLT_Diphoton30_22_R9Id_OR_IsoCaloId_AND_HE_R9Id_Mass90_, sizeof(HLT_Diphoton30_22_R9Id_OR_IsoCaloId_AND_HE_R9Id_Mass90_), "HLT_Diphoton30_22_R9Id_OR_IsoCaloId_AND_HE_R9Id_Mass90");
+    nanoCheckScalarWidth(b_HLT_Diphoton30_22_R9Id_OR_IsoCaloId_AND_HE_R9Id_Mass95_, sizeof(HLT_Diphoton30_22_R9Id_OR_IsoCaloId_AND_HE_R9Id_Mass95_), "HLT_Diphoton30_22_R9Id_OR_IsoCaloId_AND_HE_R9Id_Mass95");
+    nanoCheckScalarWidth(b_HLT_DoubleEle10_eta1p22_mMax6_, sizeof(HLT_DoubleEle10_eta1p22_mMax6_), "HLT_DoubleEle10_eta1p22_mMax6");
+    nanoCheckScalarWidth(b_HLT_DoubleEle24_22_eta2p1_WPLoose_Gsf_, sizeof(HLT_DoubleEle24_22_eta2p1_WPLoose_Gsf_), "HLT_DoubleEle24_22_eta2p1_WPLoose_Gsf");
+    nanoCheckScalarWidth(b_HLT_DoubleEle24_eta2p1_WPTight_Gsf_, sizeof(HLT_DoubleEle24_eta2p1_WPTight_Gsf_), "HLT_DoubleEle24_eta2p1_WPTight_Gsf");
+    nanoCheckScalarWidth(b_HLT_DoubleEle25_CaloIdL_GsfTrkIdVL_, sizeof(HLT_DoubleEle25_CaloIdL_GsfTrkIdVL_), "HLT_DoubleEle25_CaloIdL_GsfTrkIdVL");
+    nanoCheckScalarWidth(b_HLT_DoubleEle25_CaloIdL_MW_, sizeof(HLT_DoubleEle25_CaloIdL_MW_), "HLT_DoubleEle25_CaloIdL_MW");
+    nanoCheckScalarWidth(b_HLT_DoubleEle27_CaloIdL_MW_, sizeof(HLT_DoubleEle27_CaloIdL_MW_), "HLT_DoubleEle27_CaloIdL_MW");
+    nanoCheckScalarWidth(b_HLT_DoubleEle33_CaloIdL_, sizeof(HLT_DoubleEle33_CaloIdL_), "HLT_DoubleEle33_CaloIdL");
+    nanoCheckScalarWidth(b_HLT_DoubleEle33_CaloIdL_GsfTrkIdVL_, sizeof(HLT_DoubleEle33_CaloIdL_GsfTrkIdVL_), "HLT_DoubleEle33_CaloIdL_GsfTrkIdVL");
+    nanoCheckScalarWidth(b_HLT_DoubleEle33_CaloIdL_GsfTrkIdVL_MW_, sizeof(HLT_DoubleEle33_CaloIdL_GsfTrkIdVL_MW_), "HLT_DoubleEle33_CaloIdL_GsfTrkIdVL_MW");
+    nanoCheckScalarWidth(b_HLT_DoubleEle33_CaloIdL_MW_, sizeof(HLT_DoubleEle33_CaloIdL_MW_), "HLT_DoubleEle33_CaloIdL_MW");
+    nanoCheckScalarWidth(b_HLT_DoubleEle37_Ele27_CaloIdL_GsfTrkIdVL_, sizeof(HLT_DoubleEle37_Ele27_CaloIdL_GsfTrkIdVL_), "HLT_DoubleEle37_Ele27_CaloIdL_GsfTrkIdVL");
+    nanoCheckScalarWidth(b_HLT_DoubleEle4_eta1p22_mMax6_, sizeof(HLT_DoubleEle4_eta1p22_mMax6_), "HLT_DoubleEle4_eta1p22_mMax6");
+    nanoCheckScalarWidth(b_HLT_DoubleEle4p5_eta1p22_mMax6_, sizeof(HLT_DoubleEle4p5_eta1p22_mMax6_), "HLT_DoubleEle4p5_eta1p22_mMax6");
+    nanoCheckScalarWidth(b_HLT_DoubleEle5_eta1p22_mMax6_, sizeof(HLT_DoubleEle5_eta1p22_mMax6_), "HLT_DoubleEle5_eta1p22_mMax6");
+    nanoCheckScalarWidth(b_HLT_DoubleEle5p5_eta1p22_mMax6_, sizeof(HLT_DoubleEle5p5_eta1p22_mMax6_), "HLT_DoubleEle5p5_eta1p22_mMax6");
+    nanoCheckScalarWidth(b_HLT_DoubleEle6_eta1p22_mMax6_, sizeof(HLT_DoubleEle6_eta1p22_mMax6_), "HLT_DoubleEle6_eta1p22_mMax6");
+    nanoCheckScalarWidth(b_HLT_DoubleEle6p5_eta1p22_mMax6_, sizeof(HLT_DoubleEle6p5_eta1p22_mMax6_), "HLT_DoubleEle6p5_eta1p22_mMax6");
+    nanoCheckScalarWidth(b_HLT_DoubleEle7_eta1p22_mMax6_, sizeof(HLT_DoubleEle7_eta1p22_mMax6_), "HLT_DoubleEle7_eta1p22_mMax6");
+    nanoCheckScalarWidth(b_HLT_DoubleEle7p5_eta1p22_mMax6_, sizeof(HLT_DoubleEle7p5_eta1p22_mMax6_), "HLT_DoubleEle7p5_eta1p22_mMax6");
+    nanoCheckScalarWidth(b_HLT_DoubleEle8_CaloIdM_TrackIdM_Mass8_DZ_PFHT350_, sizeof(HLT_DoubleEle8_CaloIdM_TrackIdM_Mass8_DZ_PFHT350_), "HLT_DoubleEle8_CaloIdM_TrackIdM_Mass8_DZ_PFHT350");
+    nanoCheckScalarWidth(b_HLT_DoubleEle8_CaloIdM_TrackIdM_Mass8_PFHT250_, sizeof(HLT_DoubleEle8_CaloIdM_TrackIdM_Mass8_PFHT250_), "HLT_DoubleEle8_CaloIdM_TrackIdM_Mass8_PFHT250");
+    nanoCheckScalarWidth(b_HLT_DoubleEle8_CaloIdM_TrackIdM_Mass8_PFHT300_, sizeof(HLT_DoubleEle8_CaloIdM_TrackIdM_Mass8_PFHT300_), "HLT_DoubleEle8_CaloIdM_TrackIdM_Mass8_PFHT300");
+    nanoCheckScalarWidth(b_HLT_DoubleEle8_CaloIdM_TrackIdM_Mass8_PFHT350_, sizeof(HLT_DoubleEle8_CaloIdM_TrackIdM_Mass8_PFHT350_), "HLT_DoubleEle8_CaloIdM_TrackIdM_Mass8_PFHT350");
+    nanoCheckScalarWidth(b_HLT_DoubleEle8_eta1p22_mMax6_, sizeof(HLT_DoubleEle8_eta1p22_mMax6_), "HLT_DoubleEle8_eta1p22_mMax6");
+    nanoCheckScalarWidth(b_HLT_DoubleEle8p5_eta1p22_mMax6_, sizeof(HLT_DoubleEle8p5_eta1p22_mMax6_), "HLT_DoubleEle8p5_eta1p22_mMax6");
+    nanoCheckScalarWidth(b_HLT_DoubleEle9_eta1p22_mMax6_, sizeof(HLT_DoubleEle9_eta1p22_mMax6_), "HLT_DoubleEle9_eta1p22_mMax6");
+    nanoCheckScalarWidth(b_HLT_DoubleEle9p5_eta1p22_mMax6_, sizeof(HLT_DoubleEle9p5_eta1p22_mMax6_), "HLT_DoubleEle9p5_eta1p22_mMax6");
+    nanoCheckScalarWidth(b_HLT_DoubleIsoMu17_eta2p1_, sizeof(HLT_DoubleIsoMu17_eta2p1_), "HLT_DoubleIsoMu17_eta2p1");
+    nanoCheckScalarWidth(b_HLT_DoubleIsoMu17_eta2p1_noDzCut_, sizeof(HLT_DoubleIsoMu17_eta2p1_noDzCut_), "HLT_DoubleIsoMu17_eta2p1_noDzCut");
+    nanoCheckScalarWidth(b_HLT_DoubleIsoMu20_eta2p1_, sizeof(HLT_DoubleIsoMu20_eta2p1_), "HLT_DoubleIsoMu20_eta2p1");
+    nanoCheckScalarWidth(b_HLT_DoubleIsoMu24_eta2p1_, sizeof(HLT_DoubleIsoMu24_eta2p1_), "HLT_DoubleIsoMu24_eta2p1");
+    nanoCheckScalarWidth(b_HLT_DoubleJet90_Double30_DoubleBTagCSV_p087_, sizeof(HLT_DoubleJet90_Double30_DoubleBTagCSV_p087_), "HLT_DoubleJet90_Double30_DoubleBTagCSV_p087");
+    nanoCheckScalarWidth(b_HLT_DoubleJet90_Double30_TripleBTagCSV_p087_, sizeof(HLT_DoubleJet90_Double30_TripleBTagCSV_p087_), "HLT_DoubleJet90_Double30_TripleBTagCSV_p087");
+    nanoCheckScalarWidth(b_HLT_DoubleJetsC100_DoubleBTagCSV_p014_DoublePFJetsC100MaxDeta1p6_, sizeof(HLT_DoubleJetsC100_DoubleBTagCSV_p014_DoublePFJetsC100MaxDeta1p6_), "HLT_DoubleJetsC100_DoubleBTagCSV_p014_DoublePFJetsC100MaxDeta1p6");
+    nanoCheckScalarWidth(b_HLT_DoubleJetsC100_DoubleBTagCSV_p026_DoublePFJetsC160_, sizeof(HLT_DoubleJetsC100_DoubleBTagCSV_p026_DoublePFJetsC160_), "HLT_DoubleJetsC100_DoubleBTagCSV_p026_DoublePFJetsC160");
+    nanoCheckScalarWidth(b_HLT_DoubleJetsC100_SingleBTagCSV_p014_, sizeof(HLT_DoubleJetsC100_SingleBTagCSV_p014_), "HLT_DoubleJetsC100_SingleBTagCSV_p014");
+    nanoCheckScalarWidth(b_HLT_DoubleJetsC100_SingleBTagCSV_p014_SinglePFJetC350_, sizeof(HLT_DoubleJetsC100_SingleBTagCSV_p014_SinglePFJetC350_), "HLT_DoubleJetsC100_SingleBTagCSV_p014_SinglePFJetC350");
+    nanoCheckScalarWidth(b_HLT_DoubleJetsC100_SingleBTagCSV_p026_, sizeof(HLT_DoubleJetsC100_SingleBTagCSV_p026_), "HLT_DoubleJetsC100_SingleBTagCSV_p026");
+    nanoCheckScalarWidth(b_HLT_DoubleJetsC100_SingleBTagCSV_p026_SinglePFJetC350_, sizeof(HLT_DoubleJetsC100_SingleBTagCSV_p026_SinglePFJetC350_), "HLT_DoubleJetsC100_SingleBTagCSV_p026_SinglePFJetC350");
+    nanoCheckScalarWidth(b_HLT_DoubleJetsC112_DoubleBTagCSV_p014_DoublePFJetsC112MaxDeta1p6_, sizeof(HLT_DoubleJetsC112_DoubleBTagCSV_p014_DoublePFJetsC112MaxDeta1p6_), "HLT_DoubleJetsC112_DoubleBTagCSV_p014_DoublePFJetsC112MaxDeta1p6");
+    nanoCheckScalarWidth(b_HLT_DoubleJetsC112_DoubleBTagCSV_p026_DoublePFJetsC172_, sizeof(HLT_DoubleJetsC112_DoubleBTagCSV_p026_DoublePFJetsC172_), "HLT_DoubleJetsC112_DoubleBTagCSV_p026_DoublePFJetsC172");
+    nanoCheckScalarWidth(b_HLT_DoubleL2Mu10NoVtx_2Cha_CosmicSeed_VetoL3Mu0DxyMax1cm_, sizeof(HLT_DoubleL2Mu10NoVtx_2Cha_CosmicSeed_VetoL3Mu0DxyMax1cm_), "HLT_DoubleL2Mu10NoVtx_2Cha_CosmicSeed_VetoL3Mu0DxyMax1cm");
+    nanoCheckScalarWidth(b_HLT_DoubleL2Mu10NoVtx_2Cha_VetoL3Mu0DxyMax1cm_, sizeof(HLT_DoubleL2Mu10NoVtx_2Cha_VetoL3Mu0DxyMax1cm_), "HLT_DoubleL2Mu10NoVtx_2Cha_VetoL3Mu0DxyMax1cm");
+    nanoCheckScalarWidth(b_HLT_DoubleL2Mu12NoVtx_2Cha_CosmicSeed_VetoL3Mu0DxyMax1cm_, sizeof(HLT_DoubleL2Mu12NoVtx_2Cha_CosmicSeed_VetoL3Mu0DxyMax1cm_), "HLT_DoubleL2Mu12NoVtx_2Cha_CosmicSeed_VetoL3Mu0DxyMax1cm");
+    nanoCheckScalarWidth(b_HLT_DoubleL2Mu12NoVtx_2Cha_VetoL3Mu0DxyMax1cm_, sizeof(HLT_DoubleL2Mu12NoVtx_2Cha_VetoL3Mu0DxyMax1cm_), "HLT_DoubleL2Mu12NoVtx_2Cha_VetoL3Mu0DxyMax1cm");
+    nanoCheckScalarWidth(b_HLT_DoubleL2Mu14NoVtx_2Cha_VetoL3Mu0DxyMax1cm_, sizeof(HLT_DoubleL2Mu14NoVtx_2Cha_VetoL3Mu0DxyMax1cm_), "HLT_DoubleL2Mu14NoVtx_2Cha_VetoL3Mu0DxyMax1cm");
+    nanoCheckScalarWidth(b_HLT_DoubleL2Mu23NoVtx_2Cha_, sizeof(HLT_DoubleL2Mu23NoVtx_2Cha_), "HLT_DoubleL2Mu23NoVtx_2Cha");
+    nanoCheckScalarWidth(b_HLT_DoubleL2Mu23NoVtx_2Cha_CosmicSeed_, sizeof(HLT_DoubleL2Mu23NoVtx_2Cha_CosmicSeed_), "HLT_DoubleL2Mu23NoVtx_2Cha_CosmicSeed");
+    nanoCheckScalarWidth(b_HLT_DoubleL2Mu23NoVtx_2Cha_CosmicSeed_NoL2Matched_, sizeof(HLT_DoubleL2Mu23NoVtx_2Cha_CosmicSeed_NoL2Matched_), "HLT_DoubleL2Mu23NoVtx_2Cha_CosmicSeed_NoL2Matched");
+    nanoCheckScalarWidth(b_HLT_DoubleL2Mu23NoVtx_2Cha_NoL2Matched_, sizeof(HLT_DoubleL2Mu23NoVtx_2Cha_NoL2Matched_), "HLT_DoubleL2Mu23NoVtx_2Cha_NoL2Matched");
+    nanoCheckScalarWidth(b_HLT_DoubleL2Mu25NoVtx_2Cha_, sizeof(HLT_DoubleL2Mu25NoVtx_2Cha_), "HLT_DoubleL2Mu25NoVtx_2Cha");
+    nanoCheckScalarWidth(b_HLT_DoubleL2Mu25NoVtx_2Cha_CosmicSeed_, sizeof(HLT_DoubleL2Mu25NoVtx_2Cha_CosmicSeed_), "HLT_DoubleL2Mu25NoVtx_2Cha_CosmicSeed");
+    nanoCheckScalarWidth(b_HLT_DoubleL2Mu25NoVtx_2Cha_CosmicSeed_Eta2p4_, sizeof(HLT_DoubleL2Mu25NoVtx_2Cha_CosmicSeed_Eta2p4_), "HLT_DoubleL2Mu25NoVtx_2Cha_CosmicSeed_Eta2p4");
+    nanoCheckScalarWidth(b_HLT_DoubleL2Mu25NoVtx_2Cha_CosmicSeed_NoL2Matched_, sizeof(HLT_DoubleL2Mu25NoVtx_2Cha_CosmicSeed_NoL2Matched_), "HLT_DoubleL2Mu25NoVtx_2Cha_CosmicSeed_NoL2Matched");
+    nanoCheckScalarWidth(b_HLT_DoubleL2Mu25NoVtx_2Cha_Eta2p4_, sizeof(HLT_DoubleL2Mu25NoVtx_2Cha_Eta2p4_), "HLT_DoubleL2Mu25NoVtx_2Cha_Eta2p4");
+    nanoCheckScalarWidth(b_HLT_DoubleL2Mu25NoVtx_2Cha_NoL2Matched_, sizeof(HLT_DoubleL2Mu25NoVtx_2Cha_NoL2Matched_), "HLT_DoubleL2Mu25NoVtx_2Cha_NoL2Matched");
+    nanoCheckScalarWidth(b_HLT_DoubleL2Mu30NoVtx_2Cha_CosmicSeed_Eta2p4_, sizeof(HLT_DoubleL2Mu30NoVtx_2Cha_CosmicSeed_Eta2p4_), "HLT_DoubleL2Mu30NoVtx_2Cha_CosmicSeed_Eta2p4");
+    nanoCheckScalarWidth(b_HLT_DoubleL2Mu30NoVtx_2Cha_Eta2p4_, sizeof(HLT_DoubleL2Mu30NoVtx_2Cha_Eta2p4_), "HLT_DoubleL2Mu30NoVtx_2Cha_Eta2p4");
+    nanoCheckScalarWidth(b_HLT_DoubleL2Mu50_, sizeof(HLT_DoubleL2Mu50_), "HLT_DoubleL2Mu50");
+    nanoCheckScalarWidth(b_HLT_DoubleL2Mu_L3Mu16NoVtx_VetoL3Mu0DxyMax0p1cm_, sizeof(HLT_DoubleL2Mu_L3Mu16NoVtx_VetoL3Mu0DxyMax0p1cm_), "HLT_DoubleL2Mu_L3Mu16NoVtx_VetoL3Mu0DxyMax0p1cm");
+    nanoCheckScalarWidth(b_HLT_DoubleL2Mu_L3Mu18NoVtx_VetoL3Mu0DxyMax0p1cm_, sizeof(HLT_DoubleL2Mu_L3Mu18NoVtx_VetoL3Mu0DxyMax0p1cm_), "HLT_DoubleL2Mu_L3Mu18NoVtx_VetoL3Mu0DxyMax0p1cm");
+    nanoCheckScalarWidth(b_HLT_DoubleL3Mu16_10NoVtx_DxyMin0p01cm_, sizeof(HLT_DoubleL3Mu16_10NoVtx_DxyMin0p01cm_), "HLT_DoubleL3Mu16_10NoVtx_DxyMin0p01cm");
+    nanoCheckScalarWidth(b_HLT_DoubleL3Mu18_10NoVtx_DxyMin0p01cm_, sizeof(HLT_DoubleL3Mu18_10NoVtx_DxyMin0p01cm_), "HLT_DoubleL3Mu18_10NoVtx_DxyMin0p01cm");
+    nanoCheckScalarWidth(b_HLT_DoubleL3Mu20_10NoVtx_DxyMin0p01cm_, sizeof(HLT_DoubleL3Mu20_10NoVtx_DxyMin0p01cm_), "HLT_DoubleL3Mu20_10NoVtx_DxyMin0p01cm");
+    nanoCheckScalarWidth(b_HLT_DoubleL3dTksMu16_10NoVtx_DxyMin0p01cm_, sizeof(HLT_DoubleL3dTksMu16_10NoVtx_DxyMin0p01cm_), "HLT_DoubleL3dTksMu16_10NoVtx_DxyMin0p01cm");
+    nanoCheckScalarWidth(b_HLT_DoubleLooseChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg_, sizeof(HLT_DoubleLooseChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg_), "HLT_DoubleLooseChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg");
+    nanoCheckScalarWidth(b_HLT_DoubleLooseChargedIsoPFTau35_Trk1_eta2p1_Reg_, sizeof(HLT_DoubleLooseChargedIsoPFTau35_Trk1_eta2p1_Reg_), "HLT_DoubleLooseChargedIsoPFTau35_Trk1_eta2p1_Reg");
+    nanoCheckScalarWidth(b_HLT_DoubleLooseChargedIsoPFTau40_Trk1_TightID_eta2p1_Reg_, sizeof(HLT_DoubleLooseChargedIsoPFTau40_Trk1_TightID_eta2p1_Reg_), "HLT_DoubleLooseChargedIsoPFTau40_Trk1_TightID_eta2p1_Reg");
+    nanoCheckScalarWidth(b_HLT_DoubleLooseChargedIsoPFTau40_Trk1_eta2p1_Reg_, sizeof(HLT_DoubleLooseChargedIsoPFTau40_Trk1_eta2p1_Reg_), "HLT_DoubleLooseChargedIsoPFTau40_Trk1_eta2p1_Reg");
+    nanoCheckScalarWidth(b_HLT_DoubleMediumChargedIsoDisplacedPFTauHPS32_Trk1_eta2p1_, sizeof(HLT_DoubleMediumChargedIsoDisplacedPFTauHPS32_Trk1_eta2p1_), "HLT_DoubleMediumChargedIsoDisplacedPFTauHPS32_Trk1_eta2p1");
+    nanoCheckScalarWidth(b_HLT_DoubleMediumChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg_, sizeof(HLT_DoubleMediumChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg_), "HLT_DoubleMediumChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg");
+    nanoCheckScalarWidth(b_HLT_DoubleMediumChargedIsoPFTau35_Trk1_eta2p1_Reg_, sizeof(HLT_DoubleMediumChargedIsoPFTau35_Trk1_eta2p1_Reg_), "HLT_DoubleMediumChargedIsoPFTau35_Trk1_eta2p1_Reg");
+    nanoCheckScalarWidth(b_HLT_DoubleMediumChargedIsoPFTau40_Trk1_TightID_eta2p1_Reg_, sizeof(HLT_DoubleMediumChargedIsoPFTau40_Trk1_TightID_eta2p1_Reg_), "HLT_DoubleMediumChargedIsoPFTau40_Trk1_TightID_eta2p1_Reg");
+    nanoCheckScalarWidth(b_HLT_DoubleMediumChargedIsoPFTau40_Trk1_eta2p1_Reg_, sizeof(HLT_DoubleMediumChargedIsoPFTau40_Trk1_eta2p1_Reg_), "HLT_DoubleMediumChargedIsoPFTau40_Trk1_eta2p1_Reg");
+    nanoCheckScalarWidth(b_HLT_DoubleMediumChargedIsoPFTauHPS30_L1MaxMass_Trk1_eta2p1_Reg_, sizeof(HLT_DoubleMediumChargedIsoPFTauHPS30_L1MaxMass_Trk1_eta2p1_Reg_), "HLT_DoubleMediumChargedIsoPFTauHPS30_L1MaxMass_Trk1_eta2p1_Reg");
+    nanoCheckScalarWidth(b_HLT_DoubleMediumChargedIsoPFTauHPS35_Trk1_TightID_eta2p1_Reg_, sizeof(HLT_DoubleMediumChargedIsoPFTauHPS35_Trk1_TightID_eta2p1_Reg_), "HLT_DoubleMediumChargedIsoPFTauHPS35_Trk1_TightID_eta2p1_Reg");
+    nanoCheckScalarWidth(b_HLT_DoubleMediumChargedIsoPFTauHPS35_Trk1_eta2p1_Reg_, sizeof(HLT_DoubleMediumChargedIsoPFTauHPS35_Trk1_eta2p1_Reg_), "HLT_DoubleMediumChargedIsoPFTauHPS35_Trk1_eta2p1_Reg");
+    nanoCheckScalarWidth(b_HLT_DoubleMediumChargedIsoPFTauHPS40_Trk1_TightID_eta2p1_Reg_, sizeof(HLT_DoubleMediumChargedIsoPFTauHPS40_Trk1_TightID_eta2p1_Reg_), "HLT_DoubleMediumChargedIsoPFTauHPS40_Trk1_TightID_eta2p1_Reg");
+    nanoCheckScalarWidth(b_HLT_DoubleMediumChargedIsoPFTauHPS40_Trk1_eta2p1_, sizeof(HLT_DoubleMediumChargedIsoPFTauHPS40_Trk1_eta2p1_), "HLT_DoubleMediumChargedIsoPFTauHPS40_Trk1_eta2p1");
+    nanoCheckScalarWidth(b_HLT_DoubleMediumChargedIsoPFTauHPS40_Trk1_eta2p1_Reg_, sizeof(HLT_DoubleMediumChargedIsoPFTauHPS40_Trk1_eta2p1_Reg_), "HLT_DoubleMediumChargedIsoPFTauHPS40_Trk1_eta2p1_Reg");
+    nanoCheckScalarWidth(b_HLT_DoubleMediumCombinedIsoPFTau35_Trk1_eta2p1_Reg_, sizeof(HLT_DoubleMediumCombinedIsoPFTau35_Trk1_eta2p1_Reg_), "HLT_DoubleMediumCombinedIsoPFTau35_Trk1_eta2p1_Reg");
+    nanoCheckScalarWidth(b_HLT_DoubleMediumCombinedIsoPFTau40_Trk1_eta2p1_, sizeof(HLT_DoubleMediumCombinedIsoPFTau40_Trk1_eta2p1_), "HLT_DoubleMediumCombinedIsoPFTau40_Trk1_eta2p1");
+    nanoCheckScalarWidth(b_HLT_DoubleMediumCombinedIsoPFTau40_Trk1_eta2p1_Reg_, sizeof(HLT_DoubleMediumCombinedIsoPFTau40_Trk1_eta2p1_Reg_), "HLT_DoubleMediumCombinedIsoPFTau40_Trk1_eta2p1_Reg");
+    nanoCheckScalarWidth(b_HLT_DoubleMediumDeepTauPFTauHPS30_L2NN_eta2p1_PFJet60_, sizeof(HLT_DoubleMediumDeepTauPFTauHPS30_L2NN_eta2p1_PFJet60_), "HLT_DoubleMediumDeepTauPFTauHPS30_L2NN_eta2p1_PFJet60");
+    nanoCheckScalarWidth(b_HLT_DoubleMediumDeepTauPFTauHPS30_L2NN_eta2p1_PFJet75_, sizeof(HLT_DoubleMediumDeepTauPFTauHPS30_L2NN_eta2p1_PFJet75_), "HLT_DoubleMediumDeepTauPFTauHPS30_L2NN_eta2p1_PFJet75");
+    nanoCheckScalarWidth(b_HLT_DoubleMediumDeepTauPFTauHPS35_L2NN_eta2p1_, sizeof(HLT_DoubleMediumDeepTauPFTauHPS35_L2NN_eta2p1_), "HLT_DoubleMediumDeepTauPFTauHPS35_L2NN_eta2p1");
+    nanoCheckScalarWidth(b_HLT_DoubleMediumIsoPFTau32_Trk1_eta2p1_Reg_, sizeof(HLT_DoubleMediumIsoPFTau32_Trk1_eta2p1_Reg_), "HLT_DoubleMediumIsoPFTau32_Trk1_eta2p1_Reg");
+    nanoCheckScalarWidth(b_HLT_DoubleMediumIsoPFTau35_Trk1_eta2p1_Reg_, sizeof(HLT_DoubleMediumIsoPFTau35_Trk1_eta2p1_Reg_), "HLT_DoubleMediumIsoPFTau35_Trk1_eta2p1_Reg");
+    nanoCheckScalarWidth(b_HLT_DoubleMediumIsoPFTau40_Trk1_eta2p1_, sizeof(HLT_DoubleMediumIsoPFTau40_Trk1_eta2p1_), "HLT_DoubleMediumIsoPFTau40_Trk1_eta2p1");
+    nanoCheckScalarWidth(b_HLT_DoubleMediumIsoPFTau40_Trk1_eta2p1_Reg_, sizeof(HLT_DoubleMediumIsoPFTau40_Trk1_eta2p1_Reg_), "HLT_DoubleMediumIsoPFTau40_Trk1_eta2p1_Reg");
+    nanoCheckScalarWidth(b_HLT_DoubleMu0_, sizeof(HLT_DoubleMu0_), "HLT_DoubleMu0");
+    nanoCheckScalarWidth(b_HLT_DoubleMu18NoFiltersNoVtx_, sizeof(HLT_DoubleMu18NoFiltersNoVtx_), "HLT_DoubleMu18NoFiltersNoVtx");
+    nanoCheckScalarWidth(b_HLT_DoubleMu20_7_Mass0to30_L1_DM4_, sizeof(HLT_DoubleMu20_7_Mass0to30_L1_DM4_), "HLT_DoubleMu20_7_Mass0to30_L1_DM4");
+    nanoCheckScalarWidth(b_HLT_DoubleMu20_7_Mass0to30_L1_DM4EG_, sizeof(HLT_DoubleMu20_7_Mass0to30_L1_DM4EG_), "HLT_DoubleMu20_7_Mass0to30_L1_DM4EG");
+    nanoCheckScalarWidth(b_HLT_DoubleMu20_7_Mass0to30_Photon23_, sizeof(HLT_DoubleMu20_7_Mass0to30_Photon23_), "HLT_DoubleMu20_7_Mass0to30_Photon23");
+    nanoCheckScalarWidth(b_HLT_DoubleMu23NoFiltersNoVtxDisplaced_, sizeof(HLT_DoubleMu23NoFiltersNoVtxDisplaced_), "HLT_DoubleMu23NoFiltersNoVtxDisplaced");
+    nanoCheckScalarWidth(b_HLT_DoubleMu28NoFiltersNoVtxDisplaced_, sizeof(HLT_DoubleMu28NoFiltersNoVtxDisplaced_), "HLT_DoubleMu28NoFiltersNoVtxDisplaced");
+    nanoCheckScalarWidth(b_HLT_DoubleMu2_Jpsi_DoubleTkMu0_Phi_, sizeof(HLT_DoubleMu2_Jpsi_DoubleTkMu0_Phi_), "HLT_DoubleMu2_Jpsi_DoubleTkMu0_Phi");
+    nanoCheckScalarWidth(b_HLT_DoubleMu2_Jpsi_DoubleTrk1_Phi_, sizeof(HLT_DoubleMu2_Jpsi_DoubleTrk1_Phi_), "HLT_DoubleMu2_Jpsi_DoubleTrk1_Phi");
+    nanoCheckScalarWidth(b_HLT_DoubleMu2_Jpsi_DoubleTrk1_Phi1p05_, sizeof(HLT_DoubleMu2_Jpsi_DoubleTrk1_Phi1p05_), "HLT_DoubleMu2_Jpsi_DoubleTrk1_Phi1p05");
+    nanoCheckScalarWidth(b_HLT_DoubleMu33NoFiltersNoVtx_, sizeof(HLT_DoubleMu33NoFiltersNoVtx_), "HLT_DoubleMu33NoFiltersNoVtx");
+    nanoCheckScalarWidth(b_HLT_DoubleMu33NoFiltersNoVtxDisplaced_, sizeof(HLT_DoubleMu33NoFiltersNoVtxDisplaced_), "HLT_DoubleMu33NoFiltersNoVtxDisplaced");
+    nanoCheckScalarWidth(b_HLT_DoubleMu38NoFiltersNoVtx_, sizeof(HLT_DoubleMu38NoFiltersNoVtx_), "HLT_DoubleMu38NoFiltersNoVtx");
+    nanoCheckScalarWidth(b_HLT_DoubleMu3_DCA_PFMET50_PFMHT60_, sizeof(HLT_DoubleMu3_DCA_PFMET50_PFMHT60_), "HLT_DoubleMu3_DCA_PFMET50_PFMHT60");
+    nanoCheckScalarWidth(b_HLT_DoubleMu3_DZ_PFMET50_PFMHT60_, sizeof(HLT_DoubleMu3_DZ_PFMET50_PFMHT60_), "HLT_DoubleMu3_DZ_PFMET50_PFMHT60");
+    nanoCheckScalarWidth(b_HLT_DoubleMu3_DZ_PFMET70_PFMHT70_, sizeof(HLT_DoubleMu3_DZ_PFMET70_PFMHT70_), "HLT_DoubleMu3_DZ_PFMET70_PFMHT70");
+    nanoCheckScalarWidth(b_HLT_DoubleMu3_DZ_PFMET90_PFMHT90_, sizeof(HLT_DoubleMu3_DZ_PFMET90_PFMHT90_), "HLT_DoubleMu3_DZ_PFMET90_PFMHT90");
+    nanoCheckScalarWidth(b_HLT_DoubleMu3_DoubleEle7p5_CaloIdL_TrackIdL_Upsilon_, sizeof(HLT_DoubleMu3_DoubleEle7p5_CaloIdL_TrackIdL_Upsilon_), "HLT_DoubleMu3_DoubleEle7p5_CaloIdL_TrackIdL_Upsilon");
+    nanoCheckScalarWidth(b_HLT_DoubleMu3_PFMET50_, sizeof(HLT_DoubleMu3_PFMET50_), "HLT_DoubleMu3_PFMET50");
+    nanoCheckScalarWidth(b_HLT_DoubleMu3_TkMu_DsTau3Mu_, sizeof(HLT_DoubleMu3_TkMu_DsTau3Mu_), "HLT_DoubleMu3_TkMu_DsTau3Mu");
+    nanoCheckScalarWidth(b_HLT_DoubleMu3_Trk_Tau3mu_, sizeof(HLT_DoubleMu3_Trk_Tau3mu_), "HLT_DoubleMu3_Trk_Tau3mu");
+    nanoCheckScalarWidth(b_HLT_DoubleMu3_Trk_Tau3mu_NoL1Mass_, sizeof(HLT_DoubleMu3_Trk_Tau3mu_NoL1Mass_), "HLT_DoubleMu3_Trk_Tau3mu_NoL1Mass");
+    nanoCheckScalarWidth(b_HLT_DoubleMu40NoFiltersNoVtxDisplaced_, sizeof(HLT_DoubleMu40NoFiltersNoVtxDisplaced_), "HLT_DoubleMu40NoFiltersNoVtxDisplaced");
+    nanoCheckScalarWidth(b_HLT_DoubleMu43NoFiltersNoVtx_, sizeof(HLT_DoubleMu43NoFiltersNoVtx_), "HLT_DoubleMu43NoFiltersNoVtx");
+    nanoCheckScalarWidth(b_HLT_DoubleMu48NoFiltersNoVtx_, sizeof(HLT_DoubleMu48NoFiltersNoVtx_), "HLT_DoubleMu48NoFiltersNoVtx");
+    nanoCheckScalarWidth(b_HLT_DoubleMu4_3_Bs_, sizeof(HLT_DoubleMu4_3_Bs_), "HLT_DoubleMu4_3_Bs");
+    nanoCheckScalarWidth(b_HLT_DoubleMu4_3_Displaced_Photon4_BsToMMG_, sizeof(HLT_DoubleMu4_3_Displaced_Photon4_BsToMMG_), "HLT_DoubleMu4_3_Displaced_Photon4_BsToMMG");
+    nanoCheckScalarWidth(b_HLT_DoubleMu4_3_Jpsi_, sizeof(HLT_DoubleMu4_3_Jpsi_), "HLT_DoubleMu4_3_Jpsi");
+    nanoCheckScalarWidth(b_HLT_DoubleMu4_3_Jpsi_Displaced_, sizeof(HLT_DoubleMu4_3_Jpsi_Displaced_), "HLT_DoubleMu4_3_Jpsi_Displaced");
+    nanoCheckScalarWidth(b_HLT_DoubleMu4_3_LowMass_, sizeof(HLT_DoubleMu4_3_LowMass_), "HLT_DoubleMu4_3_LowMass");
+    nanoCheckScalarWidth(b_HLT_DoubleMu4_3_Photon4_BsToMMG_, sizeof(HLT_DoubleMu4_3_Photon4_BsToMMG_), "HLT_DoubleMu4_3_Photon4_BsToMMG");
+    nanoCheckScalarWidth(b_HLT_DoubleMu4_JpsiTrkTrk_Displaced_, sizeof(HLT_DoubleMu4_JpsiTrkTrk_Displaced_), "HLT_DoubleMu4_JpsiTrkTrk_Displaced");
+    nanoCheckScalarWidth(b_HLT_DoubleMu4_JpsiTrk_Bc_, sizeof(HLT_DoubleMu4_JpsiTrk_Bc_), "HLT_DoubleMu4_JpsiTrk_Bc");
+    nanoCheckScalarWidth(b_HLT_DoubleMu4_JpsiTrk_Displaced_, sizeof(HLT_DoubleMu4_JpsiTrk_Displaced_), "HLT_DoubleMu4_JpsiTrk_Displaced");
+    nanoCheckScalarWidth(b_HLT_DoubleMu4_Jpsi_Displaced_, sizeof(HLT_DoubleMu4_Jpsi_Displaced_), "HLT_DoubleMu4_Jpsi_Displaced");
+    nanoCheckScalarWidth(b_HLT_DoubleMu4_Jpsi_NoVertexing_, sizeof(HLT_DoubleMu4_Jpsi_NoVertexing_), "HLT_DoubleMu4_Jpsi_NoVertexing");
+    nanoCheckScalarWidth(b_HLT_DoubleMu4_LowMassNonResonantTrk_Displaced_, sizeof(HLT_DoubleMu4_LowMassNonResonantTrk_Displaced_), "HLT_DoubleMu4_LowMassNonResonantTrk_Displaced");
+    nanoCheckScalarWidth(b_HLT_DoubleMu4_LowMass_Displaced_, sizeof(HLT_DoubleMu4_LowMass_Displaced_), "HLT_DoubleMu4_LowMass_Displaced");
+    nanoCheckScalarWidth(b_HLT_DoubleMu4_Mass3p8_DZ_PFHT350_, sizeof(HLT_DoubleMu4_Mass3p8_DZ_PFHT350_), "HLT_DoubleMu4_Mass3p8_DZ_PFHT350");
+    nanoCheckScalarWidth(b_HLT_DoubleMu4_Mass8_DZ_PFHT350_, sizeof(HLT_DoubleMu4_Mass8_DZ_PFHT350_), "HLT_DoubleMu4_Mass8_DZ_PFHT350");
+    nanoCheckScalarWidth(b_HLT_DoubleMu4_MuMuTrk_Displaced_, sizeof(HLT_DoubleMu4_MuMuTrk_Displaced_), "HLT_DoubleMu4_MuMuTrk_Displaced");
+    nanoCheckScalarWidth(b_HLT_DoubleMu4_PsiPrimeTrk_Displaced_, sizeof(HLT_DoubleMu4_PsiPrimeTrk_Displaced_), "HLT_DoubleMu4_PsiPrimeTrk_Displaced");
+    nanoCheckScalarWidth(b_HLT_DoubleMu5_Upsilon_DoubleEle3_CaloIdL_TrackIdL_, sizeof(HLT_DoubleMu5_Upsilon_DoubleEle3_CaloIdL_TrackIdL_), "HLT_DoubleMu5_Upsilon_DoubleEle3_CaloIdL_TrackIdL");
+    nanoCheckScalarWidth(b_HLT_DoubleMu8_Mass8_PFHT250_, sizeof(HLT_DoubleMu8_Mass8_PFHT250_), "HLT_DoubleMu8_Mass8_PFHT250");
+    nanoCheckScalarWidth(b_HLT_DoubleMu8_Mass8_PFHT300_, sizeof(HLT_DoubleMu8_Mass8_PFHT300_), "HLT_DoubleMu8_Mass8_PFHT300");
+    nanoCheckScalarWidth(b_HLT_DoubleMu8_Mass8_PFHT350_, sizeof(HLT_DoubleMu8_Mass8_PFHT350_), "HLT_DoubleMu8_Mass8_PFHT350");
+    nanoCheckScalarWidth(b_HLT_DoublePFJets100MaxDeta1p6_DoubleCaloBTagCSV_p33_, sizeof(HLT_DoublePFJets100MaxDeta1p6_DoubleCaloBTagCSV_p33_), "HLT_DoublePFJets100MaxDeta1p6_DoubleCaloBTagCSV_p33");
+    nanoCheckScalarWidth(b_HLT_DoublePFJets100_CaloBTagCSV_p33_, sizeof(HLT_DoublePFJets100_CaloBTagCSV_p33_), "HLT_DoublePFJets100_CaloBTagCSV_p33");
+    nanoCheckScalarWidth(b_HLT_DoublePFJets100_CaloBTagCSV_p79_, sizeof(HLT_DoublePFJets100_CaloBTagCSV_p79_), "HLT_DoublePFJets100_CaloBTagCSV_p79");
+    nanoCheckScalarWidth(b_HLT_DoublePFJets100_CaloBTagDeepCSV_p71_, sizeof(HLT_DoublePFJets100_CaloBTagDeepCSV_p71_), "HLT_DoublePFJets100_CaloBTagDeepCSV_p71");
+    nanoCheckScalarWidth(b_HLT_DoublePFJets100_PFBTagDeepCSV_p71_, sizeof(HLT_DoublePFJets100_PFBTagDeepCSV_p71_), "HLT_DoublePFJets100_PFBTagDeepCSV_p71");
+    nanoCheckScalarWidth(b_HLT_DoublePFJets100_PFBTagDeepJet_p71_, sizeof(HLT_DoublePFJets100_PFBTagDeepJet_p71_), "HLT_DoublePFJets100_PFBTagDeepJet_p71");
+    nanoCheckScalarWidth(b_HLT_DoublePFJets116MaxDeta1p6_DoubleCaloBTagCSV_p33_, sizeof(HLT_DoublePFJets116MaxDeta1p6_DoubleCaloBTagCSV_p33_), "HLT_DoublePFJets116MaxDeta1p6_DoubleCaloBTagCSV_p33");
+    nanoCheckScalarWidth(b_HLT_DoublePFJets116MaxDeta1p6_DoubleCaloBTagCSV_p79_, sizeof(HLT_DoublePFJets116MaxDeta1p6_DoubleCaloBTagCSV_p79_), "HLT_DoublePFJets116MaxDeta1p6_DoubleCaloBTagCSV_p79");
+    nanoCheckScalarWidth(b_HLT_DoublePFJets116MaxDeta1p6_DoubleCaloBTagDeepCSV_p71_, sizeof(HLT_DoublePFJets116MaxDeta1p6_DoubleCaloBTagDeepCSV_p71_), "HLT_DoublePFJets116MaxDeta1p6_DoubleCaloBTagDeepCSV_p71");
+    nanoCheckScalarWidth(b_HLT_DoublePFJets116MaxDeta1p6_DoublePFBTagDeepCSV_p71_, sizeof(HLT_DoublePFJets116MaxDeta1p6_DoublePFBTagDeepCSV_p71_), "HLT_DoublePFJets116MaxDeta1p6_DoublePFBTagDeepCSV_p71");
+    nanoCheckScalarWidth(b_HLT_DoublePFJets116MaxDeta1p6_DoublePFBTagDeepJet_p71_, sizeof(HLT_DoublePFJets116MaxDeta1p6_DoublePFBTagDeepJet_p71_), "HLT_DoublePFJets116MaxDeta1p6_DoublePFBTagDeepJet_p71");
+    nanoCheckScalarWidth(b_HLT_DoublePFJets128MaxDeta1p6_DoubleCaloBTagCSV_p33_, sizeof(HLT_DoublePFJets128MaxDeta1p6_DoubleCaloBTagCSV_p33_), "HLT_DoublePFJets128MaxDeta1p6_DoubleCaloBTagCSV_p33");
+    nanoCheckScalarWidth(b_HLT_DoublePFJets128MaxDeta1p6_DoubleCaloBTagCSV_p79_, sizeof(HLT_DoublePFJets128MaxDeta1p6_DoubleCaloBTagCSV_p79_), "HLT_DoublePFJets128MaxDeta1p6_DoubleCaloBTagCSV_p79");
+    nanoCheckScalarWidth(b_HLT_DoublePFJets128MaxDeta1p6_DoubleCaloBTagDeepCSV_p71_, sizeof(HLT_DoublePFJets128MaxDeta1p6_DoubleCaloBTagDeepCSV_p71_), "HLT_DoublePFJets128MaxDeta1p6_DoubleCaloBTagDeepCSV_p71");
+    nanoCheckScalarWidth(b_HLT_DoublePFJets128MaxDeta1p6_DoublePFBTagDeepCSV_p71_, sizeof(HLT_DoublePFJets128MaxDeta1p6_DoublePFBTagDeepCSV_p71_), "HLT_DoublePFJets128MaxDeta1p6_DoublePFBTagDeepCSV_p71");
+    nanoCheckScalarWidth(b_HLT_DoublePFJets128MaxDeta1p6_DoublePFBTagDeepJet_p71_, sizeof(HLT_DoublePFJets128MaxDeta1p6_DoublePFBTagDeepJet_p71_), "HLT_DoublePFJets128MaxDeta1p6_DoublePFBTagDeepJet_p71");
+    nanoCheckScalarWidth(b_HLT_DoublePFJets200_CaloBTagCSV_p33_, sizeof(HLT_DoublePFJets200_CaloBTagCSV_p33_), "HLT_DoublePFJets200_CaloBTagCSV_p33");
+    nanoCheckScalarWidth(b_HLT_DoublePFJets200_CaloBTagCSV_p79_, sizeof(HLT_DoublePFJets200_CaloBTagCSV_p79_), "HLT_DoublePFJets200_CaloBTagCSV_p79");
+    nanoCheckScalarWidth(b_HLT_DoublePFJets200_CaloBTagDeepCSV_p71_, sizeof(HLT_DoublePFJets200_CaloBTagDeepCSV_p71_), "HLT_DoublePFJets200_CaloBTagDeepCSV_p71");
+    nanoCheckScalarWidth(b_HLT_DoublePFJets200_PFBTagDeepCSV_p71_, sizeof(HLT_DoublePFJets200_PFBTagDeepCSV_p71_), "HLT_DoublePFJets200_PFBTagDeepCSV_p71");
+    nanoCheckScalarWidth(b_HLT_DoublePFJets200_PFBTagDeepJet_p71_, sizeof(HLT_DoublePFJets200_PFBTagDeepJet_p71_), "HLT_DoublePFJets200_PFBTagDeepJet_p71");
+    nanoCheckScalarWidth(b_HLT_DoublePFJets350_CaloBTagCSV_p33_, sizeof(HLT_DoublePFJets350_CaloBTagCSV_p33_), "HLT_DoublePFJets350_CaloBTagCSV_p33");
+    nanoCheckScalarWidth(b_HLT_DoublePFJets350_CaloBTagCSV_p79_, sizeof(HLT_DoublePFJets350_CaloBTagCSV_p79_), "HLT_DoublePFJets350_CaloBTagCSV_p79");
+    nanoCheckScalarWidth(b_HLT_DoublePFJets350_CaloBTagDeepCSV_p71_, sizeof(HLT_DoublePFJets350_CaloBTagDeepCSV_p71_), "HLT_DoublePFJets350_CaloBTagDeepCSV_p71");
+    nanoCheckScalarWidth(b_HLT_DoublePFJets350_PFBTagDeepCSV_p71_, sizeof(HLT_DoublePFJets350_PFBTagDeepCSV_p71_), "HLT_DoublePFJets350_PFBTagDeepCSV_p71");
+    nanoCheckScalarWidth(b_HLT_DoublePFJets350_PFBTagDeepJet_p71_, sizeof(HLT_DoublePFJets350_PFBTagDeepJet_p71_), "HLT_DoublePFJets350_PFBTagDeepJet_p71");
+    nanoCheckScalarWidth(b_HLT_DoublePFJets40_CaloBTagCSV_p33_, sizeof(HLT_DoublePFJets40_CaloBTagCSV_p33_), "HLT_DoublePFJets40_CaloBTagCSV_p33");
+    nanoCheckScalarWidth(b_HLT_DoublePFJets40_CaloBTagCSV_p79_, sizeof(HLT_DoublePFJets40_CaloBTagCSV_p79_), "HLT_DoublePFJets40_CaloBTagCSV_p79");
+    nanoCheckScalarWidth(b_HLT_DoublePFJets40_CaloBTagDeepCSV_p71_, sizeof(HLT_DoublePFJets40_CaloBTagDeepCSV_p71_), "HLT_DoublePFJets40_CaloBTagDeepCSV_p71");
+    nanoCheckScalarWidth(b_HLT_DoublePFJets40_Mass500_MediumDeepTauPFTauHPS45_L2NN_MediumDeepTauPFTauHPS20_eta2p1_, sizeof(HLT_DoublePFJets40_Mass500_MediumDeepTauPFTauHPS45_L2NN_MediumDeepTauPFTauHPS20_eta2p1_), "HLT_DoublePFJets40_Mass500_MediumDeepTauPFTauHPS45_L2NN_MediumDeepTauPFTauHPS20_eta2p1");
+    nanoCheckScalarWidth(b_HLT_DoublePFJets40_PFBTagDeepCSV_p71_, sizeof(HLT_DoublePFJets40_PFBTagDeepCSV_p71_), "HLT_DoublePFJets40_PFBTagDeepCSV_p71");
+    nanoCheckScalarWidth(b_HLT_DoublePFJets40_PFBTagDeepJet_p71_, sizeof(HLT_DoublePFJets40_PFBTagDeepJet_p71_), "HLT_DoublePFJets40_PFBTagDeepJet_p71");
+    nanoCheckScalarWidth(b_HLT_DoublePhoton33_CaloIdL_, sizeof(HLT_DoublePhoton33_CaloIdL_), "HLT_DoublePhoton33_CaloIdL");
+    nanoCheckScalarWidth(b_HLT_DoublePhoton60_, sizeof(HLT_DoublePhoton60_), "HLT_DoublePhoton60");
+    nanoCheckScalarWidth(b_HLT_DoublePhoton70_, sizeof(HLT_DoublePhoton70_), "HLT_DoublePhoton70");
+    nanoCheckScalarWidth(b_HLT_DoublePhoton85_, sizeof(HLT_DoublePhoton85_), "HLT_DoublePhoton85");
+    nanoCheckScalarWidth(b_HLT_DoubleTightChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg_, sizeof(HLT_DoubleTightChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg_), "HLT_DoubleTightChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg");
+    nanoCheckScalarWidth(b_HLT_DoubleTightChargedIsoPFTau35_Trk1_eta2p1_Reg_, sizeof(HLT_DoubleTightChargedIsoPFTau35_Trk1_eta2p1_Reg_), "HLT_DoubleTightChargedIsoPFTau35_Trk1_eta2p1_Reg");
+    nanoCheckScalarWidth(b_HLT_DoubleTightChargedIsoPFTau40_Trk1_TightID_eta2p1_Reg_, sizeof(HLT_DoubleTightChargedIsoPFTau40_Trk1_TightID_eta2p1_Reg_), "HLT_DoubleTightChargedIsoPFTau40_Trk1_TightID_eta2p1_Reg");
+    nanoCheckScalarWidth(b_HLT_DoubleTightChargedIsoPFTau40_Trk1_eta2p1_Reg_, sizeof(HLT_DoubleTightChargedIsoPFTau40_Trk1_eta2p1_Reg_), "HLT_DoubleTightChargedIsoPFTau40_Trk1_eta2p1_Reg");
+    nanoCheckScalarWidth(b_HLT_DoubleTightChargedIsoPFTauHPS35_Trk1_TightID_eta2p1_Reg_, sizeof(HLT_DoubleTightChargedIsoPFTauHPS35_Trk1_TightID_eta2p1_Reg_), "HLT_DoubleTightChargedIsoPFTauHPS35_Trk1_TightID_eta2p1_Reg");
+    nanoCheckScalarWidth(b_HLT_DoubleTightChargedIsoPFTauHPS35_Trk1_eta2p1_, sizeof(HLT_DoubleTightChargedIsoPFTauHPS35_Trk1_eta2p1_), "HLT_DoubleTightChargedIsoPFTauHPS35_Trk1_eta2p1");
+    nanoCheckScalarWidth(b_HLT_DoubleTightChargedIsoPFTauHPS35_Trk1_eta2p1_Reg_, sizeof(HLT_DoubleTightChargedIsoPFTauHPS35_Trk1_eta2p1_Reg_), "HLT_DoubleTightChargedIsoPFTauHPS35_Trk1_eta2p1_Reg");
+    nanoCheckScalarWidth(b_HLT_DoubleTightChargedIsoPFTauHPS40_Trk1_TightID_eta2p1_Reg_, sizeof(HLT_DoubleTightChargedIsoPFTauHPS40_Trk1_TightID_eta2p1_Reg_), "HLT_DoubleTightChargedIsoPFTauHPS40_Trk1_TightID_eta2p1_Reg");
+    nanoCheckScalarWidth(b_HLT_DoubleTightChargedIsoPFTauHPS40_Trk1_eta2p1_Reg_, sizeof(HLT_DoubleTightChargedIsoPFTauHPS40_Trk1_eta2p1_Reg_), "HLT_DoubleTightChargedIsoPFTauHPS40_Trk1_eta2p1_Reg");
+    nanoCheckScalarWidth(b_HLT_DoubleTightCombinedIsoPFTau35_Trk1_eta2p1_Reg_, sizeof(HLT_DoubleTightCombinedIsoPFTau35_Trk1_eta2p1_Reg_), "HLT_DoubleTightCombinedIsoPFTau35_Trk1_eta2p1_Reg");
+    nanoCheckScalarWidth(b_HLT_DoubleTightCombinedIsoPFTau40_Trk1_eta2p1_, sizeof(HLT_DoubleTightCombinedIsoPFTau40_Trk1_eta2p1_), "HLT_DoubleTightCombinedIsoPFTau40_Trk1_eta2p1");
+    nanoCheckScalarWidth(b_HLT_DoubleTightCombinedIsoPFTau40_Trk1_eta2p1_Reg_, sizeof(HLT_DoubleTightCombinedIsoPFTau40_Trk1_eta2p1_Reg_), "HLT_DoubleTightCombinedIsoPFTau40_Trk1_eta2p1_Reg");
+    nanoCheckScalarWidth(b_HLT_DoubleTrkMu_16_6_NoFiltersNoVtx_, sizeof(HLT_DoubleTrkMu_16_6_NoFiltersNoVtx_), "HLT_DoubleTrkMu_16_6_NoFiltersNoVtx");
+    nanoCheckScalarWidth(b_HLT_ECALHT800_, sizeof(HLT_ECALHT800_), "HLT_ECALHT800");
+    nanoCheckScalarWidth(b_HLT_EcalCalibration_, sizeof(HLT_EcalCalibration_), "HLT_EcalCalibration");
+    nanoCheckScalarWidth(b_HLT_Ele105_CaloIdVT_GsfTrkIdT_, sizeof(HLT_Ele105_CaloIdVT_GsfTrkIdT_), "HLT_Ele105_CaloIdVT_GsfTrkIdT");
+    nanoCheckScalarWidth(b_HLT_Ele10_CaloIdM_TrackIdM_CentralPFJet30_BTagCSV_p13_, sizeof(HLT_Ele10_CaloIdM_TrackIdM_CentralPFJet30_BTagCSV_p13_), "HLT_Ele10_CaloIdM_TrackIdM_CentralPFJet30_BTagCSV_p13");
+    nanoCheckScalarWidth(b_HLT_Ele115_CaloIdVT_GsfTrkIdT_, sizeof(HLT_Ele115_CaloIdVT_GsfTrkIdT_), "HLT_Ele115_CaloIdVT_GsfTrkIdT");
+    nanoCheckScalarWidth(b_HLT_Ele12_CaloIdL_TrackIdL_IsoVL_, sizeof(HLT_Ele12_CaloIdL_TrackIdL_IsoVL_), "HLT_Ele12_CaloIdL_TrackIdL_IsoVL");
+    nanoCheckScalarWidth(b_HLT_Ele12_CaloIdL_TrackIdL_IsoVL_PFJet30_, sizeof(HLT_Ele12_CaloIdL_TrackIdL_IsoVL_PFJet30_), "HLT_Ele12_CaloIdL_TrackIdL_IsoVL_PFJet30");
+    nanoCheckScalarWidth(b_HLT_Ele12_CaloIdM_TrackIdM_PFJet30_, sizeof(HLT_Ele12_CaloIdM_TrackIdM_PFJet30_), "HLT_Ele12_CaloIdM_TrackIdM_PFJet30");
+    nanoCheckScalarWidth(b_HLT_Ele135_CaloIdVT_GsfTrkIdT_, sizeof(HLT_Ele135_CaloIdVT_GsfTrkIdT_), "HLT_Ele135_CaloIdVT_GsfTrkIdT");
+    nanoCheckScalarWidth(b_HLT_Ele145_CaloIdVT_GsfTrkIdT_, sizeof(HLT_Ele145_CaloIdVT_GsfTrkIdT_), "HLT_Ele145_CaloIdVT_GsfTrkIdT");
+    nanoCheckScalarWidth(b_HLT_Ele15_CaloIdL_TrackIdL_IsoVL_PFJet30_, sizeof(HLT_Ele15_CaloIdL_TrackIdL_IsoVL_PFJet30_), "HLT_Ele15_CaloIdL_TrackIdL_IsoVL_PFJet30");
+    nanoCheckScalarWidth(b_HLT_Ele15_Ele8_CaloIdL_TrackIdL_IsoVL_, sizeof(HLT_Ele15_Ele8_CaloIdL_TrackIdL_IsoVL_), "HLT_Ele15_Ele8_CaloIdL_TrackIdL_IsoVL");
+    nanoCheckScalarWidth(b_HLT_Ele15_IsoVVVL_BTagCSV_p067_PFHT400_, sizeof(HLT_Ele15_IsoVVVL_BTagCSV_p067_PFHT400_), "HLT_Ele15_IsoVVVL_BTagCSV_p067_PFHT400");
+    nanoCheckScalarWidth(b_HLT_Ele15_IsoVVVL_PFHT350_, sizeof(HLT_Ele15_IsoVVVL_PFHT350_), "HLT_Ele15_IsoVVVL_PFHT350");
+    nanoCheckScalarWidth(b_HLT_Ele15_IsoVVVL_PFHT350_PFMET50_, sizeof(HLT_Ele15_IsoVVVL_PFHT350_PFMET50_), "HLT_Ele15_IsoVVVL_PFHT350_PFMET50");
+    nanoCheckScalarWidth(b_HLT_Ele15_IsoVVVL_PFHT400_, sizeof(HLT_Ele15_IsoVVVL_PFHT400_), "HLT_Ele15_IsoVVVL_PFHT400");
+    nanoCheckScalarWidth(b_HLT_Ele15_IsoVVVL_PFHT400_PFMET50_, sizeof(HLT_Ele15_IsoVVVL_PFHT400_PFMET50_), "HLT_Ele15_IsoVVVL_PFHT400_PFMET50");
+    nanoCheckScalarWidth(b_HLT_Ele15_IsoVVVL_PFHT450_, sizeof(HLT_Ele15_IsoVVVL_PFHT450_), "HLT_Ele15_IsoVVVL_PFHT450");
+    nanoCheckScalarWidth(b_HLT_Ele15_IsoVVVL_PFHT450_CaloBTagCSV_4p5_, sizeof(HLT_Ele15_IsoVVVL_PFHT450_CaloBTagCSV_4p5_), "HLT_Ele15_IsoVVVL_PFHT450_CaloBTagCSV_4p5");
+    nanoCheckScalarWidth(b_HLT_Ele15_IsoVVVL_PFHT450_CaloBTagDeepCSV_4p5_, sizeof(HLT_Ele15_IsoVVVL_PFHT450_CaloBTagDeepCSV_4p5_), "HLT_Ele15_IsoVVVL_PFHT450_CaloBTagDeepCSV_4p5");
+    nanoCheckScalarWidth(b_HLT_Ele15_IsoVVVL_PFHT450_PFMET50_, sizeof(HLT_Ele15_IsoVVVL_PFHT450_PFMET50_), "HLT_Ele15_IsoVVVL_PFHT450_PFMET50");
+    nanoCheckScalarWidth(b_HLT_Ele15_IsoVVVL_PFHT600_, sizeof(HLT_Ele15_IsoVVVL_PFHT600_), "HLT_Ele15_IsoVVVL_PFHT600");
+    nanoCheckScalarWidth(b_HLT_Ele15_WPLoose_Gsf_, sizeof(HLT_Ele15_WPLoose_Gsf_), "HLT_Ele15_WPLoose_Gsf");
+    nanoCheckScalarWidth(b_HLT_Ele16_Ele12_Ele8_CaloIdL_TrackIdL_, sizeof(HLT_Ele16_Ele12_Ele8_CaloIdL_TrackIdL_), "HLT_Ele16_Ele12_Ele8_CaloIdL_TrackIdL");
+    nanoCheckScalarWidth(b_HLT_Ele17_CaloIdL_GsfTrkIdVL_, sizeof(HLT_Ele17_CaloIdL_GsfTrkIdVL_), "HLT_Ele17_CaloIdL_GsfTrkIdVL");
+    nanoCheckScalarWidth(b_HLT_Ele17_CaloIdL_TrackIdL_IsoVL_, sizeof(HLT_Ele17_CaloIdL_TrackIdL_IsoVL_), "HLT_Ele17_CaloIdL_TrackIdL_IsoVL");
+    nanoCheckScalarWidth(b_HLT_Ele17_CaloIdL_TrackIdL_IsoVL_PFJet30_, sizeof(HLT_Ele17_CaloIdL_TrackIdL_IsoVL_PFJet30_), "HLT_Ele17_CaloIdL_TrackIdL_IsoVL_PFJet30");
+    nanoCheckScalarWidth(b_HLT_Ele17_CaloIdM_TrackIdM_PFJet30_, sizeof(HLT_Ele17_CaloIdM_TrackIdM_PFJet30_), "HLT_Ele17_CaloIdM_TrackIdM_PFJet30");
+    nanoCheckScalarWidth(b_HLT_Ele17_Ele12_CaloIdL_TrackIdL_IsoVL_, sizeof(HLT_Ele17_Ele12_CaloIdL_TrackIdL_IsoVL_), "HLT_Ele17_Ele12_CaloIdL_TrackIdL_IsoVL");
+    nanoCheckScalarWidth(b_HLT_Ele17_Ele12_CaloIdL_TrackIdL_IsoVL_DZ_, sizeof(HLT_Ele17_Ele12_CaloIdL_TrackIdL_IsoVL_DZ_), "HLT_Ele17_Ele12_CaloIdL_TrackIdL_IsoVL_DZ");
+    nanoCheckScalarWidth(b_HLT_Ele17_Ele8_Gsf_, sizeof(HLT_Ele17_Ele8_Gsf_), "HLT_Ele17_Ele8_Gsf");
+    nanoCheckScalarWidth(b_HLT_Ele17_WPLoose_Gsf_, sizeof(HLT_Ele17_WPLoose_Gsf_), "HLT_Ele17_WPLoose_Gsf");
+    nanoCheckScalarWidth(b_HLT_Ele200_CaloIdVT_GsfTrkIdT_, sizeof(HLT_Ele200_CaloIdVT_GsfTrkIdT_), "HLT_Ele200_CaloIdVT_GsfTrkIdT");
+    nanoCheckScalarWidth(b_HLT_Ele20_WPLoose_Gsf_, sizeof(HLT_Ele20_WPLoose_Gsf_), "HLT_Ele20_WPLoose_Gsf");
+    nanoCheckScalarWidth(b_HLT_Ele20_WPTight_Gsf_, sizeof(HLT_Ele20_WPTight_Gsf_), "HLT_Ele20_WPTight_Gsf");
+    nanoCheckScalarWidth(b_HLT_Ele20_eta2p1_WPLoose_Gsf_, sizeof(HLT_Ele20_eta2p1_WPLoose_Gsf_), "HLT_Ele20_eta2p1_WPLoose_Gsf");
+    nanoCheckScalarWidth(b_HLT_Ele20_eta2p1_WPLoose_Gsf_LooseIsoPFTau28_, sizeof(HLT_Ele20_eta2p1_WPLoose_Gsf_LooseIsoPFTau28_), "HLT_Ele20_eta2p1_WPLoose_Gsf_LooseIsoPFTau28");
+    nanoCheckScalarWidth(b_HLT_Ele22_eta2p1_WPLoose_Gsf_, sizeof(HLT_Ele22_eta2p1_WPLoose_Gsf_), "HLT_Ele22_eta2p1_WPLoose_Gsf");
+    nanoCheckScalarWidth(b_HLT_Ele22_eta2p1_WPLoose_Gsf_LooseIsoPFTau20_SingleL1_, sizeof(HLT_Ele22_eta2p1_WPLoose_Gsf_LooseIsoPFTau20_SingleL1_), "HLT_Ele22_eta2p1_WPLoose_Gsf_LooseIsoPFTau20_SingleL1");
+    nanoCheckScalarWidth(b_HLT_Ele22_eta2p1_WPLoose_Gsf_LooseIsoPFTau29_, sizeof(HLT_Ele22_eta2p1_WPLoose_Gsf_LooseIsoPFTau29_), "HLT_Ele22_eta2p1_WPLoose_Gsf_LooseIsoPFTau29");
+    nanoCheckScalarWidth(b_HLT_Ele23_CaloIdL_TrackIdL_IsoVL_, sizeof(HLT_Ele23_CaloIdL_TrackIdL_IsoVL_), "HLT_Ele23_CaloIdL_TrackIdL_IsoVL");
+    nanoCheckScalarWidth(b_HLT_Ele23_CaloIdL_TrackIdL_IsoVL_PFJet30_, sizeof(HLT_Ele23_CaloIdL_TrackIdL_IsoVL_PFJet30_), "HLT_Ele23_CaloIdL_TrackIdL_IsoVL_PFJet30");
+    nanoCheckScalarWidth(b_HLT_Ele23_CaloIdM_TrackIdM_PFJet30_, sizeof(HLT_Ele23_CaloIdM_TrackIdM_PFJet30_), "HLT_Ele23_CaloIdM_TrackIdM_PFJet30");
+    nanoCheckScalarWidth(b_HLT_Ele23_Ele12_CaloIdL_TrackIdL_IsoVL_, sizeof(HLT_Ele23_Ele12_CaloIdL_TrackIdL_IsoVL_), "HLT_Ele23_Ele12_CaloIdL_TrackIdL_IsoVL");
+    nanoCheckScalarWidth(b_HLT_Ele23_Ele12_CaloIdL_TrackIdL_IsoVL_DZ_, sizeof(HLT_Ele23_Ele12_CaloIdL_TrackIdL_IsoVL_DZ_), "HLT_Ele23_Ele12_CaloIdL_TrackIdL_IsoVL_DZ");
+    nanoCheckScalarWidth(b_HLT_Ele23_Ele12_CaloIdL_TrackIdL_IsoVL_DZ_L1JetTauSeeded_, sizeof(HLT_Ele23_Ele12_CaloIdL_TrackIdL_IsoVL_DZ_L1JetTauSeeded_), "HLT_Ele23_Ele12_CaloIdL_TrackIdL_IsoVL_DZ_L1JetTauSeeded");
+    nanoCheckScalarWidth(b_HLT_Ele23_WPLoose_Gsf_, sizeof(HLT_Ele23_WPLoose_Gsf_), "HLT_Ele23_WPLoose_Gsf");
+    nanoCheckScalarWidth(b_HLT_Ele23_WPLoose_Gsf_WHbbBoost_, sizeof(HLT_Ele23_WPLoose_Gsf_WHbbBoost_), "HLT_Ele23_WPLoose_Gsf_WHbbBoost");
+    nanoCheckScalarWidth(b_HLT_Ele24_eta2p1_WPLoose_Gsf_, sizeof(HLT_Ele24_eta2p1_WPLoose_Gsf_), "HLT_Ele24_eta2p1_WPLoose_Gsf");
+    nanoCheckScalarWidth(b_HLT_Ele24_eta2p1_WPLoose_Gsf_LooseIsoPFTau20_, sizeof(HLT_Ele24_eta2p1_WPLoose_Gsf_LooseIsoPFTau20_), "HLT_Ele24_eta2p1_WPLoose_Gsf_LooseIsoPFTau20");
+    nanoCheckScalarWidth(b_HLT_Ele24_eta2p1_WPLoose_Gsf_LooseIsoPFTau20_SingleL1_, sizeof(HLT_Ele24_eta2p1_WPLoose_Gsf_LooseIsoPFTau20_SingleL1_), "HLT_Ele24_eta2p1_WPLoose_Gsf_LooseIsoPFTau20_SingleL1");
+    nanoCheckScalarWidth(b_HLT_Ele24_eta2p1_WPLoose_Gsf_LooseIsoPFTau30_, sizeof(HLT_Ele24_eta2p1_WPLoose_Gsf_LooseIsoPFTau30_), "HLT_Ele24_eta2p1_WPLoose_Gsf_LooseIsoPFTau30");
+    nanoCheckScalarWidth(b_HLT_Ele24_eta2p1_WPTight_Gsf_LooseChargedIsoPFTau30_eta2p1_CrossL1_, sizeof(HLT_Ele24_eta2p1_WPTight_Gsf_LooseChargedIsoPFTau30_eta2p1_CrossL1_), "HLT_Ele24_eta2p1_WPTight_Gsf_LooseChargedIsoPFTau30_eta2p1_CrossL1");
+    nanoCheckScalarWidth(b_HLT_Ele24_eta2p1_WPTight_Gsf_LooseChargedIsoPFTau30_eta2p1_TightID_CrossL1_, sizeof(HLT_Ele24_eta2p1_WPTight_Gsf_LooseChargedIsoPFTau30_eta2p1_TightID_CrossL1_), "HLT_Ele24_eta2p1_WPTight_Gsf_LooseChargedIsoPFTau30_eta2p1_TightID_CrossL1");
+    nanoCheckScalarWidth(b_HLT_Ele24_eta2p1_WPTight_Gsf_LooseChargedIsoPFTauHPS30_eta2p1_CrossL1_, sizeof(HLT_Ele24_eta2p1_WPTight_Gsf_LooseChargedIsoPFTauHPS30_eta2p1_CrossL1_), "HLT_Ele24_eta2p1_WPTight_Gsf_LooseChargedIsoPFTauHPS30_eta2p1_CrossL1");
+    nanoCheckScalarWidth(b_HLT_Ele24_eta2p1_WPTight_Gsf_LooseChargedIsoPFTauHPS30_eta2p1_TightID_CrossL1_, sizeof(HLT_Ele24_eta2p1_WPTight_Gsf_LooseChargedIsoPFTauHPS30_eta2p1_TightID_CrossL1_), "HLT_Ele24_eta2p1_WPTight_Gsf_LooseChargedIsoPFTauHPS30_eta2p1_TightID_CrossL1");
+    nanoCheckScalarWidth(b_HLT_Ele24_eta2p1_WPTight_Gsf_LooseDeepTauPFTauHPS30_eta2p1_CrossL1_, sizeof(HLT_Ele24_eta2p1_WPTight_Gsf_LooseDeepTauPFTauHPS30_eta2p1_CrossL1_), "HLT_Ele24_eta2p1_WPTight_Gsf_LooseDeepTauPFTauHPS30_eta2p1_CrossL1");
+    nanoCheckScalarWidth(b_HLT_Ele24_eta2p1_WPTight_Gsf_MediumChargedIsoPFTau30_eta2p1_CrossL1_, sizeof(HLT_Ele24_eta2p1_WPTight_Gsf_MediumChargedIsoPFTau30_eta2p1_CrossL1_), "HLT_Ele24_eta2p1_WPTight_Gsf_MediumChargedIsoPFTau30_eta2p1_CrossL1");
+    nanoCheckScalarWidth(b_HLT_Ele24_eta2p1_WPTight_Gsf_MediumChargedIsoPFTau30_eta2p1_TightID_CrossL1_, sizeof(HLT_Ele24_eta2p1_WPTight_Gsf_MediumChargedIsoPFTau30_eta2p1_TightID_CrossL1_), "HLT_Ele24_eta2p1_WPTight_Gsf_MediumChargedIsoPFTau30_eta2p1_TightID_CrossL1");
+    nanoCheckScalarWidth(b_HLT_Ele24_eta2p1_WPTight_Gsf_MediumChargedIsoPFTauHPS30_eta2p1_CrossL1_, sizeof(HLT_Ele24_eta2p1_WPTight_Gsf_MediumChargedIsoPFTauHPS30_eta2p1_CrossL1_), "HLT_Ele24_eta2p1_WPTight_Gsf_MediumChargedIsoPFTauHPS30_eta2p1_CrossL1");
+    nanoCheckScalarWidth(b_HLT_Ele24_eta2p1_WPTight_Gsf_MediumChargedIsoPFTauHPS30_eta2p1_TightID_CrossL1_, sizeof(HLT_Ele24_eta2p1_WPTight_Gsf_MediumChargedIsoPFTauHPS30_eta2p1_TightID_CrossL1_), "HLT_Ele24_eta2p1_WPTight_Gsf_MediumChargedIsoPFTauHPS30_eta2p1_TightID_CrossL1");
+    nanoCheckScalarWidth(b_HLT_Ele24_eta2p1_WPTight_Gsf_TightChargedIsoPFTau30_eta2p1_CrossL1_, sizeof(HLT_Ele24_eta2p1_WPTight_Gsf_TightChargedIsoPFTau30_eta2p1_CrossL1_), "HLT_Ele24_eta2p1_WPTight_Gsf_TightChargedIsoPFTau30_eta2p1_CrossL1");
+    nanoCheckScalarWidth(b_HLT_Ele24_eta2p1_WPTight_Gsf_TightChargedIsoPFTau30_eta2p1_TightID_CrossL1_, sizeof(HLT_Ele24_eta2p1_WPTight_Gsf_TightChargedIsoPFTau30_eta2p1_TightID_CrossL1_), "HLT_Ele24_eta2p1_WPTight_Gsf_TightChargedIsoPFTau30_eta2p1_TightID_CrossL1");
+    nanoCheckScalarWidth(b_HLT_Ele24_eta2p1_WPTight_Gsf_TightChargedIsoPFTauHPS30_eta2p1_CrossL1_, sizeof(HLT_Ele24_eta2p1_WPTight_Gsf_TightChargedIsoPFTauHPS30_eta2p1_CrossL1_), "HLT_Ele24_eta2p1_WPTight_Gsf_TightChargedIsoPFTauHPS30_eta2p1_CrossL1");
+    nanoCheckScalarWidth(b_HLT_Ele24_eta2p1_WPTight_Gsf_TightChargedIsoPFTauHPS30_eta2p1_TightID_CrossL1_, sizeof(HLT_Ele24_eta2p1_WPTight_Gsf_TightChargedIsoPFTauHPS30_eta2p1_TightID_CrossL1_), "HLT_Ele24_eta2p1_WPTight_Gsf_TightChargedIsoPFTauHPS30_eta2p1_TightID_CrossL1");
+    nanoCheckScalarWidth(b_HLT_Ele250_CaloIdVT_GsfTrkIdT_, sizeof(HLT_Ele250_CaloIdVT_GsfTrkIdT_), "HLT_Ele250_CaloIdVT_GsfTrkIdT");
+    nanoCheckScalarWidth(b_HLT_Ele25_WPTight_Gsf_, sizeof(HLT_Ele25_WPTight_Gsf_), "HLT_Ele25_WPTight_Gsf");
+    nanoCheckScalarWidth(b_HLT_Ele25_eta2p1_WPLoose_Gsf_, sizeof(HLT_Ele25_eta2p1_WPLoose_Gsf_), "HLT_Ele25_eta2p1_WPLoose_Gsf");
+    nanoCheckScalarWidth(b_HLT_Ele25_eta2p1_WPTight_Gsf_, sizeof(HLT_Ele25_eta2p1_WPTight_Gsf_), "HLT_Ele25_eta2p1_WPTight_Gsf");
+    nanoCheckScalarWidth(b_HLT_Ele27_Ele37_CaloIdL_MW_, sizeof(HLT_Ele27_Ele37_CaloIdL_MW_), "HLT_Ele27_Ele37_CaloIdL_MW");
+    nanoCheckScalarWidth(b_HLT_Ele27_HighEta_Ele20_Mass55_, sizeof(HLT_Ele27_HighEta_Ele20_Mass55_), "HLT_Ele27_HighEta_Ele20_Mass55");
+    nanoCheckScalarWidth(b_HLT_Ele27_WPLoose_Gsf_, sizeof(HLT_Ele27_WPLoose_Gsf_), "HLT_Ele27_WPLoose_Gsf");
+    nanoCheckScalarWidth(b_HLT_Ele27_WPLoose_Gsf_WHbbBoost_, sizeof(HLT_Ele27_WPLoose_Gsf_WHbbBoost_), "HLT_Ele27_WPLoose_Gsf_WHbbBoost");
+    nanoCheckScalarWidth(b_HLT_Ele27_WPTight_Gsf_, sizeof(HLT_Ele27_WPTight_Gsf_), "HLT_Ele27_WPTight_Gsf");
+    nanoCheckScalarWidth(b_HLT_Ele27_WPTight_Gsf_L1JetTauSeeded_, sizeof(HLT_Ele27_WPTight_Gsf_L1JetTauSeeded_), "HLT_Ele27_WPTight_Gsf_L1JetTauSeeded");
+    nanoCheckScalarWidth(b_HLT_Ele27_eta2p1_WPLoose_Gsf_, sizeof(HLT_Ele27_eta2p1_WPLoose_Gsf_), "HLT_Ele27_eta2p1_WPLoose_Gsf");
+    nanoCheckScalarWidth(b_HLT_Ele27_eta2p1_WPLoose_Gsf_DoubleMediumIsoPFTau32_Trk1_eta2p1_Reg_, sizeof(HLT_Ele27_eta2p1_WPLoose_Gsf_DoubleMediumIsoPFTau32_Trk1_eta2p1_Reg_), "HLT_Ele27_eta2p1_WPLoose_Gsf_DoubleMediumIsoPFTau32_Trk1_eta2p1_Reg");
+    nanoCheckScalarWidth(b_HLT_Ele27_eta2p1_WPLoose_Gsf_DoubleMediumIsoPFTau35_Trk1_eta2p1_Reg_, sizeof(HLT_Ele27_eta2p1_WPLoose_Gsf_DoubleMediumIsoPFTau35_Trk1_eta2p1_Reg_), "HLT_Ele27_eta2p1_WPLoose_Gsf_DoubleMediumIsoPFTau35_Trk1_eta2p1_Reg");
+    nanoCheckScalarWidth(b_HLT_Ele27_eta2p1_WPLoose_Gsf_DoubleMediumIsoPFTau40_Trk1_eta2p1_Reg_, sizeof(HLT_Ele27_eta2p1_WPLoose_Gsf_DoubleMediumIsoPFTau40_Trk1_eta2p1_Reg_), "HLT_Ele27_eta2p1_WPLoose_Gsf_DoubleMediumIsoPFTau40_Trk1_eta2p1_Reg");
+    nanoCheckScalarWidth(b_HLT_Ele27_eta2p1_WPLoose_Gsf_HT200_, sizeof(HLT_Ele27_eta2p1_WPLoose_Gsf_HT200_), "HLT_Ele27_eta2p1_WPLoose_Gsf_HT200");
+    nanoCheckScalarWidth(b_HLT_Ele27_eta2p1_WPLoose_Gsf_LooseIsoPFTau20_SingleL1_, sizeof(HLT_Ele27_eta2p1_WPLoose_Gsf_LooseIsoPFTau20_SingleL1_), "HLT_Ele27_eta2p1_WPLoose_Gsf_LooseIsoPFTau20_SingleL1");
+    nanoCheckScalarWidth(b_HLT_Ele27_eta2p1_WPTight_Gsf_, sizeof(HLT_Ele27_eta2p1_WPTight_Gsf_), "HLT_Ele27_eta2p1_WPTight_Gsf");
+    nanoCheckScalarWidth(b_HLT_Ele28_HighEta_SC20_Mass55_, sizeof(HLT_Ele28_HighEta_SC20_Mass55_), "HLT_Ele28_HighEta_SC20_Mass55");
+    nanoCheckScalarWidth(b_HLT_Ele28_WPTight_Gsf_, sizeof(HLT_Ele28_WPTight_Gsf_), "HLT_Ele28_WPTight_Gsf");
+    nanoCheckScalarWidth(b_HLT_Ele28_eta2p1_WPTight_Gsf_HT150_, sizeof(HLT_Ele28_eta2p1_WPTight_Gsf_HT150_), "HLT_Ele28_eta2p1_WPTight_Gsf_HT150");
+    nanoCheckScalarWidth(b_HLT_Ele300_CaloIdVT_GsfTrkIdT_, sizeof(HLT_Ele300_CaloIdVT_GsfTrkIdT_), "HLT_Ele300_CaloIdVT_GsfTrkIdT");
+    nanoCheckScalarWidth(b_HLT_Ele30WP60_Ele8_Mass55_, sizeof(HLT_Ele30WP60_Ele8_Mass55_), "HLT_Ele30WP60_Ele8_Mass55");
+    nanoCheckScalarWidth(b_HLT_Ele30WP60_SC4_Mass55_, sizeof(HLT_Ele30WP60_SC4_Mass55_), "HLT_Ele30WP60_SC4_Mass55");
+    nanoCheckScalarWidth(b_HLT_Ele30_WPTight_Gsf_, sizeof(HLT_Ele30_WPTight_Gsf_), "HLT_Ele30_WPTight_Gsf");
+    nanoCheckScalarWidth(b_HLT_Ele30_eta2p1_WPLoose_Gsf_, sizeof(HLT_Ele30_eta2p1_WPLoose_Gsf_), "HLT_Ele30_eta2p1_WPLoose_Gsf");
+    nanoCheckScalarWidth(b_HLT_Ele30_eta2p1_WPTight_Gsf_, sizeof(HLT_Ele30_eta2p1_WPTight_Gsf_), "HLT_Ele30_eta2p1_WPTight_Gsf");
+    nanoCheckScalarWidth(b_HLT_Ele30_eta2p1_WPTight_Gsf_CentralPFJet35_EleCleaned_, sizeof(HLT_Ele30_eta2p1_WPTight_Gsf_CentralPFJet35_EleCleaned_), "HLT_Ele30_eta2p1_WPTight_Gsf_CentralPFJet35_EleCleaned");
+    nanoCheckScalarWidth(b_HLT_Ele32_WPTight_Gsf_, sizeof(HLT_Ele32_WPTight_Gsf_), "HLT_Ele32_WPTight_Gsf");
+    nanoCheckScalarWidth(b_HLT_Ele32_WPTight_Gsf_L1DoubleEG_, sizeof(HLT_Ele32_WPTight_Gsf_L1DoubleEG_), "HLT_Ele32_WPTight_Gsf_L1DoubleEG");
+    nanoCheckScalarWidth(b_HLT_Ele32_eta2p1_WPLoose_Gsf_, sizeof(HLT_Ele32_eta2p1_WPLoose_Gsf_), "HLT_Ele32_eta2p1_WPLoose_Gsf");
+    nanoCheckScalarWidth(b_HLT_Ele32_eta2p1_WPLoose_Gsf_LooseIsoPFTau20_SingleL1_, sizeof(HLT_Ele32_eta2p1_WPLoose_Gsf_LooseIsoPFTau20_SingleL1_), "HLT_Ele32_eta2p1_WPLoose_Gsf_LooseIsoPFTau20_SingleL1");
+    nanoCheckScalarWidth(b_HLT_Ele32_eta2p1_WPTight_Gsf_, sizeof(HLT_Ele32_eta2p1_WPTight_Gsf_), "HLT_Ele32_eta2p1_WPTight_Gsf");
+    nanoCheckScalarWidth(b_HLT_Ele35_CaloIdVT_GsfTrkIdT_PFJet150_PFJet50_, sizeof(HLT_Ele35_CaloIdVT_GsfTrkIdT_PFJet150_PFJet50_), "HLT_Ele35_CaloIdVT_GsfTrkIdT_PFJet150_PFJet50");
+    nanoCheckScalarWidth(b_HLT_Ele35_WPLoose_Gsf_, sizeof(HLT_Ele35_WPLoose_Gsf_), "HLT_Ele35_WPLoose_Gsf");
+    nanoCheckScalarWidth(b_HLT_Ele35_WPTight_Gsf_, sizeof(HLT_Ele35_WPTight_Gsf_), "HLT_Ele35_WPTight_Gsf");
+    nanoCheckScalarWidth(b_HLT_Ele35_WPTight_Gsf_L1EGMT_, sizeof(HLT_Ele35_WPTight_Gsf_L1EGMT_), "HLT_Ele35_WPTight_Gsf_L1EGMT");
+    nanoCheckScalarWidth(b_HLT_Ele36_eta2p1_WPLoose_Gsf_LooseIsoPFTau20_SingleL1_, sizeof(HLT_Ele36_eta2p1_WPLoose_Gsf_LooseIsoPFTau20_SingleL1_), "HLT_Ele36_eta2p1_WPLoose_Gsf_LooseIsoPFTau20_SingleL1");
+    nanoCheckScalarWidth(b_HLT_Ele38_WPTight_Gsf_, sizeof(HLT_Ele38_WPTight_Gsf_), "HLT_Ele38_WPTight_Gsf");
+    nanoCheckScalarWidth(b_HLT_Ele40_WPTight_Gsf_, sizeof(HLT_Ele40_WPTight_Gsf_), "HLT_Ele40_WPTight_Gsf");
+    nanoCheckScalarWidth(b_HLT_Ele45_CaloIdVT_GsfTrkIdT_PFJet200_PFJet50_, sizeof(HLT_Ele45_CaloIdVT_GsfTrkIdT_PFJet200_PFJet50_), "HLT_Ele45_CaloIdVT_GsfTrkIdT_PFJet200_PFJet50");
+    nanoCheckScalarWidth(b_HLT_Ele45_WPLoose_Gsf_, sizeof(HLT_Ele45_WPLoose_Gsf_), "HLT_Ele45_WPLoose_Gsf");
+    nanoCheckScalarWidth(b_HLT_Ele45_WPLoose_Gsf_L1JetTauSeeded_, sizeof(HLT_Ele45_WPLoose_Gsf_L1JetTauSeeded_), "HLT_Ele45_WPLoose_Gsf_L1JetTauSeeded");
+    nanoCheckScalarWidth(b_HLT_Ele50_CaloIdVT_GsfTrkIdT_AK8PFJet230_SoftDropMass40_, sizeof(HLT_Ele50_CaloIdVT_GsfTrkIdT_AK8PFJet230_SoftDropMass40_), "HLT_Ele50_CaloIdVT_GsfTrkIdT_AK8PFJet230_SoftDropMass40");
+    nanoCheckScalarWidth(b_HLT_Ele50_CaloIdVT_GsfTrkIdT_AK8PFJet230_SoftDropMass40_PFAK8ParticleNetBB0p35_, sizeof(HLT_Ele50_CaloIdVT_GsfTrkIdT_AK8PFJet230_SoftDropMass40_PFAK8ParticleNetBB0p35_), "HLT_Ele50_CaloIdVT_GsfTrkIdT_AK8PFJet230_SoftDropMass40_PFAK8ParticleNetBB0p35");
+    nanoCheckScalarWidth(b_HLT_Ele50_CaloIdVT_GsfTrkIdT_PFJet140_, sizeof(HLT_Ele50_CaloIdVT_GsfTrkIdT_PFJet140_), "HLT_Ele50_CaloIdVT_GsfTrkIdT_PFJet140");
+    nanoCheckScalarWidth(b_HLT_Ele50_CaloIdVT_GsfTrkIdT_PFJet165_, sizeof(HLT_Ele50_CaloIdVT_GsfTrkIdT_PFJet165_), "HLT_Ele50_CaloIdVT_GsfTrkIdT_PFJet165");
+    nanoCheckScalarWidth(b_HLT_Ele50_IsoVVVL_PFHT400_, sizeof(HLT_Ele50_IsoVVVL_PFHT400_), "HLT_Ele50_IsoVVVL_PFHT400");
+    nanoCheckScalarWidth(b_HLT_Ele50_IsoVVVL_PFHT450_, sizeof(HLT_Ele50_IsoVVVL_PFHT450_), "HLT_Ele50_IsoVVVL_PFHT450");
+    nanoCheckScalarWidth(b_HLT_Ele8_CaloIdL_TrackIdL_IsoVL_PFJet30_, sizeof(HLT_Ele8_CaloIdL_TrackIdL_IsoVL_PFJet30_), "HLT_Ele8_CaloIdL_TrackIdL_IsoVL_PFJet30");
+    nanoCheckScalarWidth(b_HLT_Ele8_CaloIdM_TrackIdM_PFJet30_, sizeof(HLT_Ele8_CaloIdM_TrackIdM_PFJet30_), "HLT_Ele8_CaloIdM_TrackIdM_PFJet30");
+    nanoCheckScalarWidth(b_HLT_EphemeralPhysics_, sizeof(HLT_EphemeralPhysics_), "HLT_EphemeralPhysics");
+    nanoCheckScalarWidth(b_HLT_EphemeralZeroBias_, sizeof(HLT_EphemeralZeroBias_), "HLT_EphemeralZeroBias");
+    nanoCheckScalarWidth(b_HLT_ExpressMuons_, sizeof(HLT_ExpressMuons_), "HLT_ExpressMuons");
+    nanoCheckScalarWidth(b_HLT_FullTrack_Multiplicity100_, sizeof(HLT_FullTrack_Multiplicity100_), "HLT_FullTrack_Multiplicity100");
+    nanoCheckScalarWidth(b_HLT_FullTrack_Multiplicity105_, sizeof(HLT_FullTrack_Multiplicity105_), "HLT_FullTrack_Multiplicity105");
+    nanoCheckScalarWidth(b_HLT_FullTrack_Multiplicity130_, sizeof(HLT_FullTrack_Multiplicity130_), "HLT_FullTrack_Multiplicity130");
+    nanoCheckScalarWidth(b_HLT_FullTrack_Multiplicity135_, sizeof(HLT_FullTrack_Multiplicity135_), "HLT_FullTrack_Multiplicity135");
+    nanoCheckScalarWidth(b_HLT_FullTrack_Multiplicity155_, sizeof(HLT_FullTrack_Multiplicity155_), "HLT_FullTrack_Multiplicity155");
+    nanoCheckScalarWidth(b_HLT_FullTrack_Multiplicity85_, sizeof(HLT_FullTrack_Multiplicity85_), "HLT_FullTrack_Multiplicity85");
+    nanoCheckScalarWidth(b_HLT_FullTracks_Multiplicity100_, sizeof(HLT_FullTracks_Multiplicity100_), "HLT_FullTracks_Multiplicity100");
+    nanoCheckScalarWidth(b_HLT_FullTracks_Multiplicity130_, sizeof(HLT_FullTracks_Multiplicity130_), "HLT_FullTracks_Multiplicity130");
+    nanoCheckScalarWidth(b_HLT_FullTracks_Multiplicity150_, sizeof(HLT_FullTracks_Multiplicity150_), "HLT_FullTracks_Multiplicity150");
+    nanoCheckScalarWidth(b_HLT_FullTracks_Multiplicity80_, sizeof(HLT_FullTracks_Multiplicity80_), "HLT_FullTracks_Multiplicity80");
+    nanoCheckScalarWidth(b_HLT_GlobalRunHPDNoise_, sizeof(HLT_GlobalRunHPDNoise_), "HLT_GlobalRunHPDNoise");
+    nanoCheckScalarWidth(b_HLT_HISinglePhoton10_, sizeof(HLT_HISinglePhoton10_), "HLT_HISinglePhoton10");
+    nanoCheckScalarWidth(b_HLT_HISinglePhoton10_Eta3p1ForPPRef_, sizeof(HLT_HISinglePhoton10_Eta3p1ForPPRef_), "HLT_HISinglePhoton10_Eta3p1ForPPRef");
+    nanoCheckScalarWidth(b_HLT_HISinglePhoton15_, sizeof(HLT_HISinglePhoton15_), "HLT_HISinglePhoton15");
+    nanoCheckScalarWidth(b_HLT_HISinglePhoton20_, sizeof(HLT_HISinglePhoton20_), "HLT_HISinglePhoton20");
+    nanoCheckScalarWidth(b_HLT_HISinglePhoton20_Eta3p1ForPPRef_, sizeof(HLT_HISinglePhoton20_Eta3p1ForPPRef_), "HLT_HISinglePhoton20_Eta3p1ForPPRef");
+    nanoCheckScalarWidth(b_HLT_HISinglePhoton30_Eta3p1ForPPRef_, sizeof(HLT_HISinglePhoton30_Eta3p1ForPPRef_), "HLT_HISinglePhoton30_Eta3p1ForPPRef");
+    nanoCheckScalarWidth(b_HLT_HISinglePhoton40_, sizeof(HLT_HISinglePhoton40_), "HLT_HISinglePhoton40");
+    nanoCheckScalarWidth(b_HLT_HISinglePhoton40_Eta3p1ForPPRef_, sizeof(HLT_HISinglePhoton40_Eta3p1ForPPRef_), "HLT_HISinglePhoton40_Eta3p1ForPPRef");
+    nanoCheckScalarWidth(b_HLT_HISinglePhoton50_Eta3p1ForPPRef_, sizeof(HLT_HISinglePhoton50_Eta3p1ForPPRef_), "HLT_HISinglePhoton50_Eta3p1ForPPRef");
+    nanoCheckScalarWidth(b_HLT_HISinglePhoton60_, sizeof(HLT_HISinglePhoton60_), "HLT_HISinglePhoton60");
+    nanoCheckScalarWidth(b_HLT_HISinglePhoton60_Eta3p1ForPPRef_, sizeof(HLT_HISinglePhoton60_Eta3p1ForPPRef_), "HLT_HISinglePhoton60_Eta3p1ForPPRef");
+    nanoCheckScalarWidth(b_HLT_HT170_L1SingleLLPJet_DisplacedDijet40_DisplacedTrack_, sizeof(HLT_HT170_L1SingleLLPJet_DisplacedDijet40_DisplacedTrack_), "HLT_HT170_L1SingleLLPJet_DisplacedDijet40_DisplacedTrack");
+    nanoCheckScalarWidth(b_HLT_HT200_, sizeof(HLT_HT200_), "HLT_HT200");
+    nanoCheckScalarWidth(b_HLT_HT2000_, sizeof(HLT_HT2000_), "HLT_HT2000");
+    nanoCheckScalarWidth(b_HLT_HT200_DisplacedDijet40_DisplacedTrack_, sizeof(HLT_HT200_DisplacedDijet40_DisplacedTrack_), "HLT_HT200_DisplacedDijet40_DisplacedTrack");
+    nanoCheckScalarWidth(b_HLT_HT200_L1SingleLLPJet_DelayedJet40_DoubleDelay0p5nsTrackless_, sizeof(HLT_HT200_L1SingleLLPJet_DelayedJet40_DoubleDelay0p5nsTrackless_), "HLT_HT200_L1SingleLLPJet_DelayedJet40_DoubleDelay0p5nsTrackless");
+    nanoCheckScalarWidth(b_HLT_HT200_L1SingleLLPJet_DelayedJet40_DoubleDelay1nsInclusive_, sizeof(HLT_HT200_L1SingleLLPJet_DelayedJet40_DoubleDelay1nsInclusive_), "HLT_HT200_L1SingleLLPJet_DelayedJet40_DoubleDelay1nsInclusive");
+    nanoCheckScalarWidth(b_HLT_HT200_L1SingleLLPJet_DelayedJet40_SingleDelay1nsTrackless_, sizeof(HLT_HT200_L1SingleLLPJet_DelayedJet40_SingleDelay1nsTrackless_), "HLT_HT200_L1SingleLLPJet_DelayedJet40_SingleDelay1nsTrackless");
+    nanoCheckScalarWidth(b_HLT_HT200_L1SingleLLPJet_DelayedJet40_SingleDelay2nsInclusive_, sizeof(HLT_HT200_L1SingleLLPJet_DelayedJet40_SingleDelay2nsInclusive_), "HLT_HT200_L1SingleLLPJet_DelayedJet40_SingleDelay2nsInclusive");
+    nanoCheckScalarWidth(b_HLT_HT200_L1SingleLLPJet_DisplacedDijet30_Inclusive1PtrkShortSig5_, sizeof(HLT_HT200_L1SingleLLPJet_DisplacedDijet30_Inclusive1PtrkShortSig5_), "HLT_HT200_L1SingleLLPJet_DisplacedDijet30_Inclusive1PtrkShortSig5");
+    nanoCheckScalarWidth(b_HLT_HT200_L1SingleLLPJet_DisplacedDijet35_Inclusive1PtrkShortSig5_, sizeof(HLT_HT200_L1SingleLLPJet_DisplacedDijet35_Inclusive1PtrkShortSig5_), "HLT_HT200_L1SingleLLPJet_DisplacedDijet35_Inclusive1PtrkShortSig5");
+    nanoCheckScalarWidth(b_HLT_HT200_L1SingleLLPJet_DisplacedDijet40_DisplacedTrack_, sizeof(HLT_HT200_L1SingleLLPJet_DisplacedDijet40_DisplacedTrack_), "HLT_HT200_L1SingleLLPJet_DisplacedDijet40_DisplacedTrack");
+    nanoCheckScalarWidth(b_HLT_HT200_L1SingleLLPJet_DisplacedDijet40_Inclusive1PtrkShortSig5_, sizeof(HLT_HT200_L1SingleLLPJet_DisplacedDijet40_Inclusive1PtrkShortSig5_), "HLT_HT200_L1SingleLLPJet_DisplacedDijet40_Inclusive1PtrkShortSig5");
+    nanoCheckScalarWidth(b_HLT_HT200_L1SingleLLPJet_DisplacedDijet60_DisplacedTrack_, sizeof(HLT_HT200_L1SingleLLPJet_DisplacedDijet60_DisplacedTrack_), "HLT_HT200_L1SingleLLPJet_DisplacedDijet60_DisplacedTrack");
+    nanoCheckScalarWidth(b_HLT_HT2500_, sizeof(HLT_HT2500_), "HLT_HT2500");
+    nanoCheckScalarWidth(b_HLT_HT250_CaloMET70_, sizeof(HLT_HT250_CaloMET70_), "HLT_HT250_CaloMET70");
+    nanoCheckScalarWidth(b_HLT_HT250_DisplacedDijet40_DisplacedTrack_, sizeof(HLT_HT250_DisplacedDijet40_DisplacedTrack_), "HLT_HT250_DisplacedDijet40_DisplacedTrack");
+    nanoCheckScalarWidth(b_HLT_HT270_L1SingleLLPJet_DisplacedDijet40_DisplacedTrack_, sizeof(HLT_HT270_L1SingleLLPJet_DisplacedDijet40_DisplacedTrack_), "HLT_HT270_L1SingleLLPJet_DisplacedDijet40_DisplacedTrack");
+    nanoCheckScalarWidth(b_HLT_HT275_, sizeof(HLT_HT275_), "HLT_HT275");
+    nanoCheckScalarWidth(b_HLT_HT300PT30_QuadJet_75_60_45_40_, sizeof(HLT_HT300PT30_QuadJet_75_60_45_40_), "HLT_HT300PT30_QuadJet_75_60_45_40");
+    nanoCheckScalarWidth(b_HLT_HT300PT30_QuadJet_75_60_45_40_TripeCSV_p07_, sizeof(HLT_HT300PT30_QuadJet_75_60_45_40_TripeCSV_p07_), "HLT_HT300PT30_QuadJet_75_60_45_40_TripeCSV_p07");
+    nanoCheckScalarWidth(b_HLT_HT300_Beamspot_, sizeof(HLT_HT300_Beamspot_), "HLT_HT300_Beamspot");
+    nanoCheckScalarWidth(b_HLT_HT320_L1SingleLLPJet_DisplacedDijet60_Inclusive_, sizeof(HLT_HT320_L1SingleLLPJet_DisplacedDijet60_Inclusive_), "HLT_HT320_L1SingleLLPJet_DisplacedDijet60_Inclusive");
+    nanoCheckScalarWidth(b_HLT_HT325_, sizeof(HLT_HT325_), "HLT_HT325");
+    nanoCheckScalarWidth(b_HLT_HT350_DisplacedDijet40_DisplacedTrack_, sizeof(HLT_HT350_DisplacedDijet40_DisplacedTrack_), "HLT_HT350_DisplacedDijet40_DisplacedTrack");
+    nanoCheckScalarWidth(b_HLT_HT350_DisplacedDijet40_Inclusive_, sizeof(HLT_HT350_DisplacedDijet40_Inclusive_), "HLT_HT350_DisplacedDijet40_Inclusive");
+    nanoCheckScalarWidth(b_HLT_HT350_DisplacedDijet80_DisplacedTrack_, sizeof(HLT_HT350_DisplacedDijet80_DisplacedTrack_), "HLT_HT350_DisplacedDijet80_DisplacedTrack");
+    nanoCheckScalarWidth(b_HLT_HT350_DisplacedDijet80_Tight_DisplacedTrack_, sizeof(HLT_HT350_DisplacedDijet80_Tight_DisplacedTrack_), "HLT_HT350_DisplacedDijet80_Tight_DisplacedTrack");
+    nanoCheckScalarWidth(b_HLT_HT400_DisplacedDijet40_DisplacedTrack_, sizeof(HLT_HT400_DisplacedDijet40_DisplacedTrack_), "HLT_HT400_DisplacedDijet40_DisplacedTrack");
+    nanoCheckScalarWidth(b_HLT_HT400_DisplacedDijet40_Inclusive_, sizeof(HLT_HT400_DisplacedDijet40_Inclusive_), "HLT_HT400_DisplacedDijet40_Inclusive");
+    nanoCheckScalarWidth(b_HLT_HT410to430_, sizeof(HLT_HT410to430_), "HLT_HT410to430");
+    nanoCheckScalarWidth(b_HLT_HT420_L1SingleLLPJet_DisplacedDijet60_Inclusive_, sizeof(HLT_HT420_L1SingleLLPJet_DisplacedDijet60_Inclusive_), "HLT_HT420_L1SingleLLPJet_DisplacedDijet60_Inclusive");
+    nanoCheckScalarWidth(b_HLT_HT425_, sizeof(HLT_HT425_), "HLT_HT425");
+    nanoCheckScalarWidth(b_HLT_HT430_DelayedJet40_DoubleDelay0p5nsInclusive_, sizeof(HLT_HT430_DelayedJet40_DoubleDelay0p5nsInclusive_), "HLT_HT430_DelayedJet40_DoubleDelay0p5nsInclusive");
+    nanoCheckScalarWidth(b_HLT_HT430_DelayedJet40_DoubleDelay0p5nsTrackless_, sizeof(HLT_HT430_DelayedJet40_DoubleDelay0p5nsTrackless_), "HLT_HT430_DelayedJet40_DoubleDelay0p5nsTrackless");
+    nanoCheckScalarWidth(b_HLT_HT430_DelayedJet40_DoubleDelay1nsInclusive_, sizeof(HLT_HT430_DelayedJet40_DoubleDelay1nsInclusive_), "HLT_HT430_DelayedJet40_DoubleDelay1nsInclusive");
+    nanoCheckScalarWidth(b_HLT_HT430_DelayedJet40_SingleDelay0p5nsInclusive_, sizeof(HLT_HT430_DelayedJet40_SingleDelay0p5nsInclusive_), "HLT_HT430_DelayedJet40_SingleDelay0p5nsInclusive");
+    nanoCheckScalarWidth(b_HLT_HT430_DelayedJet40_SingleDelay0p5nsTrackless_, sizeof(HLT_HT430_DelayedJet40_SingleDelay0p5nsTrackless_), "HLT_HT430_DelayedJet40_SingleDelay0p5nsTrackless");
+    nanoCheckScalarWidth(b_HLT_HT430_DelayedJet40_SingleDelay1nsInclusive_, sizeof(HLT_HT430_DelayedJet40_SingleDelay1nsInclusive_), "HLT_HT430_DelayedJet40_SingleDelay1nsInclusive");
+    nanoCheckScalarWidth(b_HLT_HT430_DelayedJet40_SingleDelay1nsTrackless_, sizeof(HLT_HT430_DelayedJet40_SingleDelay1nsTrackless_), "HLT_HT430_DelayedJet40_SingleDelay1nsTrackless");
+    nanoCheckScalarWidth(b_HLT_HT430_DelayedJet40_SingleDelay1p5nsInclusive_, sizeof(HLT_HT430_DelayedJet40_SingleDelay1p5nsInclusive_), "HLT_HT430_DelayedJet40_SingleDelay1p5nsInclusive");
+    nanoCheckScalarWidth(b_HLT_HT430_DelayedJet40_SingleDelay2nsInclusive_, sizeof(HLT_HT430_DelayedJet40_SingleDelay2nsInclusive_), "HLT_HT430_DelayedJet40_SingleDelay2nsInclusive");
+    nanoCheckScalarWidth(b_HLT_HT430_DisplacedDijet30_Inclusive1PtrkShortSig5_, sizeof(HLT_HT430_DisplacedDijet30_Inclusive1PtrkShortSig5_), "HLT_HT430_DisplacedDijet30_Inclusive1PtrkShortSig5");
+    nanoCheckScalarWidth(b_HLT_HT430_DisplacedDijet35_Inclusive1PtrkShortSig5_, sizeof(HLT_HT430_DisplacedDijet35_Inclusive1PtrkShortSig5_), "HLT_HT430_DisplacedDijet35_Inclusive1PtrkShortSig5");
+    nanoCheckScalarWidth(b_HLT_HT430_DisplacedDijet40_DisplacedTrack_, sizeof(HLT_HT430_DisplacedDijet40_DisplacedTrack_), "HLT_HT430_DisplacedDijet40_DisplacedTrack");
+    nanoCheckScalarWidth(b_HLT_HT430_DisplacedDijet40_Inclusive1PtrkShortSig5_, sizeof(HLT_HT430_DisplacedDijet40_Inclusive1PtrkShortSig5_), "HLT_HT430_DisplacedDijet40_Inclusive1PtrkShortSig5");
+    nanoCheckScalarWidth(b_HLT_HT430_DisplacedDijet60_DisplacedTrack_, sizeof(HLT_HT430_DisplacedDijet60_DisplacedTrack_), "HLT_HT430_DisplacedDijet60_DisplacedTrack");
+    nanoCheckScalarWidth(b_HLT_HT430_DisplacedDijet80_DisplacedTrack_, sizeof(HLT_HT430_DisplacedDijet80_DisplacedTrack_), "HLT_HT430_DisplacedDijet80_DisplacedTrack");
+    nanoCheckScalarWidth(b_HLT_HT430to450_, sizeof(HLT_HT430to450_), "HLT_HT430to450");
+    nanoCheckScalarWidth(b_HLT_HT450_Beamspot_, sizeof(HLT_HT450_Beamspot_), "HLT_HT450_Beamspot");
+    nanoCheckScalarWidth(b_HLT_HT450to470_, sizeof(HLT_HT450to470_), "HLT_HT450to470");
+    nanoCheckScalarWidth(b_HLT_HT470to500_, sizeof(HLT_HT470to500_), "HLT_HT470to500");
+    nanoCheckScalarWidth(b_HLT_HT500_DisplacedDijet40_DisplacedTrack_, sizeof(HLT_HT500_DisplacedDijet40_DisplacedTrack_), "HLT_HT500_DisplacedDijet40_DisplacedTrack");
+    nanoCheckScalarWidth(b_HLT_HT500_DisplacedDijet40_Inclusive_, sizeof(HLT_HT500_DisplacedDijet40_Inclusive_), "HLT_HT500_DisplacedDijet40_Inclusive");
+    nanoCheckScalarWidth(b_HLT_HT500to550_, sizeof(HLT_HT500to550_), "HLT_HT500to550");
+    nanoCheckScalarWidth(b_HLT_HT550_DisplacedDijet40_Inclusive_, sizeof(HLT_HT550_DisplacedDijet40_Inclusive_), "HLT_HT550_DisplacedDijet40_Inclusive");
+    nanoCheckScalarWidth(b_HLT_HT550_DisplacedDijet60_Inclusive_, sizeof(HLT_HT550_DisplacedDijet60_Inclusive_), "HLT_HT550_DisplacedDijet60_Inclusive");
+    nanoCheckScalarWidth(b_HLT_HT550_DisplacedDijet80_Inclusive_, sizeof(HLT_HT550_DisplacedDijet80_Inclusive_), "HLT_HT550_DisplacedDijet80_Inclusive");
+    nanoCheckScalarWidth(b_HLT_HT550to650_, sizeof(HLT_HT550to650_), "HLT_HT550to650");
+    nanoCheckScalarWidth(b_HLT_HT575_, sizeof(HLT_HT575_), "HLT_HT575");
+    nanoCheckScalarWidth(b_HLT_HT650_, sizeof(HLT_HT650_), "HLT_HT650");
+    nanoCheckScalarWidth(b_HLT_HT650_DisplacedDijet60_Inclusive_, sizeof(HLT_HT650_DisplacedDijet60_Inclusive_), "HLT_HT650_DisplacedDijet60_Inclusive");
+    nanoCheckScalarWidth(b_HLT_HT650_DisplacedDijet80_Inclusive_, sizeof(HLT_HT650_DisplacedDijet80_Inclusive_), "HLT_HT650_DisplacedDijet80_Inclusive");
+    nanoCheckScalarWidth(b_HLT_HT750_DisplacedDijet80_Inclusive_, sizeof(HLT_HT750_DisplacedDijet80_Inclusive_), "HLT_HT750_DisplacedDijet80_Inclusive");
+    nanoCheckScalarWidth(b_HLT_HcalCalibration_, sizeof(HLT_HcalCalibration_), "HLT_HcalCalibration");
+    nanoCheckScalarWidth(b_HLT_HcalIsolatedbunch_, sizeof(HLT_HcalIsolatedbunch_), "HLT_HcalIsolatedbunch");
+    nanoCheckScalarWidth(b_HLT_HcalNZS_, sizeof(HLT_HcalNZS_), "HLT_HcalNZS");
+    nanoCheckScalarWidth(b_HLT_HcalPhiSym_, sizeof(HLT_HcalPhiSym_), "HLT_HcalPhiSym");
+    nanoCheckScalarWidth(b_HLT_HighPtTkMu100_, sizeof(HLT_HighPtTkMu100_), "HLT_HighPtTkMu100");
+    nanoCheckScalarWidth(b_HLT_IsoMu16_eta2p1_MET30_, sizeof(HLT_IsoMu16_eta2p1_MET30_), "HLT_IsoMu16_eta2p1_MET30");
+    nanoCheckScalarWidth(b_HLT_IsoMu16_eta2p1_MET30_LooseIsoPFTau50_Trk30_eta2p1_, sizeof(HLT_IsoMu16_eta2p1_MET30_LooseIsoPFTau50_Trk30_eta2p1_), "HLT_IsoMu16_eta2p1_MET30_LooseIsoPFTau50_Trk30_eta2p1");
+    nanoCheckScalarWidth(b_HLT_IsoMu17_eta2p1_, sizeof(HLT_IsoMu17_eta2p1_), "HLT_IsoMu17_eta2p1");
+    nanoCheckScalarWidth(b_HLT_IsoMu17_eta2p1_LooseIsoPFTau20_, sizeof(HLT_IsoMu17_eta2p1_LooseIsoPFTau20_), "HLT_IsoMu17_eta2p1_LooseIsoPFTau20");
+    nanoCheckScalarWidth(b_HLT_IsoMu17_eta2p1_LooseIsoPFTau20_SingleL1_, sizeof(HLT_IsoMu17_eta2p1_LooseIsoPFTau20_SingleL1_), "HLT_IsoMu17_eta2p1_LooseIsoPFTau20_SingleL1");
+    nanoCheckScalarWidth(b_HLT_IsoMu18_, sizeof(HLT_IsoMu18_), "HLT_IsoMu18");
+    nanoCheckScalarWidth(b_HLT_IsoMu19_eta2p1_LooseCombinedIsoPFTau20_, sizeof(HLT_IsoMu19_eta2p1_LooseCombinedIsoPFTau20_), "HLT_IsoMu19_eta2p1_LooseCombinedIsoPFTau20");
+    nanoCheckScalarWidth(b_HLT_IsoMu19_eta2p1_LooseIsoPFTau20_, sizeof(HLT_IsoMu19_eta2p1_LooseIsoPFTau20_), "HLT_IsoMu19_eta2p1_LooseIsoPFTau20");
+    nanoCheckScalarWidth(b_HLT_IsoMu19_eta2p1_LooseIsoPFTau20_SingleL1_, sizeof(HLT_IsoMu19_eta2p1_LooseIsoPFTau20_SingleL1_), "HLT_IsoMu19_eta2p1_LooseIsoPFTau20_SingleL1");
+    nanoCheckScalarWidth(b_HLT_IsoMu19_eta2p1_MediumCombinedIsoPFTau32_Trk1_eta2p1_Reg_, sizeof(HLT_IsoMu19_eta2p1_MediumCombinedIsoPFTau32_Trk1_eta2p1_Reg_), "HLT_IsoMu19_eta2p1_MediumCombinedIsoPFTau32_Trk1_eta2p1_Reg");
+    nanoCheckScalarWidth(b_HLT_IsoMu19_eta2p1_MediumIsoPFTau32_Trk1_eta2p1_Reg_, sizeof(HLT_IsoMu19_eta2p1_MediumIsoPFTau32_Trk1_eta2p1_Reg_), "HLT_IsoMu19_eta2p1_MediumIsoPFTau32_Trk1_eta2p1_Reg");
+    nanoCheckScalarWidth(b_HLT_IsoMu19_eta2p1_TightCombinedIsoPFTau32_Trk1_eta2p1_Reg_, sizeof(HLT_IsoMu19_eta2p1_TightCombinedIsoPFTau32_Trk1_eta2p1_Reg_), "HLT_IsoMu19_eta2p1_TightCombinedIsoPFTau32_Trk1_eta2p1_Reg");
+    nanoCheckScalarWidth(b_HLT_IsoMu20_, sizeof(HLT_IsoMu20_), "HLT_IsoMu20");
+    nanoCheckScalarWidth(b_HLT_IsoMu20_eta2p1_LooseChargedIsoPFTau27_eta2p1_CrossL1_, sizeof(HLT_IsoMu20_eta2p1_LooseChargedIsoPFTau27_eta2p1_CrossL1_), "HLT_IsoMu20_eta2p1_LooseChargedIsoPFTau27_eta2p1_CrossL1");
+    nanoCheckScalarWidth(b_HLT_IsoMu20_eta2p1_LooseChargedIsoPFTau27_eta2p1_TightID_CrossL1_, sizeof(HLT_IsoMu20_eta2p1_LooseChargedIsoPFTau27_eta2p1_TightID_CrossL1_), "HLT_IsoMu20_eta2p1_LooseChargedIsoPFTau27_eta2p1_TightID_CrossL1");
+    nanoCheckScalarWidth(b_HLT_IsoMu20_eta2p1_LooseChargedIsoPFTauHPS27_eta2p1_CrossL1_, sizeof(HLT_IsoMu20_eta2p1_LooseChargedIsoPFTauHPS27_eta2p1_CrossL1_), "HLT_IsoMu20_eta2p1_LooseChargedIsoPFTauHPS27_eta2p1_CrossL1");
+    nanoCheckScalarWidth(b_HLT_IsoMu20_eta2p1_LooseChargedIsoPFTauHPS27_eta2p1_TightID_CrossL1_, sizeof(HLT_IsoMu20_eta2p1_LooseChargedIsoPFTauHPS27_eta2p1_TightID_CrossL1_), "HLT_IsoMu20_eta2p1_LooseChargedIsoPFTauHPS27_eta2p1_TightID_CrossL1");
+    nanoCheckScalarWidth(b_HLT_IsoMu20_eta2p1_LooseDeepTauPFTauHPS27_eta2p1_CrossL1_, sizeof(HLT_IsoMu20_eta2p1_LooseDeepTauPFTauHPS27_eta2p1_CrossL1_), "HLT_IsoMu20_eta2p1_LooseDeepTauPFTauHPS27_eta2p1_CrossL1");
+    nanoCheckScalarWidth(b_HLT_IsoMu20_eta2p1_MediumChargedIsoPFTau27_eta2p1_CrossL1_, sizeof(HLT_IsoMu20_eta2p1_MediumChargedIsoPFTau27_eta2p1_CrossL1_), "HLT_IsoMu20_eta2p1_MediumChargedIsoPFTau27_eta2p1_CrossL1");
+    nanoCheckScalarWidth(b_HLT_IsoMu20_eta2p1_MediumChargedIsoPFTau27_eta2p1_TightID_CrossL1_, sizeof(HLT_IsoMu20_eta2p1_MediumChargedIsoPFTau27_eta2p1_TightID_CrossL1_), "HLT_IsoMu20_eta2p1_MediumChargedIsoPFTau27_eta2p1_TightID_CrossL1");
+    nanoCheckScalarWidth(b_HLT_IsoMu20_eta2p1_MediumChargedIsoPFTauHPS27_eta2p1_CrossL1_, sizeof(HLT_IsoMu20_eta2p1_MediumChargedIsoPFTauHPS27_eta2p1_CrossL1_), "HLT_IsoMu20_eta2p1_MediumChargedIsoPFTauHPS27_eta2p1_CrossL1");
+    nanoCheckScalarWidth(b_HLT_IsoMu20_eta2p1_MediumChargedIsoPFTauHPS27_eta2p1_TightID_CrossL1_, sizeof(HLT_IsoMu20_eta2p1_MediumChargedIsoPFTauHPS27_eta2p1_TightID_CrossL1_), "HLT_IsoMu20_eta2p1_MediumChargedIsoPFTauHPS27_eta2p1_TightID_CrossL1");
+    nanoCheckScalarWidth(b_HLT_IsoMu20_eta2p1_TightChargedIsoPFTau27_eta2p1_CrossL1_, sizeof(HLT_IsoMu20_eta2p1_TightChargedIsoPFTau27_eta2p1_CrossL1_), "HLT_IsoMu20_eta2p1_TightChargedIsoPFTau27_eta2p1_CrossL1");
+    nanoCheckScalarWidth(b_HLT_IsoMu20_eta2p1_TightChargedIsoPFTau27_eta2p1_TightID_CrossL1_, sizeof(HLT_IsoMu20_eta2p1_TightChargedIsoPFTau27_eta2p1_TightID_CrossL1_), "HLT_IsoMu20_eta2p1_TightChargedIsoPFTau27_eta2p1_TightID_CrossL1");
+    nanoCheckScalarWidth(b_HLT_IsoMu20_eta2p1_TightChargedIsoPFTauHPS27_eta2p1_CrossL1_, sizeof(HLT_IsoMu20_eta2p1_TightChargedIsoPFTauHPS27_eta2p1_CrossL1_), "HLT_IsoMu20_eta2p1_TightChargedIsoPFTauHPS27_eta2p1_CrossL1");
+    nanoCheckScalarWidth(b_HLT_IsoMu20_eta2p1_TightChargedIsoPFTauHPS27_eta2p1_TightID_CrossL1_, sizeof(HLT_IsoMu20_eta2p1_TightChargedIsoPFTauHPS27_eta2p1_TightID_CrossL1_), "HLT_IsoMu20_eta2p1_TightChargedIsoPFTauHPS27_eta2p1_TightID_CrossL1");
+    nanoCheckScalarWidth(b_HLT_IsoMu21_eta2p1_LooseIsoPFTau20_SingleL1_, sizeof(HLT_IsoMu21_eta2p1_LooseIsoPFTau20_SingleL1_), "HLT_IsoMu21_eta2p1_LooseIsoPFTau20_SingleL1");
+    nanoCheckScalarWidth(b_HLT_IsoMu21_eta2p1_LooseIsoPFTau50_Trk30_eta2p1_SingleL1_, sizeof(HLT_IsoMu21_eta2p1_LooseIsoPFTau50_Trk30_eta2p1_SingleL1_), "HLT_IsoMu21_eta2p1_LooseIsoPFTau50_Trk30_eta2p1_SingleL1");
+    nanoCheckScalarWidth(b_HLT_IsoMu21_eta2p1_MediumCombinedIsoPFTau32_Trk1_eta2p1_Reg_, sizeof(HLT_IsoMu21_eta2p1_MediumCombinedIsoPFTau32_Trk1_eta2p1_Reg_), "HLT_IsoMu21_eta2p1_MediumCombinedIsoPFTau32_Trk1_eta2p1_Reg");
+    nanoCheckScalarWidth(b_HLT_IsoMu21_eta2p1_MediumIsoPFTau32_Trk1_eta2p1_Reg_, sizeof(HLT_IsoMu21_eta2p1_MediumIsoPFTau32_Trk1_eta2p1_Reg_), "HLT_IsoMu21_eta2p1_MediumIsoPFTau32_Trk1_eta2p1_Reg");
+    nanoCheckScalarWidth(b_HLT_IsoMu21_eta2p1_TightCombinedIsoPFTau32_Trk1_eta2p1_Reg_, sizeof(HLT_IsoMu21_eta2p1_TightCombinedIsoPFTau32_Trk1_eta2p1_Reg_), "HLT_IsoMu21_eta2p1_TightCombinedIsoPFTau32_Trk1_eta2p1_Reg");
+    nanoCheckScalarWidth(b_HLT_IsoMu22_, sizeof(HLT_IsoMu22_), "HLT_IsoMu22");
+    nanoCheckScalarWidth(b_HLT_IsoMu22_eta2p1_, sizeof(HLT_IsoMu22_eta2p1_), "HLT_IsoMu22_eta2p1");
+    nanoCheckScalarWidth(b_HLT_IsoMu24_, sizeof(HLT_IsoMu24_), "HLT_IsoMu24");
+    nanoCheckScalarWidth(b_HLT_IsoMu24_TwoProngs35_, sizeof(HLT_IsoMu24_TwoProngs35_), "HLT_IsoMu24_TwoProngs35");
+    nanoCheckScalarWidth(b_HLT_IsoMu24_eta2p1_, sizeof(HLT_IsoMu24_eta2p1_), "HLT_IsoMu24_eta2p1");
+    nanoCheckScalarWidth(b_HLT_IsoMu24_eta2p1_LooseChargedIsoPFTau20_SingleL1_, sizeof(HLT_IsoMu24_eta2p1_LooseChargedIsoPFTau20_SingleL1_), "HLT_IsoMu24_eta2p1_LooseChargedIsoPFTau20_SingleL1");
+    nanoCheckScalarWidth(b_HLT_IsoMu24_eta2p1_LooseChargedIsoPFTau20_TightID_SingleL1_, sizeof(HLT_IsoMu24_eta2p1_LooseChargedIsoPFTau20_TightID_SingleL1_), "HLT_IsoMu24_eta2p1_LooseChargedIsoPFTau20_TightID_SingleL1");
+    nanoCheckScalarWidth(b_HLT_IsoMu24_eta2p1_LooseChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg_CrossL1_, sizeof(HLT_IsoMu24_eta2p1_LooseChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg_CrossL1_), "HLT_IsoMu24_eta2p1_LooseChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg_CrossL1");
+    nanoCheckScalarWidth(b_HLT_IsoMu24_eta2p1_LooseChargedIsoPFTau35_Trk1_eta2p1_Reg_CrossL1_, sizeof(HLT_IsoMu24_eta2p1_LooseChargedIsoPFTau35_Trk1_eta2p1_Reg_CrossL1_), "HLT_IsoMu24_eta2p1_LooseChargedIsoPFTau35_Trk1_eta2p1_Reg_CrossL1");
+    nanoCheckScalarWidth(b_HLT_IsoMu24_eta2p1_LooseDeepTauPFTauHPS180_eta2p1_, sizeof(HLT_IsoMu24_eta2p1_LooseDeepTauPFTauHPS180_eta2p1_), "HLT_IsoMu24_eta2p1_LooseDeepTauPFTauHPS180_eta2p1");
+    nanoCheckScalarWidth(b_HLT_IsoMu24_eta2p1_LooseDeepTauPFTauHPS30_eta2p1_CrossL1_, sizeof(HLT_IsoMu24_eta2p1_LooseDeepTauPFTauHPS30_eta2p1_CrossL1_), "HLT_IsoMu24_eta2p1_LooseDeepTauPFTauHPS30_eta2p1_CrossL1");
+    nanoCheckScalarWidth(b_HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau20_SingleL1_, sizeof(HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau20_SingleL1_), "HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau20_SingleL1");
+    nanoCheckScalarWidth(b_HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau20_TightID_SingleL1_, sizeof(HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau20_TightID_SingleL1_), "HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau20_TightID_SingleL1");
+    nanoCheckScalarWidth(b_HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg_CrossL1_, sizeof(HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg_CrossL1_), "HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg_CrossL1");
+    nanoCheckScalarWidth(b_HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau35_Trk1_eta2p1_Reg_CrossL1_, sizeof(HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau35_Trk1_eta2p1_Reg_CrossL1_), "HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau35_Trk1_eta2p1_Reg_CrossL1");
+    nanoCheckScalarWidth(b_HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau40_Trk1_TightID_eta2p1_Reg_CrossL1_, sizeof(HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau40_Trk1_TightID_eta2p1_Reg_CrossL1_), "HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau40_Trk1_TightID_eta2p1_Reg_CrossL1");
+    nanoCheckScalarWidth(b_HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau40_Trk1_eta2p1_Reg_CrossL1_, sizeof(HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau40_Trk1_eta2p1_Reg_CrossL1_), "HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau40_Trk1_eta2p1_Reg_CrossL1");
+    nanoCheckScalarWidth(b_HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr_, sizeof(HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr_), "HLT_IsoMu24_eta2p1_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr");
+    nanoCheckScalarWidth(b_HLT_IsoMu24_eta2p1_MediumChargedIsoPFTauHPS30_Trk1_eta2p1_Reg_CrossL1_, sizeof(HLT_IsoMu24_eta2p1_MediumChargedIsoPFTauHPS30_Trk1_eta2p1_Reg_CrossL1_), "HLT_IsoMu24_eta2p1_MediumChargedIsoPFTauHPS30_Trk1_eta2p1_Reg_CrossL1");
+    nanoCheckScalarWidth(b_HLT_IsoMu24_eta2p1_MediumChargedIsoPFTauHPS35_Trk1_TightID_eta2p1_Reg_CrossL1_, sizeof(HLT_IsoMu24_eta2p1_MediumChargedIsoPFTauHPS35_Trk1_TightID_eta2p1_Reg_CrossL1_), "HLT_IsoMu24_eta2p1_MediumChargedIsoPFTauHPS35_Trk1_TightID_eta2p1_Reg_CrossL1");
+    nanoCheckScalarWidth(b_HLT_IsoMu24_eta2p1_MediumChargedIsoPFTauHPS35_Trk1_eta2p1_Reg_CrossL1_, sizeof(HLT_IsoMu24_eta2p1_MediumChargedIsoPFTauHPS35_Trk1_eta2p1_Reg_CrossL1_), "HLT_IsoMu24_eta2p1_MediumChargedIsoPFTauHPS35_Trk1_eta2p1_Reg_CrossL1");
+    nanoCheckScalarWidth(b_HLT_IsoMu24_eta2p1_MediumDeepTauPFTauHPS20_eta2p1_SingleL1_, sizeof(HLT_IsoMu24_eta2p1_MediumDeepTauPFTauHPS20_eta2p1_SingleL1_), "HLT_IsoMu24_eta2p1_MediumDeepTauPFTauHPS20_eta2p1_SingleL1");
+    nanoCheckScalarWidth(b_HLT_IsoMu24_eta2p1_MediumDeepTauPFTauHPS30_L2NN_eta2p1_CrossL1_, sizeof(HLT_IsoMu24_eta2p1_MediumDeepTauPFTauHPS30_L2NN_eta2p1_CrossL1_), "HLT_IsoMu24_eta2p1_MediumDeepTauPFTauHPS30_L2NN_eta2p1_CrossL1");
+    nanoCheckScalarWidth(b_HLT_IsoMu24_eta2p1_MediumDeepTauPFTauHPS30_L2NN_eta2p1_PFJet60_CrossL1_, sizeof(HLT_IsoMu24_eta2p1_MediumDeepTauPFTauHPS30_L2NN_eta2p1_PFJet60_CrossL1_), "HLT_IsoMu24_eta2p1_MediumDeepTauPFTauHPS30_L2NN_eta2p1_PFJet60_CrossL1");
+    nanoCheckScalarWidth(b_HLT_IsoMu24_eta2p1_MediumDeepTauPFTauHPS30_L2NN_eta2p1_PFJet75_CrossL1_, sizeof(HLT_IsoMu24_eta2p1_MediumDeepTauPFTauHPS30_L2NN_eta2p1_PFJet75_CrossL1_), "HLT_IsoMu24_eta2p1_MediumDeepTauPFTauHPS30_L2NN_eta2p1_PFJet75_CrossL1");
+    nanoCheckScalarWidth(b_HLT_IsoMu24_eta2p1_MediumDeepTauPFTauHPS35_L2NN_eta2p1_CrossL1_, sizeof(HLT_IsoMu24_eta2p1_MediumDeepTauPFTauHPS35_L2NN_eta2p1_CrossL1_), "HLT_IsoMu24_eta2p1_MediumDeepTauPFTauHPS35_L2NN_eta2p1_CrossL1");
+    nanoCheckScalarWidth(b_HLT_IsoMu24_eta2p1_MediumDeepTauPFTauHPS45_L2NN_eta2p1_CrossL1_, sizeof(HLT_IsoMu24_eta2p1_MediumDeepTauPFTauHPS45_L2NN_eta2p1_CrossL1_), "HLT_IsoMu24_eta2p1_MediumDeepTauPFTauHPS45_L2NN_eta2p1_CrossL1");
+    nanoCheckScalarWidth(b_HLT_IsoMu24_eta2p1_TightChargedIsoPFTau20_SingleL1_, sizeof(HLT_IsoMu24_eta2p1_TightChargedIsoPFTau20_SingleL1_), "HLT_IsoMu24_eta2p1_TightChargedIsoPFTau20_SingleL1");
+    nanoCheckScalarWidth(b_HLT_IsoMu24_eta2p1_TightChargedIsoPFTau20_TightID_SingleL1_, sizeof(HLT_IsoMu24_eta2p1_TightChargedIsoPFTau20_TightID_SingleL1_), "HLT_IsoMu24_eta2p1_TightChargedIsoPFTau20_TightID_SingleL1");
+    nanoCheckScalarWidth(b_HLT_IsoMu24_eta2p1_TightChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg_CrossL1_, sizeof(HLT_IsoMu24_eta2p1_TightChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg_CrossL1_), "HLT_IsoMu24_eta2p1_TightChargedIsoPFTau35_Trk1_TightID_eta2p1_Reg_CrossL1");
+    nanoCheckScalarWidth(b_HLT_IsoMu24_eta2p1_TightChargedIsoPFTau35_Trk1_eta2p1_Reg_CrossL1_, sizeof(HLT_IsoMu24_eta2p1_TightChargedIsoPFTau35_Trk1_eta2p1_Reg_CrossL1_), "HLT_IsoMu24_eta2p1_TightChargedIsoPFTau35_Trk1_eta2p1_Reg_CrossL1");
+    nanoCheckScalarWidth(b_HLT_IsoMu24_eta2p1_TightChargedIsoPFTau40_Trk1_TightID_eta2p1_Reg_CrossL1_, sizeof(HLT_IsoMu24_eta2p1_TightChargedIsoPFTau40_Trk1_TightID_eta2p1_Reg_CrossL1_), "HLT_IsoMu24_eta2p1_TightChargedIsoPFTau40_Trk1_TightID_eta2p1_Reg_CrossL1");
+    nanoCheckScalarWidth(b_HLT_IsoMu24_eta2p1_TightChargedIsoPFTau40_Trk1_eta2p1_Reg_CrossL1_, sizeof(HLT_IsoMu24_eta2p1_TightChargedIsoPFTau40_Trk1_eta2p1_Reg_CrossL1_), "HLT_IsoMu24_eta2p1_TightChargedIsoPFTau40_Trk1_eta2p1_Reg_CrossL1");
+    nanoCheckScalarWidth(b_HLT_IsoMu24_eta2p1_TightChargedIsoPFTauHPS35_Trk1_TightID_eta2p1_Reg_CrossL1_, sizeof(HLT_IsoMu24_eta2p1_TightChargedIsoPFTauHPS35_Trk1_TightID_eta2p1_Reg_CrossL1_), "HLT_IsoMu24_eta2p1_TightChargedIsoPFTauHPS35_Trk1_TightID_eta2p1_Reg_CrossL1");
+    nanoCheckScalarWidth(b_HLT_IsoMu24_eta2p1_TightChargedIsoPFTauHPS35_Trk1_eta2p1_Reg_CrossL1_, sizeof(HLT_IsoMu24_eta2p1_TightChargedIsoPFTauHPS35_Trk1_eta2p1_Reg_CrossL1_), "HLT_IsoMu24_eta2p1_TightChargedIsoPFTauHPS35_Trk1_eta2p1_Reg_CrossL1");
+    nanoCheckScalarWidth(b_HLT_IsoMu27_, sizeof(HLT_IsoMu27_), "HLT_IsoMu27");
+    nanoCheckScalarWidth(b_HLT_IsoMu27_LooseChargedIsoPFTau20_SingleL1_, sizeof(HLT_IsoMu27_LooseChargedIsoPFTau20_SingleL1_), "HLT_IsoMu27_LooseChargedIsoPFTau20_SingleL1");
+    nanoCheckScalarWidth(b_HLT_IsoMu27_LooseChargedIsoPFTau20_Trk1_eta2p1_SingleL1_, sizeof(HLT_IsoMu27_LooseChargedIsoPFTau20_Trk1_eta2p1_SingleL1_), "HLT_IsoMu27_LooseChargedIsoPFTau20_Trk1_eta2p1_SingleL1");
+    nanoCheckScalarWidth(b_HLT_IsoMu27_LooseChargedIsoPFTauHPS20_Trk1_eta2p1_SingleL1_, sizeof(HLT_IsoMu27_LooseChargedIsoPFTauHPS20_Trk1_eta2p1_SingleL1_), "HLT_IsoMu27_LooseChargedIsoPFTauHPS20_Trk1_eta2p1_SingleL1");
+    nanoCheckScalarWidth(b_HLT_IsoMu27_MET90_, sizeof(HLT_IsoMu27_MET90_), "HLT_IsoMu27_MET90");
+    nanoCheckScalarWidth(b_HLT_IsoMu27_MediumChargedIsoPFTau20_SingleL1_, sizeof(HLT_IsoMu27_MediumChargedIsoPFTau20_SingleL1_), "HLT_IsoMu27_MediumChargedIsoPFTau20_SingleL1");
+    nanoCheckScalarWidth(b_HLT_IsoMu27_MediumChargedIsoPFTau20_Trk1_eta2p1_SingleL1_, sizeof(HLT_IsoMu27_MediumChargedIsoPFTau20_Trk1_eta2p1_SingleL1_), "HLT_IsoMu27_MediumChargedIsoPFTau20_Trk1_eta2p1_SingleL1");
+    nanoCheckScalarWidth(b_HLT_IsoMu27_MediumChargedIsoPFTauHPS20_Trk1_eta2p1_SingleL1_, sizeof(HLT_IsoMu27_MediumChargedIsoPFTauHPS20_Trk1_eta2p1_SingleL1_), "HLT_IsoMu27_MediumChargedIsoPFTauHPS20_Trk1_eta2p1_SingleL1");
+    nanoCheckScalarWidth(b_HLT_IsoMu27_MediumDeepTauPFTauHPS20_eta2p1_SingleL1_, sizeof(HLT_IsoMu27_MediumDeepTauPFTauHPS20_eta2p1_SingleL1_), "HLT_IsoMu27_MediumDeepTauPFTauHPS20_eta2p1_SingleL1");
+    nanoCheckScalarWidth(b_HLT_IsoMu27_TightChargedIsoPFTau20_SingleL1_, sizeof(HLT_IsoMu27_TightChargedIsoPFTau20_SingleL1_), "HLT_IsoMu27_TightChargedIsoPFTau20_SingleL1");
+    nanoCheckScalarWidth(b_HLT_IsoMu27_TightChargedIsoPFTau20_Trk1_eta2p1_SingleL1_, sizeof(HLT_IsoMu27_TightChargedIsoPFTau20_Trk1_eta2p1_SingleL1_), "HLT_IsoMu27_TightChargedIsoPFTau20_Trk1_eta2p1_SingleL1");
+    nanoCheckScalarWidth(b_HLT_IsoMu27_TightChargedIsoPFTauHPS20_Trk1_eta2p1_SingleL1_, sizeof(HLT_IsoMu27_TightChargedIsoPFTauHPS20_Trk1_eta2p1_SingleL1_), "HLT_IsoMu27_TightChargedIsoPFTauHPS20_Trk1_eta2p1_SingleL1");
+    nanoCheckScalarWidth(b_HLT_IsoMu30_, sizeof(HLT_IsoMu30_), "HLT_IsoMu30");
+    nanoCheckScalarWidth(b_HLT_IsoMu50_AK8PFJet230_SoftDropMass40_, sizeof(HLT_IsoMu50_AK8PFJet230_SoftDropMass40_), "HLT_IsoMu50_AK8PFJet230_SoftDropMass40");
+    nanoCheckScalarWidth(b_HLT_IsoMu50_AK8PFJet230_SoftDropMass40_PFAK8ParticleNetBB0p35_, sizeof(HLT_IsoMu50_AK8PFJet230_SoftDropMass40_PFAK8ParticleNetBB0p35_), "HLT_IsoMu50_AK8PFJet230_SoftDropMass40_PFAK8ParticleNetBB0p35");
+    nanoCheckScalarWidth(b_HLT_IsoTkMu18_, sizeof(HLT_IsoTkMu18_), "HLT_IsoTkMu18");
+    nanoCheckScalarWidth(b_HLT_IsoTkMu20_, sizeof(HLT_IsoTkMu20_), "HLT_IsoTkMu20");
+    nanoCheckScalarWidth(b_HLT_IsoTkMu22_, sizeof(HLT_IsoTkMu22_), "HLT_IsoTkMu22");
+    nanoCheckScalarWidth(b_HLT_IsoTkMu22_eta2p1_, sizeof(HLT_IsoTkMu22_eta2p1_), "HLT_IsoTkMu22_eta2p1");
+    nanoCheckScalarWidth(b_HLT_IsoTkMu24_, sizeof(HLT_IsoTkMu24_), "HLT_IsoTkMu24");
+    nanoCheckScalarWidth(b_HLT_IsoTkMu24_eta2p1_, sizeof(HLT_IsoTkMu24_eta2p1_), "HLT_IsoTkMu24_eta2p1");
+    nanoCheckScalarWidth(b_HLT_IsoTkMu27_, sizeof(HLT_IsoTkMu27_), "HLT_IsoTkMu27");
+    nanoCheckScalarWidth(b_HLT_IsoTrackHB_, sizeof(HLT_IsoTrackHB_), "HLT_IsoTrackHB");
+    nanoCheckScalarWidth(b_HLT_IsoTrackHE_, sizeof(HLT_IsoTrackHE_), "HLT_IsoTrackHE");
+    nanoCheckScalarWidth(b_HLT_JetE30_NoBPTX_, sizeof(HLT_JetE30_NoBPTX_), "HLT_JetE30_NoBPTX");
+    nanoCheckScalarWidth(b_HLT_JetE30_NoBPTX3BX_, sizeof(HLT_JetE30_NoBPTX3BX_), "HLT_JetE30_NoBPTX3BX");
+    nanoCheckScalarWidth(b_HLT_JetE50_NoBPTX3BX_, sizeof(HLT_JetE50_NoBPTX3BX_), "HLT_JetE50_NoBPTX3BX");
+    nanoCheckScalarWidth(b_HLT_JetE70_NoBPTX3BX_, sizeof(HLT_JetE70_NoBPTX3BX_), "HLT_JetE70_NoBPTX3BX");
+    nanoCheckScalarWidth(b_HLT_L1BeamGasMinus_, sizeof(HLT_L1BeamGasMinus_), "HLT_L1BeamGasMinus");
+    nanoCheckScalarWidth(b_HLT_L1BeamGasPlus_, sizeof(HLT_L1BeamGasPlus_), "HLT_L1BeamGasPlus");
+    nanoCheckScalarWidth(b_HLT_L1BptxMinus_, sizeof(HLT_L1BptxMinus_), "HLT_L1BptxMinus");
+    nanoCheckScalarWidth(b_HLT_L1BptxPlus_, sizeof(HLT_L1BptxPlus_), "HLT_L1BptxPlus");
+    nanoCheckScalarWidth(b_HLT_L1BptxXOR_, sizeof(HLT_L1BptxXOR_), "HLT_L1BptxXOR");
+    nanoCheckScalarWidth(b_HLT_L1CSCShower_DTCluster50_, sizeof(HLT_L1CSCShower_DTCluster50_), "HLT_L1CSCShower_DTCluster50");
+    nanoCheckScalarWidth(b_HLT_L1CSCShower_DTCluster75_, sizeof(HLT_L1CSCShower_DTCluster75_), "HLT_L1CSCShower_DTCluster75");
+    nanoCheckScalarWidth(b_HLT_L1ETMHadSeeds_, sizeof(HLT_L1ETMHadSeeds_), "HLT_L1ETMHadSeeds");
+    nanoCheckScalarWidth(b_HLT_L1FatEvents_, sizeof(HLT_L1FatEvents_), "HLT_L1FatEvents");
+    nanoCheckScalarWidth(b_HLT_L1FatEvents_part0_, sizeof(HLT_L1FatEvents_part0_), "HLT_L1FatEvents_part0");
+    nanoCheckScalarWidth(b_HLT_L1FatEvents_part1_, sizeof(HLT_L1FatEvents_part1_), "HLT_L1FatEvents_part1");
+    nanoCheckScalarWidth(b_HLT_L1FatEvents_part2_, sizeof(HLT_L1FatEvents_part2_), "HLT_L1FatEvents_part2");
+    nanoCheckScalarWidth(b_HLT_L1FatEvents_part3_, sizeof(HLT_L1FatEvents_part3_), "HLT_L1FatEvents_part3");
+    nanoCheckScalarWidth(b_HLT_L1MET_DTCluster50_, sizeof(HLT_L1MET_DTCluster50_), "HLT_L1MET_DTCluster50");
+    nanoCheckScalarWidth(b_HLT_L1MET_DTClusterNoMB1S50_, sizeof(HLT_L1MET_DTClusterNoMB1S50_), "HLT_L1MET_DTClusterNoMB1S50");
+    nanoCheckScalarWidth(b_HLT_L1MinimumBiasHF0OR_, sizeof(HLT_L1MinimumBiasHF0OR_), "HLT_L1MinimumBiasHF0OR");
+    nanoCheckScalarWidth(b_HLT_L1MinimumBiasHF_AND_, sizeof(HLT_L1MinimumBiasHF_AND_), "HLT_L1MinimumBiasHF_AND");
+    nanoCheckScalarWidth(b_HLT_L1MinimumBiasHF_OR_, sizeof(HLT_L1MinimumBiasHF_OR_), "HLT_L1MinimumBiasHF_OR");
+    nanoCheckScalarWidth(b_HLT_L1MinimumBiasHF_OR_part0_, sizeof(HLT_L1MinimumBiasHF_OR_part0_), "HLT_L1MinimumBiasHF_OR_part0");
+    nanoCheckScalarWidth(b_HLT_L1MinimumBiasHF_OR_part1_, sizeof(HLT_L1MinimumBiasHF_OR_part1_), "HLT_L1MinimumBiasHF_OR_part1");
+    nanoCheckScalarWidth(b_HLT_L1MinimumBiasHF_OR_part2_, sizeof(HLT_L1MinimumBiasHF_OR_part2_), "HLT_L1MinimumBiasHF_OR_part2");
+    nanoCheckScalarWidth(b_HLT_L1MinimumBiasHF_OR_part3_, sizeof(HLT_L1MinimumBiasHF_OR_part3_), "HLT_L1MinimumBiasHF_OR_part3");
+    nanoCheckScalarWidth(b_HLT_L1MinimumBiasHF_OR_part4_, sizeof(HLT_L1MinimumBiasHF_OR_part4_), "HLT_L1MinimumBiasHF_OR_part4");
+    nanoCheckScalarWidth(b_HLT_L1MinimumBiasHF_OR_part5_, sizeof(HLT_L1MinimumBiasHF_OR_part5_), "HLT_L1MinimumBiasHF_OR_part5");
+    nanoCheckScalarWidth(b_HLT_L1MinimumBiasHF_OR_part6_, sizeof(HLT_L1MinimumBiasHF_OR_part6_), "HLT_L1MinimumBiasHF_OR_part6");
+    nanoCheckScalarWidth(b_HLT_L1MinimumBiasHF_OR_part7_, sizeof(HLT_L1MinimumBiasHF_OR_part7_), "HLT_L1MinimumBiasHF_OR_part7");
+    nanoCheckScalarWidth(b_HLT_L1MinimumBiasHF_OR_part8_, sizeof(HLT_L1MinimumBiasHF_OR_part8_), "HLT_L1MinimumBiasHF_OR_part8");
+    nanoCheckScalarWidth(b_HLT_L1MinimumBiasHF_OR_part9_, sizeof(HLT_L1MinimumBiasHF_OR_part9_), "HLT_L1MinimumBiasHF_OR_part9");
+    nanoCheckScalarWidth(b_HLT_L1Mu6HT240_, sizeof(HLT_L1Mu6HT240_), "HLT_L1Mu6HT240");
+    nanoCheckScalarWidth(b_HLT_L1NotBptxOR_, sizeof(HLT_L1NotBptxOR_), "HLT_L1NotBptxOR");
+    nanoCheckScalarWidth(b_HLT_L1SingleMu16_, sizeof(HLT_L1SingleMu16_), "HLT_L1SingleMu16");
+    nanoCheckScalarWidth(b_HLT_L1SingleMu18_, sizeof(HLT_L1SingleMu18_), "HLT_L1SingleMu18");
+    nanoCheckScalarWidth(b_HLT_L1SingleMu25_, sizeof(HLT_L1SingleMu25_), "HLT_L1SingleMu25");
+    nanoCheckScalarWidth(b_HLT_L1SingleMuCosmics_, sizeof(HLT_L1SingleMuCosmics_), "HLT_L1SingleMuCosmics");
+    nanoCheckScalarWidth(b_HLT_L1SingleMuOpen_, sizeof(HLT_L1SingleMuOpen_), "HLT_L1SingleMuOpen");
+    nanoCheckScalarWidth(b_HLT_L1SingleMuOpen_DT_, sizeof(HLT_L1SingleMuOpen_DT_), "HLT_L1SingleMuOpen_DT");
+    nanoCheckScalarWidth(b_HLT_L1UnpairedBunchBptxMinus_, sizeof(HLT_L1UnpairedBunchBptxMinus_), "HLT_L1UnpairedBunchBptxMinus");
+    nanoCheckScalarWidth(b_HLT_L1UnpairedBunchBptxPlus_, sizeof(HLT_L1UnpairedBunchBptxPlus_), "HLT_L1UnpairedBunchBptxPlus");
+    nanoCheckScalarWidth(b_HLT_L1_CDC_SingleMu_3_er1p2_TOP120_DPHI2p618_3p142_, sizeof(HLT_L1_CDC_SingleMu_3_er1p2_TOP120_DPHI2p618_3p142_), "HLT_L1_CDC_SingleMu_3_er1p2_TOP120_DPHI2p618_3p142");
+    nanoCheckScalarWidth(b_HLT_L1_DoubleJet30_Mass_Min400_Mu10_, sizeof(HLT_L1_DoubleJet30_Mass_Min400_Mu10_), "HLT_L1_DoubleJet30_Mass_Min400_Mu10");
+    nanoCheckScalarWidth(b_HLT_L1_TripleJet_VBF_, sizeof(HLT_L1_TripleJet_VBF_), "HLT_L1_TripleJet_VBF");
+    nanoCheckScalarWidth(b_HLT_L2DoubleMu23_NoVertex_, sizeof(HLT_L2DoubleMu23_NoVertex_), "HLT_L2DoubleMu23_NoVertex");
+    nanoCheckScalarWidth(b_HLT_L2DoubleMu28_NoVertex_2Cha_Angle2p5_Mass10_, sizeof(HLT_L2DoubleMu28_NoVertex_2Cha_Angle2p5_Mass10_), "HLT_L2DoubleMu28_NoVertex_2Cha_Angle2p5_Mass10");
+    nanoCheckScalarWidth(b_HLT_L2DoubleMu38_NoVertex_2Cha_Angle2p5_Mass10_, sizeof(HLT_L2DoubleMu38_NoVertex_2Cha_Angle2p5_Mass10_), "HLT_L2DoubleMu38_NoVertex_2Cha_Angle2p5_Mass10");
+    nanoCheckScalarWidth(b_HLT_L2Mu10_, sizeof(HLT_L2Mu10_), "HLT_L2Mu10");
+    nanoCheckScalarWidth(b_HLT_L2Mu10NoVtx_2Cha_, sizeof(HLT_L2Mu10NoVtx_2Cha_), "HLT_L2Mu10NoVtx_2Cha");
+    nanoCheckScalarWidth(b_HLT_L2Mu10NoVtx_2Cha_CosmicSeed_, sizeof(HLT_L2Mu10NoVtx_2Cha_CosmicSeed_), "HLT_L2Mu10NoVtx_2Cha_CosmicSeed");
+    nanoCheckScalarWidth(b_HLT_L2Mu10NoVtx_2Cha_CosmicSeed_VetoL3Mu0DxyMax1cm_, sizeof(HLT_L2Mu10NoVtx_2Cha_CosmicSeed_VetoL3Mu0DxyMax1cm_), "HLT_L2Mu10NoVtx_2Cha_CosmicSeed_VetoL3Mu0DxyMax1cm");
+    nanoCheckScalarWidth(b_HLT_L2Mu10NoVtx_2Cha_VetoL3Mu0DxyMax1cm_, sizeof(HLT_L2Mu10NoVtx_2Cha_VetoL3Mu0DxyMax1cm_), "HLT_L2Mu10NoVtx_2Cha_VetoL3Mu0DxyMax1cm");
+    nanoCheckScalarWidth(b_HLT_L2Mu10_NoVertex_NoBPTX_, sizeof(HLT_L2Mu10_NoVertex_NoBPTX_), "HLT_L2Mu10_NoVertex_NoBPTX");
+    nanoCheckScalarWidth(b_HLT_L2Mu10_NoVertex_NoBPTX3BX_, sizeof(HLT_L2Mu10_NoVertex_NoBPTX3BX_), "HLT_L2Mu10_NoVertex_NoBPTX3BX");
+    nanoCheckScalarWidth(b_HLT_L2Mu23NoVtx_2Cha_, sizeof(HLT_L2Mu23NoVtx_2Cha_), "HLT_L2Mu23NoVtx_2Cha");
+    nanoCheckScalarWidth(b_HLT_L2Mu23NoVtx_2Cha_CosmicSeed_, sizeof(HLT_L2Mu23NoVtx_2Cha_CosmicSeed_), "HLT_L2Mu23NoVtx_2Cha_CosmicSeed");
+    nanoCheckScalarWidth(b_HLT_L2Mu35_NoVertex_3Sta_NoBPTX3BX_, sizeof(HLT_L2Mu35_NoVertex_3Sta_NoBPTX3BX_), "HLT_L2Mu35_NoVertex_3Sta_NoBPTX3BX");
+    nanoCheckScalarWidth(b_HLT_L2Mu40_NoVertex_3Sta_NoBPTX3BX_, sizeof(HLT_L2Mu40_NoVertex_3Sta_NoBPTX3BX_), "HLT_L2Mu40_NoVertex_3Sta_NoBPTX3BX");
+    nanoCheckScalarWidth(b_HLT_L2Mu45_NoVertex_3Sta_NoBPTX3BX_, sizeof(HLT_L2Mu45_NoVertex_3Sta_NoBPTX3BX_), "HLT_L2Mu45_NoVertex_3Sta_NoBPTX3BX");
+    nanoCheckScalarWidth(b_HLT_L2Mu50_, sizeof(HLT_L2Mu50_), "HLT_L2Mu50");
+    nanoCheckScalarWidth(b_HLT_L3Mu10NoVtx_, sizeof(HLT_L3Mu10NoVtx_), "HLT_L3Mu10NoVtx");
+    nanoCheckScalarWidth(b_HLT_L3Mu10NoVtx_DxyMin0p01cm_, sizeof(HLT_L3Mu10NoVtx_DxyMin0p01cm_), "HLT_L3Mu10NoVtx_DxyMin0p01cm");
+    nanoCheckScalarWidth(b_HLT_L3dTksMu10_NoVtx_DxyMin0p01cm_, sizeof(HLT_L3dTksMu10_NoVtx_DxyMin0p01cm_), "HLT_L3dTksMu10_NoVtx_DxyMin0p01cm");
+    nanoCheckScalarWidth(b_HLT_LooseDeepTauPFTauHPS180_L2NN_eta2p1_, sizeof(HLT_LooseDeepTauPFTauHPS180_L2NN_eta2p1_), "HLT_LooseDeepTauPFTauHPS180_L2NN_eta2p1");
+    nanoCheckScalarWidth(b_HLT_LooseIsoPFTau50_Trk30_eta2p1_, sizeof(HLT_LooseIsoPFTau50_Trk30_eta2p1_), "HLT_LooseIsoPFTau50_Trk30_eta2p1");
+    nanoCheckScalarWidth(b_HLT_LooseIsoPFTau50_Trk30_eta2p1_MET110_, sizeof(HLT_LooseIsoPFTau50_Trk30_eta2p1_MET110_), "HLT_LooseIsoPFTau50_Trk30_eta2p1_MET110");
+    nanoCheckScalarWidth(b_HLT_LooseIsoPFTau50_Trk30_eta2p1_MET120_, sizeof(HLT_LooseIsoPFTau50_Trk30_eta2p1_MET120_), "HLT_LooseIsoPFTau50_Trk30_eta2p1_MET120");
+    nanoCheckScalarWidth(b_HLT_LooseIsoPFTau50_Trk30_eta2p1_MET80_, sizeof(HLT_LooseIsoPFTau50_Trk30_eta2p1_MET80_), "HLT_LooseIsoPFTau50_Trk30_eta2p1_MET80");
+    nanoCheckScalarWidth(b_HLT_LooseIsoPFTau50_Trk30_eta2p1_MET90_, sizeof(HLT_LooseIsoPFTau50_Trk30_eta2p1_MET90_), "HLT_LooseIsoPFTau50_Trk30_eta2p1_MET90");
+    nanoCheckScalarWidth(b_HLT_MET100_, sizeof(HLT_MET100_), "HLT_MET100");
+    nanoCheckScalarWidth(b_HLT_MET105_IsoTrk50_, sizeof(HLT_MET105_IsoTrk50_), "HLT_MET105_IsoTrk50");
+    nanoCheckScalarWidth(b_HLT_MET120_IsoTrk50_, sizeof(HLT_MET120_IsoTrk50_), "HLT_MET120_IsoTrk50");
+    nanoCheckScalarWidth(b_HLT_MET150_, sizeof(HLT_MET150_), "HLT_MET150");
+    nanoCheckScalarWidth(b_HLT_MET200_, sizeof(HLT_MET200_), "HLT_MET200");
+    nanoCheckScalarWidth(b_HLT_MET250_, sizeof(HLT_MET250_), "HLT_MET250");
+    nanoCheckScalarWidth(b_HLT_MET300_, sizeof(HLT_MET300_), "HLT_MET300");
+    nanoCheckScalarWidth(b_HLT_MET600_, sizeof(HLT_MET600_), "HLT_MET600");
+    nanoCheckScalarWidth(b_HLT_MET60_IsoTrk35_Loose_, sizeof(HLT_MET60_IsoTrk35_Loose_), "HLT_MET60_IsoTrk35_Loose");
+    nanoCheckScalarWidth(b_HLT_MET700_, sizeof(HLT_MET700_), "HLT_MET700");
+    nanoCheckScalarWidth(b_HLT_MET75_IsoTrk50_, sizeof(HLT_MET75_IsoTrk50_), "HLT_MET75_IsoTrk50");
+    nanoCheckScalarWidth(b_HLT_MET90_IsoTrk50_, sizeof(HLT_MET90_IsoTrk50_), "HLT_MET90_IsoTrk50");
+    nanoCheckScalarWidth(b_HLT_MediumChargedIsoPFTau100HighPtRelaxedIso_Trk50_eta2p1_1pr_, sizeof(HLT_MediumChargedIsoPFTau100HighPtRelaxedIso_Trk50_eta2p1_1pr_), "HLT_MediumChargedIsoPFTau100HighPtRelaxedIso_Trk50_eta2p1_1pr");
+    nanoCheckScalarWidth(b_HLT_MediumChargedIsoPFTau180HighPtRelaxedIso_Trk50_eta2p1_, sizeof(HLT_MediumChargedIsoPFTau180HighPtRelaxedIso_Trk50_eta2p1_), "HLT_MediumChargedIsoPFTau180HighPtRelaxedIso_Trk50_eta2p1");
+    nanoCheckScalarWidth(b_HLT_MediumChargedIsoPFTau180HighPtRelaxedIso_Trk50_eta2p1_1pr_, sizeof(HLT_MediumChargedIsoPFTau180HighPtRelaxedIso_Trk50_eta2p1_1pr_), "HLT_MediumChargedIsoPFTau180HighPtRelaxedIso_Trk50_eta2p1_1pr");
+    nanoCheckScalarWidth(b_HLT_MediumChargedIsoPFTau200HighPtRelaxedIso_Trk50_eta2p1_, sizeof(HLT_MediumChargedIsoPFTau200HighPtRelaxedIso_Trk50_eta2p1_), "HLT_MediumChargedIsoPFTau200HighPtRelaxedIso_Trk50_eta2p1");
+    nanoCheckScalarWidth(b_HLT_MediumChargedIsoPFTau220HighPtRelaxedIso_Trk50_eta2p1_, sizeof(HLT_MediumChargedIsoPFTau220HighPtRelaxedIso_Trk50_eta2p1_), "HLT_MediumChargedIsoPFTau220HighPtRelaxedIso_Trk50_eta2p1");
+    nanoCheckScalarWidth(b_HLT_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr_, sizeof(HLT_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr_), "HLT_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr");
+    nanoCheckScalarWidth(b_HLT_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr_MET100_, sizeof(HLT_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr_MET100_), "HLT_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr_MET100");
+    nanoCheckScalarWidth(b_HLT_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr_MET110_, sizeof(HLT_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr_MET110_), "HLT_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr_MET110");
+    nanoCheckScalarWidth(b_HLT_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr_MET120_, sizeof(HLT_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr_MET120_), "HLT_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr_MET120");
+    nanoCheckScalarWidth(b_HLT_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr_MET130_, sizeof(HLT_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr_MET130_), "HLT_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr_MET130");
+    nanoCheckScalarWidth(b_HLT_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr_MET140_, sizeof(HLT_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr_MET140_), "HLT_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr_MET140");
+    nanoCheckScalarWidth(b_HLT_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr_MET90_, sizeof(HLT_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr_MET90_), "HLT_MediumChargedIsoPFTau50_Trk30_eta2p1_1pr_MET90");
+    nanoCheckScalarWidth(b_HLT_MonoCentralPFJet80_PFMETNoMu100_PFMHTNoMu100_IDTight_, sizeof(HLT_MonoCentralPFJet80_PFMETNoMu100_PFMHTNoMu100_IDTight_), "HLT_MonoCentralPFJet80_PFMETNoMu100_PFMHTNoMu100_IDTight");
+    nanoCheckScalarWidth(b_HLT_MonoCentralPFJet80_PFMETNoMu110_PFMHTNoMu110_IDTight_, sizeof(HLT_MonoCentralPFJet80_PFMETNoMu110_PFMHTNoMu110_IDTight_), "HLT_MonoCentralPFJet80_PFMETNoMu110_PFMHTNoMu110_IDTight");
+    nanoCheckScalarWidth(b_HLT_MonoCentralPFJet80_PFMETNoMu120_PFMHTNoMu120_IDTight_, sizeof(HLT_MonoCentralPFJet80_PFMETNoMu120_PFMHTNoMu120_IDTight_), "HLT_MonoCentralPFJet80_PFMETNoMu120_PFMHTNoMu120_IDTight");
+    nanoCheckScalarWidth(b_HLT_MonoCentralPFJet80_PFMETNoMu130_PFMHTNoMu130_IDTight_, sizeof(HLT_MonoCentralPFJet80_PFMETNoMu130_PFMHTNoMu130_IDTight_), "HLT_MonoCentralPFJet80_PFMETNoMu130_PFMHTNoMu130_IDTight");
+    nanoCheckScalarWidth(b_HLT_MonoCentralPFJet80_PFMETNoMu140_PFMHTNoMu140_IDTight_, sizeof(HLT_MonoCentralPFJet80_PFMETNoMu140_PFMHTNoMu140_IDTight_), "HLT_MonoCentralPFJet80_PFMETNoMu140_PFMHTNoMu140_IDTight");
+    nanoCheckScalarWidth(b_HLT_MonoCentralPFJet80_PFMETNoMu90_PFMHTNoMu90_IDTight_, sizeof(HLT_MonoCentralPFJet80_PFMETNoMu90_PFMHTNoMu90_IDTight_), "HLT_MonoCentralPFJet80_PFMETNoMu90_PFMHTNoMu90_IDTight");
+    nanoCheckScalarWidth(b_HLT_Mu0_L1DoubleMu_, sizeof(HLT_Mu0_L1DoubleMu_), "HLT_Mu0_L1DoubleMu");
+    nanoCheckScalarWidth(b_HLT_Mu10_CentralPFJet30_BTagCSV_p13_, sizeof(HLT_Mu10_CentralPFJet30_BTagCSV_p13_), "HLT_Mu10_CentralPFJet30_BTagCSV_p13");
+    nanoCheckScalarWidth(b_HLT_Mu10_TrkIsoVVL_DiPFJet40_DEta3p5_MJJ750_HTT350_PFMETNoMu60_, sizeof(HLT_Mu10_TrkIsoVVL_DiPFJet40_DEta3p5_MJJ750_HTT350_PFMETNoMu60_), "HLT_Mu10_TrkIsoVVL_DiPFJet40_DEta3p5_MJJ750_HTT350_PFMETNoMu60");
+    nanoCheckScalarWidth(b_HLT_Mu10p5_IP3p5_part0_, sizeof(HLT_Mu10p5_IP3p5_part0_), "HLT_Mu10p5_IP3p5_part0");
+    nanoCheckScalarWidth(b_HLT_Mu10p5_IP3p5_part1_, sizeof(HLT_Mu10p5_IP3p5_part1_), "HLT_Mu10p5_IP3p5_part1");
+    nanoCheckScalarWidth(b_HLT_Mu10p5_IP3p5_part2_, sizeof(HLT_Mu10p5_IP3p5_part2_), "HLT_Mu10p5_IP3p5_part2");
+    nanoCheckScalarWidth(b_HLT_Mu10p5_IP3p5_part3_, sizeof(HLT_Mu10p5_IP3p5_part3_), "HLT_Mu10p5_IP3p5_part3");
+    nanoCheckScalarWidth(b_HLT_Mu10p5_IP3p5_part4_, sizeof(HLT_Mu10p5_IP3p5_part4_), "HLT_Mu10p5_IP3p5_part4");
+    nanoCheckScalarWidth(b_HLT_Mu10p5_IP3p5_part5_, sizeof(HLT_Mu10p5_IP3p5_part5_), "HLT_Mu10p5_IP3p5_part5");
+    nanoCheckScalarWidth(b_HLT_Mu12_, sizeof(HLT_Mu12_), "HLT_Mu12");
+    nanoCheckScalarWidth(b_HLT_Mu12_DoublePFJets100_CaloBTagCSV_p33_, sizeof(HLT_Mu12_DoublePFJets100_CaloBTagCSV_p33_), "HLT_Mu12_DoublePFJets100_CaloBTagCSV_p33");
+    nanoCheckScalarWidth(b_HLT_Mu12_DoublePFJets100_CaloBTagCSV_p79_, sizeof(HLT_Mu12_DoublePFJets100_CaloBTagCSV_p79_), "HLT_Mu12_DoublePFJets100_CaloBTagCSV_p79");
+    nanoCheckScalarWidth(b_HLT_Mu12_DoublePFJets100_CaloBTagDeepCSV_p71_, sizeof(HLT_Mu12_DoublePFJets100_CaloBTagDeepCSV_p71_), "HLT_Mu12_DoublePFJets100_CaloBTagDeepCSV_p71");
+    nanoCheckScalarWidth(b_HLT_Mu12_DoublePFJets100_PFBTagDeepCSV_p71_, sizeof(HLT_Mu12_DoublePFJets100_PFBTagDeepCSV_p71_), "HLT_Mu12_DoublePFJets100_PFBTagDeepCSV_p71");
+    nanoCheckScalarWidth(b_HLT_Mu12_DoublePFJets100_PFBTagDeepJet_p71_, sizeof(HLT_Mu12_DoublePFJets100_PFBTagDeepJet_p71_), "HLT_Mu12_DoublePFJets100_PFBTagDeepJet_p71");
+    nanoCheckScalarWidth(b_HLT_Mu12_DoublePFJets200_CaloBTagCSV_p33_, sizeof(HLT_Mu12_DoublePFJets200_CaloBTagCSV_p33_), "HLT_Mu12_DoublePFJets200_CaloBTagCSV_p33");
+    nanoCheckScalarWidth(b_HLT_Mu12_DoublePFJets200_CaloBTagCSV_p79_, sizeof(HLT_Mu12_DoublePFJets200_CaloBTagCSV_p79_), "HLT_Mu12_DoublePFJets200_CaloBTagCSV_p79");
+    nanoCheckScalarWidth(b_HLT_Mu12_DoublePFJets200_CaloBTagDeepCSV_p71_, sizeof(HLT_Mu12_DoublePFJets200_CaloBTagDeepCSV_p71_), "HLT_Mu12_DoublePFJets200_CaloBTagDeepCSV_p71");
+    nanoCheckScalarWidth(b_HLT_Mu12_DoublePFJets200_PFBTagDeepCSV_p71_, sizeof(HLT_Mu12_DoublePFJets200_PFBTagDeepCSV_p71_), "HLT_Mu12_DoublePFJets200_PFBTagDeepCSV_p71");
+    nanoCheckScalarWidth(b_HLT_Mu12_DoublePFJets200_PFBTagDeepJet_p71_, sizeof(HLT_Mu12_DoublePFJets200_PFBTagDeepJet_p71_), "HLT_Mu12_DoublePFJets200_PFBTagDeepJet_p71");
+    nanoCheckScalarWidth(b_HLT_Mu12_DoublePFJets350_CaloBTagCSV_p33_, sizeof(HLT_Mu12_DoublePFJets350_CaloBTagCSV_p33_), "HLT_Mu12_DoublePFJets350_CaloBTagCSV_p33");
+    nanoCheckScalarWidth(b_HLT_Mu12_DoublePFJets350_CaloBTagCSV_p79_, sizeof(HLT_Mu12_DoublePFJets350_CaloBTagCSV_p79_), "HLT_Mu12_DoublePFJets350_CaloBTagCSV_p79");
+    nanoCheckScalarWidth(b_HLT_Mu12_DoublePFJets350_CaloBTagDeepCSV_p71_, sizeof(HLT_Mu12_DoublePFJets350_CaloBTagDeepCSV_p71_), "HLT_Mu12_DoublePFJets350_CaloBTagDeepCSV_p71");
+    nanoCheckScalarWidth(b_HLT_Mu12_DoublePFJets350_PFBTagDeepCSV_p71_, sizeof(HLT_Mu12_DoublePFJets350_PFBTagDeepCSV_p71_), "HLT_Mu12_DoublePFJets350_PFBTagDeepCSV_p71");
+    nanoCheckScalarWidth(b_HLT_Mu12_DoublePFJets350_PFBTagDeepJet_p71_, sizeof(HLT_Mu12_DoublePFJets350_PFBTagDeepJet_p71_), "HLT_Mu12_DoublePFJets350_PFBTagDeepJet_p71");
+    nanoCheckScalarWidth(b_HLT_Mu12_DoublePFJets40MaxDeta1p6_DoubleCaloBTagCSV_p33_, sizeof(HLT_Mu12_DoublePFJets40MaxDeta1p6_DoubleCaloBTagCSV_p33_), "HLT_Mu12_DoublePFJets40MaxDeta1p6_DoubleCaloBTagCSV_p33");
+    nanoCheckScalarWidth(b_HLT_Mu12_DoublePFJets40MaxDeta1p6_DoubleCaloBTagCSV_p79_, sizeof(HLT_Mu12_DoublePFJets40MaxDeta1p6_DoubleCaloBTagCSV_p79_), "HLT_Mu12_DoublePFJets40MaxDeta1p6_DoubleCaloBTagCSV_p79");
+    nanoCheckScalarWidth(b_HLT_Mu12_DoublePFJets40MaxDeta1p6_DoubleCaloBTagDeepCSV_p71_, sizeof(HLT_Mu12_DoublePFJets40MaxDeta1p6_DoubleCaloBTagDeepCSV_p71_), "HLT_Mu12_DoublePFJets40MaxDeta1p6_DoubleCaloBTagDeepCSV_p71");
+    nanoCheckScalarWidth(b_HLT_Mu12_DoublePFJets40MaxDeta1p6_DoublePFBTagDeepCSV_p71_, sizeof(HLT_Mu12_DoublePFJets40MaxDeta1p6_DoublePFBTagDeepCSV_p71_), "HLT_Mu12_DoublePFJets40MaxDeta1p6_DoublePFBTagDeepCSV_p71");
+    nanoCheckScalarWidth(b_HLT_Mu12_DoublePFJets40MaxDeta1p6_DoublePFBTagDeepJet_p71_, sizeof(HLT_Mu12_DoublePFJets40MaxDeta1p6_DoublePFBTagDeepJet_p71_), "HLT_Mu12_DoublePFJets40MaxDeta1p6_DoublePFBTagDeepJet_p71");
+    nanoCheckScalarWidth(b_HLT_Mu12_DoublePFJets40_CaloBTagCSV_p33_, sizeof(HLT_Mu12_DoublePFJets40_CaloBTagCSV_p33_), "HLT_Mu12_DoublePFJets40_CaloBTagCSV_p33");
+    nanoCheckScalarWidth(b_HLT_Mu12_DoublePFJets40_CaloBTagCSV_p79_, sizeof(HLT_Mu12_DoublePFJets40_CaloBTagCSV_p79_), "HLT_Mu12_DoublePFJets40_CaloBTagCSV_p79");
+    nanoCheckScalarWidth(b_HLT_Mu12_DoublePFJets40_CaloBTagDeepCSV_p71_, sizeof(HLT_Mu12_DoublePFJets40_CaloBTagDeepCSV_p71_), "HLT_Mu12_DoublePFJets40_CaloBTagDeepCSV_p71");
+    nanoCheckScalarWidth(b_HLT_Mu12_DoublePFJets40_PFBTagDeepCSV_p71_, sizeof(HLT_Mu12_DoublePFJets40_PFBTagDeepCSV_p71_), "HLT_Mu12_DoublePFJets40_PFBTagDeepCSV_p71");
+    nanoCheckScalarWidth(b_HLT_Mu12_DoublePFJets40_PFBTagDeepJet_p71_, sizeof(HLT_Mu12_DoublePFJets40_PFBTagDeepJet_p71_), "HLT_Mu12_DoublePFJets40_PFBTagDeepJet_p71");
+    nanoCheckScalarWidth(b_HLT_Mu12_DoublePFJets54MaxDeta1p6_DoubleCaloBTagCSV_p33_, sizeof(HLT_Mu12_DoublePFJets54MaxDeta1p6_DoubleCaloBTagCSV_p33_), "HLT_Mu12_DoublePFJets54MaxDeta1p6_DoubleCaloBTagCSV_p33");
+    nanoCheckScalarWidth(b_HLT_Mu12_DoublePFJets54MaxDeta1p6_DoubleCaloBTagCSV_p79_, sizeof(HLT_Mu12_DoublePFJets54MaxDeta1p6_DoubleCaloBTagCSV_p79_), "HLT_Mu12_DoublePFJets54MaxDeta1p6_DoubleCaloBTagCSV_p79");
+    nanoCheckScalarWidth(b_HLT_Mu12_DoublePFJets54MaxDeta1p6_DoubleCaloBTagDeepCSV_p71_, sizeof(HLT_Mu12_DoublePFJets54MaxDeta1p6_DoubleCaloBTagDeepCSV_p71_), "HLT_Mu12_DoublePFJets54MaxDeta1p6_DoubleCaloBTagDeepCSV_p71");
+    nanoCheckScalarWidth(b_HLT_Mu12_DoublePFJets54MaxDeta1p6_DoublePFBTagDeepCSV_p71_, sizeof(HLT_Mu12_DoublePFJets54MaxDeta1p6_DoublePFBTagDeepCSV_p71_), "HLT_Mu12_DoublePFJets54MaxDeta1p6_DoublePFBTagDeepCSV_p71");
+    nanoCheckScalarWidth(b_HLT_Mu12_DoublePFJets54MaxDeta1p6_DoublePFBTagDeepJet_p71_, sizeof(HLT_Mu12_DoublePFJets54MaxDeta1p6_DoublePFBTagDeepJet_p71_), "HLT_Mu12_DoublePFJets54MaxDeta1p6_DoublePFBTagDeepJet_p71");
+    nanoCheckScalarWidth(b_HLT_Mu12_DoublePFJets62MaxDeta1p6_DoubleCaloBTagCSV_p33_, sizeof(HLT_Mu12_DoublePFJets62MaxDeta1p6_DoubleCaloBTagCSV_p33_), "HLT_Mu12_DoublePFJets62MaxDeta1p6_DoubleCaloBTagCSV_p33");
+    nanoCheckScalarWidth(b_HLT_Mu12_DoublePFJets62MaxDeta1p6_DoubleCaloBTagCSV_p79_, sizeof(HLT_Mu12_DoublePFJets62MaxDeta1p6_DoubleCaloBTagCSV_p79_), "HLT_Mu12_DoublePFJets62MaxDeta1p6_DoubleCaloBTagCSV_p79");
+    nanoCheckScalarWidth(b_HLT_Mu12_DoublePFJets62MaxDeta1p6_DoubleCaloBTagDeepCSV_p71_, sizeof(HLT_Mu12_DoublePFJets62MaxDeta1p6_DoubleCaloBTagDeepCSV_p71_), "HLT_Mu12_DoublePFJets62MaxDeta1p6_DoubleCaloBTagDeepCSV_p71");
+    nanoCheckScalarWidth(b_HLT_Mu12_DoublePhoton20_, sizeof(HLT_Mu12_DoublePhoton20_), "HLT_Mu12_DoublePhoton20");
+    nanoCheckScalarWidth(b_HLT_Mu12_IP6_, sizeof(HLT_Mu12_IP6_), "HLT_Mu12_IP6");
+    nanoCheckScalarWidth(b_HLT_Mu12_IP6_ToCSCS_, sizeof(HLT_Mu12_IP6_ToCSCS_), "HLT_Mu12_IP6_ToCSCS");
+    nanoCheckScalarWidth(b_HLT_Mu12_IP6_part0_, sizeof(HLT_Mu12_IP6_part0_), "HLT_Mu12_IP6_part0");
+    nanoCheckScalarWidth(b_HLT_Mu12_IP6_part1_, sizeof(HLT_Mu12_IP6_part1_), "HLT_Mu12_IP6_part1");
+    nanoCheckScalarWidth(b_HLT_Mu12_IP6_part2_, sizeof(HLT_Mu12_IP6_part2_), "HLT_Mu12_IP6_part2");
+    nanoCheckScalarWidth(b_HLT_Mu12_IP6_part3_, sizeof(HLT_Mu12_IP6_part3_), "HLT_Mu12_IP6_part3");
+    nanoCheckScalarWidth(b_HLT_Mu12_IP6_part4_, sizeof(HLT_Mu12_IP6_part4_), "HLT_Mu12_IP6_part4");
+    nanoCheckScalarWidth(b_HLT_Mu12_Photon25_CaloIdL_, sizeof(HLT_Mu12_Photon25_CaloIdL_), "HLT_Mu12_Photon25_CaloIdL");
+    nanoCheckScalarWidth(b_HLT_Mu12_Photon25_CaloIdL_L1ISO_, sizeof(HLT_Mu12_Photon25_CaloIdL_L1ISO_), "HLT_Mu12_Photon25_CaloIdL_L1ISO");
+    nanoCheckScalarWidth(b_HLT_Mu12_Photon25_CaloIdL_L1OR_, sizeof(HLT_Mu12_Photon25_CaloIdL_L1OR_), "HLT_Mu12_Photon25_CaloIdL_L1OR");
+    nanoCheckScalarWidth(b_HLT_Mu12_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_, sizeof(HLT_Mu12_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_), "HLT_Mu12_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL");
+    nanoCheckScalarWidth(b_HLT_Mu12_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_, sizeof(HLT_Mu12_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_), "HLT_Mu12_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ");
+    nanoCheckScalarWidth(b_HLT_Mu12eta2p3_, sizeof(HLT_Mu12eta2p3_), "HLT_Mu12eta2p3");
+    nanoCheckScalarWidth(b_HLT_Mu12eta2p3_PFJet40_, sizeof(HLT_Mu12eta2p3_PFJet40_), "HLT_Mu12eta2p3_PFJet40");
+    nanoCheckScalarWidth(b_HLT_Mu14er_PFMET100_, sizeof(HLT_Mu14er_PFMET100_), "HLT_Mu14er_PFMET100");
+    nanoCheckScalarWidth(b_HLT_Mu15_, sizeof(HLT_Mu15_), "HLT_Mu15");
+    nanoCheckScalarWidth(b_HLT_Mu15_IsoVVVL_BTagCSV_p067_PFHT400_, sizeof(HLT_Mu15_IsoVVVL_BTagCSV_p067_PFHT400_), "HLT_Mu15_IsoVVVL_BTagCSV_p067_PFHT400");
+    nanoCheckScalarWidth(b_HLT_Mu15_IsoVVVL_PFHT350_, sizeof(HLT_Mu15_IsoVVVL_PFHT350_), "HLT_Mu15_IsoVVVL_PFHT350");
+    nanoCheckScalarWidth(b_HLT_Mu15_IsoVVVL_PFHT350_PFMET50_, sizeof(HLT_Mu15_IsoVVVL_PFHT350_PFMET50_), "HLT_Mu15_IsoVVVL_PFHT350_PFMET50");
+    nanoCheckScalarWidth(b_HLT_Mu15_IsoVVVL_PFHT400_, sizeof(HLT_Mu15_IsoVVVL_PFHT400_), "HLT_Mu15_IsoVVVL_PFHT400");
+    nanoCheckScalarWidth(b_HLT_Mu15_IsoVVVL_PFHT400_PFMET50_, sizeof(HLT_Mu15_IsoVVVL_PFHT400_PFMET50_), "HLT_Mu15_IsoVVVL_PFHT400_PFMET50");
+    nanoCheckScalarWidth(b_HLT_Mu15_IsoVVVL_PFHT450_, sizeof(HLT_Mu15_IsoVVVL_PFHT450_), "HLT_Mu15_IsoVVVL_PFHT450");
+    nanoCheckScalarWidth(b_HLT_Mu15_IsoVVVL_PFHT450_CaloBTagCSV_4p5_, sizeof(HLT_Mu15_IsoVVVL_PFHT450_CaloBTagCSV_4p5_), "HLT_Mu15_IsoVVVL_PFHT450_CaloBTagCSV_4p5");
+    nanoCheckScalarWidth(b_HLT_Mu15_IsoVVVL_PFHT450_CaloBTagDeepCSV_4p5_, sizeof(HLT_Mu15_IsoVVVL_PFHT450_CaloBTagDeepCSV_4p5_), "HLT_Mu15_IsoVVVL_PFHT450_CaloBTagDeepCSV_4p5");
+    nanoCheckScalarWidth(b_HLT_Mu15_IsoVVVL_PFHT450_PFMET50_, sizeof(HLT_Mu15_IsoVVVL_PFHT450_PFMET50_), "HLT_Mu15_IsoVVVL_PFHT450_PFMET50");
+    nanoCheckScalarWidth(b_HLT_Mu15_IsoVVVL_PFHT600_, sizeof(HLT_Mu15_IsoVVVL_PFHT600_), "HLT_Mu15_IsoVVVL_PFHT600");
+    nanoCheckScalarWidth(b_HLT_Mu16_TkMu0_dEta18_Onia_, sizeof(HLT_Mu16_TkMu0_dEta18_Onia_), "HLT_Mu16_TkMu0_dEta18_Onia");
+    nanoCheckScalarWidth(b_HLT_Mu16_TkMu0_dEta18_Phi_, sizeof(HLT_Mu16_TkMu0_dEta18_Phi_), "HLT_Mu16_TkMu0_dEta18_Phi");
+    nanoCheckScalarWidth(b_HLT_Mu16_eta2p1_MET30_, sizeof(HLT_Mu16_eta2p1_MET30_), "HLT_Mu16_eta2p1_MET30");
+    nanoCheckScalarWidth(b_HLT_Mu17_, sizeof(HLT_Mu17_), "HLT_Mu17");
+    nanoCheckScalarWidth(b_HLT_Mu17_Mu8_, sizeof(HLT_Mu17_Mu8_), "HLT_Mu17_Mu8");
+    nanoCheckScalarWidth(b_HLT_Mu17_Mu8_DZ_, sizeof(HLT_Mu17_Mu8_DZ_), "HLT_Mu17_Mu8_DZ");
+    nanoCheckScalarWidth(b_HLT_Mu17_Mu8_SameSign_, sizeof(HLT_Mu17_Mu8_SameSign_), "HLT_Mu17_Mu8_SameSign");
+    nanoCheckScalarWidth(b_HLT_Mu17_Mu8_SameSign_DZ_, sizeof(HLT_Mu17_Mu8_SameSign_DZ_), "HLT_Mu17_Mu8_SameSign_DZ");
+    nanoCheckScalarWidth(b_HLT_Mu17_Photon22_CaloIdL_L1ISO_, sizeof(HLT_Mu17_Photon22_CaloIdL_L1ISO_), "HLT_Mu17_Photon22_CaloIdL_L1ISO");
+    nanoCheckScalarWidth(b_HLT_Mu17_Photon30_CaloIdL_L1ISO_, sizeof(HLT_Mu17_Photon30_CaloIdL_L1ISO_), "HLT_Mu17_Photon30_CaloIdL_L1ISO");
+    nanoCheckScalarWidth(b_HLT_Mu17_Photon30_IsoCaloId_, sizeof(HLT_Mu17_Photon30_IsoCaloId_), "HLT_Mu17_Photon30_IsoCaloId");
+    nanoCheckScalarWidth(b_HLT_Mu17_Photon35_CaloIdL_L1ISO_, sizeof(HLT_Mu17_Photon35_CaloIdL_L1ISO_), "HLT_Mu17_Photon35_CaloIdL_L1ISO");
+    nanoCheckScalarWidth(b_HLT_Mu17_TkMu8_DZ_, sizeof(HLT_Mu17_TkMu8_DZ_), "HLT_Mu17_TkMu8_DZ");
+    nanoCheckScalarWidth(b_HLT_Mu17_TrkIsoVVL_, sizeof(HLT_Mu17_TrkIsoVVL_), "HLT_Mu17_TrkIsoVVL");
+    nanoCheckScalarWidth(b_HLT_Mu17_TrkIsoVVL_Ele12_CaloIdL_TrackIdL_IsoVL_, sizeof(HLT_Mu17_TrkIsoVVL_Ele12_CaloIdL_TrackIdL_IsoVL_), "HLT_Mu17_TrkIsoVVL_Ele12_CaloIdL_TrackIdL_IsoVL");
+    nanoCheckScalarWidth(b_HLT_Mu17_TrkIsoVVL_Mu8_TrkIsoVVL_, sizeof(HLT_Mu17_TrkIsoVVL_Mu8_TrkIsoVVL_), "HLT_Mu17_TrkIsoVVL_Mu8_TrkIsoVVL");
+    nanoCheckScalarWidth(b_HLT_Mu17_TrkIsoVVL_Mu8_TrkIsoVVL_DZ_, sizeof(HLT_Mu17_TrkIsoVVL_Mu8_TrkIsoVVL_DZ_), "HLT_Mu17_TrkIsoVVL_Mu8_TrkIsoVVL_DZ");
+    nanoCheckScalarWidth(b_HLT_Mu17_TrkIsoVVL_Mu8_TrkIsoVVL_DZ_Mass3p8_, sizeof(HLT_Mu17_TrkIsoVVL_Mu8_TrkIsoVVL_DZ_Mass3p8_), "HLT_Mu17_TrkIsoVVL_Mu8_TrkIsoVVL_DZ_Mass3p8");
+    nanoCheckScalarWidth(b_HLT_Mu17_TrkIsoVVL_Mu8_TrkIsoVVL_DZ_Mass8_, sizeof(HLT_Mu17_TrkIsoVVL_Mu8_TrkIsoVVL_DZ_Mass8_), "HLT_Mu17_TrkIsoVVL_Mu8_TrkIsoVVL_DZ_Mass8");
+    nanoCheckScalarWidth(b_HLT_Mu17_TrkIsoVVL_TkMu8_TrkIsoVVL_, sizeof(HLT_Mu17_TrkIsoVVL_TkMu8_TrkIsoVVL_), "HLT_Mu17_TrkIsoVVL_TkMu8_TrkIsoVVL");
+    nanoCheckScalarWidth(b_HLT_Mu17_TrkIsoVVL_TkMu8_TrkIsoVVL_DZ_, sizeof(HLT_Mu17_TrkIsoVVL_TkMu8_TrkIsoVVL_DZ_), "HLT_Mu17_TrkIsoVVL_TkMu8_TrkIsoVVL_DZ");
+    nanoCheckScalarWidth(b_HLT_Mu18_Mu9_, sizeof(HLT_Mu18_Mu9_), "HLT_Mu18_Mu9");
+    nanoCheckScalarWidth(b_HLT_Mu18_Mu9_DZ_, sizeof(HLT_Mu18_Mu9_DZ_), "HLT_Mu18_Mu9_DZ");
+    nanoCheckScalarWidth(b_HLT_Mu18_Mu9_SameSign_, sizeof(HLT_Mu18_Mu9_SameSign_), "HLT_Mu18_Mu9_SameSign");
+    nanoCheckScalarWidth(b_HLT_Mu18_Mu9_SameSign_DZ_, sizeof(HLT_Mu18_Mu9_SameSign_DZ_), "HLT_Mu18_Mu9_SameSign_DZ");
+    nanoCheckScalarWidth(b_HLT_Mu19_, sizeof(HLT_Mu19_), "HLT_Mu19");
+    nanoCheckScalarWidth(b_HLT_Mu19_TrkIsoVVL_, sizeof(HLT_Mu19_TrkIsoVVL_), "HLT_Mu19_TrkIsoVVL");
+    nanoCheckScalarWidth(b_HLT_Mu19_TrkIsoVVL_Mu9_TrkIsoVVL_, sizeof(HLT_Mu19_TrkIsoVVL_Mu9_TrkIsoVVL_), "HLT_Mu19_TrkIsoVVL_Mu9_TrkIsoVVL");
+    nanoCheckScalarWidth(b_HLT_Mu19_TrkIsoVVL_Mu9_TrkIsoVVL_DZ_, sizeof(HLT_Mu19_TrkIsoVVL_Mu9_TrkIsoVVL_DZ_), "HLT_Mu19_TrkIsoVVL_Mu9_TrkIsoVVL_DZ");
+    nanoCheckScalarWidth(b_HLT_Mu19_TrkIsoVVL_Mu9_TrkIsoVVL_DZ_Mass3p8_, sizeof(HLT_Mu19_TrkIsoVVL_Mu9_TrkIsoVVL_DZ_Mass3p8_), "HLT_Mu19_TrkIsoVVL_Mu9_TrkIsoVVL_DZ_Mass3p8");
+    nanoCheckScalarWidth(b_HLT_Mu19_TrkIsoVVL_Mu9_TrkIsoVVL_DZ_Mass8_, sizeof(HLT_Mu19_TrkIsoVVL_Mu9_TrkIsoVVL_DZ_Mass8_), "HLT_Mu19_TrkIsoVVL_Mu9_TrkIsoVVL_DZ_Mass8");
+    nanoCheckScalarWidth(b_HLT_Mu20_, sizeof(HLT_Mu20_), "HLT_Mu20");
+    nanoCheckScalarWidth(b_HLT_Mu20NoFiltersNoVtxDisplaced_Photon20_CaloCustomId_, sizeof(HLT_Mu20NoFiltersNoVtxDisplaced_Photon20_CaloCustomId_), "HLT_Mu20NoFiltersNoVtxDisplaced_Photon20_CaloCustomId");
+    nanoCheckScalarWidth(b_HLT_Mu20_Mu10_, sizeof(HLT_Mu20_Mu10_), "HLT_Mu20_Mu10");
+    nanoCheckScalarWidth(b_HLT_Mu20_Mu10_DZ_, sizeof(HLT_Mu20_Mu10_DZ_), "HLT_Mu20_Mu10_DZ");
+    nanoCheckScalarWidth(b_HLT_Mu20_Mu10_SameSign_, sizeof(HLT_Mu20_Mu10_SameSign_), "HLT_Mu20_Mu10_SameSign");
+    nanoCheckScalarWidth(b_HLT_Mu20_Mu10_SameSign_DZ_, sizeof(HLT_Mu20_Mu10_SameSign_DZ_), "HLT_Mu20_Mu10_SameSign_DZ");
+    nanoCheckScalarWidth(b_HLT_Mu20_TkMu0_Phi_, sizeof(HLT_Mu20_TkMu0_Phi_), "HLT_Mu20_TkMu0_Phi");
+    nanoCheckScalarWidth(b_HLT_Mu23NoFiltersNoVtx_Photon23_CaloIdL_, sizeof(HLT_Mu23NoFiltersNoVtx_Photon23_CaloIdL_), "HLT_Mu23NoFiltersNoVtx_Photon23_CaloIdL");
+    nanoCheckScalarWidth(b_HLT_Mu23_Mu12_, sizeof(HLT_Mu23_Mu12_), "HLT_Mu23_Mu12");
+    nanoCheckScalarWidth(b_HLT_Mu23_Mu12_DZ_, sizeof(HLT_Mu23_Mu12_DZ_), "HLT_Mu23_Mu12_DZ");
+    nanoCheckScalarWidth(b_HLT_Mu23_Mu12_SameSign_, sizeof(HLT_Mu23_Mu12_SameSign_), "HLT_Mu23_Mu12_SameSign");
+    nanoCheckScalarWidth(b_HLT_Mu23_Mu12_SameSign_DZ_, sizeof(HLT_Mu23_Mu12_SameSign_DZ_), "HLT_Mu23_Mu12_SameSign_DZ");
+    nanoCheckScalarWidth(b_HLT_Mu23_TrkIsoVVL_Ele12_CaloIdL_TrackIdL_IsoVL_, sizeof(HLT_Mu23_TrkIsoVVL_Ele12_CaloIdL_TrackIdL_IsoVL_), "HLT_Mu23_TrkIsoVVL_Ele12_CaloIdL_TrackIdL_IsoVL");
+    nanoCheckScalarWidth(b_HLT_Mu23_TrkIsoVVL_Ele12_CaloIdL_TrackIdL_IsoVL_DZ_, sizeof(HLT_Mu23_TrkIsoVVL_Ele12_CaloIdL_TrackIdL_IsoVL_DZ_), "HLT_Mu23_TrkIsoVVL_Ele12_CaloIdL_TrackIdL_IsoVL_DZ");
+    nanoCheckScalarWidth(b_HLT_Mu23_TrkIsoVVL_Ele8_CaloIdL_TrackIdL_IsoVL_, sizeof(HLT_Mu23_TrkIsoVVL_Ele8_CaloIdL_TrackIdL_IsoVL_), "HLT_Mu23_TrkIsoVVL_Ele8_CaloIdL_TrackIdL_IsoVL");
+    nanoCheckScalarWidth(b_HLT_Mu23_TrkIsoVVL_Ele8_CaloIdL_TrackIdL_IsoVL_DZ_, sizeof(HLT_Mu23_TrkIsoVVL_Ele8_CaloIdL_TrackIdL_IsoVL_DZ_), "HLT_Mu23_TrkIsoVVL_Ele8_CaloIdL_TrackIdL_IsoVL_DZ");
+    nanoCheckScalarWidth(b_HLT_Mu24_eta2p1_, sizeof(HLT_Mu24_eta2p1_), "HLT_Mu24_eta2p1");
+    nanoCheckScalarWidth(b_HLT_Mu25_TkMu0_Onia_, sizeof(HLT_Mu25_TkMu0_Onia_), "HLT_Mu25_TkMu0_Onia");
+    nanoCheckScalarWidth(b_HLT_Mu25_TkMu0_Phi_, sizeof(HLT_Mu25_TkMu0_Phi_), "HLT_Mu25_TkMu0_Phi");
+    nanoCheckScalarWidth(b_HLT_Mu25_TkMu0_dEta18_Onia_, sizeof(HLT_Mu25_TkMu0_dEta18_Onia_), "HLT_Mu25_TkMu0_dEta18_Onia");
+    nanoCheckScalarWidth(b_HLT_Mu27_, sizeof(HLT_Mu27_), "HLT_Mu27");
+    nanoCheckScalarWidth(b_HLT_Mu27_Ele37_CaloIdL_GsfTrkIdVL_, sizeof(HLT_Mu27_Ele37_CaloIdL_GsfTrkIdVL_), "HLT_Mu27_Ele37_CaloIdL_GsfTrkIdVL");
+    nanoCheckScalarWidth(b_HLT_Mu27_Ele37_CaloIdL_MW_, sizeof(HLT_Mu27_Ele37_CaloIdL_MW_), "HLT_Mu27_Ele37_CaloIdL_MW");
+    nanoCheckScalarWidth(b_HLT_Mu27_TkMu8_, sizeof(HLT_Mu27_TkMu8_), "HLT_Mu27_TkMu8");
+    nanoCheckScalarWidth(b_HLT_Mu28NoFiltersNoVtxDisplaced_Photon28_CaloIdL_, sizeof(HLT_Mu28NoFiltersNoVtxDisplaced_Photon28_CaloIdL_), "HLT_Mu28NoFiltersNoVtxDisplaced_Photon28_CaloIdL");
+    nanoCheckScalarWidth(b_HLT_Mu28NoFiltersNoVtx_CentralCaloJet40_, sizeof(HLT_Mu28NoFiltersNoVtx_CentralCaloJet40_), "HLT_Mu28NoFiltersNoVtx_CentralCaloJet40");
+    nanoCheckScalarWidth(b_HLT_Mu28NoFiltersNoVtx_DisplacedJet40_Loose_, sizeof(HLT_Mu28NoFiltersNoVtx_DisplacedJet40_Loose_), "HLT_Mu28NoFiltersNoVtx_DisplacedJet40_Loose");
+    nanoCheckScalarWidth(b_HLT_Mu300_, sizeof(HLT_Mu300_), "HLT_Mu300");
+    nanoCheckScalarWidth(b_HLT_Mu30_Ele30_CaloIdL_GsfTrkIdVL_, sizeof(HLT_Mu30_Ele30_CaloIdL_GsfTrkIdVL_), "HLT_Mu30_Ele30_CaloIdL_GsfTrkIdVL");
+    nanoCheckScalarWidth(b_HLT_Mu30_TkMu0_Onia_, sizeof(HLT_Mu30_TkMu0_Onia_), "HLT_Mu30_TkMu0_Onia");
+    nanoCheckScalarWidth(b_HLT_Mu30_TkMu0_Psi_, sizeof(HLT_Mu30_TkMu0_Psi_), "HLT_Mu30_TkMu0_Psi");
+    nanoCheckScalarWidth(b_HLT_Mu30_TkMu0_Upsilon_, sizeof(HLT_Mu30_TkMu0_Upsilon_), "HLT_Mu30_TkMu0_Upsilon");
+    nanoCheckScalarWidth(b_HLT_Mu30_TkMu11_, sizeof(HLT_Mu30_TkMu11_), "HLT_Mu30_TkMu11");
+    nanoCheckScalarWidth(b_HLT_Mu30_eta2p1_PFJet150_PFJet50_, sizeof(HLT_Mu30_eta2p1_PFJet150_PFJet50_), "HLT_Mu30_eta2p1_PFJet150_PFJet50");
+    nanoCheckScalarWidth(b_HLT_Mu33NoFiltersNoVtxDisplaced_DisplacedJet50_Loose_, sizeof(HLT_Mu33NoFiltersNoVtxDisplaced_DisplacedJet50_Loose_), "HLT_Mu33NoFiltersNoVtxDisplaced_DisplacedJet50_Loose");
+    nanoCheckScalarWidth(b_HLT_Mu33NoFiltersNoVtxDisplaced_DisplacedJet50_Tight_, sizeof(HLT_Mu33NoFiltersNoVtxDisplaced_DisplacedJet50_Tight_), "HLT_Mu33NoFiltersNoVtxDisplaced_DisplacedJet50_Tight");
+    nanoCheckScalarWidth(b_HLT_Mu33NoFiltersNoVtxDisplaced_Photon33_CaloIdL_, sizeof(HLT_Mu33NoFiltersNoVtxDisplaced_Photon33_CaloIdL_), "HLT_Mu33NoFiltersNoVtxDisplaced_Photon33_CaloIdL");
+    nanoCheckScalarWidth(b_HLT_Mu33_Ele33_CaloIdL_GsfTrkIdVL_, sizeof(HLT_Mu33_Ele33_CaloIdL_GsfTrkIdVL_), "HLT_Mu33_Ele33_CaloIdL_GsfTrkIdVL");
+    nanoCheckScalarWidth(b_HLT_Mu350_, sizeof(HLT_Mu350_), "HLT_Mu350");
+    nanoCheckScalarWidth(b_HLT_Mu37_Ele27_CaloIdL_GsfTrkIdVL_, sizeof(HLT_Mu37_Ele27_CaloIdL_GsfTrkIdVL_), "HLT_Mu37_Ele27_CaloIdL_GsfTrkIdVL");
+    nanoCheckScalarWidth(b_HLT_Mu37_Ele27_CaloIdL_MW_, sizeof(HLT_Mu37_Ele27_CaloIdL_MW_), "HLT_Mu37_Ele27_CaloIdL_MW");
+    nanoCheckScalarWidth(b_HLT_Mu37_TkMu27_, sizeof(HLT_Mu37_TkMu27_), "HLT_Mu37_TkMu27");
+    nanoCheckScalarWidth(b_HLT_Mu38NoFiltersNoVtxDisplaced_DisplacedJet60_Loose_, sizeof(HLT_Mu38NoFiltersNoVtxDisplaced_DisplacedJet60_Loose_), "HLT_Mu38NoFiltersNoVtxDisplaced_DisplacedJet60_Loose");
+    nanoCheckScalarWidth(b_HLT_Mu38NoFiltersNoVtxDisplaced_DisplacedJet60_Tight_, sizeof(HLT_Mu38NoFiltersNoVtxDisplaced_DisplacedJet60_Tight_), "HLT_Mu38NoFiltersNoVtxDisplaced_DisplacedJet60_Tight");
+    nanoCheckScalarWidth(b_HLT_Mu38NoFiltersNoVtxDisplaced_Photon38_CaloIdL_, sizeof(HLT_Mu38NoFiltersNoVtxDisplaced_Photon38_CaloIdL_), "HLT_Mu38NoFiltersNoVtxDisplaced_Photon38_CaloIdL");
+    nanoCheckScalarWidth(b_HLT_Mu38NoFiltersNoVtx_DisplacedJet60_Loose_, sizeof(HLT_Mu38NoFiltersNoVtx_DisplacedJet60_Loose_), "HLT_Mu38NoFiltersNoVtx_DisplacedJet60_Loose");
+    nanoCheckScalarWidth(b_HLT_Mu38NoFiltersNoVtx_Photon38_CaloIdL_, sizeof(HLT_Mu38NoFiltersNoVtx_Photon38_CaloIdL_), "HLT_Mu38NoFiltersNoVtx_Photon38_CaloIdL");
+    nanoCheckScalarWidth(b_HLT_Mu3_L1SingleMu5orSingleMu7_, sizeof(HLT_Mu3_L1SingleMu5orSingleMu7_), "HLT_Mu3_L1SingleMu5orSingleMu7");
+    nanoCheckScalarWidth(b_HLT_Mu3_PFJet40_, sizeof(HLT_Mu3_PFJet40_), "HLT_Mu3_PFJet40");
+    nanoCheckScalarWidth(b_HLT_Mu3er1p5_PFJet100er2p5_PFMET100_PFMHT100_IDTight_, sizeof(HLT_Mu3er1p5_PFJet100er2p5_PFMET100_PFMHT100_IDTight_), "HLT_Mu3er1p5_PFJet100er2p5_PFMET100_PFMHT100_IDTight");
+    nanoCheckScalarWidth(b_HLT_Mu3er1p5_PFJet100er2p5_PFMET70_PFMHT70_IDTight_, sizeof(HLT_Mu3er1p5_PFJet100er2p5_PFMET70_PFMHT70_IDTight_), "HLT_Mu3er1p5_PFJet100er2p5_PFMET70_PFMHT70_IDTight");
+    nanoCheckScalarWidth(b_HLT_Mu3er1p5_PFJet100er2p5_PFMET80_PFMHT80_IDTight_, sizeof(HLT_Mu3er1p5_PFJet100er2p5_PFMET80_PFMHT80_IDTight_), "HLT_Mu3er1p5_PFJet100er2p5_PFMET80_PFMHT80_IDTight");
+    nanoCheckScalarWidth(b_HLT_Mu3er1p5_PFJet100er2p5_PFMET90_PFMHT90_IDTight_, sizeof(HLT_Mu3er1p5_PFJet100er2p5_PFMET90_PFMHT90_IDTight_), "HLT_Mu3er1p5_PFJet100er2p5_PFMET90_PFMHT90_IDTight");
+    nanoCheckScalarWidth(b_HLT_Mu3er1p5_PFJet100er2p5_PFMETNoMu100_PFMHTNoMu100_IDTight_, sizeof(HLT_Mu3er1p5_PFJet100er2p5_PFMETNoMu100_PFMHTNoMu100_IDTight_), "HLT_Mu3er1p5_PFJet100er2p5_PFMETNoMu100_PFMHTNoMu100_IDTight");
+    nanoCheckScalarWidth(b_HLT_Mu3er1p5_PFJet100er2p5_PFMETNoMu70_PFMHTNoMu70_IDTight_, sizeof(HLT_Mu3er1p5_PFJet100er2p5_PFMETNoMu70_PFMHTNoMu70_IDTight_), "HLT_Mu3er1p5_PFJet100er2p5_PFMETNoMu70_PFMHTNoMu70_IDTight");
+    nanoCheckScalarWidth(b_HLT_Mu3er1p5_PFJet100er2p5_PFMETNoMu80_PFMHTNoMu80_IDTight_, sizeof(HLT_Mu3er1p5_PFJet100er2p5_PFMETNoMu80_PFMHTNoMu80_IDTight_), "HLT_Mu3er1p5_PFJet100er2p5_PFMETNoMu80_PFMHTNoMu80_IDTight");
+    nanoCheckScalarWidth(b_HLT_Mu3er1p5_PFJet100er2p5_PFMETNoMu90_PFMHTNoMu90_IDTight_, sizeof(HLT_Mu3er1p5_PFJet100er2p5_PFMETNoMu90_PFMHTNoMu90_IDTight_), "HLT_Mu3er1p5_PFJet100er2p5_PFMETNoMu90_PFMHTNoMu90_IDTight");
+    nanoCheckScalarWidth(b_HLT_Mu3er_PFHT140_PFMET125_, sizeof(HLT_Mu3er_PFHT140_PFMET125_), "HLT_Mu3er_PFHT140_PFMET125");
+    nanoCheckScalarWidth(b_HLT_Mu40_TkMu11_, sizeof(HLT_Mu40_TkMu11_), "HLT_Mu40_TkMu11");
+    nanoCheckScalarWidth(b_HLT_Mu40_eta2p1_PFJet200_PFJet50_, sizeof(HLT_Mu40_eta2p1_PFJet200_PFJet50_), "HLT_Mu40_eta2p1_PFJet200_PFJet50");
+    nanoCheckScalarWidth(b_HLT_Mu42NoFiltersNoVtx_Photon42_CaloIdL_, sizeof(HLT_Mu42NoFiltersNoVtx_Photon42_CaloIdL_), "HLT_Mu42NoFiltersNoVtx_Photon42_CaloIdL");
+    nanoCheckScalarWidth(b_HLT_Mu43NoFiltersNoVtxDisplaced_Photon43_CaloIdL_, sizeof(HLT_Mu43NoFiltersNoVtxDisplaced_Photon43_CaloIdL_), "HLT_Mu43NoFiltersNoVtxDisplaced_Photon43_CaloIdL");
+    nanoCheckScalarWidth(b_HLT_Mu43NoFiltersNoVtx_Photon43_CaloIdL_, sizeof(HLT_Mu43NoFiltersNoVtx_Photon43_CaloIdL_), "HLT_Mu43NoFiltersNoVtx_Photon43_CaloIdL");
+    nanoCheckScalarWidth(b_HLT_Mu45_eta2p1_, sizeof(HLT_Mu45_eta2p1_), "HLT_Mu45_eta2p1");
+    nanoCheckScalarWidth(b_HLT_Mu48NoFiltersNoVtx_Photon48_CaloIdL_, sizeof(HLT_Mu48NoFiltersNoVtx_Photon48_CaloIdL_), "HLT_Mu48NoFiltersNoVtx_Photon48_CaloIdL");
+    nanoCheckScalarWidth(b_HLT_Mu4_L1DoubleMu_, sizeof(HLT_Mu4_L1DoubleMu_), "HLT_Mu4_L1DoubleMu");
+    nanoCheckScalarWidth(b_HLT_Mu4_TrkIsoVVL_DiPFJet90_40_DEta3p5_MJJ750_HTT300_PFMETNoMu60_, sizeof(HLT_Mu4_TrkIsoVVL_DiPFJet90_40_DEta3p5_MJJ750_HTT300_PFMETNoMu60_), "HLT_Mu4_TrkIsoVVL_DiPFJet90_40_DEta3p5_MJJ750_HTT300_PFMETNoMu60");
+    nanoCheckScalarWidth(b_HLT_Mu50_, sizeof(HLT_Mu50_), "HLT_Mu50");
+    nanoCheckScalarWidth(b_HLT_Mu50_IsoVVVL_PFHT400_, sizeof(HLT_Mu50_IsoVVVL_PFHT400_), "HLT_Mu50_IsoVVVL_PFHT400");
+    nanoCheckScalarWidth(b_HLT_Mu50_IsoVVVL_PFHT450_, sizeof(HLT_Mu50_IsoVVVL_PFHT450_), "HLT_Mu50_IsoVVVL_PFHT450");
+    nanoCheckScalarWidth(b_HLT_Mu50_L1SingleMuShower_, sizeof(HLT_Mu50_L1SingleMuShower_), "HLT_Mu50_L1SingleMuShower");
+    nanoCheckScalarWidth(b_HLT_Mu55_, sizeof(HLT_Mu55_), "HLT_Mu55");
+    nanoCheckScalarWidth(b_HLT_Mu6HT240_DisplacedDijet30_Inclusive0PtrkShortSig5_, sizeof(HLT_Mu6HT240_DisplacedDijet30_Inclusive0PtrkShortSig5_), "HLT_Mu6HT240_DisplacedDijet30_Inclusive0PtrkShortSig5");
+    nanoCheckScalarWidth(b_HLT_Mu6HT240_DisplacedDijet30_Inclusive1PtrkShortSig5_DisplacedLoose_, sizeof(HLT_Mu6HT240_DisplacedDijet30_Inclusive1PtrkShortSig5_DisplacedLoose_), "HLT_Mu6HT240_DisplacedDijet30_Inclusive1PtrkShortSig5_DisplacedLoose");
+    nanoCheckScalarWidth(b_HLT_Mu6HT240_DisplacedDijet35_Inclusive0PtrkShortSig5_, sizeof(HLT_Mu6HT240_DisplacedDijet35_Inclusive0PtrkShortSig5_), "HLT_Mu6HT240_DisplacedDijet35_Inclusive0PtrkShortSig5");
+    nanoCheckScalarWidth(b_HLT_Mu6HT240_DisplacedDijet35_Inclusive1PtrkShortSig5_DisplacedLoose_, sizeof(HLT_Mu6HT240_DisplacedDijet35_Inclusive1PtrkShortSig5_DisplacedLoose_), "HLT_Mu6HT240_DisplacedDijet35_Inclusive1PtrkShortSig5_DisplacedLoose");
+    nanoCheckScalarWidth(b_HLT_Mu6HT240_DisplacedDijet40_Inclusive0PtrkShortSig5_, sizeof(HLT_Mu6HT240_DisplacedDijet40_Inclusive0PtrkShortSig5_), "HLT_Mu6HT240_DisplacedDijet40_Inclusive0PtrkShortSig5");
+    nanoCheckScalarWidth(b_HLT_Mu6HT240_DisplacedDijet40_Inclusive1PtrkShortSig5_DisplacedLoose_, sizeof(HLT_Mu6HT240_DisplacedDijet40_Inclusive1PtrkShortSig5_DisplacedLoose_), "HLT_Mu6HT240_DisplacedDijet40_Inclusive1PtrkShortSig5_DisplacedLoose");
+    nanoCheckScalarWidth(b_HLT_Mu6_PFHT200_PFMET100_, sizeof(HLT_Mu6_PFHT200_PFMET100_), "HLT_Mu6_PFHT200_PFMET100");
+    nanoCheckScalarWidth(b_HLT_Mu6_PFHT200_PFMET80_BTagCSV_p067_, sizeof(HLT_Mu6_PFHT200_PFMET80_BTagCSV_p067_), "HLT_Mu6_PFHT200_PFMET80_BTagCSV_p067");
+    nanoCheckScalarWidth(b_HLT_Mu7_IP4_ToCSCS_, sizeof(HLT_Mu7_IP4_ToCSCS_), "HLT_Mu7_IP4_ToCSCS");
+    nanoCheckScalarWidth(b_HLT_Mu7_IP4_part0_, sizeof(HLT_Mu7_IP4_part0_), "HLT_Mu7_IP4_part0");
+    nanoCheckScalarWidth(b_HLT_Mu7_IP4_part1_, sizeof(HLT_Mu7_IP4_part1_), "HLT_Mu7_IP4_part1");
+    nanoCheckScalarWidth(b_HLT_Mu7_IP4_part2_, sizeof(HLT_Mu7_IP4_part2_), "HLT_Mu7_IP4_part2");
+    nanoCheckScalarWidth(b_HLT_Mu7_IP4_part3_, sizeof(HLT_Mu7_IP4_part3_), "HLT_Mu7_IP4_part3");
+    nanoCheckScalarWidth(b_HLT_Mu7_IP4_part4_, sizeof(HLT_Mu7_IP4_part4_), "HLT_Mu7_IP4_part4");
+    nanoCheckScalarWidth(b_HLT_Mu7p5_L2Mu2_Jpsi_, sizeof(HLT_Mu7p5_L2Mu2_Jpsi_), "HLT_Mu7p5_L2Mu2_Jpsi");
+    nanoCheckScalarWidth(b_HLT_Mu7p5_L2Mu2_Upsilon_, sizeof(HLT_Mu7p5_L2Mu2_Upsilon_), "HLT_Mu7p5_L2Mu2_Upsilon");
+    nanoCheckScalarWidth(b_HLT_Mu7p5_Track2_Jpsi_, sizeof(HLT_Mu7p5_Track2_Jpsi_), "HLT_Mu7p5_Track2_Jpsi");
+    nanoCheckScalarWidth(b_HLT_Mu7p5_Track2_Upsilon_, sizeof(HLT_Mu7p5_Track2_Upsilon_), "HLT_Mu7p5_Track2_Upsilon");
+    nanoCheckScalarWidth(b_HLT_Mu7p5_Track3p5_Jpsi_, sizeof(HLT_Mu7p5_Track3p5_Jpsi_), "HLT_Mu7p5_Track3p5_Jpsi");
+    nanoCheckScalarWidth(b_HLT_Mu7p5_Track3p5_Upsilon_, sizeof(HLT_Mu7p5_Track3p5_Upsilon_), "HLT_Mu7p5_Track3p5_Upsilon");
+    nanoCheckScalarWidth(b_HLT_Mu7p5_Track7_Jpsi_, sizeof(HLT_Mu7p5_Track7_Jpsi_), "HLT_Mu7p5_Track7_Jpsi");
+    nanoCheckScalarWidth(b_HLT_Mu7p5_Track7_Upsilon_, sizeof(HLT_Mu7p5_Track7_Upsilon_), "HLT_Mu7p5_Track7_Upsilon");
+    nanoCheckScalarWidth(b_HLT_Mu8_, sizeof(HLT_Mu8_), "HLT_Mu8");
+    nanoCheckScalarWidth(b_HLT_Mu8_DiEle12_CaloIdL_TrackIdL_, sizeof(HLT_Mu8_DiEle12_CaloIdL_TrackIdL_), "HLT_Mu8_DiEle12_CaloIdL_TrackIdL");
+    nanoCheckScalarWidth(b_HLT_Mu8_DiEle12_CaloIdL_TrackIdL_DZ_, sizeof(HLT_Mu8_DiEle12_CaloIdL_TrackIdL_DZ_), "HLT_Mu8_DiEle12_CaloIdL_TrackIdL_DZ");
+    nanoCheckScalarWidth(b_HLT_Mu8_Ele8_CaloIdM_TrackIdM_Mass8_PFHT250_, sizeof(HLT_Mu8_Ele8_CaloIdM_TrackIdM_Mass8_PFHT250_), "HLT_Mu8_Ele8_CaloIdM_TrackIdM_Mass8_PFHT250");
+    nanoCheckScalarWidth(b_HLT_Mu8_Ele8_CaloIdM_TrackIdM_Mass8_PFHT300_, sizeof(HLT_Mu8_Ele8_CaloIdM_TrackIdM_Mass8_PFHT300_), "HLT_Mu8_Ele8_CaloIdM_TrackIdM_Mass8_PFHT300");
+    nanoCheckScalarWidth(b_HLT_Mu8_Ele8_CaloIdM_TrackIdM_Mass8_PFHT350_, sizeof(HLT_Mu8_Ele8_CaloIdM_TrackIdM_Mass8_PFHT350_), "HLT_Mu8_Ele8_CaloIdM_TrackIdM_Mass8_PFHT350");
+    nanoCheckScalarWidth(b_HLT_Mu8_Ele8_CaloIdM_TrackIdM_Mass8_PFHT350_DZ_, sizeof(HLT_Mu8_Ele8_CaloIdM_TrackIdM_Mass8_PFHT350_DZ_), "HLT_Mu8_Ele8_CaloIdM_TrackIdM_Mass8_PFHT350_DZ");
+    nanoCheckScalarWidth(b_HLT_Mu8_IP3_ToCSCS_, sizeof(HLT_Mu8_IP3_ToCSCS_), "HLT_Mu8_IP3_ToCSCS");
+    nanoCheckScalarWidth(b_HLT_Mu8_IP3_part0_, sizeof(HLT_Mu8_IP3_part0_), "HLT_Mu8_IP3_part0");
+    nanoCheckScalarWidth(b_HLT_Mu8_IP3_part1_, sizeof(HLT_Mu8_IP3_part1_), "HLT_Mu8_IP3_part1");
+    nanoCheckScalarWidth(b_HLT_Mu8_IP3_part2_, sizeof(HLT_Mu8_IP3_part2_), "HLT_Mu8_IP3_part2");
+    nanoCheckScalarWidth(b_HLT_Mu8_IP3_part3_, sizeof(HLT_Mu8_IP3_part3_), "HLT_Mu8_IP3_part3");
+    nanoCheckScalarWidth(b_HLT_Mu8_IP3_part4_, sizeof(HLT_Mu8_IP3_part4_), "HLT_Mu8_IP3_part4");
+    nanoCheckScalarWidth(b_HLT_Mu8_IP3_part5_, sizeof(HLT_Mu8_IP3_part5_), "HLT_Mu8_IP3_part5");
+    nanoCheckScalarWidth(b_HLT_Mu8_IP5_ToCSCS_, sizeof(HLT_Mu8_IP5_ToCSCS_), "HLT_Mu8_IP5_ToCSCS");
+    nanoCheckScalarWidth(b_HLT_Mu8_IP5_part0_, sizeof(HLT_Mu8_IP5_part0_), "HLT_Mu8_IP5_part0");
+    nanoCheckScalarWidth(b_HLT_Mu8_IP5_part1_, sizeof(HLT_Mu8_IP5_part1_), "HLT_Mu8_IP5_part1");
+    nanoCheckScalarWidth(b_HLT_Mu8_IP5_part2_, sizeof(HLT_Mu8_IP5_part2_), "HLT_Mu8_IP5_part2");
+    nanoCheckScalarWidth(b_HLT_Mu8_IP5_part3_, sizeof(HLT_Mu8_IP5_part3_), "HLT_Mu8_IP5_part3");
+    nanoCheckScalarWidth(b_HLT_Mu8_IP5_part4_, sizeof(HLT_Mu8_IP5_part4_), "HLT_Mu8_IP5_part4");
+    nanoCheckScalarWidth(b_HLT_Mu8_IP6_ToCSCS_, sizeof(HLT_Mu8_IP6_ToCSCS_), "HLT_Mu8_IP6_ToCSCS");
+    nanoCheckScalarWidth(b_HLT_Mu8_IP6_part0_, sizeof(HLT_Mu8_IP6_part0_), "HLT_Mu8_IP6_part0");
+    nanoCheckScalarWidth(b_HLT_Mu8_IP6_part1_, sizeof(HLT_Mu8_IP6_part1_), "HLT_Mu8_IP6_part1");
+    nanoCheckScalarWidth(b_HLT_Mu8_IP6_part2_, sizeof(HLT_Mu8_IP6_part2_), "HLT_Mu8_IP6_part2");
+    nanoCheckScalarWidth(b_HLT_Mu8_IP6_part3_, sizeof(HLT_Mu8_IP6_part3_), "HLT_Mu8_IP6_part3");
+    nanoCheckScalarWidth(b_HLT_Mu8_IP6_part4_, sizeof(HLT_Mu8_IP6_part4_), "HLT_Mu8_IP6_part4");
+    nanoCheckScalarWidth(b_HLT_Mu8_TrkIsoVVL_, sizeof(HLT_Mu8_TrkIsoVVL_), "HLT_Mu8_TrkIsoVVL");
+    nanoCheckScalarWidth(b_HLT_Mu8_TrkIsoVVL_DiPFJet40_DEta3p5_MJJ750_HTT300_PFMETNoMu60_, sizeof(HLT_Mu8_TrkIsoVVL_DiPFJet40_DEta3p5_MJJ750_HTT300_PFMETNoMu60_), "HLT_Mu8_TrkIsoVVL_DiPFJet40_DEta3p5_MJJ750_HTT300_PFMETNoMu60");
+    nanoCheckScalarWidth(b_HLT_Mu8_TrkIsoVVL_Ele17_CaloIdL_TrackIdL_IsoVL_, sizeof(HLT_Mu8_TrkIsoVVL_Ele17_CaloIdL_TrackIdL_IsoVL_), "HLT_Mu8_TrkIsoVVL_Ele17_CaloIdL_TrackIdL_IsoVL");
+    nanoCheckScalarWidth(b_HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_, sizeof(HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_), "HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL");
+    nanoCheckScalarWidth(b_HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_, sizeof(HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_), "HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ");
+    nanoCheckScalarWidth(b_HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_CaloDiJet30_, sizeof(HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_CaloDiJet30_), "HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_CaloDiJet30");
+    nanoCheckScalarWidth(b_HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_CaloDiJet30_CaloBtagDeepCSV_1p5_, sizeof(HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_CaloDiJet30_CaloBtagDeepCSV_1p5_), "HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_CaloDiJet30_CaloBtagDeepCSV_1p5");
+    nanoCheckScalarWidth(b_HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_PFDiJet30_, sizeof(HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_PFDiJet30_), "HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_PFDiJet30");
+    nanoCheckScalarWidth(b_HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_PFDiJet30_PFBTagParticleNet_2BTagSum0p65_, sizeof(HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_PFDiJet30_PFBTagParticleNet_2BTagSum0p65_), "HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_PFDiJet30_PFBTagParticleNet_2BTagSum0p65");
+    nanoCheckScalarWidth(b_HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_PFDiJet30_PFBtagDeepCSV_1p5_, sizeof(HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_PFDiJet30_PFBtagDeepCSV_1p5_), "HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_PFDiJet30_PFBtagDeepCSV_1p5");
+    nanoCheckScalarWidth(b_HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_PFDiJet30_PFBtagDeepJet_1p5_, sizeof(HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_PFDiJet30_PFBtagDeepJet_1p5_), "HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_PFDiJet30_PFBtagDeepJet_1p5");
+    nanoCheckScalarWidth(b_HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_QuadPFJet70_50_40_30_, sizeof(HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_QuadPFJet70_50_40_30_), "HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_QuadPFJet70_50_40_30");
+    nanoCheckScalarWidth(b_HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_QuadPFJet70_50_40_30_PFBTagParticleNet_2BTagSum0p65_, sizeof(HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_QuadPFJet70_50_40_30_PFBTagParticleNet_2BTagSum0p65_), "HLT_Mu8_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_QuadPFJet70_50_40_30_PFBTagParticleNet_2BTagSum0p65");
+    nanoCheckScalarWidth(b_HLT_Mu8p5_IP3p5_part0_, sizeof(HLT_Mu8p5_IP3p5_part0_), "HLT_Mu8p5_IP3p5_part0");
+    nanoCheckScalarWidth(b_HLT_Mu8p5_IP3p5_part1_, sizeof(HLT_Mu8p5_IP3p5_part1_), "HLT_Mu8p5_IP3p5_part1");
+    nanoCheckScalarWidth(b_HLT_Mu8p5_IP3p5_part2_, sizeof(HLT_Mu8p5_IP3p5_part2_), "HLT_Mu8p5_IP3p5_part2");
+    nanoCheckScalarWidth(b_HLT_Mu8p5_IP3p5_part3_, sizeof(HLT_Mu8p5_IP3p5_part3_), "HLT_Mu8p5_IP3p5_part3");
+    nanoCheckScalarWidth(b_HLT_Mu8p5_IP3p5_part4_, sizeof(HLT_Mu8p5_IP3p5_part4_), "HLT_Mu8p5_IP3p5_part4");
+    nanoCheckScalarWidth(b_HLT_Mu8p5_IP3p5_part5_, sizeof(HLT_Mu8p5_IP3p5_part5_), "HLT_Mu8p5_IP3p5_part5");
+    nanoCheckScalarWidth(b_HLT_Mu9_IP0_part0_, sizeof(HLT_Mu9_IP0_part0_), "HLT_Mu9_IP0_part0");
+    nanoCheckScalarWidth(b_HLT_Mu9_IP3_part0_, sizeof(HLT_Mu9_IP3_part0_), "HLT_Mu9_IP3_part0");
+    nanoCheckScalarWidth(b_HLT_Mu9_IP4_ToCSCS_, sizeof(HLT_Mu9_IP4_ToCSCS_), "HLT_Mu9_IP4_ToCSCS");
+    nanoCheckScalarWidth(b_HLT_Mu9_IP4_part0_, sizeof(HLT_Mu9_IP4_part0_), "HLT_Mu9_IP4_part0");
+    nanoCheckScalarWidth(b_HLT_Mu9_IP4_part1_, sizeof(HLT_Mu9_IP4_part1_), "HLT_Mu9_IP4_part1");
+    nanoCheckScalarWidth(b_HLT_Mu9_IP4_part2_, sizeof(HLT_Mu9_IP4_part2_), "HLT_Mu9_IP4_part2");
+    nanoCheckScalarWidth(b_HLT_Mu9_IP4_part3_, sizeof(HLT_Mu9_IP4_part3_), "HLT_Mu9_IP4_part3");
+    nanoCheckScalarWidth(b_HLT_Mu9_IP4_part4_, sizeof(HLT_Mu9_IP4_part4_), "HLT_Mu9_IP4_part4");
+    nanoCheckScalarWidth(b_HLT_Mu9_IP5_ToCSCS_, sizeof(HLT_Mu9_IP5_ToCSCS_), "HLT_Mu9_IP5_ToCSCS");
+    nanoCheckScalarWidth(b_HLT_Mu9_IP5_part0_, sizeof(HLT_Mu9_IP5_part0_), "HLT_Mu9_IP5_part0");
+    nanoCheckScalarWidth(b_HLT_Mu9_IP5_part1_, sizeof(HLT_Mu9_IP5_part1_), "HLT_Mu9_IP5_part1");
+    nanoCheckScalarWidth(b_HLT_Mu9_IP5_part2_, sizeof(HLT_Mu9_IP5_part2_), "HLT_Mu9_IP5_part2");
+    nanoCheckScalarWidth(b_HLT_Mu9_IP5_part3_, sizeof(HLT_Mu9_IP5_part3_), "HLT_Mu9_IP5_part3");
+    nanoCheckScalarWidth(b_HLT_Mu9_IP5_part4_, sizeof(HLT_Mu9_IP5_part4_), "HLT_Mu9_IP5_part4");
+    nanoCheckScalarWidth(b_HLT_Mu9_IP6_ToCSCS_, sizeof(HLT_Mu9_IP6_ToCSCS_), "HLT_Mu9_IP6_ToCSCS");
+    nanoCheckScalarWidth(b_HLT_Mu9_IP6_part0_, sizeof(HLT_Mu9_IP6_part0_), "HLT_Mu9_IP6_part0");
+    nanoCheckScalarWidth(b_HLT_Mu9_IP6_part1_, sizeof(HLT_Mu9_IP6_part1_), "HLT_Mu9_IP6_part1");
+    nanoCheckScalarWidth(b_HLT_Mu9_IP6_part2_, sizeof(HLT_Mu9_IP6_part2_), "HLT_Mu9_IP6_part2");
+    nanoCheckScalarWidth(b_HLT_Mu9_IP6_part3_, sizeof(HLT_Mu9_IP6_part3_), "HLT_Mu9_IP6_part3");
+    nanoCheckScalarWidth(b_HLT_Mu9_IP6_part4_, sizeof(HLT_Mu9_IP6_part4_), "HLT_Mu9_IP6_part4");
+    nanoCheckScalarWidth(b_HLT_Mu9_IP6_part5_, sizeof(HLT_Mu9_IP6_part5_), "HLT_Mu9_IP6_part5");
+    nanoCheckScalarWidth(b_HLT_OldMu100_, sizeof(HLT_OldMu100_), "HLT_OldMu100");
+    nanoCheckScalarWidth(b_HLT_OnlineMonitorGroup_, sizeof(HLT_OnlineMonitorGroup_), "HLT_OnlineMonitorGroup");
+    nanoCheckScalarWidth(b_HLT_PFHT1050_, sizeof(HLT_PFHT1050_), "HLT_PFHT1050");
+    nanoCheckScalarWidth(b_HLT_PFHT125_, sizeof(HLT_PFHT125_), "HLT_PFHT125");
+    nanoCheckScalarWidth(b_HLT_PFHT180_, sizeof(HLT_PFHT180_), "HLT_PFHT180");
+    nanoCheckScalarWidth(b_HLT_PFHT200_, sizeof(HLT_PFHT200_), "HLT_PFHT200");
+    nanoCheckScalarWidth(b_HLT_PFHT200_DiPFJetAve90_PFAlphaT0p57_, sizeof(HLT_PFHT200_DiPFJetAve90_PFAlphaT0p57_), "HLT_PFHT200_DiPFJetAve90_PFAlphaT0p57");
+    nanoCheckScalarWidth(b_HLT_PFHT200_DiPFJetAve90_PFAlphaT0p63_, sizeof(HLT_PFHT200_DiPFJetAve90_PFAlphaT0p63_), "HLT_PFHT200_DiPFJetAve90_PFAlphaT0p63");
+    nanoCheckScalarWidth(b_HLT_PFHT200_PFAlphaT0p51_, sizeof(HLT_PFHT200_PFAlphaT0p51_), "HLT_PFHT200_PFAlphaT0p51");
+    nanoCheckScalarWidth(b_HLT_PFHT250_, sizeof(HLT_PFHT250_), "HLT_PFHT250");
+    nanoCheckScalarWidth(b_HLT_PFHT250_DiPFJetAve90_PFAlphaT0p55_, sizeof(HLT_PFHT250_DiPFJetAve90_PFAlphaT0p55_), "HLT_PFHT250_DiPFJetAve90_PFAlphaT0p55");
+    nanoCheckScalarWidth(b_HLT_PFHT250_DiPFJetAve90_PFAlphaT0p58_, sizeof(HLT_PFHT250_DiPFJetAve90_PFAlphaT0p58_), "HLT_PFHT250_DiPFJetAve90_PFAlphaT0p58");
+    nanoCheckScalarWidth(b_HLT_PFHT300_, sizeof(HLT_PFHT300_), "HLT_PFHT300");
+    nanoCheckScalarWidth(b_HLT_PFHT300PT30_QuadPFJet_75_60_45_40_, sizeof(HLT_PFHT300PT30_QuadPFJet_75_60_45_40_), "HLT_PFHT300PT30_QuadPFJet_75_60_45_40");
+    nanoCheckScalarWidth(b_HLT_PFHT300PT30_QuadPFJet_75_60_45_40_TriplePFBTagCSV_3p0_, sizeof(HLT_PFHT300PT30_QuadPFJet_75_60_45_40_TriplePFBTagCSV_3p0_), "HLT_PFHT300PT30_QuadPFJet_75_60_45_40_TriplePFBTagCSV_3p0");
+    nanoCheckScalarWidth(b_HLT_PFHT300_DiPFJetAve90_PFAlphaT0p53_, sizeof(HLT_PFHT300_DiPFJetAve90_PFAlphaT0p53_), "HLT_PFHT300_DiPFJetAve90_PFAlphaT0p53");
+    nanoCheckScalarWidth(b_HLT_PFHT300_DiPFJetAve90_PFAlphaT0p54_, sizeof(HLT_PFHT300_DiPFJetAve90_PFAlphaT0p54_), "HLT_PFHT300_DiPFJetAve90_PFAlphaT0p54");
+    nanoCheckScalarWidth(b_HLT_PFHT300_PFMET100_, sizeof(HLT_PFHT300_PFMET100_), "HLT_PFHT300_PFMET100");
+    nanoCheckScalarWidth(b_HLT_PFHT300_PFMET110_, sizeof(HLT_PFHT300_PFMET110_), "HLT_PFHT300_PFMET110");
+    nanoCheckScalarWidth(b_HLT_PFHT330PT30_QuadPFJet_75_60_45_40_, sizeof(HLT_PFHT330PT30_QuadPFJet_75_60_45_40_), "HLT_PFHT330PT30_QuadPFJet_75_60_45_40");
+    nanoCheckScalarWidth(b_HLT_PFHT330PT30_QuadPFJet_75_60_45_40_TriplePFBTagDeepCSV_4p5_, sizeof(HLT_PFHT330PT30_QuadPFJet_75_60_45_40_TriplePFBTagDeepCSV_4p5_), "HLT_PFHT330PT30_QuadPFJet_75_60_45_40_TriplePFBTagDeepCSV_4p5");
+    nanoCheckScalarWidth(b_HLT_PFHT330PT30_QuadPFJet_75_60_45_40_TriplePFBTagDeepJet_4p5_, sizeof(HLT_PFHT330PT30_QuadPFJet_75_60_45_40_TriplePFBTagDeepJet_4p5_), "HLT_PFHT330PT30_QuadPFJet_75_60_45_40_TriplePFBTagDeepJet_4p5");
+    nanoCheckScalarWidth(b_HLT_PFHT350_, sizeof(HLT_PFHT350_), "HLT_PFHT350");
+    nanoCheckScalarWidth(b_HLT_PFHT350MinPFJet15_, sizeof(HLT_PFHT350MinPFJet15_), "HLT_PFHT350MinPFJet15");
+    nanoCheckScalarWidth(b_HLT_PFHT350_DiPFJetAve90_PFAlphaT0p52_, sizeof(HLT_PFHT350_DiPFJetAve90_PFAlphaT0p52_), "HLT_PFHT350_DiPFJetAve90_PFAlphaT0p52");
+    nanoCheckScalarWidth(b_HLT_PFHT350_DiPFJetAve90_PFAlphaT0p53_, sizeof(HLT_PFHT350_DiPFJetAve90_PFAlphaT0p53_), "HLT_PFHT350_DiPFJetAve90_PFAlphaT0p53");
+    nanoCheckScalarWidth(b_HLT_PFHT370_, sizeof(HLT_PFHT370_), "HLT_PFHT370");
+    nanoCheckScalarWidth(b_HLT_PFHT380_SixJet32_DoubleBTagCSV_p075_, sizeof(HLT_PFHT380_SixJet32_DoubleBTagCSV_p075_), "HLT_PFHT380_SixJet32_DoubleBTagCSV_p075");
+    nanoCheckScalarWidth(b_HLT_PFHT380_SixPFJet32_, sizeof(HLT_PFHT380_SixPFJet32_), "HLT_PFHT380_SixPFJet32");
+    nanoCheckScalarWidth(b_HLT_PFHT380_SixPFJet32_DoublePFBTagCSV_2p2_, sizeof(HLT_PFHT380_SixPFJet32_DoublePFBTagCSV_2p2_), "HLT_PFHT380_SixPFJet32_DoublePFBTagCSV_2p2");
+    nanoCheckScalarWidth(b_HLT_PFHT380_SixPFJet32_DoublePFBTagDeepCSV_2p2_, sizeof(HLT_PFHT380_SixPFJet32_DoublePFBTagDeepCSV_2p2_), "HLT_PFHT380_SixPFJet32_DoublePFBTagDeepCSV_2p2");
+    nanoCheckScalarWidth(b_HLT_PFHT400_, sizeof(HLT_PFHT400_), "HLT_PFHT400");
+    nanoCheckScalarWidth(b_HLT_PFHT400_DiPFJetAve90_PFAlphaT0p51_, sizeof(HLT_PFHT400_DiPFJetAve90_PFAlphaT0p51_), "HLT_PFHT400_DiPFJetAve90_PFAlphaT0p51");
+    nanoCheckScalarWidth(b_HLT_PFHT400_DiPFJetAve90_PFAlphaT0p52_, sizeof(HLT_PFHT400_DiPFJetAve90_PFAlphaT0p52_), "HLT_PFHT400_DiPFJetAve90_PFAlphaT0p52");
+    nanoCheckScalarWidth(b_HLT_PFHT400_FivePFJet_100_100_60_30_30_, sizeof(HLT_PFHT400_FivePFJet_100_100_60_30_30_), "HLT_PFHT400_FivePFJet_100_100_60_30_30");
+    nanoCheckScalarWidth(b_HLT_PFHT400_FivePFJet_100_100_60_30_30_DoublePFBTagDeepCSV_4p5_, sizeof(HLT_PFHT400_FivePFJet_100_100_60_30_30_DoublePFBTagDeepCSV_4p5_), "HLT_PFHT400_FivePFJet_100_100_60_30_30_DoublePFBTagDeepCSV_4p5");
+    nanoCheckScalarWidth(b_HLT_PFHT400_FivePFJet_100_100_60_30_30_DoublePFBTagDeepJet_4p5_, sizeof(HLT_PFHT400_FivePFJet_100_100_60_30_30_DoublePFBTagDeepJet_4p5_), "HLT_PFHT400_FivePFJet_100_100_60_30_30_DoublePFBTagDeepJet_4p5");
+    nanoCheckScalarWidth(b_HLT_PFHT400_FivePFJet_120_120_60_30_30_DoublePFBTagDeepCSV_4p5_, sizeof(HLT_PFHT400_FivePFJet_120_120_60_30_30_DoublePFBTagDeepCSV_4p5_), "HLT_PFHT400_FivePFJet_120_120_60_30_30_DoublePFBTagDeepCSV_4p5");
+    nanoCheckScalarWidth(b_HLT_PFHT400_FivePFJet_120_120_60_30_30_DoublePFBTagDeepJet_4p5_, sizeof(HLT_PFHT400_FivePFJet_120_120_60_30_30_DoublePFBTagDeepJet_4p5_), "HLT_PFHT400_FivePFJet_120_120_60_30_30_DoublePFBTagDeepJet_4p5");
+    nanoCheckScalarWidth(b_HLT_PFHT400_SixJet30_, sizeof(HLT_PFHT400_SixJet30_), "HLT_PFHT400_SixJet30");
+    nanoCheckScalarWidth(b_HLT_PFHT400_SixJet30_DoubleBTagCSV_p056_, sizeof(HLT_PFHT400_SixJet30_DoubleBTagCSV_p056_), "HLT_PFHT400_SixJet30_DoubleBTagCSV_p056");
+    nanoCheckScalarWidth(b_HLT_PFHT400_SixPFJet32_, sizeof(HLT_PFHT400_SixPFJet32_), "HLT_PFHT400_SixPFJet32");
+    nanoCheckScalarWidth(b_HLT_PFHT400_SixPFJet32_DoublePFBTagDeepCSV_2p94_, sizeof(HLT_PFHT400_SixPFJet32_DoublePFBTagDeepCSV_2p94_), "HLT_PFHT400_SixPFJet32_DoublePFBTagDeepCSV_2p94");
+    nanoCheckScalarWidth(b_HLT_PFHT400_SixPFJet32_DoublePFBTagDeepJet_2p94_, sizeof(HLT_PFHT400_SixPFJet32_DoublePFBTagDeepJet_2p94_), "HLT_PFHT400_SixPFJet32_DoublePFBTagDeepJet_2p94");
+    nanoCheckScalarWidth(b_HLT_PFHT430_, sizeof(HLT_PFHT430_), "HLT_PFHT430");
+    nanoCheckScalarWidth(b_HLT_PFHT430_SixJet40_BTagCSV_p080_, sizeof(HLT_PFHT430_SixJet40_BTagCSV_p080_), "HLT_PFHT430_SixJet40_BTagCSV_p080");
+    nanoCheckScalarWidth(b_HLT_PFHT430_SixPFJet40_, sizeof(HLT_PFHT430_SixPFJet40_), "HLT_PFHT430_SixPFJet40");
+    nanoCheckScalarWidth(b_HLT_PFHT430_SixPFJet40_PFBTagCSV_1p5_, sizeof(HLT_PFHT430_SixPFJet40_PFBTagCSV_1p5_), "HLT_PFHT430_SixPFJet40_PFBTagCSV_1p5");
+    nanoCheckScalarWidth(b_HLT_PFHT430_SixPFJet40_PFBTagDeepCSV_1p5_, sizeof(HLT_PFHT430_SixPFJet40_PFBTagDeepCSV_1p5_), "HLT_PFHT430_SixPFJet40_PFBTagDeepCSV_1p5");
+    nanoCheckScalarWidth(b_HLT_PFHT450_SixJet40_, sizeof(HLT_PFHT450_SixJet40_), "HLT_PFHT450_SixJet40");
+    nanoCheckScalarWidth(b_HLT_PFHT450_SixJet40_BTagCSV_p056_, sizeof(HLT_PFHT450_SixJet40_BTagCSV_p056_), "HLT_PFHT450_SixJet40_BTagCSV_p056");
+    nanoCheckScalarWidth(b_HLT_PFHT450_SixPFJet36_, sizeof(HLT_PFHT450_SixPFJet36_), "HLT_PFHT450_SixPFJet36");
+    nanoCheckScalarWidth(b_HLT_PFHT450_SixPFJet36_PFBTagDeepCSV_1p59_, sizeof(HLT_PFHT450_SixPFJet36_PFBTagDeepCSV_1p59_), "HLT_PFHT450_SixPFJet36_PFBTagDeepCSV_1p59");
+    nanoCheckScalarWidth(b_HLT_PFHT450_SixPFJet36_PFBTagDeepJet_1p59_, sizeof(HLT_PFHT450_SixPFJet36_PFBTagDeepJet_1p59_), "HLT_PFHT450_SixPFJet36_PFBTagDeepJet_1p59");
+    nanoCheckScalarWidth(b_HLT_PFHT475_, sizeof(HLT_PFHT475_), "HLT_PFHT475");
+    nanoCheckScalarWidth(b_HLT_PFHT500_PFMET100_PFMHT100_IDTight_, sizeof(HLT_PFHT500_PFMET100_PFMHT100_IDTight_), "HLT_PFHT500_PFMET100_PFMHT100_IDTight");
+    nanoCheckScalarWidth(b_HLT_PFHT500_PFMET110_PFMHT110_IDTight_, sizeof(HLT_PFHT500_PFMET110_PFMHT110_IDTight_), "HLT_PFHT500_PFMET110_PFMHT110_IDTight");
+    nanoCheckScalarWidth(b_HLT_PFHT510_, sizeof(HLT_PFHT510_), "HLT_PFHT510");
+    nanoCheckScalarWidth(b_HLT_PFHT550_4JetPt50_, sizeof(HLT_PFHT550_4JetPt50_), "HLT_PFHT550_4JetPt50");
+    nanoCheckScalarWidth(b_HLT_PFHT590_, sizeof(HLT_PFHT590_), "HLT_PFHT590");
+    nanoCheckScalarWidth(b_HLT_PFHT600_, sizeof(HLT_PFHT600_), "HLT_PFHT600");
+    nanoCheckScalarWidth(b_HLT_PFHT650_, sizeof(HLT_PFHT650_), "HLT_PFHT650");
+    nanoCheckScalarWidth(b_HLT_PFHT650_4JetPt50_, sizeof(HLT_PFHT650_4JetPt50_), "HLT_PFHT650_4JetPt50");
+    nanoCheckScalarWidth(b_HLT_PFHT650_WideJetMJJ900DEtaJJ1p5_, sizeof(HLT_PFHT650_WideJetMJJ900DEtaJJ1p5_), "HLT_PFHT650_WideJetMJJ900DEtaJJ1p5");
+    nanoCheckScalarWidth(b_HLT_PFHT650_WideJetMJJ950DEtaJJ1p5_, sizeof(HLT_PFHT650_WideJetMJJ950DEtaJJ1p5_), "HLT_PFHT650_WideJetMJJ950DEtaJJ1p5");
+    nanoCheckScalarWidth(b_HLT_PFHT680_, sizeof(HLT_PFHT680_), "HLT_PFHT680");
+    nanoCheckScalarWidth(b_HLT_PFHT700_PFMET85_PFMHT85_IDTight_, sizeof(HLT_PFHT700_PFMET85_PFMHT85_IDTight_), "HLT_PFHT700_PFMET85_PFMHT85_IDTight");
+    nanoCheckScalarWidth(b_HLT_PFHT700_PFMET95_PFMHT95_IDTight_, sizeof(HLT_PFHT700_PFMET95_PFMHT95_IDTight_), "HLT_PFHT700_PFMET95_PFMHT95_IDTight");
+    nanoCheckScalarWidth(b_HLT_PFHT750_4JetPt50_, sizeof(HLT_PFHT750_4JetPt50_), "HLT_PFHT750_4JetPt50");
+    nanoCheckScalarWidth(b_HLT_PFHT750_4JetPt70_, sizeof(HLT_PFHT750_4JetPt70_), "HLT_PFHT750_4JetPt70");
+    nanoCheckScalarWidth(b_HLT_PFHT750_4JetPt80_, sizeof(HLT_PFHT750_4JetPt80_), "HLT_PFHT750_4JetPt80");
+    nanoCheckScalarWidth(b_HLT_PFHT780_, sizeof(HLT_PFHT780_), "HLT_PFHT780");
+    nanoCheckScalarWidth(b_HLT_PFHT800_, sizeof(HLT_PFHT800_), "HLT_PFHT800");
+    nanoCheckScalarWidth(b_HLT_PFHT800_4JetPt50_, sizeof(HLT_PFHT800_4JetPt50_), "HLT_PFHT800_4JetPt50");
+    nanoCheckScalarWidth(b_HLT_PFHT800_PFMET75_PFMHT75_IDTight_, sizeof(HLT_PFHT800_PFMET75_PFMHT75_IDTight_), "HLT_PFHT800_PFMET75_PFMHT75_IDTight");
+    nanoCheckScalarWidth(b_HLT_PFHT800_PFMET85_PFMHT85_IDTight_, sizeof(HLT_PFHT800_PFMET85_PFMHT85_IDTight_), "HLT_PFHT800_PFMET85_PFMHT85_IDTight");
+    nanoCheckScalarWidth(b_HLT_PFHT850_4JetPt50_, sizeof(HLT_PFHT850_4JetPt50_), "HLT_PFHT850_4JetPt50");
+    nanoCheckScalarWidth(b_HLT_PFHT890_, sizeof(HLT_PFHT890_), "HLT_PFHT890");
+    nanoCheckScalarWidth(b_HLT_PFHT900_, sizeof(HLT_PFHT900_), "HLT_PFHT900");
+    nanoCheckScalarWidth(b_HLT_PFJet110_, sizeof(HLT_PFJet110_), "HLT_PFJet110");
+    nanoCheckScalarWidth(b_HLT_PFJet140_, sizeof(HLT_PFJet140_), "HLT_PFJet140");
+    nanoCheckScalarWidth(b_HLT_PFJet15_, sizeof(HLT_PFJet15_), "HLT_PFJet15");
+    nanoCheckScalarWidth(b_HLT_PFJet15_NoCaloMatched_, sizeof(HLT_PFJet15_NoCaloMatched_), "HLT_PFJet15_NoCaloMatched");
+    nanoCheckScalarWidth(b_HLT_PFJet200_, sizeof(HLT_PFJet200_), "HLT_PFJet200");
+    nanoCheckScalarWidth(b_HLT_PFJet25_, sizeof(HLT_PFJet25_), "HLT_PFJet25");
+    nanoCheckScalarWidth(b_HLT_PFJet25_NoCaloMatched_, sizeof(HLT_PFJet25_NoCaloMatched_), "HLT_PFJet25_NoCaloMatched");
+    nanoCheckScalarWidth(b_HLT_PFJet260_, sizeof(HLT_PFJet260_), "HLT_PFJet260");
+    nanoCheckScalarWidth(b_HLT_PFJet320_, sizeof(HLT_PFJet320_), "HLT_PFJet320");
+    nanoCheckScalarWidth(b_HLT_PFJet40_, sizeof(HLT_PFJet40_), "HLT_PFJet40");
+    nanoCheckScalarWidth(b_HLT_PFJet400_, sizeof(HLT_PFJet400_), "HLT_PFJet400");
+    nanoCheckScalarWidth(b_HLT_PFJet40_GPUvsCPU_, sizeof(HLT_PFJet40_GPUvsCPU_), "HLT_PFJet40_GPUvsCPU");
+    nanoCheckScalarWidth(b_HLT_PFJet450_, sizeof(HLT_PFJet450_), "HLT_PFJet450");
+    nanoCheckScalarWidth(b_HLT_PFJet500_, sizeof(HLT_PFJet500_), "HLT_PFJet500");
+    nanoCheckScalarWidth(b_HLT_PFJet550_, sizeof(HLT_PFJet550_), "HLT_PFJet550");
+    nanoCheckScalarWidth(b_HLT_PFJet60_, sizeof(HLT_PFJet60_), "HLT_PFJet60");
+    nanoCheckScalarWidth(b_HLT_PFJet80_, sizeof(HLT_PFJet80_), "HLT_PFJet80");
+    nanoCheckScalarWidth(b_HLT_PFJetFwd140_, sizeof(HLT_PFJetFwd140_), "HLT_PFJetFwd140");
+    nanoCheckScalarWidth(b_HLT_PFJetFwd15_, sizeof(HLT_PFJetFwd15_), "HLT_PFJetFwd15");
+    nanoCheckScalarWidth(b_HLT_PFJetFwd200_, sizeof(HLT_PFJetFwd200_), "HLT_PFJetFwd200");
+    nanoCheckScalarWidth(b_HLT_PFJetFwd25_, sizeof(HLT_PFJetFwd25_), "HLT_PFJetFwd25");
+    nanoCheckScalarWidth(b_HLT_PFJetFwd260_, sizeof(HLT_PFJetFwd260_), "HLT_PFJetFwd260");
+    nanoCheckScalarWidth(b_HLT_PFJetFwd320_, sizeof(HLT_PFJetFwd320_), "HLT_PFJetFwd320");
+    nanoCheckScalarWidth(b_HLT_PFJetFwd40_, sizeof(HLT_PFJetFwd40_), "HLT_PFJetFwd40");
+    nanoCheckScalarWidth(b_HLT_PFJetFwd400_, sizeof(HLT_PFJetFwd400_), "HLT_PFJetFwd400");
+    nanoCheckScalarWidth(b_HLT_PFJetFwd450_, sizeof(HLT_PFJetFwd450_), "HLT_PFJetFwd450");
+    nanoCheckScalarWidth(b_HLT_PFJetFwd500_, sizeof(HLT_PFJetFwd500_), "HLT_PFJetFwd500");
+    nanoCheckScalarWidth(b_HLT_PFJetFwd60_, sizeof(HLT_PFJetFwd60_), "HLT_PFJetFwd60");
+    nanoCheckScalarWidth(b_HLT_PFJetFwd80_, sizeof(HLT_PFJetFwd80_), "HLT_PFJetFwd80");
+    nanoCheckScalarWidth(b_HLT_PFMET100_PFMHT100_IDTight_, sizeof(HLT_PFMET100_PFMHT100_IDTight_), "HLT_PFMET100_PFMHT100_IDTight");
+    nanoCheckScalarWidth(b_HLT_PFMET100_PFMHT100_IDTight_BeamHaloCleaned_, sizeof(HLT_PFMET100_PFMHT100_IDTight_BeamHaloCleaned_), "HLT_PFMET100_PFMHT100_IDTight_BeamHaloCleaned");
+    nanoCheckScalarWidth(b_HLT_PFMET100_PFMHT100_IDTight_CaloBTagCSV_3p1_, sizeof(HLT_PFMET100_PFMHT100_IDTight_CaloBTagCSV_3p1_), "HLT_PFMET100_PFMHT100_IDTight_CaloBTagCSV_3p1");
+    nanoCheckScalarWidth(b_HLT_PFMET100_PFMHT100_IDTight_CaloBTagDeepCSV_3p1_, sizeof(HLT_PFMET100_PFMHT100_IDTight_CaloBTagDeepCSV_3p1_), "HLT_PFMET100_PFMHT100_IDTight_CaloBTagDeepCSV_3p1");
+    nanoCheckScalarWidth(b_HLT_PFMET100_PFMHT100_IDTight_PFHT60_, sizeof(HLT_PFMET100_PFMHT100_IDTight_PFHT60_), "HLT_PFMET100_PFMHT100_IDTight_PFHT60");
+    nanoCheckScalarWidth(b_HLT_PFMET105_IsoTrk50_, sizeof(HLT_PFMET105_IsoTrk50_), "HLT_PFMET105_IsoTrk50");
+    nanoCheckScalarWidth(b_HLT_PFMET110_PFJet100_, sizeof(HLT_PFMET110_PFJet100_), "HLT_PFMET110_PFJet100");
+    nanoCheckScalarWidth(b_HLT_PFMET110_PFMHT110_IDTight_, sizeof(HLT_PFMET110_PFMHT110_IDTight_), "HLT_PFMET110_PFMHT110_IDTight");
+    nanoCheckScalarWidth(b_HLT_PFMET110_PFMHT110_IDTight_CaloBTagCSV_3p1_, sizeof(HLT_PFMET110_PFMHT110_IDTight_CaloBTagCSV_3p1_), "HLT_PFMET110_PFMHT110_IDTight_CaloBTagCSV_3p1");
+    nanoCheckScalarWidth(b_HLT_PFMET110_PFMHT110_IDTight_CaloBTagDeepCSV_3p1_, sizeof(HLT_PFMET110_PFMHT110_IDTight_CaloBTagDeepCSV_3p1_), "HLT_PFMET110_PFMHT110_IDTight_CaloBTagDeepCSV_3p1");
+    nanoCheckScalarWidth(b_HLT_PFMET120_BTagCSV_p067_, sizeof(HLT_PFMET120_BTagCSV_p067_), "HLT_PFMET120_BTagCSV_p067");
+    nanoCheckScalarWidth(b_HLT_PFMET120_Mu5_, sizeof(HLT_PFMET120_Mu5_), "HLT_PFMET120_Mu5");
+    nanoCheckScalarWidth(b_HLT_PFMET120_PFMHT120_IDTight_, sizeof(HLT_PFMET120_PFMHT120_IDTight_), "HLT_PFMET120_PFMHT120_IDTight");
+    nanoCheckScalarWidth(b_HLT_PFMET120_PFMHT120_IDTight_CaloBTagCSV_3p1_, sizeof(HLT_PFMET120_PFMHT120_IDTight_CaloBTagCSV_3p1_), "HLT_PFMET120_PFMHT120_IDTight_CaloBTagCSV_3p1");
+    nanoCheckScalarWidth(b_HLT_PFMET120_PFMHT120_IDTight_CaloBTagDeepCSV_3p1_, sizeof(HLT_PFMET120_PFMHT120_IDTight_CaloBTagDeepCSV_3p1_), "HLT_PFMET120_PFMHT120_IDTight_CaloBTagDeepCSV_3p1");
+    nanoCheckScalarWidth(b_HLT_PFMET120_PFMHT120_IDTight_HFCleaned_, sizeof(HLT_PFMET120_PFMHT120_IDTight_HFCleaned_), "HLT_PFMET120_PFMHT120_IDTight_HFCleaned");
+    nanoCheckScalarWidth(b_HLT_PFMET120_PFMHT120_IDTight_PFHT60_, sizeof(HLT_PFMET120_PFMHT120_IDTight_PFHT60_), "HLT_PFMET120_PFMHT120_IDTight_PFHT60");
+    nanoCheckScalarWidth(b_HLT_PFMET120_PFMHT120_IDTight_PFHT60_HFCleaned_, sizeof(HLT_PFMET120_PFMHT120_IDTight_PFHT60_HFCleaned_), "HLT_PFMET120_PFMHT120_IDTight_PFHT60_HFCleaned");
+    nanoCheckScalarWidth(b_HLT_PFMET130_PFMHT130_IDTight_, sizeof(HLT_PFMET130_PFMHT130_IDTight_), "HLT_PFMET130_PFMHT130_IDTight");
+    nanoCheckScalarWidth(b_HLT_PFMET130_PFMHT130_IDTight_CaloBTagCSV_3p1_, sizeof(HLT_PFMET130_PFMHT130_IDTight_CaloBTagCSV_3p1_), "HLT_PFMET130_PFMHT130_IDTight_CaloBTagCSV_3p1");
+    nanoCheckScalarWidth(b_HLT_PFMET130_PFMHT130_IDTight_CaloBTagDeepCSV_3p1_, sizeof(HLT_PFMET130_PFMHT130_IDTight_CaloBTagDeepCSV_3p1_), "HLT_PFMET130_PFMHT130_IDTight_CaloBTagDeepCSV_3p1");
+    nanoCheckScalarWidth(b_HLT_PFMET140_PFMHT140_IDTight_, sizeof(HLT_PFMET140_PFMHT140_IDTight_), "HLT_PFMET140_PFMHT140_IDTight");
+    nanoCheckScalarWidth(b_HLT_PFMET140_PFMHT140_IDTight_CaloBTagCSV_3p1_, sizeof(HLT_PFMET140_PFMHT140_IDTight_CaloBTagCSV_3p1_), "HLT_PFMET140_PFMHT140_IDTight_CaloBTagCSV_3p1");
+    nanoCheckScalarWidth(b_HLT_PFMET140_PFMHT140_IDTight_CaloBTagDeepCSV_3p1_, sizeof(HLT_PFMET140_PFMHT140_IDTight_CaloBTagDeepCSV_3p1_), "HLT_PFMET140_PFMHT140_IDTight_CaloBTagDeepCSV_3p1");
+    nanoCheckScalarWidth(b_HLT_PFMET170_BeamHaloCleaned_, sizeof(HLT_PFMET170_BeamHaloCleaned_), "HLT_PFMET170_BeamHaloCleaned");
+    nanoCheckScalarWidth(b_HLT_PFMET170_HBHECleaned_, sizeof(HLT_PFMET170_HBHECleaned_), "HLT_PFMET170_HBHECleaned");
+    nanoCheckScalarWidth(b_HLT_PFMET170_HBHE_BeamHaloCleaned_, sizeof(HLT_PFMET170_HBHE_BeamHaloCleaned_), "HLT_PFMET170_HBHE_BeamHaloCleaned");
+    nanoCheckScalarWidth(b_HLT_PFMET170_JetIdCleaned_, sizeof(HLT_PFMET170_JetIdCleaned_), "HLT_PFMET170_JetIdCleaned");
+    nanoCheckScalarWidth(b_HLT_PFMET170_NoiseCleaned_, sizeof(HLT_PFMET170_NoiseCleaned_), "HLT_PFMET170_NoiseCleaned");
+    nanoCheckScalarWidth(b_HLT_PFMET170_NotCleaned_, sizeof(HLT_PFMET170_NotCleaned_), "HLT_PFMET170_NotCleaned");
+    nanoCheckScalarWidth(b_HLT_PFMET200_BeamHaloCleaned_, sizeof(HLT_PFMET200_BeamHaloCleaned_), "HLT_PFMET200_BeamHaloCleaned");
+    nanoCheckScalarWidth(b_HLT_PFMET200_HBHECleaned_, sizeof(HLT_PFMET200_HBHECleaned_), "HLT_PFMET200_HBHECleaned");
+    nanoCheckScalarWidth(b_HLT_PFMET200_HBHE_BeamHaloCleaned_, sizeof(HLT_PFMET200_HBHE_BeamHaloCleaned_), "HLT_PFMET200_HBHE_BeamHaloCleaned");
+    nanoCheckScalarWidth(b_HLT_PFMET200_NotCleaned_, sizeof(HLT_PFMET200_NotCleaned_), "HLT_PFMET200_NotCleaned");
+    nanoCheckScalarWidth(b_HLT_PFMET250_HBHECleaned_, sizeof(HLT_PFMET250_HBHECleaned_), "HLT_PFMET250_HBHECleaned");
+    nanoCheckScalarWidth(b_HLT_PFMET250_NotCleaned_, sizeof(HLT_PFMET250_NotCleaned_), "HLT_PFMET250_NotCleaned");
+    nanoCheckScalarWidth(b_HLT_PFMET300_, sizeof(HLT_PFMET300_), "HLT_PFMET300");
+    nanoCheckScalarWidth(b_HLT_PFMET300_HBHECleaned_, sizeof(HLT_PFMET300_HBHECleaned_), "HLT_PFMET300_HBHECleaned");
+    nanoCheckScalarWidth(b_HLT_PFMET300_NotCleaned_, sizeof(HLT_PFMET300_NotCleaned_), "HLT_PFMET300_NotCleaned");
+    nanoCheckScalarWidth(b_HLT_PFMET400_, sizeof(HLT_PFMET400_), "HLT_PFMET400");
+    nanoCheckScalarWidth(b_HLT_PFMET500_, sizeof(HLT_PFMET500_), "HLT_PFMET500");
+    nanoCheckScalarWidth(b_HLT_PFMET600_, sizeof(HLT_PFMET600_), "HLT_PFMET600");
+    nanoCheckScalarWidth(b_HLT_PFMET90_PFMHT90_IDTight_, sizeof(HLT_PFMET90_PFMHT90_IDTight_), "HLT_PFMET90_PFMHT90_IDTight");
+    nanoCheckScalarWidth(b_HLT_PFMETNoMu100_PFMHTNoMu100_IDTight_, sizeof(HLT_PFMETNoMu100_PFMHTNoMu100_IDTight_), "HLT_PFMETNoMu100_PFMHTNoMu100_IDTight");
+    nanoCheckScalarWidth(b_HLT_PFMETNoMu100_PFMHTNoMu100_IDTight_PFHT60_, sizeof(HLT_PFMETNoMu100_PFMHTNoMu100_IDTight_PFHT60_), "HLT_PFMETNoMu100_PFMHTNoMu100_IDTight_PFHT60");
+    nanoCheckScalarWidth(b_HLT_PFMETNoMu110_PFMHTNoMu110_IDTight_, sizeof(HLT_PFMETNoMu110_PFMHTNoMu110_IDTight_), "HLT_PFMETNoMu110_PFMHTNoMu110_IDTight");
+    nanoCheckScalarWidth(b_HLT_PFMETNoMu110_PFMHTNoMu110_IDTight_FilterHF_, sizeof(HLT_PFMETNoMu110_PFMHTNoMu110_IDTight_FilterHF_), "HLT_PFMETNoMu110_PFMHTNoMu110_IDTight_FilterHF");
+    nanoCheckScalarWidth(b_HLT_PFMETNoMu120_PFMHTNoMu120_IDTight_, sizeof(HLT_PFMETNoMu120_PFMHTNoMu120_IDTight_), "HLT_PFMETNoMu120_PFMHTNoMu120_IDTight");
+    nanoCheckScalarWidth(b_HLT_PFMETNoMu120_PFMHTNoMu120_IDTight_FilterHF_, sizeof(HLT_PFMETNoMu120_PFMHTNoMu120_IDTight_FilterHF_), "HLT_PFMETNoMu120_PFMHTNoMu120_IDTight_FilterHF");
+    nanoCheckScalarWidth(b_HLT_PFMETNoMu120_PFMHTNoMu120_IDTight_HFCleaned_, sizeof(HLT_PFMETNoMu120_PFMHTNoMu120_IDTight_HFCleaned_), "HLT_PFMETNoMu120_PFMHTNoMu120_IDTight_HFCleaned");
+    nanoCheckScalarWidth(b_HLT_PFMETNoMu120_PFMHTNoMu120_IDTight_PFHT60_, sizeof(HLT_PFMETNoMu120_PFMHTNoMu120_IDTight_PFHT60_), "HLT_PFMETNoMu120_PFMHTNoMu120_IDTight_PFHT60");
+    nanoCheckScalarWidth(b_HLT_PFMETNoMu130_PFMHTNoMu130_IDTight_, sizeof(HLT_PFMETNoMu130_PFMHTNoMu130_IDTight_), "HLT_PFMETNoMu130_PFMHTNoMu130_IDTight");
+    nanoCheckScalarWidth(b_HLT_PFMETNoMu130_PFMHTNoMu130_IDTight_FilterHF_, sizeof(HLT_PFMETNoMu130_PFMHTNoMu130_IDTight_FilterHF_), "HLT_PFMETNoMu130_PFMHTNoMu130_IDTight_FilterHF");
+    nanoCheckScalarWidth(b_HLT_PFMETNoMu140_PFMHTNoMu140_IDTight_, sizeof(HLT_PFMETNoMu140_PFMHTNoMu140_IDTight_), "HLT_PFMETNoMu140_PFMHTNoMu140_IDTight");
+    nanoCheckScalarWidth(b_HLT_PFMETNoMu140_PFMHTNoMu140_IDTight_FilterHF_, sizeof(HLT_PFMETNoMu140_PFMHTNoMu140_IDTight_FilterHF_), "HLT_PFMETNoMu140_PFMHTNoMu140_IDTight_FilterHF");
+    nanoCheckScalarWidth(b_HLT_PFMETNoMu90_PFMHTNoMu90_IDTight_, sizeof(HLT_PFMETNoMu90_PFMHTNoMu90_IDTight_), "HLT_PFMETNoMu90_PFMHTNoMu90_IDTight");
+    nanoCheckScalarWidth(b_HLT_PFMETTypeOne100_PFMHT100_IDTight_PFHT60_, sizeof(HLT_PFMETTypeOne100_PFMHT100_IDTight_PFHT60_), "HLT_PFMETTypeOne100_PFMHT100_IDTight_PFHT60");
+    nanoCheckScalarWidth(b_HLT_PFMETTypeOne110_PFMHT110_IDTight_, sizeof(HLT_PFMETTypeOne110_PFMHT110_IDTight_), "HLT_PFMETTypeOne110_PFMHT110_IDTight");
+    nanoCheckScalarWidth(b_HLT_PFMETTypeOne120_PFMHT120_IDTight_, sizeof(HLT_PFMETTypeOne120_PFMHT120_IDTight_), "HLT_PFMETTypeOne120_PFMHT120_IDTight");
+    nanoCheckScalarWidth(b_HLT_PFMETTypeOne120_PFMHT120_IDTight_HFCleaned_, sizeof(HLT_PFMETTypeOne120_PFMHT120_IDTight_HFCleaned_), "HLT_PFMETTypeOne120_PFMHT120_IDTight_HFCleaned");
+    nanoCheckScalarWidth(b_HLT_PFMETTypeOne120_PFMHT120_IDTight_PFHT60_, sizeof(HLT_PFMETTypeOne120_PFMHT120_IDTight_PFHT60_), "HLT_PFMETTypeOne120_PFMHT120_IDTight_PFHT60");
+    nanoCheckScalarWidth(b_HLT_PFMETTypeOne130_PFMHT130_IDTight_, sizeof(HLT_PFMETTypeOne130_PFMHT130_IDTight_), "HLT_PFMETTypeOne130_PFMHT130_IDTight");
+    nanoCheckScalarWidth(b_HLT_PFMETTypeOne140_PFMHT140_IDTight_, sizeof(HLT_PFMETTypeOne140_PFMHT140_IDTight_), "HLT_PFMETTypeOne140_PFMHT140_IDTight");
+    nanoCheckScalarWidth(b_HLT_PFMETTypeOne190_HBHE_BeamHaloCleaned_, sizeof(HLT_PFMETTypeOne190_HBHE_BeamHaloCleaned_), "HLT_PFMETTypeOne190_HBHE_BeamHaloCleaned");
+    nanoCheckScalarWidth(b_HLT_PFMETTypeOne200_BeamHaloCleaned_, sizeof(HLT_PFMETTypeOne200_BeamHaloCleaned_), "HLT_PFMETTypeOne200_BeamHaloCleaned");
+    nanoCheckScalarWidth(b_HLT_PFMETTypeOne200_HBHE_BeamHaloCleaned_, sizeof(HLT_PFMETTypeOne200_HBHE_BeamHaloCleaned_), "HLT_PFMETTypeOne200_HBHE_BeamHaloCleaned");
+    nanoCheckScalarWidth(b_HLT_PFTau120_eta2p1_, sizeof(HLT_PFTau120_eta2p1_), "HLT_PFTau120_eta2p1");
+    nanoCheckScalarWidth(b_HLT_PFTau140_eta2p1_, sizeof(HLT_PFTau140_eta2p1_), "HLT_PFTau140_eta2p1");
+    nanoCheckScalarWidth(b_HLT_PPSMaxTracksPerArm1_, sizeof(HLT_PPSMaxTracksPerArm1_), "HLT_PPSMaxTracksPerArm1");
+    nanoCheckScalarWidth(b_HLT_PPSMaxTracksPerRP4_, sizeof(HLT_PPSMaxTracksPerRP4_), "HLT_PPSMaxTracksPerRP4");
+    nanoCheckScalarWidth(b_HLT_Photon100EBHE10_, sizeof(HLT_Photon100EBHE10_), "HLT_Photon100EBHE10");
+    nanoCheckScalarWidth(b_HLT_Photon100EB_TightID_TightIso_, sizeof(HLT_Photon100EB_TightID_TightIso_), "HLT_Photon100EB_TightID_TightIso");
+    nanoCheckScalarWidth(b_HLT_Photon100EEHE10_, sizeof(HLT_Photon100EEHE10_), "HLT_Photon100EEHE10");
+    nanoCheckScalarWidth(b_HLT_Photon100EE_TightID_TightIso_, sizeof(HLT_Photon100EE_TightID_TightIso_), "HLT_Photon100EE_TightID_TightIso");
+    nanoCheckScalarWidth(b_HLT_Photon110EB_TightID_TightIso_, sizeof(HLT_Photon110EB_TightID_TightIso_), "HLT_Photon110EB_TightID_TightIso");
+    nanoCheckScalarWidth(b_HLT_Photon120_, sizeof(HLT_Photon120_), "HLT_Photon120");
+    nanoCheckScalarWidth(b_HLT_Photon120EB_TightID_TightIso_, sizeof(HLT_Photon120EB_TightID_TightIso_), "HLT_Photon120EB_TightID_TightIso");
+    nanoCheckScalarWidth(b_HLT_Photon120_R9Id90_HE10_Iso40_EBOnly_PFMET40_, sizeof(HLT_Photon120_R9Id90_HE10_Iso40_EBOnly_PFMET40_), "HLT_Photon120_R9Id90_HE10_Iso40_EBOnly_PFMET40");
+    nanoCheckScalarWidth(b_HLT_Photon120_R9Id90_HE10_Iso40_EBOnly_VBF_, sizeof(HLT_Photon120_R9Id90_HE10_Iso40_EBOnly_VBF_), "HLT_Photon120_R9Id90_HE10_Iso40_EBOnly_VBF");
+    nanoCheckScalarWidth(b_HLT_Photon120_R9Id90_HE10_IsoM_, sizeof(HLT_Photon120_R9Id90_HE10_IsoM_), "HLT_Photon120_R9Id90_HE10_IsoM");
+    nanoCheckScalarWidth(b_HLT_Photon125_, sizeof(HLT_Photon125_), "HLT_Photon125");
+    nanoCheckScalarWidth(b_HLT_Photon135_PFMET100_, sizeof(HLT_Photon135_PFMET100_), "HLT_Photon135_PFMET100");
+    nanoCheckScalarWidth(b_HLT_Photon150_, sizeof(HLT_Photon150_), "HLT_Photon150");
+    nanoCheckScalarWidth(b_HLT_Photon165_HE10_, sizeof(HLT_Photon165_HE10_), "HLT_Photon165_HE10");
+    nanoCheckScalarWidth(b_HLT_Photon165_R9Id90_HE10_IsoM_, sizeof(HLT_Photon165_R9Id90_HE10_IsoM_), "HLT_Photon165_R9Id90_HE10_IsoM");
+    nanoCheckScalarWidth(b_HLT_Photon175_, sizeof(HLT_Photon175_), "HLT_Photon175");
+    nanoCheckScalarWidth(b_HLT_Photon20_, sizeof(HLT_Photon20_), "HLT_Photon20");
+    nanoCheckScalarWidth(b_HLT_Photon200_, sizeof(HLT_Photon200_), "HLT_Photon200");
+    nanoCheckScalarWidth(b_HLT_Photon20_CaloIdVL_IsoL_, sizeof(HLT_Photon20_CaloIdVL_IsoL_), "HLT_Photon20_CaloIdVL_IsoL");
+    nanoCheckScalarWidth(b_HLT_Photon20_HoverELoose_, sizeof(HLT_Photon20_HoverELoose_), "HLT_Photon20_HoverELoose");
+    nanoCheckScalarWidth(b_HLT_Photon22_, sizeof(HLT_Photon22_), "HLT_Photon22");
+    nanoCheckScalarWidth(b_HLT_Photon22_R9Id90_HE10_Iso40_EBOnly_PFMET40_, sizeof(HLT_Photon22_R9Id90_HE10_Iso40_EBOnly_PFMET40_), "HLT_Photon22_R9Id90_HE10_Iso40_EBOnly_PFMET40");
+    nanoCheckScalarWidth(b_HLT_Photon22_R9Id90_HE10_Iso40_EBOnly_VBF_, sizeof(HLT_Photon22_R9Id90_HE10_Iso40_EBOnly_VBF_), "HLT_Photon22_R9Id90_HE10_Iso40_EBOnly_VBF");
+    nanoCheckScalarWidth(b_HLT_Photon22_R9Id90_HE10_IsoM_, sizeof(HLT_Photon22_R9Id90_HE10_IsoM_), "HLT_Photon22_R9Id90_HE10_IsoM");
+    nanoCheckScalarWidth(b_HLT_Photon25_, sizeof(HLT_Photon25_), "HLT_Photon25");
+    nanoCheckScalarWidth(b_HLT_Photon250_NoHE_, sizeof(HLT_Photon250_NoHE_), "HLT_Photon250_NoHE");
+    nanoCheckScalarWidth(b_HLT_Photon26_R9Id85_OR_CaloId24b40e_Iso50T80L_Photon16_AND_HE10_R9Id65_Eta2_Mass60_, sizeof(HLT_Photon26_R9Id85_OR_CaloId24b40e_Iso50T80L_Photon16_AND_HE10_R9Id65_Eta2_Mass60_), "HLT_Photon26_R9Id85_OR_CaloId24b40e_Iso50T80L_Photon16_AND_HE10_R9Id65_Eta2_Mass60");
+    nanoCheckScalarWidth(b_HLT_Photon30_, sizeof(HLT_Photon30_), "HLT_Photon30");
+    nanoCheckScalarWidth(b_HLT_Photon300_NoHE_, sizeof(HLT_Photon300_NoHE_), "HLT_Photon300_NoHE");
+    nanoCheckScalarWidth(b_HLT_Photon30EB_TightID_TightIso_, sizeof(HLT_Photon30EB_TightID_TightIso_), "HLT_Photon30EB_TightID_TightIso");
+    nanoCheckScalarWidth(b_HLT_Photon30_HoverELoose_, sizeof(HLT_Photon30_HoverELoose_), "HLT_Photon30_HoverELoose");
+    nanoCheckScalarWidth(b_HLT_Photon30_R9Id90_HE10_IsoM_, sizeof(HLT_Photon30_R9Id90_HE10_IsoM_), "HLT_Photon30_R9Id90_HE10_IsoM");
+    nanoCheckScalarWidth(b_HLT_Photon33_, sizeof(HLT_Photon33_), "HLT_Photon33");
+    nanoCheckScalarWidth(b_HLT_Photon35_TwoProngs35_, sizeof(HLT_Photon35_TwoProngs35_), "HLT_Photon35_TwoProngs35");
+    nanoCheckScalarWidth(b_HLT_Photon36_, sizeof(HLT_Photon36_), "HLT_Photon36");
+    nanoCheckScalarWidth(b_HLT_Photon36_R9Id85_OR_CaloId24b40e_Iso50T80L_Photon22_AND_HE10_R9Id65_Eta2_Mass15_, sizeof(HLT_Photon36_R9Id85_OR_CaloId24b40e_Iso50T80L_Photon22_AND_HE10_R9Id65_Eta2_Mass15_), "HLT_Photon36_R9Id85_OR_CaloId24b40e_Iso50T80L_Photon22_AND_HE10_R9Id65_Eta2_Mass15");
+    nanoCheckScalarWidth(b_HLT_Photon36_R9Id90_HE10_Iso40_EBOnly_PFMET40_, sizeof(HLT_Photon36_R9Id90_HE10_Iso40_EBOnly_PFMET40_), "HLT_Photon36_R9Id90_HE10_Iso40_EBOnly_PFMET40");
+    nanoCheckScalarWidth(b_HLT_Photon36_R9Id90_HE10_Iso40_EBOnly_VBF_, sizeof(HLT_Photon36_R9Id90_HE10_Iso40_EBOnly_VBF_), "HLT_Photon36_R9Id90_HE10_Iso40_EBOnly_VBF");
+    nanoCheckScalarWidth(b_HLT_Photon36_R9Id90_HE10_IsoM_, sizeof(HLT_Photon36_R9Id90_HE10_IsoM_), "HLT_Photon36_R9Id90_HE10_IsoM");
+    nanoCheckScalarWidth(b_HLT_Photon40_HoverELoose_, sizeof(HLT_Photon40_HoverELoose_), "HLT_Photon40_HoverELoose");
+    nanoCheckScalarWidth(b_HLT_Photon42_R9Id85_OR_CaloId24b40e_Iso50T80L_Photon25_AND_HE10_R9Id65_Eta2_Mass15_, sizeof(HLT_Photon42_R9Id85_OR_CaloId24b40e_Iso50T80L_Photon25_AND_HE10_R9Id65_Eta2_Mass15_), "HLT_Photon42_R9Id85_OR_CaloId24b40e_Iso50T80L_Photon25_AND_HE10_R9Id65_Eta2_Mass15");
+    nanoCheckScalarWidth(b_HLT_Photon50_, sizeof(HLT_Photon50_), "HLT_Photon50");
+    nanoCheckScalarWidth(b_HLT_Photon500_, sizeof(HLT_Photon500_), "HLT_Photon500");
+    nanoCheckScalarWidth(b_HLT_Photon50_HoverELoose_, sizeof(HLT_Photon50_HoverELoose_), "HLT_Photon50_HoverELoose");
+    nanoCheckScalarWidth(b_HLT_Photon50_R9Id90_HE10_Iso40_EBOnly_PFMET40_, sizeof(HLT_Photon50_R9Id90_HE10_Iso40_EBOnly_PFMET40_), "HLT_Photon50_R9Id90_HE10_Iso40_EBOnly_PFMET40");
+    nanoCheckScalarWidth(b_HLT_Photon50_R9Id90_HE10_Iso40_EBOnly_VBF_, sizeof(HLT_Photon50_R9Id90_HE10_Iso40_EBOnly_VBF_), "HLT_Photon50_R9Id90_HE10_Iso40_EBOnly_VBF");
+    nanoCheckScalarWidth(b_HLT_Photon50_R9Id90_HE10_IsoM_, sizeof(HLT_Photon50_R9Id90_HE10_IsoM_), "HLT_Photon50_R9Id90_HE10_IsoM");
+    nanoCheckScalarWidth(b_HLT_Photon50_R9Id90_HE10_IsoM_EBOnly_PFJetsMJJ300DEta3_PFMET50_, sizeof(HLT_Photon50_R9Id90_HE10_IsoM_EBOnly_PFJetsMJJ300DEta3_PFMET50_), "HLT_Photon50_R9Id90_HE10_IsoM_EBOnly_PFJetsMJJ300DEta3_PFMET50");
+    nanoCheckScalarWidth(b_HLT_Photon600_, sizeof(HLT_Photon600_), "HLT_Photon600");
+    nanoCheckScalarWidth(b_HLT_Photon60_HoverELoose_, sizeof(HLT_Photon60_HoverELoose_), "HLT_Photon60_HoverELoose");
+    nanoCheckScalarWidth(b_HLT_Photon60_R9Id90_CaloIdL_IsoL_, sizeof(HLT_Photon60_R9Id90_CaloIdL_IsoL_), "HLT_Photon60_R9Id90_CaloIdL_IsoL");
+    nanoCheckScalarWidth(b_HLT_Photon60_R9Id90_CaloIdL_IsoL_DisplacedIdL_, sizeof(HLT_Photon60_R9Id90_CaloIdL_IsoL_DisplacedIdL_), "HLT_Photon60_R9Id90_CaloIdL_IsoL_DisplacedIdL");
+    nanoCheckScalarWidth(b_HLT_Photon60_R9Id90_CaloIdL_IsoL_DisplacedIdL_PFHT350MinPFJet15_, sizeof(HLT_Photon60_R9Id90_CaloIdL_IsoL_DisplacedIdL_PFHT350MinPFJet15_), "HLT_Photon60_R9Id90_CaloIdL_IsoL_DisplacedIdL_PFHT350MinPFJet15");
+    nanoCheckScalarWidth(b_HLT_Photon75_, sizeof(HLT_Photon75_), "HLT_Photon75");
+    nanoCheckScalarWidth(b_HLT_Photon75_R9Id90_HE10_Iso40_EBOnly_PFMET40_, sizeof(HLT_Photon75_R9Id90_HE10_Iso40_EBOnly_PFMET40_), "HLT_Photon75_R9Id90_HE10_Iso40_EBOnly_PFMET40");
+    nanoCheckScalarWidth(b_HLT_Photon75_R9Id90_HE10_Iso40_EBOnly_VBF_, sizeof(HLT_Photon75_R9Id90_HE10_Iso40_EBOnly_VBF_), "HLT_Photon75_R9Id90_HE10_Iso40_EBOnly_VBF");
+    nanoCheckScalarWidth(b_HLT_Photon75_R9Id90_HE10_IsoM_, sizeof(HLT_Photon75_R9Id90_HE10_IsoM_), "HLT_Photon75_R9Id90_HE10_IsoM");
+    nanoCheckScalarWidth(b_HLT_Photon75_R9Id90_HE10_IsoM_EBOnly_CaloMJJ300_PFJetsMJJ400DEta3_, sizeof(HLT_Photon75_R9Id90_HE10_IsoM_EBOnly_CaloMJJ300_PFJetsMJJ400DEta3_), "HLT_Photon75_R9Id90_HE10_IsoM_EBOnly_CaloMJJ300_PFJetsMJJ400DEta3");
+    nanoCheckScalarWidth(b_HLT_Photon75_R9Id90_HE10_IsoM_EBOnly_CaloMJJ400_PFJetsMJJ600DEta3_, sizeof(HLT_Photon75_R9Id90_HE10_IsoM_EBOnly_CaloMJJ400_PFJetsMJJ600DEta3_), "HLT_Photon75_R9Id90_HE10_IsoM_EBOnly_CaloMJJ400_PFJetsMJJ600DEta3");
+    nanoCheckScalarWidth(b_HLT_Photon75_R9Id90_HE10_IsoM_EBOnly_PFJetsMJJ300DEta3_, sizeof(HLT_Photon75_R9Id90_HE10_IsoM_EBOnly_PFJetsMJJ300DEta3_), "HLT_Photon75_R9Id90_HE10_IsoM_EBOnly_PFJetsMJJ300DEta3");
+    nanoCheckScalarWidth(b_HLT_Photon75_R9Id90_HE10_IsoM_EBOnly_PFJetsMJJ600DEta3_, sizeof(HLT_Photon75_R9Id90_HE10_IsoM_EBOnly_PFJetsMJJ600DEta3_), "HLT_Photon75_R9Id90_HE10_IsoM_EBOnly_PFJetsMJJ600DEta3");
+    nanoCheckScalarWidth(b_HLT_Photon90_, sizeof(HLT_Photon90_), "HLT_Photon90");
+    nanoCheckScalarWidth(b_HLT_Photon90_CaloIdL_HT300_, sizeof(HLT_Photon90_CaloIdL_HT300_), "HLT_Photon90_CaloIdL_HT300");
+    nanoCheckScalarWidth(b_HLT_Photon90_CaloIdL_PFHT500_, sizeof(HLT_Photon90_CaloIdL_PFHT500_), "HLT_Photon90_CaloIdL_PFHT500");
+    nanoCheckScalarWidth(b_HLT_Photon90_CaloIdL_PFHT600_, sizeof(HLT_Photon90_CaloIdL_PFHT600_), "HLT_Photon90_CaloIdL_PFHT600");
+    nanoCheckScalarWidth(b_HLT_Photon90_CaloIdL_PFHT700_, sizeof(HLT_Photon90_CaloIdL_PFHT700_), "HLT_Photon90_CaloIdL_PFHT700");
+    nanoCheckScalarWidth(b_HLT_Photon90_R9Id90_HE10_Iso40_EBOnly_PFMET40_, sizeof(HLT_Photon90_R9Id90_HE10_Iso40_EBOnly_PFMET40_), "HLT_Photon90_R9Id90_HE10_Iso40_EBOnly_PFMET40");
+    nanoCheckScalarWidth(b_HLT_Photon90_R9Id90_HE10_Iso40_EBOnly_VBF_, sizeof(HLT_Photon90_R9Id90_HE10_Iso40_EBOnly_VBF_), "HLT_Photon90_R9Id90_HE10_Iso40_EBOnly_VBF");
+    nanoCheckScalarWidth(b_HLT_Photon90_R9Id90_HE10_IsoM_, sizeof(HLT_Photon90_R9Id90_HE10_IsoM_), "HLT_Photon90_R9Id90_HE10_IsoM");
+    nanoCheckScalarWidth(b_HLT_Physics_, sizeof(HLT_Physics_), "HLT_Physics");
+    nanoCheckScalarWidth(b_HLT_Physics_part0_, sizeof(HLT_Physics_part0_), "HLT_Physics_part0");
+    nanoCheckScalarWidth(b_HLT_Physics_part1_, sizeof(HLT_Physics_part1_), "HLT_Physics_part1");
+    nanoCheckScalarWidth(b_HLT_Physics_part2_, sizeof(HLT_Physics_part2_), "HLT_Physics_part2");
+    nanoCheckScalarWidth(b_HLT_Physics_part3_, sizeof(HLT_Physics_part3_), "HLT_Physics_part3");
+    nanoCheckScalarWidth(b_HLT_Physics_part4_, sizeof(HLT_Physics_part4_), "HLT_Physics_part4");
+    nanoCheckScalarWidth(b_HLT_Physics_part5_, sizeof(HLT_Physics_part5_), "HLT_Physics_part5");
+    nanoCheckScalarWidth(b_HLT_Physics_part6_, sizeof(HLT_Physics_part6_), "HLT_Physics_part6");
+    nanoCheckScalarWidth(b_HLT_Physics_part7_, sizeof(HLT_Physics_part7_), "HLT_Physics_part7");
+    nanoCheckScalarWidth(b_HLT_PixelTracks_Multiplicity110ForEndOfFill_, sizeof(HLT_PixelTracks_Multiplicity110ForEndOfFill_), "HLT_PixelTracks_Multiplicity110ForEndOfFill");
+    nanoCheckScalarWidth(b_HLT_PixelTracks_Multiplicity135ForEndOfFill_, sizeof(HLT_PixelTracks_Multiplicity135ForEndOfFill_), "HLT_PixelTracks_Multiplicity135ForEndOfFill");
+    nanoCheckScalarWidth(b_HLT_PixelTracks_Multiplicity160ForEndOfFill_, sizeof(HLT_PixelTracks_Multiplicity160ForEndOfFill_), "HLT_PixelTracks_Multiplicity160ForEndOfFill");
+    nanoCheckScalarWidth(b_HLT_PixelTracks_Multiplicity60ForEndOfFill_, sizeof(HLT_PixelTracks_Multiplicity60ForEndOfFill_), "HLT_PixelTracks_Multiplicity60ForEndOfFill");
+    nanoCheckScalarWidth(b_HLT_PixelTracks_Multiplicity85ForEndOfFill_, sizeof(HLT_PixelTracks_Multiplicity85ForEndOfFill_), "HLT_PixelTracks_Multiplicity85ForEndOfFill");
+    nanoCheckScalarWidth(b_HLT_QuadJet45_DoubleBTagCSV_p087_, sizeof(HLT_QuadJet45_DoubleBTagCSV_p087_), "HLT_QuadJet45_DoubleBTagCSV_p087");
+    nanoCheckScalarWidth(b_HLT_QuadJet45_TripleBTagCSV_p087_, sizeof(HLT_QuadJet45_TripleBTagCSV_p087_), "HLT_QuadJet45_TripleBTagCSV_p087");
+    nanoCheckScalarWidth(b_HLT_QuadMuon0_Dimuon0_Jpsi_, sizeof(HLT_QuadMuon0_Dimuon0_Jpsi_), "HLT_QuadMuon0_Dimuon0_Jpsi");
+    nanoCheckScalarWidth(b_HLT_QuadMuon0_Dimuon0_Upsilon_, sizeof(HLT_QuadMuon0_Dimuon0_Upsilon_), "HLT_QuadMuon0_Dimuon0_Upsilon");
+    nanoCheckScalarWidth(b_HLT_QuadPFJet103_88_75_15_, sizeof(HLT_QuadPFJet103_88_75_15_), "HLT_QuadPFJet103_88_75_15");
+    nanoCheckScalarWidth(b_HLT_QuadPFJet103_88_75_15_BTagCSV_p013_VBF2_, sizeof(HLT_QuadPFJet103_88_75_15_BTagCSV_p013_VBF2_), "HLT_QuadPFJet103_88_75_15_BTagCSV_p013_VBF2");
+    nanoCheckScalarWidth(b_HLT_QuadPFJet103_88_75_15_DoubleBTagCSV_p013_p08_VBF1_, sizeof(HLT_QuadPFJet103_88_75_15_DoubleBTagCSV_p013_p08_VBF1_), "HLT_QuadPFJet103_88_75_15_DoubleBTagCSV_p013_p08_VBF1");
+    nanoCheckScalarWidth(b_HLT_QuadPFJet103_88_75_15_DoublePFBTagDeepCSV_1p3_7p7_VBF1_, sizeof(HLT_QuadPFJet103_88_75_15_DoublePFBTagDeepCSV_1p3_7p7_VBF1_), "HLT_QuadPFJet103_88_75_15_DoublePFBTagDeepCSV_1p3_7p7_VBF1");
+    nanoCheckScalarWidth(b_HLT_QuadPFJet103_88_75_15_DoublePFBTagDeepJet_1p3_7p7_VBF1_, sizeof(HLT_QuadPFJet103_88_75_15_DoublePFBTagDeepJet_1p3_7p7_VBF1_), "HLT_QuadPFJet103_88_75_15_DoublePFBTagDeepJet_1p3_7p7_VBF1");
+    nanoCheckScalarWidth(b_HLT_QuadPFJet103_88_75_15_PFBTagDeepCSV_1p3_VBF2_, sizeof(HLT_QuadPFJet103_88_75_15_PFBTagDeepCSV_1p3_VBF2_), "HLT_QuadPFJet103_88_75_15_PFBTagDeepCSV_1p3_VBF2");
+    nanoCheckScalarWidth(b_HLT_QuadPFJet103_88_75_15_PFBTagDeepJet_1p3_VBF2_, sizeof(HLT_QuadPFJet103_88_75_15_PFBTagDeepJet_1p3_VBF2_), "HLT_QuadPFJet103_88_75_15_PFBTagDeepJet_1p3_VBF2");
+    nanoCheckScalarWidth(b_HLT_QuadPFJet105_88_76_15_, sizeof(HLT_QuadPFJet105_88_76_15_), "HLT_QuadPFJet105_88_76_15");
+    nanoCheckScalarWidth(b_HLT_QuadPFJet105_88_76_15_BTagCSV_p013_VBF2_, sizeof(HLT_QuadPFJet105_88_76_15_BTagCSV_p013_VBF2_), "HLT_QuadPFJet105_88_76_15_BTagCSV_p013_VBF2");
+    nanoCheckScalarWidth(b_HLT_QuadPFJet105_88_76_15_DoublePFBTagDeepCSV_1p3_7p7_VBF1_, sizeof(HLT_QuadPFJet105_88_76_15_DoublePFBTagDeepCSV_1p3_7p7_VBF1_), "HLT_QuadPFJet105_88_76_15_DoublePFBTagDeepCSV_1p3_7p7_VBF1");
+    nanoCheckScalarWidth(b_HLT_QuadPFJet105_88_76_15_DoublePFBTagDeepJet_1p3_7p7_VBF1_, sizeof(HLT_QuadPFJet105_88_76_15_DoublePFBTagDeepJet_1p3_7p7_VBF1_), "HLT_QuadPFJet105_88_76_15_DoublePFBTagDeepJet_1p3_7p7_VBF1");
+    nanoCheckScalarWidth(b_HLT_QuadPFJet105_88_76_15_PFBTagDeepCSV_1p3_VBF2_, sizeof(HLT_QuadPFJet105_88_76_15_PFBTagDeepCSV_1p3_VBF2_), "HLT_QuadPFJet105_88_76_15_PFBTagDeepCSV_1p3_VBF2");
+    nanoCheckScalarWidth(b_HLT_QuadPFJet105_88_76_15_PFBTagDeepJet_1p3_VBF2_, sizeof(HLT_QuadPFJet105_88_76_15_PFBTagDeepJet_1p3_VBF2_), "HLT_QuadPFJet105_88_76_15_PFBTagDeepJet_1p3_VBF2");
+    nanoCheckScalarWidth(b_HLT_QuadPFJet105_90_76_15_DoubleBTagCSV_p013_p08_VBF1_, sizeof(HLT_QuadPFJet105_90_76_15_DoubleBTagCSV_p013_p08_VBF1_), "HLT_QuadPFJet105_90_76_15_DoubleBTagCSV_p013_p08_VBF1");
+    nanoCheckScalarWidth(b_HLT_QuadPFJet105_90_76_15_DoublePFBTagDeepCSV_1p3_7p7_VBF1_, sizeof(HLT_QuadPFJet105_90_76_15_DoublePFBTagDeepCSV_1p3_7p7_VBF1_), "HLT_QuadPFJet105_90_76_15_DoublePFBTagDeepCSV_1p3_7p7_VBF1");
+    nanoCheckScalarWidth(b_HLT_QuadPFJet111_90_80_15_, sizeof(HLT_QuadPFJet111_90_80_15_), "HLT_QuadPFJet111_90_80_15");
+    nanoCheckScalarWidth(b_HLT_QuadPFJet111_90_80_15_BTagCSV_p013_VBF2_, sizeof(HLT_QuadPFJet111_90_80_15_BTagCSV_p013_VBF2_), "HLT_QuadPFJet111_90_80_15_BTagCSV_p013_VBF2");
+    nanoCheckScalarWidth(b_HLT_QuadPFJet111_90_80_15_DoubleBTagCSV_p013_p08_VBF1_, sizeof(HLT_QuadPFJet111_90_80_15_DoubleBTagCSV_p013_p08_VBF1_), "HLT_QuadPFJet111_90_80_15_DoubleBTagCSV_p013_p08_VBF1");
+    nanoCheckScalarWidth(b_HLT_QuadPFJet111_90_80_15_DoublePFBTagDeepCSV_1p3_7p7_VBF1_, sizeof(HLT_QuadPFJet111_90_80_15_DoublePFBTagDeepCSV_1p3_7p7_VBF1_), "HLT_QuadPFJet111_90_80_15_DoublePFBTagDeepCSV_1p3_7p7_VBF1");
+    nanoCheckScalarWidth(b_HLT_QuadPFJet111_90_80_15_DoublePFBTagDeepJet_1p3_7p7_VBF1_, sizeof(HLT_QuadPFJet111_90_80_15_DoublePFBTagDeepJet_1p3_7p7_VBF1_), "HLT_QuadPFJet111_90_80_15_DoublePFBTagDeepJet_1p3_7p7_VBF1");
+    nanoCheckScalarWidth(b_HLT_QuadPFJet111_90_80_15_PFBTagDeepCSV_1p3_VBF2_, sizeof(HLT_QuadPFJet111_90_80_15_PFBTagDeepCSV_1p3_VBF2_), "HLT_QuadPFJet111_90_80_15_PFBTagDeepCSV_1p3_VBF2");
+    nanoCheckScalarWidth(b_HLT_QuadPFJet111_90_80_15_PFBTagDeepJet_1p3_VBF2_, sizeof(HLT_QuadPFJet111_90_80_15_PFBTagDeepJet_1p3_VBF2_), "HLT_QuadPFJet111_90_80_15_PFBTagDeepJet_1p3_VBF2");
+    nanoCheckScalarWidth(b_HLT_QuadPFJet70_50_40_30_, sizeof(HLT_QuadPFJet70_50_40_30_), "HLT_QuadPFJet70_50_40_30");
+    nanoCheckScalarWidth(b_HLT_QuadPFJet70_50_40_30_PFBTagParticleNet_2BTagSum0p65_, sizeof(HLT_QuadPFJet70_50_40_30_PFBTagParticleNet_2BTagSum0p65_), "HLT_QuadPFJet70_50_40_30_PFBTagParticleNet_2BTagSum0p65");
+    nanoCheckScalarWidth(b_HLT_QuadPFJet70_50_40_35_PFBTagParticleNet_2BTagSum0p65_, sizeof(HLT_QuadPFJet70_50_40_35_PFBTagParticleNet_2BTagSum0p65_), "HLT_QuadPFJet70_50_40_35_PFBTagParticleNet_2BTagSum0p65");
+    nanoCheckScalarWidth(b_HLT_QuadPFJet70_50_45_35_PFBTagParticleNet_2BTagSum0p65_, sizeof(HLT_QuadPFJet70_50_45_35_PFBTagParticleNet_2BTagSum0p65_), "HLT_QuadPFJet70_50_45_35_PFBTagParticleNet_2BTagSum0p65");
+    nanoCheckScalarWidth(b_HLT_QuadPFJet98_83_71_15_, sizeof(HLT_QuadPFJet98_83_71_15_), "HLT_QuadPFJet98_83_71_15");
+    nanoCheckScalarWidth(b_HLT_QuadPFJet98_83_71_15_BTagCSV_p013_VBF2_, sizeof(HLT_QuadPFJet98_83_71_15_BTagCSV_p013_VBF2_), "HLT_QuadPFJet98_83_71_15_BTagCSV_p013_VBF2");
+    nanoCheckScalarWidth(b_HLT_QuadPFJet98_83_71_15_DoubleBTagCSV_p013_p08_VBF1_, sizeof(HLT_QuadPFJet98_83_71_15_DoubleBTagCSV_p013_p08_VBF1_), "HLT_QuadPFJet98_83_71_15_DoubleBTagCSV_p013_p08_VBF1");
+    nanoCheckScalarWidth(b_HLT_QuadPFJet98_83_71_15_DoublePFBTagDeepCSV_1p3_7p7_VBF1_, sizeof(HLT_QuadPFJet98_83_71_15_DoublePFBTagDeepCSV_1p3_7p7_VBF1_), "HLT_QuadPFJet98_83_71_15_DoublePFBTagDeepCSV_1p3_7p7_VBF1");
+    nanoCheckScalarWidth(b_HLT_QuadPFJet98_83_71_15_PFBTagDeepCSV_1p3_VBF2_, sizeof(HLT_QuadPFJet98_83_71_15_PFBTagDeepCSV_1p3_VBF2_), "HLT_QuadPFJet98_83_71_15_PFBTagDeepCSV_1p3_VBF2");
+    nanoCheckScalarWidth(b_HLT_QuadPFJet_BTagCSV_p016_VBF_Mqq460_, sizeof(HLT_QuadPFJet_BTagCSV_p016_VBF_Mqq460_), "HLT_QuadPFJet_BTagCSV_p016_VBF_Mqq460");
+    nanoCheckScalarWidth(b_HLT_QuadPFJet_BTagCSV_p016_VBF_Mqq500_, sizeof(HLT_QuadPFJet_BTagCSV_p016_VBF_Mqq500_), "HLT_QuadPFJet_BTagCSV_p016_VBF_Mqq500");
+    nanoCheckScalarWidth(b_HLT_QuadPFJet_BTagCSV_p016_p11_VBF_Mqq200_, sizeof(HLT_QuadPFJet_BTagCSV_p016_p11_VBF_Mqq200_), "HLT_QuadPFJet_BTagCSV_p016_p11_VBF_Mqq200");
+    nanoCheckScalarWidth(b_HLT_QuadPFJet_BTagCSV_p016_p11_VBF_Mqq240_, sizeof(HLT_QuadPFJet_BTagCSV_p016_p11_VBF_Mqq240_), "HLT_QuadPFJet_BTagCSV_p016_p11_VBF_Mqq240");
+    nanoCheckScalarWidth(b_HLT_QuadPFJet_VBF_, sizeof(HLT_QuadPFJet_VBF_), "HLT_QuadPFJet_VBF");
+    nanoCheckScalarWidth(b_HLT_Random_, sizeof(HLT_Random_), "HLT_Random");
+    nanoCheckScalarWidth(b_HLT_Rsq0p02_MR300_TriPFJet80_60_40_BTagCSV_p063_p20_Mbb60_200_, sizeof(HLT_Rsq0p02_MR300_TriPFJet80_60_40_BTagCSV_p063_p20_Mbb60_200_), "HLT_Rsq0p02_MR300_TriPFJet80_60_40_BTagCSV_p063_p20_Mbb60_200");
+    nanoCheckScalarWidth(b_HLT_Rsq0p02_MR300_TriPFJet80_60_40_DoubleBTagCSV_p063_Mbb60_200_, sizeof(HLT_Rsq0p02_MR300_TriPFJet80_60_40_DoubleBTagCSV_p063_Mbb60_200_), "HLT_Rsq0p02_MR300_TriPFJet80_60_40_DoubleBTagCSV_p063_Mbb60_200");
+    nanoCheckScalarWidth(b_HLT_Rsq0p02_MR400_TriPFJet80_60_40_DoubleBTagCSV_p063_Mbb60_200_, sizeof(HLT_Rsq0p02_MR400_TriPFJet80_60_40_DoubleBTagCSV_p063_Mbb60_200_), "HLT_Rsq0p02_MR400_TriPFJet80_60_40_DoubleBTagCSV_p063_Mbb60_200");
+    nanoCheckScalarWidth(b_HLT_Rsq0p02_MR450_TriPFJet80_60_40_DoubleBTagCSV_p063_Mbb60_200_, sizeof(HLT_Rsq0p02_MR450_TriPFJet80_60_40_DoubleBTagCSV_p063_Mbb60_200_), "HLT_Rsq0p02_MR450_TriPFJet80_60_40_DoubleBTagCSV_p063_Mbb60_200");
+    nanoCheckScalarWidth(b_HLT_Rsq0p02_MR500_TriPFJet80_60_40_DoubleBTagCSV_p063_Mbb60_200_, sizeof(HLT_Rsq0p02_MR500_TriPFJet80_60_40_DoubleBTagCSV_p063_Mbb60_200_), "HLT_Rsq0p02_MR500_TriPFJet80_60_40_DoubleBTagCSV_p063_Mbb60_200");
+    nanoCheckScalarWidth(b_HLT_Rsq0p02_MR550_TriPFJet80_60_40_DoubleBTagCSV_p063_Mbb60_200_, sizeof(HLT_Rsq0p02_MR550_TriPFJet80_60_40_DoubleBTagCSV_p063_Mbb60_200_), "HLT_Rsq0p02_MR550_TriPFJet80_60_40_DoubleBTagCSV_p063_Mbb60_200");
+    nanoCheckScalarWidth(b_HLT_Rsq0p25_, sizeof(HLT_Rsq0p25_), "HLT_Rsq0p25");
+    nanoCheckScalarWidth(b_HLT_Rsq0p25_Calo_, sizeof(HLT_Rsq0p25_Calo_), "HLT_Rsq0p25_Calo");
+    nanoCheckScalarWidth(b_HLT_Rsq0p30_, sizeof(HLT_Rsq0p30_), "HLT_Rsq0p30");
+    nanoCheckScalarWidth(b_HLT_Rsq0p35_, sizeof(HLT_Rsq0p35_), "HLT_Rsq0p35");
+    nanoCheckScalarWidth(b_HLT_Rsq0p40_, sizeof(HLT_Rsq0p40_), "HLT_Rsq0p40");
+    nanoCheckScalarWidth(b_HLT_RsqMR240_Rsq0p09_MR200_, sizeof(HLT_RsqMR240_Rsq0p09_MR200_), "HLT_RsqMR240_Rsq0p09_MR200");
+    nanoCheckScalarWidth(b_HLT_RsqMR240_Rsq0p09_MR200_4jet_, sizeof(HLT_RsqMR240_Rsq0p09_MR200_4jet_), "HLT_RsqMR240_Rsq0p09_MR200_4jet");
+    nanoCheckScalarWidth(b_HLT_RsqMR240_Rsq0p09_MR200_4jet_Calo_, sizeof(HLT_RsqMR240_Rsq0p09_MR200_4jet_Calo_), "HLT_RsqMR240_Rsq0p09_MR200_4jet_Calo");
+    nanoCheckScalarWidth(b_HLT_RsqMR240_Rsq0p09_MR200_Calo_, sizeof(HLT_RsqMR240_Rsq0p09_MR200_Calo_), "HLT_RsqMR240_Rsq0p09_MR200_Calo");
+    nanoCheckScalarWidth(b_HLT_RsqMR270_Rsq0p09_MR200_, sizeof(HLT_RsqMR270_Rsq0p09_MR200_), "HLT_RsqMR270_Rsq0p09_MR200");
+    nanoCheckScalarWidth(b_HLT_RsqMR270_Rsq0p09_MR200_4jet_, sizeof(HLT_RsqMR270_Rsq0p09_MR200_4jet_), "HLT_RsqMR270_Rsq0p09_MR200_4jet");
+    nanoCheckScalarWidth(b_HLT_RsqMR300_Rsq0p09_MR200_, sizeof(HLT_RsqMR300_Rsq0p09_MR200_), "HLT_RsqMR300_Rsq0p09_MR200");
+    nanoCheckScalarWidth(b_HLT_RsqMR300_Rsq0p09_MR200_4jet_, sizeof(HLT_RsqMR300_Rsq0p09_MR200_4jet_), "HLT_RsqMR300_Rsq0p09_MR200_4jet");
+    nanoCheckScalarWidth(b_HLT_RsqMR320_Rsq0p09_MR200_, sizeof(HLT_RsqMR320_Rsq0p09_MR200_), "HLT_RsqMR320_Rsq0p09_MR200");
+    nanoCheckScalarWidth(b_HLT_RsqMR320_Rsq0p09_MR200_4jet_, sizeof(HLT_RsqMR320_Rsq0p09_MR200_4jet_), "HLT_RsqMR320_Rsq0p09_MR200_4jet");
+    nanoCheckScalarWidth(b_HLT_SingleCentralPFJet170_CFMax0p1_, sizeof(HLT_SingleCentralPFJet170_CFMax0p1_), "HLT_SingleCentralPFJet170_CFMax0p1");
+    nanoCheckScalarWidth(b_HLT_SingleJet30_Mu12_SinglePFJet40_, sizeof(HLT_SingleJet30_Mu12_SinglePFJet40_), "HLT_SingleJet30_Mu12_SinglePFJet40");
+    nanoCheckScalarWidth(b_HLT_SinglePhoton10_Eta3p1ForPPRef_, sizeof(HLT_SinglePhoton10_Eta3p1ForPPRef_), "HLT_SinglePhoton10_Eta3p1ForPPRef");
+    nanoCheckScalarWidth(b_HLT_SinglePhoton20_Eta3p1ForPPRef_, sizeof(HLT_SinglePhoton20_Eta3p1ForPPRef_), "HLT_SinglePhoton20_Eta3p1ForPPRef");
+    nanoCheckScalarWidth(b_HLT_SinglePhoton30_Eta3p1ForPPRef_, sizeof(HLT_SinglePhoton30_Eta3p1ForPPRef_), "HLT_SinglePhoton30_Eta3p1ForPPRef");
+    nanoCheckScalarWidth(b_HLT_Tau3Mu_Mu5_Mu1_TkMu1_IsoTau10_, sizeof(HLT_Tau3Mu_Mu5_Mu1_TkMu1_IsoTau10_), "HLT_Tau3Mu_Mu5_Mu1_TkMu1_IsoTau10");
+    nanoCheckScalarWidth(b_HLT_Tau3Mu_Mu5_Mu1_TkMu1_IsoTau10_Charge1_, sizeof(HLT_Tau3Mu_Mu5_Mu1_TkMu1_IsoTau10_Charge1_), "HLT_Tau3Mu_Mu5_Mu1_TkMu1_IsoTau10_Charge1");
+    nanoCheckScalarWidth(b_HLT_Tau3Mu_Mu5_Mu1_TkMu1_Tau10_, sizeof(HLT_Tau3Mu_Mu5_Mu1_TkMu1_Tau10_), "HLT_Tau3Mu_Mu5_Mu1_TkMu1_Tau10");
+    nanoCheckScalarWidth(b_HLT_Tau3Mu_Mu5_Mu1_TkMu1_Tau10_Charge1_, sizeof(HLT_Tau3Mu_Mu5_Mu1_TkMu1_Tau10_Charge1_), "HLT_Tau3Mu_Mu5_Mu1_TkMu1_Tau10_Charge1");
+    nanoCheckScalarWidth(b_HLT_Tau3Mu_Mu7_Mu1_TkMu1_IsoTau15_, sizeof(HLT_Tau3Mu_Mu7_Mu1_TkMu1_IsoTau15_), "HLT_Tau3Mu_Mu7_Mu1_TkMu1_IsoTau15");
+    nanoCheckScalarWidth(b_HLT_Tau3Mu_Mu7_Mu1_TkMu1_IsoTau15_Charge1_, sizeof(HLT_Tau3Mu_Mu7_Mu1_TkMu1_IsoTau15_Charge1_), "HLT_Tau3Mu_Mu7_Mu1_TkMu1_IsoTau15_Charge1");
+    nanoCheckScalarWidth(b_HLT_Tau3Mu_Mu7_Mu1_TkMu1_Tau15_, sizeof(HLT_Tau3Mu_Mu7_Mu1_TkMu1_Tau15_), "HLT_Tau3Mu_Mu7_Mu1_TkMu1_Tau15");
+    nanoCheckScalarWidth(b_HLT_Tau3Mu_Mu7_Mu1_TkMu1_Tau15_Charge1_, sizeof(HLT_Tau3Mu_Mu7_Mu1_TkMu1_Tau15_Charge1_), "HLT_Tau3Mu_Mu7_Mu1_TkMu1_Tau15_Charge1");
+    nanoCheckScalarWidth(b_HLT_TkMu100_, sizeof(HLT_TkMu100_), "HLT_TkMu100");
+    nanoCheckScalarWidth(b_HLT_TkMu17_, sizeof(HLT_TkMu17_), "HLT_TkMu17");
+    nanoCheckScalarWidth(b_HLT_TkMu17_TrkIsoVVL_TkMu8_TrkIsoVVL_, sizeof(HLT_TkMu17_TrkIsoVVL_TkMu8_TrkIsoVVL_), "HLT_TkMu17_TrkIsoVVL_TkMu8_TrkIsoVVL");
+    nanoCheckScalarWidth(b_HLT_TkMu17_TrkIsoVVL_TkMu8_TrkIsoVVL_DZ_, sizeof(HLT_TkMu17_TrkIsoVVL_TkMu8_TrkIsoVVL_DZ_), "HLT_TkMu17_TrkIsoVVL_TkMu8_TrkIsoVVL_DZ");
+    nanoCheckScalarWidth(b_HLT_TkMu20_, sizeof(HLT_TkMu20_), "HLT_TkMu20");
+    nanoCheckScalarWidth(b_HLT_TkMu24_eta2p1_, sizeof(HLT_TkMu24_eta2p1_), "HLT_TkMu24_eta2p1");
+    nanoCheckScalarWidth(b_HLT_TkMu27_, sizeof(HLT_TkMu27_), "HLT_TkMu27");
+    nanoCheckScalarWidth(b_HLT_TkMu50_, sizeof(HLT_TkMu50_), "HLT_TkMu50");
+    nanoCheckScalarWidth(b_HLT_Trimuon2_Upsilon5_Muon_, sizeof(HLT_Trimuon2_Upsilon5_Muon_), "HLT_Trimuon2_Upsilon5_Muon");
+    nanoCheckScalarWidth(b_HLT_Trimuon5_3p5_2_Upsilon_Muon_, sizeof(HLT_Trimuon5_3p5_2_Upsilon_Muon_), "HLT_Trimuon5_3p5_2_Upsilon_Muon");
+    nanoCheckScalarWidth(b_HLT_TrimuonOpen_5_3p5_2_Upsilon_Muon_, sizeof(HLT_TrimuonOpen_5_3p5_2_Upsilon_Muon_), "HLT_TrimuonOpen_5_3p5_2_Upsilon_Muon");
+    nanoCheckScalarWidth(b_HLT_TripleJet110_35_35_Mjj650_PFMET110_, sizeof(HLT_TripleJet110_35_35_Mjj650_PFMET110_), "HLT_TripleJet110_35_35_Mjj650_PFMET110");
+    nanoCheckScalarWidth(b_HLT_TripleJet110_35_35_Mjj650_PFMET120_, sizeof(HLT_TripleJet110_35_35_Mjj650_PFMET120_), "HLT_TripleJet110_35_35_Mjj650_PFMET120");
+    nanoCheckScalarWidth(b_HLT_TripleJet110_35_35_Mjj650_PFMET130_, sizeof(HLT_TripleJet110_35_35_Mjj650_PFMET130_), "HLT_TripleJet110_35_35_Mjj650_PFMET130");
+    nanoCheckScalarWidth(b_HLT_TripleMu_10_5_5_DZ_, sizeof(HLT_TripleMu_10_5_5_DZ_), "HLT_TripleMu_10_5_5_DZ");
+    nanoCheckScalarWidth(b_HLT_TripleMu_12_10_5_, sizeof(HLT_TripleMu_12_10_5_), "HLT_TripleMu_12_10_5");
+    nanoCheckScalarWidth(b_HLT_TripleMu_5_3_3_, sizeof(HLT_TripleMu_5_3_3_), "HLT_TripleMu_5_3_3");
+    nanoCheckScalarWidth(b_HLT_TripleMu_5_3_3_DZ_Mass3p8_, sizeof(HLT_TripleMu_5_3_3_DZ_Mass3p8_), "HLT_TripleMu_5_3_3_DZ_Mass3p8");
+    nanoCheckScalarWidth(b_HLT_TripleMu_5_3_3_Mass3p8_DCA_, sizeof(HLT_TripleMu_5_3_3_Mass3p8_DCA_), "HLT_TripleMu_5_3_3_Mass3p8_DCA");
+    nanoCheckScalarWidth(b_HLT_TripleMu_5_3_3_Mass3p8_DZ_, sizeof(HLT_TripleMu_5_3_3_Mass3p8_DZ_), "HLT_TripleMu_5_3_3_Mass3p8_DZ");
+    nanoCheckScalarWidth(b_HLT_TripleMu_5_3_3_Mass3p8to60_DCA_, sizeof(HLT_TripleMu_5_3_3_Mass3p8to60_DCA_), "HLT_TripleMu_5_3_3_Mass3p8to60_DCA");
+    nanoCheckScalarWidth(b_HLT_TripleMu_5_3_3_Mass3p8to60_DZ_, sizeof(HLT_TripleMu_5_3_3_Mass3p8to60_DZ_), "HLT_TripleMu_5_3_3_Mass3p8to60_DZ");
+    nanoCheckScalarWidth(b_HLT_TriplePhoton_20_20_20_CaloIdLV2_, sizeof(HLT_TriplePhoton_20_20_20_CaloIdLV2_), "HLT_TriplePhoton_20_20_20_CaloIdLV2");
+    nanoCheckScalarWidth(b_HLT_TriplePhoton_20_20_20_CaloIdLV2_R9IdVL_, sizeof(HLT_TriplePhoton_20_20_20_CaloIdLV2_R9IdVL_), "HLT_TriplePhoton_20_20_20_CaloIdLV2_R9IdVL");
+    nanoCheckScalarWidth(b_HLT_TriplePhoton_30_30_10_CaloIdLV2_, sizeof(HLT_TriplePhoton_30_30_10_CaloIdLV2_), "HLT_TriplePhoton_30_30_10_CaloIdLV2");
+    nanoCheckScalarWidth(b_HLT_TriplePhoton_30_30_10_CaloIdLV2_R9IdVL_, sizeof(HLT_TriplePhoton_30_30_10_CaloIdLV2_R9IdVL_), "HLT_TriplePhoton_30_30_10_CaloIdLV2_R9IdVL");
+    nanoCheckScalarWidth(b_HLT_TriplePhoton_35_35_5_CaloIdLV2_R9IdVL_, sizeof(HLT_TriplePhoton_35_35_5_CaloIdLV2_R9IdVL_), "HLT_TriplePhoton_35_35_5_CaloIdLV2_R9IdVL");
+    nanoCheckScalarWidth(b_HLT_TrkMu12_DoubleTrkMu5NoFiltersNoVtx_, sizeof(HLT_TrkMu12_DoubleTrkMu5NoFiltersNoVtx_), "HLT_TrkMu12_DoubleTrkMu5NoFiltersNoVtx");
+    nanoCheckScalarWidth(b_HLT_TrkMu15_DoubleTrkMu5NoFiltersNoVtx_, sizeof(HLT_TrkMu15_DoubleTrkMu5NoFiltersNoVtx_), "HLT_TrkMu15_DoubleTrkMu5NoFiltersNoVtx");
+    nanoCheckScalarWidth(b_HLT_TrkMu16NoFiltersNoVtx_, sizeof(HLT_TrkMu16NoFiltersNoVtx_), "HLT_TrkMu16NoFiltersNoVtx");
+    nanoCheckScalarWidth(b_HLT_TrkMu16_DoubleTrkMu6NoFiltersNoVtx_, sizeof(HLT_TrkMu16_DoubleTrkMu6NoFiltersNoVtx_), "HLT_TrkMu16_DoubleTrkMu6NoFiltersNoVtx");
+    nanoCheckScalarWidth(b_HLT_TrkMu17_DoubleTrkMu8NoFiltersNoVtx_, sizeof(HLT_TrkMu17_DoubleTrkMu8NoFiltersNoVtx_), "HLT_TrkMu17_DoubleTrkMu8NoFiltersNoVtx");
+    nanoCheckScalarWidth(b_HLT_TrkMu6NoFiltersNoVtx_, sizeof(HLT_TrkMu6NoFiltersNoVtx_), "HLT_TrkMu6NoFiltersNoVtx");
+    nanoCheckScalarWidth(b_HLT_UncorrectedJetE30_NoBPTX_, sizeof(HLT_UncorrectedJetE30_NoBPTX_), "HLT_UncorrectedJetE30_NoBPTX");
+    nanoCheckScalarWidth(b_HLT_UncorrectedJetE30_NoBPTX3BX_, sizeof(HLT_UncorrectedJetE30_NoBPTX3BX_), "HLT_UncorrectedJetE30_NoBPTX3BX");
+    nanoCheckScalarWidth(b_HLT_UncorrectedJetE60_NoBPTX3BX_, sizeof(HLT_UncorrectedJetE60_NoBPTX3BX_), "HLT_UncorrectedJetE60_NoBPTX3BX");
+    nanoCheckScalarWidth(b_HLT_UncorrectedJetE70_NoBPTX3BX_, sizeof(HLT_UncorrectedJetE70_NoBPTX3BX_), "HLT_UncorrectedJetE70_NoBPTX3BX");
+    nanoCheckScalarWidth(b_HLT_VBF_DisplacedJet40_DisplacedTrack_, sizeof(HLT_VBF_DisplacedJet40_DisplacedTrack_), "HLT_VBF_DisplacedJet40_DisplacedTrack");
+    nanoCheckScalarWidth(b_HLT_VBF_DisplacedJet40_DisplacedTrack_2TrackIP2DSig5_, sizeof(HLT_VBF_DisplacedJet40_DisplacedTrack_2TrackIP2DSig5_), "HLT_VBF_DisplacedJet40_DisplacedTrack_2TrackIP2DSig5");
+    nanoCheckScalarWidth(b_HLT_VBF_DisplacedJet40_Hadronic_, sizeof(HLT_VBF_DisplacedJet40_Hadronic_), "HLT_VBF_DisplacedJet40_Hadronic");
+    nanoCheckScalarWidth(b_HLT_VBF_DisplacedJet40_Hadronic_2PromptTrack_, sizeof(HLT_VBF_DisplacedJet40_Hadronic_2PromptTrack_), "HLT_VBF_DisplacedJet40_Hadronic_2PromptTrack");
+    nanoCheckScalarWidth(b_HLT_VBF_DisplacedJet40_TightID_DisplacedTrack_, sizeof(HLT_VBF_DisplacedJet40_TightID_DisplacedTrack_), "HLT_VBF_DisplacedJet40_TightID_DisplacedTrack");
+    nanoCheckScalarWidth(b_HLT_VBF_DisplacedJet40_TightID_Hadronic_, sizeof(HLT_VBF_DisplacedJet40_TightID_Hadronic_), "HLT_VBF_DisplacedJet40_TightID_Hadronic");
+    nanoCheckScalarWidth(b_HLT_VBF_DisplacedJet40_VTightID_DisplacedTrack_, sizeof(HLT_VBF_DisplacedJet40_VTightID_DisplacedTrack_), "HLT_VBF_DisplacedJet40_VTightID_DisplacedTrack");
+    nanoCheckScalarWidth(b_HLT_VBF_DisplacedJet40_VTightID_Hadronic_, sizeof(HLT_VBF_DisplacedJet40_VTightID_Hadronic_), "HLT_VBF_DisplacedJet40_VTightID_Hadronic");
+    nanoCheckScalarWidth(b_HLT_VBF_DisplacedJet40_VVTightID_DisplacedTrack_, sizeof(HLT_VBF_DisplacedJet40_VVTightID_DisplacedTrack_), "HLT_VBF_DisplacedJet40_VVTightID_DisplacedTrack");
+    nanoCheckScalarWidth(b_HLT_VBF_DisplacedJet40_VVTightID_Hadronic_, sizeof(HLT_VBF_DisplacedJet40_VVTightID_Hadronic_), "HLT_VBF_DisplacedJet40_VVTightID_Hadronic");
+    nanoCheckScalarWidth(b_HLT_VBF_DoubleLooseChargedIsoPFTau20_Trk1_eta2p1_, sizeof(HLT_VBF_DoubleLooseChargedIsoPFTau20_Trk1_eta2p1_), "HLT_VBF_DoubleLooseChargedIsoPFTau20_Trk1_eta2p1");
+    nanoCheckScalarWidth(b_HLT_VBF_DoubleLooseChargedIsoPFTau20_Trk1_eta2p1_Reg_, sizeof(HLT_VBF_DoubleLooseChargedIsoPFTau20_Trk1_eta2p1_Reg_), "HLT_VBF_DoubleLooseChargedIsoPFTau20_Trk1_eta2p1_Reg");
+    nanoCheckScalarWidth(b_HLT_VBF_DoubleLooseChargedIsoPFTauHPS20_Trk1_eta2p1_, sizeof(HLT_VBF_DoubleLooseChargedIsoPFTauHPS20_Trk1_eta2p1_), "HLT_VBF_DoubleLooseChargedIsoPFTauHPS20_Trk1_eta2p1");
+    nanoCheckScalarWidth(b_HLT_VBF_DoubleMediumChargedIsoPFTau20_Trk1_eta2p1_, sizeof(HLT_VBF_DoubleMediumChargedIsoPFTau20_Trk1_eta2p1_), "HLT_VBF_DoubleMediumChargedIsoPFTau20_Trk1_eta2p1");
+    nanoCheckScalarWidth(b_HLT_VBF_DoubleMediumChargedIsoPFTau20_Trk1_eta2p1_Reg_, sizeof(HLT_VBF_DoubleMediumChargedIsoPFTau20_Trk1_eta2p1_Reg_), "HLT_VBF_DoubleMediumChargedIsoPFTau20_Trk1_eta2p1_Reg");
+    nanoCheckScalarWidth(b_HLT_VBF_DoubleMediumChargedIsoPFTauHPS20_Trk1_eta2p1_, sizeof(HLT_VBF_DoubleMediumChargedIsoPFTauHPS20_Trk1_eta2p1_), "HLT_VBF_DoubleMediumChargedIsoPFTauHPS20_Trk1_eta2p1");
+    nanoCheckScalarWidth(b_HLT_VBF_DoubleMediumDeepTauPFTauHPS20_eta2p1_, sizeof(HLT_VBF_DoubleMediumDeepTauPFTauHPS20_eta2p1_), "HLT_VBF_DoubleMediumDeepTauPFTauHPS20_eta2p1");
+    nanoCheckScalarWidth(b_HLT_VBF_DoubleTightChargedIsoPFTau20_Trk1_eta2p1_, sizeof(HLT_VBF_DoubleTightChargedIsoPFTau20_Trk1_eta2p1_), "HLT_VBF_DoubleTightChargedIsoPFTau20_Trk1_eta2p1");
+    nanoCheckScalarWidth(b_HLT_VBF_DoubleTightChargedIsoPFTau20_Trk1_eta2p1_Reg_, sizeof(HLT_VBF_DoubleTightChargedIsoPFTau20_Trk1_eta2p1_Reg_), "HLT_VBF_DoubleTightChargedIsoPFTau20_Trk1_eta2p1_Reg");
+    nanoCheckScalarWidth(b_HLT_VBF_DoubleTightChargedIsoPFTauHPS20_Trk1_eta2p1_, sizeof(HLT_VBF_DoubleTightChargedIsoPFTauHPS20_Trk1_eta2p1_), "HLT_VBF_DoubleTightChargedIsoPFTauHPS20_Trk1_eta2p1");
+    nanoCheckScalarWidth(b_HLT_VLooseIsoPFTau120_Trk50_eta2p1_, sizeof(HLT_VLooseIsoPFTau120_Trk50_eta2p1_), "HLT_VLooseIsoPFTau120_Trk50_eta2p1");
+    nanoCheckScalarWidth(b_HLT_VLooseIsoPFTau140_Trk50_eta2p1_, sizeof(HLT_VLooseIsoPFTau140_Trk50_eta2p1_), "HLT_VLooseIsoPFTau140_Trk50_eta2p1");
+    nanoCheckScalarWidth(b_HLT_ZeroBias_, sizeof(HLT_ZeroBias_), "HLT_ZeroBias");
+    nanoCheckScalarWidth(b_HLT_ZeroBias_Alignment_, sizeof(HLT_ZeroBias_Alignment_), "HLT_ZeroBias_Alignment");
+    nanoCheckScalarWidth(b_HLT_ZeroBias_Beamspot_, sizeof(HLT_ZeroBias_Beamspot_), "HLT_ZeroBias_Beamspot");
+    nanoCheckScalarWidth(b_HLT_ZeroBias_FirstBXAfterTrain_, sizeof(HLT_ZeroBias_FirstBXAfterTrain_), "HLT_ZeroBias_FirstBXAfterTrain");
+    nanoCheckScalarWidth(b_HLT_ZeroBias_FirstCollisionAfterAbortGap_, sizeof(HLT_ZeroBias_FirstCollisionAfterAbortGap_), "HLT_ZeroBias_FirstCollisionAfterAbortGap");
+    nanoCheckScalarWidth(b_HLT_ZeroBias_FirstCollisionAfterAbortGap_TCDS_, sizeof(HLT_ZeroBias_FirstCollisionAfterAbortGap_TCDS_), "HLT_ZeroBias_FirstCollisionAfterAbortGap_TCDS");
+    nanoCheckScalarWidth(b_HLT_ZeroBias_FirstCollisionAfterAbortGap_copy_, sizeof(HLT_ZeroBias_FirstCollisionAfterAbortGap_copy_), "HLT_ZeroBias_FirstCollisionAfterAbortGap_copy");
+    nanoCheckScalarWidth(b_HLT_ZeroBias_FirstCollisionInTrain_, sizeof(HLT_ZeroBias_FirstCollisionInTrain_), "HLT_ZeroBias_FirstCollisionInTrain");
+    nanoCheckScalarWidth(b_HLT_ZeroBias_IsolatedBunches_, sizeof(HLT_ZeroBias_IsolatedBunches_), "HLT_ZeroBias_IsolatedBunches");
+    nanoCheckScalarWidth(b_HLT_ZeroBias_LastCollisionInTrain_, sizeof(HLT_ZeroBias_LastCollisionInTrain_), "HLT_ZeroBias_LastCollisionInTrain");
+    nanoCheckScalarWidth(b_HLT_ZeroBias_part0_, sizeof(HLT_ZeroBias_part0_), "HLT_ZeroBias_part0");
+    nanoCheckScalarWidth(b_HLT_ZeroBias_part1_, sizeof(HLT_ZeroBias_part1_), "HLT_ZeroBias_part1");
+    nanoCheckScalarWidth(b_HLT_ZeroBias_part2_, sizeof(HLT_ZeroBias_part2_), "HLT_ZeroBias_part2");
+    nanoCheckScalarWidth(b_HLT_ZeroBias_part3_, sizeof(HLT_ZeroBias_part3_), "HLT_ZeroBias_part3");
+    nanoCheckScalarWidth(b_HLT_ZeroBias_part4_, sizeof(HLT_ZeroBias_part4_), "HLT_ZeroBias_part4");
+    nanoCheckScalarWidth(b_HLT_ZeroBias_part5_, sizeof(HLT_ZeroBias_part5_), "HLT_ZeroBias_part5");
+    nanoCheckScalarWidth(b_HLT_ZeroBias_part6_, sizeof(HLT_ZeroBias_part6_), "HLT_ZeroBias_part6");
+    nanoCheckScalarWidth(b_HLT_ZeroBias_part7_, sizeof(HLT_ZeroBias_part7_), "HLT_ZeroBias_part7");
+    nanoCheckScalarWidth(b_HLT_ZeroBias_part8_, sizeof(HLT_ZeroBias_part8_), "HLT_ZeroBias_part8");
+    nanoCheckScalarWidth(b_HLT_ZeroBias_part9_, sizeof(HLT_ZeroBias_part9_), "HLT_ZeroBias_part9");
+    nanoCheckScalarWidth(b_HLTriggerFinalPath_, sizeof(HLTriggerFinalPath_), "HLTriggerFinalPath");
+    nanoCheckScalarWidth(b_HLTriggerFirstPath_, sizeof(HLTriggerFirstPath_), "HLTriggerFirstPath");
+    nanoCheckScalarWidth(b_HTXS_Higgs_pt_, sizeof(HTXS_Higgs_pt_), "HTXS_Higgs_pt");
+    nanoCheckScalarWidth(b_HTXS_Higgs_y_, sizeof(HTXS_Higgs_y_), "HTXS_Higgs_y");
+    nanoCheckScalarWidth(b_HTXS_njets25_, sizeof(HTXS_njets25_), "HTXS_njets25");
+    nanoCheckScalarWidth(b_HTXS_njets30_, sizeof(HTXS_njets30_), "HTXS_njets30");
+    nanoCheckScalarWidth(b_HTXS_stage1_1_cat_pTjet25GeV_, sizeof(HTXS_stage1_1_cat_pTjet25GeV_), "HTXS_stage1_1_cat_pTjet25GeV");
+    nanoCheckScalarWidth(b_HTXS_stage1_1_cat_pTjet30GeV_, sizeof(HTXS_stage1_1_cat_pTjet30GeV_), "HTXS_stage1_1_cat_pTjet30GeV");
+    nanoCheckScalarWidth(b_HTXS_stage1_1_fine_cat_pTjet25GeV_, sizeof(HTXS_stage1_1_fine_cat_pTjet25GeV_), "HTXS_stage1_1_fine_cat_pTjet25GeV");
+    nanoCheckScalarWidth(b_HTXS_stage1_1_fine_cat_pTjet30GeV_, sizeof(HTXS_stage1_1_fine_cat_pTjet30GeV_), "HTXS_stage1_1_fine_cat_pTjet30GeV");
+    nanoCheckScalarWidth(b_HTXS_stage1_2_cat_pTjet25GeV_, sizeof(HTXS_stage1_2_cat_pTjet25GeV_), "HTXS_stage1_2_cat_pTjet25GeV");
+    nanoCheckScalarWidth(b_HTXS_stage1_2_cat_pTjet30GeV_, sizeof(HTXS_stage1_2_cat_pTjet30GeV_), "HTXS_stage1_2_cat_pTjet30GeV");
+    nanoCheckScalarWidth(b_HTXS_stage1_2_fine_cat_pTjet25GeV_, sizeof(HTXS_stage1_2_fine_cat_pTjet25GeV_), "HTXS_stage1_2_fine_cat_pTjet25GeV");
+    nanoCheckScalarWidth(b_HTXS_stage1_2_fine_cat_pTjet30GeV_, sizeof(HTXS_stage1_2_fine_cat_pTjet30GeV_), "HTXS_stage1_2_fine_cat_pTjet30GeV");
+    nanoCheckScalarWidth(b_HTXS_stage_0_, sizeof(HTXS_stage_0_), "HTXS_stage_0");
+    nanoCheckScalarWidth(b_HTXS_stage_1_pTjet25_, sizeof(HTXS_stage_1_pTjet25_), "HTXS_stage_1_pTjet25");
+    nanoCheckScalarWidth(b_HTXS_stage_1_pTjet30_, sizeof(HTXS_stage_1_pTjet30_), "HTXS_stage_1_pTjet30");
+    nanoCheckScalarWidth(b_L1PreFiringWeight_Dn_, sizeof(L1PreFiringWeight_Dn_), "L1PreFiringWeight_Dn");
+    nanoCheckScalarWidth(b_L1PreFiringWeight_ECAL_Dn_, sizeof(L1PreFiringWeight_ECAL_Dn_), "L1PreFiringWeight_ECAL_Dn");
+    nanoCheckScalarWidth(b_L1PreFiringWeight_ECAL_Nom_, sizeof(L1PreFiringWeight_ECAL_Nom_), "L1PreFiringWeight_ECAL_Nom");
+    nanoCheckScalarWidth(b_L1PreFiringWeight_ECAL_Up_, sizeof(L1PreFiringWeight_ECAL_Up_), "L1PreFiringWeight_ECAL_Up");
+    nanoCheckScalarWidth(b_L1PreFiringWeight_Muon_Nom_, sizeof(L1PreFiringWeight_Muon_Nom_), "L1PreFiringWeight_Muon_Nom");
+    nanoCheckScalarWidth(b_L1PreFiringWeight_Muon_StatDn_, sizeof(L1PreFiringWeight_Muon_StatDn_), "L1PreFiringWeight_Muon_StatDn");
+    nanoCheckScalarWidth(b_L1PreFiringWeight_Muon_StatUp_, sizeof(L1PreFiringWeight_Muon_StatUp_), "L1PreFiringWeight_Muon_StatUp");
+    nanoCheckScalarWidth(b_L1PreFiringWeight_Muon_SystDn_, sizeof(L1PreFiringWeight_Muon_SystDn_), "L1PreFiringWeight_Muon_SystDn");
+    nanoCheckScalarWidth(b_L1PreFiringWeight_Muon_SystUp_, sizeof(L1PreFiringWeight_Muon_SystUp_), "L1PreFiringWeight_Muon_SystUp");
+    nanoCheckScalarWidth(b_L1PreFiringWeight_Nom_, sizeof(L1PreFiringWeight_Nom_), "L1PreFiringWeight_Nom");
+    nanoCheckScalarWidth(b_L1PreFiringWeight_Up_, sizeof(L1PreFiringWeight_Up_), "L1PreFiringWeight_Up");
+    nanoCheckScalarWidth(b_L1Reco_step_, sizeof(L1Reco_step_), "L1Reco_step");
+    nanoCheckScalarWidth(b_L1_AlwaysTrue_, sizeof(L1_AlwaysTrue_), "L1_AlwaysTrue");
+    nanoCheckScalarWidth(b_L1_BPTX_AND_NIM_, sizeof(L1_BPTX_AND_NIM_), "L1_BPTX_AND_NIM");
+    nanoCheckScalarWidth(b_L1_BPTX_AND_Ref1_VME_, sizeof(L1_BPTX_AND_Ref1_VME_), "L1_BPTX_AND_Ref1_VME");
+    nanoCheckScalarWidth(b_L1_BPTX_AND_Ref2_NIM_, sizeof(L1_BPTX_AND_Ref2_NIM_), "L1_BPTX_AND_Ref2_NIM");
+    nanoCheckScalarWidth(b_L1_BPTX_AND_Ref3_VME_, sizeof(L1_BPTX_AND_Ref3_VME_), "L1_BPTX_AND_Ref3_VME");
+    nanoCheckScalarWidth(b_L1_BPTX_AND_Ref4_VME_, sizeof(L1_BPTX_AND_Ref4_VME_), "L1_BPTX_AND_Ref4_VME");
+    nanoCheckScalarWidth(b_L1_BPTX_B1NotB2_NIM_, sizeof(L1_BPTX_B1NotB2_NIM_), "L1_BPTX_B1NotB2_NIM");
+    nanoCheckScalarWidth(b_L1_BPTX_B1NotB2_VME_, sizeof(L1_BPTX_B1NotB2_VME_), "L1_BPTX_B1NotB2_VME");
+    nanoCheckScalarWidth(b_L1_BPTX_B1_NIM_, sizeof(L1_BPTX_B1_NIM_), "L1_BPTX_B1_NIM");
+    nanoCheckScalarWidth(b_L1_BPTX_B2NotB1_NIM_, sizeof(L1_BPTX_B2NotB1_NIM_), "L1_BPTX_B2NotB1_NIM");
+    nanoCheckScalarWidth(b_L1_BPTX_B2NotB1_VME_, sizeof(L1_BPTX_B2NotB1_VME_), "L1_BPTX_B2NotB1_VME");
+    nanoCheckScalarWidth(b_L1_BPTX_B2_NIM_, sizeof(L1_BPTX_B2_NIM_), "L1_BPTX_B2_NIM");
+    nanoCheckScalarWidth(b_L1_BPTX_BeamGas_B1_VME_, sizeof(L1_BPTX_BeamGas_B1_VME_), "L1_BPTX_BeamGas_B1_VME");
+    nanoCheckScalarWidth(b_L1_BPTX_BeamGas_B2_VME_, sizeof(L1_BPTX_BeamGas_B2_VME_), "L1_BPTX_BeamGas_B2_VME");
+    nanoCheckScalarWidth(b_L1_BPTX_BeamGas_Ref1_VME_, sizeof(L1_BPTX_BeamGas_Ref1_VME_), "L1_BPTX_BeamGas_Ref1_VME");
+    nanoCheckScalarWidth(b_L1_BPTX_BeamGas_Ref2_VME_, sizeof(L1_BPTX_BeamGas_Ref2_VME_), "L1_BPTX_BeamGas_Ref2_VME");
+    nanoCheckScalarWidth(b_L1_BPTX_LUT1_AND_, sizeof(L1_BPTX_LUT1_AND_), "L1_BPTX_LUT1_AND");
+    nanoCheckScalarWidth(b_L1_BPTX_LUT1_B1_, sizeof(L1_BPTX_LUT1_B1_), "L1_BPTX_LUT1_B1");
+    nanoCheckScalarWidth(b_L1_BPTX_LUT1_B2_, sizeof(L1_BPTX_LUT1_B2_), "L1_BPTX_LUT1_B2");
+    nanoCheckScalarWidth(b_L1_BPTX_LUT1_OR_, sizeof(L1_BPTX_LUT1_OR_), "L1_BPTX_LUT1_OR");
+    nanoCheckScalarWidth(b_L1_BPTX_LUT2_AND_, sizeof(L1_BPTX_LUT2_AND_), "L1_BPTX_LUT2_AND");
+    nanoCheckScalarWidth(b_L1_BPTX_LUT2_B1NotB2_, sizeof(L1_BPTX_LUT2_B1NotB2_), "L1_BPTX_LUT2_B1NotB2");
+    nanoCheckScalarWidth(b_L1_BPTX_LUT2_B2NotB1_, sizeof(L1_BPTX_LUT2_B2NotB1_), "L1_BPTX_LUT2_B2NotB1");
+    nanoCheckScalarWidth(b_L1_BPTX_LUT2_NotOR_, sizeof(L1_BPTX_LUT2_NotOR_), "L1_BPTX_LUT2_NotOR");
+    nanoCheckScalarWidth(b_L1_BPTX_NotOR_NIM_, sizeof(L1_BPTX_NotOR_NIM_), "L1_BPTX_NotOR_NIM");
+    nanoCheckScalarWidth(b_L1_BPTX_NotOR_VME_, sizeof(L1_BPTX_NotOR_VME_), "L1_BPTX_NotOR_VME");
+    nanoCheckScalarWidth(b_L1_BPTX_OR_NIM_, sizeof(L1_BPTX_OR_NIM_), "L1_BPTX_OR_NIM");
+    nanoCheckScalarWidth(b_L1_BPTX_OR_Ref3_VME_, sizeof(L1_BPTX_OR_Ref3_VME_), "L1_BPTX_OR_Ref3_VME");
+    nanoCheckScalarWidth(b_L1_BPTX_OR_Ref4_VME_, sizeof(L1_BPTX_OR_Ref4_VME_), "L1_BPTX_OR_Ref4_VME");
+    nanoCheckScalarWidth(b_L1_BPTX_RefAND_VME_, sizeof(L1_BPTX_RefAND_VME_), "L1_BPTX_RefAND_VME");
+    nanoCheckScalarWidth(b_L1_BPTX_TRIG2_AND_, sizeof(L1_BPTX_TRIG2_AND_), "L1_BPTX_TRIG2_AND");
+    nanoCheckScalarWidth(b_L1_BPTX_TRIG2_B1NotB2_, sizeof(L1_BPTX_TRIG2_B1NotB2_), "L1_BPTX_TRIG2_B1NotB2");
+    nanoCheckScalarWidth(b_L1_BPTX_TRIG2_B2NotB1_, sizeof(L1_BPTX_TRIG2_B2NotB1_), "L1_BPTX_TRIG2_B2NotB1");
+    nanoCheckScalarWidth(b_L1_BPTX_TRIG2_NotOR_, sizeof(L1_BPTX_TRIG2_NotOR_), "L1_BPTX_TRIG2_NotOR");
+    nanoCheckScalarWidth(b_L1_BRIL_TRIG0_AND_, sizeof(L1_BRIL_TRIG0_AND_), "L1_BRIL_TRIG0_AND");
+    nanoCheckScalarWidth(b_L1_BRIL_TRIG0_FstBunchInTrain_, sizeof(L1_BRIL_TRIG0_FstBunchInTrain_), "L1_BRIL_TRIG0_FstBunchInTrain");
+    nanoCheckScalarWidth(b_L1_BRIL_TRIG0_OR_, sizeof(L1_BRIL_TRIG0_OR_), "L1_BRIL_TRIG0_OR");
+    nanoCheckScalarWidth(b_L1_BRIL_TRIG0_delayedAND_, sizeof(L1_BRIL_TRIG0_delayedAND_), "L1_BRIL_TRIG0_delayedAND");
+    nanoCheckScalarWidth(b_L1_BRIL_TRIG3_AND_, sizeof(L1_BRIL_TRIG3_AND_), "L1_BRIL_TRIG3_AND");
+    nanoCheckScalarWidth(b_L1_BRIL_TRIG3_delayedAND_, sizeof(L1_BRIL_TRIG3_delayedAND_), "L1_BRIL_TRIG3_delayedAND");
+    nanoCheckScalarWidth(b_L1_BRIL_TRIG3_ref_, sizeof(L1_BRIL_TRIG3_ref_), "L1_BRIL_TRIG3_ref");
+    nanoCheckScalarWidth(b_L1_BeamGasB1_, sizeof(L1_BeamGasB1_), "L1_BeamGasB1");
+    nanoCheckScalarWidth(b_L1_BeamGasB2_, sizeof(L1_BeamGasB2_), "L1_BeamGasB2");
+    nanoCheckScalarWidth(b_L1_BeamGasMinus_, sizeof(L1_BeamGasMinus_), "L1_BeamGasMinus");
+    nanoCheckScalarWidth(b_L1_BeamGasPlus_, sizeof(L1_BeamGasPlus_), "L1_BeamGasPlus");
+    nanoCheckScalarWidth(b_L1_BptxMinus_, sizeof(L1_BptxMinus_), "L1_BptxMinus");
+    nanoCheckScalarWidth(b_L1_BptxOR_, sizeof(L1_BptxOR_), "L1_BptxOR");
+    nanoCheckScalarWidth(b_L1_BptxPlus_, sizeof(L1_BptxPlus_), "L1_BptxPlus");
+    nanoCheckScalarWidth(b_L1_BptxXOR_, sizeof(L1_BptxXOR_), "L1_BptxXOR");
+    nanoCheckScalarWidth(b_L1_CDC_3_TOP120_DPHI1p570_3p142_, sizeof(L1_CDC_3_TOP120_DPHI1p570_3p142_), "L1_CDC_3_TOP120_DPHI1p570_3p142");
+    nanoCheckScalarWidth(b_L1_CDC_3_TOP120_DPHI2p094_3p142_, sizeof(L1_CDC_3_TOP120_DPHI2p094_3p142_), "L1_CDC_3_TOP120_DPHI2p094_3p142");
+    nanoCheckScalarWidth(b_L1_CDC_3_TOP120_DPHI2p618_3p142_, sizeof(L1_CDC_3_TOP120_DPHI2p618_3p142_), "L1_CDC_3_TOP120_DPHI2p618_3p142");
+    nanoCheckScalarWidth(b_L1_CDC_3_TOP_DPHI2p618_3p142_, sizeof(L1_CDC_3_TOP_DPHI2p618_3p142_), "L1_CDC_3_TOP_DPHI2p618_3p142");
+    nanoCheckScalarWidth(b_L1_CDC_3_er1p2_TOP120_DPHI1p570_3p142_, sizeof(L1_CDC_3_er1p2_TOP120_DPHI1p570_3p142_), "L1_CDC_3_er1p2_TOP120_DPHI1p570_3p142");
+    nanoCheckScalarWidth(b_L1_CDC_3_er1p2_TOP120_DPHI2p094_3p142_, sizeof(L1_CDC_3_er1p2_TOP120_DPHI2p094_3p142_), "L1_CDC_3_er1p2_TOP120_DPHI2p094_3p142");
+    nanoCheckScalarWidth(b_L1_CDC_3_er1p2_TOP120_DPHI2p618_3p142_, sizeof(L1_CDC_3_er1p2_TOP120_DPHI2p618_3p142_), "L1_CDC_3_er1p2_TOP120_DPHI2p618_3p142");
+    nanoCheckScalarWidth(b_L1_CDC_3_er1p6_TOP120_DPHI1p570_3p142_, sizeof(L1_CDC_3_er1p6_TOP120_DPHI1p570_3p142_), "L1_CDC_3_er1p6_TOP120_DPHI1p570_3p142");
+    nanoCheckScalarWidth(b_L1_CDC_3_er1p6_TOP120_DPHI2p094_3p142_, sizeof(L1_CDC_3_er1p6_TOP120_DPHI2p094_3p142_), "L1_CDC_3_er1p6_TOP120_DPHI2p094_3p142");
+    nanoCheckScalarWidth(b_L1_CDC_3_er1p6_TOP120_DPHI2p618_3p142_, sizeof(L1_CDC_3_er1p6_TOP120_DPHI2p618_3p142_), "L1_CDC_3_er1p6_TOP120_DPHI2p618_3p142");
+    nanoCheckScalarWidth(b_L1_CDC_3_er2p1_TOP120_DPHI1p570_3p142_, sizeof(L1_CDC_3_er2p1_TOP120_DPHI1p570_3p142_), "L1_CDC_3_er2p1_TOP120_DPHI1p570_3p142");
+    nanoCheckScalarWidth(b_L1_CDC_3_er2p1_TOP120_DPHI2p094_3p142_, sizeof(L1_CDC_3_er2p1_TOP120_DPHI2p094_3p142_), "L1_CDC_3_er2p1_TOP120_DPHI2p094_3p142");
+    nanoCheckScalarWidth(b_L1_CDC_3_er2p1_TOP120_DPHI2p618_3p142_, sizeof(L1_CDC_3_er2p1_TOP120_DPHI2p618_3p142_), "L1_CDC_3_er2p1_TOP120_DPHI2p618_3p142");
+    nanoCheckScalarWidth(b_L1_CDC_SingleMu_3_TOP120_DPHI2p618_3p142_, sizeof(L1_CDC_SingleMu_3_TOP120_DPHI2p618_3p142_), "L1_CDC_SingleMu_3_TOP120_DPHI2p618_3p142");
+    nanoCheckScalarWidth(b_L1_CDC_SingleMu_3_er1p2_TOP120_DPHI2p618_3p142_, sizeof(L1_CDC_SingleMu_3_er1p2_TOP120_DPHI2p618_3p142_), "L1_CDC_SingleMu_3_er1p2_TOP120_DPHI2p618_3p142");
+    nanoCheckScalarWidth(b_L1_CDC_SingleMu_3_er1p6_TOP120_DPHI2p618_3p142_, sizeof(L1_CDC_SingleMu_3_er1p6_TOP120_DPHI2p618_3p142_), "L1_CDC_SingleMu_3_er1p6_TOP120_DPHI2p618_3p142");
+    nanoCheckScalarWidth(b_L1_CDC_SingleMu_3_er2p1_TOP120_DPHI2p618_3p142_, sizeof(L1_CDC_SingleMu_3_er2p1_TOP120_DPHI2p618_3p142_), "L1_CDC_SingleMu_3_er2p1_TOP120_DPHI2p618_3p142");
+    nanoCheckScalarWidth(b_L1_CDCp1_3_TOP120_DPHI2p618_3p142_, sizeof(L1_CDCp1_3_TOP120_DPHI2p618_3p142_), "L1_CDCp1_3_TOP120_DPHI2p618_3p142");
+    nanoCheckScalarWidth(b_L1_CDCp1_3_er1p2_TOP120_DPHI2p618_3p142_, sizeof(L1_CDCp1_3_er1p2_TOP120_DPHI2p618_3p142_), "L1_CDCp1_3_er1p2_TOP120_DPHI2p618_3p142");
+    nanoCheckScalarWidth(b_L1_CDCp1_3_er1p6_TOP120_DPHI2p618_3p142_, sizeof(L1_CDCp1_3_er1p6_TOP120_DPHI2p618_3p142_), "L1_CDCp1_3_er1p6_TOP120_DPHI2p618_3p142");
+    nanoCheckScalarWidth(b_L1_CDCp1_3_er2p1_TOP120_DPHI2p618_3p142_, sizeof(L1_CDCp1_3_er2p1_TOP120_DPHI2p618_3p142_), "L1_CDCp1_3_er2p1_TOP120_DPHI2p618_3p142");
+    nanoCheckScalarWidth(b_L1_CastorGap_BptxAND_, sizeof(L1_CastorGap_BptxAND_), "L1_CastorGap_BptxAND");
+    nanoCheckScalarWidth(b_L1_CastorHaloMuon_, sizeof(L1_CastorHaloMuon_), "L1_CastorHaloMuon");
+    nanoCheckScalarWidth(b_L1_CastorHaloMuon_BptxAND_, sizeof(L1_CastorHaloMuon_BptxAND_), "L1_CastorHaloMuon_BptxAND");
+    nanoCheckScalarWidth(b_L1_CastorHighJet_BptxAND_, sizeof(L1_CastorHighJet_BptxAND_), "L1_CastorHighJet_BptxAND");
+    nanoCheckScalarWidth(b_L1_CastorMediumJet_BptxAND_, sizeof(L1_CastorMediumJet_BptxAND_), "L1_CastorMediumJet_BptxAND");
+    nanoCheckScalarWidth(b_L1_DoubleEG10_er1p2_dR_Max0p6_, sizeof(L1_DoubleEG10_er1p2_dR_Max0p6_), "L1_DoubleEG10_er1p2_dR_Max0p6");
+    nanoCheckScalarWidth(b_L1_DoubleEG10p5_er1p2_dR_Max0p6_, sizeof(L1_DoubleEG10p5_er1p2_dR_Max0p6_), "L1_DoubleEG10p5_er1p2_dR_Max0p6");
+    nanoCheckScalarWidth(b_L1_DoubleEG11_er1p2_dR_Max0p6_, sizeof(L1_DoubleEG11_er1p2_dR_Max0p6_), "L1_DoubleEG11_er1p2_dR_Max0p6");
+    nanoCheckScalarWidth(b_L1_DoubleEG4_er1p2_dR_Max0p9_, sizeof(L1_DoubleEG4_er1p2_dR_Max0p9_), "L1_DoubleEG4_er1p2_dR_Max0p9");
+    nanoCheckScalarWidth(b_L1_DoubleEG4p5_er1p2_dR_Max0p9_, sizeof(L1_DoubleEG4p5_er1p2_dR_Max0p9_), "L1_DoubleEG4p5_er1p2_dR_Max0p9");
+    nanoCheckScalarWidth(b_L1_DoubleEG5_er1p2_dR_Max0p9_, sizeof(L1_DoubleEG5_er1p2_dR_Max0p9_), "L1_DoubleEG5_er1p2_dR_Max0p9");
+    nanoCheckScalarWidth(b_L1_DoubleEG5p5_er1p2_dR_Max0p8_, sizeof(L1_DoubleEG5p5_er1p2_dR_Max0p8_), "L1_DoubleEG5p5_er1p2_dR_Max0p8");
+    nanoCheckScalarWidth(b_L1_DoubleEG6_HTT240er_, sizeof(L1_DoubleEG6_HTT240er_), "L1_DoubleEG6_HTT240er");
+    nanoCheckScalarWidth(b_L1_DoubleEG6_HTT250er_, sizeof(L1_DoubleEG6_HTT250er_), "L1_DoubleEG6_HTT250er");
+    nanoCheckScalarWidth(b_L1_DoubleEG6_HTT255_, sizeof(L1_DoubleEG6_HTT255_), "L1_DoubleEG6_HTT255");
+    nanoCheckScalarWidth(b_L1_DoubleEG6_HTT255er_, sizeof(L1_DoubleEG6_HTT255er_), "L1_DoubleEG6_HTT255er");
+    nanoCheckScalarWidth(b_L1_DoubleEG6_HTT270er_, sizeof(L1_DoubleEG6_HTT270er_), "L1_DoubleEG6_HTT270er");
+    nanoCheckScalarWidth(b_L1_DoubleEG6_HTT300er_, sizeof(L1_DoubleEG6_HTT300er_), "L1_DoubleEG6_HTT300er");
+    nanoCheckScalarWidth(b_L1_DoubleEG6_er1p2_dR_Max0p8_, sizeof(L1_DoubleEG6_er1p2_dR_Max0p8_), "L1_DoubleEG6_er1p2_dR_Max0p8");
+    nanoCheckScalarWidth(b_L1_DoubleEG6p5_er1p2_dR_Max0p8_, sizeof(L1_DoubleEG6p5_er1p2_dR_Max0p8_), "L1_DoubleEG6p5_er1p2_dR_Max0p8");
+    nanoCheckScalarWidth(b_L1_DoubleEG7_er1p2_dR_Max0p8_, sizeof(L1_DoubleEG7_er1p2_dR_Max0p8_), "L1_DoubleEG7_er1p2_dR_Max0p8");
+    nanoCheckScalarWidth(b_L1_DoubleEG7p5_er1p2_dR_Max0p7_, sizeof(L1_DoubleEG7p5_er1p2_dR_Max0p7_), "L1_DoubleEG7p5_er1p2_dR_Max0p7");
+    nanoCheckScalarWidth(b_L1_DoubleEG8_er1p2_dR_Max0p7_, sizeof(L1_DoubleEG8_er1p2_dR_Max0p7_), "L1_DoubleEG8_er1p2_dR_Max0p7");
+    nanoCheckScalarWidth(b_L1_DoubleEG8er2p5_HTT260er_, sizeof(L1_DoubleEG8er2p5_HTT260er_), "L1_DoubleEG8er2p5_HTT260er");
+    nanoCheckScalarWidth(b_L1_DoubleEG8er2p5_HTT280er_, sizeof(L1_DoubleEG8er2p5_HTT280er_), "L1_DoubleEG8er2p5_HTT280er");
+    nanoCheckScalarWidth(b_L1_DoubleEG8er2p5_HTT300er_, sizeof(L1_DoubleEG8er2p5_HTT300er_), "L1_DoubleEG8er2p5_HTT300er");
+    nanoCheckScalarWidth(b_L1_DoubleEG8er2p5_HTT320er_, sizeof(L1_DoubleEG8er2p5_HTT320er_), "L1_DoubleEG8er2p5_HTT320er");
+    nanoCheckScalarWidth(b_L1_DoubleEG8er2p5_HTT340er_, sizeof(L1_DoubleEG8er2p5_HTT340er_), "L1_DoubleEG8er2p5_HTT340er");
+    nanoCheckScalarWidth(b_L1_DoubleEG8er2p6_HTT255er_, sizeof(L1_DoubleEG8er2p6_HTT255er_), "L1_DoubleEG8er2p6_HTT255er");
+    nanoCheckScalarWidth(b_L1_DoubleEG8er2p6_HTT270er_, sizeof(L1_DoubleEG8er2p6_HTT270er_), "L1_DoubleEG8er2p6_HTT270er");
+    nanoCheckScalarWidth(b_L1_DoubleEG8er2p6_HTT300er_, sizeof(L1_DoubleEG8er2p6_HTT300er_), "L1_DoubleEG8er2p6_HTT300er");
+    nanoCheckScalarWidth(b_L1_DoubleEG8p5_er1p2_dR_Max0p7_, sizeof(L1_DoubleEG8p5_er1p2_dR_Max0p7_), "L1_DoubleEG8p5_er1p2_dR_Max0p7");
+    nanoCheckScalarWidth(b_L1_DoubleEG9_er1p2_dR_Max0p7_, sizeof(L1_DoubleEG9_er1p2_dR_Max0p7_), "L1_DoubleEG9_er1p2_dR_Max0p7");
+    nanoCheckScalarWidth(b_L1_DoubleEG9p5_er1p2_dR_Max0p6_, sizeof(L1_DoubleEG9p5_er1p2_dR_Max0p6_), "L1_DoubleEG9p5_er1p2_dR_Max0p6");
+    nanoCheckScalarWidth(b_L1_DoubleEG_15_10_, sizeof(L1_DoubleEG_15_10_), "L1_DoubleEG_15_10");
+    nanoCheckScalarWidth(b_L1_DoubleEG_15_10_er2p5_, sizeof(L1_DoubleEG_15_10_er2p5_), "L1_DoubleEG_15_10_er2p5");
+    nanoCheckScalarWidth(b_L1_DoubleEG_18_17_, sizeof(L1_DoubleEG_18_17_), "L1_DoubleEG_18_17");
+    nanoCheckScalarWidth(b_L1_DoubleEG_20_10_er2p5_, sizeof(L1_DoubleEG_20_10_er2p5_), "L1_DoubleEG_20_10_er2p5");
+    nanoCheckScalarWidth(b_L1_DoubleEG_20_18_, sizeof(L1_DoubleEG_20_18_), "L1_DoubleEG_20_18");
+    nanoCheckScalarWidth(b_L1_DoubleEG_22_10_, sizeof(L1_DoubleEG_22_10_), "L1_DoubleEG_22_10");
+    nanoCheckScalarWidth(b_L1_DoubleEG_22_10_er2p5_, sizeof(L1_DoubleEG_22_10_er2p5_), "L1_DoubleEG_22_10_er2p5");
+    nanoCheckScalarWidth(b_L1_DoubleEG_22_12_, sizeof(L1_DoubleEG_22_12_), "L1_DoubleEG_22_12");
+    nanoCheckScalarWidth(b_L1_DoubleEG_22_15_, sizeof(L1_DoubleEG_22_15_), "L1_DoubleEG_22_15");
+    nanoCheckScalarWidth(b_L1_DoubleEG_23_10_, sizeof(L1_DoubleEG_23_10_), "L1_DoubleEG_23_10");
+    nanoCheckScalarWidth(b_L1_DoubleEG_24_17_, sizeof(L1_DoubleEG_24_17_), "L1_DoubleEG_24_17");
+    nanoCheckScalarWidth(b_L1_DoubleEG_25_12_, sizeof(L1_DoubleEG_25_12_), "L1_DoubleEG_25_12");
+    nanoCheckScalarWidth(b_L1_DoubleEG_25_12_er2p5_, sizeof(L1_DoubleEG_25_12_er2p5_), "L1_DoubleEG_25_12_er2p5");
+    nanoCheckScalarWidth(b_L1_DoubleEG_25_13_, sizeof(L1_DoubleEG_25_13_), "L1_DoubleEG_25_13");
+    nanoCheckScalarWidth(b_L1_DoubleEG_25_14_, sizeof(L1_DoubleEG_25_14_), "L1_DoubleEG_25_14");
+    nanoCheckScalarWidth(b_L1_DoubleEG_25_14_er2p5_, sizeof(L1_DoubleEG_25_14_er2p5_), "L1_DoubleEG_25_14_er2p5");
+    nanoCheckScalarWidth(b_L1_DoubleEG_27_14_er2p5_, sizeof(L1_DoubleEG_27_14_er2p5_), "L1_DoubleEG_27_14_er2p5");
+    nanoCheckScalarWidth(b_L1_DoubleEG_Iso23_10_, sizeof(L1_DoubleEG_Iso23_10_), "L1_DoubleEG_Iso23_10");
+    nanoCheckScalarWidth(b_L1_DoubleEG_Iso24_10_, sizeof(L1_DoubleEG_Iso24_10_), "L1_DoubleEG_Iso24_10");
+    nanoCheckScalarWidth(b_L1_DoubleEG_LooseIso16_LooseIso12_er1p5_, sizeof(L1_DoubleEG_LooseIso16_LooseIso12_er1p5_), "L1_DoubleEG_LooseIso16_LooseIso12_er1p5");
+    nanoCheckScalarWidth(b_L1_DoubleEG_LooseIso18_LooseIso12_er1p5_, sizeof(L1_DoubleEG_LooseIso18_LooseIso12_er1p5_), "L1_DoubleEG_LooseIso18_LooseIso12_er1p5");
+    nanoCheckScalarWidth(b_L1_DoubleEG_LooseIso20_10_er2p5_, sizeof(L1_DoubleEG_LooseIso20_10_er2p5_), "L1_DoubleEG_LooseIso20_10_er2p5");
+    nanoCheckScalarWidth(b_L1_DoubleEG_LooseIso20_LooseIso12_er1p5_, sizeof(L1_DoubleEG_LooseIso20_LooseIso12_er1p5_), "L1_DoubleEG_LooseIso20_LooseIso12_er1p5");
+    nanoCheckScalarWidth(b_L1_DoubleEG_LooseIso22_10_er2p5_, sizeof(L1_DoubleEG_LooseIso22_10_er2p5_), "L1_DoubleEG_LooseIso22_10_er2p5");
+    nanoCheckScalarWidth(b_L1_DoubleEG_LooseIso22_12_er2p5_, sizeof(L1_DoubleEG_LooseIso22_12_er2p5_), "L1_DoubleEG_LooseIso22_12_er2p5");
+    nanoCheckScalarWidth(b_L1_DoubleEG_LooseIso22_LooseIso12_er1p5_, sizeof(L1_DoubleEG_LooseIso22_LooseIso12_er1p5_), "L1_DoubleEG_LooseIso22_LooseIso12_er1p5");
+    nanoCheckScalarWidth(b_L1_DoubleEG_LooseIso23_10_, sizeof(L1_DoubleEG_LooseIso23_10_), "L1_DoubleEG_LooseIso23_10");
+    nanoCheckScalarWidth(b_L1_DoubleEG_LooseIso24_10_, sizeof(L1_DoubleEG_LooseIso24_10_), "L1_DoubleEG_LooseIso24_10");
+    nanoCheckScalarWidth(b_L1_DoubleEG_LooseIso25_12_er2p5_, sizeof(L1_DoubleEG_LooseIso25_12_er2p5_), "L1_DoubleEG_LooseIso25_12_er2p5");
+    nanoCheckScalarWidth(b_L1_DoubleEG_LooseIso25_LooseIso12_er1p5_, sizeof(L1_DoubleEG_LooseIso25_LooseIso12_er1p5_), "L1_DoubleEG_LooseIso25_LooseIso12_er1p5");
+    nanoCheckScalarWidth(b_L1_DoubleIsoTau26er_, sizeof(L1_DoubleIsoTau26er_), "L1_DoubleIsoTau26er");
+    nanoCheckScalarWidth(b_L1_DoubleIsoTau26er2p1_Jet55_RmOvlp_dR0p5_, sizeof(L1_DoubleIsoTau26er2p1_Jet55_RmOvlp_dR0p5_), "L1_DoubleIsoTau26er2p1_Jet55_RmOvlp_dR0p5");
+    nanoCheckScalarWidth(b_L1_DoubleIsoTau26er2p1_Jet70_RmOvlp_dR0p5_, sizeof(L1_DoubleIsoTau26er2p1_Jet70_RmOvlp_dR0p5_), "L1_DoubleIsoTau26er2p1_Jet70_RmOvlp_dR0p5");
+    nanoCheckScalarWidth(b_L1_DoubleIsoTau27er_, sizeof(L1_DoubleIsoTau27er_), "L1_DoubleIsoTau27er");
+    nanoCheckScalarWidth(b_L1_DoubleIsoTau28er_, sizeof(L1_DoubleIsoTau28er_), "L1_DoubleIsoTau28er");
+    nanoCheckScalarWidth(b_L1_DoubleIsoTau28er2p1_, sizeof(L1_DoubleIsoTau28er2p1_), "L1_DoubleIsoTau28er2p1");
+    nanoCheckScalarWidth(b_L1_DoubleIsoTau28er2p1_Mass_Max80_, sizeof(L1_DoubleIsoTau28er2p1_Mass_Max80_), "L1_DoubleIsoTau28er2p1_Mass_Max80");
+    nanoCheckScalarWidth(b_L1_DoubleIsoTau28er2p1_Mass_Max90_, sizeof(L1_DoubleIsoTau28er2p1_Mass_Max90_), "L1_DoubleIsoTau28er2p1_Mass_Max90");
+    nanoCheckScalarWidth(b_L1_DoubleIsoTau29er_, sizeof(L1_DoubleIsoTau29er_), "L1_DoubleIsoTau29er");
+    nanoCheckScalarWidth(b_L1_DoubleIsoTau30er_, sizeof(L1_DoubleIsoTau30er_), "L1_DoubleIsoTau30er");
+    nanoCheckScalarWidth(b_L1_DoubleIsoTau30er2p1_, sizeof(L1_DoubleIsoTau30er2p1_), "L1_DoubleIsoTau30er2p1");
+    nanoCheckScalarWidth(b_L1_DoubleIsoTau30er2p1_Mass_Max80_, sizeof(L1_DoubleIsoTau30er2p1_Mass_Max80_), "L1_DoubleIsoTau30er2p1_Mass_Max80");
+    nanoCheckScalarWidth(b_L1_DoubleIsoTau30er2p1_Mass_Max90_, sizeof(L1_DoubleIsoTau30er2p1_Mass_Max90_), "L1_DoubleIsoTau30er2p1_Mass_Max90");
+    nanoCheckScalarWidth(b_L1_DoubleIsoTau32er_, sizeof(L1_DoubleIsoTau32er_), "L1_DoubleIsoTau32er");
+    nanoCheckScalarWidth(b_L1_DoubleIsoTau32er2p1_, sizeof(L1_DoubleIsoTau32er2p1_), "L1_DoubleIsoTau32er2p1");
+    nanoCheckScalarWidth(b_L1_DoubleIsoTau33er_, sizeof(L1_DoubleIsoTau33er_), "L1_DoubleIsoTau33er");
+    nanoCheckScalarWidth(b_L1_DoubleIsoTau33er2p1_, sizeof(L1_DoubleIsoTau33er2p1_), "L1_DoubleIsoTau33er2p1");
+    nanoCheckScalarWidth(b_L1_DoubleIsoTau34er_, sizeof(L1_DoubleIsoTau34er_), "L1_DoubleIsoTau34er");
+    nanoCheckScalarWidth(b_L1_DoubleIsoTau34er2p1_, sizeof(L1_DoubleIsoTau34er2p1_), "L1_DoubleIsoTau34er2p1");
+    nanoCheckScalarWidth(b_L1_DoubleIsoTau35er_, sizeof(L1_DoubleIsoTau35er_), "L1_DoubleIsoTau35er");
+    nanoCheckScalarWidth(b_L1_DoubleIsoTau35er2p1_, sizeof(L1_DoubleIsoTau35er2p1_), "L1_DoubleIsoTau35er2p1");
+    nanoCheckScalarWidth(b_L1_DoubleIsoTau36er_, sizeof(L1_DoubleIsoTau36er_), "L1_DoubleIsoTau36er");
+    nanoCheckScalarWidth(b_L1_DoubleIsoTau36er2p1_, sizeof(L1_DoubleIsoTau36er2p1_), "L1_DoubleIsoTau36er2p1");
+    nanoCheckScalarWidth(b_L1_DoubleIsoTau38er2p1_, sizeof(L1_DoubleIsoTau38er2p1_), "L1_DoubleIsoTau38er2p1");
+    nanoCheckScalarWidth(b_L1_DoubleJet100er2p3_dEta_Max1p6_, sizeof(L1_DoubleJet100er2p3_dEta_Max1p6_), "L1_DoubleJet100er2p3_dEta_Max1p6");
+    nanoCheckScalarWidth(b_L1_DoubleJet100er2p5_, sizeof(L1_DoubleJet100er2p5_), "L1_DoubleJet100er2p5");
+    nanoCheckScalarWidth(b_L1_DoubleJet100er2p7_, sizeof(L1_DoubleJet100er2p7_), "L1_DoubleJet100er2p7");
+    nanoCheckScalarWidth(b_L1_DoubleJet100er3p0_, sizeof(L1_DoubleJet100er3p0_), "L1_DoubleJet100er3p0");
+    nanoCheckScalarWidth(b_L1_DoubleJet112er2p3_dEta_Max1p6_, sizeof(L1_DoubleJet112er2p3_dEta_Max1p6_), "L1_DoubleJet112er2p3_dEta_Max1p6");
+    nanoCheckScalarWidth(b_L1_DoubleJet112er2p7_, sizeof(L1_DoubleJet112er2p7_), "L1_DoubleJet112er2p7");
+    nanoCheckScalarWidth(b_L1_DoubleJet112er3p0_, sizeof(L1_DoubleJet112er3p0_), "L1_DoubleJet112er3p0");
+    nanoCheckScalarWidth(b_L1_DoubleJet120er2p5_, sizeof(L1_DoubleJet120er2p5_), "L1_DoubleJet120er2p5");
+    nanoCheckScalarWidth(b_L1_DoubleJet120er2p7_, sizeof(L1_DoubleJet120er2p7_), "L1_DoubleJet120er2p7");
+    nanoCheckScalarWidth(b_L1_DoubleJet120er3p0_, sizeof(L1_DoubleJet120er3p0_), "L1_DoubleJet120er3p0");
+    nanoCheckScalarWidth(b_L1_DoubleJet12_ForwardBackward_, sizeof(L1_DoubleJet12_ForwardBackward_), "L1_DoubleJet12_ForwardBackward");
+    nanoCheckScalarWidth(b_L1_DoubleJet150er2p5_, sizeof(L1_DoubleJet150er2p5_), "L1_DoubleJet150er2p5");
+    nanoCheckScalarWidth(b_L1_DoubleJet150er2p7_, sizeof(L1_DoubleJet150er2p7_), "L1_DoubleJet150er2p7");
+    nanoCheckScalarWidth(b_L1_DoubleJet150er3p0_, sizeof(L1_DoubleJet150er3p0_), "L1_DoubleJet150er3p0");
+    nanoCheckScalarWidth(b_L1_DoubleJet16_ForwardBackward_, sizeof(L1_DoubleJet16_ForwardBackward_), "L1_DoubleJet16_ForwardBackward");
+    nanoCheckScalarWidth(b_L1_DoubleJet30_Mass_Min300_dEta_Max1p5_, sizeof(L1_DoubleJet30_Mass_Min300_dEta_Max1p5_), "L1_DoubleJet30_Mass_Min300_dEta_Max1p5");
+    nanoCheckScalarWidth(b_L1_DoubleJet30_Mass_Min320_dEta_Max1p5_, sizeof(L1_DoubleJet30_Mass_Min320_dEta_Max1p5_), "L1_DoubleJet30_Mass_Min320_dEta_Max1p5");
+    nanoCheckScalarWidth(b_L1_DoubleJet30_Mass_Min340_dEta_Max1p5_, sizeof(L1_DoubleJet30_Mass_Min340_dEta_Max1p5_), "L1_DoubleJet30_Mass_Min340_dEta_Max1p5");
+    nanoCheckScalarWidth(b_L1_DoubleJet30_Mass_Min360_dEta_Max1p5_, sizeof(L1_DoubleJet30_Mass_Min360_dEta_Max1p5_), "L1_DoubleJet30_Mass_Min360_dEta_Max1p5");
+    nanoCheckScalarWidth(b_L1_DoubleJet30_Mass_Min380_dEta_Max1p5_, sizeof(L1_DoubleJet30_Mass_Min380_dEta_Max1p5_), "L1_DoubleJet30_Mass_Min380_dEta_Max1p5");
+    nanoCheckScalarWidth(b_L1_DoubleJet30_Mass_Min400_Mu10_, sizeof(L1_DoubleJet30_Mass_Min400_Mu10_), "L1_DoubleJet30_Mass_Min400_Mu10");
+    nanoCheckScalarWidth(b_L1_DoubleJet30_Mass_Min400_Mu6_, sizeof(L1_DoubleJet30_Mass_Min400_Mu6_), "L1_DoubleJet30_Mass_Min400_Mu6");
+    nanoCheckScalarWidth(b_L1_DoubleJet30_Mass_Min400_dEta_Max1p5_, sizeof(L1_DoubleJet30_Mass_Min400_dEta_Max1p5_), "L1_DoubleJet30_Mass_Min400_dEta_Max1p5");
+    nanoCheckScalarWidth(b_L1_DoubleJet30_Mj30j30_400_Mu10_, sizeof(L1_DoubleJet30_Mj30j30_400_Mu10_), "L1_DoubleJet30_Mj30j30_400_Mu10");
+    nanoCheckScalarWidth(b_L1_DoubleJet30_Mj30j30_400_Mu6_, sizeof(L1_DoubleJet30_Mj30j30_400_Mu6_), "L1_DoubleJet30_Mj30j30_400_Mu6");
+    nanoCheckScalarWidth(b_L1_DoubleJet30er2p5_Mass_Min150_dEta_Max1p5_, sizeof(L1_DoubleJet30er2p5_Mass_Min150_dEta_Max1p5_), "L1_DoubleJet30er2p5_Mass_Min150_dEta_Max1p5");
+    nanoCheckScalarWidth(b_L1_DoubleJet30er2p5_Mass_Min200_dEta_Max1p5_, sizeof(L1_DoubleJet30er2p5_Mass_Min200_dEta_Max1p5_), "L1_DoubleJet30er2p5_Mass_Min200_dEta_Max1p5");
+    nanoCheckScalarWidth(b_L1_DoubleJet30er2p5_Mass_Min250_dEta_Max1p5_, sizeof(L1_DoubleJet30er2p5_Mass_Min250_dEta_Max1p5_), "L1_DoubleJet30er2p5_Mass_Min250_dEta_Max1p5");
+    nanoCheckScalarWidth(b_L1_DoubleJet30er2p5_Mass_Min300_dEta_Max1p5_, sizeof(L1_DoubleJet30er2p5_Mass_Min300_dEta_Max1p5_), "L1_DoubleJet30er2p5_Mass_Min300_dEta_Max1p5");
+    nanoCheckScalarWidth(b_L1_DoubleJet30er2p5_Mass_Min330_dEta_Max1p5_, sizeof(L1_DoubleJet30er2p5_Mass_Min330_dEta_Max1p5_), "L1_DoubleJet30er2p5_Mass_Min330_dEta_Max1p5");
+    nanoCheckScalarWidth(b_L1_DoubleJet30er2p5_Mass_Min360_dEta_Max1p5_, sizeof(L1_DoubleJet30er2p5_Mass_Min360_dEta_Max1p5_), "L1_DoubleJet30er2p5_Mass_Min360_dEta_Max1p5");
+    nanoCheckScalarWidth(b_L1_DoubleJet35_Mass_Min450_IsoTau45_RmOvlp_, sizeof(L1_DoubleJet35_Mass_Min450_IsoTau45_RmOvlp_), "L1_DoubleJet35_Mass_Min450_IsoTau45_RmOvlp");
+    nanoCheckScalarWidth(b_L1_DoubleJet35_Mass_Min450_IsoTau45er2p1_RmOvlp_dR0p5_, sizeof(L1_DoubleJet35_Mass_Min450_IsoTau45er2p1_RmOvlp_dR0p5_), "L1_DoubleJet35_Mass_Min450_IsoTau45er2p1_RmOvlp_dR0p5");
+    nanoCheckScalarWidth(b_L1_DoubleJet35_rmovlp_IsoTau45_Mass_Min450_, sizeof(L1_DoubleJet35_rmovlp_IsoTau45_Mass_Min450_), "L1_DoubleJet35_rmovlp_IsoTau45_Mass_Min450");
+    nanoCheckScalarWidth(b_L1_DoubleJet40er2p5_, sizeof(L1_DoubleJet40er2p5_), "L1_DoubleJet40er2p5");
+    nanoCheckScalarWidth(b_L1_DoubleJet40er2p7_, sizeof(L1_DoubleJet40er2p7_), "L1_DoubleJet40er2p7");
+    nanoCheckScalarWidth(b_L1_DoubleJet40er3p0_, sizeof(L1_DoubleJet40er3p0_), "L1_DoubleJet40er3p0");
+    nanoCheckScalarWidth(b_L1_DoubleJet50er2p7_, sizeof(L1_DoubleJet50er2p7_), "L1_DoubleJet50er2p7");
+    nanoCheckScalarWidth(b_L1_DoubleJet50er3p0_, sizeof(L1_DoubleJet50er3p0_), "L1_DoubleJet50er3p0");
+    nanoCheckScalarWidth(b_L1_DoubleJet60er2p7_, sizeof(L1_DoubleJet60er2p7_), "L1_DoubleJet60er2p7");
+    nanoCheckScalarWidth(b_L1_DoubleJet60er2p7_ETM100_, sizeof(L1_DoubleJet60er2p7_ETM100_), "L1_DoubleJet60er2p7_ETM100");
+    nanoCheckScalarWidth(b_L1_DoubleJet60er2p7_ETM60_, sizeof(L1_DoubleJet60er2p7_ETM60_), "L1_DoubleJet60er2p7_ETM60");
+    nanoCheckScalarWidth(b_L1_DoubleJet60er2p7_ETM70_, sizeof(L1_DoubleJet60er2p7_ETM70_), "L1_DoubleJet60er2p7_ETM70");
+    nanoCheckScalarWidth(b_L1_DoubleJet60er2p7_ETM80_, sizeof(L1_DoubleJet60er2p7_ETM80_), "L1_DoubleJet60er2p7_ETM80");
+    nanoCheckScalarWidth(b_L1_DoubleJet60er2p7_ETM90_, sizeof(L1_DoubleJet60er2p7_ETM90_), "L1_DoubleJet60er2p7_ETM90");
+    nanoCheckScalarWidth(b_L1_DoubleJet60er3p0_, sizeof(L1_DoubleJet60er3p0_), "L1_DoubleJet60er3p0");
+    nanoCheckScalarWidth(b_L1_DoubleJet60er3p0_ETM100_, sizeof(L1_DoubleJet60er3p0_ETM100_), "L1_DoubleJet60er3p0_ETM100");
+    nanoCheckScalarWidth(b_L1_DoubleJet60er3p0_ETM60_, sizeof(L1_DoubleJet60er3p0_ETM60_), "L1_DoubleJet60er3p0_ETM60");
+    nanoCheckScalarWidth(b_L1_DoubleJet60er3p0_ETM70_, sizeof(L1_DoubleJet60er3p0_ETM70_), "L1_DoubleJet60er3p0_ETM70");
+    nanoCheckScalarWidth(b_L1_DoubleJet60er3p0_ETM80_, sizeof(L1_DoubleJet60er3p0_ETM80_), "L1_DoubleJet60er3p0_ETM80");
+    nanoCheckScalarWidth(b_L1_DoubleJet60er3p0_ETM90_, sizeof(L1_DoubleJet60er3p0_ETM90_), "L1_DoubleJet60er3p0_ETM90");
+    nanoCheckScalarWidth(b_L1_DoubleJet80er2p7_, sizeof(L1_DoubleJet80er2p7_), "L1_DoubleJet80er2p7");
+    nanoCheckScalarWidth(b_L1_DoubleJet80er3p0_, sizeof(L1_DoubleJet80er3p0_), "L1_DoubleJet80er3p0");
+    nanoCheckScalarWidth(b_L1_DoubleJet8_ForwardBackward_, sizeof(L1_DoubleJet8_ForwardBackward_), "L1_DoubleJet8_ForwardBackward");
+    nanoCheckScalarWidth(b_L1_DoubleJetC100_, sizeof(L1_DoubleJetC100_), "L1_DoubleJetC100");
+    nanoCheckScalarWidth(b_L1_DoubleJetC112_, sizeof(L1_DoubleJetC112_), "L1_DoubleJetC112");
+    nanoCheckScalarWidth(b_L1_DoubleJetC120_, sizeof(L1_DoubleJetC120_), "L1_DoubleJetC120");
+    nanoCheckScalarWidth(b_L1_DoubleJetC40_, sizeof(L1_DoubleJetC40_), "L1_DoubleJetC40");
+    nanoCheckScalarWidth(b_L1_DoubleJetC50_, sizeof(L1_DoubleJetC50_), "L1_DoubleJetC50");
+    nanoCheckScalarWidth(b_L1_DoubleJetC60_, sizeof(L1_DoubleJetC60_), "L1_DoubleJetC60");
+    nanoCheckScalarWidth(b_L1_DoubleJetC60_ETM60_, sizeof(L1_DoubleJetC60_ETM60_), "L1_DoubleJetC60_ETM60");
+    nanoCheckScalarWidth(b_L1_DoubleJetC80_, sizeof(L1_DoubleJetC80_), "L1_DoubleJetC80");
+    nanoCheckScalarWidth(b_L1_DoubleJet_100_30_DoubleJet30_Mass_Min620_, sizeof(L1_DoubleJet_100_30_DoubleJet30_Mass_Min620_), "L1_DoubleJet_100_30_DoubleJet30_Mass_Min620");
+    nanoCheckScalarWidth(b_L1_DoubleJet_100_30_Mj30j30_620_, sizeof(L1_DoubleJet_100_30_Mj30j30_620_), "L1_DoubleJet_100_30_Mj30j30_620");
+    nanoCheckScalarWidth(b_L1_DoubleJet_100_35_DoubleJet35_Mass_Min620_, sizeof(L1_DoubleJet_100_35_DoubleJet35_Mass_Min620_), "L1_DoubleJet_100_35_DoubleJet35_Mass_Min620");
+    nanoCheckScalarWidth(b_L1_DoubleJet_110_35_DoubleJet35_Mass_Min620_, sizeof(L1_DoubleJet_110_35_DoubleJet35_Mass_Min620_), "L1_DoubleJet_110_35_DoubleJet35_Mass_Min620");
+    nanoCheckScalarWidth(b_L1_DoubleJet_110_40_DoubleJet40_Mass_Min620_, sizeof(L1_DoubleJet_110_40_DoubleJet40_Mass_Min620_), "L1_DoubleJet_110_40_DoubleJet40_Mass_Min620");
+    nanoCheckScalarWidth(b_L1_DoubleJet_115_35_DoubleJet35_Mass_Min620_, sizeof(L1_DoubleJet_115_35_DoubleJet35_Mass_Min620_), "L1_DoubleJet_115_35_DoubleJet35_Mass_Min620");
+    nanoCheckScalarWidth(b_L1_DoubleJet_115_40_DoubleJet40_Mass_Min620_, sizeof(L1_DoubleJet_115_40_DoubleJet40_Mass_Min620_), "L1_DoubleJet_115_40_DoubleJet40_Mass_Min620");
+    nanoCheckScalarWidth(b_L1_DoubleJet_115_40_DoubleJet40_Mass_Min620_Jet60TT28_, sizeof(L1_DoubleJet_115_40_DoubleJet40_Mass_Min620_Jet60TT28_), "L1_DoubleJet_115_40_DoubleJet40_Mass_Min620_Jet60TT28");
+    nanoCheckScalarWidth(b_L1_DoubleJet_120_45_DoubleJet45_Mass_Min620_, sizeof(L1_DoubleJet_120_45_DoubleJet45_Mass_Min620_), "L1_DoubleJet_120_45_DoubleJet45_Mass_Min620");
+    nanoCheckScalarWidth(b_L1_DoubleJet_120_45_DoubleJet45_Mass_Min620_Jet60TT28_, sizeof(L1_DoubleJet_120_45_DoubleJet45_Mass_Min620_Jet60TT28_), "L1_DoubleJet_120_45_DoubleJet45_Mass_Min620_Jet60TT28");
+    nanoCheckScalarWidth(b_L1_DoubleJet_80_30_Mass_Min420_DoubleMu0_SQ_, sizeof(L1_DoubleJet_80_30_Mass_Min420_DoubleMu0_SQ_), "L1_DoubleJet_80_30_Mass_Min420_DoubleMu0_SQ");
+    nanoCheckScalarWidth(b_L1_DoubleJet_80_30_Mass_Min420_IsoTau40_RmOvlp_, sizeof(L1_DoubleJet_80_30_Mass_Min420_IsoTau40_RmOvlp_), "L1_DoubleJet_80_30_Mass_Min420_IsoTau40_RmOvlp");
+    nanoCheckScalarWidth(b_L1_DoubleJet_80_30_Mass_Min420_Mu8_, sizeof(L1_DoubleJet_80_30_Mass_Min420_Mu8_), "L1_DoubleJet_80_30_Mass_Min420_Mu8");
+    nanoCheckScalarWidth(b_L1_DoubleJet_90_30_DoubleJet30_Mass_Min620_, sizeof(L1_DoubleJet_90_30_DoubleJet30_Mass_Min620_), "L1_DoubleJet_90_30_DoubleJet30_Mass_Min620");
+    nanoCheckScalarWidth(b_L1_DoubleJet_90_30_Mj30j30_620_, sizeof(L1_DoubleJet_90_30_Mj30j30_620_), "L1_DoubleJet_90_30_Mj30j30_620");
+    nanoCheckScalarWidth(b_L1_DoubleLLPJet40_, sizeof(L1_DoubleLLPJet40_), "L1_DoubleLLPJet40");
+    nanoCheckScalarWidth(b_L1_DoubleLooseIsoEG22er2p1_, sizeof(L1_DoubleLooseIsoEG22er2p1_), "L1_DoubleLooseIsoEG22er2p1");
+    nanoCheckScalarWidth(b_L1_DoubleLooseIsoEG24er2p1_, sizeof(L1_DoubleLooseIsoEG24er2p1_), "L1_DoubleLooseIsoEG24er2p1");
+    nanoCheckScalarWidth(b_L1_DoubleMu0_, sizeof(L1_DoubleMu0_), "L1_DoubleMu0");
+    nanoCheckScalarWidth(b_L1_DoubleMu0_ETM40_, sizeof(L1_DoubleMu0_ETM40_), "L1_DoubleMu0_ETM40");
+    nanoCheckScalarWidth(b_L1_DoubleMu0_ETM55_, sizeof(L1_DoubleMu0_ETM55_), "L1_DoubleMu0_ETM55");
+    nanoCheckScalarWidth(b_L1_DoubleMu0_ETM60_, sizeof(L1_DoubleMu0_ETM60_), "L1_DoubleMu0_ETM60");
+    nanoCheckScalarWidth(b_L1_DoubleMu0_ETM65_, sizeof(L1_DoubleMu0_ETM65_), "L1_DoubleMu0_ETM65");
+    nanoCheckScalarWidth(b_L1_DoubleMu0_ETM70_, sizeof(L1_DoubleMu0_ETM70_), "L1_DoubleMu0_ETM70");
+    nanoCheckScalarWidth(b_L1_DoubleMu0_ETMHF40_Jet60_OR_DoubleJet30_, sizeof(L1_DoubleMu0_ETMHF40_Jet60_OR_DoubleJet30_), "L1_DoubleMu0_ETMHF40_Jet60_OR_DoubleJet30");
+    nanoCheckScalarWidth(b_L1_DoubleMu0_ETMHF50_Jet60_OR_DoubleJet30_, sizeof(L1_DoubleMu0_ETMHF50_Jet60_OR_DoubleJet30_), "L1_DoubleMu0_ETMHF50_Jet60_OR_DoubleJet30");
+    nanoCheckScalarWidth(b_L1_DoubleMu0_ETMHF60_Jet60_OR_DoubleJet30_, sizeof(L1_DoubleMu0_ETMHF60_Jet60_OR_DoubleJet30_), "L1_DoubleMu0_ETMHF60_Jet60_OR_DoubleJet30");
+    nanoCheckScalarWidth(b_L1_DoubleMu0_ETMHF70_Jet60_OR_DoubleJet30_, sizeof(L1_DoubleMu0_ETMHF70_Jet60_OR_DoubleJet30_), "L1_DoubleMu0_ETMHF70_Jet60_OR_DoubleJet30");
+    nanoCheckScalarWidth(b_L1_DoubleMu0_ETMHF80_Jet60_OR_DoubleJet30_, sizeof(L1_DoubleMu0_ETMHF80_Jet60_OR_DoubleJet30_), "L1_DoubleMu0_ETMHF80_Jet60_OR_DoubleJet30");
+    nanoCheckScalarWidth(b_L1_DoubleMu0_Mass_Min1_, sizeof(L1_DoubleMu0_Mass_Min1_), "L1_DoubleMu0_Mass_Min1");
+    nanoCheckScalarWidth(b_L1_DoubleMu0_OQ_, sizeof(L1_DoubleMu0_OQ_), "L1_DoubleMu0_OQ");
+    nanoCheckScalarWidth(b_L1_DoubleMu0_SQ_, sizeof(L1_DoubleMu0_SQ_), "L1_DoubleMu0_SQ");
+    nanoCheckScalarWidth(b_L1_DoubleMu0_SQ_OS_, sizeof(L1_DoubleMu0_SQ_OS_), "L1_DoubleMu0_SQ_OS");
+    nanoCheckScalarWidth(b_L1_DoubleMu0_Upt15_Upt7_, sizeof(L1_DoubleMu0_Upt15_Upt7_), "L1_DoubleMu0_Upt15_Upt7");
+    nanoCheckScalarWidth(b_L1_DoubleMu0_Upt5_Upt5_, sizeof(L1_DoubleMu0_Upt5_Upt5_), "L1_DoubleMu0_Upt5_Upt5");
+    nanoCheckScalarWidth(b_L1_DoubleMu0_Upt6_IP_Min1_Upt4_, sizeof(L1_DoubleMu0_Upt6_IP_Min1_Upt4_), "L1_DoubleMu0_Upt6_IP_Min1_Upt4");
+    nanoCheckScalarWidth(b_L1_DoubleMu0_dR_Max1p6_Jet90er2p5_dR_Max0p8_, sizeof(L1_DoubleMu0_dR_Max1p6_Jet90er2p5_dR_Max0p8_), "L1_DoubleMu0_dR_Max1p6_Jet90er2p5_dR_Max0p8");
+    nanoCheckScalarWidth(b_L1_DoubleMu0er1p25_dEta_Max1p8_OS_, sizeof(L1_DoubleMu0er1p25_dEta_Max1p8_OS_), "L1_DoubleMu0er1p25_dEta_Max1p8_OS");
+    nanoCheckScalarWidth(b_L1_DoubleMu0er1p4_OQ_OS_dEta_Max1p6_, sizeof(L1_DoubleMu0er1p4_OQ_OS_dEta_Max1p6_), "L1_DoubleMu0er1p4_OQ_OS_dEta_Max1p6");
+    nanoCheckScalarWidth(b_L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4_, sizeof(L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4_), "L1_DoubleMu0er1p4_SQ_OS_dR_Max1p4");
+    nanoCheckScalarWidth(b_L1_DoubleMu0er1p4_dEta_Max1p8_OS_, sizeof(L1_DoubleMu0er1p4_dEta_Max1p8_OS_), "L1_DoubleMu0er1p4_dEta_Max1p8_OS");
+    nanoCheckScalarWidth(b_L1_DoubleMu0er1p5_SQ_, sizeof(L1_DoubleMu0er1p5_SQ_), "L1_DoubleMu0er1p5_SQ");
+    nanoCheckScalarWidth(b_L1_DoubleMu0er1p5_SQ_OS_, sizeof(L1_DoubleMu0er1p5_SQ_OS_), "L1_DoubleMu0er1p5_SQ_OS");
+    nanoCheckScalarWidth(b_L1_DoubleMu0er1p5_SQ_OS_dR_Max1p4_, sizeof(L1_DoubleMu0er1p5_SQ_OS_dR_Max1p4_), "L1_DoubleMu0er1p5_SQ_OS_dR_Max1p4");
+    nanoCheckScalarWidth(b_L1_DoubleMu0er1p5_SQ_dR_Max1p4_, sizeof(L1_DoubleMu0er1p5_SQ_dR_Max1p4_), "L1_DoubleMu0er1p5_SQ_dR_Max1p4");
+    nanoCheckScalarWidth(b_L1_DoubleMu0er1p6_dEta_Max1p8_, sizeof(L1_DoubleMu0er1p6_dEta_Max1p8_), "L1_DoubleMu0er1p6_dEta_Max1p8");
+    nanoCheckScalarWidth(b_L1_DoubleMu0er1p6_dEta_Max1p8_OS_, sizeof(L1_DoubleMu0er1p6_dEta_Max1p8_OS_), "L1_DoubleMu0er1p6_dEta_Max1p8_OS");
+    nanoCheckScalarWidth(b_L1_DoubleMu0er2_SQ_dR_Max1p4_, sizeof(L1_DoubleMu0er2_SQ_dR_Max1p4_), "L1_DoubleMu0er2_SQ_dR_Max1p4");
+    nanoCheckScalarWidth(b_L1_DoubleMu0er2p0_SQ_OS_dEta_Max1p5_, sizeof(L1_DoubleMu0er2p0_SQ_OS_dEta_Max1p5_), "L1_DoubleMu0er2p0_SQ_OS_dEta_Max1p5");
+    nanoCheckScalarWidth(b_L1_DoubleMu0er2p0_SQ_OS_dEta_Max1p6_, sizeof(L1_DoubleMu0er2p0_SQ_OS_dEta_Max1p6_), "L1_DoubleMu0er2p0_SQ_OS_dEta_Max1p6");
+    nanoCheckScalarWidth(b_L1_DoubleMu0er2p0_SQ_OS_dR_Max1p4_, sizeof(L1_DoubleMu0er2p0_SQ_OS_dR_Max1p4_), "L1_DoubleMu0er2p0_SQ_OS_dR_Max1p4");
+    nanoCheckScalarWidth(b_L1_DoubleMu0er2p0_SQ_dEta_Max1p5_, sizeof(L1_DoubleMu0er2p0_SQ_dEta_Max1p5_), "L1_DoubleMu0er2p0_SQ_dEta_Max1p5");
+    nanoCheckScalarWidth(b_L1_DoubleMu0er2p0_SQ_dEta_Max1p6_, sizeof(L1_DoubleMu0er2p0_SQ_dEta_Max1p6_), "L1_DoubleMu0er2p0_SQ_dEta_Max1p6");
+    nanoCheckScalarWidth(b_L1_DoubleMu0er2p0_SQ_dR_Max1p4_, sizeof(L1_DoubleMu0er2p0_SQ_dR_Max1p4_), "L1_DoubleMu0er2p0_SQ_dR_Max1p4");
+    nanoCheckScalarWidth(b_L1_DoubleMu10_SQ_, sizeof(L1_DoubleMu10_SQ_), "L1_DoubleMu10_SQ");
+    nanoCheckScalarWidth(b_L1_DoubleMu18er2p1_, sizeof(L1_DoubleMu18er2p1_), "L1_DoubleMu18er2p1");
+    nanoCheckScalarWidth(b_L1_DoubleMu18er2p1_SQ_, sizeof(L1_DoubleMu18er2p1_SQ_), "L1_DoubleMu18er2p1_SQ");
+    nanoCheckScalarWidth(b_L1_DoubleMu22er2p1_, sizeof(L1_DoubleMu22er2p1_), "L1_DoubleMu22er2p1");
+    nanoCheckScalarWidth(b_L1_DoubleMu3_OS_DoubleEG7p5Upsilon_, sizeof(L1_DoubleMu3_OS_DoubleEG7p5Upsilon_), "L1_DoubleMu3_OS_DoubleEG7p5Upsilon");
+    nanoCheckScalarWidth(b_L1_DoubleMu3_OS_er2p3_Mass_Max14_DoubleEG7p5_er2p1_Mass_Max20_, sizeof(L1_DoubleMu3_OS_er2p3_Mass_Max14_DoubleEG7p5_er2p1_Mass_Max20_), "L1_DoubleMu3_OS_er2p3_Mass_Max14_DoubleEG7p5_er2p1_Mass_Max20");
+    nanoCheckScalarWidth(b_L1_DoubleMu3_SQ_ETMHF30_HTT60er_, sizeof(L1_DoubleMu3_SQ_ETMHF30_HTT60er_), "L1_DoubleMu3_SQ_ETMHF30_HTT60er");
+    nanoCheckScalarWidth(b_L1_DoubleMu3_SQ_ETMHF30_Jet60er2p5_OR_DoubleJet40er2p5_, sizeof(L1_DoubleMu3_SQ_ETMHF30_Jet60er2p5_OR_DoubleJet40er2p5_), "L1_DoubleMu3_SQ_ETMHF30_Jet60er2p5_OR_DoubleJet40er2p5");
+    nanoCheckScalarWidth(b_L1_DoubleMu3_SQ_ETMHF40_HTT60er_, sizeof(L1_DoubleMu3_SQ_ETMHF40_HTT60er_), "L1_DoubleMu3_SQ_ETMHF40_HTT60er");
+    nanoCheckScalarWidth(b_L1_DoubleMu3_SQ_ETMHF40_Jet60_OR_DoubleJet30_, sizeof(L1_DoubleMu3_SQ_ETMHF40_Jet60_OR_DoubleJet30_), "L1_DoubleMu3_SQ_ETMHF40_Jet60_OR_DoubleJet30");
+    nanoCheckScalarWidth(b_L1_DoubleMu3_SQ_ETMHF40_Jet60er2p5_OR_DoubleJet40er2p5_, sizeof(L1_DoubleMu3_SQ_ETMHF40_Jet60er2p5_OR_DoubleJet40er2p5_), "L1_DoubleMu3_SQ_ETMHF40_Jet60er2p5_OR_DoubleJet40er2p5");
+    nanoCheckScalarWidth(b_L1_DoubleMu3_SQ_ETMHF50_HTT60er_, sizeof(L1_DoubleMu3_SQ_ETMHF50_HTT60er_), "L1_DoubleMu3_SQ_ETMHF50_HTT60er");
+    nanoCheckScalarWidth(b_L1_DoubleMu3_SQ_ETMHF50_Jet60_OR_DoubleJet30_, sizeof(L1_DoubleMu3_SQ_ETMHF50_Jet60_OR_DoubleJet30_), "L1_DoubleMu3_SQ_ETMHF50_Jet60_OR_DoubleJet30");
+    nanoCheckScalarWidth(b_L1_DoubleMu3_SQ_ETMHF50_Jet60er2p5_, sizeof(L1_DoubleMu3_SQ_ETMHF50_Jet60er2p5_), "L1_DoubleMu3_SQ_ETMHF50_Jet60er2p5");
+    nanoCheckScalarWidth(b_L1_DoubleMu3_SQ_ETMHF50_Jet60er2p5_OR_DoubleJet40er2p5_, sizeof(L1_DoubleMu3_SQ_ETMHF50_Jet60er2p5_OR_DoubleJet40er2p5_), "L1_DoubleMu3_SQ_ETMHF50_Jet60er2p5_OR_DoubleJet40er2p5");
+    nanoCheckScalarWidth(b_L1_DoubleMu3_SQ_ETMHF60_Jet60_OR_DoubleJet30_, sizeof(L1_DoubleMu3_SQ_ETMHF60_Jet60_OR_DoubleJet30_), "L1_DoubleMu3_SQ_ETMHF60_Jet60_OR_DoubleJet30");
+    nanoCheckScalarWidth(b_L1_DoubleMu3_SQ_ETMHF60_Jet60er2p5_, sizeof(L1_DoubleMu3_SQ_ETMHF60_Jet60er2p5_), "L1_DoubleMu3_SQ_ETMHF60_Jet60er2p5");
+    nanoCheckScalarWidth(b_L1_DoubleMu3_SQ_ETMHF70_Jet60_OR_DoubleJet30_, sizeof(L1_DoubleMu3_SQ_ETMHF70_Jet60_OR_DoubleJet30_), "L1_DoubleMu3_SQ_ETMHF70_Jet60_OR_DoubleJet30");
+    nanoCheckScalarWidth(b_L1_DoubleMu3_SQ_ETMHF80_Jet60_OR_DoubleJet30_, sizeof(L1_DoubleMu3_SQ_ETMHF80_Jet60_OR_DoubleJet30_), "L1_DoubleMu3_SQ_ETMHF80_Jet60_OR_DoubleJet30");
+    nanoCheckScalarWidth(b_L1_DoubleMu3_SQ_HTT100er_, sizeof(L1_DoubleMu3_SQ_HTT100er_), "L1_DoubleMu3_SQ_HTT100er");
+    nanoCheckScalarWidth(b_L1_DoubleMu3_SQ_HTT200er_, sizeof(L1_DoubleMu3_SQ_HTT200er_), "L1_DoubleMu3_SQ_HTT200er");
+    nanoCheckScalarWidth(b_L1_DoubleMu3_SQ_HTT220er_, sizeof(L1_DoubleMu3_SQ_HTT220er_), "L1_DoubleMu3_SQ_HTT220er");
+    nanoCheckScalarWidth(b_L1_DoubleMu3_SQ_HTT240er_, sizeof(L1_DoubleMu3_SQ_HTT240er_), "L1_DoubleMu3_SQ_HTT240er");
+    nanoCheckScalarWidth(b_L1_DoubleMu3_SQ_HTT260er_, sizeof(L1_DoubleMu3_SQ_HTT260er_), "L1_DoubleMu3_SQ_HTT260er");
+    nanoCheckScalarWidth(b_L1_DoubleMu3_dR_Max1p6_Jet90er2p5_dR_Max0p8_, sizeof(L1_DoubleMu3_dR_Max1p6_Jet90er2p5_dR_Max0p8_), "L1_DoubleMu3_dR_Max1p6_Jet90er2p5_dR_Max0p8");
+    nanoCheckScalarWidth(b_L1_DoubleMu3er2p0_SQ_OS_dR_Max1p4_, sizeof(L1_DoubleMu3er2p0_SQ_OS_dR_Max1p4_), "L1_DoubleMu3er2p0_SQ_OS_dR_Max1p4");
+    nanoCheckScalarWidth(b_L1_DoubleMu4_OS_EG12_, sizeof(L1_DoubleMu4_OS_EG12_), "L1_DoubleMu4_OS_EG12");
+    nanoCheckScalarWidth(b_L1_DoubleMu4_SQ_EG9er2p5_, sizeof(L1_DoubleMu4_SQ_EG9er2p5_), "L1_DoubleMu4_SQ_EG9er2p5");
+    nanoCheckScalarWidth(b_L1_DoubleMu4_SQ_OS_, sizeof(L1_DoubleMu4_SQ_OS_), "L1_DoubleMu4_SQ_OS");
+    nanoCheckScalarWidth(b_L1_DoubleMu4_SQ_OS_dR_Max1p2_, sizeof(L1_DoubleMu4_SQ_OS_dR_Max1p2_), "L1_DoubleMu4_SQ_OS_dR_Max1p2");
+    nanoCheckScalarWidth(b_L1_DoubleMu4p5_SQ_, sizeof(L1_DoubleMu4p5_SQ_), "L1_DoubleMu4p5_SQ");
+    nanoCheckScalarWidth(b_L1_DoubleMu4p5_SQ_OS_, sizeof(L1_DoubleMu4p5_SQ_OS_), "L1_DoubleMu4p5_SQ_OS");
+    nanoCheckScalarWidth(b_L1_DoubleMu4p5_SQ_OS_dR_Max1p2_, sizeof(L1_DoubleMu4p5_SQ_OS_dR_Max1p2_), "L1_DoubleMu4p5_SQ_OS_dR_Max1p2");
+    nanoCheckScalarWidth(b_L1_DoubleMu4p5er2p0_SQ_OS_, sizeof(L1_DoubleMu4p5er2p0_SQ_OS_), "L1_DoubleMu4p5er2p0_SQ_OS");
+    nanoCheckScalarWidth(b_L1_DoubleMu4p5er2p0_SQ_OS_Mass7to18_, sizeof(L1_DoubleMu4p5er2p0_SQ_OS_Mass7to18_), "L1_DoubleMu4p5er2p0_SQ_OS_Mass7to18");
+    nanoCheckScalarWidth(b_L1_DoubleMu4p5er2p0_SQ_OS_Mass_7to18_, sizeof(L1_DoubleMu4p5er2p0_SQ_OS_Mass_7to18_), "L1_DoubleMu4p5er2p0_SQ_OS_Mass_7to18");
+    nanoCheckScalarWidth(b_L1_DoubleMu4p5er2p0_SQ_OS_Mass_Min7_, sizeof(L1_DoubleMu4p5er2p0_SQ_OS_Mass_Min7_), "L1_DoubleMu4p5er2p0_SQ_OS_Mass_Min7");
+    nanoCheckScalarWidth(b_L1_DoubleMu5Upsilon_OS_DoubleEG3_, sizeof(L1_DoubleMu5Upsilon_OS_DoubleEG3_), "L1_DoubleMu5Upsilon_OS_DoubleEG3");
+    nanoCheckScalarWidth(b_L1_DoubleMu5_OS_EG12_, sizeof(L1_DoubleMu5_OS_EG12_), "L1_DoubleMu5_OS_EG12");
+    nanoCheckScalarWidth(b_L1_DoubleMu5_OS_er2p3_Mass_8to14_DoubleEG3er2p1_Mass_Max20_, sizeof(L1_DoubleMu5_OS_er2p3_Mass_8to14_DoubleEG3er2p1_Mass_Max20_), "L1_DoubleMu5_OS_er2p3_Mass_8to14_DoubleEG3er2p1_Mass_Max20");
+    nanoCheckScalarWidth(b_L1_DoubleMu5_SQ_EG9er2p5_, sizeof(L1_DoubleMu5_SQ_EG9er2p5_), "L1_DoubleMu5_SQ_EG9er2p5");
+    nanoCheckScalarWidth(b_L1_DoubleMu5_SQ_OS_, sizeof(L1_DoubleMu5_SQ_OS_), "L1_DoubleMu5_SQ_OS");
+    nanoCheckScalarWidth(b_L1_DoubleMu5_SQ_OS_Mass7to18_, sizeof(L1_DoubleMu5_SQ_OS_Mass7to18_), "L1_DoubleMu5_SQ_OS_Mass7to18");
+    nanoCheckScalarWidth(b_L1_DoubleMu6_SQ_OS_, sizeof(L1_DoubleMu6_SQ_OS_), "L1_DoubleMu6_SQ_OS");
+    nanoCheckScalarWidth(b_L1_DoubleMu7_EG14_, sizeof(L1_DoubleMu7_EG14_), "L1_DoubleMu7_EG14");
+    nanoCheckScalarWidth(b_L1_DoubleMu7_EG7_, sizeof(L1_DoubleMu7_EG7_), "L1_DoubleMu7_EG7");
+    nanoCheckScalarWidth(b_L1_DoubleMu7_SQ_EG7_, sizeof(L1_DoubleMu7_SQ_EG7_), "L1_DoubleMu7_SQ_EG7");
+    nanoCheckScalarWidth(b_L1_DoubleMu8_SQ_, sizeof(L1_DoubleMu8_SQ_), "L1_DoubleMu8_SQ");
+    nanoCheckScalarWidth(b_L1_DoubleMu9_SQ_, sizeof(L1_DoubleMu9_SQ_), "L1_DoubleMu9_SQ");
+    nanoCheckScalarWidth(b_L1_DoubleMuOpen_, sizeof(L1_DoubleMuOpen_), "L1_DoubleMuOpen");
+    nanoCheckScalarWidth(b_L1_DoubleMu_10_0_dEta_Max1p8_, sizeof(L1_DoubleMu_10_0_dEta_Max1p8_), "L1_DoubleMu_10_0_dEta_Max1p8");
+    nanoCheckScalarWidth(b_L1_DoubleMu_10_3p5_, sizeof(L1_DoubleMu_10_3p5_), "L1_DoubleMu_10_3p5");
+    nanoCheckScalarWidth(b_L1_DoubleMu_10_Open_, sizeof(L1_DoubleMu_10_Open_), "L1_DoubleMu_10_Open");
+    nanoCheckScalarWidth(b_L1_DoubleMu_11_4_, sizeof(L1_DoubleMu_11_4_), "L1_DoubleMu_11_4");
+    nanoCheckScalarWidth(b_L1_DoubleMu_12_5_, sizeof(L1_DoubleMu_12_5_), "L1_DoubleMu_12_5");
+    nanoCheckScalarWidth(b_L1_DoubleMu_12_8_, sizeof(L1_DoubleMu_12_8_), "L1_DoubleMu_12_8");
+    nanoCheckScalarWidth(b_L1_DoubleMu_13_6_, sizeof(L1_DoubleMu_13_6_), "L1_DoubleMu_13_6");
+    nanoCheckScalarWidth(b_L1_DoubleMu_15_5_, sizeof(L1_DoubleMu_15_5_), "L1_DoubleMu_15_5");
+    nanoCheckScalarWidth(b_L1_DoubleMu_15_5_SQ_, sizeof(L1_DoubleMu_15_5_SQ_), "L1_DoubleMu_15_5_SQ");
+    nanoCheckScalarWidth(b_L1_DoubleMu_15_7_, sizeof(L1_DoubleMu_15_7_), "L1_DoubleMu_15_7");
+    nanoCheckScalarWidth(b_L1_DoubleMu_15_7_Mass_Min1_, sizeof(L1_DoubleMu_15_7_Mass_Min1_), "L1_DoubleMu_15_7_Mass_Min1");
+    nanoCheckScalarWidth(b_L1_DoubleMu_15_7_SQ_, sizeof(L1_DoubleMu_15_7_SQ_), "L1_DoubleMu_15_7_SQ");
+    nanoCheckScalarWidth(b_L1_DoubleMu_15_7_SQ_Mass_Min4_, sizeof(L1_DoubleMu_15_7_SQ_Mass_Min4_), "L1_DoubleMu_15_7_SQ_Mass_Min4");
+    nanoCheckScalarWidth(b_L1_DoubleMu_20_2_SQ_Mass_Max20_, sizeof(L1_DoubleMu_20_2_SQ_Mass_Max20_), "L1_DoubleMu_20_2_SQ_Mass_Max20");
+    nanoCheckScalarWidth(b_L1_DoubleTau50er_, sizeof(L1_DoubleTau50er_), "L1_DoubleTau50er");
+    nanoCheckScalarWidth(b_L1_DoubleTau50er2p1_, sizeof(L1_DoubleTau50er2p1_), "L1_DoubleTau50er2p1");
+    nanoCheckScalarWidth(b_L1_DoubleTau70er_, sizeof(L1_DoubleTau70er_), "L1_DoubleTau70er");
+    nanoCheckScalarWidth(b_L1_DoubleTau70er2p1_, sizeof(L1_DoubleTau70er2p1_), "L1_DoubleTau70er2p1");
+    nanoCheckScalarWidth(b_L1_EG25er2p1_HTT125er_, sizeof(L1_EG25er2p1_HTT125er_), "L1_EG25er2p1_HTT125er");
+    nanoCheckScalarWidth(b_L1_EG25er_HTT125_, sizeof(L1_EG25er_HTT125_), "L1_EG25er_HTT125");
+    nanoCheckScalarWidth(b_L1_EG27er2p1_HTT200er_, sizeof(L1_EG27er2p1_HTT200er_), "L1_EG27er2p1_HTT200er");
+    nanoCheckScalarWidth(b_L1_EG27er_HTT200_, sizeof(L1_EG27er_HTT200_), "L1_EG27er_HTT200");
+    nanoCheckScalarWidth(b_L1_EG40er2p1_Tau20er2p1_dR_Min0p3_, sizeof(L1_EG40er2p1_Tau20er2p1_dR_Min0p3_), "L1_EG40er2p1_Tau20er2p1_dR_Min0p3");
+    nanoCheckScalarWidth(b_L1_ETM100_, sizeof(L1_ETM100_), "L1_ETM100");
+    nanoCheckScalarWidth(b_L1_ETM100_Jet60_dPhi_Min0p4_, sizeof(L1_ETM100_Jet60_dPhi_Min0p4_), "L1_ETM100_Jet60_dPhi_Min0p4");
+    nanoCheckScalarWidth(b_L1_ETM105_, sizeof(L1_ETM105_), "L1_ETM105");
+    nanoCheckScalarWidth(b_L1_ETM110_, sizeof(L1_ETM110_), "L1_ETM110");
+    nanoCheckScalarWidth(b_L1_ETM110_Jet60_dPhi_Min0p4_, sizeof(L1_ETM110_Jet60_dPhi_Min0p4_), "L1_ETM110_Jet60_dPhi_Min0p4");
+    nanoCheckScalarWidth(b_L1_ETM115_, sizeof(L1_ETM115_), "L1_ETM115");
+    nanoCheckScalarWidth(b_L1_ETM120_, sizeof(L1_ETM120_), "L1_ETM120");
+    nanoCheckScalarWidth(b_L1_ETM150_, sizeof(L1_ETM150_), "L1_ETM150");
+    nanoCheckScalarWidth(b_L1_ETM30_, sizeof(L1_ETM30_), "L1_ETM30");
+    nanoCheckScalarWidth(b_L1_ETM40_, sizeof(L1_ETM40_), "L1_ETM40");
+    nanoCheckScalarWidth(b_L1_ETM50_, sizeof(L1_ETM50_), "L1_ETM50");
+    nanoCheckScalarWidth(b_L1_ETM60_, sizeof(L1_ETM60_), "L1_ETM60");
+    nanoCheckScalarWidth(b_L1_ETM60_Jet60_dPhi_Min0p4_, sizeof(L1_ETM60_Jet60_dPhi_Min0p4_), "L1_ETM60_Jet60_dPhi_Min0p4");
+    nanoCheckScalarWidth(b_L1_ETM70_, sizeof(L1_ETM70_), "L1_ETM70");
+    nanoCheckScalarWidth(b_L1_ETM70_Jet60_dPhi_Min0p4_, sizeof(L1_ETM70_Jet60_dPhi_Min0p4_), "L1_ETM70_Jet60_dPhi_Min0p4");
+    nanoCheckScalarWidth(b_L1_ETM75_, sizeof(L1_ETM75_), "L1_ETM75");
+    nanoCheckScalarWidth(b_L1_ETM75_Jet60_dPhi_Min0p4_, sizeof(L1_ETM75_Jet60_dPhi_Min0p4_), "L1_ETM75_Jet60_dPhi_Min0p4");
+    nanoCheckScalarWidth(b_L1_ETM80_, sizeof(L1_ETM80_), "L1_ETM80");
+    nanoCheckScalarWidth(b_L1_ETM80_Jet60_dPhi_Min0p4_, sizeof(L1_ETM80_Jet60_dPhi_Min0p4_), "L1_ETM80_Jet60_dPhi_Min0p4");
+    nanoCheckScalarWidth(b_L1_ETM85_, sizeof(L1_ETM85_), "L1_ETM85");
+    nanoCheckScalarWidth(b_L1_ETM90_, sizeof(L1_ETM90_), "L1_ETM90");
+    nanoCheckScalarWidth(b_L1_ETM90_Jet60_dPhi_Min0p4_, sizeof(L1_ETM90_Jet60_dPhi_Min0p4_), "L1_ETM90_Jet60_dPhi_Min0p4");
+    nanoCheckScalarWidth(b_L1_ETM95_, sizeof(L1_ETM95_), "L1_ETM95");
+    nanoCheckScalarWidth(b_L1_ETMHF100_, sizeof(L1_ETMHF100_), "L1_ETMHF100");
+    nanoCheckScalarWidth(b_L1_ETMHF100_HTT60_, sizeof(L1_ETMHF100_HTT60_), "L1_ETMHF100_HTT60");
+    nanoCheckScalarWidth(b_L1_ETMHF100_HTT60er_, sizeof(L1_ETMHF100_HTT60er_), "L1_ETMHF100_HTT60er");
+    nanoCheckScalarWidth(b_L1_ETMHF100_Jet60_OR_DiJet30woTT28_, sizeof(L1_ETMHF100_Jet60_OR_DiJet30woTT28_), "L1_ETMHF100_Jet60_OR_DiJet30woTT28");
+    nanoCheckScalarWidth(b_L1_ETMHF100_Jet60_OR_DoubleJet30_, sizeof(L1_ETMHF100_Jet60_OR_DoubleJet30_), "L1_ETMHF100_Jet60_OR_DoubleJet30");
+    nanoCheckScalarWidth(b_L1_ETMHF100_Jet90_OR_DoubleJet45_OR_TripleJet30_, sizeof(L1_ETMHF100_Jet90_OR_DoubleJet45_OR_TripleJet30_), "L1_ETMHF100_Jet90_OR_DoubleJet45_OR_TripleJet30");
+    nanoCheckScalarWidth(b_L1_ETMHF105_Jet60_OR_DoubleJet30_, sizeof(L1_ETMHF105_Jet60_OR_DoubleJet30_), "L1_ETMHF105_Jet60_OR_DoubleJet30");
+    nanoCheckScalarWidth(b_L1_ETMHF110_, sizeof(L1_ETMHF110_), "L1_ETMHF110");
+    nanoCheckScalarWidth(b_L1_ETMHF110_HTT60_, sizeof(L1_ETMHF110_HTT60_), "L1_ETMHF110_HTT60");
+    nanoCheckScalarWidth(b_L1_ETMHF110_HTT60er_, sizeof(L1_ETMHF110_HTT60er_), "L1_ETMHF110_HTT60er");
+    nanoCheckScalarWidth(b_L1_ETMHF110_HTT60er_NotSecondBunchInTrain_, sizeof(L1_ETMHF110_HTT60er_NotSecondBunchInTrain_), "L1_ETMHF110_HTT60er_NotSecondBunchInTrain");
+    nanoCheckScalarWidth(b_L1_ETMHF110_Jet60_OR_DiJet30woTT28_, sizeof(L1_ETMHF110_Jet60_OR_DiJet30woTT28_), "L1_ETMHF110_Jet60_OR_DiJet30woTT28");
+    nanoCheckScalarWidth(b_L1_ETMHF110_Jet60_OR_DoubleJet30_, sizeof(L1_ETMHF110_Jet60_OR_DoubleJet30_), "L1_ETMHF110_Jet60_OR_DoubleJet30");
+    nanoCheckScalarWidth(b_L1_ETMHF110_Jet90_OR_DoubleJet45_OR_TripleJet30_, sizeof(L1_ETMHF110_Jet90_OR_DoubleJet45_OR_TripleJet30_), "L1_ETMHF110_Jet90_OR_DoubleJet45_OR_TripleJet30");
+    nanoCheckScalarWidth(b_L1_ETMHF115_Jet60_OR_DoubleJet30_, sizeof(L1_ETMHF115_Jet60_OR_DoubleJet30_), "L1_ETMHF115_Jet60_OR_DoubleJet30");
+    nanoCheckScalarWidth(b_L1_ETMHF120_, sizeof(L1_ETMHF120_), "L1_ETMHF120");
+    nanoCheckScalarWidth(b_L1_ETMHF120_HTT60_, sizeof(L1_ETMHF120_HTT60_), "L1_ETMHF120_HTT60");
+    nanoCheckScalarWidth(b_L1_ETMHF120_HTT60er_, sizeof(L1_ETMHF120_HTT60er_), "L1_ETMHF120_HTT60er");
+    nanoCheckScalarWidth(b_L1_ETMHF120_Jet60_OR_DiJet30woTT28_, sizeof(L1_ETMHF120_Jet60_OR_DiJet30woTT28_), "L1_ETMHF120_Jet60_OR_DiJet30woTT28");
+    nanoCheckScalarWidth(b_L1_ETMHF120_Jet60_OR_DoubleJet30_, sizeof(L1_ETMHF120_Jet60_OR_DoubleJet30_), "L1_ETMHF120_Jet60_OR_DoubleJet30");
+    nanoCheckScalarWidth(b_L1_ETMHF120_NotSecondBunchInTrain_, sizeof(L1_ETMHF120_NotSecondBunchInTrain_), "L1_ETMHF120_NotSecondBunchInTrain");
+    nanoCheckScalarWidth(b_L1_ETMHF130_, sizeof(L1_ETMHF130_), "L1_ETMHF130");
+    nanoCheckScalarWidth(b_L1_ETMHF130_HTT60er_, sizeof(L1_ETMHF130_HTT60er_), "L1_ETMHF130_HTT60er");
+    nanoCheckScalarWidth(b_L1_ETMHF140_, sizeof(L1_ETMHF140_), "L1_ETMHF140");
+    nanoCheckScalarWidth(b_L1_ETMHF150_, sizeof(L1_ETMHF150_), "L1_ETMHF150");
+    nanoCheckScalarWidth(b_L1_ETMHF70_, sizeof(L1_ETMHF70_), "L1_ETMHF70");
+    nanoCheckScalarWidth(b_L1_ETMHF70_HTT60er_, sizeof(L1_ETMHF70_HTT60er_), "L1_ETMHF70_HTT60er");
+    nanoCheckScalarWidth(b_L1_ETMHF70_Jet60_OR_DiJet30woTT28_, sizeof(L1_ETMHF70_Jet60_OR_DiJet30woTT28_), "L1_ETMHF70_Jet60_OR_DiJet30woTT28");
+    nanoCheckScalarWidth(b_L1_ETMHF70_Jet60_OR_DoubleJet30_, sizeof(L1_ETMHF70_Jet60_OR_DoubleJet30_), "L1_ETMHF70_Jet60_OR_DoubleJet30");
+    nanoCheckScalarWidth(b_L1_ETMHF70_Jet90_OR_DoubleJet45_OR_TripleJet30_, sizeof(L1_ETMHF70_Jet90_OR_DoubleJet45_OR_TripleJet30_), "L1_ETMHF70_Jet90_OR_DoubleJet45_OR_TripleJet30");
+    nanoCheckScalarWidth(b_L1_ETMHF75_Jet60_OR_DoubleJet30_, sizeof(L1_ETMHF75_Jet60_OR_DoubleJet30_), "L1_ETMHF75_Jet60_OR_DoubleJet30");
+    nanoCheckScalarWidth(b_L1_ETMHF80_, sizeof(L1_ETMHF80_), "L1_ETMHF80");
+    nanoCheckScalarWidth(b_L1_ETMHF80_HTT60_, sizeof(L1_ETMHF80_HTT60_), "L1_ETMHF80_HTT60");
+    nanoCheckScalarWidth(b_L1_ETMHF80_HTT60er_, sizeof(L1_ETMHF80_HTT60er_), "L1_ETMHF80_HTT60er");
+    nanoCheckScalarWidth(b_L1_ETMHF80_Jet60_OR_DiJet30woTT28_, sizeof(L1_ETMHF80_Jet60_OR_DiJet30woTT28_), "L1_ETMHF80_Jet60_OR_DiJet30woTT28");
+    nanoCheckScalarWidth(b_L1_ETMHF80_Jet60_OR_DoubleJet30_, sizeof(L1_ETMHF80_Jet60_OR_DoubleJet30_), "L1_ETMHF80_Jet60_OR_DoubleJet30");
+    nanoCheckScalarWidth(b_L1_ETMHF80_Jet90_OR_DoubleJet45_OR_TripleJet30_, sizeof(L1_ETMHF80_Jet90_OR_DoubleJet45_OR_TripleJet30_), "L1_ETMHF80_Jet90_OR_DoubleJet45_OR_TripleJet30");
+    nanoCheckScalarWidth(b_L1_ETMHF80_SingleJet55er2p5_dPhi_Min2p1_, sizeof(L1_ETMHF80_SingleJet55er2p5_dPhi_Min2p1_), "L1_ETMHF80_SingleJet55er2p5_dPhi_Min2p1");
+    nanoCheckScalarWidth(b_L1_ETMHF80_SingleJet55er2p5_dPhi_Min2p6_, sizeof(L1_ETMHF80_SingleJet55er2p5_dPhi_Min2p6_), "L1_ETMHF80_SingleJet55er2p5_dPhi_Min2p6");
+    nanoCheckScalarWidth(b_L1_ETMHF85_Jet60_OR_DoubleJet30_, sizeof(L1_ETMHF85_Jet60_OR_DoubleJet30_), "L1_ETMHF85_Jet60_OR_DoubleJet30");
+    nanoCheckScalarWidth(b_L1_ETMHF90_, sizeof(L1_ETMHF90_), "L1_ETMHF90");
+    nanoCheckScalarWidth(b_L1_ETMHF90_HTT60_, sizeof(L1_ETMHF90_HTT60_), "L1_ETMHF90_HTT60");
+    nanoCheckScalarWidth(b_L1_ETMHF90_HTT60er_, sizeof(L1_ETMHF90_HTT60er_), "L1_ETMHF90_HTT60er");
+    nanoCheckScalarWidth(b_L1_ETMHF90_Jet60_OR_DiJet30woTT28_, sizeof(L1_ETMHF90_Jet60_OR_DiJet30woTT28_), "L1_ETMHF90_Jet60_OR_DiJet30woTT28");
+    nanoCheckScalarWidth(b_L1_ETMHF90_Jet60_OR_DoubleJet30_, sizeof(L1_ETMHF90_Jet60_OR_DoubleJet30_), "L1_ETMHF90_Jet60_OR_DoubleJet30");
+    nanoCheckScalarWidth(b_L1_ETMHF90_Jet90_OR_DoubleJet45_OR_TripleJet30_, sizeof(L1_ETMHF90_Jet90_OR_DoubleJet45_OR_TripleJet30_), "L1_ETMHF90_Jet90_OR_DoubleJet45_OR_TripleJet30");
+    nanoCheckScalarWidth(b_L1_ETMHF90_SingleJet60er2p5_dPhi_Min2p1_, sizeof(L1_ETMHF90_SingleJet60er2p5_dPhi_Min2p1_), "L1_ETMHF90_SingleJet60er2p5_dPhi_Min2p1");
+    nanoCheckScalarWidth(b_L1_ETMHF90_SingleJet60er2p5_dPhi_Min2p6_, sizeof(L1_ETMHF90_SingleJet60er2p5_dPhi_Min2p6_), "L1_ETMHF90_SingleJet60er2p5_dPhi_Min2p6");
+    nanoCheckScalarWidth(b_L1_ETMHF90_SingleJet80er2p5_dPhi_Min2p1_, sizeof(L1_ETMHF90_SingleJet80er2p5_dPhi_Min2p1_), "L1_ETMHF90_SingleJet80er2p5_dPhi_Min2p1");
+    nanoCheckScalarWidth(b_L1_ETMHF90_SingleJet80er2p5_dPhi_Min2p6_, sizeof(L1_ETMHF90_SingleJet80er2p5_dPhi_Min2p6_), "L1_ETMHF90_SingleJet80er2p5_dPhi_Min2p6");
+    nanoCheckScalarWidth(b_L1_ETMHF95_Jet60_OR_DoubleJet30_, sizeof(L1_ETMHF95_Jet60_OR_DoubleJet30_), "L1_ETMHF95_Jet60_OR_DoubleJet30");
+    nanoCheckScalarWidth(b_L1_ETT100_BptxAND_, sizeof(L1_ETT100_BptxAND_), "L1_ETT100_BptxAND");
+    nanoCheckScalarWidth(b_L1_ETT110_BptxAND_, sizeof(L1_ETT110_BptxAND_), "L1_ETT110_BptxAND");
+    nanoCheckScalarWidth(b_L1_ETT1200_, sizeof(L1_ETT1200_), "L1_ETT1200");
+    nanoCheckScalarWidth(b_L1_ETT15_BptxAND_, sizeof(L1_ETT15_BptxAND_), "L1_ETT15_BptxAND");
+    nanoCheckScalarWidth(b_L1_ETT1600_, sizeof(L1_ETT1600_), "L1_ETT1600");
+    nanoCheckScalarWidth(b_L1_ETT2000_, sizeof(L1_ETT2000_), "L1_ETT2000");
+    nanoCheckScalarWidth(b_L1_ETT25_, sizeof(L1_ETT25_), "L1_ETT25");
+    nanoCheckScalarWidth(b_L1_ETT25_BptxAND_, sizeof(L1_ETT25_BptxAND_), "L1_ETT25_BptxAND");
+    nanoCheckScalarWidth(b_L1_ETT35_BptxAND_, sizeof(L1_ETT35_BptxAND_), "L1_ETT35_BptxAND");
+    nanoCheckScalarWidth(b_L1_ETT40_, sizeof(L1_ETT40_), "L1_ETT40");
+    nanoCheckScalarWidth(b_L1_ETT40_BptxAND_, sizeof(L1_ETT40_BptxAND_), "L1_ETT40_BptxAND");
+    nanoCheckScalarWidth(b_L1_ETT50_BptxAND_, sizeof(L1_ETT50_BptxAND_), "L1_ETT50_BptxAND");
+    nanoCheckScalarWidth(b_L1_ETT55_BptxAND_, sizeof(L1_ETT55_BptxAND_), "L1_ETT55_BptxAND");
+    nanoCheckScalarWidth(b_L1_ETT60_, sizeof(L1_ETT60_), "L1_ETT60");
+    nanoCheckScalarWidth(b_L1_ETT60_BptxAND_, sizeof(L1_ETT60_BptxAND_), "L1_ETT60_BptxAND");
+    nanoCheckScalarWidth(b_L1_ETT70_BptxAND_, sizeof(L1_ETT70_BptxAND_), "L1_ETT70_BptxAND");
+    nanoCheckScalarWidth(b_L1_ETT75_BptxAND_, sizeof(L1_ETT75_BptxAND_), "L1_ETT75_BptxAND");
+    nanoCheckScalarWidth(b_L1_ETT80_BptxAND_, sizeof(L1_ETT80_BptxAND_), "L1_ETT80_BptxAND");
+    nanoCheckScalarWidth(b_L1_ETT85_BptxAND_, sizeof(L1_ETT85_BptxAND_), "L1_ETT85_BptxAND");
+    nanoCheckScalarWidth(b_L1_ETT90_BptxAND_, sizeof(L1_ETT90_BptxAND_), "L1_ETT90_BptxAND");
+    nanoCheckScalarWidth(b_L1_ETT95_BptxAND_, sizeof(L1_ETT95_BptxAND_), "L1_ETT95_BptxAND");
+    nanoCheckScalarWidth(b_L1_FirstBunchAfterTrain_, sizeof(L1_FirstBunchAfterTrain_), "L1_FirstBunchAfterTrain");
+    nanoCheckScalarWidth(b_L1_FirstBunchBeforeTrain_, sizeof(L1_FirstBunchBeforeTrain_), "L1_FirstBunchBeforeTrain");
+    nanoCheckScalarWidth(b_L1_FirstBunchInTrain_, sizeof(L1_FirstBunchInTrain_), "L1_FirstBunchInTrain");
+    nanoCheckScalarWidth(b_L1_FirstCollisionInOrbit_, sizeof(L1_FirstCollisionInOrbit_), "L1_FirstCollisionInOrbit");
+    nanoCheckScalarWidth(b_L1_FirstCollisionInTrain_, sizeof(L1_FirstCollisionInTrain_), "L1_FirstCollisionInTrain");
+    nanoCheckScalarWidth(b_L1_HCAL_LaserMon_Trig_, sizeof(L1_HCAL_LaserMon_Trig_), "L1_HCAL_LaserMon_Trig");
+    nanoCheckScalarWidth(b_L1_HCAL_LaserMon_Veto_, sizeof(L1_HCAL_LaserMon_Veto_), "L1_HCAL_LaserMon_Veto");
+    nanoCheckScalarWidth(b_L1_HTM100_, sizeof(L1_HTM100_), "L1_HTM100");
+    nanoCheckScalarWidth(b_L1_HTM120_, sizeof(L1_HTM120_), "L1_HTM120");
+    nanoCheckScalarWidth(b_L1_HTM130_, sizeof(L1_HTM130_), "L1_HTM130");
+    nanoCheckScalarWidth(b_L1_HTM140_, sizeof(L1_HTM140_), "L1_HTM140");
+    nanoCheckScalarWidth(b_L1_HTM150_, sizeof(L1_HTM150_), "L1_HTM150");
+    nanoCheckScalarWidth(b_L1_HTM50_, sizeof(L1_HTM50_), "L1_HTM50");
+    nanoCheckScalarWidth(b_L1_HTM60_HTT260_, sizeof(L1_HTM60_HTT260_), "L1_HTM60_HTT260");
+    nanoCheckScalarWidth(b_L1_HTM70_, sizeof(L1_HTM70_), "L1_HTM70");
+    nanoCheckScalarWidth(b_L1_HTM80_, sizeof(L1_HTM80_), "L1_HTM80");
+    nanoCheckScalarWidth(b_L1_HTM80_HTT220_, sizeof(L1_HTM80_HTT220_), "L1_HTM80_HTT220");
+    nanoCheckScalarWidth(b_L1_HTT120_, sizeof(L1_HTT120_), "L1_HTT120");
+    nanoCheckScalarWidth(b_L1_HTT120_SingleLLPJet40_, sizeof(L1_HTT120_SingleLLPJet40_), "L1_HTT120_SingleLLPJet40");
+    nanoCheckScalarWidth(b_L1_HTT120er_, sizeof(L1_HTT120er_), "L1_HTT120er");
+    nanoCheckScalarWidth(b_L1_HTT160_, sizeof(L1_HTT160_), "L1_HTT160");
+    nanoCheckScalarWidth(b_L1_HTT160_SingleLLPJet50_, sizeof(L1_HTT160_SingleLLPJet50_), "L1_HTT160_SingleLLPJet50");
+    nanoCheckScalarWidth(b_L1_HTT160er_, sizeof(L1_HTT160er_), "L1_HTT160er");
+    nanoCheckScalarWidth(b_L1_HTT200_, sizeof(L1_HTT200_), "L1_HTT200");
+    nanoCheckScalarWidth(b_L1_HTT200_SingleLLPJet60_, sizeof(L1_HTT200_SingleLLPJet60_), "L1_HTT200_SingleLLPJet60");
+    nanoCheckScalarWidth(b_L1_HTT200er_, sizeof(L1_HTT200er_), "L1_HTT200er");
+    nanoCheckScalarWidth(b_L1_HTT220_, sizeof(L1_HTT220_), "L1_HTT220");
+    nanoCheckScalarWidth(b_L1_HTT220er_, sizeof(L1_HTT220er_), "L1_HTT220er");
+    nanoCheckScalarWidth(b_L1_HTT240_, sizeof(L1_HTT240_), "L1_HTT240");
+    nanoCheckScalarWidth(b_L1_HTT240_SingleLLPJet70_, sizeof(L1_HTT240_SingleLLPJet70_), "L1_HTT240_SingleLLPJet70");
+    nanoCheckScalarWidth(b_L1_HTT240er_, sizeof(L1_HTT240er_), "L1_HTT240er");
+    nanoCheckScalarWidth(b_L1_HTT250er_QuadJet_70_55_40_35_er2p5_, sizeof(L1_HTT250er_QuadJet_70_55_40_35_er2p5_), "L1_HTT250er_QuadJet_70_55_40_35_er2p5");
+    nanoCheckScalarWidth(b_L1_HTT255_, sizeof(L1_HTT255_), "L1_HTT255");
+    nanoCheckScalarWidth(b_L1_HTT255er_, sizeof(L1_HTT255er_), "L1_HTT255er");
+    nanoCheckScalarWidth(b_L1_HTT270_, sizeof(L1_HTT270_), "L1_HTT270");
+    nanoCheckScalarWidth(b_L1_HTT270er_, sizeof(L1_HTT270er_), "L1_HTT270er");
+    nanoCheckScalarWidth(b_L1_HTT280_, sizeof(L1_HTT280_), "L1_HTT280");
+    nanoCheckScalarWidth(b_L1_HTT280er_, sizeof(L1_HTT280er_), "L1_HTT280er");
+    nanoCheckScalarWidth(b_L1_HTT280er_QuadJet_70_55_40_35_er2p4_, sizeof(L1_HTT280er_QuadJet_70_55_40_35_er2p4_), "L1_HTT280er_QuadJet_70_55_40_35_er2p4");
+    nanoCheckScalarWidth(b_L1_HTT280er_QuadJet_70_55_40_35_er2p5_, sizeof(L1_HTT280er_QuadJet_70_55_40_35_er2p5_), "L1_HTT280er_QuadJet_70_55_40_35_er2p5");
+    nanoCheckScalarWidth(b_L1_HTT300_, sizeof(L1_HTT300_), "L1_HTT300");
+    nanoCheckScalarWidth(b_L1_HTT300er_, sizeof(L1_HTT300er_), "L1_HTT300er");
+    nanoCheckScalarWidth(b_L1_HTT300er_QuadJet_70_55_40_35_er2p5_, sizeof(L1_HTT300er_QuadJet_70_55_40_35_er2p5_), "L1_HTT300er_QuadJet_70_55_40_35_er2p5");
+    nanoCheckScalarWidth(b_L1_HTT320_, sizeof(L1_HTT320_), "L1_HTT320");
+    nanoCheckScalarWidth(b_L1_HTT320er_, sizeof(L1_HTT320er_), "L1_HTT320er");
+    nanoCheckScalarWidth(b_L1_HTT320er_QuadJet_70_55_40_40_er2p4_, sizeof(L1_HTT320er_QuadJet_70_55_40_40_er2p4_), "L1_HTT320er_QuadJet_70_55_40_40_er2p4");
+    nanoCheckScalarWidth(b_L1_HTT320er_QuadJet_70_55_40_40_er2p5_, sizeof(L1_HTT320er_QuadJet_70_55_40_40_er2p5_), "L1_HTT320er_QuadJet_70_55_40_40_er2p5");
+    nanoCheckScalarWidth(b_L1_HTT320er_QuadJet_70_55_45_45_er2p5_, sizeof(L1_HTT320er_QuadJet_70_55_45_45_er2p5_), "L1_HTT320er_QuadJet_70_55_45_45_er2p5");
+    nanoCheckScalarWidth(b_L1_HTT320er_QuadJet_80_60_er2p1_45_40_er2p3_, sizeof(L1_HTT320er_QuadJet_80_60_er2p1_45_40_er2p3_), "L1_HTT320er_QuadJet_80_60_er2p1_45_40_er2p3");
+    nanoCheckScalarWidth(b_L1_HTT320er_QuadJet_80_60_er2p1_50_45_er2p3_, sizeof(L1_HTT320er_QuadJet_80_60_er2p1_50_45_er2p3_), "L1_HTT320er_QuadJet_80_60_er2p1_50_45_er2p3");
+    nanoCheckScalarWidth(b_L1_HTT340er_, sizeof(L1_HTT340er_), "L1_HTT340er");
+    nanoCheckScalarWidth(b_L1_HTT340er_QuadJet_70_55_40_40_er2p5_, sizeof(L1_HTT340er_QuadJet_70_55_40_40_er2p5_), "L1_HTT340er_QuadJet_70_55_40_40_er2p5");
+    nanoCheckScalarWidth(b_L1_HTT340er_QuadJet_70_55_45_45_er2p5_, sizeof(L1_HTT340er_QuadJet_70_55_45_45_er2p5_), "L1_HTT340er_QuadJet_70_55_45_45_er2p5");
+    nanoCheckScalarWidth(b_L1_HTT360er_, sizeof(L1_HTT360er_), "L1_HTT360er");
+    nanoCheckScalarWidth(b_L1_HTT380er_, sizeof(L1_HTT380er_), "L1_HTT380er");
+    nanoCheckScalarWidth(b_L1_HTT400er_, sizeof(L1_HTT400er_), "L1_HTT400er");
+    nanoCheckScalarWidth(b_L1_HTT450er_, sizeof(L1_HTT450er_), "L1_HTT450er");
+    nanoCheckScalarWidth(b_L1_HTT500er_, sizeof(L1_HTT500er_), "L1_HTT500er");
+    nanoCheckScalarWidth(b_L1_IsoEG18er2p1_IsoTau24er2p1_dEta_Min0p2_, sizeof(L1_IsoEG18er2p1_IsoTau24er2p1_dEta_Min0p2_), "L1_IsoEG18er2p1_IsoTau24er2p1_dEta_Min0p2");
+    nanoCheckScalarWidth(b_L1_IsoEG18er_IsoTau24er_dEta_Min0p2_, sizeof(L1_IsoEG18er_IsoTau24er_dEta_Min0p2_), "L1_IsoEG18er_IsoTau24er_dEta_Min0p2");
+    nanoCheckScalarWidth(b_L1_IsoEG20er2p1_IsoTau25er2p1_dEta_Min0p2_, sizeof(L1_IsoEG20er2p1_IsoTau25er2p1_dEta_Min0p2_), "L1_IsoEG20er2p1_IsoTau25er2p1_dEta_Min0p2");
+    nanoCheckScalarWidth(b_L1_IsoEG20er_IsoTau25er_dEta_Min0p2_, sizeof(L1_IsoEG20er_IsoTau25er_dEta_Min0p2_), "L1_IsoEG20er_IsoTau25er_dEta_Min0p2");
+    nanoCheckScalarWidth(b_L1_IsoEG22er2p1_IsoTau26er2p1_dEta_Min0p2_, sizeof(L1_IsoEG22er2p1_IsoTau26er2p1_dEta_Min0p2_), "L1_IsoEG22er2p1_IsoTau26er2p1_dEta_Min0p2");
+    nanoCheckScalarWidth(b_L1_IsoEG22er_IsoTau26er_dEta_Min0p2_, sizeof(L1_IsoEG22er_IsoTau26er_dEta_Min0p2_), "L1_IsoEG22er_IsoTau26er_dEta_Min0p2");
+    nanoCheckScalarWidth(b_L1_IsoEG22er_Tau20er_dEta_Min0p2_, sizeof(L1_IsoEG22er_Tau20er_dEta_Min0p2_), "L1_IsoEG22er_Tau20er_dEta_Min0p2");
+    nanoCheckScalarWidth(b_L1_IsoEG24er2p1_HTT100er_, sizeof(L1_IsoEG24er2p1_HTT100er_), "L1_IsoEG24er2p1_HTT100er");
+    nanoCheckScalarWidth(b_L1_IsoEG24er2p1_Jet26er3p0_dR_Min0p3_, sizeof(L1_IsoEG24er2p1_Jet26er3p0_dR_Min0p3_), "L1_IsoEG24er2p1_Jet26er3p0_dR_Min0p3");
+    nanoCheckScalarWidth(b_L1_IsoEG24er2p1_TripleJet_26er3p0_26_26er3p0_, sizeof(L1_IsoEG24er2p1_TripleJet_26er3p0_26_26er3p0_), "L1_IsoEG24er2p1_TripleJet_26er3p0_26_26er3p0");
+    nanoCheckScalarWidth(b_L1_IsoEG26er2p1_HTT100er_, sizeof(L1_IsoEG26er2p1_HTT100er_), "L1_IsoEG26er2p1_HTT100er");
+    nanoCheckScalarWidth(b_L1_IsoEG26er2p1_Jet34er3p0_dR_Min0p3_, sizeof(L1_IsoEG26er2p1_Jet34er3p0_dR_Min0p3_), "L1_IsoEG26er2p1_Jet34er3p0_dR_Min0p3");
+    nanoCheckScalarWidth(b_L1_IsoEG28er2p1_HTT100er_, sizeof(L1_IsoEG28er2p1_HTT100er_), "L1_IsoEG28er2p1_HTT100er");
+    nanoCheckScalarWidth(b_L1_IsoEG28er2p1_Jet34er3p0_dR_Min0p3_, sizeof(L1_IsoEG28er2p1_Jet34er3p0_dR_Min0p3_), "L1_IsoEG28er2p1_Jet34er3p0_dR_Min0p3");
+    nanoCheckScalarWidth(b_L1_IsoEG30er2p1_Jet34er3p0_dR_Min0p3_, sizeof(L1_IsoEG30er2p1_Jet34er3p0_dR_Min0p3_), "L1_IsoEG30er2p1_Jet34er3p0_dR_Min0p3");
+    nanoCheckScalarWidth(b_L1_IsoEG32er2p5_Mt40_, sizeof(L1_IsoEG32er2p5_Mt40_), "L1_IsoEG32er2p5_Mt40");
+    nanoCheckScalarWidth(b_L1_IsoEG32er2p5_Mt44_, sizeof(L1_IsoEG32er2p5_Mt44_), "L1_IsoEG32er2p5_Mt44");
+    nanoCheckScalarWidth(b_L1_IsoEG32er2p5_Mt48_, sizeof(L1_IsoEG32er2p5_Mt48_), "L1_IsoEG32er2p5_Mt48");
+    nanoCheckScalarWidth(b_L1_IsoEG33_Mt40_, sizeof(L1_IsoEG33_Mt40_), "L1_IsoEG33_Mt40");
+    nanoCheckScalarWidth(b_L1_IsoEG33_Mt44_, sizeof(L1_IsoEG33_Mt44_), "L1_IsoEG33_Mt44");
+    nanoCheckScalarWidth(b_L1_IsoEG33_Mt48_, sizeof(L1_IsoEG33_Mt48_), "L1_IsoEG33_Mt48");
+    nanoCheckScalarWidth(b_L1_IsoTau40er2p1_ETMHF100_, sizeof(L1_IsoTau40er2p1_ETMHF100_), "L1_IsoTau40er2p1_ETMHF100");
+    nanoCheckScalarWidth(b_L1_IsoTau40er2p1_ETMHF110_, sizeof(L1_IsoTau40er2p1_ETMHF110_), "L1_IsoTau40er2p1_ETMHF110");
+    nanoCheckScalarWidth(b_L1_IsoTau40er2p1_ETMHF120_, sizeof(L1_IsoTau40er2p1_ETMHF120_), "L1_IsoTau40er2p1_ETMHF120");
+    nanoCheckScalarWidth(b_L1_IsoTau40er2p1_ETMHF80_, sizeof(L1_IsoTau40er2p1_ETMHF80_), "L1_IsoTau40er2p1_ETMHF80");
+    nanoCheckScalarWidth(b_L1_IsoTau40er2p1_ETMHF90_, sizeof(L1_IsoTau40er2p1_ETMHF90_), "L1_IsoTau40er2p1_ETMHF90");
+    nanoCheckScalarWidth(b_L1_IsoTau40er_ETM100_, sizeof(L1_IsoTau40er_ETM100_), "L1_IsoTau40er_ETM100");
+    nanoCheckScalarWidth(b_L1_IsoTau40er_ETM105_, sizeof(L1_IsoTau40er_ETM105_), "L1_IsoTau40er_ETM105");
+    nanoCheckScalarWidth(b_L1_IsoTau40er_ETM110_, sizeof(L1_IsoTau40er_ETM110_), "L1_IsoTau40er_ETM110");
+    nanoCheckScalarWidth(b_L1_IsoTau40er_ETM115_, sizeof(L1_IsoTau40er_ETM115_), "L1_IsoTau40er_ETM115");
+    nanoCheckScalarWidth(b_L1_IsoTau40er_ETM120_, sizeof(L1_IsoTau40er_ETM120_), "L1_IsoTau40er_ETM120");
+    nanoCheckScalarWidth(b_L1_IsoTau40er_ETM80_, sizeof(L1_IsoTau40er_ETM80_), "L1_IsoTau40er_ETM80");
+    nanoCheckScalarWidth(b_L1_IsoTau40er_ETM85_, sizeof(L1_IsoTau40er_ETM85_), "L1_IsoTau40er_ETM85");
+    nanoCheckScalarWidth(b_L1_IsoTau40er_ETM90_, sizeof(L1_IsoTau40er_ETM90_), "L1_IsoTau40er_ETM90");
+    nanoCheckScalarWidth(b_L1_IsoTau40er_ETM95_, sizeof(L1_IsoTau40er_ETM95_), "L1_IsoTau40er_ETM95");
+    nanoCheckScalarWidth(b_L1_IsoTau40er_ETMHF100_, sizeof(L1_IsoTau40er_ETMHF100_), "L1_IsoTau40er_ETMHF100");
+    nanoCheckScalarWidth(b_L1_IsoTau40er_ETMHF110_, sizeof(L1_IsoTau40er_ETMHF110_), "L1_IsoTau40er_ETMHF110");
+    nanoCheckScalarWidth(b_L1_IsoTau40er_ETMHF120_, sizeof(L1_IsoTau40er_ETMHF120_), "L1_IsoTau40er_ETMHF120");
+    nanoCheckScalarWidth(b_L1_IsoTau40er_ETMHF80_, sizeof(L1_IsoTau40er_ETMHF80_), "L1_IsoTau40er_ETMHF80");
+    nanoCheckScalarWidth(b_L1_IsoTau40er_ETMHF90_, sizeof(L1_IsoTau40er_ETMHF90_), "L1_IsoTau40er_ETMHF90");
+    nanoCheckScalarWidth(b_L1_IsoTau52er2p1_QuadJet36er2p5_, sizeof(L1_IsoTau52er2p1_QuadJet36er2p5_), "L1_IsoTau52er2p1_QuadJet36er2p5");
+    nanoCheckScalarWidth(b_L1_IsolatedBunch_, sizeof(L1_IsolatedBunch_), "L1_IsolatedBunch");
+    nanoCheckScalarWidth(b_L1_Jet32_DoubleMuOpen_Mu10_dPhi_Jet_Mu0_Max0p4_dPhi_Mu_Mu_Min1p0_, sizeof(L1_Jet32_DoubleMuOpen_Mu10_dPhi_Jet_Mu0_Max0p4_dPhi_Mu_Mu_Min1p0_), "L1_Jet32_DoubleMuOpen_Mu10_dPhi_Jet_Mu0_Max0p4_dPhi_Mu_Mu_Min1p0");
+    nanoCheckScalarWidth(b_L1_Jet32_DoubleMu_10_0_dPhi_Jet_Mu0_Max0p4_dPhi_Mu_Mu_Min1p0_, sizeof(L1_Jet32_DoubleMu_10_0_dPhi_Jet_Mu0_Max0p4_dPhi_Mu_Mu_Min1p0_), "L1_Jet32_DoubleMu_10_0_dPhi_Jet_Mu0_Max0p4_dPhi_Mu_Mu_Min1p0");
+    nanoCheckScalarWidth(b_L1_Jet32_Mu0_EG10_dPhi_Jet_Mu_Max0p4_dPhi_Mu_EG_Min1p0_, sizeof(L1_Jet32_Mu0_EG10_dPhi_Jet_Mu_Max0p4_dPhi_Mu_EG_Min1p0_), "L1_Jet32_Mu0_EG10_dPhi_Jet_Mu_Max0p4_dPhi_Mu_EG_Min1p0");
+    nanoCheckScalarWidth(b_L1_Jet32_MuOpen_EG10_dPhi_Jet_Mu_Max0p4_dPhi_Mu_EG_Min1p0_, sizeof(L1_Jet32_MuOpen_EG10_dPhi_Jet_Mu_Max0p4_dPhi_Mu_EG_Min1p0_), "L1_Jet32_MuOpen_EG10_dPhi_Jet_Mu_Max0p4_dPhi_Mu_EG_Min1p0");
+    nanoCheckScalarWidth(b_L1_LastBunchInTrain_, sizeof(L1_LastBunchInTrain_), "L1_LastBunchInTrain");
+    nanoCheckScalarWidth(b_L1_LastCollisionInTrain_, sizeof(L1_LastCollisionInTrain_), "L1_LastCollisionInTrain");
+    nanoCheckScalarWidth(b_L1_LooseIsoEG18er2p1_IsoTau24er2p1_dR_Min0p3_, sizeof(L1_LooseIsoEG18er2p1_IsoTau24er2p1_dR_Min0p3_), "L1_LooseIsoEG18er2p1_IsoTau24er2p1_dR_Min0p3");
+    nanoCheckScalarWidth(b_L1_LooseIsoEG20er2p1_IsoTau25er2p1_dR_Min0p3_, sizeof(L1_LooseIsoEG20er2p1_IsoTau25er2p1_dR_Min0p3_), "L1_LooseIsoEG20er2p1_IsoTau25er2p1_dR_Min0p3");
+    nanoCheckScalarWidth(b_L1_LooseIsoEG22er2p1_IsoTau26er2p1_dR_Min0p3_, sizeof(L1_LooseIsoEG22er2p1_IsoTau26er2p1_dR_Min0p3_), "L1_LooseIsoEG22er2p1_IsoTau26er2p1_dR_Min0p3");
+    nanoCheckScalarWidth(b_L1_LooseIsoEG22er2p1_Tau70er2p1_dR_Min0p3_, sizeof(L1_LooseIsoEG22er2p1_Tau70er2p1_dR_Min0p3_), "L1_LooseIsoEG22er2p1_Tau70er2p1_dR_Min0p3");
+    nanoCheckScalarWidth(b_L1_LooseIsoEG24er2p1_HTT100er_, sizeof(L1_LooseIsoEG24er2p1_HTT100er_), "L1_LooseIsoEG24er2p1_HTT100er");
+    nanoCheckScalarWidth(b_L1_LooseIsoEG24er2p1_IsoTau27er2p1_dR_Min0p3_, sizeof(L1_LooseIsoEG24er2p1_IsoTau27er2p1_dR_Min0p3_), "L1_LooseIsoEG24er2p1_IsoTau27er2p1_dR_Min0p3");
+    nanoCheckScalarWidth(b_L1_LooseIsoEG24er2p1_Jet26er2p7_dR_Min0p3_, sizeof(L1_LooseIsoEG24er2p1_Jet26er2p7_dR_Min0p3_), "L1_LooseIsoEG24er2p1_Jet26er2p7_dR_Min0p3");
+    nanoCheckScalarWidth(b_L1_LooseIsoEG24er2p1_Jet26er3p0_dR_Min0p3_, sizeof(L1_LooseIsoEG24er2p1_Jet26er3p0_dR_Min0p3_), "L1_LooseIsoEG24er2p1_Jet26er3p0_dR_Min0p3");
+    nanoCheckScalarWidth(b_L1_LooseIsoEG24er2p1_TripleJet_26er2p7_26_26er2p7_, sizeof(L1_LooseIsoEG24er2p1_TripleJet_26er2p7_26_26er2p7_), "L1_LooseIsoEG24er2p1_TripleJet_26er2p7_26_26er2p7");
+    nanoCheckScalarWidth(b_L1_LooseIsoEG24er2p1_TripleJet_26er3p0_26_26er3p0_, sizeof(L1_LooseIsoEG24er2p1_TripleJet_26er3p0_26_26er3p0_), "L1_LooseIsoEG24er2p1_TripleJet_26er3p0_26_26er3p0");
+    nanoCheckScalarWidth(b_L1_LooseIsoEG26er2p1_HTT100er_, sizeof(L1_LooseIsoEG26er2p1_HTT100er_), "L1_LooseIsoEG26er2p1_HTT100er");
+    nanoCheckScalarWidth(b_L1_LooseIsoEG26er2p1_Jet34er2p5_dR_Min0p3_, sizeof(L1_LooseIsoEG26er2p1_Jet34er2p5_dR_Min0p3_), "L1_LooseIsoEG26er2p1_Jet34er2p5_dR_Min0p3");
+    nanoCheckScalarWidth(b_L1_LooseIsoEG26er2p1_Jet34er2p7_dR_Min0p3_, sizeof(L1_LooseIsoEG26er2p1_Jet34er2p7_dR_Min0p3_), "L1_LooseIsoEG26er2p1_Jet34er2p7_dR_Min0p3");
+    nanoCheckScalarWidth(b_L1_LooseIsoEG26er2p1_Jet34er3p0_dR_Min0p3_, sizeof(L1_LooseIsoEG26er2p1_Jet34er3p0_dR_Min0p3_), "L1_LooseIsoEG26er2p1_Jet34er3p0_dR_Min0p3");
+    nanoCheckScalarWidth(b_L1_LooseIsoEG28er2p1_HTT100er_, sizeof(L1_LooseIsoEG28er2p1_HTT100er_), "L1_LooseIsoEG28er2p1_HTT100er");
+    nanoCheckScalarWidth(b_L1_LooseIsoEG28er2p1_Jet34er2p5_dR_Min0p3_, sizeof(L1_LooseIsoEG28er2p1_Jet34er2p5_dR_Min0p3_), "L1_LooseIsoEG28er2p1_Jet34er2p5_dR_Min0p3");
+    nanoCheckScalarWidth(b_L1_LooseIsoEG28er2p1_Jet34er2p7_dR_Min0p3_, sizeof(L1_LooseIsoEG28er2p1_Jet34er2p7_dR_Min0p3_), "L1_LooseIsoEG28er2p1_Jet34er2p7_dR_Min0p3");
+    nanoCheckScalarWidth(b_L1_LooseIsoEG28er2p1_Jet34er3p0_dR_Min0p3_, sizeof(L1_LooseIsoEG28er2p1_Jet34er3p0_dR_Min0p3_), "L1_LooseIsoEG28er2p1_Jet34er3p0_dR_Min0p3");
+    nanoCheckScalarWidth(b_L1_LooseIsoEG30er2p1_HTT100er_, sizeof(L1_LooseIsoEG30er2p1_HTT100er_), "L1_LooseIsoEG30er2p1_HTT100er");
+    nanoCheckScalarWidth(b_L1_LooseIsoEG30er2p1_Jet34er2p5_dR_Min0p3_, sizeof(L1_LooseIsoEG30er2p1_Jet34er2p5_dR_Min0p3_), "L1_LooseIsoEG30er2p1_Jet34er2p5_dR_Min0p3");
+    nanoCheckScalarWidth(b_L1_LooseIsoEG30er2p1_Jet34er2p7_dR_Min0p3_, sizeof(L1_LooseIsoEG30er2p1_Jet34er2p7_dR_Min0p3_), "L1_LooseIsoEG30er2p1_Jet34er2p7_dR_Min0p3");
+    nanoCheckScalarWidth(b_L1_LooseIsoEG30er2p1_Jet34er3p0_dR_Min0p3_, sizeof(L1_LooseIsoEG30er2p1_Jet34er3p0_dR_Min0p3_), "L1_LooseIsoEG30er2p1_Jet34er3p0_dR_Min0p3");
+    nanoCheckScalarWidth(b_L1_MU20_EG15_, sizeof(L1_MU20_EG15_), "L1_MU20_EG15");
+    nanoCheckScalarWidth(b_L1_MinimumBiasHF0_, sizeof(L1_MinimumBiasHF0_), "L1_MinimumBiasHF0");
+    nanoCheckScalarWidth(b_L1_MinimumBiasHF0_AND_, sizeof(L1_MinimumBiasHF0_AND_), "L1_MinimumBiasHF0_AND");
+    nanoCheckScalarWidth(b_L1_MinimumBiasHF0_AND_BptxAND_, sizeof(L1_MinimumBiasHF0_AND_BptxAND_), "L1_MinimumBiasHF0_AND_BptxAND");
+    nanoCheckScalarWidth(b_L1_MinimumBiasHF0_OR_, sizeof(L1_MinimumBiasHF0_OR_), "L1_MinimumBiasHF0_OR");
+    nanoCheckScalarWidth(b_L1_MinimumBiasHF0_OR_BptxAND_, sizeof(L1_MinimumBiasHF0_OR_BptxAND_), "L1_MinimumBiasHF0_OR_BptxAND");
+    nanoCheckScalarWidth(b_L1_MinimumBiasHF1_AND_, sizeof(L1_MinimumBiasHF1_AND_), "L1_MinimumBiasHF1_AND");
+    nanoCheckScalarWidth(b_L1_MinimumBiasHF1_AND_BptxAND_, sizeof(L1_MinimumBiasHF1_AND_BptxAND_), "L1_MinimumBiasHF1_AND_BptxAND");
+    nanoCheckScalarWidth(b_L1_MinimumBiasHF1_OR_, sizeof(L1_MinimumBiasHF1_OR_), "L1_MinimumBiasHF1_OR");
+    nanoCheckScalarWidth(b_L1_MinimumBiasHF1_OR_BptxAND_, sizeof(L1_MinimumBiasHF1_OR_BptxAND_), "L1_MinimumBiasHF1_OR_BptxAND");
+    nanoCheckScalarWidth(b_L1_Mu0er_ETM40_, sizeof(L1_Mu0er_ETM40_), "L1_Mu0er_ETM40");
+    nanoCheckScalarWidth(b_L1_Mu0er_ETM55_, sizeof(L1_Mu0er_ETM55_), "L1_Mu0er_ETM55");
+    nanoCheckScalarWidth(b_L1_Mu10er2p1_ETM30_, sizeof(L1_Mu10er2p1_ETM30_), "L1_Mu10er2p1_ETM30");
+    nanoCheckScalarWidth(b_L1_Mu10er2p3_Jet32er2p3_dR_Max0p4_DoubleJet32er2p3_dEta_Max1p6_, sizeof(L1_Mu10er2p3_Jet32er2p3_dR_Max0p4_DoubleJet32er2p3_dEta_Max1p6_), "L1_Mu10er2p3_Jet32er2p3_dR_Max0p4_DoubleJet32er2p3_dEta_Max1p6");
+    nanoCheckScalarWidth(b_L1_Mu10er_ETM30_, sizeof(L1_Mu10er_ETM30_), "L1_Mu10er_ETM30");
+    nanoCheckScalarWidth(b_L1_Mu10er_ETM50_, sizeof(L1_Mu10er_ETM50_), "L1_Mu10er_ETM50");
+    nanoCheckScalarWidth(b_L1_Mu12_EG10_, sizeof(L1_Mu12_EG10_), "L1_Mu12_EG10");
+    nanoCheckScalarWidth(b_L1_Mu12er2p3_Jet40er2p1_dR_Max0p4_DoubleJet40er2p1_dEta_Max1p6_, sizeof(L1_Mu12er2p3_Jet40er2p1_dR_Max0p4_DoubleJet40er2p1_dEta_Max1p6_), "L1_Mu12er2p3_Jet40er2p1_dR_Max0p4_DoubleJet40er2p1_dEta_Max1p6");
+    nanoCheckScalarWidth(b_L1_Mu12er2p3_Jet40er2p3_dR_Max0p4_DoubleJet40er2p3_dEta_Max1p6_, sizeof(L1_Mu12er2p3_Jet40er2p3_dR_Max0p4_DoubleJet40er2p3_dEta_Max1p6_), "L1_Mu12er2p3_Jet40er2p3_dR_Max0p4_DoubleJet40er2p3_dEta_Max1p6");
+    nanoCheckScalarWidth(b_L1_Mu14er2p1_ETM30_, sizeof(L1_Mu14er2p1_ETM30_), "L1_Mu14er2p1_ETM30");
+    nanoCheckScalarWidth(b_L1_Mu14er_ETM30_, sizeof(L1_Mu14er_ETM30_), "L1_Mu14er_ETM30");
+    nanoCheckScalarWidth(b_L1_Mu15_HTT100er_, sizeof(L1_Mu15_HTT100er_), "L1_Mu15_HTT100er");
+    nanoCheckScalarWidth(b_L1_Mu16er2p1_Tau20er2p1_, sizeof(L1_Mu16er2p1_Tau20er2p1_), "L1_Mu16er2p1_Tau20er2p1");
+    nanoCheckScalarWidth(b_L1_Mu16er2p1_Tau24er2p1_, sizeof(L1_Mu16er2p1_Tau24er2p1_), "L1_Mu16er2p1_Tau24er2p1");
+    nanoCheckScalarWidth(b_L1_Mu16er_Tau20er_, sizeof(L1_Mu16er_Tau20er_), "L1_Mu16er_Tau20er");
+    nanoCheckScalarWidth(b_L1_Mu16er_Tau24er_, sizeof(L1_Mu16er_Tau24er_), "L1_Mu16er_Tau24er");
+    nanoCheckScalarWidth(b_L1_Mu18_HTT100er_, sizeof(L1_Mu18_HTT100er_), "L1_Mu18_HTT100er");
+    nanoCheckScalarWidth(b_L1_Mu18_Jet24er2p7_, sizeof(L1_Mu18_Jet24er2p7_), "L1_Mu18_Jet24er2p7");
+    nanoCheckScalarWidth(b_L1_Mu18_Jet24er3p0_, sizeof(L1_Mu18_Jet24er3p0_), "L1_Mu18_Jet24er3p0");
+    nanoCheckScalarWidth(b_L1_Mu18er2p1_IsoTau26er2p1_, sizeof(L1_Mu18er2p1_IsoTau26er2p1_), "L1_Mu18er2p1_IsoTau26er2p1");
+    nanoCheckScalarWidth(b_L1_Mu18er2p1_Tau20er2p1_, sizeof(L1_Mu18er2p1_Tau20er2p1_), "L1_Mu18er2p1_Tau20er2p1");
+    nanoCheckScalarWidth(b_L1_Mu18er2p1_Tau24er2p1_, sizeof(L1_Mu18er2p1_Tau24er2p1_), "L1_Mu18er2p1_Tau24er2p1");
+    nanoCheckScalarWidth(b_L1_Mu18er2p1_Tau26er2p1_, sizeof(L1_Mu18er2p1_Tau26er2p1_), "L1_Mu18er2p1_Tau26er2p1");
+    nanoCheckScalarWidth(b_L1_Mu18er2p1_Tau26er2p1_Jet55_, sizeof(L1_Mu18er2p1_Tau26er2p1_Jet55_), "L1_Mu18er2p1_Tau26er2p1_Jet55");
+    nanoCheckScalarWidth(b_L1_Mu18er2p1_Tau26er2p1_Jet70_, sizeof(L1_Mu18er2p1_Tau26er2p1_Jet70_), "L1_Mu18er2p1_Tau26er2p1_Jet70");
+    nanoCheckScalarWidth(b_L1_Mu18er_IsoTau26er_, sizeof(L1_Mu18er_IsoTau26er_), "L1_Mu18er_IsoTau26er");
+    nanoCheckScalarWidth(b_L1_Mu18er_Tau20er_, sizeof(L1_Mu18er_Tau20er_), "L1_Mu18er_Tau20er");
+    nanoCheckScalarWidth(b_L1_Mu18er_Tau24er_, sizeof(L1_Mu18er_Tau24er_), "L1_Mu18er_Tau24er");
+    nanoCheckScalarWidth(b_L1_Mu20_EG10_, sizeof(L1_Mu20_EG10_), "L1_Mu20_EG10");
+    nanoCheckScalarWidth(b_L1_Mu20_EG10er2p5_, sizeof(L1_Mu20_EG10er2p5_), "L1_Mu20_EG10er2p5");
+    nanoCheckScalarWidth(b_L1_Mu20_EG17_, sizeof(L1_Mu20_EG17_), "L1_Mu20_EG17");
+    nanoCheckScalarWidth(b_L1_Mu20_IsoEG6_, sizeof(L1_Mu20_IsoEG6_), "L1_Mu20_IsoEG6");
+    nanoCheckScalarWidth(b_L1_Mu20_LooseIsoEG6_, sizeof(L1_Mu20_LooseIsoEG6_), "L1_Mu20_LooseIsoEG6");
+    nanoCheckScalarWidth(b_L1_Mu20er2p1_IsoTau26er2p1_, sizeof(L1_Mu20er2p1_IsoTau26er2p1_), "L1_Mu20er2p1_IsoTau26er2p1");
+    nanoCheckScalarWidth(b_L1_Mu20er2p1_IsoTau27er2p1_, sizeof(L1_Mu20er2p1_IsoTau27er2p1_), "L1_Mu20er2p1_IsoTau27er2p1");
+    nanoCheckScalarWidth(b_L1_Mu20er_IsoTau26er_, sizeof(L1_Mu20er_IsoTau26er_), "L1_Mu20er_IsoTau26er");
+    nanoCheckScalarWidth(b_L1_Mu22er2p1_IsoTau28er2p1_, sizeof(L1_Mu22er2p1_IsoTau28er2p1_), "L1_Mu22er2p1_IsoTau28er2p1");
+    nanoCheckScalarWidth(b_L1_Mu22er2p1_IsoTau30er2p1_, sizeof(L1_Mu22er2p1_IsoTau30er2p1_), "L1_Mu22er2p1_IsoTau30er2p1");
+    nanoCheckScalarWidth(b_L1_Mu22er2p1_IsoTau32er2p1_, sizeof(L1_Mu22er2p1_IsoTau32er2p1_), "L1_Mu22er2p1_IsoTau32er2p1");
+    nanoCheckScalarWidth(b_L1_Mu22er2p1_IsoTau33er2p1_, sizeof(L1_Mu22er2p1_IsoTau33er2p1_), "L1_Mu22er2p1_IsoTau33er2p1");
+    nanoCheckScalarWidth(b_L1_Mu22er2p1_IsoTau34er2p1_, sizeof(L1_Mu22er2p1_IsoTau34er2p1_), "L1_Mu22er2p1_IsoTau34er2p1");
+    nanoCheckScalarWidth(b_L1_Mu22er2p1_IsoTau35er2p1_, sizeof(L1_Mu22er2p1_IsoTau35er2p1_), "L1_Mu22er2p1_IsoTau35er2p1");
+    nanoCheckScalarWidth(b_L1_Mu22er2p1_IsoTau36er2p1_, sizeof(L1_Mu22er2p1_IsoTau36er2p1_), "L1_Mu22er2p1_IsoTau36er2p1");
+    nanoCheckScalarWidth(b_L1_Mu22er2p1_IsoTau38er2p1_, sizeof(L1_Mu22er2p1_IsoTau38er2p1_), "L1_Mu22er2p1_IsoTau38er2p1");
+    nanoCheckScalarWidth(b_L1_Mu22er2p1_IsoTau40er2p1_, sizeof(L1_Mu22er2p1_IsoTau40er2p1_), "L1_Mu22er2p1_IsoTau40er2p1");
+    nanoCheckScalarWidth(b_L1_Mu22er2p1_Tau50er2p1_, sizeof(L1_Mu22er2p1_Tau50er2p1_), "L1_Mu22er2p1_Tau50er2p1");
+    nanoCheckScalarWidth(b_L1_Mu22er2p1_Tau70er2p1_, sizeof(L1_Mu22er2p1_Tau70er2p1_), "L1_Mu22er2p1_Tau70er2p1");
+    nanoCheckScalarWidth(b_L1_Mu22er_IsoTau26er_, sizeof(L1_Mu22er_IsoTau26er_), "L1_Mu22er_IsoTau26er");
+    nanoCheckScalarWidth(b_L1_Mu23_EG10_, sizeof(L1_Mu23_EG10_), "L1_Mu23_EG10");
+    nanoCheckScalarWidth(b_L1_Mu23_IsoEG10_, sizeof(L1_Mu23_IsoEG10_), "L1_Mu23_IsoEG10");
+    nanoCheckScalarWidth(b_L1_Mu23_LooseIsoEG10_, sizeof(L1_Mu23_LooseIsoEG10_), "L1_Mu23_LooseIsoEG10");
+    nanoCheckScalarWidth(b_L1_Mu25er_IsoTau26er_, sizeof(L1_Mu25er_IsoTau26er_), "L1_Mu25er_IsoTau26er");
+    nanoCheckScalarWidth(b_L1_Mu3_Jet120er2p5_dR_Max0p4_, sizeof(L1_Mu3_Jet120er2p5_dR_Max0p4_), "L1_Mu3_Jet120er2p5_dR_Max0p4");
+    nanoCheckScalarWidth(b_L1_Mu3_Jet120er2p5_dR_Max0p8_, sizeof(L1_Mu3_Jet120er2p5_dR_Max0p8_), "L1_Mu3_Jet120er2p5_dR_Max0p8");
+    nanoCheckScalarWidth(b_L1_Mu3_Jet120er2p7_dEta_Max0p4_dPhi_Max0p4_, sizeof(L1_Mu3_Jet120er2p7_dEta_Max0p4_dPhi_Max0p4_), "L1_Mu3_Jet120er2p7_dEta_Max0p4_dPhi_Max0p4");
+    nanoCheckScalarWidth(b_L1_Mu3_Jet16er2p5_dR_Max0p4_, sizeof(L1_Mu3_Jet16er2p5_dR_Max0p4_), "L1_Mu3_Jet16er2p5_dR_Max0p4");
+    nanoCheckScalarWidth(b_L1_Mu3_Jet16er2p7_dEta_Max0p4_dPhi_Max0p4_, sizeof(L1_Mu3_Jet16er2p7_dEta_Max0p4_dPhi_Max0p4_), "L1_Mu3_Jet16er2p7_dEta_Max0p4_dPhi_Max0p4");
+    nanoCheckScalarWidth(b_L1_Mu3_Jet30er2p5_, sizeof(L1_Mu3_Jet30er2p5_), "L1_Mu3_Jet30er2p5");
+    nanoCheckScalarWidth(b_L1_Mu3_Jet35er2p5_dR_Max0p4_, sizeof(L1_Mu3_Jet35er2p5_dR_Max0p4_), "L1_Mu3_Jet35er2p5_dR_Max0p4");
+    nanoCheckScalarWidth(b_L1_Mu3_Jet60er2p5_dR_Max0p4_, sizeof(L1_Mu3_Jet60er2p5_dR_Max0p4_), "L1_Mu3_Jet60er2p5_dR_Max0p4");
+    nanoCheckScalarWidth(b_L1_Mu3_Jet60er2p7_dEta_Max0p4_dPhi_Max0p4_, sizeof(L1_Mu3_Jet60er2p7_dEta_Max0p4_dPhi_Max0p4_), "L1_Mu3_Jet60er2p7_dEta_Max0p4_dPhi_Max0p4");
+    nanoCheckScalarWidth(b_L1_Mu3_Jet80er2p5_dR_Max0p4_, sizeof(L1_Mu3_Jet80er2p5_dR_Max0p4_), "L1_Mu3_Jet80er2p5_dR_Max0p4");
+    nanoCheckScalarWidth(b_L1_Mu3_JetC120_, sizeof(L1_Mu3_JetC120_), "L1_Mu3_JetC120");
+    nanoCheckScalarWidth(b_L1_Mu3_JetC120_dEta_Max0p4_dPhi_Max0p4_, sizeof(L1_Mu3_JetC120_dEta_Max0p4_dPhi_Max0p4_), "L1_Mu3_JetC120_dEta_Max0p4_dPhi_Max0p4");
+    nanoCheckScalarWidth(b_L1_Mu3_JetC16_, sizeof(L1_Mu3_JetC16_), "L1_Mu3_JetC16");
+    nanoCheckScalarWidth(b_L1_Mu3_JetC16_dEta_Max0p4_dPhi_Max0p4_, sizeof(L1_Mu3_JetC16_dEta_Max0p4_dPhi_Max0p4_), "L1_Mu3_JetC16_dEta_Max0p4_dPhi_Max0p4");
+    nanoCheckScalarWidth(b_L1_Mu3_JetC60_, sizeof(L1_Mu3_JetC60_), "L1_Mu3_JetC60");
+    nanoCheckScalarWidth(b_L1_Mu3_JetC60_dEta_Max0p4_dPhi_Max0p4_, sizeof(L1_Mu3_JetC60_dEta_Max0p4_dPhi_Max0p4_), "L1_Mu3_JetC60_dEta_Max0p4_dPhi_Max0p4");
+    nanoCheckScalarWidth(b_L1_Mu3er1p5_Jet100er2p5_ETMHF30_, sizeof(L1_Mu3er1p5_Jet100er2p5_ETMHF30_), "L1_Mu3er1p5_Jet100er2p5_ETMHF30");
+    nanoCheckScalarWidth(b_L1_Mu3er1p5_Jet100er2p5_ETMHF40_, sizeof(L1_Mu3er1p5_Jet100er2p5_ETMHF40_), "L1_Mu3er1p5_Jet100er2p5_ETMHF40");
+    nanoCheckScalarWidth(b_L1_Mu3er1p5_Jet100er2p5_ETMHF50_, sizeof(L1_Mu3er1p5_Jet100er2p5_ETMHF50_), "L1_Mu3er1p5_Jet100er2p5_ETMHF50");
+    nanoCheckScalarWidth(b_L1_Mu5_EG15_, sizeof(L1_Mu5_EG15_), "L1_Mu5_EG15");
+    nanoCheckScalarWidth(b_L1_Mu5_EG20_, sizeof(L1_Mu5_EG20_), "L1_Mu5_EG20");
+    nanoCheckScalarWidth(b_L1_Mu5_EG23_, sizeof(L1_Mu5_EG23_), "L1_Mu5_EG23");
+    nanoCheckScalarWidth(b_L1_Mu5_EG23er2p5_, sizeof(L1_Mu5_EG23er2p5_), "L1_Mu5_EG23er2p5");
+    nanoCheckScalarWidth(b_L1_Mu5_IsoEG18_, sizeof(L1_Mu5_IsoEG18_), "L1_Mu5_IsoEG18");
+    nanoCheckScalarWidth(b_L1_Mu5_IsoEG20_, sizeof(L1_Mu5_IsoEG20_), "L1_Mu5_IsoEG20");
+    nanoCheckScalarWidth(b_L1_Mu5_LooseIsoEG18_, sizeof(L1_Mu5_LooseIsoEG18_), "L1_Mu5_LooseIsoEG18");
+    nanoCheckScalarWidth(b_L1_Mu5_LooseIsoEG20_, sizeof(L1_Mu5_LooseIsoEG20_), "L1_Mu5_LooseIsoEG20");
+    nanoCheckScalarWidth(b_L1_Mu5_LooseIsoEG20er2p5_, sizeof(L1_Mu5_LooseIsoEG20er2p5_), "L1_Mu5_LooseIsoEG20er2p5");
+    nanoCheckScalarWidth(b_L1_Mu6_DoubleEG10_, sizeof(L1_Mu6_DoubleEG10_), "L1_Mu6_DoubleEG10");
+    nanoCheckScalarWidth(b_L1_Mu6_DoubleEG10er2p5_, sizeof(L1_Mu6_DoubleEG10er2p5_), "L1_Mu6_DoubleEG10er2p5");
+    nanoCheckScalarWidth(b_L1_Mu6_DoubleEG12er2p5_, sizeof(L1_Mu6_DoubleEG12er2p5_), "L1_Mu6_DoubleEG12er2p5");
+    nanoCheckScalarWidth(b_L1_Mu6_DoubleEG15er2p5_, sizeof(L1_Mu6_DoubleEG15er2p5_), "L1_Mu6_DoubleEG15er2p5");
+    nanoCheckScalarWidth(b_L1_Mu6_DoubleEG17_, sizeof(L1_Mu6_DoubleEG17_), "L1_Mu6_DoubleEG17");
+    nanoCheckScalarWidth(b_L1_Mu6_DoubleEG17er2p5_, sizeof(L1_Mu6_DoubleEG17er2p5_), "L1_Mu6_DoubleEG17er2p5");
+    nanoCheckScalarWidth(b_L1_Mu6_HTT200_, sizeof(L1_Mu6_HTT200_), "L1_Mu6_HTT200");
+    nanoCheckScalarWidth(b_L1_Mu6_HTT200er_, sizeof(L1_Mu6_HTT200er_), "L1_Mu6_HTT200er");
+    nanoCheckScalarWidth(b_L1_Mu6_HTT240er_, sizeof(L1_Mu6_HTT240er_), "L1_Mu6_HTT240er");
+    nanoCheckScalarWidth(b_L1_Mu6_HTT250er_, sizeof(L1_Mu6_HTT250er_), "L1_Mu6_HTT250er");
+    nanoCheckScalarWidth(b_L1_Mu7_EG20er2p5_, sizeof(L1_Mu7_EG20er2p5_), "L1_Mu7_EG20er2p5");
+    nanoCheckScalarWidth(b_L1_Mu7_EG23_, sizeof(L1_Mu7_EG23_), "L1_Mu7_EG23");
+    nanoCheckScalarWidth(b_L1_Mu7_EG23er2p5_, sizeof(L1_Mu7_EG23er2p5_), "L1_Mu7_EG23er2p5");
+    nanoCheckScalarWidth(b_L1_Mu7_IsoEG20_, sizeof(L1_Mu7_IsoEG20_), "L1_Mu7_IsoEG20");
+    nanoCheckScalarWidth(b_L1_Mu7_IsoEG23_, sizeof(L1_Mu7_IsoEG23_), "L1_Mu7_IsoEG23");
+    nanoCheckScalarWidth(b_L1_Mu7_LooseIsoEG20_, sizeof(L1_Mu7_LooseIsoEG20_), "L1_Mu7_LooseIsoEG20");
+    nanoCheckScalarWidth(b_L1_Mu7_LooseIsoEG20er2p5_, sizeof(L1_Mu7_LooseIsoEG20er2p5_), "L1_Mu7_LooseIsoEG20er2p5");
+    nanoCheckScalarWidth(b_L1_Mu7_LooseIsoEG23_, sizeof(L1_Mu7_LooseIsoEG23_), "L1_Mu7_LooseIsoEG23");
+    nanoCheckScalarWidth(b_L1_Mu7_LooseIsoEG23er2p5_, sizeof(L1_Mu7_LooseIsoEG23er2p5_), "L1_Mu7_LooseIsoEG23er2p5");
+    nanoCheckScalarWidth(b_L1_Mu8_HTT150_, sizeof(L1_Mu8_HTT150_), "L1_Mu8_HTT150");
+    nanoCheckScalarWidth(b_L1_Mu8_HTT150er_, sizeof(L1_Mu8_HTT150er_), "L1_Mu8_HTT150er");
+    nanoCheckScalarWidth(b_L1_NotBptxOR_, sizeof(L1_NotBptxOR_), "L1_NotBptxOR");
+    nanoCheckScalarWidth(b_L1_QuadJet36er2p5_IsoTau52er2p1_, sizeof(L1_QuadJet36er2p5_IsoTau52er2p1_), "L1_QuadJet36er2p5_IsoTau52er2p1");
+    nanoCheckScalarWidth(b_L1_QuadJet36er2p7_IsoTau52er2p1_, sizeof(L1_QuadJet36er2p7_IsoTau52er2p1_), "L1_QuadJet36er2p7_IsoTau52er2p1");
+    nanoCheckScalarWidth(b_L1_QuadJet36er2p7_Tau52_, sizeof(L1_QuadJet36er2p7_Tau52_), "L1_QuadJet36er2p7_Tau52");
+    nanoCheckScalarWidth(b_L1_QuadJet36er3p0_IsoTau52er2p1_, sizeof(L1_QuadJet36er3p0_IsoTau52er2p1_), "L1_QuadJet36er3p0_IsoTau52er2p1");
+    nanoCheckScalarWidth(b_L1_QuadJet36er3p0_Tau52_, sizeof(L1_QuadJet36er3p0_Tau52_), "L1_QuadJet36er3p0_Tau52");
+    nanoCheckScalarWidth(b_L1_QuadJet40er2p7_, sizeof(L1_QuadJet40er2p7_), "L1_QuadJet40er2p7");
+    nanoCheckScalarWidth(b_L1_QuadJet40er3p0_, sizeof(L1_QuadJet40er3p0_), "L1_QuadJet40er3p0");
+    nanoCheckScalarWidth(b_L1_QuadJet50er2p7_, sizeof(L1_QuadJet50er2p7_), "L1_QuadJet50er2p7");
+    nanoCheckScalarWidth(b_L1_QuadJet50er3p0_, sizeof(L1_QuadJet50er3p0_), "L1_QuadJet50er3p0");
+    nanoCheckScalarWidth(b_L1_QuadJet60er2p5_, sizeof(L1_QuadJet60er2p5_), "L1_QuadJet60er2p5");
+    nanoCheckScalarWidth(b_L1_QuadJet60er2p7_, sizeof(L1_QuadJet60er2p7_), "L1_QuadJet60er2p7");
+    nanoCheckScalarWidth(b_L1_QuadJet60er3p0_, sizeof(L1_QuadJet60er3p0_), "L1_QuadJet60er3p0");
+    nanoCheckScalarWidth(b_L1_QuadJetC36_Tau52_, sizeof(L1_QuadJetC36_Tau52_), "L1_QuadJetC36_Tau52");
+    nanoCheckScalarWidth(b_L1_QuadJetC40_, sizeof(L1_QuadJetC40_), "L1_QuadJetC40");
+    nanoCheckScalarWidth(b_L1_QuadJetC50_, sizeof(L1_QuadJetC50_), "L1_QuadJetC50");
+    nanoCheckScalarWidth(b_L1_QuadJetC60_, sizeof(L1_QuadJetC60_), "L1_QuadJetC60");
+    nanoCheckScalarWidth(b_L1_QuadJet_95_75_65_20_DoubleJet_75_65_er2p5_Jet20_FWD3p0_, sizeof(L1_QuadJet_95_75_65_20_DoubleJet_75_65_er2p5_Jet20_FWD3p0_), "L1_QuadJet_95_75_65_20_DoubleJet_75_65_er2p5_Jet20_FWD3p0");
+    nanoCheckScalarWidth(b_L1_QuadMu0_, sizeof(L1_QuadMu0_), "L1_QuadMu0");
+    nanoCheckScalarWidth(b_L1_QuadMu0_OQ_, sizeof(L1_QuadMu0_OQ_), "L1_QuadMu0_OQ");
+    nanoCheckScalarWidth(b_L1_QuadMu0_SQ_, sizeof(L1_QuadMu0_SQ_), "L1_QuadMu0_SQ");
+    nanoCheckScalarWidth(b_L1_SecondBunchInTrain_, sizeof(L1_SecondBunchInTrain_), "L1_SecondBunchInTrain");
+    nanoCheckScalarWidth(b_L1_SecondLastBunchInTrain_, sizeof(L1_SecondLastBunchInTrain_), "L1_SecondLastBunchInTrain");
+    nanoCheckScalarWidth(b_L1_SingleEG10_, sizeof(L1_SingleEG10_), "L1_SingleEG10");
+    nanoCheckScalarWidth(b_L1_SingleEG10er2p5_, sizeof(L1_SingleEG10er2p5_), "L1_SingleEG10er2p5");
+    nanoCheckScalarWidth(b_L1_SingleEG15_, sizeof(L1_SingleEG15_), "L1_SingleEG15");
+    nanoCheckScalarWidth(b_L1_SingleEG15er2p5_, sizeof(L1_SingleEG15er2p5_), "L1_SingleEG15er2p5");
+    nanoCheckScalarWidth(b_L1_SingleEG18_, sizeof(L1_SingleEG18_), "L1_SingleEG18");
+    nanoCheckScalarWidth(b_L1_SingleEG24_, sizeof(L1_SingleEG24_), "L1_SingleEG24");
+    nanoCheckScalarWidth(b_L1_SingleEG26_, sizeof(L1_SingleEG26_), "L1_SingleEG26");
+    nanoCheckScalarWidth(b_L1_SingleEG26er2p5_, sizeof(L1_SingleEG26er2p5_), "L1_SingleEG26er2p5");
+    nanoCheckScalarWidth(b_L1_SingleEG28_, sizeof(L1_SingleEG28_), "L1_SingleEG28");
+    nanoCheckScalarWidth(b_L1_SingleEG28_FWD2p5_, sizeof(L1_SingleEG28_FWD2p5_), "L1_SingleEG28_FWD2p5");
+    nanoCheckScalarWidth(b_L1_SingleEG28er1p5_, sizeof(L1_SingleEG28er1p5_), "L1_SingleEG28er1p5");
+    nanoCheckScalarWidth(b_L1_SingleEG28er2p1_, sizeof(L1_SingleEG28er2p1_), "L1_SingleEG28er2p1");
+    nanoCheckScalarWidth(b_L1_SingleEG28er2p5_, sizeof(L1_SingleEG28er2p5_), "L1_SingleEG28er2p5");
+    nanoCheckScalarWidth(b_L1_SingleEG2_BptxAND_, sizeof(L1_SingleEG2_BptxAND_), "L1_SingleEG2_BptxAND");
+    nanoCheckScalarWidth(b_L1_SingleEG30_, sizeof(L1_SingleEG30_), "L1_SingleEG30");
+    nanoCheckScalarWidth(b_L1_SingleEG32_, sizeof(L1_SingleEG32_), "L1_SingleEG32");
+    nanoCheckScalarWidth(b_L1_SingleEG34_, sizeof(L1_SingleEG34_), "L1_SingleEG34");
+    nanoCheckScalarWidth(b_L1_SingleEG34er2p1_, sizeof(L1_SingleEG34er2p1_), "L1_SingleEG34er2p1");
+    nanoCheckScalarWidth(b_L1_SingleEG34er2p5_, sizeof(L1_SingleEG34er2p5_), "L1_SingleEG34er2p5");
+    nanoCheckScalarWidth(b_L1_SingleEG36_, sizeof(L1_SingleEG36_), "L1_SingleEG36");
+    nanoCheckScalarWidth(b_L1_SingleEG36er2p1_, sizeof(L1_SingleEG36er2p1_), "L1_SingleEG36er2p1");
+    nanoCheckScalarWidth(b_L1_SingleEG36er2p5_, sizeof(L1_SingleEG36er2p5_), "L1_SingleEG36er2p5");
+    nanoCheckScalarWidth(b_L1_SingleEG38_, sizeof(L1_SingleEG38_), "L1_SingleEG38");
+    nanoCheckScalarWidth(b_L1_SingleEG38er2p1_, sizeof(L1_SingleEG38er2p1_), "L1_SingleEG38er2p1");
+    nanoCheckScalarWidth(b_L1_SingleEG38er2p5_, sizeof(L1_SingleEG38er2p5_), "L1_SingleEG38er2p5");
+    nanoCheckScalarWidth(b_L1_SingleEG40_, sizeof(L1_SingleEG40_), "L1_SingleEG40");
+    nanoCheckScalarWidth(b_L1_SingleEG40er2p5_, sizeof(L1_SingleEG40er2p5_), "L1_SingleEG40er2p5");
+    nanoCheckScalarWidth(b_L1_SingleEG42_, sizeof(L1_SingleEG42_), "L1_SingleEG42");
+    nanoCheckScalarWidth(b_L1_SingleEG42er2p5_, sizeof(L1_SingleEG42er2p5_), "L1_SingleEG42er2p5");
+    nanoCheckScalarWidth(b_L1_SingleEG45_, sizeof(L1_SingleEG45_), "L1_SingleEG45");
+    nanoCheckScalarWidth(b_L1_SingleEG45er2p5_, sizeof(L1_SingleEG45er2p5_), "L1_SingleEG45er2p5");
+    nanoCheckScalarWidth(b_L1_SingleEG5_, sizeof(L1_SingleEG5_), "L1_SingleEG5");
+    nanoCheckScalarWidth(b_L1_SingleEG50_, sizeof(L1_SingleEG50_), "L1_SingleEG50");
+    nanoCheckScalarWidth(b_L1_SingleEG60_, sizeof(L1_SingleEG60_), "L1_SingleEG60");
+    nanoCheckScalarWidth(b_L1_SingleEG8er2p5_, sizeof(L1_SingleEG8er2p5_), "L1_SingleEG8er2p5");
+    nanoCheckScalarWidth(b_L1_SingleIsoEG18_, sizeof(L1_SingleIsoEG18_), "L1_SingleIsoEG18");
+    nanoCheckScalarWidth(b_L1_SingleIsoEG18er_, sizeof(L1_SingleIsoEG18er_), "L1_SingleIsoEG18er");
+    nanoCheckScalarWidth(b_L1_SingleIsoEG18er2p1_, sizeof(L1_SingleIsoEG18er2p1_), "L1_SingleIsoEG18er2p1");
+    nanoCheckScalarWidth(b_L1_SingleIsoEG20_, sizeof(L1_SingleIsoEG20_), "L1_SingleIsoEG20");
+    nanoCheckScalarWidth(b_L1_SingleIsoEG20er_, sizeof(L1_SingleIsoEG20er_), "L1_SingleIsoEG20er");
+    nanoCheckScalarWidth(b_L1_SingleIsoEG20er2p1_, sizeof(L1_SingleIsoEG20er2p1_), "L1_SingleIsoEG20er2p1");
+    nanoCheckScalarWidth(b_L1_SingleIsoEG22_, sizeof(L1_SingleIsoEG22_), "L1_SingleIsoEG22");
+    nanoCheckScalarWidth(b_L1_SingleIsoEG22er_, sizeof(L1_SingleIsoEG22er_), "L1_SingleIsoEG22er");
+    nanoCheckScalarWidth(b_L1_SingleIsoEG22er2p1_, sizeof(L1_SingleIsoEG22er2p1_), "L1_SingleIsoEG22er2p1");
+    nanoCheckScalarWidth(b_L1_SingleIsoEG24_, sizeof(L1_SingleIsoEG24_), "L1_SingleIsoEG24");
+    nanoCheckScalarWidth(b_L1_SingleIsoEG24er_, sizeof(L1_SingleIsoEG24er_), "L1_SingleIsoEG24er");
+    nanoCheckScalarWidth(b_L1_SingleIsoEG24er1p5_, sizeof(L1_SingleIsoEG24er1p5_), "L1_SingleIsoEG24er1p5");
+    nanoCheckScalarWidth(b_L1_SingleIsoEG24er2p1_, sizeof(L1_SingleIsoEG24er2p1_), "L1_SingleIsoEG24er2p1");
+    nanoCheckScalarWidth(b_L1_SingleIsoEG26_, sizeof(L1_SingleIsoEG26_), "L1_SingleIsoEG26");
+    nanoCheckScalarWidth(b_L1_SingleIsoEG26er_, sizeof(L1_SingleIsoEG26er_), "L1_SingleIsoEG26er");
+    nanoCheckScalarWidth(b_L1_SingleIsoEG26er1p5_, sizeof(L1_SingleIsoEG26er1p5_), "L1_SingleIsoEG26er1p5");
+    nanoCheckScalarWidth(b_L1_SingleIsoEG26er2p1_, sizeof(L1_SingleIsoEG26er2p1_), "L1_SingleIsoEG26er2p1");
+    nanoCheckScalarWidth(b_L1_SingleIsoEG26er2p5_, sizeof(L1_SingleIsoEG26er2p5_), "L1_SingleIsoEG26er2p5");
+    nanoCheckScalarWidth(b_L1_SingleIsoEG28_, sizeof(L1_SingleIsoEG28_), "L1_SingleIsoEG28");
+    nanoCheckScalarWidth(b_L1_SingleIsoEG28_FWD2p5_, sizeof(L1_SingleIsoEG28_FWD2p5_), "L1_SingleIsoEG28_FWD2p5");
+    nanoCheckScalarWidth(b_L1_SingleIsoEG28er_, sizeof(L1_SingleIsoEG28er_), "L1_SingleIsoEG28er");
+    nanoCheckScalarWidth(b_L1_SingleIsoEG28er1p5_, sizeof(L1_SingleIsoEG28er1p5_), "L1_SingleIsoEG28er1p5");
+    nanoCheckScalarWidth(b_L1_SingleIsoEG28er2p1_, sizeof(L1_SingleIsoEG28er2p1_), "L1_SingleIsoEG28er2p1");
+    nanoCheckScalarWidth(b_L1_SingleIsoEG28er2p5_, sizeof(L1_SingleIsoEG28er2p5_), "L1_SingleIsoEG28er2p5");
+    nanoCheckScalarWidth(b_L1_SingleIsoEG30_, sizeof(L1_SingleIsoEG30_), "L1_SingleIsoEG30");
+    nanoCheckScalarWidth(b_L1_SingleIsoEG30er_, sizeof(L1_SingleIsoEG30er_), "L1_SingleIsoEG30er");
+    nanoCheckScalarWidth(b_L1_SingleIsoEG30er2p1_, sizeof(L1_SingleIsoEG30er2p1_), "L1_SingleIsoEG30er2p1");
+    nanoCheckScalarWidth(b_L1_SingleIsoEG30er2p5_, sizeof(L1_SingleIsoEG30er2p5_), "L1_SingleIsoEG30er2p5");
+    nanoCheckScalarWidth(b_L1_SingleIsoEG32_, sizeof(L1_SingleIsoEG32_), "L1_SingleIsoEG32");
+    nanoCheckScalarWidth(b_L1_SingleIsoEG32er_, sizeof(L1_SingleIsoEG32er_), "L1_SingleIsoEG32er");
+    nanoCheckScalarWidth(b_L1_SingleIsoEG32er2p1_, sizeof(L1_SingleIsoEG32er2p1_), "L1_SingleIsoEG32er2p1");
+    nanoCheckScalarWidth(b_L1_SingleIsoEG32er2p5_, sizeof(L1_SingleIsoEG32er2p5_), "L1_SingleIsoEG32er2p5");
+    nanoCheckScalarWidth(b_L1_SingleIsoEG33er2p1_, sizeof(L1_SingleIsoEG33er2p1_), "L1_SingleIsoEG33er2p1");
+    nanoCheckScalarWidth(b_L1_SingleIsoEG34_, sizeof(L1_SingleIsoEG34_), "L1_SingleIsoEG34");
+    nanoCheckScalarWidth(b_L1_SingleIsoEG34er_, sizeof(L1_SingleIsoEG34er_), "L1_SingleIsoEG34er");
+    nanoCheckScalarWidth(b_L1_SingleIsoEG34er2p1_, sizeof(L1_SingleIsoEG34er2p1_), "L1_SingleIsoEG34er2p1");
+    nanoCheckScalarWidth(b_L1_SingleIsoEG34er2p5_, sizeof(L1_SingleIsoEG34er2p5_), "L1_SingleIsoEG34er2p5");
+    nanoCheckScalarWidth(b_L1_SingleIsoEG35_, sizeof(L1_SingleIsoEG35_), "L1_SingleIsoEG35");
+    nanoCheckScalarWidth(b_L1_SingleIsoEG35er2p1_, sizeof(L1_SingleIsoEG35er2p1_), "L1_SingleIsoEG35er2p1");
+    nanoCheckScalarWidth(b_L1_SingleIsoEG36_, sizeof(L1_SingleIsoEG36_), "L1_SingleIsoEG36");
+    nanoCheckScalarWidth(b_L1_SingleIsoEG36er2p1_, sizeof(L1_SingleIsoEG36er2p1_), "L1_SingleIsoEG36er2p1");
+    nanoCheckScalarWidth(b_L1_SingleIsoEG37_, sizeof(L1_SingleIsoEG37_), "L1_SingleIsoEG37");
+    nanoCheckScalarWidth(b_L1_SingleIsoEG38_, sizeof(L1_SingleIsoEG38_), "L1_SingleIsoEG38");
+    nanoCheckScalarWidth(b_L1_SingleIsoEG38er2p1_, sizeof(L1_SingleIsoEG38er2p1_), "L1_SingleIsoEG38er2p1");
+    nanoCheckScalarWidth(b_L1_SingleIsoEG40_, sizeof(L1_SingleIsoEG40_), "L1_SingleIsoEG40");
+    nanoCheckScalarWidth(b_L1_SingleIsoEG40er2p1_, sizeof(L1_SingleIsoEG40er2p1_), "L1_SingleIsoEG40er2p1");
+    nanoCheckScalarWidth(b_L1_SingleIsoTau32er2p1_, sizeof(L1_SingleIsoTau32er2p1_), "L1_SingleIsoTau32er2p1");
+    nanoCheckScalarWidth(b_L1_SingleJet10erHE_, sizeof(L1_SingleJet10erHE_), "L1_SingleJet10erHE");
+    nanoCheckScalarWidth(b_L1_SingleJet12_, sizeof(L1_SingleJet12_), "L1_SingleJet12");
+    nanoCheckScalarWidth(b_L1_SingleJet120_, sizeof(L1_SingleJet120_), "L1_SingleJet120");
+    nanoCheckScalarWidth(b_L1_SingleJet120_FWD_, sizeof(L1_SingleJet120_FWD_), "L1_SingleJet120_FWD");
+    nanoCheckScalarWidth(b_L1_SingleJet120_FWD3p0_, sizeof(L1_SingleJet120_FWD3p0_), "L1_SingleJet120_FWD3p0");
+    nanoCheckScalarWidth(b_L1_SingleJet120er2p5_, sizeof(L1_SingleJet120er2p5_), "L1_SingleJet120er2p5");
+    nanoCheckScalarWidth(b_L1_SingleJet12_BptxAND_, sizeof(L1_SingleJet12_BptxAND_), "L1_SingleJet12_BptxAND");
+    nanoCheckScalarWidth(b_L1_SingleJet12erHE_, sizeof(L1_SingleJet12erHE_), "L1_SingleJet12erHE");
+    nanoCheckScalarWidth(b_L1_SingleJet140_, sizeof(L1_SingleJet140_), "L1_SingleJet140");
+    nanoCheckScalarWidth(b_L1_SingleJet140er2p5_, sizeof(L1_SingleJet140er2p5_), "L1_SingleJet140er2p5");
+    nanoCheckScalarWidth(b_L1_SingleJet140er2p5_ETMHF70_, sizeof(L1_SingleJet140er2p5_ETMHF70_), "L1_SingleJet140er2p5_ETMHF70");
+    nanoCheckScalarWidth(b_L1_SingleJet140er2p5_ETMHF80_, sizeof(L1_SingleJet140er2p5_ETMHF80_), "L1_SingleJet140er2p5_ETMHF80");
+    nanoCheckScalarWidth(b_L1_SingleJet140er2p5_ETMHF90_, sizeof(L1_SingleJet140er2p5_ETMHF90_), "L1_SingleJet140er2p5_ETMHF90");
+    nanoCheckScalarWidth(b_L1_SingleJet150_, sizeof(L1_SingleJet150_), "L1_SingleJet150");
+    nanoCheckScalarWidth(b_L1_SingleJet16_, sizeof(L1_SingleJet16_), "L1_SingleJet16");
+    nanoCheckScalarWidth(b_L1_SingleJet160_, sizeof(L1_SingleJet160_), "L1_SingleJet160");
+    nanoCheckScalarWidth(b_L1_SingleJet160er2p5_, sizeof(L1_SingleJet160er2p5_), "L1_SingleJet160er2p5");
+    nanoCheckScalarWidth(b_L1_SingleJet170_, sizeof(L1_SingleJet170_), "L1_SingleJet170");
+    nanoCheckScalarWidth(b_L1_SingleJet180_, sizeof(L1_SingleJet180_), "L1_SingleJet180");
+    nanoCheckScalarWidth(b_L1_SingleJet180er2p5_, sizeof(L1_SingleJet180er2p5_), "L1_SingleJet180er2p5");
+    nanoCheckScalarWidth(b_L1_SingleJet20_, sizeof(L1_SingleJet20_), "L1_SingleJet20");
+    nanoCheckScalarWidth(b_L1_SingleJet200_, sizeof(L1_SingleJet200_), "L1_SingleJet200");
+    nanoCheckScalarWidth(b_L1_SingleJet20er2p5_NotBptxOR_, sizeof(L1_SingleJet20er2p5_NotBptxOR_), "L1_SingleJet20er2p5_NotBptxOR");
+    nanoCheckScalarWidth(b_L1_SingleJet20er2p5_NotBptxOR_3BX_, sizeof(L1_SingleJet20er2p5_NotBptxOR_3BX_), "L1_SingleJet20er2p5_NotBptxOR_3BX");
+    nanoCheckScalarWidth(b_L1_SingleJet20er2p7_NotBptxOR_, sizeof(L1_SingleJet20er2p7_NotBptxOR_), "L1_SingleJet20er2p7_NotBptxOR");
+    nanoCheckScalarWidth(b_L1_SingleJet20er2p7_NotBptxOR_3BX_, sizeof(L1_SingleJet20er2p7_NotBptxOR_3BX_), "L1_SingleJet20er2p7_NotBptxOR_3BX");
+    nanoCheckScalarWidth(b_L1_SingleJet20er3p0_NotBptxOR_, sizeof(L1_SingleJet20er3p0_NotBptxOR_), "L1_SingleJet20er3p0_NotBptxOR");
+    nanoCheckScalarWidth(b_L1_SingleJet20er3p0_NotBptxOR_3BX_, sizeof(L1_SingleJet20er3p0_NotBptxOR_3BX_), "L1_SingleJet20er3p0_NotBptxOR_3BX");
+    nanoCheckScalarWidth(b_L1_SingleJet35_, sizeof(L1_SingleJet35_), "L1_SingleJet35");
+    nanoCheckScalarWidth(b_L1_SingleJet35_FWD_, sizeof(L1_SingleJet35_FWD_), "L1_SingleJet35_FWD");
+    nanoCheckScalarWidth(b_L1_SingleJet35_FWD3p0_, sizeof(L1_SingleJet35_FWD3p0_), "L1_SingleJet35_FWD3p0");
+    nanoCheckScalarWidth(b_L1_SingleJet35_HFm_, sizeof(L1_SingleJet35_HFm_), "L1_SingleJet35_HFm");
+    nanoCheckScalarWidth(b_L1_SingleJet35_HFp_, sizeof(L1_SingleJet35_HFp_), "L1_SingleJet35_HFp");
+    nanoCheckScalarWidth(b_L1_SingleJet35er2p5_, sizeof(L1_SingleJet35er2p5_), "L1_SingleJet35er2p5");
+    nanoCheckScalarWidth(b_L1_SingleJet4_, sizeof(L1_SingleJet4_), "L1_SingleJet4");
+    nanoCheckScalarWidth(b_L1_SingleJet43er2p5_NotBptxOR_3BX_, sizeof(L1_SingleJet43er2p5_NotBptxOR_3BX_), "L1_SingleJet43er2p5_NotBptxOR_3BX");
+    nanoCheckScalarWidth(b_L1_SingleJet43er2p7_NotBptxOR_3BX_, sizeof(L1_SingleJet43er2p7_NotBptxOR_3BX_), "L1_SingleJet43er2p7_NotBptxOR_3BX");
+    nanoCheckScalarWidth(b_L1_SingleJet43er3p0_NotBptxOR_3BX_, sizeof(L1_SingleJet43er3p0_NotBptxOR_3BX_), "L1_SingleJet43er3p0_NotBptxOR_3BX");
+    nanoCheckScalarWidth(b_L1_SingleJet46er2p5_NotBptxOR_3BX_, sizeof(L1_SingleJet46er2p5_NotBptxOR_3BX_), "L1_SingleJet46er2p5_NotBptxOR_3BX");
+    nanoCheckScalarWidth(b_L1_SingleJet46er2p7_NotBptxOR_3BX_, sizeof(L1_SingleJet46er2p7_NotBptxOR_3BX_), "L1_SingleJet46er2p7_NotBptxOR_3BX");
+    nanoCheckScalarWidth(b_L1_SingleJet46er3p0_NotBptxOR_3BX_, sizeof(L1_SingleJet46er3p0_NotBptxOR_3BX_), "L1_SingleJet46er3p0_NotBptxOR_3BX");
+    nanoCheckScalarWidth(b_L1_SingleJet60_, sizeof(L1_SingleJet60_), "L1_SingleJet60");
+    nanoCheckScalarWidth(b_L1_SingleJet60_FWD_, sizeof(L1_SingleJet60_FWD_), "L1_SingleJet60_FWD");
+    nanoCheckScalarWidth(b_L1_SingleJet60_FWD3p0_, sizeof(L1_SingleJet60_FWD3p0_), "L1_SingleJet60_FWD3p0");
+    nanoCheckScalarWidth(b_L1_SingleJet60_HFm_, sizeof(L1_SingleJet60_HFm_), "L1_SingleJet60_HFm");
+    nanoCheckScalarWidth(b_L1_SingleJet60_HFp_, sizeof(L1_SingleJet60_HFp_), "L1_SingleJet60_HFp");
+    nanoCheckScalarWidth(b_L1_SingleJet60er2p5_, sizeof(L1_SingleJet60er2p5_), "L1_SingleJet60er2p5");
+    nanoCheckScalarWidth(b_L1_SingleJet8_, sizeof(L1_SingleJet8_), "L1_SingleJet8");
+    nanoCheckScalarWidth(b_L1_SingleJet8_BptxAND_, sizeof(L1_SingleJet8_BptxAND_), "L1_SingleJet8_BptxAND");
+    nanoCheckScalarWidth(b_L1_SingleJet8erHE_, sizeof(L1_SingleJet8erHE_), "L1_SingleJet8erHE");
+    nanoCheckScalarWidth(b_L1_SingleJet90_, sizeof(L1_SingleJet90_), "L1_SingleJet90");
+    nanoCheckScalarWidth(b_L1_SingleJet90_FWD_, sizeof(L1_SingleJet90_FWD_), "L1_SingleJet90_FWD");
+    nanoCheckScalarWidth(b_L1_SingleJet90_FWD3p0_, sizeof(L1_SingleJet90_FWD3p0_), "L1_SingleJet90_FWD3p0");
+    nanoCheckScalarWidth(b_L1_SingleJet90er2p5_, sizeof(L1_SingleJet90er2p5_), "L1_SingleJet90er2p5");
+    nanoCheckScalarWidth(b_L1_SingleJetC20_NotBptxOR_, sizeof(L1_SingleJetC20_NotBptxOR_), "L1_SingleJetC20_NotBptxOR");
+    nanoCheckScalarWidth(b_L1_SingleJetC20_NotBptxOR_3BX_, sizeof(L1_SingleJetC20_NotBptxOR_3BX_), "L1_SingleJetC20_NotBptxOR_3BX");
+    nanoCheckScalarWidth(b_L1_SingleJetC32_NotBptxOR_, sizeof(L1_SingleJetC32_NotBptxOR_), "L1_SingleJetC32_NotBptxOR");
+    nanoCheckScalarWidth(b_L1_SingleJetC32_NotBptxOR_3BX_, sizeof(L1_SingleJetC32_NotBptxOR_3BX_), "L1_SingleJetC32_NotBptxOR_3BX");
+    nanoCheckScalarWidth(b_L1_SingleJetC36_NotBptxOR_3BX_, sizeof(L1_SingleJetC36_NotBptxOR_3BX_), "L1_SingleJetC36_NotBptxOR_3BX");
+    nanoCheckScalarWidth(b_L1_SingleJetC40_NotBptxOR_3BX_, sizeof(L1_SingleJetC40_NotBptxOR_3BX_), "L1_SingleJetC40_NotBptxOR_3BX");
+    nanoCheckScalarWidth(b_L1_SingleJetC40_NotBptxOR_5BX_, sizeof(L1_SingleJetC40_NotBptxOR_5BX_), "L1_SingleJetC40_NotBptxOR_5BX");
+    nanoCheckScalarWidth(b_L1_SingleLooseIsoEG26er1p5_, sizeof(L1_SingleLooseIsoEG26er1p5_), "L1_SingleLooseIsoEG26er1p5");
+    nanoCheckScalarWidth(b_L1_SingleLooseIsoEG26er2p5_, sizeof(L1_SingleLooseIsoEG26er2p5_), "L1_SingleLooseIsoEG26er2p5");
+    nanoCheckScalarWidth(b_L1_SingleLooseIsoEG28_FWD2p5_, sizeof(L1_SingleLooseIsoEG28_FWD2p5_), "L1_SingleLooseIsoEG28_FWD2p5");
+    nanoCheckScalarWidth(b_L1_SingleLooseIsoEG28er1p5_, sizeof(L1_SingleLooseIsoEG28er1p5_), "L1_SingleLooseIsoEG28er1p5");
+    nanoCheckScalarWidth(b_L1_SingleLooseIsoEG28er2p1_, sizeof(L1_SingleLooseIsoEG28er2p1_), "L1_SingleLooseIsoEG28er2p1");
+    nanoCheckScalarWidth(b_L1_SingleLooseIsoEG28er2p5_, sizeof(L1_SingleLooseIsoEG28er2p5_), "L1_SingleLooseIsoEG28er2p5");
+    nanoCheckScalarWidth(b_L1_SingleLooseIsoEG30er1p5_, sizeof(L1_SingleLooseIsoEG30er1p5_), "L1_SingleLooseIsoEG30er1p5");
+    nanoCheckScalarWidth(b_L1_SingleLooseIsoEG30er2p5_, sizeof(L1_SingleLooseIsoEG30er2p5_), "L1_SingleLooseIsoEG30er2p5");
+    nanoCheckScalarWidth(b_L1_SingleMu0_BMTF_, sizeof(L1_SingleMu0_BMTF_), "L1_SingleMu0_BMTF");
+    nanoCheckScalarWidth(b_L1_SingleMu0_DQ_, sizeof(L1_SingleMu0_DQ_), "L1_SingleMu0_DQ");
+    nanoCheckScalarWidth(b_L1_SingleMu0_EMTF_, sizeof(L1_SingleMu0_EMTF_), "L1_SingleMu0_EMTF");
+    nanoCheckScalarWidth(b_L1_SingleMu0_OMTF_, sizeof(L1_SingleMu0_OMTF_), "L1_SingleMu0_OMTF");
+    nanoCheckScalarWidth(b_L1_SingleMu10_LowQ_, sizeof(L1_SingleMu10_LowQ_), "L1_SingleMu10_LowQ");
+    nanoCheckScalarWidth(b_L1_SingleMu10er1p5_, sizeof(L1_SingleMu10er1p5_), "L1_SingleMu10er1p5");
+    nanoCheckScalarWidth(b_L1_SingleMu11_LowQ_, sizeof(L1_SingleMu11_LowQ_), "L1_SingleMu11_LowQ");
+    nanoCheckScalarWidth(b_L1_SingleMu12_, sizeof(L1_SingleMu12_), "L1_SingleMu12");
+    nanoCheckScalarWidth(b_L1_SingleMu12_DQ_BMTF_, sizeof(L1_SingleMu12_DQ_BMTF_), "L1_SingleMu12_DQ_BMTF");
+    nanoCheckScalarWidth(b_L1_SingleMu12_DQ_EMTF_, sizeof(L1_SingleMu12_DQ_EMTF_), "L1_SingleMu12_DQ_EMTF");
+    nanoCheckScalarWidth(b_L1_SingleMu12_DQ_OMTF_, sizeof(L1_SingleMu12_DQ_OMTF_), "L1_SingleMu12_DQ_OMTF");
+    nanoCheckScalarWidth(b_L1_SingleMu12_LowQ_BMTF_, sizeof(L1_SingleMu12_LowQ_BMTF_), "L1_SingleMu12_LowQ_BMTF");
+    nanoCheckScalarWidth(b_L1_SingleMu12_LowQ_EMTF_, sizeof(L1_SingleMu12_LowQ_EMTF_), "L1_SingleMu12_LowQ_EMTF");
+    nanoCheckScalarWidth(b_L1_SingleMu12_LowQ_OMTF_, sizeof(L1_SingleMu12_LowQ_OMTF_), "L1_SingleMu12_LowQ_OMTF");
+    nanoCheckScalarWidth(b_L1_SingleMu12er1p5_, sizeof(L1_SingleMu12er1p5_), "L1_SingleMu12er1p5");
+    nanoCheckScalarWidth(b_L1_SingleMu14_, sizeof(L1_SingleMu14_), "L1_SingleMu14");
+    nanoCheckScalarWidth(b_L1_SingleMu14er_, sizeof(L1_SingleMu14er_), "L1_SingleMu14er");
+    nanoCheckScalarWidth(b_L1_SingleMu14er1p5_, sizeof(L1_SingleMu14er1p5_), "L1_SingleMu14er1p5");
+    nanoCheckScalarWidth(b_L1_SingleMu14er2p1_, sizeof(L1_SingleMu14er2p1_), "L1_SingleMu14er2p1");
+    nanoCheckScalarWidth(b_L1_SingleMu15_DQ_, sizeof(L1_SingleMu15_DQ_), "L1_SingleMu15_DQ");
+    nanoCheckScalarWidth(b_L1_SingleMu16_, sizeof(L1_SingleMu16_), "L1_SingleMu16");
+    nanoCheckScalarWidth(b_L1_SingleMu16er_, sizeof(L1_SingleMu16er_), "L1_SingleMu16er");
+    nanoCheckScalarWidth(b_L1_SingleMu16er1p5_, sizeof(L1_SingleMu16er1p5_), "L1_SingleMu16er1p5");
+    nanoCheckScalarWidth(b_L1_SingleMu16er2p1_, sizeof(L1_SingleMu16er2p1_), "L1_SingleMu16er2p1");
+    nanoCheckScalarWidth(b_L1_SingleMu18_, sizeof(L1_SingleMu18_), "L1_SingleMu18");
+    nanoCheckScalarWidth(b_L1_SingleMu18er_, sizeof(L1_SingleMu18er_), "L1_SingleMu18er");
+    nanoCheckScalarWidth(b_L1_SingleMu18er1p5_, sizeof(L1_SingleMu18er1p5_), "L1_SingleMu18er1p5");
+    nanoCheckScalarWidth(b_L1_SingleMu18er2p1_, sizeof(L1_SingleMu18er2p1_), "L1_SingleMu18er2p1");
+    nanoCheckScalarWidth(b_L1_SingleMu20_, sizeof(L1_SingleMu20_), "L1_SingleMu20");
+    nanoCheckScalarWidth(b_L1_SingleMu20er_, sizeof(L1_SingleMu20er_), "L1_SingleMu20er");
+    nanoCheckScalarWidth(b_L1_SingleMu20er2p1_, sizeof(L1_SingleMu20er2p1_), "L1_SingleMu20er2p1");
+    nanoCheckScalarWidth(b_L1_SingleMu22_, sizeof(L1_SingleMu22_), "L1_SingleMu22");
+    nanoCheckScalarWidth(b_L1_SingleMu22_BMTF_, sizeof(L1_SingleMu22_BMTF_), "L1_SingleMu22_BMTF");
+    nanoCheckScalarWidth(b_L1_SingleMu22_DQ_, sizeof(L1_SingleMu22_DQ_), "L1_SingleMu22_DQ");
+    nanoCheckScalarWidth(b_L1_SingleMu22_EMTF_, sizeof(L1_SingleMu22_EMTF_), "L1_SingleMu22_EMTF");
+    nanoCheckScalarWidth(b_L1_SingleMu22_OMTF_, sizeof(L1_SingleMu22_OMTF_), "L1_SingleMu22_OMTF");
+    nanoCheckScalarWidth(b_L1_SingleMu22_OQ_, sizeof(L1_SingleMu22_OQ_), "L1_SingleMu22_OQ");
+    nanoCheckScalarWidth(b_L1_SingleMu22er_, sizeof(L1_SingleMu22er_), "L1_SingleMu22er");
+    nanoCheckScalarWidth(b_L1_SingleMu22er2p1_, sizeof(L1_SingleMu22er2p1_), "L1_SingleMu22er2p1");
+    nanoCheckScalarWidth(b_L1_SingleMu25_, sizeof(L1_SingleMu25_), "L1_SingleMu25");
+    nanoCheckScalarWidth(b_L1_SingleMu25er_, sizeof(L1_SingleMu25er_), "L1_SingleMu25er");
+    nanoCheckScalarWidth(b_L1_SingleMu3_, sizeof(L1_SingleMu3_), "L1_SingleMu3");
+    nanoCheckScalarWidth(b_L1_SingleMu30_, sizeof(L1_SingleMu30_), "L1_SingleMu30");
+    nanoCheckScalarWidth(b_L1_SingleMu30er_, sizeof(L1_SingleMu30er_), "L1_SingleMu30er");
+    nanoCheckScalarWidth(b_L1_SingleMu5_, sizeof(L1_SingleMu5_), "L1_SingleMu5");
+    nanoCheckScalarWidth(b_L1_SingleMu6er1p5_, sizeof(L1_SingleMu6er1p5_), "L1_SingleMu6er1p5");
+    nanoCheckScalarWidth(b_L1_SingleMu7_, sizeof(L1_SingleMu7_), "L1_SingleMu7");
+    nanoCheckScalarWidth(b_L1_SingleMu7_DQ_, sizeof(L1_SingleMu7_DQ_), "L1_SingleMu7_DQ");
+    nanoCheckScalarWidth(b_L1_SingleMu7er1p5_, sizeof(L1_SingleMu7er1p5_), "L1_SingleMu7er1p5");
+    nanoCheckScalarWidth(b_L1_SingleMu8er1p5_, sizeof(L1_SingleMu8er1p5_), "L1_SingleMu8er1p5");
+    nanoCheckScalarWidth(b_L1_SingleMu9er1p5_, sizeof(L1_SingleMu9er1p5_), "L1_SingleMu9er1p5");
+    nanoCheckScalarWidth(b_L1_SingleMuCosmics_, sizeof(L1_SingleMuCosmics_), "L1_SingleMuCosmics");
+    nanoCheckScalarWidth(b_L1_SingleMuCosmics_BMTF_, sizeof(L1_SingleMuCosmics_BMTF_), "L1_SingleMuCosmics_BMTF");
+    nanoCheckScalarWidth(b_L1_SingleMuCosmics_EMTF_, sizeof(L1_SingleMuCosmics_EMTF_), "L1_SingleMuCosmics_EMTF");
+    nanoCheckScalarWidth(b_L1_SingleMuCosmics_OMTF_, sizeof(L1_SingleMuCosmics_OMTF_), "L1_SingleMuCosmics_OMTF");
+    nanoCheckScalarWidth(b_L1_SingleMuOpen_, sizeof(L1_SingleMuOpen_), "L1_SingleMuOpen");
+    nanoCheckScalarWidth(b_L1_SingleMuOpen_NotBptxOR_, sizeof(L1_SingleMuOpen_NotBptxOR_), "L1_SingleMuOpen_NotBptxOR");
+    nanoCheckScalarWidth(b_L1_SingleMuOpen_NotBptxOR_3BX_, sizeof(L1_SingleMuOpen_NotBptxOR_3BX_), "L1_SingleMuOpen_NotBptxOR_3BX");
+    nanoCheckScalarWidth(b_L1_SingleMuOpen_er1p1_NotBptxOR_3BX_, sizeof(L1_SingleMuOpen_er1p1_NotBptxOR_3BX_), "L1_SingleMuOpen_er1p1_NotBptxOR_3BX");
+    nanoCheckScalarWidth(b_L1_SingleMuOpen_er1p4_NotBptxOR_3BX_, sizeof(L1_SingleMuOpen_er1p4_NotBptxOR_3BX_), "L1_SingleMuOpen_er1p4_NotBptxOR_3BX");
+    nanoCheckScalarWidth(b_L1_SingleMuShower_Nominal_, sizeof(L1_SingleMuShower_Nominal_), "L1_SingleMuShower_Nominal");
+    nanoCheckScalarWidth(b_L1_SingleMuShower_Tight_, sizeof(L1_SingleMuShower_Tight_), "L1_SingleMuShower_Tight");
+    nanoCheckScalarWidth(b_L1_SingleTau100er_, sizeof(L1_SingleTau100er_), "L1_SingleTau100er");
+    nanoCheckScalarWidth(b_L1_SingleTau100er2p1_, sizeof(L1_SingleTau100er2p1_), "L1_SingleTau100er2p1");
+    nanoCheckScalarWidth(b_L1_SingleTau120er_, sizeof(L1_SingleTau120er_), "L1_SingleTau120er");
+    nanoCheckScalarWidth(b_L1_SingleTau120er2p1_, sizeof(L1_SingleTau120er2p1_), "L1_SingleTau120er2p1");
+    nanoCheckScalarWidth(b_L1_SingleTau130er2p1_, sizeof(L1_SingleTau130er2p1_), "L1_SingleTau130er2p1");
+    nanoCheckScalarWidth(b_L1_SingleTau140er2p1_, sizeof(L1_SingleTau140er2p1_), "L1_SingleTau140er2p1");
+    nanoCheckScalarWidth(b_L1_SingleTau20_, sizeof(L1_SingleTau20_), "L1_SingleTau20");
+    nanoCheckScalarWidth(b_L1_SingleTau70er2p1_, sizeof(L1_SingleTau70er2p1_), "L1_SingleTau70er2p1");
+    nanoCheckScalarWidth(b_L1_SingleTau80er_, sizeof(L1_SingleTau80er_), "L1_SingleTau80er");
+    nanoCheckScalarWidth(b_L1_SingleTau80er2p1_, sizeof(L1_SingleTau80er2p1_), "L1_SingleTau80er2p1");
+    nanoCheckScalarWidth(b_L1_TOTEM_1_, sizeof(L1_TOTEM_1_), "L1_TOTEM_1");
+    nanoCheckScalarWidth(b_L1_TOTEM_2_, sizeof(L1_TOTEM_2_), "L1_TOTEM_2");
+    nanoCheckScalarWidth(b_L1_TOTEM_3_, sizeof(L1_TOTEM_3_), "L1_TOTEM_3");
+    nanoCheckScalarWidth(b_L1_TOTEM_4_, sizeof(L1_TOTEM_4_), "L1_TOTEM_4");
+    nanoCheckScalarWidth(b_L1_TripleEG16er2p5_, sizeof(L1_TripleEG16er2p5_), "L1_TripleEG16er2p5");
+    nanoCheckScalarWidth(b_L1_TripleEG_14_10_8_, sizeof(L1_TripleEG_14_10_8_), "L1_TripleEG_14_10_8");
+    nanoCheckScalarWidth(b_L1_TripleEG_16_12_8_er2p5_, sizeof(L1_TripleEG_16_12_8_er2p5_), "L1_TripleEG_16_12_8_er2p5");
+    nanoCheckScalarWidth(b_L1_TripleEG_16_15_8_er2p5_, sizeof(L1_TripleEG_16_15_8_er2p5_), "L1_TripleEG_16_15_8_er2p5");
+    nanoCheckScalarWidth(b_L1_TripleEG_18_17_8_, sizeof(L1_TripleEG_18_17_8_), "L1_TripleEG_18_17_8");
+    nanoCheckScalarWidth(b_L1_TripleEG_18_17_8_er2p5_, sizeof(L1_TripleEG_18_17_8_er2p5_), "L1_TripleEG_18_17_8_er2p5");
+    nanoCheckScalarWidth(b_L1_TripleEG_18_18_12_er2p5_, sizeof(L1_TripleEG_18_18_12_er2p5_), "L1_TripleEG_18_18_12_er2p5");
+    nanoCheckScalarWidth(b_L1_TripleEG_Iso20_10_5_, sizeof(L1_TripleEG_Iso20_10_5_), "L1_TripleEG_Iso20_10_5");
+    nanoCheckScalarWidth(b_L1_TripleEG_LooseIso20_10_5_, sizeof(L1_TripleEG_LooseIso20_10_5_), "L1_TripleEG_LooseIso20_10_5");
+    nanoCheckScalarWidth(b_L1_TripleJet_100_80_70_DoubleJet_80_70_er2p5_, sizeof(L1_TripleJet_100_80_70_DoubleJet_80_70_er2p5_), "L1_TripleJet_100_80_70_DoubleJet_80_70_er2p5");
+    nanoCheckScalarWidth(b_L1_TripleJet_100_85_72_VBF_, sizeof(L1_TripleJet_100_85_72_VBF_), "L1_TripleJet_100_85_72_VBF");
+    nanoCheckScalarWidth(b_L1_TripleJet_105_85_75_DoubleJet_85_75_er2p5_, sizeof(L1_TripleJet_105_85_75_DoubleJet_85_75_er2p5_), "L1_TripleJet_105_85_75_DoubleJet_85_75_er2p5");
+    nanoCheckScalarWidth(b_L1_TripleJet_105_85_76_VBF_, sizeof(L1_TripleJet_105_85_76_VBF_), "L1_TripleJet_105_85_76_VBF");
+    nanoCheckScalarWidth(b_L1_TripleJet_84_68_48_VBF_, sizeof(L1_TripleJet_84_68_48_VBF_), "L1_TripleJet_84_68_48_VBF");
+    nanoCheckScalarWidth(b_L1_TripleJet_88_72_56_VBF_, sizeof(L1_TripleJet_88_72_56_VBF_), "L1_TripleJet_88_72_56_VBF");
+    nanoCheckScalarWidth(b_L1_TripleJet_92_76_64_VBF_, sizeof(L1_TripleJet_92_76_64_VBF_), "L1_TripleJet_92_76_64_VBF");
+    nanoCheckScalarWidth(b_L1_TripleJet_95_75_65_DoubleJet_75_65_er2p5_, sizeof(L1_TripleJet_95_75_65_DoubleJet_75_65_er2p5_), "L1_TripleJet_95_75_65_DoubleJet_75_65_er2p5");
+    nanoCheckScalarWidth(b_L1_TripleJet_98_83_71_VBF_, sizeof(L1_TripleJet_98_83_71_VBF_), "L1_TripleJet_98_83_71_VBF");
+    nanoCheckScalarWidth(b_L1_TripleMu0_, sizeof(L1_TripleMu0_), "L1_TripleMu0");
+    nanoCheckScalarWidth(b_L1_TripleMu0_OQ_, sizeof(L1_TripleMu0_OQ_), "L1_TripleMu0_OQ");
+    nanoCheckScalarWidth(b_L1_TripleMu0_SQ_, sizeof(L1_TripleMu0_SQ_), "L1_TripleMu0_SQ");
+    nanoCheckScalarWidth(b_L1_TripleMu3_, sizeof(L1_TripleMu3_), "L1_TripleMu3");
+    nanoCheckScalarWidth(b_L1_TripleMu3_SQ_, sizeof(L1_TripleMu3_SQ_), "L1_TripleMu3_SQ");
+    nanoCheckScalarWidth(b_L1_TripleMu_2SQ_1p5SQ_0OQ_, sizeof(L1_TripleMu_2SQ_1p5SQ_0OQ_), "L1_TripleMu_2SQ_1p5SQ_0OQ");
+    nanoCheckScalarWidth(b_L1_TripleMu_2SQ_1p5SQ_0OQ_Mass_Max12_, sizeof(L1_TripleMu_2SQ_1p5SQ_0OQ_Mass_Max12_), "L1_TripleMu_2SQ_1p5SQ_0OQ_Mass_Max12");
+    nanoCheckScalarWidth(b_L1_TripleMu_3SQ_2p5SQ_0OQ_Mass_Max12_, sizeof(L1_TripleMu_3SQ_2p5SQ_0OQ_Mass_Max12_), "L1_TripleMu_3SQ_2p5SQ_0OQ_Mass_Max12");
+    nanoCheckScalarWidth(b_L1_TripleMu_4_4_4_, sizeof(L1_TripleMu_4_4_4_), "L1_TripleMu_4_4_4");
+    nanoCheckScalarWidth(b_L1_TripleMu_5OQ_3p5OQ_2p5OQ_DoubleMu_5_2p5_OQ_OS_Mass_5to17_, sizeof(L1_TripleMu_5OQ_3p5OQ_2p5OQ_DoubleMu_5_2p5_OQ_OS_Mass_5to17_), "L1_TripleMu_5OQ_3p5OQ_2p5OQ_DoubleMu_5_2p5_OQ_OS_Mass_5to17");
+    nanoCheckScalarWidth(b_L1_TripleMu_5OQ_3p5OQ_2p5OQ_DoubleMu_5_2p5_OQ_OS_Mass_8to14_, sizeof(L1_TripleMu_5OQ_3p5OQ_2p5OQ_DoubleMu_5_2p5_OQ_OS_Mass_8to14_), "L1_TripleMu_5OQ_3p5OQ_2p5OQ_DoubleMu_5_2p5_OQ_OS_Mass_8to14");
+    nanoCheckScalarWidth(b_L1_TripleMu_5SQ_3SQ_0OQ_, sizeof(L1_TripleMu_5SQ_3SQ_0OQ_), "L1_TripleMu_5SQ_3SQ_0OQ");
+    nanoCheckScalarWidth(b_L1_TripleMu_5SQ_3SQ_0OQ_DoubleMu_5_3_SQ_OS_Mass_Max9_, sizeof(L1_TripleMu_5SQ_3SQ_0OQ_DoubleMu_5_3_SQ_OS_Mass_Max9_), "L1_TripleMu_5SQ_3SQ_0OQ_DoubleMu_5_3_SQ_OS_Mass_Max9");
+    nanoCheckScalarWidth(b_L1_TripleMu_5SQ_3SQ_0_DoubleMu_5_3_SQ_OS_Mass_Max9_, sizeof(L1_TripleMu_5SQ_3SQ_0_DoubleMu_5_3_SQ_OS_Mass_Max9_), "L1_TripleMu_5SQ_3SQ_0_DoubleMu_5_3_SQ_OS_Mass_Max9");
+    nanoCheckScalarWidth(b_L1_TripleMu_5_0_0_, sizeof(L1_TripleMu_5_0_0_), "L1_TripleMu_5_0_0");
+    nanoCheckScalarWidth(b_L1_TripleMu_5_0_0_DoubleMu_5_0_OS_Mass_Max17_, sizeof(L1_TripleMu_5_0_0_DoubleMu_5_0_OS_Mass_Max17_), "L1_TripleMu_5_0_0_DoubleMu_5_0_OS_Mass_Max17");
+    nanoCheckScalarWidth(b_L1_TripleMu_5_3_0_DoubleMu_5_3_OS_Mass_Max17_, sizeof(L1_TripleMu_5_3_0_DoubleMu_5_3_OS_Mass_Max17_), "L1_TripleMu_5_3_0_DoubleMu_5_3_OS_Mass_Max17");
+    nanoCheckScalarWidth(b_L1_TripleMu_5_3_3_, sizeof(L1_TripleMu_5_3_3_), "L1_TripleMu_5_3_3");
+    nanoCheckScalarWidth(b_L1_TripleMu_5_3_3_SQ_, sizeof(L1_TripleMu_5_3_3_SQ_), "L1_TripleMu_5_3_3_SQ");
+    nanoCheckScalarWidth(b_L1_TripleMu_5_3p5_2p5_, sizeof(L1_TripleMu_5_3p5_2p5_), "L1_TripleMu_5_3p5_2p5");
+    nanoCheckScalarWidth(b_L1_TripleMu_5_3p5_2p5_DoubleMu_5_2p5_OS_Mass_5to17_, sizeof(L1_TripleMu_5_3p5_2p5_DoubleMu_5_2p5_OS_Mass_5to17_), "L1_TripleMu_5_3p5_2p5_DoubleMu_5_2p5_OS_Mass_5to17");
+    nanoCheckScalarWidth(b_L1_TripleMu_5_3p5_2p5_OQ_DoubleMu_5_2p5_OQ_OS_Mass_5to17_, sizeof(L1_TripleMu_5_3p5_2p5_OQ_DoubleMu_5_2p5_OQ_OS_Mass_5to17_), "L1_TripleMu_5_3p5_2p5_OQ_DoubleMu_5_2p5_OQ_OS_Mass_5to17");
+    nanoCheckScalarWidth(b_L1_TripleMu_5_4_2p5_DoubleMu_5_2p5_OS_Mass_5to17_, sizeof(L1_TripleMu_5_4_2p5_DoubleMu_5_2p5_OS_Mass_5to17_), "L1_TripleMu_5_4_2p5_DoubleMu_5_2p5_OS_Mass_5to17");
+    nanoCheckScalarWidth(b_L1_TripleMu_5_5_3_, sizeof(L1_TripleMu_5_5_3_), "L1_TripleMu_5_5_3");
+    nanoCheckScalarWidth(b_L1_UnpairedBunchBptxMinus_, sizeof(L1_UnpairedBunchBptxMinus_), "L1_UnpairedBunchBptxMinus");
+    nanoCheckScalarWidth(b_L1_UnpairedBunchBptxPlus_, sizeof(L1_UnpairedBunchBptxPlus_), "L1_UnpairedBunchBptxPlus");
+    nanoCheckScalarWidth(b_L1_UnprefireableEvent_, sizeof(L1_UnprefireableEvent_), "L1_UnprefireableEvent");
+    nanoCheckScalarWidth(b_L1_ZeroBias_, sizeof(L1_ZeroBias_), "L1_ZeroBias");
+    nanoCheckScalarWidth(b_L1_ZeroBias_FirstCollidingBunch_, sizeof(L1_ZeroBias_FirstCollidingBunch_), "L1_ZeroBias_FirstCollidingBunch");
+    nanoCheckScalarWidth(b_L1_ZeroBias_copy_, sizeof(L1_ZeroBias_copy_), "L1_ZeroBias_copy");
+    nanoCheckScalarWidth(b_L1simulation_step_, sizeof(L1simulation_step_), "L1simulation_step");
+    nanoCheckScalarWidth(b_LHEWeight_dummy_, sizeof(LHEWeight_dummy_), "LHEWeight_dummy");
+    nanoCheckScalarWidth(b_LHEWeight_originalXWGTUP_, sizeof(LHEWeight_originalXWGTUP_), "LHEWeight_originalXWGTUP");
+    nanoCheckScalarWidth(b_LHE_AlphaS_, sizeof(LHE_AlphaS_), "LHE_AlphaS");
+    nanoCheckScalarWidth(b_LHE_HT_, sizeof(LHE_HT_), "LHE_HT");
+    nanoCheckScalarWidth(b_LHE_HTIncoming_, sizeof(LHE_HTIncoming_), "LHE_HTIncoming");
+    nanoCheckScalarWidth(b_LHE_Nb_, sizeof(LHE_Nb_), "LHE_Nb");
+    nanoCheckScalarWidth(b_LHE_Nc_, sizeof(LHE_Nc_), "LHE_Nc");
+    nanoCheckScalarWidth(b_LHE_Nglu_, sizeof(LHE_Nglu_), "LHE_Nglu");
+    nanoCheckScalarWidth(b_LHE_Njets_, sizeof(LHE_Njets_), "LHE_Njets");
+    nanoCheckScalarWidth(b_LHE_NpLO_, sizeof(LHE_NpLO_), "LHE_NpLO");
+    nanoCheckScalarWidth(b_LHE_NpNLO_, sizeof(LHE_NpNLO_), "LHE_NpNLO");
+    nanoCheckScalarWidth(b_LHE_Nuds_, sizeof(LHE_Nuds_), "LHE_Nuds");
+    nanoCheckScalarWidth(b_LHE_Vpt_, sizeof(LHE_Vpt_), "LHE_Vpt");
+    nanoCheckScalarWidth(b_MET_MetUnclustEnUpDeltaX_, sizeof(MET_MetUnclustEnUpDeltaX_), "MET_MetUnclustEnUpDeltaX");
+    nanoCheckScalarWidth(b_MET_MetUnclustEnUpDeltaY_, sizeof(MET_MetUnclustEnUpDeltaY_), "MET_MetUnclustEnUpDeltaY");
+    nanoCheckScalarWidth(b_MET_T1Smear_phi_, sizeof(MET_T1Smear_phi_), "MET_T1Smear_phi");
+    nanoCheckScalarWidth(b_MET_T1Smear_phi_jerDown_, sizeof(MET_T1Smear_phi_jerDown_), "MET_T1Smear_phi_jerDown");
+    nanoCheckScalarWidth(b_MET_T1Smear_phi_jerUp_, sizeof(MET_T1Smear_phi_jerUp_), "MET_T1Smear_phi_jerUp");
+    nanoCheckScalarWidth(b_MET_T1Smear_phi_jesHEMIssueDown_, sizeof(MET_T1Smear_phi_jesHEMIssueDown_), "MET_T1Smear_phi_jesHEMIssueDown");
+    nanoCheckScalarWidth(b_MET_T1Smear_phi_jesHEMIssueUp_, sizeof(MET_T1Smear_phi_jesHEMIssueUp_), "MET_T1Smear_phi_jesHEMIssueUp");
+    nanoCheckScalarWidth(b_MET_T1Smear_phi_jesTotalDown_, sizeof(MET_T1Smear_phi_jesTotalDown_), "MET_T1Smear_phi_jesTotalDown");
+    nanoCheckScalarWidth(b_MET_T1Smear_phi_jesTotalUp_, sizeof(MET_T1Smear_phi_jesTotalUp_), "MET_T1Smear_phi_jesTotalUp");
+    nanoCheckScalarWidth(b_MET_T1Smear_phi_unclustEnDown_, sizeof(MET_T1Smear_phi_unclustEnDown_), "MET_T1Smear_phi_unclustEnDown");
+    nanoCheckScalarWidth(b_MET_T1Smear_phi_unclustEnUp_, sizeof(MET_T1Smear_phi_unclustEnUp_), "MET_T1Smear_phi_unclustEnUp");
+    nanoCheckScalarWidth(b_MET_T1Smear_pt_, sizeof(MET_T1Smear_pt_), "MET_T1Smear_pt");
+    nanoCheckScalarWidth(b_MET_T1Smear_pt_jerDown_, sizeof(MET_T1Smear_pt_jerDown_), "MET_T1Smear_pt_jerDown");
+    nanoCheckScalarWidth(b_MET_T1Smear_pt_jerUp_, sizeof(MET_T1Smear_pt_jerUp_), "MET_T1Smear_pt_jerUp");
+    nanoCheckScalarWidth(b_MET_T1Smear_pt_jesHEMIssueDown_, sizeof(MET_T1Smear_pt_jesHEMIssueDown_), "MET_T1Smear_pt_jesHEMIssueDown");
+    nanoCheckScalarWidth(b_MET_T1Smear_pt_jesHEMIssueUp_, sizeof(MET_T1Smear_pt_jesHEMIssueUp_), "MET_T1Smear_pt_jesHEMIssueUp");
+    nanoCheckScalarWidth(b_MET_T1Smear_pt_jesTotalDown_, sizeof(MET_T1Smear_pt_jesTotalDown_), "MET_T1Smear_pt_jesTotalDown");
+    nanoCheckScalarWidth(b_MET_T1Smear_pt_jesTotalUp_, sizeof(MET_T1Smear_pt_jesTotalUp_), "MET_T1Smear_pt_jesTotalUp");
+    nanoCheckScalarWidth(b_MET_T1Smear_pt_unclustEnDown_, sizeof(MET_T1Smear_pt_unclustEnDown_), "MET_T1Smear_pt_unclustEnDown");
+    nanoCheckScalarWidth(b_MET_T1Smear_pt_unclustEnUp_, sizeof(MET_T1Smear_pt_unclustEnUp_), "MET_T1Smear_pt_unclustEnUp");
+    nanoCheckScalarWidth(b_MET_T1_phi_, sizeof(MET_T1_phi_), "MET_T1_phi");
+    nanoCheckScalarWidth(b_MET_T1_phi_jerDown_, sizeof(MET_T1_phi_jerDown_), "MET_T1_phi_jerDown");
+    nanoCheckScalarWidth(b_MET_T1_phi_jerUp_, sizeof(MET_T1_phi_jerUp_), "MET_T1_phi_jerUp");
+    nanoCheckScalarWidth(b_MET_T1_phi_jesHEMIssueDown_, sizeof(MET_T1_phi_jesHEMIssueDown_), "MET_T1_phi_jesHEMIssueDown");
+    nanoCheckScalarWidth(b_MET_T1_phi_jesHEMIssueUp_, sizeof(MET_T1_phi_jesHEMIssueUp_), "MET_T1_phi_jesHEMIssueUp");
+    nanoCheckScalarWidth(b_MET_T1_phi_jesTotalDown_, sizeof(MET_T1_phi_jesTotalDown_), "MET_T1_phi_jesTotalDown");
+    nanoCheckScalarWidth(b_MET_T1_phi_jesTotalUp_, sizeof(MET_T1_phi_jesTotalUp_), "MET_T1_phi_jesTotalUp");
+    nanoCheckScalarWidth(b_MET_T1_phi_unclustEnDown_, sizeof(MET_T1_phi_unclustEnDown_), "MET_T1_phi_unclustEnDown");
+    nanoCheckScalarWidth(b_MET_T1_phi_unclustEnUp_, sizeof(MET_T1_phi_unclustEnUp_), "MET_T1_phi_unclustEnUp");
+    nanoCheckScalarWidth(b_MET_T1_pt_, sizeof(MET_T1_pt_), "MET_T1_pt");
+    nanoCheckScalarWidth(b_MET_T1_pt_jerDown_, sizeof(MET_T1_pt_jerDown_), "MET_T1_pt_jerDown");
+    nanoCheckScalarWidth(b_MET_T1_pt_jerUp_, sizeof(MET_T1_pt_jerUp_), "MET_T1_pt_jerUp");
+    nanoCheckScalarWidth(b_MET_T1_pt_jesHEMIssueDown_, sizeof(MET_T1_pt_jesHEMIssueDown_), "MET_T1_pt_jesHEMIssueDown");
+    nanoCheckScalarWidth(b_MET_T1_pt_jesHEMIssueUp_, sizeof(MET_T1_pt_jesHEMIssueUp_), "MET_T1_pt_jesHEMIssueUp");
+    nanoCheckScalarWidth(b_MET_T1_pt_jesTotalDown_, sizeof(MET_T1_pt_jesTotalDown_), "MET_T1_pt_jesTotalDown");
+    nanoCheckScalarWidth(b_MET_T1_pt_jesTotalUp_, sizeof(MET_T1_pt_jesTotalUp_), "MET_T1_pt_jesTotalUp");
+    nanoCheckScalarWidth(b_MET_T1_pt_unclustEnDown_, sizeof(MET_T1_pt_unclustEnDown_), "MET_T1_pt_unclustEnDown");
+    nanoCheckScalarWidth(b_MET_T1_pt_unclustEnUp_, sizeof(MET_T1_pt_unclustEnUp_), "MET_T1_pt_unclustEnUp");
+    nanoCheckScalarWidth(b_MET_covXX_, sizeof(MET_covXX_), "MET_covXX");
+    nanoCheckScalarWidth(b_MET_covXY_, sizeof(MET_covXY_), "MET_covXY");
+    nanoCheckScalarWidth(b_MET_covYY_, sizeof(MET_covYY_), "MET_covYY");
+    nanoCheckScalarWidth(b_MET_fiducialGenPhi_, sizeof(MET_fiducialGenPhi_), "MET_fiducialGenPhi");
+    nanoCheckScalarWidth(b_MET_fiducialGenPt_, sizeof(MET_fiducialGenPt_), "MET_fiducialGenPt");
+    nanoCheckScalarWidth(b_MET_phi_, sizeof(MET_phi_), "MET_phi");
+    nanoCheckScalarWidth(b_MET_pt_, sizeof(MET_pt_), "MET_pt");
+    nanoCheckScalarWidth(b_MET_significance_, sizeof(MET_significance_), "MET_significance");
+    nanoCheckScalarWidth(b_MET_sumEt_, sizeof(MET_sumEt_), "MET_sumEt");
+    nanoCheckScalarWidth(b_MET_sumPtUnclustered_, sizeof(MET_sumPtUnclustered_), "MET_sumPtUnclustered");
+    nanoCheckScalarWidth(b_PV_chi2_, sizeof(PV_chi2_), "PV_chi2");
+    nanoCheckScalarWidth(b_PV_ndof_, sizeof(PV_ndof_), "PV_ndof");
+    nanoCheckScalarWidth(b_PV_npvs_, sizeof(PV_npvs_), "PV_npvs");
+    nanoCheckScalarWidth(b_PV_npvsGood_, sizeof(PV_npvsGood_), "PV_npvsGood");
+    nanoCheckScalarWidth(b_PV_score_, sizeof(PV_score_), "PV_score");
+    nanoCheckScalarWidth(b_PV_x_, sizeof(PV_x_), "PV_x");
+    nanoCheckScalarWidth(b_PV_y_, sizeof(PV_y_), "PV_y");
+    nanoCheckScalarWidth(b_PV_z_, sizeof(PV_z_), "PV_z");
+    nanoCheckScalarWidth(b_Pileup_gpudensity_, sizeof(Pileup_gpudensity_), "Pileup_gpudensity");
+    nanoCheckScalarWidth(b_Pileup_nPU_, sizeof(Pileup_nPU_), "Pileup_nPU");
+    nanoCheckScalarWidth(b_Pileup_nTrueInt_, sizeof(Pileup_nTrueInt_), "Pileup_nTrueInt");
+    nanoCheckScalarWidth(b_Pileup_pudensity_, sizeof(Pileup_pudensity_), "Pileup_pudensity");
+    nanoCheckScalarWidth(b_Pileup_sumEOOT_, sizeof(Pileup_sumEOOT_), "Pileup_sumEOOT");
+    nanoCheckScalarWidth(b_Pileup_sumLOOT_, sizeof(Pileup_sumLOOT_), "Pileup_sumLOOT");
+    nanoCheckScalarWidth(b_PuppiMET_phi_, sizeof(PuppiMET_phi_), "PuppiMET_phi");
+    nanoCheckScalarWidth(b_PuppiMET_phiJERDown_, sizeof(PuppiMET_phiJERDown_), "PuppiMET_phiJERDown");
+    nanoCheckScalarWidth(b_PuppiMET_phiJERUp_, sizeof(PuppiMET_phiJERUp_), "PuppiMET_phiJERUp");
+    nanoCheckScalarWidth(b_PuppiMET_phiJESDown_, sizeof(PuppiMET_phiJESDown_), "PuppiMET_phiJESDown");
+    nanoCheckScalarWidth(b_PuppiMET_phiJESUp_, sizeof(PuppiMET_phiJESUp_), "PuppiMET_phiJESUp");
+    nanoCheckScalarWidth(b_PuppiMET_phiUnclusteredDown_, sizeof(PuppiMET_phiUnclusteredDown_), "PuppiMET_phiUnclusteredDown");
+    nanoCheckScalarWidth(b_PuppiMET_phiUnclusteredUp_, sizeof(PuppiMET_phiUnclusteredUp_), "PuppiMET_phiUnclusteredUp");
+    nanoCheckScalarWidth(b_PuppiMET_pt_, sizeof(PuppiMET_pt_), "PuppiMET_pt");
+    nanoCheckScalarWidth(b_PuppiMET_ptJERDown_, sizeof(PuppiMET_ptJERDown_), "PuppiMET_ptJERDown");
+    nanoCheckScalarWidth(b_PuppiMET_ptJERUp_, sizeof(PuppiMET_ptJERUp_), "PuppiMET_ptJERUp");
+    nanoCheckScalarWidth(b_PuppiMET_ptJESDown_, sizeof(PuppiMET_ptJESDown_), "PuppiMET_ptJESDown");
+    nanoCheckScalarWidth(b_PuppiMET_ptJESUp_, sizeof(PuppiMET_ptJESUp_), "PuppiMET_ptJESUp");
+    nanoCheckScalarWidth(b_PuppiMET_ptUnclusteredDown_, sizeof(PuppiMET_ptUnclusteredDown_), "PuppiMET_ptUnclusteredDown");
+    nanoCheckScalarWidth(b_PuppiMET_ptUnclusteredUp_, sizeof(PuppiMET_ptUnclusteredUp_), "PuppiMET_ptUnclusteredUp");
+    nanoCheckScalarWidth(b_PuppiMET_sumEt_, sizeof(PuppiMET_sumEt_), "PuppiMET_sumEt");
+    nanoCheckScalarWidth(b_RawMET_phi_, sizeof(RawMET_phi_), "RawMET_phi");
+    nanoCheckScalarWidth(b_RawMET_pt_, sizeof(RawMET_pt_), "RawMET_pt");
+    nanoCheckScalarWidth(b_RawMET_sumEt_, sizeof(RawMET_sumEt_), "RawMET_sumEt");
+    nanoCheckScalarWidth(b_RawPuppiMET_phi_, sizeof(RawPuppiMET_phi_), "RawPuppiMET_phi");
+    nanoCheckScalarWidth(b_RawPuppiMET_pt_, sizeof(RawPuppiMET_pt_), "RawPuppiMET_pt");
+    nanoCheckScalarWidth(b_RawPuppiMET_sumEt_, sizeof(RawPuppiMET_sumEt_), "RawPuppiMET_sumEt");
+    nanoCheckScalarWidth(b_Rho_fixedGridRhoAll_, sizeof(Rho_fixedGridRhoAll_), "Rho_fixedGridRhoAll");
+    nanoCheckScalarWidth(b_Rho_fixedGridRhoFastjetAll_, sizeof(Rho_fixedGridRhoFastjetAll_), "Rho_fixedGridRhoFastjetAll");
+    nanoCheckScalarWidth(b_Rho_fixedGridRhoFastjetCentral_, sizeof(Rho_fixedGridRhoFastjetCentral_), "Rho_fixedGridRhoFastjetCentral");
+    nanoCheckScalarWidth(b_Rho_fixedGridRhoFastjetCentralCalo_, sizeof(Rho_fixedGridRhoFastjetCentralCalo_), "Rho_fixedGridRhoFastjetCentralCalo");
+    nanoCheckScalarWidth(b_Rho_fixedGridRhoFastjetCentralChargedPileUp_, sizeof(Rho_fixedGridRhoFastjetCentralChargedPileUp_), "Rho_fixedGridRhoFastjetCentralChargedPileUp");
+    nanoCheckScalarWidth(b_Rho_fixedGridRhoFastjetCentralNeutral_, sizeof(Rho_fixedGridRhoFastjetCentralNeutral_), "Rho_fixedGridRhoFastjetCentralNeutral");
+    nanoCheckScalarWidth(b_SoftActivityJetHT_, sizeof(SoftActivityJetHT_), "SoftActivityJetHT");
+    nanoCheckScalarWidth(b_SoftActivityJetHT10_, sizeof(SoftActivityJetHT10_), "SoftActivityJetHT10");
+    nanoCheckScalarWidth(b_SoftActivityJetHT2_, sizeof(SoftActivityJetHT2_), "SoftActivityJetHT2");
+    nanoCheckScalarWidth(b_SoftActivityJetHT5_, sizeof(SoftActivityJetHT5_), "SoftActivityJetHT5");
+    nanoCheckScalarWidth(b_SoftActivityJetNjets10_, sizeof(SoftActivityJetNjets10_), "SoftActivityJetNjets10");
+    nanoCheckScalarWidth(b_SoftActivityJetNjets2_, sizeof(SoftActivityJetNjets2_), "SoftActivityJetNjets2");
+    nanoCheckScalarWidth(b_SoftActivityJetNjets5_, sizeof(SoftActivityJetNjets5_), "SoftActivityJetNjets5");
+    nanoCheckScalarWidth(b_TkMET_phi_, sizeof(TkMET_phi_), "TkMET_phi");
+    nanoCheckScalarWidth(b_TkMET_pt_, sizeof(TkMET_pt_), "TkMET_pt");
+    nanoCheckScalarWidth(b_TkMET_sumEt_, sizeof(TkMET_sumEt_), "TkMET_sumEt");
+    nanoCheckScalarWidth(b_btagWeight_CSVV2_, sizeof(btagWeight_CSVV2_), "btagWeight_CSVV2");
+    nanoCheckScalarWidth(b_btagWeight_DeepCSVB_, sizeof(btagWeight_DeepCSVB_), "btagWeight_DeepCSVB");
+    nanoCheckScalarWidth(b_bunchCrossing_, sizeof(bunchCrossing_), "bunchCrossing");
+    nanoCheckScalarWidth(b_event_, sizeof(event_), "event");
+    nanoCheckScalarWidth(b_fixedGridRhoFastjetAll_, sizeof(fixedGridRhoFastjetAll_), "fixedGridRhoFastjetAll");
+    nanoCheckScalarWidth(b_fixedGridRhoFastjetCentral_, sizeof(fixedGridRhoFastjetCentral_), "fixedGridRhoFastjetCentral");
+    nanoCheckScalarWidth(b_fixedGridRhoFastjetCentralCalo_, sizeof(fixedGridRhoFastjetCentralCalo_), "fixedGridRhoFastjetCentralCalo");
+    nanoCheckScalarWidth(b_fixedGridRhoFastjetCentralChargedPileUp_, sizeof(fixedGridRhoFastjetCentralChargedPileUp_), "fixedGridRhoFastjetCentralChargedPileUp");
+    nanoCheckScalarWidth(b_fixedGridRhoFastjetCentralNeutral_, sizeof(fixedGridRhoFastjetCentralNeutral_), "fixedGridRhoFastjetCentralNeutral");
+    nanoCheckScalarWidth(b_genTtbarId_, sizeof(genTtbarId_), "genTtbarId");
+    nanoCheckScalarWidth(b_genWeight_, sizeof(genWeight_), "genWeight");
+    nanoCheckScalarWidth(b_luminosityBlock_, sizeof(luminosityBlock_), "luminosityBlock");
+    nanoCheckScalarWidth(b_nCorrT1METJet_, sizeof(nCorrT1METJet_), "nCorrT1METJet");
+    nanoCheckScalarWidth(b_nEFTfitCoefficients_, sizeof(nEFTfitCoefficients_), "nEFTfitCoefficients");
+    nanoCheckScalarWidth(b_nElectron_, sizeof(nElectron_), "nElectron");
+    nanoCheckScalarWidth(b_nFatJet_, sizeof(nFatJet_), "nFatJet");
+    nanoCheckScalarWidth(b_nFsrPhoton_, sizeof(nFsrPhoton_), "nFsrPhoton");
+    nanoCheckScalarWidth(b_nGenDressedLepton_, sizeof(nGenDressedLepton_), "nGenDressedLepton");
+    nanoCheckScalarWidth(b_nGenIsolatedPhoton_, sizeof(nGenIsolatedPhoton_), "nGenIsolatedPhoton");
+    nanoCheckScalarWidth(b_nGenJet_, sizeof(nGenJet_), "nGenJet");
+    nanoCheckScalarWidth(b_nGenJetAK8_, sizeof(nGenJetAK8_), "nGenJetAK8");
+    nanoCheckScalarWidth(b_nGenPart_, sizeof(nGenPart_), "nGenPart");
+    nanoCheckScalarWidth(b_nGenProton_, sizeof(nGenProton_), "nGenProton");
+    nanoCheckScalarWidth(b_nGenVisTau_, sizeof(nGenVisTau_), "nGenVisTau");
+    nanoCheckScalarWidth(b_nIsoTrack_, sizeof(nIsoTrack_), "nIsoTrack");
+    nanoCheckScalarWidth(b_nJet_, sizeof(nJet_), "nJet");
+    nanoCheckScalarWidth(b_nLHEPart_, sizeof(nLHEPart_), "nLHEPart");
+    nanoCheckScalarWidth(b_nLHEPdfWeight_, sizeof(nLHEPdfWeight_), "nLHEPdfWeight");
+    nanoCheckScalarWidth(b_nLHEReweightingWeight_, sizeof(nLHEReweightingWeight_), "nLHEReweightingWeight");
+    nanoCheckScalarWidth(b_nLHEScaleWeight_, sizeof(nLHEScaleWeight_), "nLHEScaleWeight");
+    nanoCheckScalarWidth(b_nLowPtElectron_, sizeof(nLowPtElectron_), "nLowPtElectron");
+    nanoCheckScalarWidth(b_nMuon_, sizeof(nMuon_), "nMuon");
+    nanoCheckScalarWidth(b_nOtherPV_, sizeof(nOtherPV_), "nOtherPV");
+    nanoCheckScalarWidth(b_nPPSLocalTrack_, sizeof(nPPSLocalTrack_), "nPPSLocalTrack");
+    nanoCheckScalarWidth(b_nPSWeight_, sizeof(nPSWeight_), "nPSWeight");
+    nanoCheckScalarWidth(b_nPhoton_, sizeof(nPhoton_), "nPhoton");
+    nanoCheckScalarWidth(b_nProton_multiRP_, sizeof(nProton_multiRP_), "nProton_multiRP");
+    nanoCheckScalarWidth(b_nProton_singleRP_, sizeof(nProton_singleRP_), "nProton_singleRP");
+    nanoCheckScalarWidth(b_nSV_, sizeof(nSV_), "nSV");
+    nanoCheckScalarWidth(b_nSoftActivityJet_, sizeof(nSoftActivityJet_), "nSoftActivityJet");
+    nanoCheckScalarWidth(b_nSubGenJetAK8_, sizeof(nSubGenJetAK8_), "nSubGenJetAK8");
+    nanoCheckScalarWidth(b_nSubJet_, sizeof(nSubJet_), "nSubJet");
+    nanoCheckScalarWidth(b_nTau_, sizeof(nTau_), "nTau");
+    nanoCheckScalarWidth(b_nTrigObj_, sizeof(nTrigObj_), "nTrigObj");
+    nanoCheckScalarWidth(b_nWCnames_, sizeof(nWCnames_), "nWCnames");
+    nanoCheckScalarWidth(b_nboostedTau_, sizeof(nboostedTau_), "nboostedTau");
+    nanoCheckScalarWidth(b_puWeight_, sizeof(puWeight_), "puWeight");
+    nanoCheckScalarWidth(b_puWeightDown_, sizeof(puWeightDown_), "puWeightDown");
+    nanoCheckScalarWidth(b_puWeightUp_, sizeof(puWeightUp_), "puWeightUp");
+    nanoCheckScalarWidth(b_run_, sizeof(run_), "run");
 }
 void Nano::SetYear(int year) {
     year_ = year;

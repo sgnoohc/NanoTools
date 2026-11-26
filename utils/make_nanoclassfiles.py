@@ -7,39 +7,15 @@ import os
 import itertools
 import fnmatch
 
-USE_DEFINES_FOR_ARRAY_SIZES = True
+# Array branches are bound to NanoBuf (NanoCORE/NanoBuf.h) buffers that Init() grows, for every input
+# file, to the largest count that file holds (each counter leaf's recorded maximum). There are no
+# compile-time N*_MAX limits any more -- they overflowed one after another as inputs grew.
 
-PREDEFINED_ARRAY_SIZES = {
-        "NSV_MAX" : 24,
-        "NSOFTACTIVITYJET_MAX" : 21,
-        "NLHESCALEWEIGHT_MAX" : 30,
-        "NCORRT1METJET_MAX" : 102,
-        "NMUON_MAX" : 90,
-        "NGENJET_MAX" : 60,
-        "NPSWEIGHT_MAX" : 15,
-        "NBOOSTEDTAU_MAX" : 12,
-        "NLHEPART_MAX" : 24,
-        "NTAU_MAX" : 90,
-        "NISOTRACK_MAX" : 33,
-        "NLHEPDFWEIGHT_MAX" : 312,
-        "NFSRPHOTON_MAX" : 9,
-        "NLOWPTELECTRON_MAX" : 18,
-        "NOTHERPV_MAX" : 12,
-        "NTRIGOBJ_MAX" : 117,
-        "NSUBJET_MAX" : 33,
-        "NSUBGENJETAK8_MAX" : 42,
-        "NGENVISTAU_MAX" : 12,
-        "NGENJETAK8_MAX" : 24,
-        "NELECTRON_MAX" : 90,
-        "NFATJET_MAX" : 18,
-        "NJET_MAX" : 250,
-        "NGENISOLATEDPHOTON_MAX" : 15,
-        "NGENDRESSEDLEPTON_MAX" : 15,
-        "NGENPART_MAX" : 402,
-        "NPHOTON_MAX" : 27,
-        "NLHEREWEIGHTINGWEIGHT_MAX" : 50,
-        "NLHEWEIGHT_MAX" : 256,
-        }
+def get_counters(binfo):
+    """Counter branches (e.g. nJet) of the array branches, from ROOT's own leaf-count links."""
+    names = set(bi["name"] for bi in binfo)
+    return sorted(set(bi["countname"] for bi in binfo
+                      if bi["is_array"] and bi.get("countname") in names and "LorentzVector" not in bi["typename"]))
 
 def get_cc_top(ginfo,binfo):
     yield "#include \"{classname}.h\"".format(**ginfo)
@@ -50,8 +26,22 @@ def get_cc_init(ginfo,binfo):
     for bi in binfo:
         if "LorentzVector" in bi["typename"]: continue
         yield "    b_{name}_ = tree->GetBranch(\"{name}\");".format(**bi)
-        yield "    if (b_{name}_) {{ b_{name}_->SetAddress(&{name}_); }}".format(**bi)
-    yield "    ParseYear(tree);".format(**bi)
+        if bi["is_array"]:
+            yield "    if (b_{name}_) {{ b_{name}_->SetAddress({name}_.growFor(b_{name}_)); }}".format(**bi)
+        else:
+            yield "    if (b_{name}_) {{ b_{name}_->SetAddress(&{name}_); }}".format(**bi)
+    yield "    // Per-file counter maxima for CheckBufferSizes() (the buffers above were grown to these)."
+    for c in get_counters(binfo):
+        yield "    filemax_{c}_ = nanoLeafMax(tree, \"{c}\");".format(c=c)
+    yield "    ParseYear(tree);"
+    yield "}"
+    # Scalars cannot grow: refuse a read scalar that is wider on disk than its member (see NanoBuf.h).
+    yield "// Throws if a branch that will be READ is wider on disk than its scalar member (see NanoBuf.h)."
+    yield "// Call once per file AFTER the branch statuses are set (skimmer: after arbusto.init())."
+    yield "void {classname}::CheckScalarWidths() {{".format(**ginfo)
+    for bi in binfo:
+        if bi["is_array"] or "LorentzVector" in bi["typename"]: continue
+        yield "    nanoCheckScalarWidth(b_{name}_, sizeof({name}_), \"{name}\");".format(**bi)
     yield "}"
 
 def get_cc_extra(ginfo,binfo):
@@ -142,7 +132,7 @@ def get_cc_getfunctions(ginfo,binfo):
             yield "        if (!b_{name}_) throw std::runtime_error(\"{name} branch doesn't exist\");".format(**p)
             if bi["is_array"]:
                 yield "        int bytes = b_{name}_->GetEntry(index);".format(**p)
-                yield "        v_{name}_ = {type}({name}_,{name}_+bytes/sizeof({name}_[0]));".format(**p)
+                yield "        v_{name}_ = {type}({name}_.data(),{name}_.data()+bytes/sizeof({name}_[0]));".format(**p)
             else:
                 yield "        b_{name}_->GetEntry(index);".format(**p)
         yield "        loaded_{name}_ = true;".format(**p)
@@ -192,17 +182,9 @@ def get_h_top(ginfo,binfo):
     yield "#define makeP4(Collection, idx) LorentzVector(Collection##_pt[idx],Collection##_eta[idx],Collection##_phi[idx],Collection##_mass[idx]);"
     yield "#define RANGE(a, b) unsigned a=0; a<b; a++"
     yield ""
-    if USE_DEFINES_FOR_ARRAY_SIZES:
-        defines = {}
-        for b in binfo:
-            if not b["ndatamacroname"]: continue
-            if b["ndatamacroname"] in defines: continue
-            multiplier = 3
-            defines[b["ndatamacroname"]] = dict(ndatamacroname=b["ndatamacroname"], collectionname=b["collectionname"], ndata=int(multiplier*b["ndata"]))
-            if b["ndatamacroname"] in PREDEFINED_ARRAY_SIZES.keys():
-                defines[b["ndatamacroname"]]["ndata"] = PREDEFINED_ARRAY_SIZES[b["ndatamacroname"]]
-        for v in defines.values():
-            yield "#define {ndatamacroname} {ndata} // for {collectionname}_* collection".format(**v)
+    yield "// Array-branch buffers are NanoBuf, sized per input file in Init() from each counter's recorded"
+    yield "// maximum -- there are no compile-time N*_MAX limits."
+    yield "#include \"NanoBuf.h\""
     yield ""
     yield "using namespace std;"
 
@@ -214,10 +196,7 @@ def get_h_class(ginfo,binfo):
     for bi in binfo:
         if bi["is_array"]:
             if "LorentzVector" not in bi["typename"]:
-                if USE_DEFINES_FOR_ARRAY_SIZES:
-                    yield """    {typename_novec} {name}_[{ndatamacroname}];""".format(**bi)
-                else:
-                    yield """    {typename_novec} {name}_[{ndata}];""".format(**bi)
+                yield """    NanoBuf<{typename_novec}> {name}_;""".format(**bi)
             yield """    {typename} v_{name}_;""".format(**bi)
         else:
             yield """    {typename} {name}_;""".format(**bi)
@@ -227,37 +206,35 @@ def get_h_class(ginfo,binfo):
             yield """    unsigned int counter_cached_{name}_;""".format(**bi)
             yield """    unsigned int counter_uncached_{name}_;""".format(**bi)
     yield """    Int_t year_;"""
+    yield "    // Per-file maximum of each counter (set in Init), checked by CheckBufferSizes()."
+    for c in get_counters(binfo):
+        yield "    unsigned int filemax_{c}_ = 0;".format(c=c)
     yield "public:"
     yield "    void Init(TTree *tree);"
+    yield "    void CheckScalarWidths();"
     yield "    void SetYear(int year);"
     yield "    void ParseYear(TTree *tree);"
     yield "    void PrintUsage();"
     yield "    void GetEntry(unsigned int idx);"
     # Generate CheckBufferSizes inline
     yield "    void CheckBufferSizes() {"
-    yield "        auto check = [&](TBranch *b, UInt_t &val, unsigned int max, const char *name) {"
+    # Counters are UInt_t in older NanoAOD and Int_t in NanoAODv15, so take either; a negative
+    # count is corrupt and trips the check too.
+    yield "        auto check = [&](TBranch *b, const auto &val, unsigned int max, const char *name) {"
     yield "            if (b && !b->TestBit(kDoNotProcess)) {"
     yield "                b->GetEntry(index);"
-    yield "                if (val > max) {"
+    yield "                if (static_cast<long long>(val) < 0 || static_cast<long long>(val) > static_cast<long long>(max)) {"
     yield '                    std::cerr << "ERROR: " << name << "=" << val'
-    yield '                              << " exceeds buffer limit " << max'
-    yield '                              << " in file " << b->GetTree()->GetCurrentFile()->GetName()'
-    yield '                              << ". Increase the corresponding _MAX in Nano.h and recompile." << std::endl;'
+    yield '                              << " exceeds the maximum recorded in the file\'s metadata (" << max'
+    yield '                              << "), which sizes the buffers, in file " << b->GetTree()->GetCurrentFile()->GetName()'
+    yield '                              << ". The file\'s metadata is inconsistent." << std::endl;'
     yield '                    throw std::runtime_error(std::string("Buffer overflow: ") + name);'
     yield "                }"
     yield "            }"
     yield "        };"
-    # Emit check() calls for each collection
-    collections = {}
-    for bi in binfo:
-        if bi["ndatamacroname"] and bi["collectionname"]:
-            if bi["collectionname"] not in collections:
-                collections[bi["collectionname"]] = bi["ndatamacroname"]
-    for collname in sorted(collections.keys()):
-        macroname = collections[collname]
-        countname = "n{}".format(collname)
-        yield '        check(b_{name}_, {name}_, {macro}, "{name}");'.format(
-            name=countname, macro=macroname)
+    # One check per counter, against that counter's recorded maximum in the current file
+    for c in get_counters(binfo):
+        yield '        check(b_{c}_, {c}_, filemax_{c}_, "{c}");'.format(c=c)
     yield "    }"
     for bi in binfo:
         yield "    const {typename} &{name}();".format(**bi)
@@ -414,16 +391,13 @@ if __name__ == "__main__":
             leaf = branch.GetLeaf(branch.GetName())
             leaf_title = leaf.GetTitle()
             is_array = "[" in leaf_title
-            # DECLARING ARRAY WITH TOO LITTLE SPACE WILL SEGFAULT SO NEED TO BE REALLY CAREFUL
-            # FIXME figure out better way. tripling is not a solution
-            # ndata = 3*leaf.GetNdata()
-            # sys.exit("DECLARING ARRAY WITH TOO LITTLE SPACE WILL SEGFAULT SO NEED TO BE REALLY CAREFUL\nIF ONE REPLACES THE NanoCORE/Nano.h/cc USING THIS OTHER USERS WORK ON THE SETTING WILL GET OVERWRITTEN\nIF YOU HAVE ANY QUESTIONS PLEASE CONTACT PHILIP CHANG <philip@ucsd.edu>\n")
+            # Array buffers are NanoBuf, sized per input file at run time (see NanoCORE/NanoBuf.h).
             ndata = leaf.GetNdata()
             collectionname = None
-            ndatamacroname = None
+            countname = None
             if is_array:
                 collectionname = leaf_title.split("_",1)[0].split("[",1)[0]
-                ndatamacroname = "N{}_MAX".format(collectionname.upper())
+                if leaf.GetLeafCount(): countname = leaf.GetLeafCount().GetName()
 
             typename = leaf.GetTypeName()
             tmap = {
@@ -446,7 +420,7 @@ if __name__ == "__main__":
                     "ndata": ndata,
                     "leaf_title": leaf_title,
                     "collectionname": collectionname,
-                    "ndatamacroname": ndatamacroname,
+                    "countname": countname,
                     }
 
     names = d_branch_info.keys()
@@ -476,19 +450,27 @@ if __name__ == "__main__":
             "LorentzVector": "LV",
             "bool": "B",
             "Char_t": "C",
+            "vector<Short_t>": "VS",   # NanoAODv15
+            "Short_t": "S",
             }
+
+    def short_of(t):
+        """Short name for a getter type; derived for types not in short_map instead of a KeyError."""
+        if t in short_map: return short_map[t]
+        if t.startswith("vector<") and t.endswith(">"): return "V" + short_of(t[7:-1])
+        return "".join(ch for ch in t.replace("_t", "") if ch.isalnum())
 
     def extra_h_tas():
         yield "    Bool_t isData();"
         yield "    const Int_t &year();"
         for t in types:
-            yield "    {typename} Get{shortname}(const string &name);".format(typename=t, shortname=short_map[t])
+            yield "    {typename} Get{shortname}(const string &name);".format(typename=t, shortname=short_of(t))
 
     def extra_cc_tas():
         yield """    const Int_t &year() {{ return {objectname}.year(); }}""".format(**ginfo)
         yield """    Bool_t isData() {{ return {objectname}.isData(); }}""".format(**ginfo)
         for t in types:
-            yield """    {t} Get{short}(const string &name) {{""".format(t=t,short=short_map[t])
+            yield """    {t} Get{short}(const string &name) {{""".format(t=t,short=short_of(t))
             bsame = [x for x in binfo if x["typename"] == t]
             for ibi,bi in enumerate(bsame):
                 p = { "name": bi["name"], "type": bi["typename"], "objectname": ginfo["objectname"] }

@@ -120,6 +120,11 @@ class Analysis
         // Initialize arbusto
         arbusto.init(ttree);
 
+        // Now that Arbusto has set which branches are read, refuse a file whose read scalar branch is
+        // wider on disk than its Nano member (GetEntry would overrun it). Arrays are already safe: Nano
+        // sizes them per file in bytes of the on-disk type (NanoCORE/NanoBuf.h).
+        nt.CheckScalarWidths();
+
         // Store metadata ttrees
         TTree *runtree = ((TTree *)ttree->GetCurrentFile()->Get("Runs"))->CloneTree();
         runs->Add(runtree);

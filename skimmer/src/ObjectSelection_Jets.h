@@ -152,7 +152,7 @@ class JetSelection : public ObjectSelection
         auto bind = [&](const char *name, auto &buf) -> TBranch *
         {
             TBranch *b = nullptr;
-            bindJetIdBranch(tree, out, name, buf.grow(nanoBufLen(tree->GetBranch(name))), &b);
+            bindJetIdBranch(tree, out, name, buf.growFor(tree->GetBranch(name)), &b);
             if (b) jetIdBranches_.push_back(b);
             return b;
         };
