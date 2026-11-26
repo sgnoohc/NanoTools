@@ -18,11 +18,12 @@ echo "host=$(hostname) start=$(date)"
 S=/cmsuf/data/store/user/phchang/skim/VBSVVH_skim_v54
 L=/blue/avery/p.chang/work/skim/NanoTools_/skimmer/local_v54
 
-# Two conditions: 646 task dirs exist AND all their jobs are done. The 10 INVALID DY PTLL
-# datasets are zero-job tasks by design (DAS lists no valid files for them).
+# Two conditions: 646 task dirs exist AND all their jobs are done. 12 zero-job tasks by design
+# (DAS lists no valid files): the 10 DY PTLL sets known since v47, plus Summer24 single-top
+# t-channel TBbarQtoLNu / TbarBQtoLNu, invalidated after v48 (both still in v30).
 read D T Z NT < <(python3 v48_state.py "*_v54_*")
 echo "state: jobs ${D}/${T} zero-job=${Z} tasks=${NT}/646"
-if [ "${NT:-0}" -ne 646 ] || [ "${Z:-0}" -ne 10 ] || [ "${T:-0}" -eq 0 ] || [ "${D:-0}" -ne "${T:-0}" ]; then
+if [ "${NT:-0}" -ne 646 ] || [ "${Z:-0}" -ne 12 ] || [ "${T:-0}" -eq 0 ] || [ "${D:-0}" -ne "${T:-0}" ]; then
   echo "NOT COMPLETE -- refusing to validate"; exit 1
 fi
 

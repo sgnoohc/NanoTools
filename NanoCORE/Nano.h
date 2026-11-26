@@ -54,7 +54,7 @@ typedef ROOT::Math::LorentzVector<ROOT::Math::PtEtaPhiM4D<float> > LorentzVector
 #define NSUBGENJETAK8_MAX 42 // for SubGenJetAK8_* collection
 #define NSUBJET_MAX 256 // for SubJet_* collection (bumped from 63 to match larger NFATJET_MAX)
 #define NTAU_MAX 90 // for Tau_* collection
-#define NTRIGOBJ_MAX 512 // for TrigObj_* collection (was 117; v14 W+jets HT reaches 172)
+#define NTRIGOBJ_MAX 2048 // for TrigObj_* collection (was 117 -> 512; v14 W+jets HT reaches 172; Run2 UL EGamma/DoubleEG data reaches 597 once TrigObj is read, v54)
 #define NWCNAMES_MAX 42 // for WCnames_* collection
 #define NBOOSTEDTAU_MAX 64 // for boostedTau_* collection (was 12; v14 W+jets HT reaches 16)
 
